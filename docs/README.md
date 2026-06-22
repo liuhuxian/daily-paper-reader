@@ -6,103 +6,94 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-05-24 ~ 2026-06-22
-- 运行时间：2026-06-22 09:58:00 UTC
+- 最新运行日期：2026-06-22
+- 运行时间：2026-06-22 22:23:29 UTC
 - 运行状态：成功
-- 本次总论文数：27
-- 精读区：16
+- 本次总论文数：24
+- 精读区：13
 - 速读区：11
 
 ### 今日简报（AI）
-1) 今日27篇物理AI论文中，16篇精读聚焦Kairos原生世界模型栈，速读涵盖任务中心世界模型与关键点模仿学习。  
-2) 最值得关注：Kairos世界模型栈获满分10分，以及关键点模仿学习的设计选择与局限对物理AI的通用性至关重要。  
-3) 下一步建议：优先精读Kairos技术细节，并结合频率引导动作扩散的子流形遍历方法提升具身智能性能。
-- 详情：[/20260524-20260622/README](/20260524-20260622/README)
+今日聚焦于机器人世界模型与灵巧操作，精读一篇满分论文《Qwen-RobotWorld》并速读三篇模仿学习与重定向工作。  
+最值得关注的方向：语言条件视频生成统一具身世界建模，以及强化学习引导的多模态模仿学习应对模态缺失。  
+建议下一步深入理解世界模型在机器人技能泛化中的核心作用，并对比不同缺失模态处理方法的适用场景。
+- 详情：[/202606/22/README](/202606/22/README)
 
 ### 精读区论文标签
-1. [Kairos: A Native World Model Stack for Physical AI](/20260524-20260622/2606.16533v1-kairos-a-native-world-model-stack-for-physical-ai)  
+1. [Qwen-RobotWorld Technical Report: Unifying Embodied World Modeling through Language-Conditioned Video Generation](/202606/22/2606.17030v2-qwen-robotworld-technical-report-unifying-embodied-world-modeling-through-language-conditioned-video-generation)  
    标签：评分：10.0/10、query:wmi
-   evidence：面向物理AI的原生世界模型栈及跨具身数据课程
-2. [Kairos: A Native World Model Stack for Physical AI](/20260524-20260622/2606.16533v2-kairos-a-native-world-model-stack-for-physical-ai)  
+   evidence：语言条件视频世界模型用于具身智能
+2. [Qwen-RobotWorld Technical Report: Unifying Embodied World Modeling through Language-Conditioned Video Generation](/202606/22/2606.17030v3-qwen-robotworld-technical-report-unifying-embodied-world-modeling-through-language-conditioned-video-generation)  
    标签：评分：10.0/10、query:wmi
-   evidence：面向物理AI的原生世界模型栈及跨具身数据课程
-3. [Scaling World-Model Reinforcement Learning Through Diffusion Policy Optimization](/20260524-20260622/2605.26282v1-scaling-world-model-reinforcement-learning-through-diffusion-policy-optimization)  
+   evidence：语言条件的视频世界模型用于具身智能
+3. [Perfect Demo Makes Poor Teacher: Learning Robust Alignment from Critical Motion Segments](/202606/22/2606.15587v1-perfect-demo-makes-poor-teacher-learning-robust-alignment-from-critical-motion-segments)  
    标签：评分：9.0/10、query:wmi
-   evidence：通过扩散策略优化进行世界模型强化学习
-4. [Adversarial Dual On-Policy Distillation from Expressive Teacher](/20260524-20260622/2605.27095v2-adversarial-dual-on-policy-distillation-from-expressive-teacher)  
+   evidence：专家演示在机器人操作模仿学习中的应用
+4. [Pixels to Proofs: Probabilistically-Safe Latent World Model Control via Parallel Conformal Robust MPC](/202606/22/2606.15594v1-pixels-to-proofs-probabilistically-safe-latent-world-model-control-via-parallel-conformal-robust-mpc)  
    标签：评分：9.0/10、query:wmi
-   evidence：通过对抗蒸馏从专家演示学习策略
-5. [Training-Free Imitation Learning with Closed-Form Diffusion Policies](/20260524-20260622/2606.01238v1-training-free-imitation-learning-with-closed-form-diffusion-policies)  
+   evidence：使用学习的潜在世界模型和一致鲁棒MPC进行安全反馈运动规划
+5. [PO-PDDL: Learning Symbolic POMDPs from Visual Demonstrations for Robot Planning Under Uncertainty](/202606/22/2606.15654v1-po-pddl-learning-symbolic-pomdps-from-visual-demonstrations-for-robot-planning-under-uncertainty)  
    标签：评分：9.0/10、query:wmi
-   evidence：直接使用演示数据集的闭式得分复制专家动作，无需训练
-6. [MetaWorld: Scaling Multi-Agent Video World Model from Single-view Video Data](/20260524-20260622/2606.02753v1-metaworld-scaling-multi-agent-video-world-model-from-single-view-video-data)  
+   evidence：从视觉演示学习POMDP模型用于机器人规划
+6. [LaWAM: Latent World Action Models for Efficient Dynamics-Aware Robot Policies](/202606/22/2606.15768v1-lawam-latent-world-action-models-for-efficient-dynamics-aware-robot-policies)  
    标签：评分：9.0/10、query:wmi
-   evidence：从单视角视频构建多智能体视频世界模型
-7. [A 3D Isovist World Model -- Revealing a City's Unseen Geometry and Its Emergent Cross-City Signature](/20260524-20260622/2606.03609v2-a-3d-isovist-world-model----revealing-a-citys-unseen-geometry-and-its-emergent-cross-city-signature)  
+   evidence：用于具身机器人策略的潜在世界模型
+7. [BRICKS-WM: Building Reusability via Interface Composition Kinetics for Structured World Models](/202606/22/2606.16489v1-bricks-wm-building-reusability-via-interface-composition-kinetics-for-structured-world-models)  
    标签：评分：9.0/10、query:wmi
-   evidence：用于预测可导航几何的世界模型
-8. [Instant-Fold: In-Context Imitation Learning for Deformable Object Manipulation](/20260524-20260622/2606.04269v1-instant-fold-in-context-imitation-learning-for-deformable-object-manipulation)  
+   evidence：结构化世界模型用于基于模型的强化学习
+8. [Qwen-RobotWorld Technical Report: Unifying Embodied World Modeling through Language-Conditioned Video Generation](/202606/22/2606.17030v1-qwen-robotworld-technical-report-unifying-embodied-world-modeling-through-language-conditioned-video-generation)  
    标签：评分：9.0/10、query:wmi
-   evidence：可变形物体操作的上下文模仿学习
-9. [PRISM: PRior-guided Imagination Sampling in world Models](/20260524-20260622/2606.07974v1-prism-prior-guided-imagination-sampling-in-world-models)  
+   evidence：语言条件视频世界模型用于具身智能规划
+9. [EgoInfinity: A Web-Scale 4D Hand-Object Interaction Data Engine for Any-View Robot Retargeting and Video-to-Action Robot Learning](/202606/22/2606.17385v1-egoinfinity-a-web-scale-4d-hand-object-interaction-data-engine-for-any-view-robot-retargeting-and-video-to-action-robot-learning)  
    标签：评分：9.0/10、query:wmi
-   evidence：世界模型结合专家先验引导想象采样用于规划
-10. [SynthICL: Scalable In-context Imitation Learning with Synthetic Data](/20260524-20260622/2606.08154v1-synthicl-scalable-in-context-imitation-learning-with-synthetic-data)  
+   evidence：用于机器人模仿学习的网络规模视频到动作数据引擎
+10. [PearlVLA: Progressive Embodied Action-Plan Refinement in Latent Space](/202606/22/2606.17924v1-pearlvla-progressive-embodied-action-plan-refinement-in-latent-space)  
    标签：评分：9.0/10、query:wmi
-   evidence：从纯RGB合成数据训练可扩展的上下文模仿策略
-11. [$ω$-EVA: Envision, Verify, and Act with Latent Interactive World Models](/20260524-20260622/2606.09457v1--eva-envision-verify-and-act-with-latent-interactive-world-models)  
+   evidence：在具身智能体中使用潜在世界模型进行计划细化
+11. [Reward as An Agent for Embodied World Models](/202606/22/2606.19990v1-reward-as-an-agent-for-embodied-world-models)  
    标签：评分：9.0/10、query:wmi
-   evidence：用于具身智能体的潜在交互世界模型，实现想象-验证-行动循环
-12. [HiMem-WAM: Hierarchical Memory-Gated World Action Models for Robotic Manipulation](/20260524-20260622/2606.10363v1-himem-wam-hierarchical-memory-gated-world-action-models-for-robotic-manipulation)  
+   evidence：利用强化学习精炼具身世界模型，结合可靠验证策略
+12. [Sensorimotor World Models: Perception for Action via Inverse Dynamics](/202606/22/2606.20104v1-sensorimotor-world-models-perception-for-action-via-inverse-dynamics)  
    标签：评分：9.0/10、query:wmi
-   evidence：带层次记忆的世界动作模型用于具身机器人操作
-13. [MODIP: Efficient Model-Based Optimization for Diffusion Policies](/20260524-20260622/2606.10825v1-modip-efficient-model-based-optimization-for-diffusion-policies)  
+   evidence：利用逆动力学正则化的传感器运动世界模型，用于规划和动作对齐表示
+13. [MemoryWAM: Efficient World Action Modeling with Persistent Memory](/202606/22/2606.20562v1-memorywam-efficient-world-action-modeling-with-persistent-memory)  
    标签：评分：9.0/10、query:wmi
-   evidence：结合行为克隆与世界模型的基于模型的扩散策略优化
-14. [Vision-Language-Action Models Meet World Models: Embodied Agentic AI for Low-Altitude Wireless Networks](/20260524-20260622/2606.11618v1-vision-language-action-models-meet-world-models-embodied-agentic-ai-for-low-altitude-wireless-networks)  
-   标签：评分：9.0/10、query:wmi
-   evidence：世界模型与具身智能的无人机应用
-15. [FlowMPC: Improving Flow Matching policies with World Models](/20260524-20260622/2606.16286v1-flowmpc-improving-flow-matching-policies-with-world-models)  
-   标签：评分：9.0/10、query:wmi
-   evidence：将流匹配行为克隆与学习的世界模型结合，进行基于模型的强化学习规划
-16. [WAM-RL: World-Action Model Reinforcement Learning with Reconstruction Rewards and Online Video SFT](/20260524-20260622/2606.17906v1-wam-rl-world-action-model-reinforcement-learning-with-reconstruction-rewards-and-online-video-sft)  
-   标签：评分：9.0/10、query:wmi
-   evidence：联合优化世界模型和动作模型进行在线强化学习，内部环境模型用于规划
+   evidence：具有持久记忆的世界动作模型用于操作
 
 ### 速读区论文标签
-1. [Back to Parsimonious Latents: Learning Task-Centric World Models from Visual Foundations](/20260524-20260622/2605.25620v1-back-to-parsimonious-latents-learning-task-centric-world-models-from-visual-foundations)  
+1. [Reinforcement Learning-Guided Retrieval with Soft Fusion for Robust Multimodal Imitation Learning under Missing Modalities](/202606/22/2606.15514v1-reinforcement-learning-guided-retrieval-with-soft-fusion-for-robust-multimodal-imitation-learning-under-missing-modalities)  
    标签：评分：8.0/10、query:wmi
-   evidence：从视觉基础学习任务中心世界模型用于规划和控制
-2. [On the Generalization Capabilities, Design Choices and Limitations of Keypoint Imitation Learning](/20260524-20260622/2605.26649v1-on-the-generalization-capabilities-design-choices-and-limitations-of-keypoint-imitation-learning)  
+   evidence：RL引导的检索用于缺失模态下的鲁棒模仿学习，利用专家演示
+2. [TopoRetarget: Interaction-Preserving Retargeting for Dexterous Manipulation](/202606/22/2606.16272v1-toporetarget-interaction-preserving-retargeting-for-dexterous-manipulation)  
    标签：评分：8.0/10、query:wmi
-   evidence：关键点模仿学习用于机器人操作
-3. [Frequency-Guided Action Diffusion via Sub-Frequency Manifold Traversal](/20260524-20260622/2605.27919v1-frequency-guided-action-diffusion-via-sub-frequency-manifold-traversal)  
+   evidence：人类演示重定向用于强化学习策略学习
+3. [V2P-Manip: Learning Dexterous Manipulation from Monocular Human Videos](/202606/22/2606.16436v1-v2p-manip-learning-dexterous-manipulation-from-monocular-human-videos)  
    标签：评分：8.0/10、query:wmi
-   evidence：频率引导扩散方法用于直接模仿专家动作并去噪
-4. [Teacher-Student Representational Alignment for Reinforcement Learning-Driven Imitation Learning](/20260524-20260622/2605.28372v1-teacher-student-representational-alignment-for-reinforcement-learning-driven-imitation-learning)  
+   evidence：从单目人类视频学习灵巧操作策略
+4. [Training and Evaluating Diffusion Policies with Long Context Lengths](/202606/22/2606.16447v1-training-and-evaluating-diffusion-policies-with-long-context-lengths)  
    标签：评分：8.0/10、query:wmi
-   evidence：利用强化学习驱动的模仿学习中教师-学生表示对齐
-5. [How to Mitigate the Distribution Shift Problem in Robotics Control: A Robust and Adaptive Approach Based on Offline to Online Imitation Learning](/20260524-20260622/2605.25414v1-how-to-mitigate-the-distribution-shift-problem-in-robotics-control-a-robust-and-adaptive-approach-based-on-offline-to-online-imitation-learning)  
+   evidence：机器人操作的模仿学习，扩散策略，上下文长度
+5. [Learning New Tasks via Reusable Skills: Skill-Compositional Experts for Embodied Continual Learning](/202606/22/2606.15685v1-learning-new-tasks-via-reusable-skills-skill-compositional-experts-for-embodied-continual-learning)  
    标签：评分：7.0/10、query:wmi
-   evidence：离线到在线模仿学习缓解分布偏移
-6. [RePlan-Bot: Multi-Level Replanning for Embodied Instruction Following](/20260524-20260622/2605.25851v1-replan-bot-multi-level-replanning-for-embodied-instruction-following)  
+   evidence：从演示技能复用于具身操作
+6. [ATHENA: Accelerated Multi-Task Heterogeneous Influence Functions for Robot Data Curation](/202606/22/2606.16208v1-athena-accelerated-multi-task-heterogeneous-influence-functions-for-robot-data-curation)  
    标签：评分：7.0/10、query:wmi
-   evidence：具身指令跟随与多级重规划
-7. [Adversarial Dual On-Policy Distillation from Expressive Flow-based Teacher](/20260524-20260622/2605.27095v1-adversarial-dual-on-policy-distillation-from-expressive-flow-based-teacher)  
+   evidence：用于机器人模仿学习数据策展的影响函数
+7. [PACT: Privileged Trace Co-Training for Multi-Turn Tool-Use Agents](/202606/22/2606.16215v1-pact-privileged-trace-co-training-for-multi-turn-tool-use-agents)  
    标签：评分：7.0/10、query:wmi
-   evidence：从基于流的教师进行对抗性在线策略蒸馏以学习演示
-8. [Theoretical Foundations and Effective Algorithms for Policy-Aware Simulator Learning](/20260524-20260622/2605.29032v1-theoretical-foundations-and-effective-algorithms-for-policy-aware-simulator-learning)  
+   evidence：利用专家轨迹进行训练优化
+8. [Decoupled Object-Centric Video Understanding for Generating Robotic Manipulation Commands](/202606/22/2606.16470v1-decoupled-object-centric-video-understanding-for-generating-robotic-manipulation-commands)  
    标签：评分：7.0/10、query:wmi
-   evidence：策略感知的模拟器学习用于模型基强化学习
-9. [ProgVLA: Progress-Aware Robot Manipulation Skill Learning](/20260524-20260622/2605.28231v1-progvla-progress-aware-robot-manipulation-skill-learning)  
+   evidence：从视频演示生成机器人操作命令
+9. [SAPS: Shared Autonomy for Policy Steering by Blending Teleoperation with a Pretrained VLA](/202606/22/2606.15568v1-saps-shared-autonomy-for-policy-steering-by-blending-teleoperation-with-a-pretrained-vla)  
    标签：评分：6.0/10、query:wmi
-   evidence：用于机器人操作的紧凑VLA模型与离线RL进度头
-10. [All Models are Wrong, Knowing Where is Useful: On Model Uncertainty in Reinforcement Learning](/20260524-20260622/2606.01363v1-all-models-are-wrong-knowing-where-is-useful-on-model-uncertainty-in-reinforcement-learning)  
+   evidence：融合人类遥操作与预训练VLA策略用于机器人操作
+10. [VL2Spike: Spike-driven Distillation from VLMs for Low-Power Visual Perception in Embodied AI](/202606/22/2606.15898v1-vl2spike-spike-driven-distillation-from-vlms-for-low-power-visual-perception-in-embodied-ai)  
    标签：评分：6.0/10、query:wmi
-   evidence：基于模型的强化学习中模型不确定性处理
-11. [SPADE: Sketch-guided Path Planning Augmented with Diffusion Experts](/20260524-20260622/2606.03512v1-spade-sketch-guided-path-planning-augmented-with-diffusion-experts)  
+   evidence：具身AI的低功耗视觉感知
+11. [APEX: Adaptive Policy Execution for Precise Manipulation](/202606/22/2606.16504v1-apex-adaptive-policy-execution-for-precise-manipulation)  
    标签：评分：6.0/10、query:wmi
-   evidence：模仿学习用于路径规划并结合扩散增强
+   evidence：模仿学习，执行差距，自适应策略执行用于操作
 
 
 <div class="dpr-home-promo-card">

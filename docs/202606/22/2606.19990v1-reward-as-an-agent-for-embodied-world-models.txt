@@ -1,0 +1,1663 @@
+Reward as An Agent for Embodied World Models
+Pu Li∗, Zhigang Lin∗, Qiang Wu, Yongxuan Lv, Fei Wang, Shan You†
+ACE Robotics
+∗Equal contribution, †Corresponding author
+Abstract
+While RL has become a promising tool for refining world models, existing methods largely rely
+on conservative rollouts near the training distribution, limiting exploration, behavioral diversity,
+and richer dynamic discovery. In this work, we challenge this conservative paradigm. We argue
+that the core limitation is not exploration itself, but the lack of reliable verification strategies to
+support broader exploration. Without reliable verification, expanded exploration becomes highly
+susceptible to reward hacking, where policies exploit imperfect rewards without achieving genuine
+improvement. To evaluate this motivation, we instantiate our method in embodied world models,
+where physical plausibility, and task completion provide a rigorous testbed for scalable RL under
+complex dynamics. On the verification side, we introduce Reward as an Agent, an agentic
+reward framework that actively evaluates generated behaviors to provide robust reward signals
+and mitigate reward hacking under distribution shifts. On the exploration side, we introduce
+Dynamic-Aware Rollout Diversification through DynDiff-GRPO, which explicitly expands
+action-space exploration to diversify trajectories, broaden state-action coverage, and encourage
+richer embodied behaviors beyond conservative rollout regimes. By unifying Reward as an Agent
+with DynDiff-GRPO, we enable RL on a more reliable reward foundation with substantially
+diversified sampling, effectively mitigating reward hacking while yielding significant accuracy gains
+across multiple open-source world models, thereby demonstrating that broader exploration can
+scale successfully when grounded in robust verification.
+Date: June 19, 2026
+1
+arXiv:2606.19990v1  [cs.AI]  18 Jun 2026
+
+
+Contents
+1
+Introduction
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3
+2
+Related Works . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4
+3
+Reward as An Agent
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4
+3.1
+Reward Hacking in Embodied World Model RL . . . . . . . . . . . . . . . . . . . . .
+4
+3.2
+Reward Design . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+6
+4
+Dynamic-Aware Rollout Diversification . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+8
+4.1
+Dynamic-Space Under-Exploration in Conservative RL Rollout
+. . . . . . . . . . . .
+8
+4.2
+DynDiff-GRPO: Dynamic-Aware Stochastic Rollout . . . . . . . . . . . . . . . . . . .
+9
+5
+Experimental Results . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+11
+5.1
+Main Experiment . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+11
+5.2
+Reward Analysis
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+12
+5.3
+Rollout Strategy Analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+13
+5.4
+Analysis of Key Training Configurations . . . . . . . . . . . . . . . . . . . . . . . . .
+13
+6
+Conclusion and Limitation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+16
+A Appendix: Detailed Experimental Cases of Reward Hacking in Current Mainstream
+Reward Systems . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+20
+B Appendix: Reward Model Judgement Results for Embodied Task Test Cases
+. . . . .
+22
+C Appendix: Reward Service Deployment . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+30
+D Appendix: DynDiff-GRPO Implementation . . . . . . . . . . . . . . . . . . . . . . . . . .
+30
+E
+Appendix: Training Configurations
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+31
+2
+
+
+1
+Introduction
+World models have recently emerged as a powerful framework for learning, planning, and generation
+by modeling the evolution of observations under sequential actions. As neural-based simulators, they
+provide a scalable alternative to traditional hand-crafted engines, enabling policy optimization and
+efficient interaction learning across diverse domains directly from large-scale data without explicit
+physical modeling.
+The natural progression of this paradigm is to further enhance world models through reinforcement
+learning (RL), mirroring the transformative success seen in large-scale foundation models. Specifically,
+group-based policy optimization methods, such as GRPO, have driven substantial gains in large
+language models (LLMs) and vision-language models (VLMs) [1, 2]. This success is rooted in the
+availability of relatively reliable reward signals-such as code execution or rule-based logic-which allow
+RL to effectively distinguish superior outputs and serve as an indispensable pillar of the post-training
+pipeline.
+Despite these advancements, the impact of RL-based optimization on world models remains limited.
+While recent works [3–8] have begun extending GRPO-style optimization to this domain, RL has not
+yet emerged as a universal driver for world model capabilities in the same way it has for language
+models.
+We posit that the fundamental bottleneck lies in the verification gap. Unlike language or code where
+correctness can be explicitly verified, rewards for world models are typically proxy-based and highly
+subjective. This lack of objective verification forces existing methods to adopt conservative rollout
+strategy that remain close to the training distribution. Consequently, world models are unable to
+explore as boldly as LLMs; as rollout distributions expand, subjective rewards become increasingly
+vulnerable to reward hacking, where policies exploit the reward function without genuinely improving
+physical realism, temporal coherence, or task success.
+To address these challenges, we argue that RL for world models necessitates verification strategies that
+remain robust even under significant distribution shifts. This requirement is particularly stringent in
+embodied AI, where the model must ensure not only visual fidelity but also physical plausibility and
+task completion. Our core insight is that exploration and verification must scale in tandem:
+while exploration broadens behavioral diversity, robust verification ensures that this diversity remains
+aligned with high generation quality. Building on this principle, we propose a controlled rollout
+strategy that expands trajectory diversity while strictly preserving physical validity, providing a
+pathway toward the large-scale optimization success characteristic of modern foundation models.
+In this work, we make the following key contributions:
+• Reward-as-an-Agent Framework: We design a robust reward system that treats evaluation
+as an agent-based task. By explicitly scoring physical plausibility, coherent object interactions,
+and task completion, this framework provides reliable feedback under diverse rollouts, effectively
+mitigating reward hacking during broader exploration.
+• Dynamics-Aware Rollout: We introduce a rollout strategy that systematically expands
+trajectory diversity while grounding it in physical constraints. It enables the model to explore
+richer behaviors without sacrificing the structural integrity of the generated world states.
+• Evidence of Scalable RL for World Models: By unifying Reward-as-an-Agent Framework
+with Dynamics-Aware Rollout, our method demonstrates that RL scaling in world models can
+3
+
+
+move beyond conservative regimes. We achieve significant performance gains across multiple
+open-source embodied world models, proving that expanded exploration, when anchored by
+reliable verification, serves as a central driver for world model advancement.
+2
+Related Works
+Embodied Video World Models. Recent progress has shifted video generation from passive
+visual synthesis toward active embodied world modeling, where generative and predictive models
+serve as interactive simulators of physical environments. Early systems such as DeepMind’s Genie
+[9] demonstrated the potential for learning controllable virtual worlds from large-scale unlabeled
+video. This paradigm was subsequently extended to complex real-world domains by GAIA-1 [10]
+and UniSim [11], focusing on autonomous driving and robotic manipulation. More recent advances,
+including NVIDIA Cosmos [12], the V-JEPA series [13, 14], and flow-matching frameworks [15], have
+significantly improved semantic coherence and physical plausibility. By unifying action-conditioned
+prediction with scalable generative stability, these models are evolving into foundation world models
+that bridge the gap between high-fidelity simulation and downstream policy learning.
+Reinforcement Learning for World Model Post-Training.
+Recent post-training methods
+for generative world models increasingly adopt GRPO [16] as a scalable alternative to Actor-Critic
+RL, enabling policy optimization without auxiliary value networks. Notably, Flow-GRPO
+[3]
+pioneered online RL in flow matching by converting deterministic ODE rollouts into stochastic SDE
+trajectories, establishing a critical balance between exploration and controllability. To address the
+noise artifacts induced by SDE-based stochasticity, Flow-CPS [17] reformulates the sampling process
+to maintain the coefficient-preserving property, thereby enabling more accurate reward modeling
+and stable convergence. Subsequent variants have largely refined this stability by enforcing rigorous
+distributional and sampling constraints. For instance, DanceGRPO [4] and UniGRPO [18] utilize
+reference anchoring and KL divergence penalties to prevent the policy from drifting into unstable
+generative regions. In parallel, Mix-GRPO
+[5] and Pref-GRPO
+[6] mitigate variance through
+hybrid ODE-SDE sampling and pairwise preference rewards, effectively suppressing reward-hacking
+behaviors. Furthermore, frameworks such as SAGE-GRPO [7] incorporate trust-region restrictions
+to stabilize policy updates, while systems built on Cosmos-Predict [12] often leverage temporal
+consistency priors to ensure physical plausibility. Collectively, these methods reveal a consistent trend:
+modern world model RL primarily advances by suppressing rollout diversity-via mean-subtraction
+in group-relative updates or low-temperature sampling-to preserve reward reliability. While this
+conservative strategy stabilizes optimization, it risks causing rollouts to collapse toward narrow,
+reward-favored trajectories, ultimately leaving action-space exploration underdeveloped in complex
+embodied settings.
+3
+Reward as An Agent
+3.1
+Reward Hacking in Embodied World Model RL
+We formulate embodied world model RL as a diffusion-based Markov Decision Process (MDP), where
+diffusion states define environment states, action conditions define controls, the world model specifies
+transitions, and rewards guide optimization:
+MDP = (S, A, P, R),
+J(π) = Eπ
+h
+T
+X
+t=0
+R(st, at)
+i
+(1)
+4
+
+
+Under this framework, policy improvement is fundamentally shaped by reward quality, since opti-
+mization follows the provided reward signal rather than the true objective itself.
+Reward Hacking Definition. This creates a critical vulnerability when reward functions are
+imperfect. Reward hacking occurs when the policy exploits flaws in proxy rewards rather than
+genuinely accomplishing the intended task:
+J(πhack) > J(πintended),
+while
+TaskEval(πhack) ≪TaskEval(πintended)
+(2)
+In other words, optimization succeeds mathematically but fails behaviorally. In embodied diffusion
+systems, this often manifests through exploiting visual shortcuts, shallow semantic alignment, or
+model artifacts while bypassing authentic physical interaction.
+Empirical Observation of Reward Hacking. This problem is particularly severe in embodied
+world models because embodied tasks require not only visual realism, but also semantic correct-
+ness, physical plausibility, and genuine task completion. However, most existing reward systems
+are inherited from general video generation and lack embodied-specific evaluation capability. To
+systematically examine this mismatch, we optimize embodied world models in embodied scenarios
+using DanceGRPO [4] with two representative general-purpose reward metrics, VideoAlign [19] and
+UnifiedReward-Flex [8]. Despite continuous optimization, we observe that reward values largely
+fluctuate within a narrow range while downstream generation quality shows little meaningful improve-
+ment. To understand this discrepancy, we conduct detailed analysis of model rollouts alongside their
+corresponding reward signals, and find that the optimization process is dominated by widespread
+reward hacking rather than genuine capability gains. (Detailed scoring prompts and evaluation
+criteria are provided in Appendix A)
+Our analysis reveals four recurring reward hacking patterns (Figure 1): (1) Visual occlusion,
+where blur, shadows, or occlusion conceal physical defects; (2) Motion degradation, where the
+model minimizes risk through static or trivial movement; (3) Background simplification, where
+environmental complexity is reduced to avoid generation failures; and (4) Physical invalidation,
+where outputs superficially satisfy prompts while violating physical laws.
+These observations reveal that current reward paradigms fail not because RL optimization itself
+is ineffective, but because the reward functions guiding optimization are structurally incomplete.
+Existing systems suffer from four major limitations: (1) perceptual metrics built on traditional
+computer vision detection models are inherently shallow, often limited to object recognition, trajectory
+matching, or pixel-level similarity, and therefore cannot reason about embodied physical logic; (2)
+VLM-based evaluators fine-tuned for specific domains may perform well on narrow tasks, but
+generally exhibit poor domain generalization when transferred beyond their specialized settings;
+(3) incomplete evaluation dimensions that overlook critical factors such as physical compliance or
+authentic task completion; and (4) static reward aggregation strategies that cannot dynamically
+adapt priorities across rollout stages. As a result, policies are incentivized to maximize proxy scores
+through exploitable shortcuts rather than genuine embodied competence.
+These failures suggest that reward hacking is fundamentally a reward design problem rather than
+merely an optimization problem: if reward functions remain unreliable, stronger RL algorithms may
+simply exploit them more effectively. The core challenge is therefore to redesign reward as a robust
+evaluative system that better aligns proxy objectives with true embodied goals.
+5
+
+
+Motion degradation-based 
+hacking: No valid task 
+interaction is performed, and the 
+robotic arm only repeats trivial 
+and meaningless movements.
+(b)
+Visual occlusion-based hacking:
+The scene suffers from severe 
+visual occlusion that covers the 
+effective interactive area.
+(a)
+Physical invalidation-based 
+hacking: Obvious penetration 
+and intersection occur among
+the robotic arm, target object
+and container.
+(d)
+Background simplification-
+based hacking: The generated 
+scene lacks elements specified in 
+the prompt and presents an 
+oversimplified background.
+(c)
+Figure 1
+Typical reward hacking failures under existing reward metrics, where generated videos receive
+deceptively high scores despite violating true task objectives. (a) Visual occlusion: 0.79/1.0 on VideoAlign
+VQ; (b) Motion degradation: 2.76/5.0 on UnifiedReward Alignment Score; (c) Background simplification:
+0.80/1.0 on VideoAlign VQ; (d) Physical invalidation: 3.0/5.0 on UnifiedReward Physics Score. These cases
+highlight systematic blind spots in current reward designs.
+3.2
+Reward Design
+To address these structural weaknesses, we propose Reward as an Agent, an adaptive framework
+that transforms reward from a static scalar function into a structured multi-stage evaluation system.
+Built on systematically defined reward dimensions, it progressively strengthens reward reliability
+through planning, curriculum-based evaluation, voting, reflection(Figure 2).
+Methodology. We begin by surveying reward design strategies from both general world modeling and
+embodied intelligence, together with representative evaluation benchmarks [19] [8] [20] [21] [22]. This
+analysis identifies four core dimensions that consistently determine rollout quality: Visual Quality,
+Instruction Following, Physical Compliance, and Task Completion.
+These dimensions
+directly address the key vulnerabilities exposed in Sec. 3.1 and form the initial structure of our
+reward system. Specifically, Visual Quality evaluates perceptual fidelity through clarity, brightness,
+color consistency, and temporal frame coherence; Instruction Following measures alignment with
+user intent across background consistency, objective consistency, robot consistency, and viewpoint
+consistency; and Physical Compliance assesses embodied realism through interaction plausibility,
+absence of abnormal deformation, and absence of geometry intersection. Together, these dimensions
+provide a structured foundation for reward initialization.
+Unlike prior approaches, we deliberately abandon traditional computer vision detector-based metrics,
+as their shallow objective signals-such as object detection accuracy, trajectory overlap, or low-
+level perceptual similarity-cannot comprehensively evaluate the complex physical and behavioral
+requirements of embodied tasks. We also discard domain-specific VLM-based reward models fine-
+6
+
+
+Figure 2 Overview of the Reward Agent framework, which integrates planning, curriculum-based reward
+design, voting and reflection into a unified reward generation pipeline.
+tuned for narrow scenarios, since their limited scene generalization often leads to severe reward
+misalignment when deployed across diverse embodied environments. Instead, we fundamentally
+redesign reward as an agentic evaluation system built upon frontier-scale VLMs, leveraging large-
+model reasoning, dynamic decomposition, and agent-style structured verification to construct a more
+generalizable and robust reward framework.
+Using this initial framework, we perform RL training on diverse embodied datasets under fixed
+training steps, collecting rollout videos, scalar rewards, and reasoning outputs. In each iteration,
+we randomly sample several hundred trajectories for manual verification, with the exact number
+determined by the overall quality of the current rollout (i.e., more cases are selected when the
+rollout quality is lower), and assess whether both rewards and explanations align with human
+judgment. Identified weaknesses-including reward vulnerabilities and reasoning mismatches-are used
+to iteratively refine reward logic and prompt design. Through more than 20 rounds of iteration, we
+progressively develop a robust reward system. The following modules summarize the key design
+principles accumulated through this process, while detailed quantitative evaluation is presented in
+Sec. 5.2.
+Planning. With the four-dimensional structure established, the first challenge is avoiding local
+optimization bias from fixed sub-reward weighting. Our framework therefore begins with holistic
+planning(see the Planning Module in Figure 2): before detailed scoring, the reward agent evaluates
+global rollout quality and classifies it into coarse quality levels. This global assessment dynamically
+initializes sub-reward priorities, ensuring that evaluation reflects overall trajectory state before local
+dimensions are assessed.
+Curriculum-based Reward. Building on planning, reward evaluation proceeds hierarchically from
+7
+
+
+foundational to advanced objectives: Visual Quality, Instruction Following, Task Completion, and
+finally Physical Compliance (see the Curriculum-based Reward Module in Figure 2). This design is
+motivated by a common failure observed during reward auditing: some rollouts perform extremely
+poorly on basic dimensions such as visual quality-sometimes failing to produce even a valid video-while
+still receiving partial scores on more advanced dimensions. Under direct reward aggregation, this
+can drive the model to optimize exploitable higher-level rewards while abandoning fundamental
+quality. To avoid this shortcut, each stage must satisfy threshold criteria before subsequent evaluation
+proceeds, ensuring that higher-level optimization is built on valid lower-level performance.
+Voting Mechanism. For complex dimensions, single-score evaluation can overlook subtle but
+critical defects. We therefore decompose major sub-rewards into fine-grained components and apply
+voting-based validation. For example, instruction following evaluates goal, agent, and viewpoint
+consistency, while physical compliance assesses interaction realism, deformation, and penetration (see
+the Voting Module in Figure 2). This modular design ensures that localized failures are explicitly
+penalized, while also providing strong extensibility: new domains can incorporate additional domain-
+specific components into the voting structure without redesigning the overall framework, making the
+reward system naturally scalable across broader embodied tasks and future evaluation requirements.
+Reflection. Because VLM-based evaluators may still produce overconfident or inconsistent judgments,
+we introduce reflection as a reliability layer (see the Reflection Module in Figure 2). After initial
+scoring, the reward agent re-evaluates trajectories conditioned on prior assessments, allowing it to
+cross-check internal consistency and revise flawed conclusions.
+Efficiency Optimization. Efficiency is optimized across the framework to balance evaluation
+robustness with serving cost. Planning prioritizes the most relevant dimensions, curriculum progres-
+sively filters unnecessary advanced checks, and voting is activated only when fine-grained validation
+is needed, avoiding redundant computation. We further adopt dimension-specific visual input configu-
+rations: static dimensions such as visual quality use fewer sampled frames, while dynamic dimensions
+such as physical compliance receive denser temporal inputs. This adaptive allocation reduces visual
+processing overhead while preserving fidelity for temporally sensitive tasks, substantially improving
+overall efficiency.
+In summary, Sec. 3.1 identifies reward hacking as the consequence of structurally flawed reward
+systems, while this section presents our solution: redesigning reward itself as an adaptive agent.
+By integrating planning, curriculum, voting, reflection, and efficiency optimization into a unified
+framework, Reward as an Agent substantially improves reward reliability, reduces exploitable loopholes,
+and better aligns reinforcement learning with authentic embodied objectives.
+4
+Dynamic-Aware Rollout Diversification
+4.1
+Dynamic-Space Under-Exploration in Conservative RL Rollout
+Existing RL methods for diffusion world models are often overly conservative, constraining rollouts
+near the training distribution to avoid reward hacking (Sec. 2). While this ensures stability, it severely
+limits the exploration of diverse dynamics. Crucially, in embodied tasks, policy improvement requires
+exploring multiple plausible dynamic evolutions within the same scene, even as static elements like
+environment geometry remain consistent. Standard conservative GRPO fails to distinguish between
+these dimensions; by uniformly suppressing rollout stochasticity, it collapses diffusion sampling
+toward deterministic, ODE-like trajectories. This leads to a narrow set of reward-favored behaviors,
+increasing reward overfitting and stifling the discovery of rich dynamic variety.
+8
+
+
+Therefore, effective embodied rollout diversification should not simply increase global randomness,
+but instead preserve scene fidelity while expanding dynamic-space exploration. Motivated by this, we
+propose DynDiff-GRPO, a dynamic-aware stochastic rollout strategy that selectively reallocates
+stochasticity toward dynamically salient regions while maintaining stable scene consistency.
+4.2
+DynDiff-GRPO: Dynamic-Aware Stochastic Rollout
+Dynamic-Aware Stochastic Rollout Diversification. Given latent state xt and velocity predic-
+tion vθ(xt, t, c), we first estimate the predicted clean sample and noise component:
+ˆx0 = xt −σtvθ,
+ˆϵt = xt + (1 −σt)vθ.
+(3)
+Building on the coefficient-preserving sampling analysis of CPS [17], which theoretically shows that
+reducing excessive stochastic perturbation during reverse diffusion can yield a more stable and
+effective SDE rollout process than conventional flow-SDE sampling, we further generalize this insight
+into a hybrid ODE/SDE transition framework. Specifically, rather than fixing rollout dynamics, we
+continuously interpolate between deterministic exploitation and stochastic exploration:
+xt−= ˆx0(1 −σt−) + ˆϵt
+q
+σ2
+t−−(σnoise
+t−
+)2 + σnoise
+t−
+⊙z,
+z ∼N(0, I).
+(4)
+where σnoise
+t−
+∈[0, σt−] controls exploration strength, recovering deterministic ODE rollout when
+σnoise
+t−
+= 0 and standard stochastic rollout when σnoise
+t−
+= σt−. Instead of uniformly distributing
+stochasticity across spatial locations, DynDiff-GRPO reallocates exploration according to dynamic
+saliency:
+σnoise
+t−
+= σt−⊙Mt.
+(5)
+To construct Mt, we first estimate dynamic-sensitive residuals from temporal variations of the
+predicted clean sample. For frame index k:
+R(k) = ∆ˆx(k)
+0
+−Meanh,w
+
+∆ˆx(k)
+0
+
+(6)
+where ∆ˆx(k)
+0
+denotes temporal differences between adjacent predicted frames and subtracting the
+spatial mean removes globally consistent dynamic components, leaving localized dynamic residuals.
+We then compute dynamic intensity maps:
+D = Normalize (∥R∥2) ,
+(7)
+which are further converted into sparse dynamic priors using percentile thresholding:
+B = I [D > Quantile(D, τ)] .
+(8)
+Finally, continuous dynamic intensity and sparse dynamic-region priors are combined to produce the
+rollout mask:
+9
+
+
+Mt = rbase + (1 −rbase) (0.5D + 0.5B) ,
+(9)
+where rbase defines the minimum exploration ratio, ensuring that low-dynamic regions preserve a
+non-zero level of stochasticity while highly dynamic regions receive stronger exploration.
+Substituting the adaptive variance into Eq. 4, the rollout transition distribution becomes:
+xt−∼N
+ µ, (σt−⊙Mt)2
+,
+(10)
+with mean:
+µ = ˆx0(1 −σt−) + ˆϵt
+q
+σ2
+t−−(σnoise
+t−
+)2.
+(11)
+This formulation naturally provides the transition likelihood used during policy optimization:
+log p(xt−) = −(xt−−µ)2
+2(σt−⊙Mt)2 −log(σt−⊙Mt) −log
+√
+2π.
+(12)
+See Sec. 5.3 for quantitative analysis.
+Group-Relative Policy Optimization for Diffusion World Models. Using the dynamic-
+aware stochastic sampler, for each conditioning prompt c, DynDiff-GRPO samples a rollout group
+{τi}G
+i=1 ∼πθold(·|c) under independently diversified diffusion paths, producing rewards ri = R(τi, c).
+We compute clipped group-relative advantages with dynamic-aware variance normalization:
+Ai = clip
+ 
+ri −mean({rj}G
+j=1)
+stddynamic({rj}G
+j=1) + ϵ, −Amax, Amax
+!
+.
+(13)
+For each denoising step, we model the reverse transition as a Gaussian policy. Unlike CPS [17] and
+SAGE-GRPO [7], which only retain the first-order likelihood term (mean matching under scalar
+variance), DynDiff-GRPO preserves the full feature-aware Gaussian structure where all three terms
+contribute:
+log πθ(xt−|xt, c) = −(xt−−µθ)2
+2σ2
+t
+−log σt −1
+2 log(2π).
+(14)
+In our formulation, σt is no longer a scalar variance but a feature-wise dynamic-aware variance field
+conditioned on (xt, c), i.e., σt →σdyn
+t
+(xt, c), which induces an input-adaptive anisotropic geometry
+over the Gaussian likelihood. As a result, all three terms above jointly contribute to the likelihood
+structure instead of collapsing into a single scalar energy.
+We restore the full Gaussian likelihood to preserve accurate importance estimation:
+ρi,t = exp
+
+log πθ(x(i)
+t−|x(i)
+t , c) −log πθold(x(i)
+t−|x(i)
+t , c)
+
+.
+(15)
+The policy objective follows GRPO:
+LGRPO = −Ei,t[min(ρi,tAi, clip(ρi,t, 1 −δ, 1 + δ)Ai)] .
+(16)
+10
+
+
+Table 1
+Performance on the robotics subset of PAI-Bench. Numbers in parentheses indicate absolute
+improvements over the corresponding base model.
+Model
+Param i2v-bg i2v-s
+aes
+img
+bg-con
+mot
+sub-con o-con
+Domain ↑
+Overall ↑
+Cosmos-Predict2.5
+2B
+93.47
+91.13 47.74 70.45
+90.86
+98.80
+90.06
+19.30
+83.61
+79.42
+DynDiff-GRPO (Ours) 2B
+96.48
+96.97 49.14 70.60
+90.47
+99.32
+91.99
+19.68 84.41 (+0.80) 80.75 (+1.33)
+Kairos3.0-Robot
+4B
+97.75
+95.00 46.72 70.78
+92.31
+99.26
+93.32
+19.56
+83.87
+80.35
+DynDiff-GRPO (Ours) 4B
+97.17
+96.05 46.94 71.32
+92.95
+99.25
+91.11
+19.68 86.95 (+3.08) 81.88 (+1.53)
+For regularization, following CPS and SAGE-GRPO, we adopt a standard mean-space KL-style
+objective to constrain policy updates toward the target distribution:
+Lµ-KL =
+
+µθ −µtarget
+σtarget + ϵ
+
+2
+2
+.
+(17)
+This regularization serves as a stable auxiliary constraint, consistent with prior diffusion RL for-
+mulations, by limiting excessive deviation from the reference denoising trajectory while preserving
+optimization stability. The overall training objective is:
+L = LGRPO + βLµ-KL.
+(18)
+Through dynamic-aware rollout diversification, dynamic-aware vectorized Gaussian likelihood estima-
+tion, clipped group-relative optimization, and mean-space regularization, DynDiff-GRPO transforms
+expanded dynamic-space exploration into stable and reward-aligned diffusion policy improvement.
+Appendix D for full implementation details.
+5
+Experimental Results
+5.1
+Main Experiment
+Experimental Setup. We train on a large-scale embodied scenario dataset spanning diverse robotic
+embodiments (e.g., arms, humanoids, and mobile agents [23] [24] [25], environments, and interaction
+tasks, providing broad physical dynamics coverage. To bridge the gap between video generation and
+physical consistency, we utilize our proposed reward system to provide dense, reliable supervision
+during the RL phase, guiding the model toward physically plausible transitions. Experiments are
+initialized from two representative models: Kairos-3.0-Robot [26] as a robotics-specialized foundation
+model and Cosmos-Predict2.5-2B [12] as a general-purpose world model baseline. We evaluate on the
+robotics subset of PAI-Bench [20], reporting Domain and Quality Score per prompt. To be consistent
+with the Reward Agent in Figure 2, we leverage the same Qwen3.5 as the judge model, and the
+corresponding results of Kairos-3.0-Robot (Mar. Version) and Cosmos-Predict2.5-2B are shown in
+Table 1.
+Main Results. PAI-Bench [20] evaluates physical AI generation via Domain Score (reasoning
+and action alignment) and Quality Score (visual fidelity). As shown in Table 1, we evaluate our
+DynDiff-GRPO across two representative families: Cosmos-Predict2.5 and Kairos-3.0-Robot. Our
+method primarily enhances the Domain Score, yielding significant gains over both base models.
+For Cosmos-Predict2.5, DynDiff-GRPO substantially boosts the Domain Score, indicating that our
+reward framework effectively aligns generated dynamics with embodied instructions and physical
+11
+
+
+Table 2 Reward system evaluation on samples from AgiBotWorld-Beta. All accuracies denote alignment
+rates with human evaluation (%).
+Dimension Acc.
+Subdim 1
+Subdim 2
+Subdim 3
+Subdim 4
+Planning
+98.0
+–
+–
+–
+–
+VQ
+96.0
+Clarity (100)
+Brightness (100)
+Color (96)
+Temporal (96)
+IF
+90.0
+Background (95)
+Objective (85)
+Robot (88)
+Viewpoint (100)
+PC
+82.0
+Interaction (85)
+Deformation (82)
+Geometry (86)
+–
+TC
+87.0
+–
+–
+–
+–
+Overall
+91.0
+–
+constraints. Similarly, Kairos-3.0-Robot achieves its best performance under our setting, particularly
+in domain-specific reasoning. While Quality Scores also improve, the more pronounced leap in Domain
+Scores underscores our framework’s efficacy in refining physical logic and task-relevant control. These
+consistent improvements across diverse tasks demonstrate that our reward framework successfully
+strengthens the embodied reasoning and interaction capabilities of world models. Further details are
+in Sec. 5.4.
+5.2
+Reward Analysis
+Reward System Evaluation. To systematically evaluate our reward framework, we build a
+benchmark based on the AgiBotWorld-Beta [23] dataset, one of the highest-quality open-source
+embodied datasets available. We choose AgiBotWorld-Beta for its strong instruction diversity and
+task complexity, which better expose the capability boundary of the reward system, especially for
+curriculum-based evaluation where simpler datasets may fail to fully exercise the hierarchical reward
+pipeline.
+We sample 100 diverse instructions covering a wide range of scenes and embodied tasks. For each
+instruction, the open-source Kairos-3.0-Robot [26] model performs text-image-to-video generation
+to produce embodied trajectories with varied success and failure patterns. Our deployed reward
+service evaluates each trajectory across all reward dimensions, including Planning, Visual Quality
+(VQ), Instruction Following (IF), Physical Compliance (PC), Task Completion (TC), and the final
+aggregated score. Human annotators then provide gold-standard labels for each dimension and the
+overall result. As shown in Table 2, accuracy is measured by agreement between reward predictions
+and human judgments.(Detailed scoring prompts and logs are provided in Appendix B. And reward
+service deployment information in Appendix C). Results show that Reward as an Agent achieves
+91.0% overall accuracy, demonstrating strong alignment with human evaluation. Planning performs
+best at 98%, indicating highly reliable high-level task assessment, while Visual Quality reaches 96%.
+Instruction Following achieves 90.0%, showing robust performance despite fine-grained grounding
+challenges. Physical Compliance is the most difficult dimension at 82%, reflecting the complexity of
+physical interaction assessment, while Task Completion reaches 87%. Overall, these results validate
+the effectiveness and balanced reliability of our hierarchical reward framework across major embodied
+evaluation dimensions.
+12
+
+
+76.74 
+85.63 
+81.18 
+76.58 
+84.03 
+80.31 
+74
+76
+78
+80
+82
+84
+86
+Quality Score
+Domain Score
+Overall Score
+DynDiff-GRPO
+CPS
+(a) Rollout Diversity
+(b) PAI-Bench robot domain subset Performance
+Figure 3 Ablation of rollout strategies. (a) Rollout diversity via mean pairwise DINOv3 cosine distance. (b)
+Performance on the PAI-Bench robot domain subset.
+5.3
+Rollout Strategy Analysis
+While baselines like CPS [17] stabilize optimization by bounding stochasticity, they uniformly
+suppress exploration. To verify if DynDiff-GRPO broadens exploration in dynamic regions without
+compromising stability, we analyze rollout diversity and evaluate performance on PAI-Bench. Rollout
+Diversity Analysis. To measure trajectory diversity, we compute the mean pairwise cosine distance
+of DINOv3 [27] embeddings across N rollouts per prompt. For a video v, we extract DINOv3
+features ht ∈Rd from T uniformly sampled frames. We concatenate their L2-normalized vectors
+˜ht = ht/∥ht∥2 and apply a final L2 normalization to yield the video representation ˆzv = zv/∥zv∥2,
+where zv = concat(˜h1, . . . , ˜hT ). The prompt-level diversity Dprompt is:
+Dprompt =
+2
+N(N −1)
+X
+1≤i<j≤N
+
+1 −ˆz⊤
+i ˆzj
+
+.
+(19)
+Figure 3(a) shows that DynDiff-GRPO consistently maintains higher diversity than CPS during
+training, confirming that explicitly allocating stochasticity to dynamic regions effectively broadens
+behavioral exploration and diversifies trajectory generation.
+Robotics Evaluation on PAI-Bench. To verify that this expanded dynamic exploration translates
+into genuine capability improvements, we conduct an ablation study on the PAI-Bench robot domain
+subset. For a fair comparison, both CPS and DynDiff-GRPO are fine-tuned using the identical
+Kairos-3.0-Robot [26], training data, and 480 × 832 resolution, differing exclusively in the dynamic-
+aware GRPO optimization strategy. As illustrated in Figure 3(b), DynDiff-GRPO achieves notable
+improvements in both the Domain Score (85.63 vs. 84.03) and Overall Score (81.18 vs. 80.31).
+Crucially, this performance gain does not come at the expense of visual fidelity; our method maintains
+a highly competitive Quality Score (76.74 vs. 76.58). These results suggest that by deliberately
+guiding exploration into dynamically active regions rather than suppressing it uniformly, DynDiff-
+GRPO preserves the stable visual quality established by the CPS baseline while unlocking deeper
+embodied reasoning and task execution capabilities.
+5.4
+Analysis of Key Training Configurations
+In addition to algorithmic design, we further investigate several configuration choices that have
+a substantial impact on training stability and final performance, including the KL regularization
+strength, advantage clipping strategy, input resolution, and classifier-free guidance (CFG) settings.
+13
+
+
+KL Regularization Formulations. We consider two common KL regularization implementations
+in policy optimization. The first computes KL in log-probability space (Eq. 14), which is theoretically
+exact but can become numerically weak in high-dimensional settings due to small log-prob differences,
+leading to a vanishing constraint signal and potential policy drift. The second operates in distribution
+space (Eq. 17) using an L2-based surrogate with variance normalization. Although approximate,
+it provides a more stable and well-scaled training signal, and empirically leads to more robust
+optimization under heterogeneous reward settings. These results suggest that, in practice, the
+effectiveness of KL regularization depends more on signal scaling and stability than on strict
+theoretical form. Building upon our choice of distribution-space KL, we further introduce a memory-
+and compute-efficient implementation for periodic regularization. Conventional RLHF and GRPO
+frameworks typically maintain a frozen reference model in memory to compute the KL penalty
+DKL(πθ∥πref). For large-scale Diffusion Transformers (DiTs), this severely bottlenecks GPU memory
+and requires an additional computational forward pass during every optimization step.
+To address this, we completely eliminate the explicit reference model by repurposing the data buffer’s
+lifecycle as a periodic anchor. During the rollout phase, the active policy weights θold generate the
+trajectories. We cache the distribution parameters-specifically the mean µθold and standard deviation
+σθold-directly into the rollout buffer. During the subsequent optimization phase, these cached values
+serve as the reference targets for the µ-KL objective over a predefined number of update steps
+(N = kl_period_steps). Specifically, we instantiate the targets in Eq. 17 as µtarget = µθold and
+σtarget = σθold, yielding our reference-free periodic KL penalty:
+Lµ-KL = Es∼D
+"
+µθ(s) −µθold(s)
+σθold(s) + ϵ
+
+2
+2
+#
+.
+(20)
+This buffer-based anchoring strategy elegantly balances plasticity and stability while providing two
+critical systemic advantages:
+• Zero-Overhead Memory Footprint: By discarding the explicit frozen reference model, we
+entirely eliminate the GPU memory cost of hosting a second DiT network. This substantial
+memory saving allows for larger rollout batch sizes, higher input resolutions, or longer frame
+generation contexts under the same hardware constraints.
+• Enhanced Training Throughput: Utilizing cached parameters bypasses the redundant
+forward pass that would otherwise be required by a reference model during the gradient update
+step. The periodic updating of the anchor (θold) naturally restricts policy drift within each
+buffer lifecycle, achieving the stabilizing effects of a periodically updated reference model but
+at zero extra inference cost.
+Advantage Clipping. Building on the importance of stable optimization signals, advantage clipping
+further controls gradient variance induced by heterogeneous rewards. In prior work, the clipping
+threshold (Eq. 13) is typically set to 5, since reward distributions are relatively concentrated. However,
+our agent-based reward exhibits significantly higher variance due to curriculum design and the voting-
+based aggregation mechanism, resulting in frequent large advantage spikes. In this regime, a large
+clipping range effectively weakens the regularization effect. We therefore reduce the threshold to 2.5,
+which provides stronger constraint on extreme updates and leads to more stable convergence and
+improved empirical performance.
+Classifier-Free Guidance (CFG). We further study the role of CFG [28] during rollout generation
+in diffusion transformer (DiT) training. As shown in Table 3, enabling CFG consistently improves
+14
+
+
+Table 3 Ablation study on Kairos3.0-Robot on the PAIbench robot domain subset. We compare DynDiff-
+GRPO with and without CFG under identical base model, data, and 480 × 832 resolution. CFG improves
+domain and overall performance while maintaining strong perceptual quality. Best scores are shown in bold.
+Method
+Quality score
+Domain
+score
+Overall
+score
+i2v-bg
+i2v-s
+aes
+img
+bg-con
+mot
+sub-con
+o-con
+w/o CFG
+97.13
+94.26
+46.55
+69.55
+91.84
+99.27
+92.58
+19.54
+85.07
+80.71
+w/ CFG
+97.89
+95.03
+46.47
+68.98
+92.93
+99.36
+93.74
+19.50
+85.63
+81.18
+Table 4 Ablation study on Kairos3.0-Robot on the PAIbench robot domain subset. We report average quality
+score, domain score, and overall score under different training/inference resolutions and CFG settings. Best
+results are shown in bold.
+Method
+Train
+Infer
+CFG
+Quality (Avg.)
+Domain
+Overall
+Kairos-LR
+480×832 480×832
+Yes
+76.74
+85.63
+81.18
+Kairos-HR 640×820 640×820
+No
+77.24
+85.6
+81.42
+Kairos-HR 640×820 720×960
+No
+76.81
+86.95
+81.88
+generation fidelity and alignment-related metrics, leading to slightly higher domain and overall
+scores while maintaining comparable perceptual quality. This is consistent with prior diffusion
+modeling results, where CFG strengthens conditional guidance by amplifying conditional signals
+during sampling. However, these gains come with additional sampling overhead due to extra forward
+evaluations, which reduces rollout throughput in large-scale RL training. In contrast, disabling CFG
+substantially improves training efficiency and GPU utilization while still retaining competitive final
+performance under well-shaped reward signals and proper KL regularization. Overall, our results
+suggest that CFG is an effective auxiliary enhancement rather than a strictly necessary component.
+In practice, we often disable CFG under high-resolution training settings (e.g., 640 × 820 and above)
+to prioritize rollout efficiency while maintaining strong quantitative and perceptual performance.
+Resolution Selection. We further study the role of resolution selection in RL-based training.
+Unlike SFT, which is constrained by fixed dataset resolution, RL allows generation resolution to be
+explicitly controlled and optimized during training. This enables decoupling from dataset-imposed
+limitations and directly targeting higher-fidelity inference settings, which are often underrepresented
+in pretraining data.
+As shown in Table 4, we first evaluate a low-resolution setting (480×832) with CFG enabled
+and observe stable performance across both quality and domain scores.
+We then increase the
+training resolution to 640×820 and further test inference-time scaling. Without additional training,
+raising the inference resolution to 720×960 consistently improves domain alignment and overall
+performance. These results suggest that RL-trained models can better exploit higher-resolution
+inference distributions even when such data is scarce during training, highlighting the benefit of
+resolution-flexible optimization for improving perceptual quality and task performance.
+Overall, these findings suggest that the effectiveness of RL for embodied world models depends not only
+15
+
+
+on algorithmic design, but also on optimization stability (KL and clipping), distribution alignment
+(resolution and rollout configuration), and exploration control (CFG). To improve reproducibility,
+Appendix E summarizes the final training settings, which correspond to the empirically stable
+configurations consistently used across both Kairos3.0-Robot and Cosmos-Predict2.5 experiments.
+6
+Conclusion and Limitation
+In this work, we challenge the prevailing conservative paradigm of reinforcement learning for world
+models. Existing approaches often prioritize cautious sampling and optimization over limited high-
+certainty rewards, emphasizing stability at the cost of exploration and behavioral diversity. We
+argue that advancing world model post-training requires shifting focus toward rollout diversity
+and reward stability. Through our embodied study, we show that Dynamic-Aware Rollout
+Diversification combined with robust Reward as An Agent design is essential for unlocking the
+scaling potential of RL. While current diversity exploration remains limited to specific perturbations,
+we believe that further expanding rollout dimensions, including multi-modal trajectories and broader
+space variations, will enable world models to achieve even more sophisticated reasoning and open-
+ended generalization.
+16
+
+
+References
+[1] Daya Guo, Dejian Yang, Haowei Zhang, Junxiao Song, Peiyi Wang, Qihao Zhu, Runxin Xu, Ruoyu
+Zhang, Shirong Ma, Xiao Bi, Xiaokang Zhang, Xingkai Yu, Yu Wu, Z. F. Wu, Zhibin Gou, Zhihong
+Shao, Zhuoshu Li, Ziyi Gao, Aixin Liu, Bing Xue, Bingxuan Wang, Bochao Wu, Bei Feng, Chengda Lu,
+Chenggang Zhao, Chengqi Deng, Chong Ruan, Damai Dai, Deli Chen, Dongjie Ji, Erhang Li, Fangyun
+Lin, Fucong Dai, Fuli Luo, Guangbo Hao, Guanting Chen, Guowei Li, H. Zhang, Hanwei Xu, Honghui
+Ding, Huazuo Gao, Hui Qu, Hui Li, Jianzhong Guo, Jiashi Li, Jingchang Chen, Jingyang Yuan, Jinhao
+Tu, Junjie Qiu, Junlong Li, J. L. Cai, Jiaqi Ni, Jian Liang, Jin Chen, Kai Dong, Kai Hu, Kaichao You,
+Kaige Gao, Kang Guan, Kexin Huang, Kuai Yu, Lean Wang, Lecong Zhang, Liang Zhao, Litong Wang,
+Liyue Zhang, Lei Xu, Leyi Xia, Mingchuan Zhang, Minghua Zhang, Minghui Tang, Mingxu Zhou, Meng
+Li, Miaojun Wang, Mingming Li, Ning Tian, Panpan Huang, Peng Zhang, Qiancheng Wang, Qinyu
+Chen, Qiushi Du, Ruiqi Ge, Ruisong Zhang, Ruizhe Pan, Runji Wang, R. J. Chen, R. L. Jin, Ruyi Chen,
+Shanghao Lu, Shangyan Zhou, Shanhuang Chen, Shengfeng Ye, Shiyu Wang, Shuiping Yu, Shunfeng
+Zhou, Shuting Pan, S. S. Li, Shuang Zhou, Shaoqing Wu, Tao Yun, Tian Pei, Tianyu Sun, T. Wang,
+Wangding Zeng, Wen Liu, Wenfeng Liang, Wenjun Gao, Wenqin Yu, Wentao Zhang, W. L. Xiao, Wei
+An, Xiaodong Liu, Xiaohan Wang, Xiaokang Chen, Xiaotao Nie, Xin Cheng, Xin Liu, Xin Xie, Xingchao
+Liu, Xinyu Yang, Xinyuan Li, Xuecheng Su, Xuheng Lin, X. Q. Li, Xiangyue Jin, Xiaojin Shen, Xiaosha
+Chen, Xiaowen Sun, Xiaoxiang Wang, Xinnan Song, Xinyi Zhou, Xianzu Wang, Xinxia Shan, Y. K.
+Li, Y. Q. Wang, Y. X. Wei, Yang Zhang, Yanhong Xu, Yao Li, Yao Zhao, Yaofeng Sun, Yaohui Wang,
+Yi Yu, Yichao Zhang, Yifan Shi, Yiliang Xiong, Ying He, Yishi Piao, Yisong Wang, Yixuan Tan, Yiyang
+Ma, Yiyuan Liu, Yongqiang Guo, Yuan Ou, Yuduan Wang, Yue Gong, Yuheng Zou, Yujia He, Yunfan
+Xiong, Yuxiang Luo, Yuxiang You, Yuxuan Liu, Yuyang Zhou, Y. X. Zhu, Yanping Huang, Yaohui Li,
+Yi Zheng, Yuchen Zhu, Yunxian Ma, Ying Tang, Yukun Zha, Yuting Yan, Z. Z. Ren, Zehui Ren, Zhangli
+Sha, Zhe Fu, Zhean Xu, Zhenda Xie, Zhengyan Zhang, Zhewen Hao, Zhicheng Ma, Zhigang Yan, Zhiyu
+Wu, Zihui Gu, Zijia Zhu, Zijun Liu, Zilin Li, Ziwei Xie, Ziyang Song, Zizheng Pan, Zhen Huang, Zhipeng
+Xu, Zhongyu Zhang, and Zhen Zhang. Deepseek-r1 incentivizes reasoning in llms through reinforcement
+learning. Nature, 645(8081):633–638, 2025.
+[2] Shuai Bai, Yuxuan Cai, Ruizhe Chen, Keqin Chen, Xionghui Chen, Zesen Cheng, Lianghao Deng, Wei
+Ding, Chang Gao, Chunjiang Ge, Wenbin Ge, Zhifang Guo, Qidong Huang, Jie Huang, Fei Huang,
+Binyuan Hui, Shutong Jiang, Zhaohai Li, Mingsheng Li, Mei Li, Kaixin Li, Zicheng Lin, Junyang Lin,
+Xuejing Liu, Jiawei Liu, Chenglong Liu, Yang Liu, Dayiheng Liu, Shixuan Liu, Dunjie Lu, Ruilin Luo,
+Chenxu Lv, Rui Men, Lingchen Meng, Xuancheng Ren, Xingzhang Ren, Sibo Song, Yuchong Sun, Jun
+Tang, Jianhong Tu, Jianqiang Wan, Peng Wang, Pengfei Wang, Qiuyue Wang, Yuxuan Wang, Tianbao
+Xie, Yiheng Xu, Haiyang Xu, Jin Xu, Zhibo Yang, Mingkun Yang, Jianxin Yang, An Yang, Bowen
+Yu, Fei Zhang, Hang Zhang, Xi Zhang, Bo Zheng, Humen Zhong, Jingren Zhou, Fan Zhou, Jing Zhou,
+Yuanzhi Zhu, and Ke Zhu. Qwen3-vl technical report, 2025.
+[3] Jie Liu, Gongye Liu, Jiajun Liang, Yangguang Li, Jiaheng Liu, Xintao Wang, Pengfei Wan, Di Zhang,
+and Wanli Ouyang. Flow-grpo: Training flow matching models via online rl, 2025.
+[4] Zeyue Xue, Jie Wu, Yu Gao, Fangyuan Kong, Lingting Zhu, Mengzhao Chen, Zhiheng Liu, Wei Liu,
+Qiushan Guo, Weilin Huang, and Ping Luo. Dancegrpo: Unleashing grpo on visual generation, 2025.
+[5] Junzhe Li, Yutao Cui, Tao Huang, Yinping Ma, Chun Fan, Yiming Cheng, Miles Yang, Zhao Zhong, and
+Liefeng Bo. Mixgrpo: Unlocking flow-based grpo efficiency with mixed ode-sde, 2026.
+[6] Yibin Wang, Zhimin Li, Yuhang Zang, Yujie Zhou, Jiazi Bu, Chunyu Wang, Qinglin Lu, Cheng Jin, and
+Jiaqi Wang. Pref-grpo: Pairwise preference reward-based grpo for stable text-to-image reinforcement
+learning, 2026.
+[7] Mingzhe Zheng, Weijie Kong, Yue Wu, Dengyang Jiang, Yue Ma, Xuanhua He, Bin Lin, Kaixiong Gong,
+Zhao Zhong, Liefeng Bo, Qifeng Chen, and Harry Yang. Manifold-aware exploration for reinforcement
+learning in video generation. arXiv preprint arXiv:2603.21872, 2026.
+17
+
+
+[8] Yibin Wang, Yuhang Zang, Feng Han, Jiazi Bu, Yujie Zhou, Cheng Jin, and Jiaqi Wang. Unified
+personalized reward model for vision generation. arXiv preprint arXiv:2602.02380, 2026.
+[9] Jake Bruce, Michael Dennis, Ashley Edwards, Jack Parker-Holder, Yuge Shi, Edward Hughes, Matthew
+Lai, Aditi Mavalankar, Richie Steigerwald, Chris Apps, Yusuf Aytar, Sarah Bechtle, Feryal Behbahani,
+Stephanie Chan, Nicolas Heess, Lucy Gonzalez, Simon Osindero, Sherjil Ozair, Scott Reed, Jingwei Zhang,
+Konrad Zolna, Jeff Clune, Nando de Freitas, Satinder Singh, and Tim Rocktäschel. Genie: Generative
+interactive environments, 2024.
+[10] Anthony Hu, Lloyd Russell, Hudson Yeo, Zak Murez, George Fedoseev, Alex Kendall, Jamie Shotton,
+and Gianluca Corrado. Gaia-1: A generative world model for autonomous driving, 2023.
+[11] Mengjiao Yang, Yifan Lu, Danfei Xu, et al. Unisim: Learning interactive real-world simulators, 2023.
+[12] NVIDIA, :, Arslan Ali, Junjie Bai, Maciej Bala, Yogesh Balaji, Aaron Blakeman, Tiffany Cai, Jiaxin
+Cao, Tianshi Cao, Elizabeth Cha, Yu-Wei Chao, Prithvijit Chattopadhyay, Mike Chen, Yongxin Chen,
+Yu Chen, Shuai Cheng, Yin Cui, Jenna Diamond, Yifan Ding, Jiaojiao Fan, Linxi Fan, Liang Feng,
+Francesco Ferroni, Sanja Fidler, Xiao Fu, Ruiyuan Gao, Yunhao Ge, Jinwei Gu, Aryaman Gupta,
+Siddharth Gururani, Imad El Hanafi, Ali Hassani, Zekun Hao, Jacob Huffman, Joel Jang, Pooya Jannaty,
+Jan Kautz, Grace Lam, Xuan Li, Zhaoshuo Li, Maosheng Liao, Chen-Hsuan Lin, Tsung-Yi Lin, Yen-Chen
+Lin, Huan Ling, Ming-Yu Liu, Xian Liu, Yifan Lu, Alice Luo, Qianli Ma, Hanzi Mao, Kaichun Mo,
+Seungjun Nah, Yashraj Narang, Abhijeet Panaskar, Lindsey Pavao, Trung Pham, Morteza Ramezanali,
+Fitsum Reda, Scott Reed, Xuanchi Ren, Haonan Shao, Yue Shen, Stella Shi, Shuran Song, Bartosz
+Stefaniak, Shangkun Sun, Shitao Tang, Sameena Tasmeen, Lyne Tchapmi, Wei-Cheng Tseng, Jibin
+Varghese, Andrew Z. Wang, Hao Wang, Haoxiang Wang, Heng Wang, Ting-Chun Wang, Fangyin Wei,
+Jiashu Xu, Dinghao Yang, Xiaodong Yang, Haotian Ye, Seonghyeon Ye, Xiaohui Zeng, Jing Zhang,
+Qinsheng Zhang, Kaiwen Zheng, Andrew Zhu, and Yuke Zhu. World simulation with video foundation
+models for physical ai, 2026.
+[13] Adrien Bardes, Quentin Garrido, Jean-Baptiste Alayrac, et al. V-jepa: Video joint embedding predictive
+architecture, 2024.
+[14] Mido Assran, Adrien Bardes, David Fan, Quentin Garrido, Russell Howes, Mojtaba, Komeili, Matthew
+Muckley, Ammar Rizvi, Claire Roberts, Koustuv Sinha, Artem Zholus, Sergio Arnaud, Abha Gejji,
+Ada Martin, Francois Robert Hogan, Daniel Dugas, Piotr Bojanowski, Vasil Khalidov, Patrick Labatut,
+Francisco Massa, Marc Szafraniec, Kapil Krishnakumar, Yong Li, Xiaodong Ma, Sarath Chandar,
+Franziska Meier, Yann LeCun, Michael Rabbat, and Nicolas Ballas. V-jepa 2: Self-supervised video
+models enable understanding, prediction and planning, 2025.
+[15] Patrick Esser, Sumith Kulal, Andreas Blattmann, et al. Scaling rectified flow transformers for high-
+resolution image synthesis, 2024.
+[16] Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei Zhang, Mingchuan
+Zhang, Y. K. Li, Y. Wu, and Daya Guo. Deepseekmath: Pushing the limits of mathematical reasoning
+in open language models, 2024.
+[17] Feng Wang and Zihao Yu. Coefficients-preserving sampling for reinforcement learning with flow matching,
+2025.
+[18] Jie Liu, Zilyu Ye, Linxiao Yuan, Shenhan Zhu, Yu Gao, Jie Wu, Kunchang Li, Xionghui Wang, Xiaonan
+Nie, Weilin Huang, and Wanli Ouyang. Unigrpo: Unified policy optimization for reasoning-driven visual
+generation, 2026.
+[19] Jie Liu, Gongye Liu, Jiajun Liang, Ziyang Yuan, Xiaokun Liu, Mingwu Zheng, Xiele Wu, Qiulin Wang,
+Menghan Xia, Xintao Wang, Xiaohong Liu, Fei Yang, Pengfei Wan, Di Zhang, Kun Gai, Yujiu Yang,
+and Wanli Ouyang. Improving video generation with human feedback, 2025.
+[20] Fengzhe Zhou, Jiannan Huang, Jialuo Li, Deva Ramanan, and Humphrey Shi. Pai-bench: A comprehensive
+benchmark for physical ai, 2025.
+18
+
+
+[21] Yufan Deng, Zilin Pan, Hongyu Zhang, Xiaojie Li, Ruoqing Hu, Yufei Ding, Yiming Zou, Yan Zeng,
+and Daquan Zhou.
+Rethinking video generation model for the embodied world.
+arXiv preprint
+arXiv:2601.15282, 2026.
+[22] Zehan Wang, Tengfei Wang, Haiyu Zhang, Xuhui Zuo, Junta Wu, Haoyuan Wang, Wenqiang Sun, Zhenwei
+Wang, Chenjie Cao, Hengshuang Zhao, Chunchao Guo, and Zhou Zhao. Worldcompass: Reinforcement
+learning for long-horizon world models, 2026.
+[23] AgiBot World Colosseum contributors. Agibot world colosseum. https://github.com/OpenDriveLab/
+AgiBot-World, 2024.
+[24] Zhenyu Zhao, Hongyi Jing, Xiawei Liu, Jiageng Mao, Abha Jha, Hanwen Yang, Rong Xue, Sergey
+Zakharor, Vitor Guizilini, and Yue Wang. Humanoid everyday: A comprehensive robotic dataset for
+open-world humanoid manipulation, 2025.
+[25] Alexander Khazatsky, Karl Pertsch, Suraj Nair, Ashwin Balakrishna, Sudeep Dasari, Siddharth Karam-
+cheti, Soroush Nasiriany, Mohan Kumar Srirama, Lawrence Yunliang Chen, Kirsty Ellis, Peter David
+Fagan, Joey Hejna, Masha Itkina, Marion Lepert, Yecheng Jason Ma, Patrick Tree Miller, Jimmy Wu,
+Suneel Belkhale, Shivin Dass, Huy Ha, Arhan Jain, Abraham Lee, Youngwoon Lee, Marius Memmel,
+Sungjae Park, Ilija Radosavovic, Kaiyuan Wang, Albert Zhan, Kevin Black, Cheng Chi, Kyle Beltran
+Hatch, Shan Lin, Jingpei Lu, Jean Mercat, Abdul Rehman, Pannag R Sanketi, Archit Sharma, Cody
+Simpson, Quan Vuong, Homer Rich Walke, Blake Wulfe, Ted Xiao, Jonathan Heewon Yang, Arefeh
+Yavary, Tony Z. Zhao, Christopher Agia, Rohan Baijal, Mateo Guaman Castro, Daphne Chen, Qiuyu
+Chen, Trinity Chung, Jaimyn Drake, Ethan Paul Foster, Jensen Gao, Vitor Guizilini, David Antonio
+Herrera, Minho Heo, Kyle Hsu, Jiaheng Hu, Muhammad Zubair Irshad, Donovon Jackson, Charlotte
+Le, Yunshuang Li, Kevin Lin, Roy Lin, Zehan Ma, Abhiram Maddukuri, Suvir Mirchandani, Daniel
+Morton, Tony Nguyen, Abigail O’Neill, Rosario Scalise, Derick Seale, Victor Son, Stephen Tian, Emi
+Tran, Andrew E. Wang, Yilin Wu, Annie Xie, Jingyun Yang, Patrick Yin, Yunchu Zhang, Osbert Bastani,
+Glen Berseth, Jeannette Bohg, Ken Goldberg, Abhinav Gupta, Abhishek Gupta, Dinesh Jayaraman,
+Joseph J Lim, Jitendra Malik, Roberto Martín-Martín, Subramanian Ramamoorthy, Dorsa Sadigh,
+Shuran Song, Jiajun Wu, Michael C. Yip, Yuke Zhu, Thomas Kollar, Sergey Levine, and Chelsea Finn.
+Droid: A large-scale in-the-wild robot manipulation dataset, 2025.
+[26] Kairos Team, Fei Wang, Shan You, Qiming Zhang, Tao Huang, Zuoyi Fu, Zhisheng Zheng, Yunlong Xi,
+Feng Lv, Xiaoming Wu, Zeyu Liu, Cong Wan, Pu Li, Ruiqing Yang, Xiaoou Li, Wei Wang, Kangkang
+Zhu, Yuwei Zhang, Shi Fu, Zheng Zhang, Xiaoning Wu, Xuzeng Fan, Dacheng Tao, and Xiaogang Wang.
+Kairos: A native world model stack for physical ai, 2026.
+[27] Oriane Sim’eoni, Huy V. Vo, Maximilian Seitzer, Federico Baldassarre, Maxime Oquab, Cijo Jose, Vasil
+Khalidov, Marc Szafraniec, Seungeun Yi, Michael Ramamonjisoa, Francisco Massa, Daniel Haziza, Luca
+Wehrstedt, Jianyuan Wang, Timothée Darcet, Théo Moutakanni, Leonel Sentana, Claire Roberts, Andrea
+Vedaldi, Jamie Tolan, John Brandt, Camille Couprie, Julien Mairal, Herv’e J’egou, Patrick Labatut, and
+Piotr Bojanowski. Dinov3. 2025.
+[28] Jonathan Ho and Tim Salimans. Classifier-free diffusion guidance, 2022.
+[29] Qwen Team. Qwen3.5: Towards native multimodal agents, February 2026.
+[30] Woosuk Kwon, Zhuohan Li, Siyuan Zhuang, Ying Sheng, Lianmin Zheng, Cody Hao Yu, Joseph E.
+Gonzalez, Hao Zhang, and Ion Stoica. Efficient memory management for large language model serving
+with pagedattention. In Proceedings of the ACM SIGOPS 29th Symposium on Operating Systems
+Principles, 2023.
+19
+
+
+A
+Appendix: Detailed Experimental Cases of Reward Hacking in Current Mainstream
+Reward Systems
+This appendix presents the detailed experimental contents of the four reward hacking cases summarized
+in the main text, including the prompts for embodied video generation in each scenario and the
+corresponding scores of different reward types.
+case (a)
+prompt:
+[robot_arm_brand:eve_robot][robot_arm_type:Dual-Arm][camera_position:head][scene_bg:
+office][position:in front of a desk][object:red can, silver can][task:grasped, grasped
+] Caption:This video is recorded using a eve_robot robotic arm (Dual-Arm) equipped
+with a normal camera at the head view.
+The robot, equipped with dual arms, begins by
+simultaneously grasping two small cylindrical metal cans - a red can and a silver can -
+both initially positioned near the center of a red tray. The left arm moves to grasp
+the red can, fully closing its gripper for a stable hold, then lifts it slightly and
+relocates it to the left side of the tray. Concurrently, the right arm grasps the
+silver can, also using a fully closed gripper, lifts it slightly, and moves it to the
+right side of the tray while the left arm holds the red can. The two arms operate
+independently and synchronously throughout the task, successfully separating the cans
+to opposite sides of the tray without any visible abnormalities.[SCENE]: The robot
+operates in an office environment with bright and uniform lighting. The scene is
+centered around a red tray with a vertical blue stripe on its surface, placed on the
+floor directly in front of the robot. Behind the tray stands a white humanoid robot
+with a black and white body, observing the task. In the background, office furniture
+including tables, stools, and chairs are visible, arranged in a spacious layout. The
+overall setting is clean and organized, with no clutter obstructing the robot’s
+workspace.
+score:
+VideoAlign
+’VQ’: 0.7905303239822388 (0-1)
+’MQ’: 0.5563995838165283 (0-1)
+’TA’: 0.351311057806015 (0-1)
+case (b)
+prompt:
+This video is recorded using a Agibot-Genie-1 robotic arm (Dual-Arm) equipped with a
+normal camera at the head view. The robot’s left arm is actively grasping an olive
+green, corduroy fabric sofa cushion that is resting on the left arm of the sofa. The
+gripper is fully closed to maintain a stable hold, and the arm is making slight
+adjustments to the cushion’s position while keeping it securely in grasp. Meanwhile,
+the right arm remains stationary and does not interact with any objects. The task
+objective is to grasp the sofa cushion, which the left arm has successfully
+accomplished without any abnormal situations observed. The robot is positioned in an
+indoor environment with soft ambient lighting, and the scene includes an L-shaped
+olive green corduroy sofa occupying most of the frame, with a light brown curtain
+hanging vertically on the left side behind the sofa.The robot operates in an indoor
+20
+
+
+setting, likely a living room, under soft ambient lighting. The primary interactive
+object, the olive green corduroy sofa cushion, is located on the left armrest of a
+large L-shaped sofa made of the same fabric. To the left of the sofa, a light brown
+curtain hangs vertically, partially visible behind the sofa. The robot’s dual arms are
+positioned above the sofa, with the left arm engaged in manipulation and the right
+arm idle. The overall layout suggests a typical residential space with furniture
+arranged for comfort and functionality.
+score:
+UnifiedReward-Flex (fine-tuned on Qwen3.5)
+Alignment Score (1-5): 2.756700038909912 (0-5)
+Physics Score (1-5): 3.469099998474121 (0-5)
+Style Score (1-5): 2.708400011062622 (0-5)
+case (c)
+prompt:
+This video is recorded using a eve_robot robotic arm (Dual-Arm) equipped with a normal
+camera at the head view.The robot begins by grasping a small green rectangular object
+located on the wooden table near the center. Its right arm moves to pick up the
+object, closing its gripper fully for a stable grasp, then lifts it slightly before
+moving it toward the light wooden rectangular tray positioned in the center of the
+table. Meanwhile, the left arm remains stationary, not interacting with any objects.
+The task objective is to move the green object toward the tray, which the robot
+successfully accomplishes without any abnormal situations. The tray already holds a
+yellow circular object, an orange rectangular object, and a black rectangular object,
+which remain undisturbed during the action.[SCENE]: The robot operates in a
+manufacturing workshop, illuminated by natural light streaming through a large window
+positioned behind the table. The scene is centered around a wooden table with a light
+wooden rectangular tray placed in the middle. On the tray are a yellow circular object,
+an orange rectangular object, and a black rectangular object. In the background,
+various workshop equipment and tools are visible, arranged around the workspace,
+contributing to the industrial ambiance of the environment.
+score:
+VideoAlign
+’VQ’: 0.8031737804412842 (0-1)
+’MQ’: 0.382602721452713 (0-1)
+’TA’: 0.7577943801879883 (0-1)
+case (d)
+prompt:
+This video is recorded using a Agibot-Genie-1 robotic arm (Dual-Arm) equipped with a
+normal camera at the head view. The robot begins by coordinating its dual arms to open
+a brown cardboard tissue box positioned at the center of a white table. The left arm
+moves forward and grasps the edge of the lid, applying force to lift it, while the
+right arm simultaneously approaches from the opposite side, gripping the lid to assist
+in the opening. Both arms work in tandem, applying pressure to the lid, resulting in
+21
+
+
+it being partially lifted open. The robot’s actions are synchronized, and no abnormal
+situations are observed during this attempt. In the background, a white clipboard with
+a blue border rests on the left side of the table, and a blue tissue box with
+partially pulled-out tissue paper sits in the bottom right corner, remaining untouched
+throughout the process.The robot operates in a clean, well-lit indoor environment,
+likely a laboratory or demonstration workspace. The scene is dominated by a white
+table that serves as the primary workspace. On the table, the brown cardboard tissue
+box with a blue tissue compartment and multiple pen/pencil slots is centered, directly
+in front of the robot. To the left, a white clipboard with a blue border and grid
+paper is positioned behind the robot’s left arm. In the bottom right corner, a blue
+tissue box with partially pulled-out tissue paper is visible. The overall setting is
+minimalistic, with no clutter, allowing clear visibility of the robot’s manipulation
+task.
+score:
+UnifiedReward-Flex (fine-tuned on Qwen3.5)
+Alignment Score (1-5): 1 (0-5)
+Physics Score (1-5): 3 (0-5)
+Style Score (1-5): 2 (0-5)
+B
+Appendix: Reward Model Judgement Results for Embodied Task Test Cases
+This appendix presents the actual discrimination outputs of the proposed reward model on embodied
+task test cases. It includes video frame extractions of typical test cases, task input prompts, and raw
+log results of reward model inference, and verifies the stable performance of the constructed reward
+model from four dimensions: visual quality, instruction adherence, physical compliance, and task
+completion degree.(The result descriptions in every case are translated from the original Chinese
+text)
+case (a)
+Figure 4 Frames in case (a)
+Prompt:
+This video is recorded using a eve_robot robotic arm (Dual-Arm) equipped with a normal
+camera at the head view.The robot, positioned at the center of a desktop in a home
+living room, uses its right arm to simultaneously grasp a white cylindrical marker
+with a cap and a small red rectangular object, both initially located on the right
+side of the desktop near the edge. The gripper closes fully to ensure stable grasping,
+and the robot lifts both objects upward in a single coordinated motion. The left arm
+remains stationary throughout, not interacting with any objects. The task, to grasp
+22
+
+
+and lift the white marker and the red object, is successfully completed without any
+abnormal situations. In the background, a gray plastic tray with compartments sits on
+the left side of the desktop, and a large black fabric hangs on the wall behind the
+desktop.[SCENE]: The robot operates in a home living room with bright and uniform
+lighting. The scene centers on a wooden desktop with a gray plastic tray on the left
+side and a large black fabric hanging on the wall behind it. The robot’s arms are
+positioned at the center of the desktop, interacting with objects placed on its
+surface. The environment is clean and organized, with no clutter obstructing the robot’
+s workspace.
+Result:
+Planning:
+{’video_quality_category’: ’Very Poor’,
+’reason’: ’The visual quality is acceptable, yet severe errors exist in motion
+execution and instruction following. The description requires the robot to grasp and
+lift a white cylindrical marker and a red rectangular object. However, only the red
+object appears in the video frame, while the white marker is completely missing. In
+addition, obvious penetration occurs between the gripper fingers and the red object
+when the robot’s right arm attempts to grasp it, and the robot ultimately fails to
+lift the object successfully, resulting in an extremely low task completion level.’}
+case (b)
+Figure 5 Frames in case (b)
+Prompt:
+This video is recorded using a Agibot-Genie-1 robotic arm (Dual-Arm) equipped with a
+normal camera at the head view. The robot’s right arm, holding a small-sized blue
+plastic rectangular packaging, moves downward to place it into a medium-sized white
+plastic cylindrical trash bin located on the right side of the desktop. The gripper
+remains fully closed for stable grasping during the motion. Meanwhile, the left arm
+remains stationary and does not interact with any objects. The task of placing the
+blue plastic packaging into the trash bin is successfully completed without any
+abnormal situations. The scene includes other non-interactive objects such as a green
+plastic bottle at the center, a yellow plastic bottle on the right, a white ceramic
+vase and a black lamp on the left, and a white book on the right side of the desktop,
+all arranged on the dark wooden surface.The robot operates in an indoor environment
+with bright and uniform lighting, likely a workspace or office setting. The scene is
+centered around a dark wooden desktop where various objects are arranged: a white
+ceramic vase and a black lamp are positioned on the left side, while a green plastic
+bottle is in the center and a yellow plastic bottle, along with a white book, are on
+the right side. The white trash bin, the target for the blue plastic packaging, is
+23
+
+
+also located on the right side of the desktop. The overall layout is orderly and
+provides a clear workspace for the robot’s manipulation task.
+Result:
+Planning
+{"video_quality_category": "Excellent",
+"reason": "The visual quality is clear with uniform lighting and distinct object
+details. The movements are coherent and precise. The robotic arm successfully places
+the blue package into the trash bin with perfect instruction adherence. Physical
+interaction is reasonable without object penetration or abnormal collisions. The task
+completion degree is high, achieving an overall excellent performance."}
+Video Clarity and Brightness
+{"clarity_score": 1,
+"clarity_reason": "Ontology clarity: The edges, joint structures and surface textures
+of the robotic arm are clearly distinguishable across the four frames; background
+clarity: environmental details such as table lamps, detergent bottles and windows in
+the background are clear with a definite spatial structure; target object clarity: the
+outline of the manipulated blue package and white trash bin is distinct and easy to
+recognize. There is no overall blurriness in the frame.",
+"brightness_score": 1,
+"brightness_reason": "The overall exposure is reasonable with moderate brightness, no
+overexposure or underexposure, and clear visibility of scene details; highlight areas
+such as the white trash bin have no excessive saturation; the brightness remains
+consistent across the four frames without flickering or abrupt light fluctuation."}
+Video Color
+{"score": 1,
+"reason": "The sampled video frames show normal overall color. The colors of the dark
+wooden tabletop, white trash bin, green and yellow detergent bottles, and robotic arm
+in the frame are consistent with real-world physical features, without extreme
+oversaturation, unnatural strong contrast, or large-area severe color deviation.
+Although the overall frame brightness is slightly low, it conforms to a normal indoor
+lighting environment with no obvious color quality issues or unnatural visual
+artifacts."}
+First Frame Consistency
+{"score": 1,
+"reason": "Comparing the first frame with the subsequent three frames, the overall
+frame brightness remains consistent, and the clarity of background objects such as
+table lamps and detergent bottles does not degrade. Natural motion blur occurs as the
+robotic arm moves, which is a normal phenomenon caused by object motion rather than
+overall image quality degradation or compression artifacts. The image quality and
+light and shadow performance of subsequent frames are consistent with the first frame
+with no anomalies detected."}
+Instruction Adherence
+{"background_consistency_deduction": 1,
+"background_consistency_deduction_reason": "The white book required by the instruction
+is missing, and the position of the vase is inconsistent with the description.",
+"target_consistency_deduction": 0,
+"target_consistency_deduction_reason": "The category, color, shape and position of the
+24
+
+
+target object are all consistent with the instruction.",
+"view_consistency_deduction": 0,
+"view_consistency_deduction_reason": "The top-down head perspective is maintained
+throughout with stable layout and no sudden view changes."}
+Instruction Adherence Reflection
+{"background_consistency_deduction": 1,
+"background_consistency_deduction_reason": "The task requires a white book in the
+background, which is missing in all four frames; the vase position does not match the
+description, leading to inconsistent background elements and revised initial
+evaluation.",
+"target_consistency_deduction": 0,
+"target_consistency_deduction_reason": "The head perspective is maintained throughout,
+the robotic arm is located on the right, with no rotation, scaling or mirroring
+between frames and stable layout, no revision needed.",
+"view_consistency_deduction": 0}
+case (c)
+Figure 6 Frames in case (c)
+Prompt:
+This video is recorded using a Agibot-Genie-1 robotic arm (Dual-Arm) equipped with a
+normal camera at the head view. The robot successfully grasps a small-sized yellow
+plastic toy car with black wheels, which was initially positioned near the center-
+right of the red-and-white checkered tablecloth. Its right arm, equipped with a
+gripper that fully closes for stable grasping, lifts the toy car upward and moves it
+slightly to the right. Meanwhile, the left arm remains stationary, not interacting
+with any objects. The task, to pick up the yellow toy car, is in progress with no
+obvious abnormal situations observed. The robot’s right arm is the only active
+component, executing the manipulation while the left arm stays idle. The robot
+operates in a bright, indoor environment with a clean, gray floor and uniform lighting.
+A red-and-white checkered tablecloth covers the central work surface, where the
+yellow toy car and a green plastic toy are placed. Behind the table, a beige
+rectangular plastic container holds additional colorful objects. In the background, a
+black office chair with wheels is positioned to the right, and a person wearing white
+pants and red shoes stands behind the table. The setup suggests a controlled
+experimental or demonstration space, with the robot’s arms positioned to interact with
+objects on the table.
+Result:
+25
+
+
+Planning
+{’video_quality_category’: ’Excellent’,
+’reason’: ’Visual quality is clear with good lighting and stable framing. The right
+arm executes a smooth, precise grasp of the toy car, lifting it naturally without
+slippage or collision. The left arm remains stationary, which is appropriate as it is
+not required for this task. Physical interactions are realistic, and the task is
+progressing successfully with no anomalies.’}
+Video Clarity and Brightness
+{’clarity_score’: 1,
+’clarity_reason’: ’Robot body clarity: The edges, textures and structure of the
+robotic arm are clearly distinguishable across the four frames; background clarity:
+the textures and spatial structure of the background environment (floor, chair,
+storage box) are clear; target object clarity: the manipulated toy car and other
+objects on the table are clearly visible and easy to identify. The overall visual
+perception is clear without blurriness that affects recognition.’,
+’brightness_score’: 1,
+’brightness_reason’: ’The overall brightness is moderate with reasonable exposure, no
+obvious overexposure or underexposure, and scene details are clearly visible. The
+brightness remains consistent across the four frames without flickering or abrupt
+light fluctuation.’}
+Video Color
+{’score’: 1,
+’reason’: ’The sampled video frames show natural color restoration and uniform
+lighting. The red-and-white checkered tablecloth, green storage basket, and metallic
+texture of the robotic arm in the frame all appear realistic. There are no
+abnormalities such as extreme oversaturation, unnatural strong contrast, or large-area
+severe color deviation. The overall frame is clear without obvious CG synthetic
+distortion or green screen background traces, conforming to the color standards of
+real shooting scenarios.’}
+First Frame Consistency
+{’score’: 1,
+’reason’: ’Comparing the first frame with the subsequent three frames, the overall
+frame brightness remains consistent and the background lighting is stable. Although
+the right robotic arm enters the frame in subsequent frames and causes normal motion
+blur on itself, stationary objects in the frame (such as the left robotic arm, green
+storage basket, and tablecloth texture) maintain good clarity. There are no anomalies
+such as overall image quality degradation, blurry edges, or compression artifacts.
+Therefore, the image quality and light and shadow are judged to be consistent.’}
+Instruction Adherence
+{’background_consistency_deduction’: 0,
+’background_consistency_deduction_reason’: ’The background contains a red-and-white
+checkered tablecloth, green storage box, black chair, and a person wearing white pants
+and red shoes, which are consistent with the instruction.’,
+’target_consistency_deduction’: 1,
+’target_consistency_deduction_reason’: ’The instruction requires grasping a yellow toy
+car, while the actual grasped object is a brown toy car with inconsistent color.’,
+’view_consistency_deduction’: 0,
+’view_consistency_deduction_reason’: ’The head-mounted first-person perspective is
+26
+
+
+maintained throughout; the right arm is on the right and the left arm is on the left
+with no sudden perspective changes.’}
+Instruction Adherence Reflection
+{’background_consistency_deduction’: 0,
+’background_consistency_deduction_reason’: ’The task does not specify fixed background
+items. In the four frames, the position and color of the red-and-white checkered
+tablecloth, green storage box, chair and character are stable and consistent without
+changes.’,
+’target_consistency_deduction’: 1,
+’target_consistency_deduction_reason’: ’The instruction requires grasping a yellow toy
+car, but the object manipulated by the robotic arm in the four frames is a brown toy
+car with inconsistent color and wrong target.’,
+’view_consistency_deduction’: 0,
+’view_consistency_deduction_reason’: ’All four frames adopt the head-mounted first-
+person perspective; the left arm is on the left and the right arm is on the right
+without rotation, scaling or mirror flipping, maintaining a stable and consistent
+perspective.’}
+case (d)
+Figure 7 Frames in case (d)
+Prompt:
+This video is recorded using a Agibot-Genie-1 robotic arm (Dual-Arm) equipped with a
+normal camera at the head view. The robot begins preparing to peel a white radish by
+moving its right arm downward, holding a metallic peeler, to make contact with the
+surface of the radish positioned on a blue cutting board. The right arm maintains a
+firm grip on the peeler as it positions itself for the peeling action, while the left
+arm remains stationary and does not interact with any objects. The task objective is
+to peel the radish, and the right arm successfully grasps and positions the peeler
+above the radish, indicating readiness to begin. No abnormal situations are observed
+during this action sequence. The scene includes a white ceramic bowl to the left of
+the cutting board, a gray plastic storage rack to the right, and a white bottle with a
+red label near the sink, all visible in the well-lit kitchen environment.The robot
+operates in a bright and uniform lighting kitchen environment. The workspace is
+centered around a white countertop with a blue cutting board holding the white,
+cylindrical radish. To the left of the cutting board is a white ceramic bowl, and to
+the right is a gray plastic multi-compartment storage rack. Near the sink, a white
+plastic bottle with a red label is visible. The background includes a window with a
+white frame and a stainless steel sink, contributing to a clean and organized indoor
+setting.
+27
+
+
+Result:
+Planning
+{"video_quality_category":
+"Excellent", "reason": "The visual quality is clear with uniform lighting and rich
+scene details. The movements are coherent and conform to physical laws. The right
+robotic arm holds the peeler and approaches and contacts the radish steadily, while
+the left robotic arm remains stationary to fix the object, complying with task logic.
+There is no object penetration or abnormal jitter, achieving an overall excellent
+performance."}
+Video Clarity and Brightness
+{"clarity_score": 1,
+"clarity_reason": "Robot body clarity: The structure, joints and end-effector edges of
+the robotic arm are clear with distinguishable textures; background clarity:
+environmental details such as windows, wall tiles, storage baskets and sinks in the
+background are clearly visible; target object clarity: the manipulated radish and blue
+cutting board are clearly visible. Although slight motion blur exists during the
+movement of the robotic arm, the overall structure remains clear without affecting
+recognition, which meets the evaluation criteria.",
+"brightness_score": 1,
+"brightness_reason": "The overall exposure is reasonable with moderate frame
+brightness and no obvious overexposure or underexposure, and scene details are clearly
+visible. Highlight areas such as windows and metal components have no over-saturation.
+The brightness of the four frames remains consistent without flickering or abrupt
+light changes."}
+Video Color
+{"score": 1,
+"reason": "The sampled video frames present normal overall color. The colors of the
+robotic arm, white radish, blue cutting board and background environment are naturally
+restored and consistent with the visual features of the real physical world. Although
+the overall tone is slightly cool due to indoor cold light illumination, it belongs
+to normal white balance performance, without abnormalities such as extreme
+oversaturation, unnatural strong contrast or large-area severe color deviation. The
+video has a strong sense of realism with no traces of CG synthesis or green screen."}
+First Frame Consistency
+{"score": 1,
+"reason": "Comparing the first frame with the subsequent three frames, the overall
+frame brightness remains consistent without abnormal brightening. Dynamic blur caused
+by the movement of the robotic arm and background objects is a normal physical
+phenomenon rather than image quality degradation. Static background objects such as
+windows, walls and tableware maintain good clarity across the three frames with sharp
+edges and no loss of details, and there is no overall frame blurriness or compression
+artifacts. Thus, the image quality and light and shadow of subsequent frames are
+consistent with the first frame."}
+Instruction Adherence
+{"background_consistency_deduction": 0,
+"background_consistency_deduction_reason": "The background includes a white bowl, gray
+storage rack and white bottle with red label, whose position, shape and color are all
+28
+
+
+consistent with the instruction.",
+"target_consistency_deduction": 0,
+"target_consistency_deduction_reason": "The target object is a white cylindrical
+radish placed on the blue cutting board, with attributes consistent with the
+instruction.",
+"view_consistency_deduction": 0,
+"view_consistency_deduction_reason": "The head-mounted first-person perspective is
+maintained throughout; the left arm is on the left and the right arm is on the right
+with correct layout and no offset."}
+Instruction Adherence Reflection
+{"background_consistency_deduction": 0,
+"background_consistency_deduction_reason": "The task does not specify fixed background
+items. The position, color and shape of the white bowl, storage rack and red-labeled
+bottle remain stable and consistent across the four frames without addition, deletion
+or change, and the initial evaluation is correct.",
+"target_consistency_deduction": 0,
+"target_consistency_deduction_reason": "The first-person perspective is maintained
+throughout with the left arm on the left and the right arm on the right; there is no
+rotation, scaling, mirroring or offset, and inter-frame stability is maintained with
+correct initial evaluation.",
+"view_consistency_deduction": 0}
+Interaction Consistency
+{"contact_consistency": 1,
+"contact_consistency_reason": "Frame 1-40: The right robotic arm holding the peeler
+maintains continuous and stable physical contact with the radish surface. The contact
+point moves smoothly with the movement of the robotic arm without suspension,
+penetration or sudden contact switching. The left robotic arm clamps the radish, which
+has no abnormal displacement or detachment under force, presenting reasonable contact
+relationship.",
+"dynamic_consistency": 1,
+"dynamic_consistency_reason": "Frame 1-40: The radish remains fixed during peeling by
+the left robotic arm. The peeler slides uniformly along the radish surface with
+continuous trajectory and no jitter, as well as no teleportation, sudden speed change
+or abnormal acceleration. The motion of all objects conforms to mechanical response
+under external force, with no spontaneous appearance, disappearance or nonlinear
+motion."}
+Object Penetration
+{"object_object_penetration": 1,
+"object_object_penetration_reason": "No object-to-object penetration throughout the
+video.",
+"object_robot_penetration": 1,
+"object_robot_penetration_reason": "No object-to-robotic arm penetration throughout
+the video. The gripper holds the knife to perform peeling on the radish surface,
+keeping the knife in contact with or extremely close to the radish surface. This
+belongs to normal physical contact and friction interaction; no part of the knife or
+robotic arm is observed to intrude into the internal volume of the radish entity."}
+Deformation
+{"structural_consistency": 1,
+29
+
+
+"structural_consistency_reason": "Throughout the video (Frame 0-39), the overall
+contour and surface texture of the white radish as the operated object remain intact.
+When the robotic arm holds the knife for cutting, only expected cuts appear on the
+radish surface, without abnormal phenomena such as edge bending, local bulging, non-
+rigid fluctuation or structural fracture, maintaining rigid structural consistency.",
+"elasticity_rationality": 1,
+"elasticity_rationality_reason": "Throughout the video (Frame 0-39), the white radish
+exhibits rigid behavior conforming to its physical characteristics. When the knife
+contacts and cuts into the radish starting from around Frame 15, no unreasonable
+elastic deformation or depression occurs. During forced cutting, the object position
+remains stable without spontaneous deformation or sudden material attribute change
+under non-contact conditions, and the deformation logic complies with physical laws."}
+Task Completion
+{"process_score": 1,
+"process_reason": "Task requirement: ’The robot begins preparing to peel a white
+radish by moving its right arm downward, holding a metallic peeler, to make contact
+with the surface of the radish... The right arm maintains a firm grip on the peeler as
+it positions itself for the peeling action, while the left arm remains stationary and
+does not interact with any objects.’ Video process: 1. The right arm moves downward
+with the peeler (Frame 1~5); 2. The peeler contacts the radish surface (Frame 6~8); 3.
+The right arm keeps gripping and positioning to prepare for peeling (Frame 9~32); 4.
+The left arm stays stationary without operating any object in all frames. All
+procedures are in line with the description.",
+"result_score": 1,
+"result_reason": "Final state requirement: ’the right arm successfully grasps and
+positions the peeler above the radish, indicating readiness to begin.’ The final video
+state (Frame 32) shows that the right arm still holds the peeler and presses it
+against the radish surface in a ready posture for peeling, the left arm remains
+stationary, and the radish is not moved or peeled, which fully conforms to the final
+state description of being ready to start."}
+C
+Appendix: Reward Service Deployment
+To support large-scale reward evaluation during training, we deploy the reward service across two
+nodes with 8 GPUs each, using Qwen3.5-397B-A17B [29] as the base model under the vLLM [30]
+serving framework. Since reward inference is a major system bottleneck in long-horizon reinforcement
+learning, we prioritize deployment-level optimizations to maximize throughput while minimizing
+latency. Specifically, prefix caching is adopted to reuse shared computation across trajectories
+with overlapping contexts, substantially reducing redundant prefill overhead. FP8 quantization
+further lowers memory consumption and improves serving efficiency without compromising practical
+evaluation quality. In addition, Multi-Token Prediction (MTP) is enabled to accelerate decoding
+throughput during reward generation. Together, these optimizations significantly improve reward
+service scalability, enabling efficient high-volume reward computation for large-scale RL workloads.
+D
+Appendix: DynDiff-GRPO Implementation
+We summarize the implementation of DynDiff-GRPO rollout in Algorithm 1. The method consists
+of three stages: dynamic-aware mask construction, hybrid ODE/SDE sampling, and likelihood
+30
+
+
+evaluation with spatial variance.
+Algorithm 1 DynDiff-GRPO: Dynamic-Aware Rollout
+Require: latent state xt, velocity model vθ, noise level σt, base ratio rbase, percentile τ
+Ensure: sample xt−, log-probability log p(xt−)
+1: Stage 1: Dynamic-ware mask construction
+2: ˆx0 ←xt −σtvθ(xt, t, c)
+3: ∆ˆx0 ←TemporalDiff(ˆx0)
+4: R ←∆ˆx0 −Meanh,w(∆ˆx0)
+5: M ←∥R∥2
+6: M ←Normalize(M)
+7: B ←I[M > Quantile(M, τ)]
+8: Mt ←rbase + (1 −rbase) · (0.5M + 0.5B)
+9: Stage 2: hybrid ODE/SDE sampling
+10: ˆϵt ←xt + (1 −σt)vθ(xt, t, c)
+11: σnoise
+t−
+←σt−⊙Mt
+12: z ∼N(0, I)
+13: a ←ˆx0(1 −σt−)
+14: b ←ˆϵt
+q
+σ2
+t−−(σnoise
+t−
+)2
+15: c ←σnoise
+t−
+⊙z
+16: xt−←a + b + c
+17: Stage 3: Likelihood evaluation
+18: µ ←a + b
+19: σ ←σt−⊙Mt
+20: d ←xt−−µ
+21: log p(xt−) ←−d2
+2σ2 −log σ −log
+√
+2π
+return xt−, log p(xt−)
+E
+Appendix: Training Configurations
+As discussed in the main text, the performance of RL finetuning for embodied world models is
+strongly influenced by optimization stability, rollout configuration, and generation settings. To
+improve reproducibility and provide a complete reference for practitioners, we summarize the final
+training configurations adopted in our experiments in Table 5. Unless otherwise noted, all results
+reported for Kairos3.0-Robot and Cosmos-Predict2.5 are obtained using these settings.
+31
+
+
+Table 5 Training settings for Kairos3.0-Robot and Cosmos-Predict2.5 models.
+Category
+Setting
+Kairos3.0-Robot
+Cosmos-Predict2.5
+Training
+Training batch size
+4
+4
+Best of N
+8
+8
+Clip range ϵ
+1e-4
+1e-4
+Advantage clipping threshold
+2.5
+2.5
+Base Noise level
+0.6
+0.6
+Timestep selection τ
+0.55
+0.55
+CFG scale
+–
+–
+KL coefficient
+0.5
+0.5
+KL period steps
+2
+2
+Optimizer type
+AdamW
+AdamW
+Learning rate
+2e-6
+2e-6
+Weight decay
+0.01
+0.001
+Rollout
+Rollout batch size
+2
+2
+Prompts per iteration
+16
+16
+Videos per prompt
+16
+16
+Gradient updates per iteration
+1
+1
+Resolution
+640 × 820
+640 × 820
+32
