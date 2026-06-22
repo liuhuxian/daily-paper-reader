@@ -25,3 +25,57 @@ subscriptions:
     stage: A
     diff_threshold_pct: 15
   keyword_recall_mode: or
+  intent_profiles:
+    - tag: WMI
+      description: 世界模型，具身智能，模仿学习
+      enabled: true
+      paper_sources:
+        - arxiv
+      keywords:
+        - keyword: world models
+          keyword_cn: 世界模型
+          query: internal environment models for planning and prediction
+        - keyword: embodied AI
+          keyword_cn: 具身智能
+          query: artificial intelligence integrated with physical agents and sensors
+        - keyword: imitation learning
+          keyword_cn: 模仿学习
+          query: learning policies from expert demonstrations
+        - keyword: model-based reinforcement learning
+          keyword_cn: 基于模型的强化学习
+          query: reinforcement learning with learned world dynamics
+        - keyword: behavioral cloning
+          keyword_cn: 行为克隆
+          query: directly copying expert actions from demonstrations
+      intent_queries:
+        - query: world model applications in embodied artificial intelligence
+          query_cn: 世界模型在具身人工智能中的应用
+          enabled: true
+          source: manual
+          note: ''
+        - query: imitation learning for robotic manipulation
+          query_cn: 用于机器人操作的模仿学习
+          enabled: true
+          source: manual
+          note: ''
+        - query: model based reinforcement learning combined with behavioral cloning
+          query_cn: 基于模型的强化学习与行为克隆结合
+          enabled: true
+          source: manual
+          note: ''
+      updated_at: '2026-06-22T09:28:59.362Z'
+source_backends:
+  arxiv:
+    papers_table: arxiv_papers
+    use_vector_rpc: true
+    vector_rpc: match_arxiv_papers
+    vector_rpc_exact: match_arxiv_papers_exact
+    use_bm25_rpc: true
+    bm25_rpc: match_arxiv_papers_bm25
+    sync_table: arxiv_sync_status
+    sync_success_value: success
+    schema: public
+    kind: supabase
+    enabled: true
+    url: https://lyucdwgefyfbmaiopjbk.supabase.co
+    anon_key: sb_publishable_lX-oi64Uxyd7SIVv3_w2Uw_MTOojeKq
