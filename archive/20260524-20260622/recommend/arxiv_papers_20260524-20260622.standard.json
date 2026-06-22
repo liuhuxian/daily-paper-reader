@@ -1,0 +1,1110 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-22T09:38:06.657901+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 47,
+    "deep_cap": 6,
+    "deep_selected": 16,
+    "quick_candidates": 64,
+    "quick_skim_target": 11,
+    "quick_selected": 11
+  },
+  "deep_dive": [
+    {
+      "id": "2606.16533v1",
+      "source": "arxiv",
+      "title": "Kairos: A Native World Model Stack for Physical AI",
+      "abstract": "World models are transitioning from passive visual generators to foundational, operational infrastructure for Physical AI: they must natively acquire world knowledge from heterogeneous experience, maintain persistent states over long horizons, and execute efficiently within real deployment constraints. We introduce Kairos, a native world model stack designed around these requirements. (1) Kairos learns the world by pioneering a Native Pre-training Paradigm governed by a Cross-Embodiment Data Curriculum, which organizes open-world videos, human behavioral data, and robot interactions into a progressive developmental pathway. (2) Kairos maintains the world by unified world understanding, generation, and prediction within a Native Unified Architecture equipped with Hybrid Linear Temporal Attention, where sliding-window attention captures local dynamics, dilated sliding windows capture mid-range dependencies, and gated linear attention maintains persistent global memory. We establish formal theoretical bounds demonstrating that this temporal factorization strictly limits error accumulation, mathematically guaranteeing state propagation across extended horizons. (3) Kairos runs the world by incorporating a Deployment-Aware System Co-Design to support low-latency rollout generation on server and consumer-grade hardware for real-world observation-action-feedback loops. Experiments on embodied world-model, long-horizon, and action-policy benchmarks show that Kairos achieves top level performance while offering a strong efficiency-capability trade-off. Together, these results position Kairos as a cohesive operational foundation for future self-evolving physical intelligence.",
+      "authors": [
+        "Kairos Team",
+        "Fei Wang",
+        "Shan You",
+        "Qiming Zhang",
+        "Tao Huang",
+        "Zuoyi Fu",
+        "Zhisheng Zheng",
+        "Yunlong Xi",
+        "Feng Lv",
+        "Xiaoming Wu",
+        "Zeyu Liu",
+        "Cong Wan",
+        "Pu Li",
+        "Ruiqing Yang",
+        "Xiaoou Li",
+        "Wei Wang",
+        "Kangkang Zhu",
+        "Yuwei Zhang",
+        "Shi Fu",
+        "Xiaoning Wu",
+        "Xuzeng Fan",
+        "Dacheng Tao",
+        "Xiaogang Wang"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "published": "2026-06-15T10:37:42+00:00",
+      "link": "https://arxiv.org/pdf/2606.16533v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 10.0,
+      "llm_evidence_en": "world model stack for physical AI with cross-embodiment data curriculum",
+      "llm_evidence_cn": "面向物理AI的原生世界模型栈及跨具身数据课程",
+      "llm_evidence": "面向物理AI的原生世界模型栈及跨具身数据课程",
+      "canonical_evidence": "面向物理AI的原生世界模型栈及跨具身数据课程",
+      "llm_tldr_en": "Kairos presents a native world model stack that learns from heterogeneous experience via a Cross-Embodiment Data Curriculum and maintains unified world understanding, generation, and prediction within a Native Unified Architecture, serving as operational infrastructure for Physical AI.",
+      "llm_tldr_cn": "世界模型正从被动视觉生成器转变为物理AI的基础设施，需要原生获取知识、维持长时状态并高效执行。Kairos提出原生世界模型栈，通过跨具身数据课程组织多样数据，在统一架构中实现世界理解、生成和预测。实验表明Kairos在多种机器人平台和场景中表现出色，为具身AI提供了可扩展的基座模型。",
+      "llm_tldr": "世界模型正从被动视觉生成器转变为物理AI的基础设施，需要原生获取知识、维持长时状态并高效执行。Kairos提出原生世界模型栈，通过跨具身数据课程组织多样数据，在统一架构中实现世界理解、生成和预测。实验表明Kairos在多种机器人平台和场景中表现出色，为具身AI提供了可扩展的基座模型。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.16533v2",
+      "source": "arxiv",
+      "title": "Kairos: A Native World Model Stack for Physical AI",
+      "abstract": "World models are transitioning from passive visual generators to foundational, operational infrastructure for Physical AI: they must natively acquire world knowledge from heterogeneous experience, maintain persistent states over long horizons, and execute efficiently within real deployment constraints. We introduce Kairos, a native world model stack designed around these requirements. (1) Kairos learns the world by pioneering a Native Pre-training Paradigm governed by a Cross-Embodiment Data Curriculum, which organizes open-world videos, human behavioral data, and robot interactions into a progressive developmental pathway. (2) Kairos maintains the world by unified world understanding, generation, and prediction within a Native Unified Architecture equipped with Hybrid Linear Temporal Attention, where sliding-window attention captures local dynamics, dilated sliding windows capture mid-range dependencies, and gated linear attention maintains persistent global memory. We establish formal theoretical bounds demonstrating that this temporal factorization strictly limits error accumulation, mathematically guaranteeing state propagation across extended horizons. (3) Kairos runs the world by incorporating a Deployment-Aware System Co-Design to support low-latency rollout generation on server and consumer-grade hardware for real-world observation-action-feedback loops. Experiments on embodied world-model, long-horizon, and action-policy benchmarks show that Kairos achieves top level performance while offering a strong efficiency-capability trade-off. Together, these results position Kairos as a cohesive operational foundation for future self-evolving physical intelligence.",
+      "authors": [
+        "Kairos Team",
+        "Fei Wang",
+        "Shan You",
+        "Qiming Zhang",
+        "Tao Huang",
+        "Zuoyi Fu",
+        "Zhisheng Zheng",
+        "Yunlong Xi",
+        "Feng Lv",
+        "Xiaoming Wu",
+        "Zeyu Liu",
+        "Cong Wan",
+        "Pu Li",
+        "Ruiqing Yang",
+        "Xiaoou Li",
+        "Wei Wang",
+        "Kangkang Zhu",
+        "Yuwei Zhang",
+        "Shi Fu",
+        "Zheng Zhang",
+        "Xiaoning Wu",
+        "Xuzeng Fan",
+        "Dacheng Tao",
+        "Xiaogang Wang"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "published": "2026-06-15T10:37:42+00:00",
+      "link": "https://arxiv.org/pdf/2606.16533v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 10.0,
+      "llm_evidence_en": "world model stack for physical AI with cross-embodiment data curriculum",
+      "llm_evidence_cn": "面向物理AI的原生世界模型栈及跨具身数据课程",
+      "llm_evidence": "面向物理AI的原生世界模型栈及跨具身数据课程",
+      "canonical_evidence": "面向物理AI的原生世界模型栈及跨具身数据课程",
+      "llm_tldr_en": "Kairos presents a native world model stack that learns from heterogeneous experience via a Cross-Embodiment Data Curriculum and maintains unified world understanding, generation, and prediction within a Native Unified Architecture, serving as operational infrastructure for Physical AI.",
+      "llm_tldr_cn": "世界模型正从被动视觉生成器转变为物理AI的基础设施，需要原生获取知识、维持长时状态并高效执行。Kairos提出原生世界模型栈，通过跨具身数据课程组织多样数据，在统一架构中实现世界理解、生成和预测。实验表明Kairos在多种机器人平台和场景中表现出色，为具身AI提供了可扩展的基座模型。",
+      "llm_tldr": "世界模型正从被动视觉生成器转变为物理AI的基础设施，需要原生获取知识、维持长时状态并高效执行。Kairos提出原生世界模型栈，通过跨具身数据课程组织多样数据，在统一架构中实现世界理解、生成和预测。实验表明Kairos在多种机器人平台和场景中表现出色，为具身AI提供了可扩展的基座模型。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.26282v1",
+      "source": "arxiv",
+      "title": "Scaling World-Model Reinforcement Learning Through Diffusion Policy Optimization",
+      "abstract": "Model-based reinforcement learning (RL) can be effectively supported at scale through the use of world models. However, in practice, scaling such approaches remains fundamentally limited. A commonly recognized challenge is model bias and error compounding, which degrade long-horizon predictions. Beyond these issues, we identify a more critical yet underexplored bottleneck: a structural misalignment between search and value learning in existing world model approaches. In particular, policy improvement often relies on value functions induced by a separate, non-search policy, resulting in training inconsistency and ultimately suboptimal learning. To address this limitation, we propose Model-Based Diffusion Policy Optimization (MBDPO) in world models, a framework that unifies search and policy optimization through diffusion policy representations, thereby unlocking the potential of world models for scalable policy learning. Instead of constructing an explicit planner over a learned world model, we reformulate policy optimization as a diffusion process over searched trajectories in latent world models. In this view, we extract an implicit energy function from the collected dataset that anchors the policy, enabling MBDPO to refine the score field for policy optimization while mitigating misalignment. We evaluate MBDPO across a wide range of settings, including multi-task offline pretraining, online learning, and offline-to-online fine-tuning. In the offline regime, we further investigate its scaling behavior by pretraining on large-scale datasets, observing consistent and monotonic performance gains with increasing model capacity.",
+      "authors": [
+        "Xiaoyuan Cheng",
+        "Wenxuan Yuan",
+        "Zhancun Mu",
+        "Yuanzhao Zhang",
+        "Yiming Yang",
+        "Hai Wang",
+        "Zhuo Sun",
+        "Che Liu"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-05-25T19:06:51+00:00",
+      "link": "https://arxiv.org/pdf/2605.26282v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world-model reinforcement learning via diffusion policy optimization",
+      "llm_evidence_cn": "通过扩散策略优化进行世界模型强化学习",
+      "llm_evidence": "通过扩散策略优化进行世界模型强化学习",
+      "canonical_evidence": "通过扩散策略优化进行世界模型强化学习",
+      "llm_tldr_en": "Identifies structural misalignment between search and value learning in world model RL and proposes MBDPO that uses diffusion policies to scale world-model reinforcement learning.",
+      "llm_tldr_cn": "现有世界模型方法在策略提升时依赖非搜索策略的值函数，导致训练不一致。本文提出基于模型扩散策略优化（MBDPO），通过扩散策略在规划与值学习间建立对齐，显著提升了世界模型强化学习的可扩展性和长期预测性能。实验验证了该方法在多个复杂任务上的优势。",
+      "llm_tldr": "现有世界模型方法在策略提升时依赖非搜索策略的值函数，导致训练不一致。本文提出基于模型扩散策略优化（MBDPO），通过扩散策略在规划与值学习间建立对齐，显著提升了世界模型强化学习的可扩展性和长期预测性能。实验验证了该方法在多个复杂任务上的优势。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.27095v2",
+      "source": "arxiv",
+      "title": "Adversarial Dual On-Policy Distillation from Expressive Teacher",
+      "abstract": "Learning from demonstrations in embodied control is often cast as behavioral cloning, and recent diffusion or flow-matching policies improve this paradigm by modeling multi-modal expert actions. Yet these methods remain offline supervised learners: the policy is trained only on expert states and receives no corrective signal on the states it actually visits. On-policy distillation (OPD) offers a natural remedy, but standard OPD assumes a strong fixed teacher, which is unavailable in demonstration-only control. We propose \\textbf{FA-OPD}, an \\emph{adversarial dual on-policy distillation} method in which a Flow Matching (FM) teacher is learned from demonstrations and co-trained with a lightweight MLP student. The teacher provides two complementary signals on student rollouts. The reward channel learns an expert-likeness objective over state-action pairs and drives online exploration through long-horizon policy optimization. The action channel supplies dense local targets at student-visited states, stabilizing exploitation. FA-OPD couples them so that reward distillation enables generalization beyond point-wise demonstrations, while action distillation keeps exploration anchored near expert-like behavior. Across six robot navigation, manipulation, and locomotion benchmarks, FA-OPD beats strong baselines and shows much stronger robustness under noisy or limited demonstrations. Source code: https://github.com/vanzll/FA-OPD.",
+      "authors": [
+        "Zhenglin Wan",
+        "Jingxuan Wu",
+        "Xingrui Yu",
+        "Chubin Zhang",
+        "Mingcong Lei",
+        "Bo An",
+        "Ivor W. Tsang",
+        "Yang You"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-05-26T14:38:03+00:00",
+      "link": "https://arxiv.org/pdf/2605.27095v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "learns policy from expert demonstrations via adversarial distillation",
+      "llm_evidence_cn": "通过对抗蒸馏从专家演示学习策略",
+      "llm_evidence": "通过对抗蒸馏从专家演示学习策略",
+      "canonical_evidence": "通过对抗蒸馏从专家演示学习策略",
+      "llm_tldr_en": "FA-OPD proposes adversarial on-policy distillation with a flow-matching teacher learned from demonstrations, enabling the student policy to benefit from corrective signals on its own states, improving imitation learning performance.",
+      "llm_tldr_cn": "针对行为克隆仅训练于专家状态、缺乏自身状态校正信号的问题，本文提出FA-OPD方法，从演示中学习流匹配教师模型，并通过对抗性在线蒸馏训练轻量级学生策略。该方法使得学生策略能够在实际访问的状态上获得教师校正信号，实验表明在多个连续控制任务上显著优于离线行为克隆基线，提升了模仿学习的泛化性和效率。",
+      "llm_tldr": "针对行为克隆仅训练于专家状态、缺乏自身状态校正信号的问题，本文提出FA-OPD方法，从演示中学习流匹配教师模型，并通过对抗性在线蒸馏训练轻量级学生策略。该方法使得学生策略能够在实际访问的状态上获得教师校正信号，实验表明在多个连续控制任务上显著优于离线行为克隆基线，提升了模仿学习的泛化性和效率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.01238v1",
+      "source": "arxiv",
+      "title": "Training-Free Imitation Learning with Closed-Form Diffusion Policies",
+      "abstract": "While diffusion-based policies have impressive performance and expressivity, their long offline training slows down the data collection and policy deployment loop. We introduce Closed-Form Diffusion Policies, a class of training-free diffusion-based policies for imitation learning using the closed-form score derived from the demonstration dataset. We deploy CFDP with real-time inference with a mobile CPU in hardware experiments, showing it can successfully perform imitation directly from the dataset in milliseconds and with faster inference than neural diffusion policies. In experiments on imitation learning benchmarks, we show that CFDP is competitive against neural baselines that require hours of training, providing a favorable tradeoff between training time and performance. Finally, we show how closed-form diffusion policies act as a composable primitive that enables data-driven inference-time editing of pre-trained neural diffusion policies, including policy guidance and novel demonstration augmentation.",
+      "authors": [
+        "Raghav Mishra",
+        "Ian R. Manchester"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.LG"
+      ],
+      "published": "2026-05-31T13:40:47+00:00",
+      "link": "https://arxiv.org/pdf/2606.01238v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "directly uses demonstration dataset closed-form score to copy expert actions without training",
+      "llm_evidence_cn": "直接使用演示数据集的闭式得分复制专家动作，无需训练",
+      "llm_evidence": "直接使用演示数据集的闭式得分复制专家动作，无需训练",
+      "canonical_evidence": "直接使用演示数据集的闭式得分复制专家动作，无需训练",
+      "llm_tldr_en": "CFDP derives a closed-form score from the demonstration dataset, producing diffusion policies without any training, enabling real-time imitation on a mobile CPU with competitive performance.",
+      "llm_tldr_cn": "针对扩散策略训练时间长的问题，本文提出闭式扩散策略（CFDP），直接从演示数据集解析得到闭式得分，无需训练即可生成扩散策略。在硬件实验中，CFDP可在移动CPU上毫秒级实时推理，并在模仿学习基准上达到与需要数小时训练的神经扩散策略相当的性能，实现了训练速度与性能的有利权衡。",
+      "llm_tldr": "针对扩散策略训练时间长的问题，本文提出闭式扩散策略（CFDP），直接从演示数据集解析得到闭式得分，无需训练即可生成扩散策略。在硬件实验中，CFDP可在移动CPU上毫秒级实时推理，并在模仿学习基准上达到与需要数小时训练的神经扩散策略相当的性能，实现了训练速度与性能的有利权衡。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "directly copying expert actions from demonstrations",
+      "matched_requirement_id": "req-5",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.02753v1",
+      "source": "arxiv",
+      "title": "MetaWorld: Scaling Multi-Agent Video World Model from Single-view Video Data",
+      "abstract": "Video world models are a foundational generative technology for embodied AI and the Metaverse, yet existing approaches are inherently limited to a single agent observing from a single perspective. Extending these models to multi-agent settings introduces two critical challenges: data scarcity (coordinated multi-view recordings are prohibitively expensive to collect for general open-domain scenarios) and world state alignment (independently generated video streams cannot ensure that shared physical environments and events evolve consistently across views). To address these challenges, we propose MetaWorld, a novel framework that scales multi-agent video world models to open-domain environments directly from single-view videos. First, we introduce Monocular World-State Unrolling (MWSU) to explicitly decompose monocular footage into the camera operator's ego-motion and the visible subject's spatial trajectory. This camera-trajectory decomposition naturally extracts synchronized multi-agent motion data within a shared 3D space, completely bypassing the need for multi-camera setups. Second, for precise visual control, we develop the Subject-Aware World Generator to enable appearance-driven simulation conditioned on per-agent identity images. Finally, to ensure both views are grounded in the identical physical reality, we propose World-State Alignment, a per-frame inter-branch cross-attention mechanism inserted at every transformer layer of the video DiT. By jointly synchronizing the denoising process, WSA enforces both static geometric consistency and dynamic motion consistency, encouraging that the shared 3D environment and physical events remain well-aligned across both egocentric views. Extensive experiments demonstrate that MetaWorld achieves superior cross-view consistency and identity fidelity, establishing a highly scalable, physics-driven paradigm for multi-agent video world modeling.",
+      "authors": [
+        "Teng Hu",
+        "Mingchun Lu",
+        "Yating Wang",
+        "Jiangning Zhang",
+        "Jinkun Hao",
+        "Ye Pan",
+        "Ran Yi",
+        "Lizhuang Ma",
+        "Dacheng Tao"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "published": "2026-06-01T18:20:20+00:00",
+      "link": "https://arxiv.org/pdf/2606.02753v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "multi-agent video world model from single-view videos",
+      "llm_evidence_cn": "从单视角视频构建多智能体视频世界模型",
+      "llm_evidence": "从单视角视频构建多智能体视频世界模型",
+      "canonical_evidence": "从单视角视频构建多智能体视频世界模型",
+      "llm_tldr_en": "MetaWorld scales multi-agent video world models to open domains from single-view videos by addressing data scarcity and world state alignment.",
+      "llm_tldr_cn": "现有视频世界模型局限于单智能体单视角，扩展到多智能体面临数据稀缺和世界状态对齐难题。本文提出MetaWorld，从单视角视频构建多智能体世界模型。通过引入视角解耦表示和一致性对比学习，MetaWorld能生成多视角一致的未来视频帧，支持多智能体规划。实验表明该方法在开放域中生成高质量多视角视频。",
+      "llm_tldr": "现有视频世界模型局限于单智能体单视角，扩展到多智能体面临数据稀缺和世界状态对齐难题。本文提出MetaWorld，从单视角视频构建多智能体世界模型。通过引入视角解耦表示和一致性对比学习，MetaWorld能生成多视角一致的未来视频帧，支持多智能体规划。实验表明该方法在开放域中生成高质量多视角视频。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.03609v2",
+      "source": "arxiv",
+      "title": "A 3D Isovist World Model -- Revealing a City's Unseen Geometry and Its Emergent Cross-City Signature",
+      "abstract": "Embodied agents that navigate cities rely on world models that predict how their surroundings will change as they move. But for navigation, what matters is not what the buildings look like; it is where the agent can go. Most world models nonetheless predict appearance, learning how a scene looks rather than the space an agent can move through. Those that do target geometry, such as bird's-eye-view occupancy grids, flatten the three-dimensional environment onto a ground plane, discarding the above-ground and multi-level structure that shapes real navigation. What is missing is a predictive target that captures the navigable geometry an agent actually traverses, without photometric entanglement and without collapsing the third dimension. Our key idea is to model the open volume between buildings, the negative space, encoded as a 3D isovist: a spherical visibility-depth map recording the distance to the nearest surface in every direction. We introduce an embodied world model that predicts the next isovist from a short history of past isovists and a movement action. The prediction is formulated as a depth residual so the decoder inherits sharp building edges, trained with self-rollout scheduled sampling to keep corrupted context on the geometry manifold, and equipped with a persistent latent bird's-eye-view spatial map for cross-path consistency. Our central finding is emergent and unexpected: a single city-blind model trained on Manhattan and Paris develops a cross-city spatial signature, with city identity linearly decodable from its temporal latents far above single-frame baselines, so the signature lives in the learned dynamics rather than in appearance. The representation is lightweight, interpretable, and reproducible, offering a geometric substrate for spatial reasoning in embodied AI, robotics, and urban analysis, released with an open dataset and pipeline.",
+      "authors": [
+        "Xuhui Lin",
+        "Stephen Law",
+        "Nanjiang Chen",
+        "Kunyao Li",
+        "Tao Yang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.LG"
+      ],
+      "published": "2026-06-02T13:11:30+00:00",
+      "link": "https://arxiv.org/pdf/2606.03609v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world model for navigable geometry prediction",
+      "llm_evidence_cn": "用于预测可导航几何的世界模型",
+      "llm_evidence": "用于预测可导航几何的世界模型",
+      "canonical_evidence": "用于预测可导航几何的世界模型",
+      "llm_tldr_en": "Proposes a 3D Isovist world model that predicts navigable geometry for city navigation, addressing the limitation of appearance-based models.",
+      "llm_tldr_cn": "现有世界模型大多预测外观，忽略了可导航几何。本文提出3D等视域世界模型，预测代理实际可穿越的空间结构，避免了外观干扰和地面投影的维度坍缩。实验表明该模型能有效捕捉城市未见的几何结构，为具身导航提供更准确的内部环境表征。",
+      "llm_tldr": "现有世界模型大多预测外观，忽略了可导航几何。本文提出3D等视域世界模型，预测代理实际可穿越的空间结构，避免了外观干扰和地面投影的维度坍缩。实验表明该模型能有效捕捉城市未见的几何结构，为具身导航提供更准确的内部环境表征。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.04269v1",
+      "source": "arxiv",
+      "title": "Instant-Fold: In-Context Imitation Learning for Deformable Object Manipulation",
+      "abstract": "Deformable object manipulation (DOM) is challenging due to high-dimensional, partially observable states that evolve through long-horizon, topology-changing interactions with multiple valid manipulation modes. We introduce Instant-Fold, an in-context imitation learning framework for DOM. Given a single human demonstration, our policy infers and executes diverse manipulation modes directly from the demonstration, including variations in spatial execution and ordering, without requiring gradient updates. Our approach first learns deformation-aware visual representations via temporal contrastive pretraining, after which a flow-matching transformer policy conditioned on the demonstration predicts actions to execute the intended manipulation mode. Trained entirely in simulation, Instant-Fold generalizes across diverse folding modes and transfers zero-shot to real-world settings without additional data collection or finetuning. Videos are available at https://instant-fold.github.io.",
+      "authors": [
+        "Yilong Wang",
+        "Cheng Qian",
+        "Edward Johns"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.CV"
+      ],
+      "published": "2026-06-02T22:46:20+00:00",
+      "link": "https://arxiv.org/pdf/2606.04269v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "in-context imitation learning for deformable object manipulation",
+      "llm_evidence_cn": "可变形物体操作的上下文模仿学习",
+      "llm_evidence": "可变形物体操作的上下文模仿学习",
+      "canonical_evidence": "可变形物体操作的上下文模仿学习",
+      "llm_tldr_en": "Instant-Fold enables a robot policy to manipulate deformable objects from a single demonstration by in-context learning without gradient updates.",
+      "llm_tldr_cn": "面向可变形物体操作，本文提出 Instant-Fold，一种基于上下文模仿学习的框架。给定单次人类演示，策略直接推断并执行多种操作模式，无需梯度更新。通过时域对比预训练学习形变感知视觉表示，再以流匹配变换器策略根据演示预测动作。该方法在无需重新训练的情况下实现多样化的操作执行。",
+      "llm_tldr": "面向可变形物体操作，本文提出 Instant-Fold，一种基于上下文模仿学习的框架。给定单次人类演示，策略直接推断并执行多种操作模式，无需梯度更新。通过时域对比预训练学习形变感知视觉表示，再以流匹配变换器策略根据演示预测动作。该方法在无需重新训练的情况下实现多样化的操作执行。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.07974v1",
+      "source": "arxiv",
+      "title": "PRISM: PRior-guided Imagination Sampling in world Models",
+      "abstract": "A learned world model provides a powerful physical intuition for evaluating future states. But its effectiveness in continuous control also depends critically on how candidate actions are generated for model-based planning. Rather than solely asking how accurately a model can simulate the future, we ask: which candidate actions are worth evaluating in the first place? Existing planners typically search arbitrarily or use expert demonstrations only to initialize a sampling mean, discarding the expert's state-conditioned confidence. Properly guiding this search requires a robust action prior, yet current approaches often rely on independent visual encoders or large-scale VLMs to obtain one. We argue that this architectural bloat is unnecessary: the exact same data - and the learned representations of the world model itself - inherently encode the agent's action intuition. We introduce PRISM, a task-agnostic framework that extracts both from a single dataset while maintaining strict architectural simplicity. Building on a standard JEPA-style latent world model, PRISM attaches a lightweight MLP directly to its frozen encoder to predict a state-conditioned Gaussian prior. At plan time, PRISM fuses this prior into the planner's sampling distribution via a precision-weighted Product-of-Gaussians update. This parameter-free, closed-form integration steers the sampling process, making the prior confident where it is and ceding control where it is not. PRISM improves success rates by 35 percentage points over vanilla world-model-based MPC on Cube and 32 percentage points on PushT, without introducing significant inference overhead.",
+      "authors": [
+        "Yuhai Wang",
+        "Jiawei Xia",
+        "Rongxuan Zhou",
+        "Xiao Hu",
+        "Yongliang Shi",
+        "Jing Du",
+        "Yang Ye"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-06-06T04:18:10+00:00",
+      "link": "https://arxiv.org/pdf/2606.07974v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world model with expert prior for guided imagination sampling in planning",
+      "llm_evidence_cn": "世界模型结合专家先验引导想象采样用于规划",
+      "llm_evidence": "世界模型结合专家先验引导想象采样用于规划",
+      "canonical_evidence": "世界模型结合专家先验引导想象采样用于规划",
+      "llm_tldr_en": "Proposes PRISM which leverages expert demonstrations as a state-conditioned action prior to guide sampling in world models for more effective model-based planning and control.",
+      "llm_tldr_cn": "针对基于世界模型的规划中候选动作生成随机、未充分利用专家演示的问题，本文提出PRISM框架。该方法从与训练世界模型相同的数据中提取专家状态条件先验，用于指导模型中的想象采样，避免了独立视觉编码器或大规模VLM带来的架构臃肿。实验表明，PRISM在连续控制任务上显著提升了规划效率和下游性能，证明了利用先验数据引导世界模型采样的有效性。",
+      "llm_tldr": "针对基于世界模型的规划中候选动作生成随机、未充分利用专家演示的问题，本文提出PRISM框架。该方法从与训练世界模型相同的数据中提取专家状态条件先验，用于指导模型中的想象采样，避免了独立视觉编码器或大规模VLM带来的架构臃肿。实验表明，PRISM在连续控制任务上显著提升了规划效率和下游性能，证明了利用先验数据引导世界模型采样的有效性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.08154v1",
+      "source": "arxiv",
+      "title": "SynthICL: Scalable In-context Imitation Learning with Synthetic Data",
+      "abstract": "In-context imitation learning (ICIL) enables robots to learn new tasks from a small number of demonstrations by conditioning a pre-trained policy on task-specific examples, without retraining at test time. Despite this promise, training generalizable and scalable in-context imitation policies remains an open challenge. We present SynthICL, a scalable framework that trains ICIL policies entirely from RGB-only synthetic data. Specifically, we build a data generation pipeline to produce high-fidelity ICIL data and train a flow-matching transformer policy on the resulting dataset. SynthICL avoids the need for depth sensing, precise camera calibration, and real-world training data in prior approaches, offering a simpler and more scalable alternative. We further incorporate subgoal prediction by training the model to predict the next subgoal images, enabling more precise and visually grounded control. Evaluated on 16 unseen real-world manipulation tasks, SynthICL achieves an average success rate of 79% with only one demonstration provided at test time and outperforms prior methods. Project page: https://synth-icl.github.io",
+      "authors": [
+        "Cheng Qian",
+        "Ruomeng Fan",
+        "Yifei Ren",
+        "Yilong Wang",
+        "Edward Johns"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-06T13:09:47+00:00",
+      "link": "https://arxiv.org/pdf/2606.08154v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "scalable in-context imitation learning from RGB-only synthetic data",
+      "llm_evidence_cn": "从纯RGB合成数据训练可扩展的上下文模仿策略",
+      "llm_evidence": "从纯RGB合成数据训练可扩展的上下文模仿策略",
+      "canonical_evidence": "从纯RGB合成数据训练可扩展的上下文模仿策略",
+      "llm_tldr_en": "SynthICL trains in-context imitation policies entirely from synthetic RGB data, avoiding real-world training and depth sensing.",
+      "llm_tldr_cn": "本文提出 SynthICL，一种完全使用合成RGB数据训练上下文模仿学习策略的可扩展框架。通过构建高质量数据生成流水线，SynthICL 无需深度传感器、相机标定和真实世界训练数据，即可训练流匹配变换器策略。该方法显著简化了上下文模仿学习的部署流程。",
+      "llm_tldr": "本文提出 SynthICL，一种完全使用合成RGB数据训练上下文模仿学习策略的可扩展框架。通过构建高质量数据生成流水线，SynthICL 无需深度传感器、相机标定和真实世界训练数据，即可训练流匹配变换器策略。该方法显著简化了上下文模仿学习的部署流程。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.09457v1",
+      "source": "arxiv",
+      "title": "$ω$-EVA: Envision, Verify, and Act with Latent Interactive World Models",
+      "abstract": "Embodied policies typically map current observations directly to actions, leaving candidate-action consequences implicit. World models provide predictive supervision, representations, or external simulation, but rarely let a policy inspect the imagined consequence of its own proposal before acting. We introduce $ω$-EVA, a latent interactive world model that realizes an Envision--Verify--Act loop for embodied action generation. Its three-stage framework learns action-conditioned latent dynamics, trains a language-conditioned flow policy on dynamics-aware visual representations, and feeds the policy's proposal back through the world model. A tri-branch refiner jointly reasons over the current state, proposal-conditioned future, and proposed action to produce the final action chunk. Because consequence reasoning remains in latent feature space, $ω$-EVA avoids generating future videos at inference. Evaluations across diverse single-arm, bimanual, long-horizon, and perturbed simulation settings show that the complete interaction pipeline consistently improves the proposal policy, while latent diagnostics indicate meaningful action-conditioned future structure. With approximately 1.2B parameters and no additional robot-data pretraining, $ω$-EVA demonstrates a compact and competitive performance--scale--data trade-off, making the world model an active action-feedback module rather than a passive predictor.",
+      "authors": [
+        "Zhenguo Sun",
+        "Yu Sun",
+        "Hande Huang",
+        "Alois Knoll"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-08T13:12:56+00:00",
+      "link": "https://arxiv.org/pdf/2606.09457v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "latent interactive world model for envision-verify-act loop in embodied agents",
+      "llm_evidence_cn": "用于具身智能体的潜在交互世界模型，实现想象-验证-行动循环",
+      "llm_evidence": "用于具身智能体的潜在交互世界模型，实现想象-验证-行动循环",
+      "canonical_evidence": "用于具身智能体的潜在交互世界模型，实现想象-验证-行动循环",
+      "llm_tldr_en": "omega-EVA introduces a latent interactive world model that enables embodied policies to inspect imagined consequences before acting, improving action generation through an Envision-Verify-Act loop.",
+      "llm_tldr_cn": "当前具身策略直接映射观察到动作，无法预先评估动作后果。本文提出ω-EVA，一个潜在交互世界模型，实现想象-验证-行动循环。该模型学习动作条件潜在动力学，训练语言条件流策略，并通过三分支精炼器联合推理当前状态、动作条件未来和提议动作。实验表明ω-EVA能有效利用世界模型提升具身动作生成质量。",
+      "llm_tldr": "当前具身策略直接映射观察到动作，无法预先评估动作后果。本文提出ω-EVA，一个潜在交互世界模型，实现想象-验证-行动循环。该模型学习动作条件潜在动力学，训练语言条件流策略，并通过三分支精炼器联合推理当前状态、动作条件未来和提议动作。实验表明ω-EVA能有效利用世界模型提升具身动作生成质量。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.10363v1",
+      "source": "arxiv",
+      "title": "HiMem-WAM: Hierarchical Memory-Gated World Action Models for Robotic Manipulation",
+      "abstract": "World Action Models (WAMs) have emerged as a new powerful paradigm for embodied intelligence, learning action-relevant visual dynamics that significantly enhance generalization and robustness. However, existing WAMs still struggle with task-relevant memory in long-horizon robotic manipulation. To address this, we present HiMem-WAM, a Hierarchical Memory-Gated WAM that integrates motion-centric latent actions, high-level skill latents, and boundary-triggered memory updates. Specifically, we develop a hierarchical latent action framework that jointly learns low-level motion and high-level skill latents, providing structured temporal abstraction. Meanwhile, a boundary-aware memory gate writes compact task states at predicted skill transitions, enabling causal inference without test-time generation of future video or optical flow estimation. Evaluated on LIBERO, LIBERO-PLUS, RMBench and real-world tasks, HiMem-WAM shows that hierarchical latents improve robustness under deployment perturbations, and the memory module substantially benefits memory-dependent long-horizon manipulation.",
+      "authors": [
+        "Xiaoquan Sun",
+        "Ruijian Zhang",
+        "Chen Cao",
+        "Yihan Sun",
+        "Jiahui Chen",
+        "Zetian Xu",
+        "Bo Chen",
+        "Haijier Chen",
+        "Zhen Yang",
+        "Jiarun Zhu",
+        "Yijun Hong",
+        "JingZhe Xu",
+        "Jingrui Pang",
+        "Mingqi Yuan",
+        "Jiayu Chen"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-09T03:22:34+00:00",
+      "link": "https://arxiv.org/pdf/2606.10363v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "World Action Models with hierarchical memory for embodied robotic manipulation",
+      "llm_evidence_cn": "带层次记忆的世界动作模型用于具身机器人操作",
+      "llm_evidence": "带层次记忆的世界动作模型用于具身机器人操作",
+      "canonical_evidence": "带层次记忆的世界动作模型用于具身机器人操作",
+      "llm_tldr_en": "Presents HiMem-WAM, a hierarchical memory-gated World Action Model that integrates motion-centric latent actions and skill latents for long-horizon robotic manipulation.",
+      "llm_tldr_cn": "针对现有世界动作模型在长时程机器人操作中缺乏任务相关记忆的问题，本文提出HiMem-WAM层次记忆门控世界动作模型。它开发层次潜在动作框架联合学习低层运动和高层技能潜在表示，并引入边界感知记忆门在预测技能转换时写入紧凑任务状态。实验表明该方法在多种长时程操作任务上显著提升了泛化性和鲁棒性，为具身智能中的世界模型应用提供了有效记忆机制。",
+      "llm_tldr": "针对现有世界动作模型在长时程机器人操作中缺乏任务相关记忆的问题，本文提出HiMem-WAM层次记忆门控世界动作模型。它开发层次潜在动作框架联合学习低层运动和高层技能潜在表示，并引入边界感知记忆门在预测技能转换时写入紧凑任务状态。实验表明该方法在多种长时程操作任务上显著提升了泛化性和鲁棒性，为具身智能中的世界模型应用提供了有效记忆机制。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.10825v1",
+      "source": "arxiv",
+      "title": "MODIP: Efficient Model-Based Optimization for Diffusion Policies",
+      "abstract": "Diffusion policies (DPs) have emerged as expressive policy representations for robot learning, often used with imitation learning methods such as behavioral cloning (BC). However, while their success has largely been confined to BC, direct reinforcement learning (RL) fine-tuning remains challenging because actions are generated through a multi-step denoising process. In this work, we propose MODIP, a framework for the offline-to-online fine-tuning of DPs. Rather than directly applying RL to the DPs, MODIP leverages a world model (WM) to guide policy adaptation and keeps the simplicity and stability of BC. We utilize model predictive control (MPC) to generate high-quality trajectories within the WM, and use them as supervised targets for fine-tuning the DP. To make MPC planning efficient, MODIP uses a terminal state value instead of a policy-dependent state-action value, reducing inference time. Additionally, MODIP trains critics with policy-independent TD targets, reducing training time. Experiments on D4RL (MuJoCo, Kitchen) and RoboMimic tasks show that MODIP improves diffusion policies beyond BC, and is competitive with or outperforms diffusion policy RL fine-tuning methods and strong model-based baselines such as TD-MPC2.",
+      "authors": [
+        "Zakariae El Asri",
+        "Philippe Gratias-Quiquandon",
+        "Nicolas Thome",
+        "Olivier Sigaud"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-06-09T13:09:21+00:00",
+      "link": "https://arxiv.org/pdf/2606.10825v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "model-based optimization for diffusion policies combining BC and world model",
+      "llm_evidence_cn": "结合行为克隆与世界模型的基于模型的扩散策略优化",
+      "llm_evidence": "结合行为克隆与世界模型的基于模型的扩散策略优化",
+      "canonical_evidence": "结合行为克隆与世界模型的基于模型的扩散策略优化",
+      "llm_tldr_en": "Proposes MODIP that leverages a world model and MPC to fine-tune diffusion policies, combining the stability of behavioral cloning with RL improvement.",
+      "llm_tldr_cn": "扩散策略在行为克隆中表现优异，但直接强化学习微调困难。本文提出MODIP框架，利用世界模型和模型预测控制生成高质量轨迹作为监督信号，从而在线下到线上微调中保持行为克隆的稳定性，同时实现策略优化。实验表明该方法在机器人操作任务上显著优于纯BC方法。",
+      "llm_tldr": "扩散策略在行为克隆中表现优异，但直接强化学习微调困难。本文提出MODIP框架，利用世界模型和模型预测控制生成高质量轨迹作为监督信号，从而在线下到线上微调中保持行为克隆的稳定性，同时实现策略优化。实验表明该方法在机器人操作任务上显著优于纯BC方法。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "model based reinforcement learning combined with behavioral cloning",
+      "matched_requirement_id": "req-8",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.11618v1",
+      "source": "arxiv",
+      "title": "Vision-Language-Action Models Meet World Models: Embodied Agentic AI for Low-Altitude Wireless Networks",
+      "abstract": "Low-Altitude Wireless Networks (LAWNs), composed of Unmanned Aerial Vehicles (UAVs) and other aerial platforms, provide integrated perception, communication, and computation services in low-altitude airspace. However, deploying large generative models in this domain faces three major challenges: 1) Limited embodied action mapping; 2) Inadequate physical environment modeling; 3) Insufficient closed-loop optimization. To address these challenges, this study proposes an Embodied Agentic UAV framework. Centered on a Vision-Language-Action (VLA) model as the execution core, the framework establishes an end-to-end embodied decision-making pipeline from multimodal environmental perception to continuous control generation. In addition, a World Model (WM) is introduced to capture the coupling between UAV actions and environmental state evolution, thereby supporting environment prediction, policy verification, and dynamic optimization. Furthermore, memory and reflection mechanisms are incorporated to form an adaptive closed-loop optimization paradigm of decision, execution, evaluation, and update, thereby enhancing the system's autonomous decision-making capability and continual evolution ability in complex dynamic environments. Experimental results validate its effectiveness in enabling robust, predictive, and sustainable autonomous control in LAWNs.",
+      "authors": [
+        "Feibo Jiang",
+        "Li Dong",
+        "Lei Mao",
+        "Kezhi Wang",
+        "Cunhua Pan",
+        "Dong In Kim",
+        "Naofal Al-Dhahir"
+      ],
+      "primary_category": "cs.IT",
+      "categories": [
+        "cs.IT"
+      ],
+      "published": "2026-06-10T03:30:05+00:00",
+      "link": "https://arxiv.org/pdf/2606.11618v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world models and embodied agentic AI for UAVs",
+      "llm_evidence_cn": "世界模型与具身智能的无人机应用",
+      "llm_evidence": "世界模型与具身智能的无人机应用",
+      "canonical_evidence": "世界模型与具身智能的无人机应用",
+      "llm_tldr_en": "This paper proposes an embodied agentic UAV framework using VLA models and world models for end-to-end decision-making in low-altitude wireless networks.",
+      "llm_tldr_cn": "针对低空无线网络中生成式模型部署面临的具身动作映射不足、物理环境建模不完善和闭环优化缺失三大挑战，本文提出具身智能无人机框架，以视觉-语言-动作模型为核心，结合世界模型实现从多模态感知到连续控制的端到端决策，为世界模型在具身智能中的应用提供了新范例。",
+      "llm_tldr": "针对低空无线网络中生成式模型部署面临的具身动作映射不足、物理环境建模不完善和闭环优化缺失三大挑战，本文提出具身智能无人机框架，以视觉-语言-动作模型为核心，结合世界模型实现从多模态感知到连续控制的端到端决策，为世界模型在具身智能中的应用提供了新范例。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.16286v1",
+      "source": "arxiv",
+      "title": "FlowMPC: Improving Flow Matching policies with World Models",
+      "abstract": "Flow Matching (FM) is a powerful approach for behavior cloning in multimodal action spaces [Jiang et al., 2025], but because it is not trained to directly maximize expected return, there is still room to improve how FM policies act at test time. This work investigates whether a learned world model can improve FM policies by enabling Model Predictive Path Integral (MPPI) planning over candidate action sequences proposed by the policy. Building on TD-MPC2 [Hansen et al., 2024], I introduce FlowMPC, a framework that combines an imitation-learned FM policy with a learned world model for test-time planning in ManiSkill manipulation tasks [Tao et al., 2025]. Across PickCube and PickSingleYCB, adding the world model improved performance over the FM policy alone, with especially clear gains in end-of-episode success. These results suggest that world-model-based planning can effectively complement flow-based imitation policies without modifying the FM training objective.",
+      "authors": [
+        "Chandon Hamel"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.RO"
+      ],
+      "published": "2026-06-15T06:50:11+00:00",
+      "link": "https://arxiv.org/pdf/2606.16286v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "combines flow matching behavioral cloning with learned world model for model-based RL planning",
+      "llm_evidence_cn": "将流匹配行为克隆与学习的世界模型结合，进行基于模型的强化学习规划",
+      "llm_evidence": "将流匹配行为克隆与学习的世界模型结合，进行基于模型的强化学习规划",
+      "canonical_evidence": "将流匹配行为克隆与学习的世界模型结合，进行基于模型的强化学习规划",
+      "llm_tldr_en": "Introduces FlowMPC, which integrates a flow matching imitation policy with a learned world model for test-time MPPI planning, improving manipulation performance.",
+      "llm_tldr_cn": "流匹配策略在行为克隆中表现优秀，但未直接最大化回报。本文提出FlowMPC，将流匹配模仿策略与TD-MPC2世界模型结合，在测试时使用模型预测路径积分规划。在ManiSkill操作任务上，添加世界模型显著提升性能。该工作证明了世界模型增强行为克隆策略的有效性，是模型基RL与行为克隆结合的范例。",
+      "llm_tldr": "流匹配策略在行为克隆中表现优秀，但未直接最大化回报。本文提出FlowMPC，将流匹配模仿策略与TD-MPC2世界模型结合，在测试时使用模型预测路径积分规划。在ManiSkill操作任务上，添加世界模型显著提升性能。该工作证明了世界模型增强行为克隆策略的有效性，是模型基RL与行为克隆结合的范例。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "model based reinforcement learning combined with behavioral cloning",
+      "matched_requirement_id": "req-8",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.17906v1",
+      "source": "arxiv",
+      "title": "WAM-RL: World-Action Model Reinforcement Learning with Reconstruction Rewards and Online Video SFT",
+      "abstract": "Recent World-Action (WA) models demonstrate strong generalization ability and data efficiency, but they typically rely on expert trajectories for training. This reliance limits their ability to acquire fine-grained manipulation skills beyond the demonstration distribution and prevents them from continuously improving through real-world interaction. To address these limitations, we propose WAM-RL, a reinforcement learning framework that enables joint optimization of the world model and the action model through online interaction with the environment. By allowing the two components to co-evolve, our approach enhances fine-grained control and adaptability. Specifically, a WA model consists of a world model and an actor. We design a tailored reinforcement learning method with hierarchical optimization to coordinate their improvement. On the methodological side, we systematically investigate the effects of applying reinforcement learning to the action model, as well as online training of the world model within an RL setting. Our experiments reveal a key insight: optimizing only the actor yields improvements on short-horizon tasks, but fails to provide significant gains on long-horizon tasks. In contrast, jointly optimizing both the world model and the actor is critical for achieving strong performance in long-horizon settings. Our work is the first to introduce reinforcement learning into the World-Action paradigm, and provides insights into how online optimization of both the action head and the world model impacts overall performance.",
+      "authors": [
+        "Zezhong Qian",
+        "Xiaowei Chi",
+        "Yu Qi",
+        "Haozhan Li",
+        "Zhi Yang Chen",
+        "Shanghang Zhang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-16T13:29:12+00:00",
+      "link": "https://arxiv.org/pdf/2606.17906v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "joint optimization of world model and action model for online RL, internal environment model for planning",
+      "llm_evidence_cn": "联合优化世界模型和动作模型进行在线强化学习，内部环境模型用于规划",
+      "llm_evidence": "联合优化世界模型和动作模型进行在线强化学习，内部环境模型用于规划",
+      "canonical_evidence": "联合优化世界模型和动作模型进行在线强化学习，内部环境模型用于规划",
+      "llm_tldr_en": "WAM-RL proposes a framework for online joint optimization of world model and actor via reconstruction rewards and video SFT, enabling continuous improvement beyond demonstration data.",
+      "llm_tldr_cn": "针对世界-动作模型依赖专家轨迹、无法通过交互持续改进的问题，本文提出WAM-RL框架，通过在线交互联合优化世界模型和动作模型。利用重建奖励和视频微调促进协同进化，使得细粒度操作技能得以超越演示分布，在机器人操作任务中展现了更强的适应性和数据效率。",
+      "llm_tldr": "针对世界-动作模型依赖专家轨迹、无法通过交互持续改进的问题，本文提出WAM-RL框架，通过在线交互联合优化世界模型和动作模型。利用重建奖励和视频微调促进协同进化，使得细粒度操作技能得以超越演示分布，在机器人操作任务中展现了更强的适应性和数据效率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2605.25620v1",
+      "source": "arxiv",
+      "title": "Back to Parsimonious Latents: Learning Task-Centric World Models from Visual Foundations",
+      "abstract": "World models enable agents to predict future dynamics conditioned on actions, making the choice of latent representation central to planning and control. Such representations are often either learned directly from pixels with limited semantic structure or inherited from frozen visual foundation models with excessive task-irrelevant detail, yielding state spaces that are poorly matched to downstream planning and control. This is especially challenging in reward-free offline settings, where the model must learn from fixed trajectories without reward supervision or online interaction. To address this, we propose TC-WM, a framework for turning foundation-model embeddings into compact, task-sufficient world representations. The key design is to treat the pretrained embedding space as a semantic scaffold rather than as the final state space: TC-WM linearly projects high-dimensional visual embeddings into a compact latent as the dynamic space, aligns a subspace with the agent's physical state via contrastive learning, and reconstructs embeddings to preserve useful visual structure. This combines the generality of foundation features with the controllability of task-centric dynamics. Theoretically, we show that TC-WM suffices to identify the underlying task-centric latent factors up to a simple transformation. Empirically, TC-WM enables test-time planning across diverse environments (e.g., Robomimic and D4RL), achieving better world-modeling quality and more precise control than state-of-the-art approaches.",
+      "authors": [
+        "Minghao Fu",
+        "Fan Feng",
+        "Nicklas Hansen",
+        "Biwei Huang"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-05-25T09:21:43+00:00",
+      "link": "https://arxiv.org/pdf/2605.25620v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "task-centric world model from visual foundations for planning and control",
+      "llm_evidence_cn": "从视觉基础学习任务中心世界模型用于规划和控制",
+      "llm_evidence": "从视觉基础学习任务中心世界模型用于规划和控制",
+      "canonical_evidence": "从视觉基础学习任务中心世界模型用于规划和控制",
+      "llm_tldr_en": "TC-WM turns foundation-model embeddings into compact, task-sufficient world representations for planning and control in reward-free offline settings, addressing the mismatch between pixel-based or overly detailed visual features and downstream tasks.",
+      "llm_tldr_cn": "现有世界模型常从像素或冻结视觉基础模型学习，导致状态空间与下游规划控制不匹配，尤其在无奖励离线设置中。TC-WM提出将基础模型嵌入转化为紧凑的任务中心世界表示，通过去除任务无关细节保留必要语义，显著提升在规划和控制任务中的效率，在多个基准上取得最佳性能。",
+      "llm_tldr": "现有世界模型常从像素或冻结视觉基础模型学习，导致状态空间与下游规划控制不匹配，尤其在无奖励离线设置中。TC-WM提出将基础模型嵌入转化为紧凑的任务中心世界表示，通过去除任务无关细节保留必要语义，显著提升在规划和控制任务中的效率，在多个基准上取得最佳性能。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2605.25414v1",
+      "source": "arxiv",
+      "title": "How to Mitigate the Distribution Shift Problem in Robotics Control: A Robust and Adaptive Approach Based on Offline to Online Imitation Learning",
+      "abstract": "Distribution shift in imitation learning refers to the problem that the agent cannot plan proper actions for a state that has not been visited during the training. This problem can be largely attributed to the inherently narrow state-action coverage provided by expert demonstrations over the full environment. In this paper, we propose a robust offline to adaptive online imitation learning framework that handles the distribution shift problem in a lifelong, multi-phase scheme. In the offline learning phase, we leverage supplementary demonstrations to broaden the state-action coverage of the policy by utilizing a discriminator to effectively train the policy with supplementary demonstrations, thereby enhancing the robustness of the policy to distribution shift. In the subsequent online inference phase, our framework detects the occurrence of distribution shift and conducts self-supervised imitation learning from online experiences to adapt the policy to the online environments. Through extensive evaluations in MuJoCo environments, we demonstrate that our method exhibits better robustness to distribution shift and better adaptation performance to online environments than the baseline algorithms, which indicates superior performance of our framework against the distribution shift.",
+      "authors": [
+        "Hyung-Suk Yoon",
+        "Seung-Woo Seo"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-05-25T04:30:51+00:00",
+      "link": "https://arxiv.org/pdf/2605.25414v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "offline to online imitation learning to mitigate distribution shift",
+      "llm_evidence_cn": "离线到在线模仿学习缓解分布偏移",
+      "llm_evidence": "离线到在线模仿学习缓解分布偏移",
+      "canonical_evidence": "离线到在线模仿学习缓解分布偏移",
+      "llm_tldr_en": "Proposes a robust offline-to-adaptive-online imitation learning framework that uses supplementary demonstrations and a discriminator to broaden state-action coverage.",
+      "llm_tldr_cn": "模仿学习中的分布偏移问题源于专家演示覆盖有限。本文提出离线到在线自适应模仿学习框架，在离线阶段利用辅助演示和判别器拓宽策略的状-动作覆盖，在线阶段自适应调整。该方法能在生命周期中处理分布偏移，提升机器人控制的鲁棒性。实验表明该框架显著减少分布偏移造成的不良行为。",
+      "llm_tldr": "模仿学习中的分布偏移问题源于专家演示覆盖有限。本文提出离线到在线自适应模仿学习框架，在离线阶段利用辅助演示和判别器拓宽策略的状-动作覆盖，在线阶段自适应调整。该方法能在生命周期中处理分布偏移，提升机器人控制的鲁棒性。实验表明该框架显著减少分布偏移造成的不良行为。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2605.28231v1",
+      "source": "arxiv",
+      "title": "ProgVLA: Progress-Aware Robot Manipulation Skill Learning",
+      "abstract": "We present ProgVLA, a compact vision-language-action (VLA) model designed for reliable robot manipulation under tight compute and memory budgets. The model specifically focuses on efficiently processing long multi-modal sequences by maintaining an explicit representation of task progress over extended horizons. To this end, ProgVLA integrates two key components. First, a multi-modal encoder with a two-stage Perceiver resampling scheme compresses variable-length visual, language, and proprioceptive streams into a fixed set of control-ready context tokens, substantially reducing sequence length while preserving cross-modal grounding. Second, an auxiliary set of progress heads is trained with offline reinforcement learning (RL) objectives to jointly learn critics over normalized remaining-horizon targets. This provides the policy with an internal estimate of task progress and enables advantage- and success-weighted flow-matching imitation learning. On two well-established multi-task robot manipulation benchmarks, a 0.1B-parameter ProgVLA model reaches success rates that are competitive with, and on long-horizon and harder task tiers exceed, substantially larger pretrained baselines. Ablations indicate that the learned context resampler and task-adaptive visual fine-tuning are the largest single contributors, while progress-aware training provides a consistent additional gain that is concentrated on long-horizon and multi-object tasks. We further validate the approach in real-world toy-kitchen environments.",
+      "authors": [
+        "Seungsu Kim",
+        "Jinyoung Choi",
+        "Seungmin Baek",
+        "Jean-Michel Renders"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.LG"
+      ],
+      "published": "2026-05-27T09:44:46+00:00",
+      "link": "https://arxiv.org/pdf/2605.28231v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "compact VLA model for robot manipulation with offline RL progress heads",
+      "llm_evidence_cn": "用于机器人操作的紧凑VLA模型与离线RL进度头",
+      "llm_evidence": "用于机器人操作的紧凑VLA模型与离线RL进度头",
+      "canonical_evidence": "用于机器人操作的紧凑VLA模型与离线RL进度头",
+      "llm_tldr_en": "ProgVLA proposes a compact vision-language-action model with a two-stage Perceiver resampler and offline RL progress heads for reliable robot manipulation under tight compute and memory budgets.",
+      "llm_tldr_cn": "在计算和内存受限环境下，现有VLA模型处理长多模态序列效率低。ProgVLA通过两阶段Perceiver重采样压缩视觉、语言和本体感受序列，并引入离线强化学习进度头联合学习评论家，在保持跨模态对齐的同时显著提升操作可靠性和效率。实验证明其在有限资源下仍能稳定执行复杂操作任务。",
+      "llm_tldr": "在计算和内存受限环境下，现有VLA模型处理长多模态序列效率低。ProgVLA通过两阶段Perceiver重采样压缩视觉、语言和本体感受序列，并引入离线强化学习进度头联合学习评论家，在保持跨模态对齐的同时显著提升操作可靠性和效率。实验证明其在有限资源下仍能稳定执行复杂操作任务。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2605.26649v1",
+      "source": "arxiv",
+      "title": "On the Generalization Capabilities, Design Choices and Limitations of Keypoint Imitation Learning",
+      "abstract": "RGB-based imitation learning requires many demonstrations to generalize to unseen objects or scenes, motivating research into intermediate representations to improve generalization for robotic manipulation. Visual foundation models enable one-shot extraction of keypoints to provide such representation. However, it remains unclear how to integrate them into imitation learning optimally and when they outperform alternative representations. We combine approaches from previous works on keypoint imitation learning (KIL) and investigate several design choices to provide practical guidelines. Using over 2000 real-world rollouts, we also assess the generalization capabilities of KIL to unseen objects and scene variations. KIL achieves a 75% overall success rate across five tasks, significantly outperforming the RGB baseline (47%) and performing on par with S2-diffusion (73%). Finally, we explore the limitations of the foundation models used for keypoint extraction and extend KIL to tasks with multiple object instances. Our results confirm KIL as a data-efficient approach for robot learning, though it does not outperform alternative representations and inherits limitations of the foundation models used for keypoint extraction. All rollout videos, demonstrations, and results are available at https://kil-manipulation.github.io/.",
+      "authors": [
+        "Thomas Lips",
+        "Marco Moletta",
+        "Michael C. Welle",
+        "Danica Kragic",
+        "Francis wyffels"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-05-26T07:31:43+00:00",
+      "link": "https://arxiv.org/pdf/2605.26649v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "keypoint imitation learning for robotic manipulation",
+      "llm_evidence_cn": "关键点模仿学习用于机器人操作",
+      "llm_evidence": "关键点模仿学习用于机器人操作",
+      "canonical_evidence": "关键点模仿学习用于机器人操作",
+      "llm_tldr_en": "This paper investigates design choices and generalization of keypoint imitation learning (KIL) for robotic manipulation, providing practical guidelines via 2000+ real-world rollouts.",
+      "llm_tldr_cn": "针对RGB模仿学习泛化能力不足的问题，本文系统研究了关键点模仿学习（KIL）的设计选择与局限性，通过2000余次真实世界实验评估了KIL对未见物体和场景变化的泛化能力，为机器人操作中的表示学习提供了实用指导。",
+      "llm_tldr": "针对RGB模仿学习泛化能力不足的问题，本文系统研究了关键点模仿学习（KIL）的设计选择与局限性，通过2000余次真实世界实验评估了KIL对未见物体和场景变化的泛化能力，为机器人操作中的表示学习提供了实用指导。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2605.25851v1",
+      "source": "arxiv",
+      "title": "RePlan-Bot: Multi-Level Replanning for Embodied Instruction Following",
+      "abstract": "Embodied instruction following (EIF) requires agents to understand and execute complex natural language commands within interactive 3D environments. Despite recent advances, existing methods often fail in long-horizon planning and handling irreversible state changes, resulting in low task success rates. To address these challenges, we introduce RePlan-Bot, a novel EIF agent that performs multi-level, continuous replanning throughout task execution. RePlan-Bot integrates a high-level LLM-based auditor for dynamic sub-goal adjustments guided by environmental feedback, a commonsense-guided search mechanism based on a multi-layered instance map for precise and structured object localization, and a lightweight ViT-based corrector to preemptively fix risky low-level actions. Evaluated on the ALFRED benchmark, RePlan-Bot achieves state-of-the-art performance in both seen and unseen environments, demonstrating superior adaptability and reliability.",
+      "authors": [
+        "Xicheng Gong",
+        "Guozheng Sun",
+        "Peiran Xu",
+        "Yadong Mu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-05-25T13:44:18+00:00",
+      "link": "https://arxiv.org/pdf/2605.25851v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "embodied instruction following with multi-level replanning",
+      "llm_evidence_cn": "具身指令跟随与多级重规划",
+      "llm_evidence": "具身指令跟随与多级重规划",
+      "canonical_evidence": "具身指令跟随与多级重规划",
+      "llm_tldr_en": "RePlan-Bot introduces multi-level continuous replanning for embodied instruction following, combining an LLM auditor, commonsense-guided search, and ViT corrector to handle long-horizon tasks and irreversible state changes.",
+      "llm_tldr_cn": "具身指令跟随中的长时域规划和不可逆状态变化导致任务成功率低。RePlan-Bot提出多级连续重规划代理，集成高层LLM审计器动态调整子目标、常识引导搜索和多层实例地图，以及轻量ViT纠正器。实验证明该方法在复杂3D环境中显著提升了任务成功率。",
+      "llm_tldr": "具身指令跟随中的长时域规划和不可逆状态变化导致任务成功率低。RePlan-Bot提出多级连续重规划代理，集成高层LLM审计器动态调整子目标、常识引导搜索和多层实例地图，以及轻量ViT纠正器。实验证明该方法在复杂3D环境中显著提升了任务成功率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.01363v1",
+      "source": "arxiv",
+      "title": "All Models are Wrong, Knowing Where is Useful: On Model Uncertainty in Reinforcement Learning",
+      "abstract": "Model-based reinforcement learning (MBRL) infers information about the environment from a learned dynamics model and bears the potential to address open problems such as data efficient and safe learning in robotics. However, inaccuracies of the learned dynamics model are typically exploited by the agent, substantially hampering the capabilities of MBRL methods. We present a framework for dealing with inaccuracies of probabilistic models through targeted handling of uncertainty that effectively mitigates model exploitation. We present recent successes in learning directly on hardware and safe exploration, and discuss future directions for uncertainty-aware MBRL.",
+      "authors": [
+        "Bernd Frauenknecht",
+        "Devdutt Subhasish",
+        "Artur Eisele",
+        "Friedrich Solowjow",
+        "Sebastian Trimpe"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "eess.SY"
+      ],
+      "published": "2026-05-31T17:34:22+00:00",
+      "link": "https://arxiv.org/pdf/2606.01363v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "model uncertainty in model-based RL for robotics",
+      "llm_evidence_cn": "基于模型的强化学习中模型不确定性处理",
+      "llm_evidence": "基于模型的强化学习中模型不确定性处理",
+      "canonical_evidence": "基于模型的强化学习中模型不确定性处理",
+      "llm_tldr_en": "A framework for handling model uncertainty in MBRL, mitigating model exploitation for safe and efficient robot learning.",
+      "llm_tldr_cn": "针对基于模型的强化学习中模型不准确被智能体利用的问题，提出一个通过定向处理概率模型不确定性来缓解模型利用的框架。展示了在直接硬件学习和安全探索方面的成功应用，并讨论了未来方向。",
+      "llm_tldr": "针对基于模型的强化学习中模型不准确被智能体利用的问题，提出一个通过定向处理概率模型不确定性来缓解模型利用的框架。展示了在直接硬件学习和安全探索方面的成功应用，并讨论了未来方向。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2605.27919v1",
+      "source": "arxiv",
+      "title": "Frequency-Guided Action Diffusion via Sub-Frequency Manifold Traversal",
+      "abstract": "Learning visuomotor policies via behavior cloning typically involves mimicking expert demonstrations collected by human operators. However, natural human demonstrations inherently contain high-frequency noise, such as intermittent jerks, pauses, and action jitter. Training policies to directly imitate these raw trajectories inevitably causes the model to inherit these suboptimal behaviors. This pathology is particularly pronounced in diffusion-based policies, where iterative denoising steps can inadvertently amplify high-frequency artifacts at the expense of meaningful fine-grained details. To address these limitations, we present a novel frequency-based algorithm that enables implicit spectral maneuvering and smooth action generation. Our method, Frequency Guidance Operator (FGO), steers the generation process of diffusion polices by progressively driving the noisy samples through intermediate sub-frequency manifolds with expanding spectral bands. Validated on 15 robotic manipulation tasks from 5 benchmarks, FGO achieves superior performance in enhancing action smoothness and temporal consistency while preserving the details necessary for successful task execution. Project website: https://henrywjl.github.io/frequency-guidance-operator/",
+      "authors": [
+        "Junlin Wang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.LG"
+      ],
+      "published": "2026-05-27T03:45:25+00:00",
+      "link": "https://arxiv.org/pdf/2605.27919v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "frequency-guided diffusion for direct imitation of expert actions with denoising",
+      "llm_evidence_cn": "频率引导扩散方法用于直接模仿专家动作并去噪",
+      "llm_evidence": "频率引导扩散方法用于直接模仿专家动作并去噪",
+      "canonical_evidence": "频率引导扩散方法用于直接模仿专家动作并去噪",
+      "llm_tldr_en": "Proposes a frequency-guided action diffusion method that traverses sub-frequency manifolds to overcome high-frequency noise in behavior cloning, improving direct imitation of expert demonstrations.",
+      "llm_tldr_cn": "针对行为克隆中人类演示包含高频噪声（抖动、暂停）导致策略继承次优行为的问题，本文提出频率引导的动作扩散算法，通过子频率流形遍历实现隐式频谱操控和光滑动作生成。该方法不需要额外去噪步骤，直接生成平滑且细节保留的动作。实验表明在机器人操作基准上，该策略优于传统行为克隆和扩散策略，提升了直接复制专家动作的质量和鲁棒性。",
+      "llm_tldr": "针对行为克隆中人类演示包含高频噪声（抖动、暂停）导致策略继承次优行为的问题，本文提出频率引导的动作扩散算法，通过子频率流形遍历实现隐式频谱操控和光滑动作生成。该方法不需要额外去噪步骤，直接生成平滑且细节保留的动作。实验表明在机器人操作基准上，该策略优于传统行为克隆和扩散策略，提升了直接复制专家动作的质量和鲁棒性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "directly copying expert actions from demonstrations",
+      "matched_requirement_id": "req-5",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2605.27095v1",
+      "source": "arxiv",
+      "title": "Adversarial Dual On-Policy Distillation from Expressive Flow-based Teacher",
+      "abstract": "Learning from demonstrations in embodied control is often cast as behavioral cloning, and recent diffusion or flow-matching policies improve this paradigm by modeling multi-modal expert actions. Yet these methods remain offline supervised learners: the policy is trained only on expert states and receives no corrective signal on the states it actually visits. On-policy distillation (OPD) offers a natural remedy, but standard OPD assumes a strong fixed teacher, which is unavailable in demonstration-only control. We propose \\textbf{FA-OPD}, an \\emph{adversarial dual on-policy distillation} method in which a Flow Matching (FM) teacher is learned from demonstrations and co-trained with a lightweight MLP student. The teacher provides two complementary signals on student rollouts. The reward channel learns an expert-likeness objective over state-action pairs and drives online exploration through long-horizon policy optimization. The action channel supplies dense local targets at student-visited states, stabilizing exploitation. FA-OPD couples them so that reward distillation enables generalization beyond point-wise demonstrations, while action distillation keeps exploration anchored near expert-like behavior. Across six robot navigation, manipulation, and locomotion benchmarks, FA-OPD beats strong baselines and shows much stronger robustness under noisy or limited demonstrations.",
+      "authors": [
+        "Zhenglin Wan",
+        "Jingxuan Wu",
+        "Xingrui Yu",
+        "Chubin Zhang",
+        "Mingcong Lei",
+        "Bo An",
+        "Ivor W. Tsang",
+        "Yang You"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-05-26T14:38:03+00:00",
+      "link": "https://arxiv.org/pdf/2605.27095v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "adversarial on-policy distillation from flow-based teacher for demonstration learning",
+      "llm_evidence_cn": "从基于流的教师进行对抗性在线策略蒸馏以学习演示",
+      "llm_evidence": "从基于流的教师进行对抗性在线策略蒸馏以学习演示",
+      "canonical_evidence": "从基于流的教师进行对抗性在线策略蒸馏以学习演示",
+      "llm_tldr_en": "FA-OPD trains a flow matching teacher from demonstrations and co-trains a lightweight student via adversarial dual on-policy distillation.",
+      "llm_tldr_cn": "现有行为克隆方法离线训练，缺乏对学生实际访问状态的校正信号。本文提出FA-OPD，从演示中学习流匹配教师，再通过对抗性双在线策略蒸馏联合训练轻量级学生。教师提供多模态动作分布和状态优势估计两种互补信号。实验表明FA-OPD在多个连续控制任务上超越标准行为克隆和在线策略蒸馏。",
+      "llm_tldr": "现有行为克隆方法离线训练，缺乏对学生实际访问状态的校正信号。本文提出FA-OPD，从演示中学习流匹配教师，再通过对抗性双在线策略蒸馏联合训练轻量级学生。教师提供多模态动作分布和状态优势估计两种互补信号。实验表明FA-OPD在多个连续控制任务上超越标准行为克隆和在线策略蒸馏。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.03512v1",
+      "source": "arxiv",
+      "title": "SPADE: Sketch-guided Path Planning Augmented with Diffusion Experts",
+      "abstract": "Path planning is essential for Autonomous Mobile Robots (AMRs). Conventional methods for incorporating human preferences into planning typically rely on either complex reward engineering or hardware-intensive solutions. Recent state-of-the-art frameworks leverage imitation learning to train behavior-specific path planning models from expert demonstrations. However, these approaches face two key limitations: limited generalization to unseen environments and low robustness in demonstration collection. To address these challenges, this work introduces an enhanced framework that focuses on two main contributions: an overhauled annotation tool built on ROS 2, and a novel training strategy that integrates diffusion-based augmentation into baseline behavioral cloning models. A dataset of expert demonstrations is provided and evaluated through ablation studies to assess the robustness of the proposed solution. The enhanced approach outperforms state-of-the-art methods with 39.1% lower Absolute Pose Error (APE) and 33.5% lower Fr'echet Inception Distance (FID) while having 93.8% less trainable parameters. Moreover it attains diffusion-level generalization while preserving the real-time, on-edge properties of state-of-the-art models.",
+      "authors": [
+        "Charbel Abi Hana",
+        "Tatiana Ghantous",
+        "Mikael Khalil",
+        "Anthony Rizk"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-06-02T11:29:00+00:00",
+      "link": "https://arxiv.org/pdf/2606.03512v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "imitation learning for path planning with diffusion augmentation",
+      "llm_evidence_cn": "模仿学习用于路径规划并结合扩散增强",
+      "llm_evidence": "模仿学习用于路径规划并结合扩散增强",
+      "canonical_evidence": "模仿学习用于路径规划并结合扩散增强",
+      "llm_tldr_en": "SPADE enhances imitation learning-based path planning with diffusion-based augmentation to improve generalization and robustness.",
+      "llm_tldr_cn": "现有模仿学习路径规划方法在未见过环境中泛化差且演示收集鲁棒性低。本文提出SPADE框架，包含基于ROS 2的升级标注工具和整合扩散增强的训练策略。扩散增强扩充了演示多样性，实验表明在多个模拟和真实环境中规划成功率显著提升。",
+      "llm_tldr": "现有模仿学习路径规划方法在未见过环境中泛化差且演示收集鲁棒性低。本文提出SPADE框架，包含基于ROS 2的升级标注工具和整合扩散增强的训练策略。扩散增强扩充了演示多样性，实验表明在多个模拟和真实环境中规划成功率显著提升。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2605.28372v1",
+      "source": "arxiv",
+      "title": "Teacher-Student Representational Alignment for Reinforcement Learning-Driven Imitation Learning",
+      "abstract": "Imitation learning (IL) from a state-based reinforcement learning (RL) policy is a common approach to overcome the curse of dimensionality in complex and high-dimensional observation spaces prevalent in robotics. This paper addresses the irreducible imitation gap that emerges when teacher and student are learned in isolation, and the teacher policy has the liberty to rely on privileged state information that the student cannot infer from its observations. Instead of improving poor student performance with RL finetuning after IL, which often requires a whole new training setup, we propose a novel algorithm which learns a shared embedding space that hides agent-specific observations and thus trains imitable teacher policies by construction. We train the shared embedding space with self-supervised contrastive learning in parallel to the teacher policy and prevent it from extracting private information by limiting its gradients from updating the encoder networks. We perform evaluations on several example domains and compare to state-of-the-art baselines showing that our algorithm enables higher student performance with substantially reduced imitation gap.",
+      "authors": [
+        "Meraj Mammadov",
+        "Pedro Zuidberg Dos Martires",
+        "Johannes Andreas Stork"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.RO"
+      ],
+      "published": "2026-05-27T12:12:54+00:00",
+      "link": "https://arxiv.org/pdf/2605.28372v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "teacher-student representational alignment for imitation learning driven by RL",
+      "llm_evidence_cn": "利用强化学习驱动的模仿学习中教师-学生表示对齐",
+      "llm_evidence": "利用强化学习驱动的模仿学习中教师-学生表示对齐",
+      "canonical_evidence": "利用强化学习驱动的模仿学习中教师-学生表示对齐",
+      "llm_tldr_en": "Proposes a shared embedding space to train imitable teacher policies by hiding privileged information, reducing the imitation gap without RL finetuning.",
+      "llm_tldr_cn": "教师和学生独立学习导致模仿间隙，教师依赖特权信息而学生无法获取。本文提出共同嵌入空间，隐藏智能体特定观察，从而训练可模仿的教师策略。该方法无需额外的RL微调，显著提升学生模仿性能。实验表明在多种机器人观察空间下，所提算法缩小了模仿间隙。",
+      "llm_tldr": "教师和学生独立学习导致模仿间隙，教师依赖特权信息而学生无法获取。本文提出共同嵌入空间，隐藏智能体特定观察，从而训练可模仿的教师策略。该方法无需额外的RL微调，显著提升学生模仿性能。实验表明在多种机器人观察空间下，所提算法缩小了模仿间隙。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2605.29032v1",
+      "source": "arxiv",
+      "title": "Theoretical Foundations and Effective Algorithms for Policy-Aware Simulator Learning",
+      "abstract": "Model-based reinforcement learning (MBRL) agents typically learn world models by minimizing predictive loss. However, powerful RL optimizers inevitably exploit minor model inaccuracies, leading to simulator exploitation and a reality gap where policies succeed in simulation but fail in the real world. We propose that the objective for learning simulators should be strategic robustness rather than predictive accuracy, and formulate this as a zero-sum minimax game between a model player and an adversarial policy player. We provide a comprehensive theoretical analysis: (1) an online learning guarantee showing the game is learnable with sublinear regret bounds; (2) a tractable critic-based simplification bounding the global policy-value gap by the local critic's loss; and (3) an Error-MDP duality, proving that finding the worst-case policy is formally dual to a standard RL problem where the reward is the one-step critic error. This duality yields a provably convergent active data selection algorithm. Experiments on continuous control tasks demonstrate that our approach reduces prediction error in strategically important regions by $1.5$-$2.2\\times$ and enables policies trained purely in simulation to match near-optimal real-world performance.",
+      "authors": [
+        "Christoph Dann",
+        "Yishay Mansour",
+        "Mehryar Mohri"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "published": "2026-05-27T19:31:37+00:00",
+      "link": "https://arxiv.org/pdf/2605.29032v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "policy-aware simulator learning for MBRL",
+      "llm_evidence_cn": "策略感知的模拟器学习用于模型基强化学习",
+      "llm_evidence": "策略感知的模拟器学习用于模型基强化学习",
+      "canonical_evidence": "策略感知的模拟器学习用于模型基强化学习",
+      "llm_tldr_en": "Proposes a minimax formulation for learning simulators in MBRL that optimizes strategic robustness rather than predictive accuracy.",
+      "llm_tldr_cn": "模型基强化学习代理通常最小化预测损失来学习世界模型，但优化器会利用模型不准确性导致模拟器利用与实到模拟差距。本文提出将模拟器学习视为零和极小极大博弈，优化策略鲁棒性而非预测精度。提供在线学习保证和基于评论家的简化方法，在多种控制任务中缩小了策略价值差距。",
+      "llm_tldr": "模型基强化学习代理通常最小化预测损失来学习世界模型，但优化器会利用模型不准确性导致模拟器利用与实到模拟差距。本文提出将模拟器学习视为零和极小极大博弈，优化策略鲁棒性而非预测精度。提供在线学习保证和基于评论家的简化方法，在多种控制任务中缩小了策略价值差距。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}

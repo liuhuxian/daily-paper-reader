@@ -1,0 +1,570 @@
+Title: MetaWorld: Scaling Multi-Agent Video World Model from Single-view Video Data
+
+URL Source: https://arxiv.org/pdf/2606.02753v1
+
+Published Time: Wed, 03 Jun 2026 00:10:19 GMT
+
+Number of Pages: 19
+
+Markdown Content:
+# MetaWorld: Scaling Multi-Agent Video World Model from Single-view Video Data 
+
+Teng Hu 1∗∗ Mingchun Lu 1∗ Yating Wang 1 Jiangning Zhang 2 Jinkun Hao 1
+
+Ye Pan 1 Ran Yi 1† Lizhuang Ma 1 Dacheng Tao 31Shanghai Jiao Tong University 2Zhejiang University 3Nanyang Technological University 
+
+Project page: https://sjtuplayer.github.io/projects/MetaWorld/ Agent 1  
+
+> Agent 2
+> Agent 1
+> Agent 2 Scene
+> Scene
+> Egocentric
+> Video 1
+> Egocentric
+> Video 2
+> Egocentric
+> Video 1
+> Egocentric
+> Video 2
+
+Figure 1: Multi-Agent Video World Modeling with MetaWorld. Our framework successfully scales video world models to open-domain environments, generating identity-consistent video observations from multiple simultaneous egocentric perspectives. MetaWorld enforces both static geometric consistency and dynamic motion consistency, encouraging that the shared 3D physical environment evolves identically across all views. 
+
+## Abstract 
+
+Video world models are a foundational generative technology for embodied AI and the Metaverse, yet existing approaches are inherently limited to a single agent observing from a single perspective. Extending these models to multi-agent set-tings introduces two critical challenges: data scarcity (coordinated multi-view recordings are prohibitively expensive to collect for general open-domain scenar-ios) and world state alignment (independently generated video streams cannot ensure that shared physical environments and events evolve consistently across views). To address these challenges, we propose MetaWorld , a novel framework that scales multi-agent video world models to open-domain environments directly from single-view videos. First, we introduce Monocular World-State Unrolling (MWSU) to explicitly decompose monocular footage into the camera operator’s ego-motion and the visible subject’s spatial trajectory. This camera-trajectory decomposition naturally extracts synchronized multi-agent motion data within a shared 3D space, completely bypassing the need for multi-camera setups. Second, for precise visual control, we develop the Subject-Aware World Generator to 
+
+> ∗
+
+Equal Contribution. 
+
+> †
+
+Corresponding Author. Preprint. 
+
+> arXiv:2606.02753v1 [cs.CV] 1 Jun 2026
+
+enable appearance-driven simulation conditioned on per-agent identity images. Finally, to ensure both views are grounded in the identical physical reality, we pro-pose World-State Alignment , a per-frame inter-branch cross-attention mechanism inserted at every transformer layer of the video DiT. By jointly synchronizing the denoising process, WSA enforces both static geometric consistency and dynamic motion consistency, encouraging that the shared 3D environment and physical events remain well-aligned across both egocentric views. Extensive experiments demonstrate that MetaWorld achieves superior cross-view consistency and identity fidelity, establishing a highly scalable, physics-driven paradigm for multi-agent video world modeling. 
+
+## 1 Introduction 
+
+Video generation has witnessed remarkable progress in recent years. Driven by advances in diffusion models [ 7, 25 ], scalable Diffusion Transformers [ 23 , 5], and large-scale video pretraining [ 28 , 17 ,33 , 9, 12 ], modern video generation systems can now synthesize photorealistic, temporally coherent videos at unprecedented scale and quality. This progress has in turn unlocked a new frontier: video world models [ 18 ], systems that learn the dynamics of the physical world directly from video data, enabling agents to predict future observations, reason about consequences, and simulate complex environments without exhaustive real-world interaction. As a foundational generative technology, video world models have broad applications ranging from embodied AI [ 6 ] to autonomous environment generation [ 22 ] and the Metaverse, which provides shared digital realities where multiple agents must interact within a synchronized, physics-driven space. Existing video world models generally fall into two scene representation paradigms [ 13 ]: implicit 2D memory models [ 22 , 27 ] that generate future frames directly from learned representations, and 
+
+explicit 3D memory models [13 ] that rely on geometric structures and camera priors for spatial coherence. Crucially, both paradigms fundamentally assume a single agent observing the world from a single viewpoint. Extending these systems to multi-agent video world modeling , defined as the capability to simultaneously synthesize physically synchronized and identity-consistent egocentric video streams for multiple agents interacting within a shared environment, introduces two critical challenges: the extreme data scarcity of coordinated multi-agent egocentric recordings, and the strict requirement of world synchronization to ensure shared environments and dynamic events evolve identically across all views. While pioneering works like Solaris [ 26 ] and MultiWorld [ 30 ] take initial steps toward multiplayer video world models, they are inherently confined to specific simulated environments (e.g., Minecraft). By relying on custom game engines to programmatically synchronize agents and collect multi-view observations, these approaches depend on privileged infrastructure that fails to generalize to open-domain settings. Overcoming this limitation requires a paradigm shift: scaling multi-agent dynamics directly from widely available single-view videos. To build a generalizable multi-agent video world model for open-domain environments from single-view videos, we propose MetaWorld . Our framework directly addresses the aforementioned challenges through three core components. First, to overcome data scarcity, we propose Monocular World-State Unrolling (MWSU) to extract hidden multi-agent physical dynamics directly from standard single-view videos. By explicitly decomposing this monocular footage into the unseen camera operator’s ego-motion and the visible subject’s spatial trajectory, we naturally acquire syn-chronized motion data of multiple agents navigating the exact same 3D space, thereby enabling scalable multi-agent training and inference within a shared scene via camera-trajectory decomposi-tion. Second, to achieve precise visual control, we propose the Subject-Aware World Generator (SAWG) , a robust video diffusion backbone that conditions generation on per-agent identity images, enabling appearance-driven simulation where specific individuals’ visual characteristics are preserved. Finally, to ensure both views are grounded in the identical physical reality, we propose World-State Alignment (WSA) . WSA addresses the dual requirement of multi-agent simulation: static geometric consistency of the shared environment and dynamic motion consistency of evolving physical events. By coupling two parallel generation branches via a per-frame inter-branch cross-attention mechanism inserted at every transformer layer, WSA jointly synchronizes the denoising process. This encourages that both the 3D spatial layout and the temporal dynamics remain well-aligned across both agents’ egocentric views. 2MetaWorld has been evaluated on multi-camera egocentric benchmarks across world consistency, mutual observability, and identity fidelity metrics. Compared with single-agent baselines and ablated variants, MetaWorld achieves significantly higher cross-view consistency while maintaining com-petitive single-view generation quality, demonstrating the effectiveness of MWSU and WSA. The contributions can be summarized as follows: • We propose MetaWorld , the first multi-agent video world model for open-domain environ-ments . By successfully scaling from single-view videos, it addresses both the data scarcity and world state alignment challenges that have previously restricted multi-agent video world modeling to custom game engines. • We introduce Monocular World-State Unrolling (MWSU) . By explicitly decomposing monocular footage into the camera operator’s ego-motion and the subject’s spatial trajectory, MWSU extracts synchronized multi-agent motion data within a shared 3D space, unlocking scalable multi-agent training via camera-trajectory decomposition. • We propose the Subject-Aware World Generator , a large pretrained video DiT fine-tuned to jointly support rendered condition video injection, trajectory conditioning, and identity image conditioning in a unified framework. • We propose World-State Alignment to jointly synchronize the dual-view generation process. By enforcing both static geometric consistency and dynamic motion consistency, WSA ensures the shared 3D environment and physical events remain well-aligned across both egocentric views. 
+
+## 2 Related Work 
+
+Video Generation Models. The emergence of large-scale Video Foundation Models (VFMs) has significantly revolutionized visual synthesis, driven by advancements in scalable Diffusion Trans-formers (DiTs) [ 23 , 5] and massive text-video pre-training. Pioneering models such as Sora [ 3], CogVideoX [ 35 ], HunyuanVideo [ 17 ], and Wan [ 28 ] have demonstrated unprecedented capabilities in generating high-fidelity, spatiotemporally coherent videos. Alongside these advances, identity-conditioned customization has rapidly evolved to support precise single- and multi-subject synthe-sis [ 37 , 21 , 10 , 11 ]. Beyond mere visual synthesis, these powerful video models offer a robust foundation for building visual world simulators capable of understanding complex physical dynamics. Building upon them, MetaWorld realizes a multi-agent world model, seamlessly integrating precise identity control with physically consistent dual-view simulation. 
+
+Video World Models. World models learn predictive models of environment dynamics to simulate future observations. Recent large-scale efforts, such as Genie 3 [ 2] and Cosmos [ 1 ], have significantly advanced action-controllable and physically grounded simulations. Existing video world models generally fall into two scene representation paradigms. Implicit memory world models [ 14 , 20 , 4 , 36 ,32 , 27 ] maintain historical consistency via streaming, autoregressive, or retrieval-based mechanisms. However, they lack explicit geometric constraints and are prone to structural inconsistency under complex camera movements. Conversely, explicit 3D memory world models [ 38 , 19 , 31 , 16 , 8]integrate geometric structures (e.g., point clouds or 3D Gaussians) into the generation loop for stronger grounding, but typically require camera calibration, depth information, or known scene geometry. Crucially, these paradigms fundamentally assume a single observing agent. While recent pioneering works like Solaris [ 26 ] and Multiworld [ 30 ] explore multi-agent world modeling, they are strictly confined to specific simulated environments (e.g., Minecraft) and heavily rely on synchronized multi-view data collected via programmable game engines. This strict data dependency severely limits their generalization to diverse, open-domain scenes. In contrast, MetaWorld introduces Dyadic Scene Decomposition (DSD) to build a highly generalizable multi-agent world model for arbitrary real-world scenarios directly from widely available single-view videos, bypassing the need for specialized multi-view data. 
+
+## 3 Method 
+
+MetaWorld addresses the task of multi-agent video world modeling for open-domain environments. Given a shared scene containing N agents, the system takes their absolute global trajectories as input. 3Dual-Branch Diffusion Transformer                
+
+> Geometric State Rendering
+> Agent i
+> Agent j
+> Condition
+> video 𝐀 𝐀
+> Depth
+> video 𝐀 𝐀
+> Joint Generation with SAWG+WSA
+> Inputs: 𝐀 𝐀 ,𝐀 𝐀 ,𝐀 ~𝐀
+> Branch i
+> Inputs: 𝐀 𝐀 ,𝐀 𝐀 ,𝐀 ~𝐀
+> Branch j
+> Shared timestep: 𝐀
+> World State Alignment
+> （shared weights, zero init ）
+> ID Image
+> 𝐀 ~𝐀
+> ID Image
+> 𝐀 ~𝐀
+> Condition
+> video 𝐀 𝐀
+> Depth
+> video 𝐀 𝐀
+> Self Attention
+> Cross Attention
+> FFN
+> Self Attention
+> Cross Attention
+> FFN
+> weight
+> share
+> weight
+> share
+> weight
+> share
+> video token image token depth video ID image weight share 3D scene trajectory
+> 3D Scene
+> Agent i
+> Agent j
+> Generated
+> Egocentric Videos
+> Agent i’s view
+> Agent j’s view
+> moving
+> watching
+> watching
+> moving
+
+Figure 2: Framework of MetaWorld. The framework takes agent-specific geometric priors (RGB condition videos and depth videos) rendered from the shared 3D world, alongside corresponding identity (ID) reference images, as inputs. These conditions are processed by parallel branches of our Subject-Aware World Generator. Synchronized by the World-State Alignment (WSA) module during joint denoising, the model generates physically consistent and identity-preserving egocentric videos as observed by multiple agents simultaneously. For each agent i, we compute the relative trajectories of the other agents projected onto agent i’s camera perspective, rendering them into a condition video. The model takes these N condition videos, alongside the identity (ID) reference images of the visible agents, and jointly outputs N egocentric video observations. The goal is to ensure that these generated views are individually photorealistic while remaining strictly consistent with respect to the shared physical world. The core innovation of MetaWorld lies in its ability to scale this multi-agent simulation directly from widely available 
+
+single-view videos . The overall framework is illustrated in Fig. 2. 
+
+3.1 Multi-Agent World Generation via Monocular World-State Unrolling The multi-agent data bottleneck. Building a multi-agent video world model requires data where multiple agents simultaneously capture egocentric views of the same scene. However, synchronized multi-agent recordings are prohibitively expensive to collect and scale across diverse open-domain environments. In contrast, single-view egocentric videos are naturally abundant in datasets, social media, and sports footage. The critical challenge lies in bridging the gap between this abundant monocular data and the strict multi-view supervision required for training a multi-agent system. 
+
+Monocular World-State Unrolling (MWSU). To address this bottleneck, MWSU leverages the insight that a single-view egocentric video capturing another active person already inherently encodes the physical dynamics of a multi-agent interaction. It simultaneously contains the continuous spatial state of the unseen camera operator (the observer) and the visible subject (the observed). MWSU explicitly extracts this hidden multi-agent world state directly from monocular footage. By 
+
+decomposing the video into independent physical parameters, specifically extracting the camera’s ego-motion to represent one agent and parameterizing the spatial trajectory to represent the other, we successfully decouple the observer from the observed. This physical decomposition allows us to systematically recombine these isolated elements to construct rigorous multi-agent interactions, obtaining the exact coordinated multi-agent states needed to supervise our multi-agent world model. Concretely, for a shared scene Si with N agents, any egocentric video xi recorded by agent i is decomposed into three structural components: • Camera motion sequence ci ∈ RT ×D: the per-frame camera poses defining agent i’s observation over T timesteps, serving as the primary spatial condition. • Multi-subject trajectory set T (i) 
+
+> ∼i
+
+= {τ (i) 
+
+> j
+
+}j̸ =i: the D′-dimensional per-frame positions 
+
+{Pj } of all other visible agents j, projected onto agent i’s camera space ci. This defines how subjects move within i’s field of view. 4• Identity reference set I∼i = {Ij }j̸ =i: reference images encoding the appearance of each visible agent j to ensure visual consistency throughout generation. Formally, agent i’s egocentric video is modeled as a conditional distribution: 
+
+xi ∼ pθ
+
+ xi Si, ci, T (i) 
+
+> ∼i
+
+, I∼i
+
+. (1) 
+
+Multi-agent inference. At inference time, our goal is to generate a synchronized N -agent simulation 
+
+{x1, . . . , xN } from a unified global scene. This shared scene is fully specified by a set of N global agent trajectories {P1, . . . , PN } and their corresponding identity reference images {I1, . . . , IN }.To leverage the learned conditional distribution pθ defined in Eq. (1) , we must deterministically construct the exact condition tuple (Si, ci, T (i) 
+
+> ∼i
+
+, I∼i) for every agent i. Crucially, an agent’s physical movement in the 3D scene dually dictates its own egocentric view and its visible motion to others. Thus, for any given agent i, its global trajectory Pi directly translates into its camera motion sequence 
+
+ci. Subsequently, all cross-view conditions are geometrically determined: projecting any other agent 
+
+j’s global trajectory Pj onto ci directly yields the relative trajectory τ (i) 
+
+> j
+
+, successfully formulating the trajectory set T (i) 
+
+> ∼i
+
+. Together with the rendered 3D background Si and the gathered identity set I∼i,the full conditioning requirement for Eq. (1) is satisfied. The single trained model pθ is then applied symmetrically and simultaneously across all N branches. This joint sampling process effectively translates a unified set of physical world parameters into a coherent, multi-view simulation. 
+
+Scalable MWSU Data Engine. We propose an automated, geometry-aware data engine to instantiate the MWSU training tuple (Si, ci, T (i) 
+
+> ∼i
+
+, I∼i, xi) from raw single-view video xi. First, we extract the camera motion sequence ci using MoGe-2 [ 29 ]. Simultaneously, we track the set of dynamic subjects within the video using SAM 2 [ 24 ] to obtain continuous instance masks, and estimate per-frame depth using Depth Anything [ 34 ]. From these tracking results, we select a single frame with a valid, non-empty mask for each individual subject j to explicitly crop out their visual appearance. This yields the individual identity reference image Ij , which collectively form the identity set I∼i. By combining the continuous masks, depth maps, and camera poses ci, we calculate the global 3D trajectory coordinates for each visible agent. These global trajectories are then projected back onto the camera operator’s perspective to formulate the relative trajectory set T (i) 
+
+> ∼i
+
+, where each subject’s position is visually represented as a moving 3D Gaussian sphere. To provide environmental context, we construct the shared 3D background scene Si using two distinct strategies to supervise different model capabilities ( details are in the appendix ): (1) Anchor-Frame Background Modeling : utilizing only the initial frame to establish a partial environmental prior, which explicitly trains the model’s capacity for scene completion and spatial extrapolation; (2) Holistic Background Aggregation :accumulating static background geometries across all frames (with dynamic objects masked out) to build a comprehensive 3D prior, which can enhance the spatial consistency over time. 
+
+3.2 Subject-Aware World Generator 
+
+To learn the universal MWSU distribution pθ
+
+ xi Si, ci, T (i) 
+
+> ∼i
+
+, I∼i
+
+ derived from the data engine, we introduce the Subject-Aware World Generator (SAWG) . Built upon the powerful Phantom-Wan2.1 14B DiT backbone [ 21 , 28 ], SAWG transcends standard video generation by acting as a highly controllable, physics-grounded simulator. Rather than merely concatenating conditional inputs, SAWG is explicitly designed to disentangle and independently govern where a subject moves and who 
+
+the subject is. To achieve this, our conditioning pipeline operates through three synergistic stages: first, Geometric State Rendering translates the abstract 3D environment and multi-agent trajectories into dense RGB and depth priors; second, Subject-Location and Geometry Grounding injects these spatial conditions into the latent space to enforce physical and kinematic boundaries; finally, 
+
+Subject-Appearance Anchoring integrates persistent identity references to improve zero-shot visual fidelity. This decoupled yet unified design ensures that the generated subjects adhere flawlessly to designated 3D trajectories while maintaining consistent visual characteristics throughout complex dynamic environments. 
+
+Geometric State Rendering. Following the data engine pipeline, we construct the specific visual conditions for each agent. First, we sample the constructed 3D background along the camera motion sequence ci to generate a base scene video. We then explicitly superimpose the moving 3D Gaussian spheres, which represent the relative trajectory set T (i) 
+
+> ∼i
+
+, into this visual space. This combined 5process yields the RGB condition RGB video V ∈ RC×T ×H×W . Simultaneously, we render the corresponding depth video D ∈ R1×T ×H×W , which captures the exact per-frame depth maps of both the static background and the superimposed Gaussian trajectory spheres. Together with the identity reference set I∼i, these rendered streams form the complete conditioning input for the generation of the target egocentric video xi.
+
+Subject-Location and Geometry Grounding. To explicitly inject both the established physical environment and the precise spatial locations of the subjects into the generative process, the RGB condition video V and the depth video D are compressed by the VAE encoder E and concatenated along the channel dimension. This forms a joint geometric representation that explicitly encodes the subjects’ moving coordinates within the 3D layout: 
+
+zcond = E(V ); E(D) ∈ R2Cz ×Tz ×Hz ×Wz . (2) To match the latent space of the diffusion model, this joint representation is processed by a zero-initialized feature compression network Fzero , which projects the channels from 2Cz back to Cz .The compressed geometric features are then residually added to the noisy video latent zt:
+
+z′ 
+
+> t
+
+= zt + Fzero (zcond ). (3) By employing zero-initialization, we ensure that the Phantom-Wan2.1 backbone fully retains its powerful pretrained generative priors at the onset of fine-tuning. This design choice allows the structural scene context and the kinematic subject trajectory guidance to emerge gradually, ensuring highly stable training dynamics. 
+
+Subject-Appearance Anchoring. While the geometric grounding dictates where the subjects are, SAWG must also guarantee who they are. To achieve the promised zero-shot identity fidelity, the identity reference images from I∼i must serve as unwavering visual conditions. We encode these images via the VAE and concatenate them directly to the geometry-grounded video latent z′ 
+
+> t
+
+along the temporal axis. For an individual subject j, this injection is formulated as: 
+
+˜zt = z′
+
+> t
+
+; E(Ij ) ∈ RCz ×(Tz +1) ×Hz ×Wz . (4) This formulation extends naturally to N -agent scenarios by simply appending additional latent identity frames. Crucially, this mechanism acts as a persistent appearance anchor, supplying the DiT with continuous, frame-independent visual guidance for each specific subject at every denoising step, while the training loss is backpropagated exclusively over the Tz target video frames. 
+
+3.3 World-State Alignment The multi-view inconsistency problem. Running N independent SAWG models (one for each agent’s view) leads to two critical failures in multi-agent simulation. The first is geometric in-consistency , where the static 3D spatial layout (e.g., background structures, stationary objects) diverges across views. The second is dynamic inconsistency , where shared transient events (e.g., moving objects, lighting changes, or physical interactions) fail to synchronize. Because trajectory conditioning only dictates individual subject motion, it cannot resolve these shared environmental discrepancies. To achieve coherent multi-agent simulation, the parallel generation branches must be fundamentally grounded in an identical, synchronized physical world state. 
+
+Frame-wise inter-branch cross-attention. To explicitly synchronize this shared world state across different branches, we propose World-State Alignment (WSA) . Building upon the Wan2.1 backbone, we introduce a dedicated frame-wise inter-branch cross-attention module into every transformer layer. By forcing parallel generation branches to continuously exchange latent representations, this mechanism ensures that both coarse spatial layouts in early layers and fine dynamic details in deeper layers remain well-aligned. Taking target branch i and source branch j as an example, when branch i
+
+queries world-state information from branch j, the WSA computation is formulated as: 
+
+xi ← xi + WSAAttn  LN d(xi), KV=LN d(xj ). (5) To prevent cross-frame temporal leakage and preserve physical causality, WSA strictly restricts attention to within-frame token pairs : the Hz Wz tokens of frame f in branch i attend exclusively to those of frame f in branch j. This leaves only 2D spatial relative positions as effective positional signals, allowing WSA to learn cross-view spatial correspondences effectively. 6Agent 1 Agent 2     
+
+> Agent 1
+> EgoView
+> Agent 2
+> EgoView
+> Agents’
+> Movement
+> W
+> SAD
+> Action 1
+> W
+> SAD
+> Action 2 Agent 2 Agent 1
+> Agents’
+> Movement D
+> W
+> SA
+> Action 2
+> W
+> SAD
+> Action 1
+> VerseCrafter
+> Agent 1
+> EgoView
+> Agent 2
+> EgoView
+> MultiWorld
+> Agent 1
+> EgoView
+> Agent 2
+> EgoView
+> MetaWorld
+> Inconsistent
+
+Figure 3: Qualitative comparison on multi-view generation with the state-of-the-arts. 
+
+Dual-agent training strategy. While our ultimate objective is N -agent simulation, we efficiently train the WSA module using paired dual-agent interactions. To achieve this, we collect a small-scale dataset of real-world multi-view videos and process them through our previously described Scalable MWSU Data Engine. This extracts the precise multi-agent training tuples (e.g., aligned camera poses, relative trajectories, and identities) required for synchronized supervision. During training, we instantiate two branches ( A and B) and compute the cross-attention bidirectionally ( A
+
+attends to B, and B attends to A). To preserve the base model’s pretrained generative priors, the output projection of the WSA module is zero-initialized. Both branches share the same denoising timestep t, and the training loss is computed as the average of their individual flow-matching losses: 
+
+LWSA = 12
+
+ LA + LB
+
+.
+
+Multi-agent cyclic inference. At inference time, we elegantly scale the dual-trained WSA to N
+
+agents by adopting a directed cyclic attention topology . Instead of computing computationally prohibitive O(N 2) dense cross-attention across all agents, we sequentially inject physical world-state information. Specifically, agent 1’s latent state is injected as the KV condition for agent 2, agent 2 into agent 3, and this chain continues until agent N injects its state back into agent 1. Formally, for any agent k ∈ { 1, . . . , N }, the cross-attention is computed as: 
+
+xk ← xk + WSAAttn  xk, KV= x(k−2 mod N )+1 
+
+. (6) This cyclic topology efficiently propagates global consistency across all views. By running parallel sampling with tightly synchronized timesteps, the model yields mutually coherent, physics-grounded multi-agent video streams from a single unified simulation. 
+
+## 4 Experiments 
+
+4.1 Experiment Settings Implementation details. MetaWorld is built on the Phantom-Wan2.1 14B DiT backbone [ 21 , 28 ]. In Stage 1, we train the subject-aware world generator on single-view data using AdamW with a constant learning rate of 5×10 −4, and bf16 mixed precision on 32 × H20 GPUs. In Stage 2, we initialize from the Stage-1 checkpoint and introduce the World-State Alignment module for synchronization, training with the same optimizer and learning rate on 32 × H20 GPUs. Both stages generate 81-frame videos at 480P resolution. We use flow matching with logit-normal weighting (flow shift γ=5 .0) and perform inference with 40-step Euler sampling at a CFG scale of η=5 .0.
+
+Baselines. Since no prior multi-agent video world models generalize to open-domain scenarios, we adapt two representative methods for comparison: (1) MultiWorld [30 ]: A multi-view video 7Table 1: Quantitative comparison across two evaluation settings. Bold and underline denote the best and second-best results, respectively. Setting Method Subject Consist. ↑                                            
+
+> Background Consist. ↑
+> Motion Smooth. ↑
+> Aesthetic Quality ↑
+> Imaging Quality ↑CVC ↑Trajectory Consist. ↑
+> Full-3D VerseCrafter [39] 0.9299 0.9071 0.9891 0.4999 0.7015 0.7210 0.9634 MultiWorld [30] 0.7999 0.8945 0.9820 0.4417 0.5998 0.3631 0.2355
+> MetaWorld (Ours) 0.9335 0.9171 0.9854 0.5817 0.7574 0.8454 0.9752
+> Partial-3D VerseCrafter 0.9229 0.9015 0.9865 0.4905 0.6973 0.7280 0.9582 MultiWorld 0.7915 0.8907 0.9778 0.4349 0.5902 0.4081 0.2265
+> MetaWorld 0.9289 0.9107 0.9818 0.5735 0.7526 0.7549 0.9694
+
+generation model. We directly utilize its official pretrained weights to evaluate its performance under the testset. (2) VerseCrafter [39 ]: An image-to-video model supporting fine-grained camera and trajectory controls. We simulate multi-agent generation by conditioning it on each agent’s respective trajectories to render views independently. For a strict and fair comparison, VerseCrafter is initialized with the exact first frame generated by our model. 
+
+Metrics. We adopt the VBench [ 15 ] suite to assess general video generation quality, specifically reporting Subject Consistency , Background Consistency , Motion Smoothness , Aesthetic Quality ,and Imaging Quality . Detailed definitions for these standard metrics are provided in the supplemen-tary material. Furthermore, to evaluate multi-agent synchronization and spatial control, we introduce two specific metrics. Cross-View Consistency (CVC) measures the DINO-v2 feature similarity between corresponding regions across the generated views, explicitly evaluating whether the cameras observe physically consistent scene content. Finally, Trajectory Consistency assesses the accuracy of our motion conditioning by calculating the alignment between the input spatial trajectories and the actual physical movements extracted from the generated videos, ensuring the agents strictly adhere to their specified pathways. 
+
+4.2 Comparison Results Qualitative comparison. Figure 3 presents a visual comparison of the generated multi-view se-quences. While VerseCrafter [ 39 ] utilizes strong image-to-video priors, it struggles to maintain strict identity consistency, frequently generating videos where the subject’s appearance diverges from the specified agent ID. Furthermore, as illustrated in the rightmost case, it fails to preserve cross-view environmental consistency, resulting in the two agents observing contradictory background scenes. MultiWorld [ 30 ], on the other hand, exhibits a limited capability in modeling complex open-domain environments; its generated videos suffer from noticeable artifacts and an overall lower visual quality. In contrast, MetaWorld successfully generates multi-view videos that maintain strict identity fidelity while ensuring flawless structural and dynamic synchronization across all camera branches. 
+
+Quantitative comparison. We quantitatively evaluate all methods under two distinct settings: Full-3D scene and Partial-scene, as reported in Tab. 1. In the Full-3D scene setting , the complete 3D spatial layout is provided. While VerseCrafter achieves good single-view aesthetic quality, it struggles with cross-view geometry consistency due to its lack of explicit multi-agent world synchronization. MultiWorld attempts to align the multi-agent views but still falls short of MetaWorld, whose WSA mechanism explicitly couples the denoising process to guarantee an identical shared reality. The Partial-scene setting reflects highly realistic scenarios where comprehensive 3D assets are unavailable, and the models must dynamically hallucinate unobserved content based on a partial environment reconstructed from just a single image or sparse views. In this setting, VerseCrafter generates visually plausible extrapolations but struggles to coordinate these hallucinated regions globally, occasionally producing contradictory out-of-view content between the cameras. MultiWorld shows structural alignment on explicitly provided regions but struggles to accurately synchronize the hallucinated portions. MetaWorld achieves the highest CVC across both settings, demonstrating that our synchronized joint denoising enables the parallel branches to consistently agree on both the specified physical geometry and the unspecified hallucinated content. 
+
+4.3 Ablation Study 
+
+To validate the core architectural designs and data processing strategies of our framework, we conduct a comprehensive ablation study. Quantitative results are provided in Tab. 2. 8Table 2: Ablation study on key design choices of MetaWorld. Bold denotes the best result. Variant Subject Consist. ↑                                            
+
+> Background Consist. ↑
+> Motion Smooth. ↑
+> Aesthetic Quality ↑
+> Imaging Quality ↑CVC ↑Trajectory Consist. ↑
+> w/o WSA 0.9310 0.9148 0.9826 0.5636 0.7620 0.7358 0.9542 w/o Depth Video 0.9282 0.9110 0.9812 0.5688 0.7445 0.7840 0.9126 w/o Anchor-Frame BG 0.9075 0.8455 0.9826 0.4588 0.6812 0.7496 0.9284 w/o Holistic BG 0.9218 0.8821 0.9806 0.5621 0.6170 0.5513 0.9352 w/o ZeroInit 0.7583 0.7630 0.9568 0.3820 0.6358 0.6172 0.7845
+> MetaWorld (Ours) 0.9312 0.9139 0.9836 0.5776 0.7550 0.8001 0.9723
+
+Effect of World-State Alignment (w/o WSA). We ablate the WSA module, forcing the model to generate each agent’s egocentric view entirely independently. While the individual trajectory condi-tioning manages to guide basic movement and single-view generation qualities remain highly com-petitive (even achieving high Background Consistency and Imaging Quality), the lack of frame-wise inter-branch cross-attention completely severs the communication of shared background dynamics. Consequently, the model fails to synchronize transient environmental events, resulting in a distinct drop in Cross-View Consistency (CVC). 
+
+Importance of depth priors (w/o Depth Video). We evaluate the necessity of explicit geometric grounding by removing the depth video d from the condition injection. Without depth priors, the model lacks the structural references needed to accurately anchor the projected 3D spatial trajectories within the scene’s layout. This ambiguity leads to severe floating artifacts and a big drop in Trajectory Consistency , as the generated agents fail to strictly adhere to the specified physical pathways. 
+
+Impact of background modeling strategies. Our MWSU data engine relies on two complementary strategies for spatial conditioning. We ablate them individually: (1) w/o Anchor-Frame BG : Re-moving the initial anchor-frame prior strips the model of explicit supervision for scene extrapolation. Consequently, the model struggles to hallucinate and fill in unobserved regions naturally, leading to a noticeable degradation in overall generation quality (particularly in Aesthetic and Imaging Quality). (2) w/o Holistic BG : Relying only on the initial frame without accumulating the holistic 3D background geometry causes the model to lose global spatial awareness. While single-view generation metrics remain competitive and close to the state-of-the-art, the model utterly fails to follow the designated scene layout under complex trajectories with large camera rotations, resulting in a severe drop in CVC. 
+
+Impact of zero-initialization (w/o ZeroInit). We replace the zero-initialization strategy in both the WSA output projection and the feature compression network with standard random initialization. This abrupt alteration of the latent space severely disrupts the powerful pretrained generative priors of the Wan2.1 backbone. Rather than diverging completely, the training struggles with instability and ultimately converges to a suboptimal local minimum, resulting in a roughly 20% performance degradation across all evaluated metrics. 
+
+## 5 Conclusion 
+
+In this paper, we present MetaWorld, the first multi-agent video world model capable of simulating open-domain environments. To overcome the severe data scarcity that has traditionally confined multi-agent world modeling to custom game engines like Solaris [ 26 ], we introduce Monocular World-State Unrolling (MWSU) . Grounded in the insight that standard single-view egocentric videos implicitly encode complete physical dual-agent dynamics, MWSU directly extracts camera ego-motion and subject trajectories. This fundamentally shifts the paradigm by allowing scalable multi-agent supervision without the need for coordinated multi-camera recordings. Building upon this data engine, our Subject-Aware World Generator (SAWG) functions as a robust video diffusion backbone, enabling precise appearance-driven simulation that strictly preserves individual visual characteristics. Finally, to ensure all simulated views are grounded in an identical physical reality, we propose World-State Alignment (WSA) . By coupling parallel generation branches via a frame-wise inter-branch cross-attention mechanism, WSA successfully enforces both the static geometric consistency of the shared 3D environment and the dynamic motion consistency of evolving events. Extensive experiments demonstrate that MetaWorld significantly outperforms prior baselines in cross-view consistency, physical synchronization, and identity fidelity. Our framework advances the state 9of the art for world models, opening new possibilities for collaborative embodied AI, synchronized Metaverse environments, and scalable multi-agent video generation. 
+
+## References 
+
+[1] N. N. Agarwal, A. Ali, M. Bala, et al. Cosmos world foundation model platform for physical ai. 
+
+arXiv preprint arXiv:2501.03575 , 2025. [2] P. J. Ball, J. Bauer, F. Belletti, B. Brownfield, A. Ephrat, et al. Genie 3: A new frontier for world models. 2025. [3] T. Brooks, B. Peebles, C. Holmes, W. DePue, Y. Guo, L. Jing, D. Schnurr, J. Tay-lor, T. Luhman, E. Luhman, C. Ng, R. Wang, and A. Ramesh. Video genera-tion models as world simulators. 2024. URL https://openai.com/research/ video-generation-models-as-world-simulators .[4] S. Cai, C. Yang, L. Zhang, Y. Guo, J. Xiao, Z. Yang, Y. Xu, Z. Yang, A. Yuille, L. Guibas, et al. Mixture of contexts for long video generation. arXiv preprint arXiv:2508.21058 , 2025. [5] P. Esser, S. Kulal, A. Blattmann, R. Entezari, J. Müller, H. Saini, Y. Levi, D. Lorenz, A. Sauer, F. Boesel, et al. Scaling rectified flow transformers for high-resolution image synthesis. In 
+
+Forty-first international conference on machine learning , 2024. [6] D. Hafner, J. Pasukonis, J. Ba, and T. Lillicrap. Mastering diverse domains through world models. arXiv preprint arXiv:2301.04104 , 2023. [7] J. Ho, A. Jain, and P. Abbeel. Denoising diffusion probabilistic models. Advances in neural information processing systems , 33:6840–6851, 2020. [8] Y. Hong, Y. Mei, C. Ge, Y. Xu, Y. Zhou, S. Bi, Y. Hold-Geoffroy, M. Roberts, M. Fisher, E. Shechtman, et al. Relic: Interactive video world model with long-horizon memory. arXiv preprint arXiv:2512.04040 , 2025. [9] T. Hu, Z. Yu, G. Zhang, Z. Su, Z. Zhou, Y. Zhang, Y. Zhou, Q. Lu, and R. Yi. Harmony: Harmo-nizing audio and video generation through cross-task synergy. arXiv preprint arXiv:2511.21579 ,2025. [10] T. Hu, Z. Yu, Z. Zhou, S. Liang, Y. Zhou, Q. Lin, and Q. Lu. Hunyuancustom: A multimodal-driven architecture for customized video generation. arXiv preprint arXiv:2505.04512 , 2025. [11] T. Hu, Z. Yu, Z. Zhou, J. Zhang, Y. Zhou, Q. Lu, and R. Yi. Polyvivid: Vivid multi-subject video generation with cross-modal interaction and enhancement. arXiv preprint arXiv:2506.07848 ,2025. [12] T. Hu, J. Zhang, Z. Su, and R. Yi. Ultragen: High-resolution video generation with hierarchical attention. arXiv preprint arXiv:2510.18775 , 2025. [13] T. Hu, J. Zhang, H. Huang, R. Yi, Z. Su, J. Weng, Z. Xue, L. Ma, M.-H. Yang, and D. Tao. Evolution of video generative foundations. arXiv preprint arXiv:2604.06339 , 2026. [14] X. Huang, Z. Li, G. He, M. Zhou, and E. Shechtman. Self forcing: Bridging the train-test gap in autoregressive video diffusion. arXiv preprint arXiv:2506.08009 , 2025. [15] Z. Huang, Y. He, J. Yu, F. Zhang, C. Si, Y. Jiang, Y. Zhang, T. Wu, Q. Jin, N. Chanpaisit, et al. Vbench: Comprehensive benchmark suite for video generative models. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition , pages 21807–21818, 2024. [16] H. Kong, X. Yang, X. Zheng, and X. Wang. Worldwarp: Propagating 3d geometry with asynchronous video diffusion. arXiv preprint arXiv:2512.19678 , 2025. [17] W. Kong, Q. Tian, Z. Zhang, R. Min, Z. Dai, J. Zhou, J. Xiong, X. Li, B. Wu, J. Zhang, et al. Hunyuanvideo: A systematic framework for large video generative models. arXiv preprint arXiv:2412.03603 , 2024. 10 [18] Y. LeCun et al. A path towards autonomous machine intelligence version 0.9. 2, 2022-06-27. 
+
+Open Review , 62(1):1–62, 2022. [19] R. Li, P. Torr, A. Vedaldi, and T. Jakab. Vmem: Consistent interactive video scene generation with surfel-indexed view memory. arXiv preprint arXiv:2506.18903 , 2025. [20] W. Li, W. Pan, P.-C. Luan, Y. Gao, and A. Alahi. Stable video infinity: Infinite-length video generation with error recycling. arXiv preprint arXiv:2510.09212 , 2025. [21] L. Liu, T. Ma, B. Li, Z. Chen, J. Liu, Q. He, and X. Wu. Phantom: Subject-consistent video generation via cross-modal alignment. arXiv preprint arXiv:2502.11079 , 2025. [22] J. Parker-Holder, P. Ball, J. Bruce, V. Dasagi, K. Holsheimer, C. Kaplanis, A. Moufarek, G. Scully, J. Shar, J. Shi, et al. Genie 2: A large-scale foundation world model. URL: https://deepmind.google/discover/blog/genie-2-a-large-scale-foundation-world-model , 2024. [23] W. Peebles and S. Xie. Scalable diffusion models with transformers. In Proceedings of the IEEE/CVF international conference on computer vision , pages 4195–4205, 2023. [24] N. Ravi, V. Gabeur, Y.-T. Hu, R. Hu, C. Ryali, T. Ma, H. Khedr, R. Rädle, C. Rolland, L. Gustafson, et al. Sam 2: Segment anything in images and videos. arXiv preprint arXiv:2408.00714 , 2024. [25] R. Rombach, A. Blattmann, D. Lorenz, P. Esser, and B. Ommer. High-resolution image synthesis with latent diffusion models. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition , pages 10684–10695, 2022. [26] G. Savva, O. Michel, D. Lu, S. Waiwitlikhit, T. Meehan, D. Mishra, S. Poddar, J. Lu, and S. Xie. Solaris: Building a multiplayer video world model in minecraft. arXiv preprint arXiv:2602.22208 , 2026. [27] W. Sun, H. Zhang, H. Wang, J. Wu, Z. Wang, Z. Wang, Y. Wang, J. Zhang, T. Wang, and C. Guo. Worldplay: Towards long-term geometric consistency for real-time interactive world modeling. 
+
+arXiv preprint arXiv:2512.14614 , 2025. [28] Wan Team. Wan: Open and advanced large-scale video generative models. 2025. [29] R. Wang, S. Xu, Y. Dong, Y. Deng, J. Xiang, Z. Lv, G. Sun, X. Tong, and J. Yang. Moge-2: Accu-rate monocular geometry with metric scale and sharp details. arXiv preprint arXiv:2507.02546 ,2025. [30] H. Wu, J. Yu, Y. Zou, and X. Liu. Multiworld: Scalable multi-agent multi-view video world models. arXiv preprint arXiv:2604.18564 , 2026. [31] T. Wu, S. Yang, R. Po, Y. Xu, Z. Liu, D. Lin, and G. Wetzstein. Video world models with long-term spatial memory. arXiv preprint arXiv:2506.05284 , 2025. [32] Z. Xiao, Y. Lan, Y. Zhou, W. Ouyang, S. Yang, Y. Zeng, and X. Pan. Worldmem: Long-term consistent world simulation with memory. arXiv preprint arXiv:2504.12369 , 2025. [33] Z. Xue, J. Zhang, T. Hu, H. He, Y. Chen, Y. Wang, C. Wang, Y. Liu, X. Li, D. Tao, et al. Ultravideo: High-quality uhd video dataset with comprehensive captions. In The Thirty-ninth Annual Conference on Neural Information Processing Systems Datasets and Benchmarks Track ,2025. [34] L. Yang, B. Kang, Z. Huang, X. Xu, J. Feng, and H. Zhao. Depth anything: Unleashing the power of large-scale unlabeled data. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition , pages 10371–10381, 2024. [35] Z. Yang, J. Teng, W. Zheng, M. Ding, S. Huang, J. Xu, Y. Yang, W. Hong, X. Zhang, G. Feng, et al. Cogvideox: Text-to-video diffusion models with an expert transformer. arXiv preprint arXiv:2408.06072 , 2024. 11 [36] J. Yu, J. Bai, Y. Qin, Q. Liu, X. Wang, P. Wan, D. Zhang, and X. Liu. Context as memory: Scene-consistent interactive long video generation with memory retrieval. arXiv preprint arXiv:2506.03141 , 2025. [37] S. Yuan, J. Huang, X. He, Y. Ge, Y. Shi, L. Chen, J. Luo, and L. Yuan. Identity-preserving text-to-video generation by frequency decomposition. In Proceedings of the Computer Vision and Pattern Recognition Conference , pages 12978–12988, 2025. [38] J. Zhao, F. Wei, Z. Liu, H. Zhang, C. Xu, and Y. Lu. Spatia: Video generation with updatable spatial memory. arXiv preprint arXiv:2512.15716 , 2025. [39] S. Zheng, M. Yin, W. Hu, X. Li, Y. Shan, and Y. Fu. Versecrafter: Dynamic realistic video world model with 4d geometric control. arXiv preprint arXiv:2601.05138 , 2026. 12 A Overview 
+
+In the appendix, we offer further details on implementation, present additional experimental results, and provide more comprehensive analyses, structured as follows: • Implementation details (Sec. B); • Dataset Construction (Sec. C) • Single-world generation results (Sec. D); • Additional multi-agent generation results (Sec. E); • Limitations (Sec. F). 
+
+## B Implementation Details 
+
+B.1 Hyperparameters. 
+
+Table 3 summarizes the key hyperparameters utilized during both the training (Stage 1 and Stage 2) and inference phases of our framework. Table 3: Training hyperparameters for Stage 1 and Stage 2. Hyperparameter Stage 1 Stage 2 Backbone init Phantom-Wan2.1 14B Stage-1 checkpoint New params Fzero (zero-init conv) WSA cross-attn layers Optimizer AdamW AdamW 
+
+(β1, β 2) (0 .9, 0.999) (0 .9, 0.999) 
+
+Learning rate 5×10 −4 5×10 −4
+
+LR schedule Constant Constant Mixed precision bf16 bf16 
+
+Distributed DeepSpeed ZeRO DeepSpeed ZeRO Video length 81 frames 81 frames Resolution 480 ×832 480 ×832 
+
+Cz 16 16 Flow shift γ 5.0 5.0 CFG scale η 5.0 5.0 Inference steps 40 40 GPU 32 × H20 32 × H20 
+
+B.2 Metrics Visual Quality. We adopt the VBench [ 15 ] evaluation suite to assess generated video quality from multiple dimensions. Specifically, we report: Subject Consistency , which measures the identity coherence of subjects across frames using DINO features; Background Consistency , which evaluates the temporal stability of background regions via CLIP features; Motion Smoothness , which quantifies the smoothness of inter-frame motion; Aesthetic Quality , which scores the visual appeal of generated frames; and Imaging Quality , which captures low-level image quality (e.g., sharpness, noise level). In addition, we introduce a Cross-View Consistency (CVC) metric to evaluate whether the generated views preserve a consistent underlying 3D scene structure and appearance. 
+
+Cross-View Consistency. While VBench evaluates single-video quality, it does not directly measure whether two generated views describe the same underlying 3D scene. We therefore introduce 
+
+Cross-View Consistency (CVC) , a point-cloud-based metric that evaluates both geometric and appearance consistency across views. Given a reference video Va and a generated video Vb, we reconstruct a colored point cloud from each video using monocular depth estimation [ 34 ] and camera back-projection. Both videos are truncated to the first 3 seconds for evaluation. 13 For each frame t, we estimate a depth map Dt, camera intrinsics Kt, and camera-to-world pose 
+
+T c2wt ∈ SE(3) . Each valid pixel (u, v ) is back-projected into the world coordinate system as 
+
+pworld = T c2wt
+
+ Dt(u, v )K−1 
+
+> t
+
+[u, v, 1] ⊤ . (7) Aggregating all back-projected pixels yields a colored point cloud P = {(xi, ci)}, where xi ∈ R3
+
+denotes the 3D position and ci ∈ [0 , 1] 3 denotes the RGB color. We apply voxel downsampling and statistical outlier removal to reduce noise. Since monocular reconstruction is scale-ambiguous, we normalize each point cloud to a unit bounding box centered at the origin. The generated point cloud is then aligned to the reference point cloud using FPFH-based global registration followed by point-to-plane ICP refinement. After alignment, we compute a geometric F-score between the reference point cloud A and the generated point cloud B. With a distance threshold τ , precision and recall are defined as 
+
+Prec( τ ) = 1
+
+|A| 
+
+X
+
+> a∈A
+
+1
+
+
+
+min  
+
+> b∈B
+
+∥a − b∥2 < τ 
+
+
+
+, (8) 
+
+Rec( τ ) = 1
+
+|B| 
+
+X
+
+> b∈B
+
+1
+
+
+
+min  
+
+> a∈A
+
+∥b − a∥2 < τ 
+
+
+
+. (9) The geometric consistency score is then 
+
+F-score( τ ) = 2 Prec( τ ) Rec( τ )Prec( τ ) + Rec( τ ) . (10) We set τ = 0 .05 , corresponding to 5% of the normalized bounding-box extent. To further evaluate appearance consistency, we compute color similarity over geometrically matched point pairs. For each point bj ∈ B , we find its nearest neighbor ann (j) ∈ A and keep only pairs within the distance threshold: 
+
+M = {(j, nn (j)) | ∥ bj − ann (j)∥2 < τ }. (11) The color similarity is defined as 
+
+ColorSim = 1
+
+|M| 
+
+X
+
+> (j,k )∈M
+
+1 − ∥cbj − cak∥2
+
+√3
+
+!
+
+, (12) where √3 is the maximum possible RGB distance and normalizes the score to [0 , 1] .Finally, CVC combines geometric and appearance consistency: 
+
+CVC = 12 (F -score( τ ) + ColorSim) . (13) 
+
+## C Dataset Construction 
+
+To systematically instantiate the MWSU training tuple from raw single-view videos, we employ an automated, geometry-aware data engine. The construction pipeline consists of explicit feature extraction, spatial trajectory formulation, and environment modeling. 
+
+Feature extraction and identity formulation. For a given monocular video, we first extract the continuous camera motion sequence ci using MoGe-2 [ 29 ]. Simultaneously, we estimate dense per-frame depth maps using Depth Anything [ 34 ] and track dynamic subjects to obtain continuous instance masks via SAM 2 [ 24 ]. To formulate the identity set I∼i, we scan the tracking results for each individual subject j to select a single high-quality frame with a valid, non-empty mask. The foreground is then explicitly cropped to serve as the visual identity reference image Ij .
+
+Trajectory abstraction via 3D Gaussians. By aggregating the camera poses, depth maps, and continuous subject masks, we back-project the masked subject regions into global 3D space. Instead of modeling complex, non-rigid meshes, we abstract the subject’s spatial geometry at each frame by calculating the mean position and covariance of its point cloud. This efficiently represents the 14 subject as a compact, moving 3D Gaussian sphere. Projecting these global spatial states back onto the camera operator’s perspective yields the relative trajectory set T (i) 
+
+> ∼i
+
+.
+
+Background modeling strategies. As described in the main paper, we construct the shared 3D back-ground scene Si using two complementary strategies to supervise different generative capabilities. 
+
+Anchor-Frame Background Modeling utilizes only the initial frame to establish a partial environ-mental prior. We remove the subject region using the SAM 2 mask and back-project the remaining background pixels into 3D space to obtain a sparse scene point cloud. This deliberately incomplete prior forces the model to learn scene completion and spatial extrapolation, which is critical for the partial-scene evaluation setting. 
+
+Holistic Background Aggregation replaces the single-frame reconstruction with multi-frame back-ground fusion. By applying SAM 2 masks to explicitly filter out dynamic subjects across the entire video, we fuse the remaining per-frame background point clouds into a unified, comprehensive 3D scene point cloud. This dense prior explicitly trains the model to maintain strict spatial consistency and structural fidelity, corresponding to the full-scene evaluation setting. Finally, the constructed 3D background point cloud and the dynamic Gaussian subject trajectories are jointly rendered along the camera trajectory ci to produce a unified condition video. At inference time, users can flexibly choose either background strategy depending on the availability of environmental priors. 
+
+## D Single-World Generation Results 
+
+Beyond multi-agent synchronization, MetaWorld demonstrates robust capabilities as a highly con-trollable single-view video world model. Our framework grants users fine-grained control over the simulation dynamics: users can explicitly dictate the ego-camera motion as well as the precise 3D spatial trajectories of any objects or subjects within the scene. Furthermore, MetaWorld supports a free-roaming mode; if no explicit object trajectories are provided, the model seamlessly generates a static environmental walkthrough, allowing the camera to smoothly explore the world without dynamic interruptions. We demonstrate these capabilities under two distinct scene modeling conditions, reflecting the flexibility of our background representation: 
+
+Full-scene setting. As illustrated in Fig. 5, when a complete, holistic 3D scene layout is available, MetaWorld adheres strictly to the comprehensive spatial priors. Conditioned on the dense 3D background point cloud rendered along the camera trajectory, the model preserves exact geometric consistency and coherent spatial structures throughout the video. This holds true even when the camera executes complex trajectories with large rotations (e.g., turning corners or pivoting more than 90 degrees), successfully preventing background shifting or spatial degradation. 
+
+Partial-scene setting. MetaWorld is equally effective when only limited environmental information is available, as demonstrated in Fig. 4. In the partial-scene setting, the background prior is initialized from just a single anchor frame. As the camera explores beyond the initial field of view, the model leverages its powerful pretrained generative priors to naturally hallucinate and extrapolate the unobserved regions. This allows the model to "fill in the blanks" on the fly, producing visually plausible and structurally coherent scene completions without requiring a fully scanned environment. 
+
+## E Additional Multi-Agent Generation Results 
+
+To further demonstrate the versatility and robustness of MetaWorld, we provide additional qualitative results for the multi-agent generation task, focusing on character customization and scene diversity. 
+
+Zero-shot character customization in a shared scene. Crucially, MetaWorld supports highly flexible, zero-shot character customization. As illustrated in Fig. 7, because appearance is persistently anchored via the identity reference image, users can explicitly inject customized roles into the simulation. We showcase examples where, within the exact same background scene and adhering to identical spatial trajectories, the visual identities of the agents are seamlessly swapped simply by providing different ID images. This highlights our model’s ability to completely disentangle 15 Condition 
+
+> Video
+> Generated
+> Video
+> Condition
+> Video
+> Generated
+> Video
+> Condition
+> Video
+> Generated
+> Video
+> Condition
+> Video
+> Generated
+> Video
+
+Partial 3D scene Figure 4: Qualitative single-world generation results on partial 3D scene. MetaWorld naturally extrapolates and hallucinates unobserved regions as the camera explores. appearance from motion and environment, enabling diverse roleplay and personalized avatars in shared digital realities. 
+
+Diverse open-domain environments. Furthermore, as shown in Fig. 6, our generated cases span a wide variety of diverse open-domain environments, including complex indoor layouts, expansive outdoor landscapes, and dynamic, unstructured scenes. Across all these categories, MetaWorld consistently generates physically synchronized and geometrically coherent multi-view egocentric videos, ensuring that both static structures and transient events align perfectly between the interacting agents. 
+
+## F Limitations 
+
+World interaction. MetaWorld focuses on open-domain multi-agent world modeling, where multiple agents simultaneously observe a shared physical scene with consistent egocentric views. The current 16 Condition 
+
+> Video
+> Generated
+> Video
+> Condition
+> Video
+> Generated
+> Video
+> Condition
+> Video
+> Generated
+> Video
+> Condition
+> Video
+> Generated
+> Video
+
+Full 3D scene Figure 5: Qualitative single-world generation results on the full 3D scene. MetaWorld maintains strict spatial consistency and structural fidelity even under large camera rotations. framework does not yet model active interaction between agents and the environment, such as manipulating objects or physically contacting other agents. Extending the system toward interaction-aware dynamics is a natural and interesting direction for future work. 
+
+Agent orientation. Each agent’s facing direction is currently derived from the instantaneous velocity of its 3D Gaussian sphere, which works well for typical locomotion trajectories. This means in-place rotation is not yet supported as a trajectory primitive. Adding an explicit heading angle to the trajectory representation would be a straightforward way to enable this. 
+
+Broader impact. MetaWorld enables realistic multi-agent video simulation for embodied AI research, supporting safe robot learning, game simulation, and social behavior modeling. The ability to generate consistent multi-view videos could be misused for creating synthetic multi-camera surveillance scenarios; we recommend access controls for downstream deployments. 17 Agent 1 
+
+EgoView 
+
+Agent 2 
+
+EgoView 
+
+Agent 1 Agent 2 
+
+Agent 1 Agent 2 
+
+Agent 1 
+
+EgoView 
+
+Agent 2 
+
+EgoView 
+
+Agent 1 
+
+EgoView 
+
+Agent 2 
+
+EgoView 
+
+Agent 1 Agent 2 
+
+Scene & 
+
+Trajectory 
+
+Scene & 
+
+Trajectory 
+
+Scene & 
+
+Trajectory Figure 6: Additional multi-agent generation results. 18 Agent 1  
+
+> EgoView
+> Agent 2
+> EgoView
+> Agent 1
+> EgoView
+> Agent 2
+> EgoView
+> Generated Egoview videos ID Images
+> Scene &
+> Trajectory
+> Scene &
+> Trajectory
+> ID Images Generated Egoview videos
+
+Figure 7: Additional multi-agent generation results. The blocks illustrate diverse open-domain environments and demonstrate character customization, where different specific identities can be seamlessly assigned to agents exploring the exact same shared 3D scene. 19
