@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-24T21:34:49.275911+00:00",
-  "updated_date": "20260624",
+  "generated_at": "2026-06-25T21:01:18.153823+00:00",
+  "updated_date": "20260625",
   "carryover_days": 9,
   "tag_states": {
     "WMI": {
-      "updated_date": "20260624",
+      "updated_date": "20260625",
       "carryover_days": 9,
       "items": []
     }

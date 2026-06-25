@@ -6,74 +6,71 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-06-24
-- 运行时间：2026-06-24 21:45:57 UTC
+- 最新运行日期：2026-06-25
+- 运行时间：2026-06-25 21:11:58 UTC
 - 运行状态：成功
-- 本次总论文数：18
-- 精读区：7
+- 本次总论文数：17
+- 精读区：6
 - 速读区：11
 
 ### 今日简报（AI）
-今日共推荐18篇论文，精读2篇高分工作聚焦具身智能中的世界模型与模仿学习。最值得关注的是《Imitation from Heterogeneous Demonstrations》提出的异构演示模仿方法，以及《Wh0》用生成式世界模型提供大规模第一人称手部操作数据。建议优先精读这两篇，理解世界模型如何提升具身智能的泛化与数据效率。
-- 详情：[/202606/24/README](/202606/24/README)
+今日聚焦机器人控制与强化学习，17篇论文中精读2篇高分工作。最值得关注的方向是上下文世界建模（In-Context World Modeling）与基于置信度门控的奖励建模（RARM），为机械臂操作提供新框架。建议普通读者优先精读这两篇10分和9分论文，并留意扩散模型在主动感知中的速读工作。
+- 详情：[/202606/25/README](/202606/25/README)
 
 ### 精读区论文标签
-1. [Imitation from Heterogeneous Demonstrations using Grounded Latent-Action World Models](/202606/24/2606.21672v1-imitation-from-heterogeneous-demonstrations-using-grounded-latent-action-world-models)  
+1. [In-Context World Modeling for Robotic Control](/202606/25/2606.26025v1-in-context-world-modeling-for-robotic-control)  
    标签：评分：10.0/10、query:wmi
-   evidence：基于接地潜在动作世界模型从异构演示中进行模仿学习
-2. [Wh0: Generative World Models as Scalable Sources of Egocentric Human Hand Manipulation Data](/202606/24/2606.22136v2-wh0-generative-world-models-as-scalable-sources-of-egocentric-human-hand-manipulation-data)  
+   evidence：通过上下文适应为机器人控制构建世界模型
+2. [RARM: Confidence-Gated Progress Reward Modeling for RL in Manipulation](/202606/25/2606.22027v2-rarm-confidence-gated-progress-reward-modeling-for-rl-in-manipulation)  
    标签：评分：9.0/10、query:wmi
-   evidence：生成式世界模型用于第一人称人手操作数据
-3. [Temporal Logic Guidance for Action-Only Diffusion Policies with World Models](/202606/24/2606.22729v1-temporal-logic-guidance-for-action-only-diffusion-policies-with-world-models)  
+   evidence：在机器人操作强化学习中利用单个专家示范进行奖励建模
+3. [Flowing With Purpose: Latent Action Guided Flow Matching Policies For Robotic Manipulation](/202606/25/2606.23420v1-flowing-with-purpose-latent-action-guided-flow-matching-policies-for-robotic-manipulation)  
    标签：评分：9.0/10、query:wmi
-   evidence：学习的世界模型用于引导仅动作扩散策略进行规划与预测
-4. [TSD: A Physics-Inspired Trajectory Saliency Detector for Efficient Imitation Learning](/202606/24/2606.23371v1-tsd-a-physics-inspired-trajectory-saliency-detector-for-efficient-imitation-learning)  
+   evidence：流匹配用于机器人操作的模仿学习
+4. [Decoupling Semantics and Geometric Grounding: Spatial Visual Prompts for Language-Conditioned Imitation Learning](/202606/25/2606.25360v1-decoupling-semantics-and-geometric-grounding-spatial-visual-prompts-for-language-conditioned-imitation-learning)  
    标签：评分：9.0/10、query:wmi
-   evidence：机器人操作模仿学习，利用轨迹显著性检测
-5. [RE4: Transformation-aware Imitation of Object Interactions Using Manipulation Modes](/202606/24/2606.24403v1-re4-transformation-aware-imitation-of-object-interactions-using-manipulation-modes)  
+   evidence：利用空间视觉提示的机器人操作模仿学习
+5. [Beyond Next-Observation Prediction: Agent-Authored World Modeling for Sequential Decision Making](/202606/25/2606.25421v1-beyond-next-observation-prediction-agent-authored-world-modeling-for-sequential-decision-making)  
    标签：评分：9.0/10、query:wmi
-   evidence：基于操作模式的变换感知物体交互模仿学习
-6. [Beyond Monotonic Progress: Retry-Supervised Value Learning for Robot Imitation](/202606/24/2606.24633v1-beyond-monotonic-progress-retry-supervised-value-learning-for-robot-imitation)  
-   标签：评分：9.0/10、query:wmi
-   evidence：从有错误演示中通过重试监督学习价值函数用于机器人模仿
-7. [InSight: Self-Guided Skill Acquisition via Steerable VLAs](/202606/24/2606.24884v1-insight-self-guided-skill-acquisition-via-steerable-vlas)  
-   标签：评分：9.0/10、query:wmi
-   evidence：从演示中自主获取技能用于机器人操作
+   evidence：代理自主构建世界模型用于序列决策
+6. [ARP: Enhancing Quantized Skill Abstractions via Visual Alignment and Iterative Refinement for Robotic Manipulation](/202606/25/2606.22480v1-arp-enhancing-quantized-skill-abstractions-via-visual-alignment-and-iterative-refinement-for-robotic-manipulation)  
+   标签：评分：8.0/10、query:wmi
+   evidence：基于技能的模仿学习结合视觉语义基础用于操作
 
 ### 速读区论文标签
-1. [Vesta: A Generalist Embodied Reasoning Model](/202606/24/2606.20905v1-vesta-a-generalist-embodied-reasoning-model)  
+1. [HiL-ResRL: A Model-Agnostic Finetuning Adapter via Human-in-the-loop Residual Reinforcement Learning](/202606/25/2606.22860v1-hil-resrl-a-model-agnostic-finetuning-adapter-via-human-in-the-loop-residual-reinforcement-learning)  
    标签：评分：8.0/10、query:wmi
-   evidence：统一具身推理模型，集成定位、规划和记忆
-2. [Decoupling the Declarative from the Procedural in Vision-Language-Action Models](/202606/24/2606.21496v1-decoupling-the-declarative-from-the-procedural-in-vision-language-action-models)  
+   evidence：通过残差强化学习微调VLA模型，缓解行为克隆的分布偏移
+2. [HoloAgent-0: A Unified Embodied Agent Framework with 3D Spatial Memory](/202606/25/2606.23565v1-holoagent-0-a-unified-embodied-agent-framework-with-3d-spatial-memory)  
    标签：评分：8.0/10、query:wmi
-   evidence：改进通过行为克隆训练的视觉-语言-动作模型的泛化能力，用于机器人操作
-3. [Backpropagating Through Simulation: Analytic Policy Gradients for Sample and Learning Efficient Differentiable Continuous Control](/202606/24/2606.21525v1-backpropagating-through-simulation-analytic-policy-gradients-for-sample-and-learning-efficient-differentiable-continuous-control)  
+   evidence：面向真实世界机器人部署的统一具身智能体框架
+3. [Learning to See While Learning to Act: Diffusion Models for Active Perception in Robot Imitation](/202606/25/2606.23625v1-learning-to-see-while-learning-to-act-diffusion-models-for-active-perception-in-robot-imitation)  
    标签：评分：8.0/10、query:wmi
-   evidence：通过可微动态进行精确梯度计算实现基于模型的强化学习
-4. [Provably Efficient Policy-Reward Co-Pretraining for Adversarial Imitation Learning](/202606/24/2606.22056v1-provably-efficient-policy-reward-co-pretraining-for-adversarial-imitation-learning)  
+   evidence：结合主动感知的机器人操作模仿学习用于遮挡情况
+4. [Learning Action Priors for Cross-embodiment Robot Manipulation](/202606/25/2606.26095v1-learning-action-priors-for-cross-embodiment-robot-manipulation)  
    标签：评分：8.0/10、query:wmi
-   evidence：策略-奖励共预训练用于对抗模仿学习
-5. [Recover, Discover, Plan: Learning Skills and Concepts from Robot Failures](/202606/24/2606.18328v1-recover-discover-plan-learning-skills-and-concepts-from-robot-failures)  
+   evidence：从示范中学习动作先验以改进策略学习
+5. [Semi-Supervised Vision-Language-Action Model](/202606/25/2606.21493v1-semi-supervised-vision-language-action-model)  
    标签：评分：7.0/10、query:wmi
-   evidence：从失败恢复中学习状态抽象和技能用于规划
-6. [WorldLines: Benchmarking and Modeling Long-Horizon Stateful Embodied Agents](/202606/24/2606.18847v1-worldlines-benchmarking-and-modeling-long-horizon-stateful-embodied-agents)  
+   evidence：半监督视觉-语言-动作模型减少对动作标注示范的需求
+6. [Improving Robotic Imitation Learning via Trajectory Standardization](/202606/25/2606.22907v1-improving-robotic-imitation-learning-via-trajectory-standardization)  
    标签：评分：7.0/10、query:wmi
-   evidence：具身代理的世界状态记忆
-7. [Temporal Self-Imitation Learning](/202606/24/2606.19752v1-temporal-self-imitation-learning)  
+   evidence：面向机器人模仿学习的轨迹标准化预处理方法
+7. [RECALL: Recovery Experience Collection for Active Lifelong Learning in Vision-Language-Action Models](/202606/25/2606.23617v1-recall-recovery-experience-collection-for-active-lifelong-learning-in-vision-language-action-models)  
    标签：评分：7.0/10、query:wmi
-   evidence：利用高效轨迹进行自我模仿学习的机器人操作框架
-8. [Temporal Self-Imitation Learning](/202606/24/2606.19752v2-temporal-self-imitation-learning)  
+   evidence：面向视觉-语言-动作模型的主动持续学习与示范数据利用
+8. [ObsGraph: Hierarchical Observation Representation for Embodied Reasoning and Exploration](/202606/25/2606.24068v1-obsgraph-hierarchical-observation-representation-for-embodied-reasoning-and-exploration)  
    标签：评分：7.0/10、query:wmi
-   evidence：从高效轨迹进行自我模仿学习用于机器人操作
-9. [ENPIRE: Agentic Robot Policy Self-Improvement in the Real World](/202606/24/2606.19980v1-enpire-agentic-robot-policy-self-improvement-in-the-real-world)  
+   evidence：用于具身推理和探索的分层观察表示
+9. [Playful Agentic Robot Learning](/202606/25/2606.19419v1-playful-agentic-robot-learning)  
    标签：评分：6.0/10、query:wmi
-   evidence：真实世界机器人策略自我改进与物理反馈循环
-10. [A Model-Driven Approach for Developing Families of Reinforcement Learning Environments](/202606/24/2606.20324v1-a-model-driven-approach-for-developing-families-of-reinforcement-learning-environments)  
+   evidence：具身编码代理通过自主玩耍学习技能
+10. [A Neuromorphic Reinforcement Learning Framework for Efficient Pathfinding in Robotic Mobile Fulfillment Systems](/202606/25/2606.20031v2-a-neuromorphic-reinforcement-learning-framework-for-efficient-pathfinding-in-robotic-mobile-fulfillment-systems)  
    标签：评分：6.0/10、query:wmi
-   evidence：模型驱动方法开发强化学习环境家族
-11. [Robot Critics that Sweat the Small Stuff](/202606/24/2606.21572v1-robot-critics-that-sweat-the-small-stuff)  
+   evidence：用于机器人移动实现系统的强化学习路径规划
+11. [A Reward-Petri-Net Interpretation of Temporal Behavior Trees](/202606/25/2606.21350v1-a-reward-petri-net-interpretation-of-temporal-behavior-trees)  
    标签：评分：6.0/10、query:wmi
-   evidence：使用动作条件视频预测作为世界模型来评估机器人动作
+   evidence：面向机器人强化学习的时序行为树奖励设计方法
 
 
 <div class="dpr-home-promo-card">
