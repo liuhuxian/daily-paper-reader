@@ -6,71 +6,66 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-06-25
-- 运行时间：2026-06-25 21:11:58 UTC
+- 最新运行日期：2026-06-26
+- 运行时间：2026-06-26 22:02:51 UTC
 - 运行状态：成功
-- 本次总论文数：17
-- 精读区：6
-- 速读区：11
+- 本次总论文数：14
+- 精读区：5
+- 速读区：9
 
 ### 今日简报（AI）
-今日聚焦机器人控制与强化学习，17篇论文中精读2篇高分工作。最值得关注的方向是上下文世界建模（In-Context World Modeling）与基于置信度门控的奖励建模（RARM），为机械臂操作提供新框架。建议普通读者优先精读这两篇10分和9分论文，并留意扩散模型在主动感知中的速读工作。
-- 详情：[/202606/25/README](/202606/25/README)
+今日聚焦于机器人控制中的上下文世界建模与持续模仿学习，两篇9分精读论文深入探讨世界模型与生成回放机制。
+
+最值得关注的方向：通过世界模型提升机器人控制的泛化能力，以及利用动态专家混合实现终身操作学习。
+
+建议优先精读两篇高分论文，速读材料可辅助理解强化学习与扩散模型在机器人操作中的前沿应用。
+- 详情：[/202606/26/README](/202606/26/README)
 
 ### 精读区论文标签
-1. [In-Context World Modeling for Robotic Control](/202606/25/2606.26025v1-in-context-world-modeling-for-robotic-control)  
-   标签：评分：10.0/10、query:wmi
-   evidence：通过上下文适应为机器人控制构建世界模型
-2. [RARM: Confidence-Gated Progress Reward Modeling for RL in Manipulation](/202606/25/2606.22027v2-rarm-confidence-gated-progress-reward-modeling-for-rl-in-manipulation)  
+1. [In-Context World Modeling for Robotic Control](/202606/26/2606.26025v2-in-context-world-modeling-for-robotic-control)  
    标签：评分：9.0/10、query:wmi
-   evidence：在机器人操作强化学习中利用单个专家示范进行奖励建模
-3. [Flowing With Purpose: Latent Action Guided Flow Matching Policies For Robotic Manipulation](/202606/25/2606.23420v1-flowing-with-purpose-latent-action-guided-flow-matching-policies-for-robotic-manipulation)  
+   evidence：用于机器人控制的上下文世界建模
+2. [World Action Models Enable Continual Imitation Learning with Recurrent Generative Replays](/202606/26/2606.27374v1-world-action-models-enable-continual-imitation-learning-with-recurrent-generative-replays)  
    标签：评分：9.0/10、query:wmi
-   evidence：流匹配用于机器人操作的模仿学习
-4. [Decoupling Semantics and Geometric Grounding: Spatial Visual Prompts for Language-Conditioned Imitation Learning](/202606/25/2606.25360v1-decoupling-semantics-and-geometric-grounding-spatial-visual-prompts-for-language-conditioned-imitation-learning)  
-   标签：评分：9.0/10、query:wmi
-   evidence：利用空间视觉提示的机器人操作模仿学习
-5. [Beyond Next-Observation Prediction: Agent-Authored World Modeling for Sequential Decision Making](/202606/25/2606.25421v1-beyond-next-observation-prediction-agent-authored-world-modeling-for-sequential-decision-making)  
-   标签：评分：9.0/10、query:wmi
-   evidence：代理自主构建世界模型用于序列决策
-6. [ARP: Enhancing Quantized Skill Abstractions via Visual Alignment and Iterative Refinement for Robotic Manipulation](/202606/25/2606.22480v1-arp-enhancing-quantized-skill-abstractions-via-visual-alignment-and-iterative-refinement-for-robotic-manipulation)  
+   evidence：用于持续模仿学习的世界动作模型
+3. [MinInter: Minimizing Trajectory Interpolation During Data Augmentation for Imitation Learning](/202606/26/2606.24078v1-mininter-minimizing-trajectory-interpolation-during-data-augmentation-for-imitation-learning)  
    标签：评分：8.0/10、query:wmi
-   evidence：基于技能的模仿学习结合视觉语义基础用于操作
+   evidence：在模仿学习数据增强中最小化非专家插值段
+4. [RoBoSR: Structured Scene Representations for Embodied Robotic Reasoning](/202606/26/2606.24338v1-robosr-structured-scene-representations-for-embodied-robotic-reasoning)  
+   标签：评分：8.0/10、query:wmi
+   evidence：利用结构化场景图作为内部环境表征以支持规划与推理
+5. [MPC-Injection: Biasing Off-Policy Locomotion RL Toward Controller-Induced Behavior Basins](/202606/26/2606.26392v1-mpc-injection-biasing-off-policy-locomotion-rl-toward-controller-induced-behavior-basins)  
+   标签：评分：8.0/10、query:wmi
+   evidence：通过模型预测控制器注入回放缓冲区，利用学习到的动力学引导RL
 
 ### 速读区论文标签
-1. [HiL-ResRL: A Model-Agnostic Finetuning Adapter via Human-in-the-loop Residual Reinforcement Learning](/202606/25/2606.22860v1-hil-resrl-a-model-agnostic-finetuning-adapter-via-human-in-the-loop-residual-reinforcement-learning)  
-   标签：评分：8.0/10、query:wmi
-   evidence：通过残差强化学习微调VLA模型，缓解行为克隆的分布偏移
-2. [HoloAgent-0: A Unified Embodied Agent Framework with 3D Spatial Memory](/202606/25/2606.23565v1-holoagent-0-a-unified-embodied-agent-framework-with-3d-spatial-memory)  
-   标签：评分：8.0/10、query:wmi
-   evidence：面向真实世界机器人部署的统一具身智能体框架
-3. [Learning to See While Learning to Act: Diffusion Models for Active Perception in Robot Imitation](/202606/25/2606.23625v1-learning-to-see-while-learning-to-act-diffusion-models-for-active-perception-in-robot-imitation)  
-   标签：评分：8.0/10、query:wmi
-   evidence：结合主动感知的机器人操作模仿学习用于遮挡情况
-4. [Learning Action Priors for Cross-embodiment Robot Manipulation](/202606/25/2606.26095v1-learning-action-priors-for-cross-embodiment-robot-manipulation)  
-   标签：评分：8.0/10、query:wmi
-   evidence：从示范中学习动作先验以改进策略学习
-5. [Semi-Supervised Vision-Language-Action Model](/202606/25/2606.21493v1-semi-supervised-vision-language-action-model)  
+1. [RARM: Confidence-Gated Progress Reward Modeling for RL in Manipulation](/202606/26/2606.22027v1-rarm-confidence-gated-progress-reward-modeling-for-rl-in-manipulation)  
    标签：评分：7.0/10、query:wmi
-   evidence：半监督视觉-语言-动作模型减少对动作标注示范的需求
-6. [Improving Robotic Imitation Learning via Trajectory Standardization](/202606/25/2606.22907v1-improving-robotic-imitation-learning-via-trajectory-standardization)  
+   evidence：利用单个专家演示为机械臂操作RL生成密集奖励
+2. [dVLA-RL: Reinforcement Learning over Denoising Trajectories for Discrete Diffusion Vision-Language-Action Models](/202606/26/2606.23623v1-dvla-rl-reinforcement-learning-over-denoising-trajectories-for-discrete-diffusion-vision-language-action-models)  
    标签：评分：7.0/10、query:wmi
-   evidence：面向机器人模仿学习的轨迹标准化预处理方法
-7. [RECALL: Recovery Experience Collection for Active Lifelong Learning in Vision-Language-Action Models](/202606/25/2606.23617v1-recall-recovery-experience-collection-for-active-lifelong-learning-in-vision-language-action-models)  
+   evidence：从专家演示进行监督微调然后强化学习优化
+3. [LiMoDE: Rethinking Lifelong Robot Manipulation from a Mixture-of-Dynamic-Experts Perspective](/202606/26/2606.26183v1-limode-rethinking-lifelong-robot-manipulation-from-a-mixture-of-dynamic-experts-perspective)  
    标签：评分：7.0/10、query:wmi
-   evidence：面向视觉-语言-动作模型的主动持续学习与示范数据利用
-8. [ObsGraph: Hierarchical Observation Representation for Embodied Reasoning and Exploration](/202606/25/2606.24068v1-obsgraph-hierarchical-observation-representation-for-embodied-reasoning-and-exploration)  
-   标签：评分：7.0/10、query:wmi
-   evidence：用于具身推理和探索的分层观察表示
-9. [Playful Agentic Robot Learning](/202606/25/2606.19419v1-playful-agentic-robot-learning)  
+   evidence：人工智能与物理智能体和传感器集成，用于终身机器人操作
+4. [Scalable Multi-Task Data Generation via Reinforcement Learning for Language-Conditioned Bimanual Dexterous Manipulation](/202606/26/2606.22471v1-scalable-multi-task-data-generation-via-reinforcement-learning-for-language-conditioned-bimanual-dexterous-manipulation)  
    标签：评分：6.0/10、query:wmi
-   evidence：具身编码代理通过自主玩耍学习技能
-10. [A Neuromorphic Reinforcement Learning Framework for Efficient Pathfinding in Robotic Mobile Fulfillment Systems](/202606/25/2606.20031v2-a-neuromorphic-reinforcement-learning-framework-for-efficient-pathfinding-in-robotic-mobile-fulfillment-systems)  
+   evidence：基于强化学习的数据生成，可用于模仿学习
+5. [Vision-Language Model Reasoning for Contextual Semantic Mapping in Intralogistics](/202606/26/2606.24814v1-vision-language-model-reasoning-for-contextual-semantic-mapping-in-intralogistics)  
    标签：评分：6.0/10、query:wmi
-   evidence：用于机器人移动实现系统的强化学习路径规划
-11. [A Reward-Petri-Net Interpretation of Temporal Behavior Trees](/202606/25/2606.21350v1-a-reward-petri-net-interpretation-of-temporal-behavior-trees)  
+   evidence：在机器人平台上使用VLM推理进行语义建图
+6. [Towards Scalable Multi-Task Reinforcement Learning with Large Decision Models](/202606/26/2606.24962v1-towards-scalable-multi-task-reinforcement-learning-with-large-decision-models)  
    标签：评分：6.0/10、query:wmi
-   evidence：面向机器人强化学习的时序行为树奖励设计方法
+   evidence：离线轨迹的下一个动作监督预测
+7. [SAGE-Nav: Leveraging LLM Planning and Alignment Fusion for Hierarchical Scene Graph-Guided Navigation](/202606/26/2606.25497v1-sage-nav-leveraging-llm-planning-and-alignment-fusion-for-hierarchical-scene-graph-guided-navigation)  
+   标签：评分：6.0/10、query:wmi
+   evidence：LLM规划用于具身机器人导航
+8. [Advancing Omnimodal Embodied Agents from Isolated Skills to Everyday Physical Autonomy](/202606/26/2606.27251v1-advancing-omnimodal-embodied-agents-from-isolated-skills-to-everyday-physical-autonomy)  
+   标签：评分：6.0/10、query:wmi
+   evidence：分层具身代理框架实现物理自主
+9. [E-TTS: A New Embodied Test-Time Scaling Framework for Robotic Manipulation](/202606/26/2606.27268v1-e-tts-a-new-embodied-test-time-scaling-framework-for-robotic-manipulation)  
+   标签：评分：6.0/10、query:wmi
+   evidence：面向机器人操作的具身智能测试时扩展框架
 
 
 <div class="dpr-home-promo-card">
