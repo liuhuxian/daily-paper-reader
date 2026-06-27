@@ -1,0 +1,482 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-27T20:12:09.120815+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 5,
+    "deep_cap": 6,
+    "deep_selected": 5,
+    "quick_candidates": 6,
+    "quick_skim_target": 11,
+    "quick_selected": 6
+  },
+  "deep_dive": [
+    {
+      "id": "2606.22540v3",
+      "source": "arxiv",
+      "title": "PolicyTrim: Boosting Intrinsic Policy Efficiency of Vision-Language-Action Models",
+      "abstract": "Vision-Language-Action (VLA) models provide a unified paradigm for robotic manipulation, yet their real-world deployment is often bottlenecked by execution efficiency. While existing efforts predominantly focus on compute-centric efficiency to reduce per-step inference latency, the intrinsic \\textbf{policy efficiency} of these models remains largely unexplored. Policy efficiency is fundamentally affected by two factors, namely the effective executable length of predicted action chunks and the total physical steps required to complete a task. These two factors jointly determine the total number of forward inference calls during execution. We observe that current VLA policies struggle with planning unreliability and action redundancy, suffering from severe prediction degradation at the tail of action chunks and tending to generate unnecessarily redundant physical steps. To address this, we propose \\textbf{PolicyTrim}, a reinforcement learning-based post-training framework that extends the reliable action chunk length and reduces redundant physical steps. For reliable chunk extension, we employ a dynamic exploration strategy that explicitly rewards the successful completion of longer executable lengths, progressively pushing the trustworthy prediction horizon to its empirical limit. For step efficiency, we design a redundancy-aware reward that directly favors successful task completions with fewer steps while penalizing unreproducible shortcuts, effectively eliminating redundant physical actions. Extensive experiments across three benchmarks and three VLA models demonstrate that PolicyTrim improves action chunk utilization by 3$\\times$ and reduces physical execution steps by 51.4\\%. Ultimately, our framework delivers up to a 5.83$\\times$ end-to-end deployment speedup without compromising task success rates.",
+      "authors": [
+        "Xianghui Wang",
+        "Feng Chen",
+        "Wenbo Zhang",
+        "Hua Yan",
+        "Zixuan Wang",
+        "Changsheng Li",
+        "Yinjie Lei"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-21T14:54:07+00:00",
+      "link": "https://arxiv.org/pdf/2606.22540v3",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Policy efficiency boosting for VLA models in robotic manipulation",
+      "llm_evidence_cn": "提升视觉-语言-动作模型在机器人操作中的策略效率",
+      "llm_evidence": "提升视觉-语言-动作模型在机器人操作中的策略效率",
+      "canonical_evidence": "提升视觉-语言-动作模型在机器人操作中的策略效率",
+      "llm_tldr_en": "PolicyTrim improves the intrinsic policy efficiency of Vision-Language-Action models for robotic manipulation by identifying and reducing action chunk redundancy and planning unreliability, reducing total inference calls.",
+      "llm_tldr_cn": "针对VLA模型在机器人操作中执行效率低的问题，本文提出PolicyTrim方法，聚焦策略效率而非计算效率，通过识别动作块冗余和规划不可靠性来减少前向推理次数。实验表明该方法有效降低了总物理步数和推理调用的数量，提升了实际部署效率，为VLA模型的高效应用提供了新视角。",
+      "llm_tldr": "针对VLA模型在机器人操作中执行效率低的问题，本文提出PolicyTrim方法，聚焦策略效率而非计算效率，通过识别动作块冗余和规划不可靠性来减少前向推理次数。实验表明该方法有效降低了总物理步数和推理调用的数量，提升了实际部署效率，为VLA模型的高效应用提供了新视角。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.24597v1",
+      "source": "arxiv",
+      "title": "Qwen-AgentWorld: Language World Models for General Agents",
+      "abstract": "A world model predicts environment dynamics based on current observations and actions, serving as a core cognitive mechanism for reasoning and planning. In this work, we investigate how world modeling based on language models can further push the boundaries of general agents. (i) We first focus on building foundation models for agentic environment simulation. We introduce Qwen-AgentWorld-35B-A3B and Qwen-AgentWorld-397B-A17B, the first language world models capable of simulating agentic environments covering 7 domains via long chain-of-thought reasoning. Leveraging more than 10M environment interaction trajectories of 7 domains in real-world environments, we develop Qwen-AgentWorld through a three-stage training pipeline: CPT injects general-purpose world modeling capabilities from the state transition dynamics and augmented professional corpora, SFT activates next-state-prediction reasoning, and RL sharpens simulation fidelity through a tailored framework with hybrid rubric-and-rule rewards. To evaluate language world models, we present AgentWorldBench, a comprehensive benchmark constructed from real-world interactions of 5 frontier models on 9 established benchmarks. Empirical results demonstrate that Qwen-AgentWorld significantly outperforms existing frontier models. (ii) Beyond foundation models, we further investigate two complementary paradigms through which world modeling enhances general agents. First, as a decoupled environment simulator, Qwen-AgentWorld supports scalable and controllable simulation of thousands of real-world environments for agentic RL, yielding gains that surpass real-environment training alone. Second, as a unified agent foundation model, world-model training acts as a highly effective warm-up that improves downstream performance across 7 agentic benchmarks. Code: https://github.com/QwenLM/Qwen-AgentWorld",
+      "authors": [
+        "Yuxin Zuo",
+        "Zikai Xiao",
+        "Li Sheng",
+        "Fei Huang",
+        "Jianhong Tu",
+        "Yuxuan Liu",
+        "Tianyi Tang",
+        "Xiaomeng Hu",
+        "Yang Su",
+        "Qingfeng Lan",
+        "Yantao Liu",
+        "Qin Zhu",
+        "Yinger Zhang",
+        "Bowen Yu",
+        "Haiquan Zhao",
+        "Haiyang Xu",
+        "Jianxin Yang",
+        "Jiayang Cheng",
+        "Junyang Wang",
+        "Lianghao Deng",
+        "Mingfeng Xue",
+        "Tianyi Bai",
+        "Yang Fan",
+        "Yubo Ma",
+        "Yucheng Li",
+        "Zeyu Cui",
+        "Zhihai Wang",
+        "Zhihui Xie",
+        "Zhuorui Ye",
+        "An Yang",
+        "Dayiheng Liu",
+        "Jingren Zhou",
+        "Ning Ding"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL"
+      ],
+      "published": "2026-06-23T13:53:55+00:00",
+      "link": "https://arxiv.org/pdf/2606.24597v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "language world models for general agents",
+      "llm_evidence_cn": "通用智能体的语言世界模型",
+      "llm_evidence": "通用智能体的语言世界模型",
+      "canonical_evidence": "通用智能体的语言世界模型",
+      "llm_tldr_en": "Introduces Qwen-AgentWorld, the first language world models capable of simulating agentic environments across 7 domains via long chain-of-thought reasoning.",
+      "llm_tldr_cn": "为了推动语言世界模型在通用智能体中的应用，提出Qwen-AgentWorld系列模型。这些模型通过长思维链推理模拟7个领域的智能体环境，采用三阶段训练流程（CPT+指令微调+强化学习）构建。实验证明其能有效预测环境动态并支持规划，为语言世界建模设立了新基准。",
+      "llm_tldr": "为了推动语言世界模型在通用智能体中的应用，提出Qwen-AgentWorld系列模型。这些模型通过长思维链推理模拟7个领域的智能体环境，采用三阶段训练流程（CPT+指令微调+强化学习）构建。实验证明其能有效预测环境动态并支持规划，为语言世界建模设立了新基准。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.24742v1",
+      "source": "arxiv",
+      "title": "World Value Models for Robotic Manipulation",
+      "abstract": "Generalist value models play a pivotal role in scaling robotic policy learning from large-scale, mixed-quality data. Mathematically, accurate value estimation demands deep temporal understanding, requiring models to both ground the current belief using historical context and plan over future outcomes. However, most existing robotic value models are built on Vision-Language Model (VLM) backbones that are pretrained primarily on static or temporally sparse visual observations, lacking the requisite temporal modeling capabilities for value estimation. Unlike VLMs, world models naturally excel at temporal modeling and future planning, making them ideal foundations for learning generalizable value functions. Driven by this insight, we marry world models with value estimation to construct a new generalist robotic value model, World Value Model (WVM), that offers accurate task progressions to assess data quality. On standard benchmarks, WVM delivers state-of-the-art (SOTA) Value-Order Correlation (VOC) results. Complementing standard evaluation suites that contains only expert data, we further introduce Suboptimal-Value-Bench, a multi-embodiment benchmark consisting of 800 suboptimal trajectories with high-fidelity, human-labeled frame annotations. Our evaluations show that WVM maintains its SOTA performance on Suboptimal-Value-Bench, establishing its robustness in handling both expert and suboptimal data. When deployed for policy learning, WVM improves manipulation performance across various policy extraction approaches in both simulated and real-world deployment, providing robust guidance for learning from mixed-quality data.",
+      "authors": [
+        "Zhihao Wang",
+        "Jianxiong Li",
+        "Yu Cui",
+        "Yuan Gao",
+        "Xianyuan Zhan",
+        "Junzhi Yu",
+        "Xiao Ma"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-23T16:07:48+00:00",
+      "link": "https://arxiv.org/pdf/2606.24742v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world models combined with value estimation for robot manipulation",
+      "llm_evidence_cn": "将世界模型与价值估计结合用于机器人操作",
+      "llm_evidence": "将世界模型与价值估计结合用于机器人操作",
+      "canonical_evidence": "将世界模型与价值估计结合用于机器人操作",
+      "llm_tldr_en": "Marries world models with value estimation to learn generalizable value functions for robotic manipulation, leveraging temporal modeling for accurate value prediction.",
+      "llm_tldr_cn": "该论文将世界模型与价值估计相结合，提出世界价值模型，利用世界模型在时序建模上的优势学习通用价值函数。该方法无需密集奖励，能够在混合质量数据上训练，实验表明其在多个操作任务中优于基于VLM的价值模型，为实现高效策略学习提供了新范式。",
+      "llm_tldr": "该论文将世界模型与价值估计相结合，提出世界价值模型，利用世界模型在时序建模上的优势学习通用价值函数。该方法无需密集奖励，能够在混合质量数据上训练，实验表明其在多个操作任务中优于基于VLM的价值模型，为实现高效策略学习提供了新范式。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.27374v1",
+      "source": "arxiv",
+      "title": "World Action Models Enable Continual Imitation Learning with Recurrent Generative Replays",
+      "abstract": "Going beyond predicting robot actions, World Action Models (WAMs) can also generate future visual observations. We build on this generative capability to propose Recurrent Generative Replay (REGEN), a continual imitation learning framework that synthesizes pseudo-replay trajectories, enabling a robot policy to rehearse previously learned tasks without storing their original human demonstrations. During continual adaptation, REGEN recursively queries the WAM to synthesize pseudo-replay trajectories conditioned only on prior task instructions and current-task observations. Experiments in both simulation and real-world manipulation settings show that REGEN reduces catastrophic forgetting by up to $50\\%$ relative to sequential fine-tuning, while approaching the performance of privileged experience replay methods that require access to real replay data. Finally, we analyze the factors limiting generated replay, identifying long-horizon visual degradation and action-observation inconsistency as the primary bottlenecks. Our results establish WAMs as a promising foundation for continual robot learning without stored demonstrations.",
+      "authors": [
+        "Manish Kumar Govind",
+        "Dominick Reilly",
+        "Smit Patel",
+        "Hieu Le",
+        "Srijan Das"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "published": "2026-06-25T17:59:56+00:00",
+      "link": "https://arxiv.org/pdf/2606.27374v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "World Action Models for continual imitation learning in robotic manipulation",
+      "llm_evidence_cn": "世界动作模型用于机器人操作中的持续模仿学习",
+      "llm_evidence": "世界动作模型用于机器人操作中的持续模仿学习",
+      "canonical_evidence": "世界动作模型用于机器人操作中的持续模仿学习",
+      "llm_tldr_en": "Proposes Recurrent Generative Replay (REGEN) using World Action Models to enable continual imitation learning without storing past demonstrations, reducing catastrophic forgetting.",
+      "llm_tldr_cn": "针对持续模仿学习中灾难性遗忘问题，提出基于世界动作模型（WAM）的循环生成回放（REGEN），通过合成伪回放轨迹使机器人策略复习旧任务而无需存储原始演示。实验在仿真和真实机器人操作中证实REGEN将遗忘降低约50%。该方法为机器人持续学习提供了高效记忆重用方案。",
+      "llm_tldr": "针对持续模仿学习中灾难性遗忘问题，提出基于世界动作模型（WAM）的循环生成回放（REGEN），通过合成伪回放轨迹使机器人策略复习旧任务而无需存储原始演示。实验在仿真和真实机器人操作中证实REGEN将遗忘降低约50%。该方法为机器人持续学习提供了高效记忆重用方案。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.25404v1",
+      "source": "arxiv",
+      "title": "HEART: Coordination of Heterogeneous Expert Agents for Physically Grounded Robotic Task Planning",
+      "abstract": "Large Language Models (LLMs) can reason over complex instructions but often fail to satisfy the physical and spatial constraints required for robotic task planning. Recent LLM-based planners directly translate text into action sequences, yet they lack structured reasoning about feasibility, reachability, and logical order, resulting in invalid or incomplete plans. We present a heterogeneous multi-LLM framework that decomposes instructions into atomic reasoning tasks and allocates them to role-specialized expert agents under a token budget for real-world computational and communicational constraints. By combining role-oriented reasoning from heterogeneous agents followed by constraint-driven plan synthesis, HEART validates capability, reachability, and constraint conditions before planning and helps produce physically executable plans while maintaining efficiency. Experiments across different household benchmarks show that HEART consistently improves plan success compared to single-LLM and rule-based planners, demonstrating that heterogeneous LLM collaboration enables robust and scalable robotic task planning under resource constraints.",
+      "authors": [
+        "Junho Lee",
+        "Seabin Lee",
+        "Wonjong Lee",
+        "Nayoung Kim",
+        "Moonjeong Kang",
+        "Changjoo Nam"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-24T05:02:37+00:00",
+      "link": "https://arxiv.org/pdf/2606.25404v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "Heterogeneous multi-LLM framework for physically grounded robotic task planning",
+      "llm_evidence_cn": "异构多LLM框架用于物理约束的机器人任务规划",
+      "llm_evidence": "异构多LLM框架用于物理约束的机器人任务规划",
+      "canonical_evidence": "异构多LLM框架用于物理约束的机器人任务规划",
+      "llm_tldr_en": "HEART decomposes complex instructions into atomic reasoning tasks for role-specialized LLM experts, then synthesizes constraint-driven plans for robotic task planning under token budgets.",
+      "llm_tldr_cn": "针对LLM在机器人任务规划中忽略物理约束导致计划不可行的问题，本文提出HEART，一个异构多LLM框架，将指令分解为原子任务并分配给角色专家，在令牌预算约束下进行约束驱动的计划合成。实验验证了该方法能生成有效且满足物理空间约束的机器人计划，提升了LLM在具身智能中的实用性。",
+      "llm_tldr": "针对LLM在机器人任务规划中忽略物理约束导致计划不可行的问题，本文提出HEART，一个异构多LLM框架，将指令分解为原子任务并分配给角色专家，在令牌预算约束下进行约束驱动的计划合成。实验验证了该方法能生成有效且满足物理空间约束的机器人计划，提升了LLM在具身智能中的实用性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2606.21053v1",
+      "source": "arxiv",
+      "title": "Imitation Learning for Elder-Facing Speech Synthesis",
+      "abstract": "Recent advances in text-to-speech (TTS) synthesis have achieved highly natural and expressive speech generation. However, these systems are designed for general adults and overlook older adults' speech comprehension needs due to age-related sensory and cognitive decline. Prior work involves older adults by collecting preference feedback to tune model parameters. However, obtaining sufficient preference data is costly and difficult, as older adults quickly become fatigued during collection. In this paper, we propose a novel imitation learning (IL) framework to learn TTS models from expert demonstrations. We further improve Group Relative Policy Optimization (GRPO) with two-stage on-policy reward learning (OPRL) to mitigate reward hacking under limited supervision from expert demonstration. Experimental results show that GRPO w/ OPRL outperforms GRPO and supervised baselines in objective and subjective metrics. Audio samples are available at https://dongru1.github.io/demo/im-efss",
+      "authors": [
+        "Dongrui Han",
+        "Weidong Chen",
+        "Jiawen Kang",
+        "Mingyu Cui",
+        "Helen Meng",
+        "Xixin Wu"
+      ],
+      "primary_category": "cs.SD",
+      "categories": [
+        "cs.SD",
+        "cs.AI"
+      ],
+      "published": "2026-06-19T02:36:35+00:00",
+      "link": "https://arxiv.org/pdf/2606.21053v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "Imitation learning framework for TTS from expert speech demonstrations",
+      "llm_evidence_cn": "从专家语音演示中学习TTS模型的模仿学习框架",
+      "llm_evidence": "从专家语音演示中学习TTS模型的模仿学习框架",
+      "canonical_evidence": "从专家语音演示中学习TTS模型的模仿学习框架",
+      "llm_tldr_en": "This paper proposes an imitation learning framework for elder-facing TTS, learning from expert speech demonstrations with improved GRPO and two-stage on-policy reward learning to mitigate reward hacking.",
+      "llm_tldr_cn": "针对面向老年人的语音合成中偏好数据昂贵难获取的问题，本文提出模仿学习框架，从专家演示中学习TTS模型，并改进GRPO算法引入两阶段在线奖励学习，缓解了有限监督下的奖励欺骗问题。实验表明该方法在节省数据收集成本的同时提升了语音自然度，为低资源TTS提供了新思路。",
+      "llm_tldr": "针对面向老年人的语音合成中偏好数据昂贵难获取的问题，本文提出模仿学习框架，从专家演示中学习TTS模型，并改进GRPO算法引入两阶段在线奖励学习，缓解了有限监督下的奖励欺骗问题。实验表明该方法在节省数据收集成本的同时提升了语音自然度，为低资源TTS提供了新思路。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.22350v1",
+      "source": "arxiv",
+      "title": "Select-to-Act: Hierarchical Reinforcement Learning via Adaptive Language Guidance",
+      "abstract": "Reinforcement Learning (RL) has been widely applied to sequential decision-making, yet it often suffers from poor sample efficiency due to costly interactions with the environment. A limited line of recent work has started exploring improving RL efficiency by leveraging external knowledge expressed in natural-language instructions. However, the few existing approaches typically treat the entire instruction as a single conditioning input, failing to account for the stage-dependent nature of language guidance, especially in complex environments. In this paper, we propose \\emph{Hierarchical Reinforcement Learning with Language Instructions (HRLLI)}, a hierarchical RL framework that explicitly models natural-language instructions as dynamically selectable semantic guidance during decision-making. HRLLI decomposes instructions into a set of piecewise guidance elements, where each instruction piece may become relevant at different stages of interaction with the environment. A novel hierarchical RL policy structure is then formulated in a \\emph{Select-to-Act} paradigm: a high-level semantic policy acts as a guidance selector that selects the most relevant instruction piece to the current state to guide the low-level agent's decision, while a low-level policy executes environment actions conditioned on the selected guidance. The two-level policies are learned simultaneously to maximize augmented expected returns from interactions with the environment. This design enables the agent to adaptively ground language instructions into stage-specific decisions during interaction. Experiments on the instruction-intensive RTFM benchmark show that HRLLI consistently outperforms strong instruction-conditioned RL baselines, demonstrating that explicitly modeling adaptive instruction selection significantly improves the effectiveness of RL.",
+      "authors": [
+        "Hanping Zhang",
+        "Adam Koziak",
+        "Yuhong Guo"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-06-21T06:15:42+00:00",
+      "link": "https://arxiv.org/pdf/2606.22350v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "reinforcement learning with language guidance for sequential decision-making",
+      "llm_evidence_cn": "语言引导的强化学习用于序列决策",
+      "llm_evidence": "语言引导的强化学习用于序列决策",
+      "canonical_evidence": "语言引导的强化学习用于序列决策",
+      "llm_tldr_en": "HRLLI uses hierarchical RL with adaptive language instructions to improve sample efficiency in complex environments.",
+      "llm_tldr_cn": "针对强化学习样本效率低且语言指令缺乏阶段适应性，提出分层强化学习框架HRLLI，将自然语言指令动态建模为不同阶段的引导信号。实验表明在复杂环境下显著提升样本效率和任务成功率。",
+      "llm_tldr": "针对强化学习样本效率低且语言指令缺乏阶段适应性，提出分层强化学习框架HRLLI，将自然语言指令动态建模为不同阶段的引导信号。实验表明在复杂环境下显著提升样本效率和任务成功率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.23157v1",
+      "source": "arxiv",
+      "title": "Bridging Semantics and Kinematics: A Modular Framework for Zero-Shot Robotic Manipulation",
+      "abstract": "This paper presents a modular training-free framework for zero-shot, language-guided robotic manipulation in semi-structured environments. The architecture bridges the gap between high-level reasoning and low-level kinematics by decomposing the vision-action pipeline into three stages: visual perception, semantic interpretation, and task execution. To overcome the spatial ambiguity and semantic hallucinations inherent in standard Vision-Language Models (VLMs), the perception module employs FastSAM and Set-of-Mark (SoM) prompting to dynamically generate grounded, alphanumeric visual anchors. The same foundation model then operates purely as a Large Language Model (LLM) to act as a semantic router, translating unconstrained human directives into verifiable, reconfigurable configurations. Finally, these configurations are dynamically parsed by a Task Orchestrator into MoveIt Task Constructor (MTC) to generate collision-free trajectories. The framework is evaluated across two zero-shot experimental setups: unconstrained open-world sequential manipulation and dense relational spatial reasoning, achieving a 62% end-to-end task success rate across both scenarios, demonstrating its capacity to reliably execute complex physical actions without domain-specific training or manual coordinate programming.",
+      "authors": [
+        "Ali Alabbas",
+        "Dipshikha Das",
+        "Camillo Murgia",
+        "Sainul Ansary",
+        "Alaa Elkamash",
+        "Philip Long"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-22T11:01:56+00:00",
+      "link": "https://arxiv.org/pdf/2606.23157v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "modular framework combining VLM with physical robotic manipulation",
+      "llm_evidence_cn": "模块化框架结合VLM与物理机器人操作",
+      "llm_evidence": "模块化框架结合VLM与物理机器人操作",
+      "canonical_evidence": "模块化框架结合VLM与物理机器人操作",
+      "llm_tldr_en": "A modular training-free framework bridges semantics and kinematics for zero-shot robotic manipulation using VLM-based perception and semantic routing.",
+      "llm_tldr_cn": "提出模块化免训练框架，通过FastSAM和Set-of-Mark提示生成视觉锚点，利用LLM作为语义路由器，实现零样本语言引导的机器人操作。克服了VLM的空间歧义和语义幻觉。实验证明在未见场景中有效。",
+      "llm_tldr": "提出模块化免训练框架，通过FastSAM和Set-of-Mark提示生成视觉锚点，利用LLM作为语义路由器，实现零样本语言引导的机器人操作。克服了VLM的空间歧义和语义幻觉。实验证明在未见场景中有效。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.26800v1",
+      "source": "arxiv",
+      "title": "SSI-Policy: Learning Structured Scene Interfaces for Vision-Language Robotic Manipulation",
+      "abstract": "Real-world robotic manipulation demands spatial grounding, task-aware reasoning, and precise control. Learning such capabilities becomes particularly challenging in the low-data regime. Prior methods often trade off scalable task-level reasoning and explicit physical structure: video-based approaches can drift geometrically over long horizons, 3D approaches often require depth sensing, and many flow/trajectory interfaces emphasize motion without an explicit RGB-only geometric representation. We introduce SSI-Policy, a modular framework built around a Structured Scene Interface (SSI) -- a unified, RGB-only intermediate representation that jointly encodes monocular depth features, language-grounded object layouts, and instruction-conditioned 2D motion trajectories. Critically, SSI is robot-agnostic and trainable from action-free video, decoupling perception from control so that the downstream policy can learn from few demonstrations. On the LIBERO benchmark with only 10 demonstrations per task, SSI-Policy improves over the strongest prior method by nearly 15\\% and remains competitive with 50-demo methods that leverage large-scale external pretraining. Ablations show that geometric and motion cues provide complementary benefits within the shared interface. We further validate on 13 real-world tasks spanning spatial reasoning, cross-embodiment transfer, and contact-rich manipulation.",
+      "authors": [
+        "Kaijun Wang",
+        "Zikai Ouyang",
+        "Xuping Wu",
+        "Jinyi Hong",
+        "Wei Pan",
+        "Haibo Lu",
+        "Jia Pan",
+        "Wei Zhang",
+        "Linfang Zheng"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-25T09:38:05+00:00",
+      "link": "https://arxiv.org/pdf/2606.26800v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "vision-language robotic manipulation with structured scene interface",
+      "llm_evidence_cn": "视觉语言机器人操作结合结构化场景接口",
+      "llm_evidence": "视觉语言机器人操作结合结构化场景接口",
+      "canonical_evidence": "视觉语言机器人操作结合结构化场景接口",
+      "llm_tldr_en": "Introduces SSI-Policy, a modular framework with a Structured Scene Interface encoding depth, object layouts, and language for low-data robotic manipulation.",
+      "llm_tldr_cn": "低数据条件下的机器人操作需要空间理解和任务推理。本文提出SSI-Policy，通过结构化场景接口统一编码单目深度、语言锚定物体布局和指令条件，在仅RGB输入下实现了超越现有方法的长程操作成功率。",
+      "llm_tldr": "低数据条件下的机器人操作需要空间理解和任务推理。本文提出SSI-Policy，通过结构化场景接口统一编码单目深度、语言锚定物体布局和指令条件，在仅RGB输入下实现了超越现有方法的长程操作成功率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.26175v1",
+      "source": "arxiv",
+      "title": "RMTL: Reinforced Micro-task Learning for Long-Horizon Manipulation with VLM Rewards",
+      "abstract": "Reinforcement learning (RL) for robotic manipulation often requires manually designing a dense reward function, which is difficult to tune and often fragile, or learning a reward from human demonstrations or preferences, which can be expensive. A recent line of work uses pretrained vision-language models (VLMs) as zero-shot reward models, replacing these costs with a single text prompt. However, we argue that a single global prompt is too coarse for long-horizon manipulation tasks with randomized initial conditions. The single-prompt VLM reward is near-flat for much of the trajectory, making early progress hard for the agent to detect. We propose Reinforced Micro-Task Learning (RMTL), an approach that decomposes a manipulation task into a small set of language-described micro-tasks and trains the agent to switch between them. At each step, the agent receives a multi-view VLM reward computed using the prompt of the currently active micro-task and averaged across multiple camera views to reduce the effect of view-specific occlusions. A reverse curriculum gradually exposes the agent to harder initial conditions, while a PPO worker is first trained with a fixed distance-based rule that selects the active micro-task. We then replace this rule with a learned hierarchical manager, turning rule-based phase selection into a fully learned hierarchical policy. We instantiate RMTL on the Fetch manipulation environment using three short stage-specific prompts and without additional prompt tuning. Experiments show that RMTL provides more informative reward signals than single-prompt VLM rewards, enabling faster learning. These results suggest that decomposing VLM rewards into micro-task-specific language prompts can substantially improve the scalability of language-guided reinforcement learning for robotic manipulation.",
+      "authors": [
+        "Anıl Can Ateş",
+        "Orhan Kahraman",
+        "Cihan Topal"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-24T10:32:48+00:00",
+      "link": "https://arxiv.org/pdf/2606.26175v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "VLM rewards for robotic manipulation, integrating AI with physical agents",
+      "llm_evidence_cn": "利用视觉语言模型奖励进行机器人操作，融合AI与物理智能体",
+      "llm_evidence": "利用视觉语言模型奖励进行机器人操作，融合AI与物理智能体",
+      "canonical_evidence": "利用视觉语言模型奖励进行机器人操作，融合AI与物理智能体",
+      "llm_tldr_en": "RMTL decomposes long-horizon manipulation into micro-tasks and uses VLM-based rewards per subtask, enabling finer-grained reward signal for RL.",
+      "llm_tldr_cn": "针对长时远操作中单一全局VLM奖励过于粗糙的问题，提出强化微任务学习（RMTL），将操作任务分解为多个微任务，为每个微任务独立设置VLM奖励，使强化学习获得更密集有效的梯度信号，在复杂操作任务上显著优于基线。",
+      "llm_tldr": "针对长时远操作中单一全局VLM奖励过于粗糙的问题，提出强化微任务学习（RMTL），将操作任务分解为多个微任务，为每个微任务独立设置VLM奖励，使强化学习获得更密集有效的梯度信号，在复杂操作任务上显著优于基线。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.27146v1",
+      "source": "arxiv",
+      "title": "PhysReflect-VLA: Physical Feasibility and Self-Reflective Regulation for Reliable Vision-Language-Action Policies",
+      "abstract": "Long-horizon robotic manipulation is highly sensitive to physically infeasible transitions, contact-induced disturbances, and the lack of effective self-correction during execution. Although Vision-Language-Action (VLA) models provide strong task grounding through multimodal learning, they typically generate actions in a feed-forward manner without explicitly checking physical feasibility or diagnosing execution errors online. We present PhysReflect-VLA, a plug-and-play execution-time reliability framework that augments VLA policies with physical feasibility evaluation and structured self-reflection in a closed-loop control pipeline. A Feasibility Operator evaluates whether candidate actions induce dynamically consistent state transitions; an Action Explanation Operator verifies transition coherence; and an LLM-based Reflection Module analyzes state discrepancies to generate corrective guidance for subsequent actions. A two-stage training procedure stabilizes feasibility modeling and integrates reflection into the control loop. Experiments on multi-stage, contact-rich real-world manipulation tasks show consistent improvements in stage-wise stability and overall task success compared with representative VLA baselines with an average gain of 5.4\\%. Ablation results further indicate that feasibility checking and reflection-based correction both contribute to improved execution robustness. These results highlight the importance of embedding physical consistency checks and online self-reflection for reliable long-horizon robotic manipulation.",
+      "authors": [
+        "Jiayu Yang",
+        "Tao Yang",
+        "Weijun Li",
+        "Xiang Chang",
+        "Fei Chao",
+        "Changjing Shang",
+        "Qiang Shen"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-25T15:18:10+00:00",
+      "link": "https://arxiv.org/pdf/2606.27146v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "physical feasibility evaluation for VLA policies",
+      "llm_evidence_cn": "VLA策略的物理可行性评估",
+      "llm_evidence": "VLA策略的物理可行性评估",
+      "canonical_evidence": "VLA策略的物理可行性评估",
+      "llm_tldr_en": "Augments VLA policies with a feasibility operator and self-reflection loop to ensure physically feasible actions in long-horizon manipulation.",
+      "llm_tldr_cn": "该论文提出PhysReflect-VLA框架，在VLA策略执行时增加物理可行性评估与结构化自反性循环，实时检测并纠正不可行动作。该方法即插即用，显著减少了物理违规和接触干扰，提升了长时程操作任务的可靠性。",
+      "llm_tldr": "该论文提出PhysReflect-VLA框架，在VLA策略执行时增加物理可行性评估与结构化自反性循环，实时检测并纠正不可行动作。该方法即插即用，显著减少了物理违规和接触干扰，提升了长时程操作任务的可靠性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}
