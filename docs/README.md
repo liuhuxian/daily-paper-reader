@@ -6,55 +6,47 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-06-27
-- 运行时间：2026-06-27 20:18:13 UTC
+- 最新运行日期：2026-06-28
+- 运行时间：2026-06-28 20:55:21 UTC
 - 运行状态：成功
-- 本次总论文数：11
-- 精读区：5
+- 本次总论文数：9
+- 精读区：3
 - 速读区：6
 
 ### 今日简报（AI）
-今日推出11篇论文，聚焦VLA策略提效与通用智能体世界模型。  
-最值得看《PolicyTrim》高效压缩VLA模型和《Qwen-AgentWorld》构建语言世界模型。  
-建议先读PolicyTrim掌握策略优化，再结合AgentWorld案例入手通用智能体实践。
-- 详情：[/202606/27/README](/202606/27/README)
+今天精读两篇人形机器人全身操控论文，速读聚焦因果奖励设计、零件对应迁移与空间语义追踪。最值得看的是Humanoid-DART与HumanoidUMI，均获9分高分，分别解决数据增强和无机器人演示迁移问题。建议优先精读这两篇，掌握人形机器人灵巧操控的最新范式。
+- 详情：[/202606/28/README](/202606/28/README)
 
 ### 精读区论文标签
-1. [PolicyTrim: Boosting Intrinsic Policy Efficiency of Vision-Language-Action Models](/202606/27/2606.22540v3-policytrim-boosting-intrinsic-policy-efficiency-of-vision-language-action-models)  
+1. [Humanoid-DART: Humanoid Loco-Manipulation using Diffusion-guided Augmentation through Relabeling and Tracking](/202606/28/2606.26855v1-humanoid-dart-humanoid-loco-manipulation-using-diffusion-guided-augmentation-through-relabeling-and-tracking)  
    标签：评分：9.0/10、query:wmi
-   evidence：提升视觉-语言-动作模型在机器人操作中的策略效率
-2. [Qwen-AgentWorld: Language World Models for General Agents](/202606/27/2606.24597v1-qwen-agentworld-language-world-models-for-general-agents)  
+   evidence：基于扩散增强的人形机器人模仿学习
+2. [HumanoidUMI: Bridging Robot-Free Demonstrations and Humanoid Whole-Body Manipulation](/202606/28/2606.27239v1-humanoidumi-bridging-robot-free-demonstrations-and-humanoid-whole-body-manipulation)  
    标签：评分：9.0/10、query:wmi
-   evidence：通用智能体的语言世界模型
-3. [World Value Models for Robotic Manipulation](/202606/27/2606.24742v1-world-value-models-for-robotic-manipulation)  
-   标签：评分：9.0/10、query:wmi
-   evidence：将世界模型与价值估计结合用于机器人操作
-4. [World Action Models Enable Continual Imitation Learning with Recurrent Generative Replays](/202606/27/2606.27374v1-world-action-models-enable-continual-imitation-learning-with-recurrent-generative-replays)  
-   标签：评分：9.0/10、query:wmi
-   evidence：世界动作模型用于机器人操作中的持续模仿学习
-5. [HEART: Coordination of Heterogeneous Expert Agents for Physically Grounded Robotic Task Planning](/202606/27/2606.25404v1-heart-coordination-of-heterogeneous-expert-agents-for-physically-grounded-robotic-task-planning)  
+   evidence：无机器人演示收集人形全身操作数据
+3. [Continual Robot Policy Learning via Variational Neural Dynamics](/202606/28/2606.27353v1-continual-robot-policy-learning-via-variational-neural-dynamics)  
    标签：评分：8.0/10、query:wmi
-   evidence：异构多LLM框架用于物理约束的机器人任务规划
+   evidence：利用变分神经动力学模型进行机器人策略持续学习
 
 ### 速读区论文标签
-1. [Imitation Learning for Elder-Facing Speech Synthesis](/202606/27/2606.21053v1-imitation-learning-for-elder-facing-speech-synthesis)  
+1. [Causal Reward World Models: Zero-shot Reward Design for Automated Skill Generation](/202606/28/2606.23280v1-causal-reward-world-models-zero-shot-reward-design-for-automated-skill-generation)  
    标签：评分：7.0/10、query:wmi
-   evidence：从专家语音演示中学习TTS模型的模仿学习框架
-2. [Bridging Semantics and Kinematics: A Modular Framework for Zero-Shot Robotic Manipulation](/202606/27/2606.23157v1-bridging-semantics-and-kinematics-a-modular-framework-for-zero-shot-robotic-manipulation)  
+   evidence：利用世界模型因果结构辅助强化学习奖励设计
+2. [GRAFT: Graph-Based Affordance Transfer via Part Correspondence](/202606/28/2606.25241v1-graft-graph-based-affordance-transfer-via-part-correspondence)  
    标签：评分：7.0/10、query:wmi
-   evidence：模块化框架结合VLM与物理机器人操作
-3. [RMTL: Reinforced Micro-task Learning for Long-Horizon Manipulation with VLM Rewards](/202606/27/2606.26175v1-rmtl-reinforced-micro-task-learning-for-long-horizon-manipulation-with-vlm-rewards)  
+   evidence：从单次专家演示进行几何感知的可迁移性转移用于机器人操控
+3. [USS: Unified Spatial-Semantic Prompts for Embodied Visual Tracking with Latent Dynamics Learning](/202606/28/2606.25880v1-uss-unified-spatial-semantic-prompts-for-embodied-visual-tracking-with-latent-dynamics-learning)  
    标签：评分：7.0/10、query:wmi
-   evidence：利用视觉语言模型奖励进行机器人操作，融合AI与物理智能体
-4. [PhysReflect-VLA: Physical Feasibility and Self-Reflective Regulation for Reliable Vision-Language-Action Policies](/202606/27/2606.27146v1-physreflect-vla-physical-feasibility-and-self-reflective-regulation-for-reliable-vision-language-action-policies)  
+   evidence：具身视觉跟踪中的世界模型应用
+4. [LA4VLA: Learning to Act without Seeing via Language-Action Pretraining](/202606/28/2606.27295v1-la4vla-learning-to-act-without-seeing-via-language-action-pretraining)  
    标签：评分：7.0/10、query:wmi
-   evidence：VLA策略的物理可行性评估
-5. [Select-to-Act: Hierarchical Reinforcement Learning via Adaptive Language Guidance](/202606/27/2606.22350v1-select-to-act-hierarchical-reinforcement-learning-via-adaptive-language-guidance)  
+   evidence：从演示中学习语言条件动作先验，无需视觉观察
+5. [Memory Retrieval in Visuomotor Policies for Long-Horizon Robot Control](/202606/28/2606.25136v1-memory-retrieval-in-visuomotor-policies-for-long-horizon-robot-control)  
    标签：评分：6.0/10、query:wmi
-   evidence：语言引导的强化学习用于序列决策
-6. [SSI-Policy: Learning Structured Scene Interfaces for Vision-Language Robotic Manipulation](/202606/27/2606.26800v1-ssi-policy-learning-structured-scene-interfaces-for-vision-language-robotic-manipulation)  
+   evidence：机器人控制的模仿学习与记忆机制
+6. [RelAfford6D: Relational 6D Affordance Graphs for Constraint-Driven Robotic Manipulation](/202606/28/2606.27036v1-relafford6d-relational-6d-affordance-graphs-for-constraint-driven-robotic-manipulation)  
    标签：评分：6.0/10、query:wmi
-   evidence：视觉语言机器人操作结合结构化场景接口
+   evidence：基于6Daffordance图的机器人操作框架
 
 
 <div class="dpr-home-promo-card">

@@ -1,0 +1,389 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-28T20:50:13.349923+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 3,
+    "deep_cap": 6,
+    "deep_selected": 3,
+    "quick_candidates": 6,
+    "quick_skim_target": 11,
+    "quick_selected": 6
+  },
+  "deep_dive": [
+    {
+      "id": "2606.26855v1",
+      "source": "arxiv",
+      "title": "Humanoid-DART: Humanoid Loco-Manipulation using Diffusion-guided Augmentation through Relabeling and Tracking",
+      "abstract": "Imitating human demonstrations has emerged as a dominant paradigm for learning humanoid loco-manipulation policies. However, scaling these approaches remains challenging due to the high cost of collecting diverse demonstrations and the need for continual human intervention to correct policy failures. In this paper, we present a self-supervised framework that bootstraps from sparse demonstrations and progressively expands its behavioral repertoire, enabling the learning of a goal-conditioned policy that automatically explores the goal space with minimal expert supervision. Our approach combines diffusion-based trajectory generation with reinforcement learning, where the latter is used to track goal-conditioned trajectories produced by the diffusion model for a range of loco-manipulation skills. Through extensive ablation studies and comparisons with state-of-the-art methods, we demonstrate the effectiveness of our framework on multiple humanoid loco-manipulation skills.",
+      "authors": [
+        "Pranav Debbad",
+        "Kanish Thiagarajan",
+        "Victor Dhédin",
+        "Shafeef Omar",
+        "Majid Khadiv"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-25T10:40:33+00:00",
+      "link": "https://arxiv.org/pdf/2606.26855v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Imitation learning with diffusion augmentation for humanoid robots",
+      "llm_evidence_cn": "基于扩散增强的人形机器人模仿学习",
+      "llm_evidence": "基于扩散增强的人形机器人模仿学习",
+      "canonical_evidence": "基于扩散增强的人形机器人模仿学习",
+      "llm_tldr_en": "Humanoid-DART combines diffusion-based trajectory generation with RL to learn loco-manipulation policies from sparse demonstrations.",
+      "llm_tldr_cn": "人形机器人操作模仿学习因演示成本高而扩展困难。本文提出自监督框架Humanoid-DART，从稀疏演示开始，结合扩散生成轨迹和强化学习跟踪，渐进式扩展行为库。在无需专家持续干预的情况下，学习到目标条件策略，并自动探索新目标。",
+      "llm_tldr": "人形机器人操作模仿学习因演示成本高而扩展困难。本文提出自监督框架Humanoid-DART，从稀疏演示开始，结合扩散生成轨迹和强化学习跟踪，渐进式扩展行为库。在无需专家持续干预的情况下，学习到目标条件策略，并自动探索新目标。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.27239v1",
+      "source": "arxiv",
+      "title": "HumanoidUMI: Bridging Robot-Free Demonstrations and Humanoid Whole-Body Manipulation",
+      "abstract": "High-quality demonstration data are essential for humanoid robot skill learning, especially for whole-body behaviors that require coordinated perception, locomotion, and manipulation. Existing data-collection methods largely rely on robot teleoperation, which is constrained by hardware accessibility, operator expertise, and limited efficiency. Inspired by the Universal Manipulation Interface (UMI), we propose HumanoidUMI, a portable and robot-free framework for humanoid whole-body data collection. HumanoidUMI uses lightweight VR devices and UMI-inspired grippers to collect sparse human keypoint trajectories, wrist-view observations, and gripper actions. These demonstrations train a high-level policy to predict future keypoints, which are retargeted to robot-native whole-body references and executed by a whole-body controller. Experiments in five real-world scenarios demonstrate the effectiveness of the proposed framework and validate the collected demonstrations for transferable humanoid whole-body skill learning.",
+      "authors": [
+        "Hongwu Wang",
+        "Chenhao Yu",
+        "Youhao Hu",
+        "Jiachen Zhang",
+        "Yuanyuan Li",
+        "Shaqi Luo"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-25T16:23:56+00:00",
+      "link": "https://arxiv.org/pdf/2606.27239v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "robot-free demonstrations for humanoid whole-body manipulation",
+      "llm_evidence_cn": "无机器人演示收集人形全身操作数据",
+      "llm_evidence": "无机器人演示收集人形全身操作数据",
+      "canonical_evidence": "无机器人演示收集人形全身操作数据",
+      "llm_tldr_en": "HumanoidUMI uses VR and grippers to collect human demonstrations for humanoid manipulation, enabling imitation learning.",
+      "llm_tldr_cn": "HumanoidUMI提出一种便携无机器人的框架，通过VR设备和UMI夹爪采集人体关键点轨迹、腕部观察和夹爪动作，用于人形机器人全身操作演示。这些演示训练高层策略预测未来关键点，实现模仿学习。该方法降低了数据采集门槛，扩展了人形机器人的技能学习能力。",
+      "llm_tldr": "HumanoidUMI提出一种便携无机器人的框架，通过VR设备和UMI夹爪采集人体关键点轨迹、腕部观察和夹爪动作，用于人形机器人全身操作演示。这些演示训练高层策略预测未来关键点，实现模仿学习。该方法降低了数据采集门槛，扩展了人形机器人的技能学习能力。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.27353v1",
+      "source": "arxiv",
+      "title": "Continual Robot Policy Learning via Variational Neural Dynamics",
+      "abstract": "Robots deployed in the real world rarely operate under a single fixed dynamics model: wind changes, payloads vary, batteries drain, contacts shift, and hardware wears. Yet most learning-based controllers are trained once and deployed as if learning were complete. This prevents the robot from using deployment experience to further improve task performance. In this work, we propose a continual learning framework that uses real-world experience to improve robot policies under hidden and recurring dynamics. Our method learns a condition-aware dynamics model from real state-action trajectories by combining an analytical physics prior with a neural residual for unmodeled effects. A recurrent encoder infers the current hidden condition from recent interaction, and this estimate conditions both the residual model and the policy. Policy learning is performed via differentiable simulation using diverse learned dynamics sampled from the latent model. At deployment, these sampled conditions are replaced by conditions inferred online from recent real interaction, allowing the policy to recover recurring dynamics by recognition rather than residual re-fitting. Through extensive simulation studies and real-world experiments, we demonstrate that the framework improves policy performance under diverse unobserved disturbances. On real quadrotor trajectory tracking under changing wind, the policy recovers from recurring disturbances in roughly 1s, about 5x faster than online residual re-fitting. It also reduces large-disturbance hover and tracking errors by 65.7% and 53.3% over the state-of-the-art online adaptation approaches",
+      "authors": [
+        "Jiaxu Xing",
+        "Zhiyuan Zhu",
+        "Yunfan Ren",
+        "Ismail Geles",
+        "Yifan Zhai",
+        "Rudolf Reiter",
+        "Davide Scaramuzza"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-25T17:56:04+00:00",
+      "link": "https://arxiv.org/pdf/2606.27353v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "continual robot policy learning with variational neural dynamics model of world dynamics",
+      "llm_evidence_cn": "利用变分神经动力学模型进行机器人策略持续学习",
+      "llm_evidence": "利用变分神经动力学模型进行机器人策略持续学习",
+      "canonical_evidence": "利用变分神经动力学模型进行机器人策略持续学习",
+      "llm_tldr_en": "Proposes a continual learning framework with condition-aware dynamics models for robot policy improvement under hidden dynamics changes.",
+      "llm_tldr_cn": "真实世界机器人常面临动态变化，而现有控制器训练后不再更新。本文提出持续学习框架，结合分析物理先验和神经残差学习条件感知动力学模型，利用部署经验改进策略。实验表明该方法在多种动态变化环境中持续提升任务性能。该工作为机器人在线适应提供了一种实用方法。",
+      "llm_tldr": "真实世界机器人常面临动态变化，而现有控制器训练后不再更新。本文提出持续学习框架，结合分析物理先验和神经残差学习条件感知动力学模型，利用部署经验改进策略。实验表明该方法在多种动态变化环境中持续提升任务性能。该工作为机器人在线适应提供了一种实用方法。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2606.23280v1",
+      "source": "arxiv",
+      "title": "Causal Reward World Models: Zero-shot Reward Design for Automated Skill Generation",
+      "abstract": "Automated Reward Design (ARD) aims to replace manual reward engineering in reinforcement learning with language-driven reward function synthesis. However, existing approaches based on large language models (LLMs) remain inherently correlation-driven, relying on iterative environmental feedback to refine reward hypotheses for each specific task. This paradigm not only results in inefficient reasoning but also makes LLMs susceptible to semantically plausible yet causally spurious reward components, leading to ineffective optimization. To address these limitations, we propose the Causal Reward World Model (CRWM), which explicitly models the causal topological relationships between candidate reward components and task-targeted physical variables through offline pre-training on multi-task interaction data. Based on a coarse-to-fine pre-training strategy, we introduce a joint optimization module that integrates Explicit Mechanism Decoupling with Confidence-Aware Soft Fusion to refine coarse structural priors using micro-level trajectories, thereby constructing a robust and interpretable causal skeleton. During inference, LLMs leverage CRWM as a task-irrelevant causal prior to constrain the reward generation, enabling zero-shot reward function design. Our work opens up a new white-box paradigm for the ARD problem. Extensive experiments on complex continuous control benchmarks demonstrate that CRWM generates executable reward functions without feedback-driven reward refinement, significantly reducing the design latency for acquiring new robotic skills while matching or surpassing state-of-the-art performance, and further exhibits strong generalization capabilities across unseen tasks and diverse robotic embodiments.",
+      "authors": [
+        "Yang Yang",
+        "Yuchuang Tong",
+        "Zhengtao Zhang",
+        "Xu Ding",
+        "Ning Yang",
+        "Yifan Zhang",
+        "Haipeng Li",
+        "Kehu Yang",
+        "Miao Xin"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-22T12:57:17+00:00",
+      "link": "https://arxiv.org/pdf/2606.23280v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "world model for causal reward design in reinforcement learning",
+      "llm_evidence_cn": "利用世界模型因果结构辅助强化学习奖励设计",
+      "llm_evidence": "利用世界模型因果结构辅助强化学习奖励设计",
+      "canonical_evidence": "利用世界模型因果结构辅助强化学习奖励设计",
+      "llm_tldr_en": "Introduces Causal Reward World Model (CRWM) for zero-shot reward design by modeling causal relations in RL.",
+      "llm_tldr_cn": "现有基于LLM的自动奖励设计依赖相关性和环境反馈，效率低且易受因果虚假成分影响。本文提出因果奖励世界模型（CRWM），显式建模候选奖励组件与目标物理变量间的因果拓扑关系。实验证明CRWM能在零样本下生成有效奖励函数，加速技能学习。该工作将因果推断引入世界模型，提升了RL奖励设计的鲁棒性。",
+      "llm_tldr": "现有基于LLM的自动奖励设计依赖相关性和环境反馈，效率低且易受因果虚假成分影响。本文提出因果奖励世界模型（CRWM），显式建模候选奖励组件与目标物理变量间的因果拓扑关系。实验证明CRWM能在零样本下生成有效奖励函数，加速技能学习。该工作将因果推断引入世界模型，提升了RL奖励设计的鲁棒性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.25136v1",
+      "source": "arxiv",
+      "title": "Memory Retrieval in Visuomotor Policies for Long-Horizon Robot Control",
+      "abstract": "General-purpose robots operating in partially observable environments, such as homes, require memory to support autonomy. They must recall diverse information from the past, such as where objects were placed, which tasks a human partner has completed, and when an appliance was turned on. Achieving this versatility requires a general memory retrieval mechanism. Transformer architectures that use attention over long contexts for memory retrieval provide a promising approach, as they learn retrieval from data rather than relying on task-specific or hand-designed rules. However, directly incorporating them into imitation learning from offline data introduces two key challenges: (1) the policy may learn spurious correlations between past information and predicted actions, and (2) errors accumulate in memory due to prediction inaccuracies and their compounding interactions with the environment, causing model drift and cascading failures. To address both challenges, we introduce HALO, a visuomotor policy with an attention-based memory retrieval mechanism for long-horizon control. First, to suppress spurious correlations, HALO distills vision-language model (VLM) priors into the policy. It generates memory-dependent question--answer pairs from demonstration trajectories and trains jointly with a video question--answering objective, steering retrieval toward task-relevant information. Second, to reduce the impact of accumulated errors in memory during closed-loop control, HALO uses sparse attention that restricts retrieval to only the most relevant parts of the history. Together, these components enable more reliable long-horizon control by guiding the policy to retrieve task-relevant information from up to eight minutes of past experience. Project website: https://robin-lab.cs.utexas.edu/HALO",
+      "authors": [
+        "Rutav Shah",
+        "Yisu Li",
+        "Femi Bello",
+        "Yuke Zhu",
+        "Roberto Martín-Martín"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-23T20:07:23+00:00",
+      "link": "https://arxiv.org/pdf/2606.25136v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "imitation learning with memory for robot control",
+      "llm_evidence_cn": "机器人控制的模仿学习与记忆机制",
+      "llm_evidence": "机器人控制的模仿学习与记忆机制",
+      "canonical_evidence": "机器人控制的模仿学习与记忆机制",
+      "llm_tldr_en": "Proposes a memory retrieval mechanism for visuomotor policies to handle long-horizon tasks in partially observable environments, using imitation learning from offline data.",
+      "llm_tldr_cn": "针对部分可观测环境中长期任务对记忆的需求，提出基于Transformer的通用记忆检索机制，并集成到模仿学习框架中，解决了策略学习中的虚假相关性问题，提升了机器人自主记忆能力。",
+      "llm_tldr": "针对部分可观测环境中长期任务对记忆的需求，提出基于Transformer的通用记忆检索机制，并集成到模仿学习框架中，解决了策略学习中的虚假相关性问题，提升了机器人自主记忆能力。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.25241v1",
+      "source": "arxiv",
+      "title": "GRAFT: Graph-Based Affordance Transfer via Part Correspondence",
+      "abstract": "Generalizing robotic manipulation to unseen objects remains challenging, as learning-based approaches require many demonstrations and fail in few-shot settings. Prior work transfers affordances through semantic retrieval, but semantics alone neglect geometric similarity, which is critical for manipulation. We propose GRAFT, a geometry-aware correspondence framework for zero-shot manipulation transfer using only one demonstration per object. Objects are represented as part-based graphs, where part-level descriptors support global instance retrieval and part correspondence, and vertex-level descriptors enable fine-grained contact point matching. For an unseen object, our method first retrieves the most functionally and geometrically similar instance from the demonstration buffer with aligned functional parts, and finally propagates the contact points through point-wise correspondence.",
+      "authors": [
+        "Mengying Lin",
+        "Utkarsh Mishra",
+        "Ajay Mandlekar",
+        "Danfei Xu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-23T23:58:57+00:00",
+      "link": "https://arxiv.org/pdf/2606.25241v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "geometry-aware affordance transfer from one expert demonstration for robotic manipulation",
+      "llm_evidence_cn": "从单次专家演示进行几何感知的可迁移性转移用于机器人操控",
+      "llm_evidence": "从单次专家演示进行几何感知的可迁移性转移用于机器人操控",
+      "canonical_evidence": "从单次专家演示进行几何感知的可迁移性转移用于机器人操控",
+      "llm_tldr_en": "GRAFT uses part-based graph correspondence to transfer manipulation affordances from a single demonstration to unseen objects, enabling zero-shot generalization.",
+      "llm_tldr_cn": "该论文针对机器人操控泛化到未见物体这一挑战，提出基于图结构部分对应的零样本可迁移性转移框架GRAFT。通过部件级和顶点级描述符实现从单次演示中提取几何和功能相似性，从而完成接触点匹配。实验表明该方法无需大量数据即可实现有效的操控迁移，为少样本机器人学习提供了新思路。",
+      "llm_tldr": "该论文针对机器人操控泛化到未见物体这一挑战，提出基于图结构部分对应的零样本可迁移性转移框架GRAFT。通过部件级和顶点级描述符实现从单次演示中提取几何和功能相似性，从而完成接触点匹配。实验表明该方法无需大量数据即可实现有效的操控迁移，为少样本机器人学习提供了新思路。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.27036v1",
+      "source": "arxiv",
+      "title": "RelAfford6D: Relational 6D Affordance Graphs for Constraint-Driven Robotic Manipulation",
+      "abstract": "Bridging abstract semantics and precise physical control remains a fundamental challenge in open-world robotic manipulation. While recent data-driven policies show promise, their reliance on isolated contact points or latent affordance embeddings lacks the rigorous kinematic constraints necessary for complex articulated objects.To overcome the limitation, we introduce RelAfford6D, a novel training-free framework centered on a Relational 6D Affordance Graph. Given a free-form instruction, our system deduces a semantic topology linking a primary interacting part to its physical anchor. By elevating these topological nodes into precise metric $SE(3)$ poses via vision foundation models, we analytically formulate downstream execution as a kinematic constraint satisfaction problem. The robot synthesizes continuous trajectories by tracking strictly defined physical manifolds (e.g., revolute or prismatic orbits). Coupled with a closed-loop tracking mechanism for dynamic replanning against disturbances, our physically grounded approach achieves superior zero-shot success rates, cross-category generalization and execution robustness in both simulation and the real world environments, outperforming existing data-driven baselines.",
+      "authors": [
+        "Guodong Zhang",
+        "Qichen He",
+        "Wenyuan Xie",
+        "Shaokai Wu",
+        "Yanbiao Ji",
+        "Qiuchang Li",
+        "Bayram Bayramli",
+        "Yue Ding",
+        "Hongtao Lu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-25T13:42:26+00:00",
+      "link": "https://arxiv.org/pdf/2606.27036v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "Robotic manipulation framework with 6D affordance graphs",
+      "llm_evidence_cn": "基于6Daffordance图的机器人操作框架",
+      "llm_evidence": "基于6Daffordance图的机器人操作框架",
+      "canonical_evidence": "基于6Daffordance图的机器人操作框架",
+      "llm_tldr_en": "RelAfford6D uses relational affordance graphs to bridge semantics and kinematics for zero-shot robotic manipulation.",
+      "llm_tldr_cn": "开放世界机器人操作中，连接抽象语义与精确物理控制是有挑战的。本文提出RelAfford6D，通过构建关系6Daffordance图，从自由形式指令推导语义拓扑并转化为SE3位姿，实现无需训练的约束驱动操作。在复杂铰接物体上的实验证明了其有效性。",
+      "llm_tldr": "开放世界机器人操作中，连接抽象语义与精确物理控制是有挑战的。本文提出RelAfford6D，通过构建关系6Daffordance图，从自由形式指令推导语义拓扑并转化为SE3位姿，实现无需训练的约束驱动操作。在复杂铰接物体上的实验证明了其有效性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.25880v1",
+      "source": "arxiv",
+      "title": "USS: Unified Spatial-Semantic Prompts for Embodied Visual Tracking with Latent Dynamics Learning",
+      "abstract": "Embodied Visual Tracking (EVT) requires an agent to continuously follow a specified target while actively moving through dynamic environments. However, prevailing EVT paradigms predominantly rely on language-based target indication. While language is expressive and convenient, cluttered scenes often contain multiple objects that satisfy the same semantic description, leading to ambiguous target grounding. We therefore propose a paradigm shift, reframing target indication in EVT from text-only specification to unified spatial-semantic prompting. Based on this paradigm, we introduce Unified Spatial-Semantic Prompts for Embodied Visual Tracking with Latent Dynamics Learning, USS, an end-to-end embodied tracking framework that supports text, point, bounding box, and mask prompts within a unified architecture. USS encodes heterogeneous prompts with modality-specific encoders, fuses prompt tokens with visual features through hybrid attention, and decodes compact prompt-conditioned representations into egocentric waypoints. To further improve temporal robustness, USS incorporates a latent world model that predicts future representations through self-supervised alignment. Real-robot experiments demonstrate that explicit spatial target cues yield higher success rates than text-only prompts, particularly in scenarios involving similar distractors and longer-horizon tracking where maintaining instance-level target identity is critical. In the simulation benchmark, USS also achieves state-of-the-art performance among non-MLLM-based methods and competitive results against recent MLLM-based approaches with faster inference speed. Our findings reveal that spatial-semantic prompting provides a more precise and flexible target indication interface for embodied visual tracking. Project site: https://arescheah.github.io/uss-project-page/.",
+      "authors": [
+        "Yuchen Xie",
+        "Xinyu Zhou",
+        "Kuangji Zuo",
+        "Yanshuo Lu",
+        "Fengrui Huang",
+        "Boyu Ma",
+        "Jianfei Yang"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-24T14:25:05+00:00",
+      "link": "https://arxiv.org/pdf/2606.25880v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "world model for embodied visual tracking",
+      "llm_evidence_cn": "具身视觉跟踪中的世界模型应用",
+      "llm_evidence": "具身视觉跟踪中的世界模型应用",
+      "canonical_evidence": "具身视觉跟踪中的世界模型应用",
+      "llm_tldr_en": "Introduces USS, an embodied tracking framework using spatial-semantic prompts and latent dynamics learning for robust target following in dynamic scenes.",
+      "llm_tldr_cn": "针对具身视觉跟踪中仅用语言指示导致歧义的问题，提出统一空间-语义提示范式，并融入潜在动力学学习，使智能体能够融合空间和语义信息持续跟踪目标，在挑战性场景下提升了跟踪准确性和鲁棒性。",
+      "llm_tldr": "针对具身视觉跟踪中仅用语言指示导致歧义的问题，提出统一空间-语义提示范式，并融入潜在动力学学习，使智能体能够融合空间和语义信息持续跟踪目标，在挑战性场景下提升了跟踪准确性和鲁棒性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.27295v1",
+      "source": "arxiv",
+      "title": "LA4VLA: Learning to Act without Seeing via Language-Action Pretraining",
+      "abstract": "Vision-Language-Action (VLA) models are commonly pretrained on robot demonstrations by jointly mapping visual observations and language instructions to actions. However, dense visual-action supervision can dominate the comparatively sparse language-action signal. As a result, policies may rely on visual shortcuts rather than learn how language conditions action execution, making them sensitive to visual variations. To address this limitation, we propose LA4VLA, a language-action pretraining framework that enables policies to acquire language-conditioned action priors without visual observations. These priors capture reusable manipulation skills shared across tasks and scenes, reducing reliance on scene-specific visual cues. Specifically, LA4VLA decomposes expert demonstration trajectories into atomic action segments and pairs each segment with a corresponding low-level action description. This yields LA4-33K, a dataset of 33K Language-Action (LA) episodes derived entirely from existing demonstrations without additional robot data collection. We further develop LA4VLA-1B, a lightweight 1B-parameter VLA model, and investigate three paradigms for incorporating language-action supervision into VLA learning: LA-only pretraining, sequential LA-to-VLA pretraining, and mixed LA-VLA pretraining. Across simulation and real-world tasks, LA-pretrained policies consistently outperform matched VLA-pretrained counterparts, while combining LA and VLA supervision leads to further gains. In particular, mixed LA-VLA pretraining improves the average success rate of LA4VLA-1B over the no-pretraining baseline by up to 17.8 and 45.0 percentage points in simulation and real-world tasks, respectively. These results establish LA4VLA as an effective and complementary pretraining strategy for building stronger and more robust VLA policies.",
+      "authors": [
+        "Tao Lin",
+        "Yuxin Du",
+        "Yiran Mao",
+        "Zewei Ye",
+        "Yilei Zhong",
+        "Bing Cheng",
+        "Yiming Wang",
+        "Jiting Liu",
+        "Yang Tian",
+        "Junchi Yan",
+        "Feiran Wu",
+        "Zenan Meng",
+        "Hu Wei",
+        "Yuqian Fu",
+        "Gen Li",
+        "Bo Zhao"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-25T17:13:02+00:00",
+      "link": "https://arxiv.org/pdf/2606.27295v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "language-action pretraining from demonstrations to learn reusable manipulation skills",
+      "llm_evidence_cn": "从演示中学习语言条件动作先验，无需视觉观察",
+      "llm_evidence": "从演示中学习语言条件动作先验，无需视觉观察",
+      "canonical_evidence": "从演示中学习语言条件动作先验，无需视觉观察",
+      "llm_tldr_en": "Proposes LA4VLA, a language-action pretraining framework that learns manipulation skill priors from demonstrations, reducing visual reliance.",
+      "llm_tldr_cn": "视觉-语言-动作模型过度依赖视觉信号，忽略语言对动作的调控。本文提出LA4VLA，在无视觉输入的语言-动作预训练阶段，从演示中学习可复用的操作技能先验。实验表明该框架增强语言条件执行能力，对视觉变化更鲁棒。该方法为减少视觉依赖提供新思路，同时保持了从演示学习的有效性。",
+      "llm_tldr": "视觉-语言-动作模型过度依赖视觉信号，忽略语言对动作的调控。本文提出LA4VLA，在无视觉输入的语言-动作预训练阶段，从演示中学习可复用的操作技能先验。实验表明该框架增强语言条件执行能力，对视觉变化更鲁棒。该方法为减少视觉依赖提供新思路，同时保持了从演示学习的有效性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}
