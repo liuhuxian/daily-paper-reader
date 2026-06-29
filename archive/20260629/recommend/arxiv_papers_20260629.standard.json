@@ -1,0 +1,349 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-29T20:40:44.316223+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 6,
+    "deep_cap": 6,
+    "deep_selected": 6,
+    "quick_candidates": 2,
+    "quick_skim_target": 11,
+    "quick_selected": 2
+  },
+  "deep_dive": [
+    {
+      "id": "2606.24101v1",
+      "source": "arxiv",
+      "title": "NavWM: A Unified Navigation World Model for Foresight-Driven Planning",
+      "abstract": "Conventional visual navigation policies often struggle with myopic decision-making and mode collapse in complex environments. While world models offer a promising alternative, existing paradigms typically isolate perception, generation, and control, failing to capture their shared spatio-temporal dynamics. In this paper, we propose NavWM, a unified navigation world model that seamlessly integrates latent world reasoning, multimodal action prediction, and controllable visual generation. At its core, NavWM leverages latent world tokens to distill geometric and semantic priors, endowing the agent with robust structural understanding. To overcome the limitations of deterministic policies, we introduce an anchor-based multimodal trajectory forecasting framework that generates a diverse action space. This inherent diversity explicitly empowers the generative world model to act as a robust closed-loop planner, utilizing visual foresight to evaluate and select the optimal path. Extensive experiments across diverse robotics datasets demonstrate that NavWM significantly advances the state-of-the-art, delivering remarkable improvements in both high-fidelity future state generation and zero-shot navigation success.",
+      "authors": [
+        "Yanghong Mei",
+        "Longteng Guo",
+        "Ming-Ming Yu",
+        "Guiyu Zhao",
+        "Xingjian He",
+        "Jing Liu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "published": "2026-06-23T03:30:20+00:00",
+      "link": "https://arxiv.org/pdf/2606.24101v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "unified navigation world model for foresight planning",
+      "llm_evidence_cn": "统一导航世界模型实现前瞻性规划",
+      "llm_evidence": "统一导航世界模型实现前瞻性规划",
+      "canonical_evidence": "统一导航世界模型实现前瞻性规划",
+      "llm_tldr_en": "NavWM integrates latent world reasoning, multimodal action prediction, and controllable visual generation in a unified world model for foresight-driven visual navigation.",
+      "llm_tldr_cn": "针对传统导航策略短视和模式崩溃的问题，本文提出NavWM，一个统一的世界模型。它通过潜在世界令牌提取几何语义先验，结合锚点多模态轨迹预测框架，在复杂环境中实现鲁棒的前瞻规划。实验表明其显著优于分离式方法。",
+      "llm_tldr": "针对传统导航策略短视和模式崩溃的问题，本文提出NavWM，一个统一的世界模型。它通过潜在世界令牌提取几何语义先验，结合锚点多模态轨迹预测框架，在复杂环境中实现鲁棒的前瞻规划。实验表明其显著优于分离式方法。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.27483v1",
+      "source": "arxiv",
+      "title": "Internalizing the Future: A Unified Agentic Training Paradigm for World Model Planning",
+      "abstract": "Large language model (LLM) agents have demonstrated strong capability in sequential decision-making, yet they remains fundamentally reactive in long-horizon tasks. Unlike humans who employ \"what-if\" reasoning to evaluate potential plans before commitment, standard agents lack an internal world model to simulate future outcomes. Therefore, we propose to internalize future-aware planning by training a single autoregressive model to verbalize both a prospective state rollout and a plan-conditioned success estimate-a textual analogue of the Q-value. Crucially, we identify a format-capability gap: simply fine-tuning agents on look-ahead traces during post-training leads to superficial mimicry of foresight without genuine predictive grounding. To bridge this gap, we introduce a three-stage training paradigm: (i) World Model Agentic Mid-Training (WM-AMT) to inject latent predictive capabilities into the policy; (ii) Format-Eliciting SFT (FE-SFT) to structure this injected capability; and (iii) Foresight-Conditioned Reinforcement Learning (FC-RL) to refine the calibration and utility of the generated simulations. Evaluated on search and mathematical reasoning tasks, our approach consistently outperforms other training baselines. Our results demonstrate that effective internal world modeling in LLM agents requires a capability-first training pipeline to achieve grounded and calibrated foresight.",
+      "authors": [
+        "Xuan Zhang",
+        "Zhijian Zhou",
+        "Lingfeng Qiao",
+        "Yulei Qin",
+        "Ke Li",
+        "Xing Sun",
+        "Xiaoyu Tan",
+        "Chao Qu",
+        "Yuan Qi"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-06-25T19:05:44+00:00",
+      "link": "https://arxiv.org/pdf/2606.27483v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "internal world model for future-aware planning in LLM agents",
+      "llm_evidence_cn": "LLM智能体内部世界模型实现前瞻性规划",
+      "llm_evidence": "LLM智能体内部世界模型实现前瞻性规划",
+      "canonical_evidence": "LLM智能体内部世界模型实现前瞻性规划",
+      "llm_tldr_en": "This work trains a single autoregressive LLM agent to verbalize state rollout and success estimates, internalizing world model for planning without external simulators.",
+      "llm_tldr_cn": "针对大语言模型智能体在长程任务中缺乏内部世界模型的问题，本文提出统一训练范式，让模型在生成动作前先输出状态推演和成功概率估计。通过格式能力差距分析，该方法在规划任务上实现了超越简单微调的性能。",
+      "llm_tldr": "针对大语言模型智能体在长程任务中缺乏内部世界模型的问题，本文提出统一训练范式，让模型在生成动作前先输出状态推演和成功概率估计。通过格式能力差距分析，该方法在规划任务上实现了超越简单微调的性能。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.28127v1",
+      "source": "arxiv",
+      "title": "From Tokens to States: LLMs as a Special Case of World Models and the Continuous Path Beyond",
+      "abstract": "The AI community has framed the relationship between large language models (LLMs) and world models as a dichotomy: LLMs predict tokens; world models simulate reality. Yann LeCun argues in 2022 that reaching general intelligence requires abandoning autoregressive token prediction in favour of latent-space architectures. This framing is unnecessarily binary. Two claims will be defended. First, LLMs are a degenerate special case of world models: the state space is the set of all token sequences, the only action is appending one token, and world models are therefore a strict generalisation of LLMs, not a replacement. Second, there is a natural continuous spectrum from NTP to JEPA, with multi-token prediction, future-summary prediction, and next-latent prediction as intermediate stations already populated by current research. Moving along this spectrum relaxes the LLM constraints one by one. It also progressively surrenders the two practical advantages that make LLMs trainable at scale: internet-scale self-supervised data, and a transformer architecture co-designed for discrete token prediction. Both are examined as open research questions: the data question (the cliff from self-supervised text to instrumented action-labelled environments) and the architecture question (whether the transformer generalises to continuous-state prediction, or whether a new primitive is needed).",
+      "authors": [
+        "Paul Dubois"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published": "2026-06-26T14:27:50+00:00",
+      "link": "https://arxiv.org/pdf/2606.28127v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Establishes LLMs as a degenerate case of world models, discussing internal environment models for prediction",
+      "llm_evidence_cn": "将LLM确立为世界模型的退化特例，讨论内部环境模型用于预测",
+      "llm_evidence": "将LLM确立为世界模型的退化特例，讨论内部环境模型用于预测",
+      "canonical_evidence": "将LLM确立为世界模型的退化特例，讨论内部环境模型用于预测",
+      "llm_tldr_en": "Argues LLMs are a special case of world models and proposes a continuous spectrum from next-token prediction to latent-space world models.",
+      "llm_tldr_cn": "当前AI社区将LLM与世界模型视为二选一，但本文论证LLM是世界模型的退化特例（状态空间为token序列，动作为追加一个token）。进一步指出从自回归预测到联合嵌入预测存在连续谱系，多token预测和未来摘要预测是中间步骤。该观点为理解世界模型提供了理论统一视角，并指明了从LLM向更通用世界模型演化的路径。",
+      "llm_tldr": "当前AI社区将LLM与世界模型视为二选一，但本文论证LLM是世界模型的退化特例（状态空间为token序列，动作为追加一个token）。进一步指出从自回归预测到联合嵌入预测存在连续谱系，多token预测和未来摘要预测是中间步骤。该观点为理解世界模型提供了理论统一视角，并指明了从LLM向更通用世界模型演化的路径。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.27644v1",
+      "source": "arxiv",
+      "title": "CascadeOcc: Rethinking 3D Occupancy World Models with Cascaded VQ Representations",
+      "abstract": "This letter proposes CascadeOcc, a novel occupancy world model that prioritizes intrinsic structural hierarchy over extrinsic auxiliary modalities for autonomous driving. Occupancy world models -- forecasting the future driving environment and planning the driving trajectory -- effectively bridge perception and planning, but current approaches often heavily rely on external modalities or large language models, failing to fully exploit the inherent structural potential of occupancy representations themselves. To enhance representational capacity for complex 3D scenes, we integrate a cascaded Vector Quantized (VQ) mechanism into an autoregressive framework. Following a coarse-to-fine principle, CascadeOcc progressively refines fine-grained details from global structures through a multi-scale architecture. Additionally, we incorporate a TimeMixer to capture multi-scale temporal dependencies, establishing a dual-hierarchy mechanism in both space and time. Experimental results on 4D occupancy forecasting and motion planning benchmarks demonstrate that CascadeOcc achieves superior performance among vision-centric approaches, validating that optimizing inherent representations is a powerful alternative to relying on external foundation models.",
+      "authors": [
+        "Kyumin Hwang",
+        "Wonhyeok Choi",
+        "Jaeyeul Kim",
+        "Jihun Park",
+        "Daehee Park",
+        "Sunghoon Im"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-26T01:43:37+00:00",
+      "link": "https://arxiv.org/pdf/2606.27644v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "occupancy world model for environment forecasting and planning",
+      "llm_evidence_cn": "用于环境预测和规划的占用世界模型",
+      "llm_evidence": "用于环境预测和规划的占用世界模型",
+      "canonical_evidence": "用于环境预测和规划的占用世界模型",
+      "llm_tldr_en": "CascadeOcc proposes a cascaded VQ occupancy world model for autonomous driving that forecasts future environment and plans trajectory, improving representational capacity without external modalities.",
+      "llm_tldr_cn": "针对现有占用世界模型过度依赖外部模态的问题，本文提出CascadeOcc，采用级联向量量化机制增强3D场景表示能力，实现从粗到细的占用预测与轨迹规划。在自动驾驶数据集上验证了其有效性与泛化能力。",
+      "llm_tldr": "针对现有占用世界模型过度依赖外部模态的问题，本文提出CascadeOcc，采用级联向量量化机制增强3D场景表示能力，实现从粗到细的占用预测与轨迹规划。在自动驾驶数据集上验证了其有效性与泛化能力。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.28133v1",
+      "source": "arxiv",
+      "title": "Translation as a Bridging Action: Transferring Manipulation Skills from Humans to Robots",
+      "abstract": "We study whether we can learn novel manipulation skills from human actions to a bi-manual robot with parallel grippers. Human action data is cheap, abundant, and diverse, making it one of the most promising resources for scaling up robot learning. Yet transferring skills from humans to robots remains hard: most prior work treats humans as just another bi-manual 6DoF embodiment, where hand-pose estimates are noisy and the contact patterns of human fingers differ fundamentally from those of a parallel gripper. We argue that learning rotation-inclusive action signals from human data is therefore sub-optimal, and instead propose a bridging action representation: the relative wrist translation within the initial head-camera frame, an action space shared by humans and robots. To handle the potential absence of certain action components in different embodiments, we build a $π_0$-like vision-language-action model with interleaved action tokens and attention masking. On a suite of novel bi-manual manipulation tasks, our bridging action transfers human manipulation knowledge to robots far more effectively than noisy 6DoF human actions and scales with the amount of human data.",
+      "authors": [
+        "Sijin Chen",
+        "Kaixuan Jiang",
+        "Haixin Shi",
+        "Yanhui Wang",
+        "Weiheng Zhong",
+        "Haosheng Li",
+        "Bo Jiang",
+        "Yuxiao Liu",
+        "Xihui Liu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "published": "2026-06-26T14:34:04+00:00",
+      "link": "https://arxiv.org/pdf/2606.28133v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "Transferring manipulation skills from human demonstrations using bridging action representation",
+      "llm_evidence_cn": "利用桥接动作表示从人类演示迁移操作技能",
+      "llm_evidence": "利用桥接动作表示从人类演示迁移操作技能",
+      "canonical_evidence": "利用桥接动作表示从人类演示迁移操作技能",
+      "llm_tldr_en": "Proposes a bridging action representation (relative wrist translation) to transfer manipulation skills from human actions to bimanual robots with parallel grippers.",
+      "llm_tldr_cn": "针对从人类动作数据迁移操作技能到双手机器人时存在接触模式差异的问题，本文提出使用相对手腕平移作为桥接动作表示，避免旋转信号带来的噪声。实验证明该方法能有效利用丰富的人类数据学习并行夹爪操作技能，为机器人技能迁移提供了新思路。",
+      "llm_tldr": "针对从人类动作数据迁移操作技能到双手机器人时存在接触模式差异的问题，本文提出使用相对手腕平移作为桥接动作表示，避免旋转信号带来的噪声。实验证明该方法能有效利用丰富的人类数据学习并行夹爪操作技能，为机器人技能迁移提供了新思路。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "directly copying expert actions from demonstrations",
+      "matched_requirement_id": "req-5",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.28320v1",
+      "source": "arxiv",
+      "title": "WARP-RM: A Warp-Augmented Relative Progress Reward Model for Data Curation",
+      "abstract": "Scaling imitation learning requires large datasets, yet human teleoperation inevitably produces mixed-quality demonstrations containing hesitations and recoveries. Prior frame-level progress reward models supervise on absolute temporal progress proxies that suffer from label noise, or require costly human annotations to define subtask boundaries. We present WARP (Warp-Augmented Relative Progress), a novel fully self-supervised algorithm for learning dense, signed relative progress magnitudes directly from successful demonstrations. WARP generates per-frame progress targets via time-warp augmentations of demonstrations (variable playback speeds and reversals) and we train WARP-RM to predict the normalized elapsed time between input frames. Aggregating these predictions across overlapping windows yields a dense frame-level progress signal. We then introduce WARP-BC, which leverages these scalar reward estimates to upweight high-advantage action chunks during behavior cloning, where chunk-level advantage is obtained by aggregating per-frame rewards. We evaluate our approach on a physical bimanual robot system performing a long-horizon deformable object manipulation task: folding T-shirts from a random crumpled start. To evaluate policy robustness against suboptimal data, we construct training datasets of varying quality using episode length as a proxy for teleoperation sub-optimality. As the dataset is widened to admit more inefficiencies, WARP-BC maintains a 19/20 success rate compared to vanilla BC's collapse to 2/20, improving throughput by up to 18x.",
+      "authors": [
+        "Justin Yu",
+        "Andrew Goldberg",
+        "Kavish Kondap",
+        "Karim El-Refai",
+        "Ethan Ransing",
+        "Qianzhong Chen",
+        "Mac Schwager",
+        "Fred Shentu",
+        "Philipp Wu",
+        "Ken Goldberg"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-26T17:58:06+00:00",
+      "link": "https://arxiv.org/pdf/2606.28320v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "self-supervised progress reward model for curating demonstrations in imitation learning",
+      "llm_evidence_cn": "用于模仿学习中演示数据筛选的自监督进度奖励模型",
+      "llm_evidence": "用于模仿学习中演示数据筛选的自监督进度奖励模型",
+      "canonical_evidence": "用于模仿学习中演示数据筛选的自监督进度奖励模型",
+      "llm_tldr_en": "WARP-RM learns dense relative progress from successful demonstrations via time-warp augmentations, improving imitation learning by filtering low-quality frames.",
+      "llm_tldr_cn": "针对人工遥操作演示质量不一的问题，本文提出WARP-RM，一种全自监督的渐进奖励模型。通过时间扭曲增强生成逐帧进度目标，训练模型预测标准化时间差。在机器人操作任务上，该奖励有效筛选高质量演示，显著提升模仿学习成功率。",
+      "llm_tldr": "针对人工遥操作演示质量不一的问题，本文提出WARP-RM，一种全自监督的渐进奖励模型。通过时间扭曲增强生成逐帧进度目标，训练模型预测标准化时间差。在机器人操作任务上，该奖励有效筛选高质量演示，显著提升模仿学习成功率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "directly copying expert actions from demonstrations",
+      "matched_requirement_id": "req-5",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2606.27814v1",
+      "source": "arxiv",
+      "title": "ATOD: Annealed Turn-aware On-policy Distillation for Multi-turn Autonomous Agents",
+      "abstract": "Training small language-model agents for long-horizon interactive tasks requires both fast imitation and reward-driven improvement. On-policy distillation (OPD) provides dense teacher guidance and typically improves rapidly in the early stage, but its gains saturate once the student approaches the teacher, limiting the final performance ceiling. Reinforcement learning (RL) directly optimizes environment rewards and encourages exploratory improvement toward a higher reward-defined ceiling, but sparse and delayed feedback makes early-stage learning much less efficient than OPD. In this paper, we propose ATOD (Annealed Turn-aware On-policy Distillation), a hybrid online distillation algorithm that explicitly exploits this complementarity. (1) ATOD uses an annealed OPD-RL schedule: OPD dominates early training to approach teacher-level behavior, while RL is gradually strengthened to drive reward-based exploration. (2) ATOD introduces Turn-level Disagreement-Uncertainty Reweighting (T-DUR), which softly amplifies high-utility turns and improves dense supervision in long trajectories. Experiments on ALFWorld, WebShop, and Search-QA show that ATOD consistently outperforms competing post-training baselines: across the three student sizes, ATOD improves average success rate by 3.03 points over OPD and 23.62 points over GRPO, while surpassing the corresponding teacher models by 2.16 points.",
+      "authors": [
+        "Qitai Tan",
+        "Zefang Zong",
+        "Yang Li",
+        "Peng Chen"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-06-26T07:56:32+00:00",
+      "link": "https://arxiv.org/pdf/2606.27814v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "hybrid on-policy distillation combining imitation and RL for agent training",
+      "llm_evidence_cn": "结合模仿和强化学习的混合在线蒸馏用于智能体训练",
+      "llm_evidence": "结合模仿和强化学习的混合在线蒸馏用于智能体训练",
+      "canonical_evidence": "结合模仿和强化学习的混合在线蒸馏用于智能体训练",
+      "llm_tldr_en": "ATOD combines on-policy distillation and RL for multi-turn language agents, achieving faster early learning and higher final performance via annealed turn-aware weighting.",
+      "llm_tldr_cn": "针对语言智能体在长程任务中模仿学习饱和与强化学习效率低下的互补问题，本文提出ATOD，一种退火感知轮次的在线蒸馏算法。通过动态平衡教师蒸馏与环境奖励优化，在多个交互任务上实现快速收敛与更高性能上限。",
+      "llm_tldr": "针对语言智能体在长程任务中模仿学习饱和与强化学习效率低下的互补问题，本文提出ATOD，一种退火感知轮次的在线蒸馏算法。通过动态平衡教师蒸馏与环境奖励优化，在多个交互任务上实现快速收敛与更高性能上限。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "model based reinforcement learning combined with behavioral cloning",
+      "matched_requirement_id": "req-8",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.28215v1",
+      "source": "arxiv",
+      "title": "HAT-4D: Lifting Monocular Video for 4D Multi-Object Interactions via Human-Agent Collaboration",
+      "abstract": "Extracting dynamic 4D object interactions from massive, in-the-wild monocular videos offers a highly efficient data collection pathway for scaling Embodied AI and training VLAs. However, existing monocular 4D reconstruction methods primarily focus on isolated objects, often failing under the severe occlusions and complex dynamics inherent in multi-object interactions. To bridge this gap, we propose HAT-4D, the first agentic framework designed to reconstruct the 3D geometry, temporal dynamics, and physical interactions of multiple objects from a single video. By integrating VLMs with a multi-level human-in-the-loop feedback mechanism, HAT-4D efficiently resolves depth ambiguities and interaction-induced occlusions during 3D generation and 4D propagation, yielding physically plausible assets without relying on expensive multicamera rigs. As a scalable data engine, HAT-4D facilitates the creation of MVOIK-4D, an open-world benchmark for monocular 4D interaction reconstruction, accompanied by a novel multi-dimensional evaluation protocol focused on physical plausibility and temporal consistency. Extensive experiments demonstrate that HAT-4D achieves SOTA performance on most evaluation metrics, while maintaining competitive semantic alignment. Ablation studies show that introducing a small amount of human feedback improves interaction reconstruction. Moreover, the data produced by HAT-4D effectively improves baseline performance when used for fine-tuning. Our data and code are available at https://lijiaxin0111.github.io/HAT4D/",
+      "authors": [
+        "Jiaxin Li",
+        "Yuxiang Wu",
+        "Zhenkai Zhang",
+        "Xinrui Shi",
+        "Haoyuan Wang",
+        "Yichen Zhao",
+        "Su Linxiang",
+        "Chenyang Yu",
+        "Mingyu Zhang",
+        "Yifan Ding",
+        "Boran Wen",
+        "Li Zhang",
+        "Ruiyang Liu",
+        "Yong-Lu Li"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.GR"
+      ],
+      "published": "2026-06-26T16:05:58+00:00",
+      "link": "https://arxiv.org/pdf/2606.28215v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "embodied AI data collection via 4D reconstruction from monocular video",
+      "llm_evidence_cn": "通过单目视频4D重建实现具身AI数据收集",
+      "llm_evidence": "通过单目视频4D重建实现具身AI数据收集",
+      "canonical_evidence": "通过单目视频4D重建实现具身AI数据收集",
+      "llm_tldr_en": "HAT-4D reconstructs 3D geometry, temporal dynamics, and interactions of multiple objects from monocular video using VLMs and human feedback, enabling scalable embodied AI training.",
+      "llm_tldr_cn": "为突破单目视频中多物体交互重建的瓶颈，本文提出HAT-4D，首个集成视觉语言模型与多级人工反馈的智能体框架，有效解决深度模糊和遮挡问题。实验表明其能高效生成4D交互数据，推动具身AI规模化发展。",
+      "llm_tldr": "为突破单目视频中多物体交互重建的瓶颈，本文提出HAT-4D，首个集成视觉语言模型与多级人工反馈的智能体框架，有效解决深度模糊和遮挡问题。实验表明其能高效生成4D交互数据，推动具身AI规模化发展。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}

@@ -1,0 +1,237 @@
+Title: From Tokens to States: LLMs as a Special Case of World Models and the Continuous Path Beyond
+
+URL Source: https://arxiv.org/pdf/2606.28127v1
+
+Published Time: Mon, 29 Jun 2026 00:56:02 GMT
+
+Number of Pages: 10
+
+Markdown Content:
+# From Tokens to States: LLMs as a Special Case of World Models and the Continuous Path Beyond 
+
+Paul Dubois Opinion Paper, Draft, June 2026 
+
+Abstract 
+
+The AI community has framed the relationship between large language models (LLMs) and world models as a dichotomy: LLMs predict tokens; world models simulate reality. LeCun [2022] argues that reaching general intelligence requires abandoning autoregressive token prediction in favour of latent-space architectures. This framing is unnecessarily binary. Two claims will be defended. First, LLMs are a degenerate special case of world models: the state space is the set of all token sequences, the only action is appending one token, and world models are therefore a strict generalisation of LLMs, not a replacement. Second, there is a natural continuous spectrum from NTP to JEPA, with multi-token prediction, future-summary prediction, and next-latent prediction as intermediate stations already populated by current research. Moving along this spectrum relaxes the LLM constraints one by one. It also progressively surrenders the two practical advantages that make LLMs trainable at scale: internet-scale self-supervised data, and a transformer architecture co-designed for discrete token prediction. Both are examined as open research questions: the data question (the cliff from self-supervised text to instrumented action-labelled environments) and the architecture question (whether the transformer generalises to continuous-state prediction, or whether a new primitive is needed). 
+
+> arXiv:2606.28127v1 [cs.CL] 26 Jun 2026
+
+# Contents 
+
+1 Introduction 32 LLMs as a Special Case of World Models 3
+
+2.1 World Model Formalism . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32.2 Formal Embedding of LLMs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32.3 LLM Constraints Within the World-Model Class . . . . . . . . . . . . . . . . . . 42.4 Empirical Support: World Models Inside LLMs . . . . . . . . . . . . . . . . . . . 4
+
+3 The Continuous Spectrum 5
+
+3.1 Step-by-Step Analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 53.2 The Data Question . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 73.3 The Architecture Question . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 73.4 LeCun’s Critique Revisited . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+
+4 Discussion and Conclusion 8
+
+21 Introduction 
+
+A world model tracks the state of an environment and predicts how it evolves over time. It supports planning by simulating the consequences of actions before committing to them [Ha and Schmidhuber, 2018, LeCun, 2022]. LLMs, trained to predict the next token in a sequence, look like an entirely different object. LeCun’s (2022) position paper formalises this intuition. His Joint Embedding Predictive Architecture (JEPA) predicts in latent space rather than token space, conditioned on agent actions. He explicitly contrasts “word models” with “world models” and argues that token prediction cannot yield the structured representations needed for planning and reasoning. This framing is imprecise. “World model” is not the name of a specific architecture; it is a formal class parameterised by a state space, an action space, and a transition function. LLMs are a member of this class with specific, restrictive choices for each parameter. The implication is not that LLMs are good enough, but that the path to more powerful world models is a progressive relaxation of those choices, not a clean break. The key empirical support for this view comes from mechanistic interpretability: LLMs trained only on token sequences demonstrably build internal world-model representations in their hidden activations. Li et al. [2024] and Nanda et al. [2023] show that OthelloGPT encodes the full board state linearly in its activations at >99% accuracy, despite seeing only move tokens. Chess-playing LMs replicate this [Karvonen, 2024]. Llama-2 encodes linear representations of geographic space and calendar time [Gurnee and Tegmark, 2024]. These results show that the world model is in the activations, not the tokens; the tokens are the interface, not the representation. The continuous-spectrum view is also supported by recent architectures: multi-token predic-tion [Gloeckle et al., 2024], future-summary prediction [Mahajan et al., 2026], and next-latent prediction [Teoh et al., 2026] each populate a point between standard NTP and JEPA. Li et al. [2026] empirically confirm that LLMs can function as text-based world models at sufficient scale. No prior work makes the formal containment claim or unifies these architectures under a single spectrum argument. 
+
+# 2 LLMs as a Special Case of World Models 
+
+2.1 World Model Formalism 
+
+A world model is a tuple (S, A, T, ρ 0): S is the state space, A the action space, T : S × A → P (S)
+
+the transition function, and ρ0 the initial state distribution. Planning proceeds by iterative querying of T to simulate a trajectory (s0, a 0, s 1, a 1, . . . ) in imagination before committing to real actions [Ha and Schmidhuber, 2018] (Figure 1).             
+
+> State st
+> Transition
+> T(st, a t)State st+1
+> Transition
+> T(st+1 , a t+1 )State st+2
+> action atsample action at+1 sample
+
+Figure 1: A world model iteratively applies the transition function to simulate multi-step trajectories. State and action spaces are left intentionally abstract. 
+
+2.2 Formal Embedding of LLMs 
+
+Claim: Every autoregressive LLM can be formally embedded in the world-model for-malism, making world models a strict generalisation of LLMs: LLMs ⊂ World Models .Let V be the vocabulary (a finite set of tokens). Define: 3• S = V ∗: the state space is the set of all finite token sequences (the current context) 
+
+• A = V : the only “action” is choosing the next token 
+
+• T (s, a ) = δs·a: the transition is deterministic , appending token a to sequence s yields s · a
+
+• The LLM provides πθ : V ∗ → P (V ): the policy for selecting the next action Figure 2 illustrates this mapping concretely.        
+
+> State st
+> =token sequence
+> "The cat sat on the"
+> Action at
+> =next token
+> "mat"
+> State st+1
+> "The cat sat on the mat"
+> LLM policy π(·| st)deterministic append
+
+Figure 2: The LLM as world model: state = token sequence, action = next token, transition =
+
+deterministic append. One subtlety: in a standard world model, T encodes external world dynamics and π is the agent. In the LLM case, the transition is trivial (append) and all content is in the policy. The LLM simultaneously acts as world simulator and agent. This conflation is a defining feature of the LLM special case. 
+
+2.3 LLM Constraints Within the World-Model Class 
+
+The containment is strict because general world models over continuous state spaces, conditioned on external actions, are not LLMs. Figure 3 shows the resulting subset hierarchy. Compared to a general world model, LLMs impose five constraints (Table 1): 
+
+Constraint General World Model LLM 
+
+State representation Arbitrary (continuous, multi-modal, latent) Discrete token sequences only Action granularity Semantic agent actions One micro-token per step State persistence Explicit stored variable Re-derived from context each pass Training supervision Paired (state, action, next state) tuples Next-token prediction on raw text Layer architecture Open (SSMs, diffusion nets, hi-erarchical encoders) Transformer, co-designed for discrete tokens Table 1: The five constraints that characterise LLMs as a special case of world models. The last two constraints are tightly coupled and explain why LLMs have scaled so well: NTP on text requires no labels, no sensors, no instrumented environments; only internet text ( ∼10 13 
+
+tokens). The transformer architecture was co-evolved with this objective, making the pairing exceptionally efficient. These are not bugs, but they are constraints, and relaxing them is what moving up the spectrum means. 
+
+2.4 Empirical Support: World Models Inside LLMs 
+
+This framing predicts that LLMs should develop internal world-model representations in their hidden activations, and they do. OthelloGPT [Li et al., 2024, Nanda et al., 2023] is the cleanest 4World Models    
+
+> arbitrary S,A,T
+
+Latent Predictors   
+
+> continuous S, multi-step T
+
+Multi-Token Predictors  
+
+> token state, k-step
+
+Standard LLMs 
+
+> token state, 1-step
+> GPT-4o
+> Claude
+> Mistral
+> Llama
+> Gemini
+> DeepSeek V3
+> Ling-V2
+> NextLat
+> LLM-JEPA
+> I-JEPA
+> V-JEPA 2
+> Genie 3
+> Cosmos
+
+Figure 3: Containment hierarchy as nested sets. LLMs (innermost box) are the most constrained special case. Each outer ring relaxes one constraint. This is a subset relation, not a replacement. demonstration: trained only on move tokens, its hidden activations encode the full board state linearly at >99% accuracy. The world model is in the activations , not in the tokens; the tokens are the interface ( A = V ), while the latent world state lives in the hidden states (Figure 4). The same structure appears at scale. Gurnee and Tegmark [2024] show Llama-2 encodes linear representations of geographic space and calendar time. Dong et al. [2025] show prompt-level hidden states encode global attributes of the entire future response, not just the next token. The consistent pattern is that LLMs develop internal world representations far richer than their token-level objective requires. 
+
+# 3 The Continuous Spectrum 
+
+Claim: There is a natural continuous spectrum running from NTP to JEPA, with each step relaxing exactly one LLM constraint. Moving along this spectrum also progressively sacrifices the two practical advantages that make LLMs trainable at scale: internet-scale self-supervised data, and a well-matched transformer architecture. 
+
+3.1 Step-by-Step Analysis 
+
+Figure 5 shows the five stations of the spectrum; the following paragraphs examine each transition. 5Input embedding layer 
+
+Move tokens → token vectors 
+
+Transformer layers 
+
+> Hidden activations encode world state:
+
+board position · piece ownership · legal moves 
+
+(linearly decodable at >99% accuracy) 
+
+Output head 
+
+Hidden state → next move distribution 
+
+> residual stream
+> residual stream
+> world model lives here
+> token interface
+
+Figure 4: OthelloGPT is a standard transformer trained only on move tokens. The token interface (blue) handles discrete move symbols; the transformer layers (green) are where the world model resides. This maps directly to Claim 1: tokens are the action space A = V ; the latent world state lives in the hidden activations.             
+
+> NTP / LLMs
+> GPT-4o, Claude, Llama
+> Predict: 1 next token Data: in-ternet text
+> ∼10 13
+> Arch: trans-former ✓✓✓
+> MTP
+> DeepSeek-V3, Ling-V2
+> Predict: k
+> next tokens Data: in-ternet text
+> ∼10 13
+> Arch: trans-former ✓✓✓
+> Future Summary
+> Mahajan et al. 2025
+> Predict: com-pressed future Data: in-ternet text
+> ∼10 12
+> Arch: trans-former ✓✓
+> Next-Latent
+> NextLat, LLM-JEPA
+> Predict: next latent state Data: self-supervised
+> ∼10 11
+> Arch: trans-former? ✓
+> JEPA
+> I-JEPA, V-JEPA 2, Cosmos
+> Predict: ac-tion →latent Data: instru-mented envs
+> ∼10 9
+> Arch: open question
+
+relax granularity 
+
+compress output 
+
+latent state 
+
+add actions 
+
+Figure 5: The spectrum from LLMs to JEPA. Each node shows the prediction objective, training data scale, and architecture fit. Moving right relaxes one world-model constraint but also degrades both LLM practical advantages. 
+
+NTP → MTP. This step relaxes the “one token per step” constraint. Gloeckle et al. [2024] show that predicting the next k tokens simultaneously via k independent heads improves reasoning and code performance (+15% on MBPP; adopted in DeepSeek-V3). Zhong et al. [2026] provide the theoretical mechanism: MTP promotes convergence toward internal belief states via representational contractivity. This step costs nothing in data or architecture: same internet-scale text, same transformer, only k − 1 extra output heads. It is a near-free upgrade. 
+
+MTP → Future Summary. This step decouples the prediction target from the token space. Mahajan et al. [2026] train an auxiliary head to predict a compressed representation of the long-term future (bag-of-words or reverse-LM embedding), improving maths and reasoning at 3B–8B scale. Training data remains internet text with modest preprocessing; architecture is unchanged. 
+
+Future Summary → Next-Latent. This step moves the prediction target fully out of token space. Teoh et al. [2026] propose NextLat: a transformer trained to predict its own next latent 6state, improving planning performance and inference speed (up to 3.3 ×). Crucially, this step can still train on internet-scale text; supervision comes from the model’s own hidden states. However, the architecture fit weakens. Predicting continuous latent vectors rather than discrete tokens requires diffusion-style output heads or other adaptations, and the transformer’s inductive bias is no longer perfectly matched. 
+
+Next-Latent → JEPA. This is where both practical advantages collapse simultaneously. LeCun’s JEPA predicts the latent state of a future observation conditioned on an external agent action. Training now requires paired (observation, action, next observation) sequences from instrumented environments, orders of magnitude scarcer than text ( ∼10 9 samples vs ∼10 13 
+
+tokens). The right architecture is also an open question. Existing JEPA models (I-JEPA, V-JEPA 2) work around this by re-discretising inputs as image or video patches, effectively moving back toward the discrete-token end of the spectrum. Whether the transformer generalises to truly continuous action-conditioned dynamics remains unresolved. 
+
+3.2 The Data Question 
+
+The first three steps on the spectrum (NTP, MTP, and Future Summary) all train on internet text, either directly or with modest preprocessing. Even Next-Latent prediction can use internet-scale corpora: the supervision signal comes from the model’s own hidden states, not from external labels. This is a crucial observation: moving to latent-state prediction does not require giving up internet-scale data, only changing the prediction target. The real data cliff is at the final step. JEPA requires paired (observation, action, next observation) sequences from instrumented environments: robotics rigs, driving simulators, game engines, or video with inferred agent actions. Such data is orders of magnitude scarcer than text (∼10 9 samples vs ∼10 13 tokens). V-JEPA 2 [Bardes et al., 2025] approximates this by treating each video frame transition as an implicit action. This is a workaround: true action-conditioned world models require environments that expose which action caused each transition. The practical bottleneck therefore shifts as you move up the spectrum: at the LLM end it is compute; at the JEPA end it is data collection and environment instrumentation. This asymmetry is underappreciated in debates that frame the gap as purely architectural. 
+
+3.3 The Architecture Question 
+
+The transformer’s success with text is not accidental; the architecture and the task were co-designed. Self-attention over discrete positional embeddings, parallelised teacher-forcing, and a softmax prediction head are all engineered for sequences of discrete tokens. So far, the transformer has extended further than expected, but via a recurring workaround: re-discretisation. Vision Transformers [Dosovitskiy et al., 2021] split images into fixed-size patches and treat each as a token. V-JEPA 2 does the same for video. In both cases the transformer processes a discretised approximation of a continuous input, not a truly continuous state. The architecture’s strength remains coupled to the discrete-token assumption. At the far end of the spectrum, several alternatives have been proposed: state-space models (Mamba) for explicit continuous-state recurrence; diffusion transformers (DiT) for continuous output prediction; hierarchical architectures for multi-scale temporal planning. The hypothesis advanced here is that what is missing is an analogous moment of crystallisation : a single architecture as well-matched to continuous sequential prediction as the transformer is to discrete tokens. The field may be at a similar stage to NLP before 2017: multiple competing approaches, each solving part of the problem, waiting for the unifying abstraction. The data and architecture gaps interact: a better architecture for continuous-state prediction could reduce the need for action-labelled data by learning more efficiently from self-supervised signals. Progress likely requires advances on both fronts simultaneously. 73.4 LeCun’s Critique Revisited 
+
+LeCun’s (2022) argument has two parts: (1) LLMs predict tokens, not world states, so they cannot plan; (2) JEPA is the right alternative paradigm. The spectrum view dissolves both. 
+
+On (1). The “tokens, not states” claim conflates the interface with the representation . As Section 2.4 shows, OthelloGPT and chess models encode rich world-state structure linearly in the hidden activations, not in the tokens. The tokens are the action space A = V ; the world model is in the hidden states. LeCun’s critique applies to the interface, not the internal representation. 
+
+On (2). Chain-of-thought (CoT) and extended thinking (DeepSeek-R1, OpenAI o3) can be understood as LLMs moving along the spectrum’s step-granularity axis without architectural change . Generating intermediate reasoning tokens increases the effective planning horizon within the token-state world model. Dong et al. [2025] show that even without CoT, the hidden state already encodes a rough plan for the full response. JEPA is not a different paradigm; it is the far end of the same spectrum (Figure 6).    
+
+> Discrete Continuous
+> Single-step
+> Multi-step
+> Standard NTP
+> Long-horizon token planners Full world models
+> Latent one-step
+> Standard LLMs
+> Chain of Thought
+> MTP
+> Future Summary Next-Latent
+> LLM-JEPA
+> JEPA / V-JEPA 2
+> State type
+> Planning horizon
+
+Figure 6: Architectures in the (state type × planning horizon) design space. The dashed diagonal traces the spectrum of Section 3. CoT sits directly above Standard LLMs; it increases planning horizon without changing the state type. The spectrum reveals a densely populated intermediate region that LeCun’s binary framing overlooks. 
+
+# 4 Discussion and Conclusion 
+
+The preceding sections have established that LLMs are world models (constrained ones) and that world models are their generalisation. The practical consequence is that the question is not whether to abandon LLMs for world models, but how far along the spectrum a given task requires. Multi-step reasoning tasks may be well-served by MTP or CoT; long-horizon physical simulation requires the JEPA end. Each step along the spectrum is also a natural initialisation for the next, suggesting an incremental transition rather than a cold start. The two open questions that define the research frontier are treated in Sections 3.2 and 3.3. The intermediate spectrum steps (MTP through Next-Latent) are particularly attractive because they preserve both LLM practical advantages. Specifically, internet-scale self-supervised training and a well-matched transformer architecture. Meanwhile, these intermediate steps improve 8world-model capacity. The true break comes at the JEPA step, where both advantages disappear simultaneously: training data becomes scarce and the right architecture is unknown. What may be needed is not just more data but a new architectural primitive for continuous-state prediction, analogous to what the transformer was for text. LeCun is right that the ultimate goal (action-conditioned latent-space world models capable of closed-loop planning) is beyond current LLMs. But the path there is gradient ascent, not a discontinuous jump. The open questions are what data and what architecture; the destination is already clear. 
+
+This opinion paper was written with the assistance of a constrained to natural language special case world model. 
+
+# References 
+
+Adrien Bardes et al. V-JEPA 2: Self-supervised video models enable understanding, prediction, and planning, 2025. URL https://ai.meta.com/research/publications/v-jepa-2/ . Meta AI Research. Zhichen Dong, Zhanhui Zhou, Zhixuan Liu, Chao Yang, and Chaochao Lu. Emergent response planning in LLMs, 2025. URL https://arxiv.org/abs/2502.06258 .Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn, Xiaohua Zhai, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, Jakob Uszkoreit, and Neil Houlsby. An image is worth 16x16 words: Transformers for image recognition at scale, 2021. URL https://arxiv.org/abs/2010.11929 .Fabian Gloeckle, Badr Youbi Idrissi, Baptiste Rozière, David Lopez-Paz, and Gabriel Synnaeve. Better & faster large language models via multi-token prediction, 2024. URL https://arxiv. org/abs/2404.19737 .Wes Gurnee and Max Tegmark. Language models represent space and time, 2024. URL 
+
+https://arxiv.org/abs/2310.02207 .David Ha and Jürgen Schmidhuber. World models, 2018. URL https://arxiv.org/abs/1803. 10122 .Adam Karvonen. Emergent world models and latent variable estimation in chess-playing language models, 2024. URL https://arxiv.org/abs/2403.15498 .Yann LeCun. A path towards autonomous machine intelligence. Openreview preprint, Meta AI / Courant Institute, NYU, June 2022. URL https://openreview.net/forum?id=BZ5a1r-kVsf .Version 2. Kenneth Li, Aspen K. Hopkins, David Bau, Fernanda Viégas, Hanspeter Pfister, and Martin Wattenberg. Emergent world representations: Exploring a sequence model trained on a synthetic task, 2024. URL https://arxiv.org/abs/2210.13382 .Yixia Li, Hongru Wang, Jiahao Qiu, Zhenfei Yin, Dongdong Zhang, Cheng Qian, Zeping Li, Pony Ma, Guanhua Chen, and Heng Ji. From word to world: Can large language models be implicit text-based world models?, 2026. URL https://arxiv.org/abs/2512.18832 .Divyat Mahajan, Sachin Goyal, Badr Youbi Idrissi, Mohammad Pezeshki, Ioannis Mitliagkas, David Lopez-Paz, and Kartik Ahuja. Beyond multi-token prediction: Pretraining LLMs with future summaries, 2026. URL https://arxiv.org/abs/2510.14751 .9Neel Nanda, Andrew Lee, and Martin Wattenberg. Emergent linear representations in world models of self-supervised sequence models, 2023. URL https://arxiv.org/abs/2309.00941 .Jayden Teoh, Manan Tomar, Kwangjun Ahn, Edward S. Hu, Tim Pearce, Pratyusha Sharma, Akshay Krishnamurthy, Riashat Islam, Alex Lamb, and John Langford. Next-latent prediction transformers learn compact world models, 2026. URL https://arxiv.org/abs/2511.05963 .Qimin Zhong, Hao Liao, Haiming Qin, Mingyang Zhou, Rui Mao, Wei Chen, and Naipeng Chao. Toward consistent world models with multi-token prediction and latent semantic enhancement, 2026. URL https://arxiv.org/abs/2604.06155 .10
