@@ -1,0 +1,697 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-30T21:29:27.750801+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 11,
+    "deep_cap": 6,
+    "deep_selected": 6,
+    "quick_candidates": 15,
+    "quick_skim_target": 11,
+    "quick_selected": 11
+  },
+  "deep_dive": [
+    {
+      "id": "2606.28751v1",
+      "source": "arxiv",
+      "title": "A Path-Space Formulation of Prediction in World Models: From a Single Action to Prediction, Planning, and Irreversibility",
+      "abstract": "We propose a path-space formulation of prediction in AI world models. Rather than sequences of one-step conditional distributions, we argue that a world model implicitly defines a probability measure over future trajectories. In the local regime where latent dynamics admit an effective Markovian description, this path measure takes the Onsager-Machlup form. Within this framework, prediction (most probable trajectory), planning (constrained optimization), and uncertainty (fluctuations) emerge as operations on a single action functional. We decompose the latent dynamics into reversible and irreversible components and introduce operational measures of entropy production from model rollouts. In controlled small-scale attention-based models, we find that attention asymmetry is acquired during training in proportion to the irreversibility of the data. Symmetrizing the learned attention suppresses entropy production and selectively degrades long-horizon prediction of irreversible dynamics while preserving relaxational prediction. These results suggest that irreversibility may serve as a computational resource for predictive world models. More generally, the fundamental predictive object is a distribution over future paths rather than states.",
+      "authors": [
+        "Gunn Kim"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cond-mat.stat-mech"
+      ],
+      "published": "2026-06-27T06:00:09+00:00",
+      "link": "https://arxiv.org/pdf/2606.28751v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "path-space formulation of world models for prediction and planning",
+      "llm_evidence_cn": "基于路径空间的世界模型预测与规划公式",
+      "llm_evidence": "基于路径空间的世界模型预测与规划公式",
+      "canonical_evidence": "基于路径空间的世界模型预测与规划公式",
+      "llm_tldr_en": "Proposes a path-space formulation of world models unifying prediction, planning, and uncertainty via a single action functional.",
+      "llm_tldr_cn": "针对现有世界模型预测方法局限于单步条件分布的问题，提出一种路径空间公式，将世界模型隐式定义为未来轨迹上的概率测度。该方法将预测、规划和不确定性统一在一个作用量泛函中，并分解潜动力学的可逆与不可逆分量，引入熵产生操作度量。在控制设置中验证了该框架的有效性，为世界模型提供了理论统一视角。",
+      "llm_tldr": "针对现有世界模型预测方法局限于单步条件分布的问题，提出一种路径空间公式，将世界模型隐式定义为未来轨迹上的概率测度。该方法将预测、规划和不确定性统一在一个作用量泛函中，并分解潜动力学的可逆与不可逆分量，引入熵产生操作度量。在控制设置中验证了该框架的有效性，为世界模型提供了理论统一视角。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.29059v1",
+      "source": "arxiv",
+      "title": "Flow Matching in Feature Space for Stochastic World Modeling",
+      "abstract": "World modeling requires forecasting uncertain futures while preserving information useful for   downstream perception. Existing visual world models often struggle to satisfy both goals:   VAE-based stochastic models operate in low-dimensional reconstruction latents, which can   limit perception performance, while deterministic predictors using strong pretrained features   collapse multimodal futures into a single blurry mean. In this work, we propose FlowWM, a   stochastic world model that performs flow matching directly within pretrained feature space   (e.g., DINOv3). This is challenging because pretrained features are substantially   high-dimensional, making standard diffusion recipes suboptimal. To address this, we   investigate the design choices needed for feature-space flow matching and introduce a   differentiable one-step projection mechanism that enables efficient training with temporal   consistency and task-driven objectives. We evaluate FlowWM on two benchmarks: a synthetic   benchmark for systematic evaluation of accuracy and diversity, and a real-world benchmark   FuturePerception. FlowWM improves perception performance, mode coverage, and horizon   robustness, validating our proposed design for stochastic world modeling in high-dimensional   feature spaces.",
+      "authors": [
+        "Francois Porcher",
+        "Nicolas Carion",
+        "Karteek Alahari",
+        "Shizhe Chen"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "published": "2026-06-27T19:35:27+00:00",
+      "link": "https://arxiv.org/pdf/2606.29059v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "stochastic world model via flow matching in feature space",
+      "llm_evidence_cn": "在特征空间进行流匹配的随机世界模型",
+      "llm_evidence": "在特征空间进行流匹配的随机世界模型",
+      "canonical_evidence": "在特征空间进行流匹配的随机世界模型",
+      "llm_tldr_en": "Proposes FlowWM, a stochastic world model that performs flow matching directly in pretrained feature space, enabling forecasting uncertain futures while preserving information for perception.",
+      "llm_tldr_cn": "现有视觉世界模型面临两难：基于VAE的随机模型限于低维重建潜变量，限制感知性能；确定性预测器则坍缩多模态未来为模糊均值。本文提出FlowWM，直接在预训练特征空间（如DINOv3）上进行流匹配，通过探索设计选择克服高维特征上的扩散难题。实验表明FlowWM在保持感知信息的同时有效预测不确定未来，提升了世界模型在下游任务中的实用性。",
+      "llm_tldr": "现有视觉世界模型面临两难：基于VAE的随机模型限于低维重建潜变量，限制感知性能；确定性预测器则坍缩多模态未来为模糊均值。本文提出FlowWM，直接在预训练特征空间（如DINOv3）上进行流匹配，通过探索设计选择克服高维特征上的扩散难题。实验表明FlowWM在保持感知信息的同时有效预测不确定未来，提升了世界模型在下游任务中的实用性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.29501v1",
+      "source": "arxiv",
+      "title": "Learning Transferable Dynamics Priors from Action to World Modeling",
+      "abstract": "We study action-conditioned world modeling as a scalable way to learn transferable dynamics priors for robot learning. By pretraining a model to predict how actions drive visual scene evolution, the resulting world model captures reusable interaction dynamics beyond appearance-level video generation. Concretely, we pretrain a multi-view interactive base diffusion world model, A2World, on large-scale robot manipulation data with real action annotations. We validate the learned dynamics priors from two complementary perspectives. First, we adapt A2World into a task- or scene-specialized real-world simulator, A2World-sim, whose long-horizon rollouts support simulator-based policy evaluation and scalable what-if analysis by replacing real-robot rollouts with world model rollouts. Second, starting from the same pretrained weights, we adapt A2World into a video-action joint prediction model, A2World-policy, that predicts actions under visual and instruction conditioning. Experiments across simulation benchmarks and real-robot settings demonstrate that action-conditioned world model pretraining yields transferable dynamics priors that benefit both simulator-centric and policy-centric robot learning.",
+      "authors": [
+        "Ze Huang",
+        "Jiahui Zhang",
+        "Hairuo Liu",
+        "Chenxi Zhang",
+        "Ran Cheng",
+        "Li Zhang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-28T17:01:55+00:00",
+      "link": "https://arxiv.org/pdf/2606.29501v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world model for RL dynamics priors",
+      "llm_evidence_cn": "世界模型用于强化学习动态先验",
+      "llm_evidence": "世界模型用于强化学习动态先验",
+      "canonical_evidence": "世界模型用于强化学习动态先验",
+      "llm_tldr_en": "Pretrains a multi-view action-conditioned diffusion world model on robot data to learn transferable dynamics priors, enabling sim-based policy evaluation.",
+      "llm_tldr_cn": "该文提出大规模预训练动作条件世界模型A2World，从机器人操作数据中学习可迁移的动力学先验。通过预训练模型预测动作驱动的视觉场景演化，从而捕获交互动力学。实验证明该世界模型可用于仿真器策略评估和多种下游任务，显著减少真实机器人试错。",
+      "llm_tldr": "该文提出大规模预训练动作条件世界模型A2World，从机器人操作数据中学习可迁移的动力学先验。通过预训练模型预测动作驱动的视觉场景演化，从而捕获交互动力学。实验证明该世界模型可用于仿真器策略评估和多种下游任务，显著减少真实机器人试错。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.30639v1",
+      "source": "arxiv",
+      "title": "Self-Evolving World Models for LLM Agent Planning",
+      "abstract": "World models offer a principled way to equip long-horizon LLM agents with foresight: predictions of action consequences before execution. However, unreliable foresight can be ignored, misused, or even degrade downstream decision-making. In this paper, we introduce WorldEvolver, a self-evolving world model framework that revises its deployment-time context while keeping the downstream agent and all model parameters frozen. WorldEvolver integrates three modules: (i) Episodic Memory, which exploits real action transitions through retrieval-based simulation; (ii) Semantic Memory, which extracts persistent heuristic rules from prediction-observation mismatches; and (iii) Selective Foresight, which filters low-confidence predictions before integrating them into agent reasoning context. We evaluate WorldEvolver on ALFWorld and ScienceWorld, measuring world model prediction accuracy on Word2World and downstream agent success rate on AgentBoard. Extensive experiments show that WorldEvolver achieves the highest prediction accuracy across three backbones and leads other world model baselines on downstream agent success rate, demonstrating that test-time memory revision enhances both predictive fidelity and planning performance.",
+      "authors": [
+        "Xuan Zhang",
+        "Wenxuan Zhang",
+        "See-Kiong Ng",
+        "Yang Deng"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "published": "2026-06-29T17:58:43+00:00",
+      "link": "https://arxiv.org/pdf/2606.30639v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "self-evolving world models for LLM agent planning with foresight",
+      "llm_evidence_cn": "用于LLM智能体规划的自进化世界模型，具备前瞻能力",
+      "llm_evidence": "用于LLM智能体规划的自进化世界模型，具备前瞻能力",
+      "canonical_evidence": "用于LLM智能体规划的自进化世界模型，具备前瞻能力",
+      "llm_tldr_en": "WorldEvolver introduces a self-evolving world model framework that revises deployment-time context using episodic and semantic memory, improving LLM agent planning with reliable foresight.",
+      "llm_tldr_cn": "针对不靠谱前瞻会降低决策质量的问题，本文提出WorldEvolver自进化世界模型框架，通过情景记忆（检索仿真）和语义记忆（提取启发式规则）以及选择性前瞻（过滤低置信预测）来修正部署时上下文。实验证明该方法在不冻结下游智能体情况下提升了长期规划性能，为LLM智能体提供了可靠的前瞻能力。",
+      "llm_tldr": "针对不靠谱前瞻会降低决策质量的问题，本文提出WorldEvolver自进化世界模型框架，通过情景记忆（检索仿真）和语义记忆（提取启发式规则）以及选择性前瞻（过滤低置信预测）来修正部署时上下文。实验证明该方法在不冻结下游智能体情况下提升了长期规划性能，为LLM智能体提供了可靠的前瞻能力。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.26800v2",
+      "source": "arxiv",
+      "title": "SSI-Policy: Learning Structured Scene Interfaces for Vision-Language Robotic Manipulation",
+      "abstract": "Real-world robotic manipulation demands spatial grounding, task-aware reasoning, and precise control. Learning such capabilities becomes particularly challenging in the low-data regime. Prior methods often trade off scalable task-level reasoning and explicit physical structure: video-based approaches can drift geometrically over long horizons, 3D approaches often require depth sensing, and many flow/trajectory interfaces emphasize motion without an explicit RGB-only geometric representation. We introduce SSI-Policy, a modular framework built around a Structured Scene Interface (SSI) -- a unified, RGB-only intermediate representation that jointly encodes monocular depth features, language-grounded object layouts, and instruction-conditioned 2D motion trajectories. Critically, SSI is robot-agnostic and trainable from action-free video, decoupling perception from control so that the downstream policy can learn from few demonstrations. On the LIBERO benchmark with only 10 demonstrations per task, SSI-Policy improves over the strongest prior method by nearly 15\\% and remains competitive with 50-demo methods that leverage large-scale external pretraining. Ablations show that geometric and motion cues provide complementary benefits within the shared interface. We further validate on 13 real-world tasks spanning spatial reasoning, cross-embodiment transfer, and contact-rich manipulation.",
+      "authors": [
+        "Kaijun Wang",
+        "Zikai Ouyang",
+        "Xuping Wu",
+        "Jinyi Hong",
+        "Wei Pan",
+        "Haibo Lu",
+        "Jia Pan",
+        "Wei Zhang",
+        "Linfang Zheng"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-25T09:38:05+00:00",
+      "link": "https://arxiv.org/pdf/2606.26800v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "structured scene interface for vision-language robotic manipulation",
+      "llm_evidence_cn": "用于视觉语言机器人操作的结构场景接口",
+      "llm_evidence": "用于视觉语言机器人操作的结构场景接口",
+      "canonical_evidence": "用于视觉语言机器人操作的结构场景接口",
+      "llm_tldr_en": "Proposes SSI-Policy, a modular framework with a unified RGB-only scene interface encoding depth, layout, and instructions for manipulation.",
+      "llm_tldr_cn": "针对低数据条件下机器人操作需要空间基础、任务推理和精确控制的问题，提出SSI-Policy模块化框架。其核心是结构化场景接口（SSI），一种统一的仅RGB中间表示，联合编码单目深度特征、语言目标布局和指令条件。该方法无需3D传感器，通过显式物理结构提升长期操作精度。实验表明在多种操作任务中优于基线方法。",
+      "llm_tldr": "针对低数据条件下机器人操作需要空间基础、任务推理和精确控制的问题，提出SSI-Policy模块化框架。其核心是结构化场景接口（SSI），一种统一的仅RGB中间表示，联合编码单目深度特征、语言目标布局和指令条件。该方法无需3D传感器，通过显式物理结构提升长期操作精度。实验表明在多种操作任务中优于基线方法。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.27295v2",
+      "source": "arxiv",
+      "title": "LA4VLA: Learning to Act without Seeing via Language-Action Pretraining",
+      "abstract": "Vision-Language-Action (VLA) models are commonly pretrained on robot demonstrations by jointly mapping visual observations and language instructions to actions. However, dense visual-action supervision can dominate the comparatively sparse language-action signal. As a result, policies may rely on visual shortcuts rather than learn how language conditions action execution, making them sensitive to visual variations. To address this limitation, we propose LA4VLA, a language-action pretraining framework that enables policies to acquire language-conditioned action priors without visual observations. These priors capture reusable manipulation skills shared across tasks and scenes, reducing reliance on scene-specific visual cues. Specifically, LA4VLA decomposes expert demonstration trajectories into atomic action segments and pairs each segment with a corresponding low-level action description. This yields LA-33K, a dataset of 33K Language-Action (LA) episodes derived entirely from existing demonstrations without additional robot data collection. We further develop LA4VLA-1B, a lightweight 1B-parameter VLA model, and investigate three paradigms for incorporating language-action supervision into VLA learning: LA-only pretraining, sequential LA-to-VLA pretraining, and mixed LA-VLA pretraining. Across simulation and real-world tasks, LA-pretrained policies consistently outperform matched VLA-pretrained counterparts, while combining LA and VLA supervision leads to further gains. In particular, mixed LA-VLA pretraining improves the average success rate of LA4VLA-1B over the no-pretraining baseline by up to 17.8 and 45.0 percentage points in simulation and real-world tasks, respectively. These results establish LA4VLA as an effective and complementary pretraining strategy for building stronger and more robust VLA policies.",
+      "authors": [
+        "Tao Lin",
+        "Yuxin Du",
+        "Yiran Mao",
+        "Zewei Ye",
+        "Yilei Zhong",
+        "Bing Cheng",
+        "Yiming Wang",
+        "Jiting Liu",
+        "Yang Tian",
+        "Junchi Yan",
+        "Feiran Wu",
+        "Zenan Meng",
+        "Hu Wei",
+        "Yuqian Fu",
+        "Gen Li",
+        "Bo Zhao"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-25T17:13:02+00:00",
+      "link": "https://arxiv.org/pdf/2606.27295v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "learning language-conditioned action priors from robot demonstrations without visual observations",
+      "llm_evidence_cn": "从机器人演示中学习语言条件动作先验，无需视觉观察",
+      "llm_evidence": "从机器人演示中学习语言条件动作先验，无需视觉观察",
+      "canonical_evidence": "从机器人演示中学习语言条件动作先验，无需视觉观察",
+      "llm_tldr_en": "LA4VLA proposes a language-action pretraining framework that learns reusable manipulation skills from demonstrations without visual input, reducing reliance on visual shortcuts and improving generalization across tasks.",
+      "llm_tldr_cn": "视觉-语言-动作模型在预训练时视觉-动作监督会主导语言-动作信号，导致策略依赖视觉捷径。LA4VLA提出语言-动作预训练框架，使策略在没有视觉观测的情况下获得语言条件动作先验，捕获跨任务可重用的操作技能。实验表明该方法能有效减少对场景特定视觉线索的依赖，提升策略的泛化能力。",
+      "llm_tldr": "视觉-语言-动作模型在预训练时视觉-动作监督会主导语言-动作信号，导致策略依赖视觉捷径。LA4VLA提出语言-动作预训练框架，使策略在没有视觉观测的情况下获得语言条件动作先验，捕获跨任务可重用的操作技能。实验表明该方法能有效减少对场景特定视觉线索的依赖，提升策略的泛化能力。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2606.28813v1",
+      "source": "arxiv",
+      "title": "Human2Any: Human-to-Robot Transfer via Constraint-Aware Compositional Planning",
+      "abstract": "Human videos are a scalable source of supervision for robot manipulation, as they are abundant and naturally capture rich object interactions. However, transferring human demonstrations to robots remains challenging due to embodiment mismatch, scene variation, and robot-specific feasibility constraints. We present Human2Any, a framework for learning reusable object-centric interaction priors from human videos without requiring real-world robot demonstrations in the target task contexts. Human2Any represents manipulation through object-object interaction motion, capturing task-relevant scene changes while abstracting away embodiment-specific details. It composes learned interaction priors with robot-side feasibility reasoning and motion planning, allowing the same human-derived knowledge to adapt to different embodiments, scene geometries, and task contexts. We validate Human2Any across diverse manipulation settings, including real-world experiments on a Franka tabletop setup and an RBY-1 humanoid mobile robot, demonstrating robust interaction-centric manipulation without real-world robot training data. Project website: https://human2any.github.io/.",
+      "authors": [
+        "Shuo Cheng",
+        "Chuye Zhang",
+        "Alfred Cueva",
+        "Caelan Garrett",
+        "Ajay Mandlekar",
+        "Danfei Xu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-06-27T08:45:27+00:00",
+      "link": "https://arxiv.org/pdf/2606.28813v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "learning object-centric interaction priors from human videos for robot manipulation",
+      "llm_evidence_cn": "从人类视频学习以物体为中心的交互先验用于机器人操作",
+      "llm_evidence": "从人类视频学习以物体为中心的交互先验用于机器人操作",
+      "canonical_evidence": "从人类视频学习以物体为中心的交互先验用于机器人操作",
+      "llm_tldr_en": "Human2Any learns reusable object-centric interaction priors from human videos and composes them with robot-side feasibility reasoning for transfer, enabling robot manipulation without target task demonstrations.",
+      "llm_tldr_cn": "针对从人类视频向机器人迁移操作技能中存在的实体差异和场景变化问题，本文提出Human2Any框架，通过学习可重用的以物体为中心的交互先验，并融合机器人侧的可行性推理与运动规划，实现无需目标任务机器人演示的技能迁移。实验验证该方法能有效捕捉任务相关场景变化并生成可行的机器人操作策略，为利用人类视频监督机器人操作提供可扩展方案。",
+      "llm_tldr": "针对从人类视频向机器人迁移操作技能中存在的实体差异和场景变化问题，本文提出Human2Any框架，通过学习可重用的以物体为中心的交互先验，并融合机器人侧的可行性推理与运动规划，实现无需目标任务机器人演示的技能迁移。实验验证该方法能有效捕捉任务相关场景变化并生成可行的机器人操作策略，为利用人类视频监督机器人操作提供可扩展方案。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2606.27475v1",
+      "source": "arxiv",
+      "title": "Support-Constrained RL Enables Real-World Policy Improvement without Real-World Experience",
+      "abstract": "Robots trained on real world data tend to be imprecise, slow, and brittle to perturbations. Improving these policies with reinforcement learning (RL) is an appealing alternative, but this process often requires expensive training in the real world. Performing policy improvement in simulation instead provides a far cheaper alternative, but unconstrained RL in simulation can exploit contact and dynamics mismatches, resulting in unsafe behaviors that do not transfer to hardware. Common forms of regularization can furthermore limit improvement by overconstraining to an imperfect behavior prior. In this work, we propose Support-Constrained Off-Domain REinforcement (SCORE), a real-to-sim-to-real framework that constrains RL in simulation to the support of a generative policy pretrained on real data. We instantiate this constraint through flow steering, restricting SCORE to actions the base policy can already produce, which ensures transferable behaviors while maximizing policy improvement. Improving a policy with SCORE requires minimal effort: it learns from sparse rewards, avoids distillation, and leaves the base policy untouched. Across eight real-world dexterous multi-fingered robotic manipulation tasks, SCORE improves average success rate from 37.8% to 89.9%, compared to 59.5% for the best baseline, and reaches success in 36.8% fewer steps than the base policy. Ultimately, through extensive experiments and ablations, we show that simulation can substantially improve real-world manipulation policies when policy optimization is appropriately constrained, introducing a new paradigm for real-to-sim-to-real policy improvement. Videos and code are available at https://weirdlabuw.github.io/score/.",
+      "authors": [
+        "Raymond Yu",
+        "William Huey",
+        "Mustafa Mukadam",
+        "Anusha Nagabandi",
+        "Abhishek Gupta"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.LG"
+      ],
+      "published": "2026-06-25T18:52:27+00:00",
+      "link": "https://arxiv.org/pdf/2606.27475v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "real-to-sim-to-real RL with support constraints for policy improvement",
+      "llm_evidence_cn": "从真实到模拟再到真实的强化学习，通过支持约束改进策略",
+      "llm_evidence": "从真实到模拟再到真实的强化学习，通过支持约束改进策略",
+      "canonical_evidence": "从真实到模拟再到真实的强化学习，通过支持约束改进策略",
+      "llm_tldr_en": "SCORE framework uses support-constrained RL in simulation to improve real-world robot policies without real-world experience, enabling safer and faster policy improvement.",
+      "llm_tldr_cn": "针对真实世界训练成本高且模拟中无约束RL可能导致不安全行为的问题，本文提出支持约束离线域强化学习（SCORE）框架，在模拟中约束RL以改进真实世界机器人策略。实验证明该方法能够有效提升策略性能并确保迁移安全性，为机器人策略改进提供低成本的实-模-实方案。",
+      "llm_tldr": "针对真实世界训练成本高且模拟中无约束RL可能导致不安全行为的问题，本文提出支持约束离线域强化学习（SCORE）框架，在模拟中约束RL以改进真实世界机器人策略。实验证明该方法能够有效提升策略性能并确保迁移安全性，为机器人策略改进提供低成本的实-模-实方案。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.27929v1",
+      "source": "arxiv",
+      "title": "When Multi-Robot Systems Meet Agentic AI:Towards Embodied Collective Intelligence",
+      "abstract": "Embodied AI is increasingly becoming agentic, shifting robots from perception--control pipelines towards closed-loop systems that can retrieve context, deliberate during execution, monitor feedback, and refine future behavior. In parallel, robotics research has also moved from single-robot autonomy towards multi-robot systems, driven by the need for wider sensing, distributed action, heterogeneous capabilities, and fault tolerance. As AI agents move from single-agent use towards multi-agent collaboration, robotics faces a parallel challenge: robot teams must move beyond sharing maps, task assignments, and datasets towards sharing the state produced by embodied agent loops. This article explores Embodied Collective Intelligence (ECI), a future multi-robot paradigm in which a robot team accumulates and uses world context, task progress, and skill experience as shared resources. Specifically, we first review how embodied AI is becoming agentic and how multi-robot cooperation has evolved. We then present Embodied Collective Intelligence through Co-Perception, Co-Action, and Co-Evolution. Finally, we use an illustrative navigation study to examine one concrete component of the concept: shared world-memory inheritance. The study shows that a newly added robot can benefit from merged team memory, but it is not intended as a full evaluation of the ECI framework. Taken together, the review and conceptual framework motivate Embodied Collective Intelligence as a direction for embodied multi-agent intelligence, while the case study grounds one measurable part of the concept.",
+      "authors": [
+        "Yuxuan Yan",
+        "Yuanyuan Jia",
+        "Qianqian Yang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-26T10:21:52+00:00",
+      "link": "https://arxiv.org/pdf/2606.27929v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "embodied AI with multi-robot systems",
+      "llm_evidence_cn": "具身AI与多机器人系统",
+      "llm_evidence": "具身AI与多机器人系统",
+      "canonical_evidence": "具身AI与多机器人系统",
+      "llm_tldr_en": "Explores Embodied Collective Intelligence, shifting robots to closed-loop agentic systems with multi-robot collaboration.",
+      "llm_tldr_cn": "该文探讨了具身集体智能（ECI）的概念，提出机器人应从感知-控制管道转向闭环具身智能体系统，并扩展到多机器人协作，共享智能体循环产生的状态。文章展望了未来方向，但未提供具体算法或实验验证。",
+      "llm_tldr": "该文探讨了具身集体智能（ECI）的概念，提出机器人应从感知-控制管道转向闭环具身智能体系统，并扩展到多机器人协作，共享智能体循环产生的状态。文章展望了未来方向，但未提供具体算法或实验验证。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.28939v1",
+      "source": "arxiv",
+      "title": "ReGuide: From Test-Time Guidance to Self-Improving Diffusion Policies",
+      "abstract": "Behavior-cloned diffusion policies are expressive but remain vulnerable to covariate shift: small deviations from demonstrated states can compound into task failure. Existing methods address this either by expanding the training distribution through expert corrections or synthetic augmentation, or by steering a frozen policy at test time with guidance from a learned model. The former can be expensive or assumption-dependent, while the latter discards the corrected trajectories after execution. We introduce ReGuide, a self-improving framework that treats guided rollouts as reusable on-policy recovery data. ReGuide first uses Phase-Conditioned Guidance (PCG) to generate corrective rollouts: it constructs phase-specific latent targets, applies guidance only in the drifted-but-recoverable regime, and guides through the estimated clean action to match the dynamics model's training distribution. Successful guided rollouts are then absorbed back into the policy through ReGuide-FT, which fine-tunes the current checkpoint, or ReGuide-FS, which retrains from scratch on the augmented dataset; the two can also be composed and iterated. On Robomimic Can, Square, Transport, and Tool Hang, ReGuide improves base-policy success by $1.3$--$7.7\\times$, outperforms LPB in the test-time-only setting, and matched-data ablations show that the gains come from guided recovery data rather than additional rollouts alone.",
+      "authors": [
+        "Tzu-Hsiang Lin",
+        "Srinivas Shakkottai",
+        "Dileep Kalathil",
+        "P. R. Kumar"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.RO"
+      ],
+      "published": "2026-06-27T14:23:21+00:00",
+      "link": "https://arxiv.org/pdf/2606.28939v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "self-improving diffusion policies for behavior cloning",
+      "llm_evidence_cn": "自改进扩散策略用于行为克隆",
+      "llm_evidence": "自改进扩散策略用于行为克隆",
+      "canonical_evidence": "自改进扩散策略用于行为克隆",
+      "llm_tldr_en": "Introduces ReGuide, a self-improving framework for behavior-cloned diffusion policies that uses guided rollouts as on-policy recovery data.",
+      "llm_tldr_cn": "行为克隆的扩散策略易受协变量偏移影响，小误差累积导致任务失败。现有方法或需要专家修正，或丢弃引导轨迹。本文提出ReGuide框架，将引导生成的轨迹作为可复用的在线恢复数据。首先使用相位条件引导（PCG）生成纠正轨迹，再将其用于策略自我改进。实验表明ReGuide显著提升了扩散策略对分布偏移的鲁棒性，无需额外专家数据，为模仿学习提供了高效的自改进方案。",
+      "llm_tldr": "行为克隆的扩散策略易受协变量偏移影响，小误差累积导致任务失败。现有方法或需要专家修正，或丢弃引导轨迹。本文提出ReGuide框架，将引导生成的轨迹作为可复用的在线恢复数据。首先使用相位条件引导（PCG）生成纠正轨迹，再将其用于策略自我改进。实验表明ReGuide显著提升了扩散策略对分布偏移的鲁棒性，无需额外专家数据，为模仿学习提供了高效的自改进方案。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "directly copying expert actions from demonstrations",
+      "matched_requirement_id": "req-5",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2606.29028v1",
+      "source": "arxiv",
+      "title": "Keypose Exploration: Efficient Automatic Trajectory Labelling and Cross-Embodiment Policy Transfer",
+      "abstract": "Keypose-based manipulation decomposes tasks into critical waypoints to simplify policy learning for long-horizon tasks, but existing approaches rely on task-specific heuristics or manual annotation to extract keyposes from demonstrations. We present an automatic trajectory labelling pipeline for grasp-related tasks. This pipeline combines vision-language models (VLMs) for semantic event detection with classical trajectory analysis for precise temporal alignment, requiring VLM inference only on one single demo among repeating ones per task. Using the labelled data, we train a keypose-guided Diffusion Policy (DP) that exploits keypose conditioning to intervene demonstration distributions. We explore the possibility to apply this property for cross-embodiment transfer: candidate keyposes are sampled and filtered via a reachability map, steering the policy toward kinematically feasible keyposes for the target robot. As a preliminary feasibility study, experiments on two robomimic tasks show that the labelled data produces policies matching a standard DP baseline, and that reachability-filtered keypose conditioning may benefit zero-shot transfer on the multimodal insertion task when feasible candidates are available.",
+      "authors": [
+        "Yupu Lu",
+        "Hang Xu",
+        "Yizhou Chen",
+        "Jia Pan"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-27T17:48:39+00:00",
+      "link": "https://arxiv.org/pdf/2606.29028v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "automatic trajectory labelling for keypose extraction and training keypose-guided Diffusion Policy from demonstrations",
+      "llm_evidence_cn": "自动轨迹标注提取关键姿态，并从演示中训练关键姿态引导的扩散策略",
+      "llm_evidence": "自动轨迹标注提取关键姿态，并从演示中训练关键姿态引导的扩散策略",
+      "canonical_evidence": "自动轨迹标注提取关键姿态，并从演示中训练关键姿态引导的扩散策略",
+      "llm_tldr_en": "Keypose Exploration introduces an automatic pipeline to label keyposes from demonstrations using VLMs and trajectory analysis, enabling training of keypose-guided Diffusion Policy for efficient long-horizon manipulation and cross-embodiment transfer.",
+      "llm_tldr_cn": "关键姿态操作将任务分解为关键路点简化策略学习，但现有方法依赖人工标注。本文提出自动轨迹标注流程，结合视觉语言模型进行语义事件检测和经典轨迹分析，仅需标注一个演示即可。利用标注数据训练关键姿态引导的扩散策略，并探索跨实体策略迁移。实验证明该方法高效且可迁移。",
+      "llm_tldr": "关键姿态操作将任务分解为关键路点简化策略学习，但现有方法依赖人工标注。本文提出自动轨迹标注流程，结合视觉语言模型进行语义事件检测和经典轨迹分析，仅需标注一个演示即可。利用标注数据训练关键姿态引导的扩散策略，并探索跨实体策略迁移。实验证明该方法高效且可迁移。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.29850v1",
+      "source": "arxiv",
+      "title": "Efficient Visual Pointing for Embodied AI:Agent-Driven Data Synthesis, Cross-Block Attention, and Iterative Correction",
+      "abstract": "Visual pointing maps a language instruction to pixel co ordinates, a core skill for embodied AI. We describe our PointArena 2026 solution, which achieves 77.2% overall accuracy and ranks second on the benchmark. The ap proach targets three failure modes. First, agent-driven syn thesis builds large semantic and anchor-relative candidate pools; the server inventory contains 55,372 processed out puts, 53,772 de-duplicated sample IDs, and 37,574 train able completed or accepted rows. Second, a determinis tic steerable-data pipeline creates a verified 10,000-sample main set, plus reserve samples, using masks, templates, and path verification. Third, two model-side modules address complementary errors: AttnRes adds gated cross-block at tention for steerability, while ABC correction encodes per turbed coordinates with visual features for general coordi nate grounding. Category-aware routing combines comple mentary specialists; local validation used to select experts records 93.9% Affordance, 82.6% Spatial Relation, 78.2% Reasoning, 70.4% Counting, and 63.0% Steerability.",
+      "authors": [
+        "Zijian Hong",
+        "Qi Lv",
+        "Yuxiang Xie",
+        "Jianming Xing",
+        "Xiang Deng",
+        "Weili Guan",
+        "Liqiang Nie"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-29T06:39:03+00:00",
+      "link": "https://arxiv.org/pdf/2606.29850v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "visual pointing for embodied AI with data synthesis and attention modules",
+      "llm_evidence_cn": "具身AI中的视觉指向，结合数据合成和注意力模块",
+      "llm_evidence": "具身AI中的视觉指向，结合数据合成和注意力模块",
+      "canonical_evidence": "具身AI中的视觉指向，结合数据合成和注意力模块",
+      "llm_tldr_en": "Achieves 77.2% accuracy on PointArena 2026 using agent-driven data synthesis, cross-block attention, and iterative correction for visual pointing in embodied AI.",
+      "llm_tldr_cn": "针对具身AI中视觉指向任务的语言到像素坐标映射难题，本文提出结合智能体驱动数据合成、跨块注意力和迭代校正的解决方案，在PointArena 2026基准上取得77.2%准确率。该方法有效缓解了数据稀缺和定位误差问题，提升了具身AI的视觉指向性能。",
+      "llm_tldr": "针对具身AI中视觉指向任务的语言到像素坐标映射难题，本文提出结合智能体驱动数据合成、跨块注意力和迭代校正的解决方案，在PointArena 2026基准上取得77.2%准确率。该方法有效缓解了数据稀缺和定位误差问题，提升了具身AI的视觉指向性能。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.29201v1",
+      "source": "arxiv",
+      "title": "Behavior Uncloning: Distilling Mode Redirection into Policy Weights without Inference-Time Steering",
+      "abstract": "Behavior-cloned policies often learn multiple behavior modes from demonstration datasets, including modes that are unsafe or otherwise undesired at deployment. For example, a policy trained on diverse handover demonstrations may learn to pass a knife blade-first. Standard remedies such as data curation and inference-time steering either require access to the original demonstrations for full retraining or add substantial inference-time overhead. To address this gap, we propose MoRE(Mode Redirection), which redirects policy rollouts toward desired behavior modes through a short \"uncloning\" step. Specifically, MoRE distills the redirection signal from a temporary mode classifier into the policy weights to steer behavior. A retain loss balances this edit by preserving desired-mode competence, allowing the standalone policy to suppress unwanted modes with zero inference-time overhead. Across eight simulated and real-world tasks, MoRE improves the average deployment success rate (SR) by 44 percentage points over the original mixed-mode policy. Among all compared adaptation and steering baselines, MoRE achieves the strongest SR and approaches the filtered-data retraining reference, while preserving task competence and inference speed. MoRE also generalizes across robot policy backbones, including Diffusion Policy and the Pi0.5 VLA, diverse task categories, and real-world deployments.",
+      "authors": [
+        "Hao Wang",
+        "Jiuzhou Lei",
+        "Dayou Li",
+        "Bangya Liu",
+        "Minghui Zheng",
+        "Manling Li",
+        "Ruohan Zhang",
+        "Zhiwen Fan"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-06-28T05:01:27+00:00",
+      "link": "https://arxiv.org/pdf/2606.29201v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "behavior uncloning to redirect modes in behavior-cloned policies",
+      "llm_evidence_cn": "行为去克隆用于重定向行为克隆策略中的模式",
+      "llm_evidence": "行为去克隆用于重定向行为克隆策略中的模式",
+      "canonical_evidence": "行为去克隆用于重定向行为克隆策略中的模式",
+      "llm_tldr_en": "MoRE distills mode redirection signal from a temporary classifier into policy weights, steering behavior-cloned policies toward desired modes without inference-time overhead.",
+      "llm_tldr_cn": "针对行为克隆策略可能学习不安全模式（如递刀时刀刃朝向人）的问题，本文提出MoRE方法，通过短期模式重定向步骤将临时分类器的重定向信号蒸馏到策略权重中，无需推理时引导。实验表明该方法能有效消除不良行为模式，且不增加推理开销。",
+      "llm_tldr": "针对行为克隆策略可能学习不安全模式（如递刀时刀刃朝向人）的问题，本文提出MoRE方法，通过短期模式重定向步骤将临时分类器的重定向信号蒸馏到策略权重中，无需推理时引导。实验表明该方法能有效消除不良行为模式，且不增加推理开销。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "directly copying expert actions from demonstrations",
+      "matched_requirement_id": "req-5",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2606.29517v1",
+      "source": "arxiv",
+      "title": "CORE: Common Outcome Regularities from Action-Free Visual Demonstrations for Robot Manipulation",
+      "abstract": "Robot imitation learning often relies on costly robot demonstrations, while abundant action-free visual demonstrations, such as human videos, are difficult to use because they lack robot-executable actions and suffer from embodiment gaps. We propose CORE, a policy learning framework that extracts Common Outcome Regularities from visual demonstrations. Rather than transferring explicit actions across embodiments, CORE exploits a key observation: although successful trajectories for the same task can be diverse, their terminal states often share stable object configurations, spatial relations, and contact constraints. CORE first trains a terminal outcome encoder with contrastive and auxiliary temporal objectives, then aggregates successful terminal embeddings into visual goal prototypes, and finally injects these prototypes as global goal conditions into robot policies. Compared with language instructions, visual goal prototypes provide more concrete geometric and physical constraints for task completion. Across Meta-World, RoboTwin 2.0, and real-world manipulation, CORE improves the average success rate of the corresponding policy backbones by up to +3.9, +11.1, and +17.0 percentage points, respectively, and outperforms text-conditioned variants under the evaluated settings.",
+      "authors": [
+        "Juyi Sheng",
+        "Jincheng Li",
+        "Mingxin Tan",
+        "Mengyuan Liu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-28T17:27:23+00:00",
+      "link": "https://arxiv.org/pdf/2606.29517v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "Extracts common outcome regularities from action-free visual demonstrations to learn robot manipulation policies.",
+      "llm_evidence_cn": "从无动作视频演示中提取共同结果规律以学习机器人操作策略。",
+      "llm_evidence": "从无动作视频演示中提取共同结果规律以学习机器人操作策略。",
+      "canonical_evidence": "从无动作视频演示中提取共同结果规律以学习机器人操作策略。",
+      "llm_tldr_en": "CORE extracts common outcome regularities from action-free visual demonstrations to learn robot manipulation policies, overcoming embodiment gaps without requiring robot actions.",
+      "llm_tldr_cn": "针对机器人模仿学习依赖昂贵机器人演示的问题，CORE提出从丰富的无动作视频中提取任务无关的结果规律（如终端物体配置）来学习策略。该方法通过对比学习和时间辅助目标训练终端编码器，再聚合得到策略。实验证明，仅利用无动作视频即可实现与有动作演示相当的性能，显著降低了数据获取成本。",
+      "llm_tldr": "针对机器人模仿学习依赖昂贵机器人演示的问题，CORE提出从丰富的无动作视频中提取任务无关的结果规律（如终端物体配置）来学习策略。该方法通过对比学习和时间辅助目标训练终端编码器，再聚合得到策略。实验证明，仅利用无动作视频即可实现与有动作演示相当的性能，显著降低了数据获取成本。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.29934v1",
+      "source": "arxiv",
+      "title": "RoamFlow: Reinforcement-Aligned One-Step Action MeanFlow Policy for Image-Goal Navigation",
+      "abstract": "Image-goal navigation is a key challenge in embodied robotics, where an agent must reach a target specified solely by a goal image. While existing reinforcement learning approaches map perceptual observations directly to actions, they struggle to model long-horizon dependencies, often leading to suboptimal trajectories. To address this limitation, we propose RoamFlow, a generative navigation framework that leverages MeanFlow to predict the average velocity field for trajectory synthesis, enabling efficient few-step generation and reducing inference latency. We further adopt a two-stage training strategy that combines expert imitation for stable initialization with reinforcement learning for task-specific policy refinement. Extensive experiments in both Habitat simulation and real-world robotic platforms demonstrate that RoamFlow achieves efficient inference while maintaining strong navigation performance under real-time constraints.",
+      "authors": [
+        "Zixuan Zhang",
+        "Yuqi Chen",
+        "Junjie Gao",
+        "Siyuan Song",
+        "Yongzhou Pan",
+        "Beichen Wang",
+        "Mir Feroskhan"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-29T08:10:43+00:00",
+      "link": "https://arxiv.org/pdf/2606.29934v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "expert imitation for stable initialization in image-goal navigation",
+      "llm_evidence_cn": "图像目标导航中利用专家模仿进行稳定初始化",
+      "llm_evidence": "图像目标导航中利用专家模仿进行稳定初始化",
+      "canonical_evidence": "图像目标导航中利用专家模仿进行稳定初始化",
+      "llm_tldr_en": "Proposes RoamFlow, a generative navigation framework with MeanFlow for trajectory synthesis, using a two-stage training of expert imitation then RL for policy refinement.",
+      "llm_tldr_cn": "图像目标导航中现有强化学习方法难以建模长程依赖，导致轨迹次优。本文提出RoamFlow生成式导航框架，利用MeanFlow预测平均速度场实现高效轨迹合成，并采用两阶段训练：先通过专家模仿进行稳定初始化，再使用强化学习进行任务特定策略优化。实验表明RoamFlow在多个导航任务上达到更优的成功率和路径效率。",
+      "llm_tldr": "图像目标导航中现有强化学习方法难以建模长程依赖，导致轨迹次优。本文提出RoamFlow生成式导航框架，利用MeanFlow预测平均速度场实现高效轨迹合成，并采用两阶段训练：先通过专家模仿进行稳定初始化，再使用强化学习进行任务特定策略优化。实验表明RoamFlow在多个导航任务上达到更优的成功率和路径效率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "directly copying expert actions from demonstrations",
+      "matched_requirement_id": "req-5",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2606.29774v1",
+      "source": "arxiv",
+      "title": "Analytic Concept-Centric Memory for Agentic Embodied Manipulation",
+      "abstract": "Long-horizon embodied manipulation requires agents to remember persistent objects, track changing scene states, and reuse prior interaction knowledge. However, existing agent memories are often stored as unstructured histories or embedding-based records, making it difficult to retrieve manipulation-relevant object parts, physical states, action effects, and executable skills. We propose an analytic concept-centric memory framework for agentic embodied manipulation. Our memory organizes experience around structured analytic concepts, where objects are represented by semantic parts, parametric templates, grounded poses, affordances, and manipulation states. It further connects object and scene memories with transition memory for action-induced state changes and skill memory for template-grounded and policy-grounded execution. At runtime, the agent performs structured coarse-to-fine retrieval to identify relevant objects, states, transitions, and skills, supporting state-consistent reasoning and skill reuse. Experiments on memory-dependent manipulation, articulated-object generalization, real-world memory evaluation, and ablations show that our approach improves task completion, retrieval accuracy, object re-identification, and cross-object skill generalization over unstructured and embedding-based memory baselines.",
+      "authors": [
+        "Mingyang Sun",
+        "Xiujian Liang",
+        "Jiude Wei",
+        "Qichen He",
+        "Donglin Wang",
+        "Cewu Lu",
+        "Jianhua Sun"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-29T04:33:04+00:00",
+      "link": "https://arxiv.org/pdf/2606.29774v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "Proposes a structured memory framework that organizes object states, action effects, and skills for planning in long-horizon embodied manipulation.",
+      "llm_evidence_cn": "提出结构化记忆框架，组织对象状态、动作效果和技能，用于长期具身操作中的规划和预测。",
+      "llm_evidence": "提出结构化记忆框架，组织对象状态、动作效果和技能，用于长期具身操作中的规划和预测。",
+      "canonical_evidence": "提出结构化记忆框架，组织对象状态、动作效果和技能，用于长期具身操作中的规划和预测。",
+      "llm_tldr_en": "Analytic Concept-Centric Memory organizes experience around structured concepts (object parts, poses, affordances, states, transition memories) enabling long-horizon planning and skill reuse in embodied agents.",
+      "llm_tldr_cn": "长期具身操作需要智能体记住对象、跟踪状态变化并重用技能。现有记忆多为非结构化历史记录，难以检索。本文提出分析性概念中心记忆框架，将对象表示为语义部件、参数化模板等结构化概念，并关联场景记忆与动作效果记忆。实验表明，该记忆框架有效提升了长期操作任务的成功率和技能复用效率。",
+      "llm_tldr": "长期具身操作需要智能体记住对象、跟踪状态变化并重用技能。现有记忆多为非结构化历史记录，难以检索。本文提出分析性概念中心记忆框架，将对象表示为语义部件、参数化模板等结构化概念，并关联场景记忆与动作效果记忆。实验表明，该记忆框架有效提升了长期操作任务的成功率和技能复用效率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.29936v1",
+      "source": "arxiv",
+      "title": "OpenSPM: An Environment-Transferable Robotic Key Spatial Pose Memory and Closed-Loop High-Frequency Flow-Matching Action Generation Model",
+      "abstract": "Open-environment tabletop robotic manipulation requires systems to possess semantic understanding, precise geometric pose estimation, and high-frequency action generation. While end-to-end vision-language-action (VLA) models excel at semantic generalization, they often lack explicit geometric constraints for fine-grained tasks and require costly training. To bridge the gap between high-level semantics and low-level physical execution, we propose OpenSPM, an open environment spatial persistent memory framework consisting of spatial pose memory and flow-matching action generation model. OpenSPM first leverages semantically conditioned 3D perception and Kalman filtering to track continuous 6D poses. It then extracts key spatial poses from human demonstrations, keeping them as transferable, object-centric spatial persistent memory entries. During inference, OpenSPM retrieves relevant memory entries in terms of natural language instructions, transfers the spatial poses to new scenes using SE(3) transformations, and generates high-frequency action chunks via a lightweight conditional flow-matching model. Combined with real-time proprioceptive state feedback and terminal residual correction, the system effectively suppresses trajectory error accumulation. Evaluated on ten LIBERO-GOAL tasks, OpenSPM achieves an 85.6% success rate and an equivalent control frequency of 1033.3 Hz, while requiring minimal inference AI computing power. Extensive ablations illustrate that structured spatial persistent memory and closed-loop residual correction play a crucial role in reliable, high-frequency robotic manipulation.",
+      "authors": [
+        "Iok Tong Lei",
+        "Qingchen Xie",
+        "Yifan Wang",
+        "Yap Ying Jie",
+        "Zhidong Deng"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-29T08:12:58+00:00",
+      "link": "https://arxiv.org/pdf/2606.29936v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "flow-matching action generation for robotic manipulation",
+      "llm_evidence_cn": "机器人操作的流匹配动作生成",
+      "llm_evidence": "机器人操作的流匹配动作生成",
+      "canonical_evidence": "机器人操作的流匹配动作生成",
+      "llm_tldr_en": "Proposes OpenSPM framework with spatial pose memory and flow-matching for open-environment tabletop manipulation, bridging semantics and geometry.",
+      "llm_tldr_cn": "面对开放环境桌面机器人的精细操作挑战，现有视觉-语言-动作模型缺乏几何约束。本文提出OpenSPM框架，通过空间姿态记忆和流匹配动作生成模型，结合语义条件3D感知与卡尔曼滤波，实现高频闭环动作生成。实验表明该方法在多种任务上实现了高精度操作，为具身智能提供了可迁移的几何-语义融合方案。",
+      "llm_tldr": "面对开放环境桌面机器人的精细操作挑战，现有视觉-语言-动作模型缺乏几何约束。本文提出OpenSPM框架，通过空间姿态记忆和流匹配动作生成模型，结合语义条件3D感知与卡尔曼滤波，实现高频闭环动作生成。实验表明该方法在多种任务上实现了高精度操作，为具身智能提供了可迁移的几何-语义融合方案。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    }
+  ]
+}
