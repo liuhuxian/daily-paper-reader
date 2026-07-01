@@ -6,71 +6,71 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-06-30
-- 运行时间：2026-06-30 21:40:00 UTC
+- 最新运行日期：2026-07-01
+- 运行时间：2026-07-01 22:06:32 UTC
 - 运行状态：成功
 - 本次总论文数：17
 - 精读区：6
 - 速读区：11
 
 ### 今日简报（AI）
-今日推荐2篇9分精读论文，聚焦世界模型的路径空间预测公式与特征空间流匹配。重点关注世界模型中的路径空间方法与随机建模新思路。建议普通读者从“行为无克隆”与“扩散策略自改进”入手，提升实操效率。
-- 详情：[/202606/30/README](/202606/30/README)
+今日共阅读17篇推荐论文，精读两篇高分工作：聚焦世界-动作模型从合成先验高效迁移，以及通过预算感知环境探测校准模型。最值得关注的方向是Sim-to-Real迁移与资源受限下的世界模型校准，速读还覆盖符号推理、视觉-语言-动作及AI技能教练。建议读者优先精读《Efficient Sim-to-Real Transfer of World-Action Models from Synthetic Priors》和《Ask the World Before Acting: Budgeted Environment Probing for World-Model Calibration》，前者教你用合成数据提升迁移效率，后者帮你决定何时该主动探测环境以节省计算资源。
+- 详情：[/202607/01/README](/202607/01/README)
 
 ### 精读区论文标签
-1. [A Path-Space Formulation of Prediction in World Models: From a Single Action to Prediction, Planning, and Irreversibility](/202606/30/2606.28751v1-a-path-space-formulation-of-prediction-in-world-models-from-a-single-action-to-prediction-planning-and-irreversibility)  
+1. [Efficient Sim-to-Real Transfer of World-Action Models from Synthetic Priors](/202607/01/2606.31101v1-efficient-sim-to-real-transfer-of-world-action-models-from-synthetic-priors)  
    标签：评分：9.0/10、query:wmi
-   evidence：基于路径空间的世界模型预测与规划公式
-2. [Flow Matching in Feature Space for Stochastic World Modeling](/202606/30/2606.29059v1-flow-matching-in-feature-space-for-stochastic-world-modeling)  
+   evidence：从合成先验训练世界动作模型实现零样本仿真到真实迁移
+2. [Ask the World Before Acting: Budgeted Environment Probing for World-Model Calibration](/202607/01/2606.31422v1-ask-the-world-before-acting-budgeted-environment-probing-for-world-model-calibration)  
    标签：评分：9.0/10、query:wmi
-   evidence：在特征空间进行流匹配的随机世界模型
-3. [Learning Transferable Dynamics Priors from Action to World Modeling](/202606/30/2606.29501v1-learning-transferable-dynamics-priors-from-action-to-world-modeling)  
+   evidence：通过有预算的环境探测进行世界模型校准
+3. [AdaJEPA: An Adaptive Latent World Model](/202607/01/2606.32026v1-adajepa-an-adaptive-latent-world-model)  
    标签：评分：9.0/10、query:wmi
-   evidence：世界模型用于强化学习动态先验
-4. [Self-Evolving World Models for LLM Agent Planning](/202606/30/2606.30639v1-self-evolving-world-models-for-llm-agent-planning)  
-   标签：评分：9.0/10、query:wmi
-   evidence：用于LLM智能体规划的自进化世界模型，具备前瞻能力
-5. [SSI-Policy: Learning Structured Scene Interfaces for Vision-Language Robotic Manipulation](/202606/30/2606.26800v2-ssi-policy-learning-structured-scene-interfaces-for-vision-language-robotic-manipulation)  
+   evidence：自适应潜世界模型用于规划与预测，测试时自适应
+4. [Event-VLA: Action-Conditioned Event Fusion for Robust Vision-Language-Action Model](/202607/01/2606.29384v1-event-vla-action-conditioned-event-fusion-for-robust-vision-language-action-model)  
    标签：评分：8.0/10、query:wmi
-   evidence：用于视觉语言机器人操作的结构场景接口
-6. [LA4VLA: Learning to Act without Seeing via Language-Action Pretraining](/202606/30/2606.27295v2-la4vla-learning-to-act-without-seeing-via-language-action-pretraining)  
+   evidence：事件增强的视觉语言动作模型，使用事件流作为互补传感器输入，集成到具身智能系统中
+5. [Automating the Design of Embodied AgentArchitectures](/202607/01/2606.30111v1-automating-the-design-of-embodied-agentarchitectures)  
    标签：评分：8.0/10、query:wmi
-   evidence：从机器人演示中学习语言条件动作先验，无需视觉观察
+   evidence：自动化设计具身智能体架构，整合感知、记忆、规划与动作
+6. [Behavior Cloning is Not All You Need: The Optimality of On-Policy Distillation for Noisy Expert Feedback](/202607/01/2606.30923v1-behavior-cloning-is-not-all-you-need-the-optimality-of-on-policy-distillation-for-noisy-expert-feedback)  
+   标签：评分：8.0/10、query:wmi
+   evidence：分析噪声专家下行为克隆与在线蒸馏的对比
 
 ### 速读区论文标签
-1. [Human2Any: Human-to-Robot Transfer via Constraint-Aware Compositional Planning](/202606/30/2606.28813v1-human2any-human-to-robot-transfer-via-constraint-aware-compositional-planning)  
+1. [Plan Right, Then Plan Tight: Symbolic RL for Efficient Embodied Reasoning](/202607/01/2606.31260v1-plan-right-then-plan-tight-symbolic-rl-for-efficient-embodied-reasoning)  
    标签：评分：8.0/10、query:wmi
-   evidence：从人类视频学习以物体为中心的交互先验用于机器人操作
-2. [ReGuide: From Test-Time Guidance to Self-Improving Diffusion Policies](/202606/30/2606.28939v1-reguide-from-test-time-guidance-to-self-improving-diffusion-policies)  
+   evidence：符号规范作为环境模型用于计划验证
+2. [Z-1: Efficient Reinforcement Learning for Vision-Language-Action Models](/202607/01/2606.31846v1-z-1-efficient-reinforcement-learning-for-vision-language-action-models)  
    标签：评分：8.0/10、query:wmi
-   evidence：自改进扩散策略用于行为克隆
-3. [Behavior Uncloning: Distilling Mode Redirection into Policy Weights without Inference-Time Steering](/202606/30/2606.29201v1-behavior-uncloning-distilling-mode-redirection-into-policy-weights-without-inference-time-steering)  
-   标签：评分：8.0/10、query:wmi
-   evidence：行为去克隆用于重定向行为克隆策略中的模式
-4. [RoamFlow: Reinforcement-Aligned One-Step Action MeanFlow Policy for Image-Goal Navigation](/202606/30/2606.29934v1-roamflow-reinforcement-aligned-one-step-action-meanflow-policy-for-image-goal-navigation)  
-   标签：评分：8.0/10、query:wmi
-   evidence：图像目标导航中利用专家模仿进行稳定初始化
-5. [OpenSPM: An Environment-Transferable Robotic Key Spatial Pose Memory and Closed-Loop High-Frequency Flow-Matching Action Generation Model](/202606/30/2606.29936v1-openspm-an-environment-transferable-robotic-key-spatial-pose-memory-and-closed-loop-high-frequency-flow-matching-action-generation-model)  
-   标签：评分：8.0/10、query:wmi
-   evidence：机器人操作的流匹配动作生成
-6. [Support-Constrained RL Enables Real-World Policy Improvement without Real-World Experience](/202606/30/2606.27475v1-support-constrained-rl-enables-real-world-policy-improvement-without-real-world-experience)  
+   evidence：在行为克隆后进行强化学习的机器人操作
+3. [AI Coaching for Accelerating Human Skill Development with Reinforcement Learning](/202607/01/2606.25337v1-ai-coaching-for-accelerating-human-skill-development-with-reinforcement-learning)  
    标签：评分：7.0/10、query:wmi
-   evidence：从真实到模拟再到真实的强化学习，通过支持约束改进策略
-7. [Keypose Exploration: Efficient Automatic Trajectory Labelling and Cross-Embodiment Policy Transfer](/202606/30/2606.29028v1-keypose-exploration-efficient-automatic-trajectory-labelling-and-cross-embodiment-policy-transfer)  
+   evidence：具身AI智能体作为教练加速人类运动技能发展
+4. [WARP: Whole-Body Retargeting for Learning from Offline Human Demonstrations](/202607/01/2606.29940v1-warp-whole-body-retargeting-for-learning-from-offline-human-demonstrations)  
    标签：评分：7.0/10、query:wmi
-   evidence：自动轨迹标注提取关键姿态，并从演示中训练关键姿态引导的扩散策略
-8. [CORE: Common Outcome Regularities from Action-Free Visual Demonstrations for Robot Manipulation](/202606/30/2606.29517v1-core-common-outcome-regularities-from-action-free-visual-demonstrations-for-robot-manipulation)  
+   evidence：从离线人体示教学习全身机器人策略
+5. [Sparse Sensor Placement in Multi-Agent Reinforcement Learning Control of Rayleigh-Bénard Convection](/202607/01/2606.30238v1-sparse-sensor-placement-in-multi-agent-reinforcement-learning-control-of-rayleigh-bnard-convection)  
    标签：评分：7.0/10、query:wmi
-   evidence：从无动作视频演示中提取共同结果规律以学习机器人操作策略。
-9. [Analytic Concept-Centric Memory for Agentic Embodied Manipulation](/202606/30/2606.29774v1-analytic-concept-centric-memory-for-agentic-embodied-manipulation)  
-   标签：评分：7.0/10、query:wmi
-   evidence：提出结构化记忆框架，组织对象状态、动作效果和技能，用于长期具身操作中的规划和预测。
-10. [When Multi-Robot Systems Meet Agentic AI:Towards Embodied Collective Intelligence](/202606/30/2606.27929v1-when-multi-robot-systems-meet-agentic-aitowards-embodied-collective-intelligence)  
+   evidence：通过监督学习从专家策略蒸馏出稀疏学徒策略
+6. [Dual-Flow Reinforcement Learning with State-Aware Exploration](/202607/01/2606.29820v1-dual-flow-reinforcement-learning-with-state-aware-exploration)  
    标签：评分：6.0/10、query:wmi
-   evidence：具身AI与多机器人系统
-11. [Efficient Visual Pointing for Embodied AI:Agent-Driven Data Synthesis, Cross-Block Attention, and Iterative Correction](/202606/30/2606.29850v1-efficient-visual-pointing-for-embodied-aiagent-driven-data-synthesis-cross-block-attention-and-iterative-correction)  
+   evidence：强化学习中用流匹配建模回报与策略分布
+7. [Trust Your Instincts: Confidence-Driven Test-Time RL for Vision-Language-Action Models](/202607/01/2606.29892v1-trust-your-instincts-confidence-driven-test-time-rl-for-vision-language-action-models)  
    标签：评分：6.0/10、query:wmi
-   evidence：具身AI中的视觉指向，结合数据合成和注意力模块
+   evidence：无需外部奖励的VLA模型测试时强化学习
+8. [Building Multi-Task Agentic LLMs via Two-Phase Distillation](/202607/01/2606.30044v1-building-multi-task-agentic-llms-via-two-phase-distillation)  
+   标签：评分：6.0/10、query:wmi
+   evidence：通过蒸馏合并多个RL专家，构建多任务智能体，涉及行为克隆和策略学习
+9. [HUMEMBR: Learning Human Routines for Predictive Embodied Navigation](/202607/01/2606.30404v1-humembr-learning-human-routines-for-predictive-embodied-navigation)  
+   标签：评分：6.0/10、query:wmi
+   evidence：类似世界模型的内存用于具身导航
+10. [Warp RL: Reshaping Base Policy Distributions for Dynamics Adaptation](/202607/01/2606.31043v1-warp-rl-reshaping-base-policy-distributions-for-dynamics-adaptation)  
+   标签：评分：6.0/10、query:wmi
+   evidence：通过分布变换适应机器人动力学变化
+11. [A Modular Vision-Language-Action Robotics Framework for Indoor Environments](/202607/01/2606.31144v1-a-modular-vision-language-action-robotics-framework-for-indoor-environments)  
+   标签：评分：6.0/10、query:wmi
+   evidence：模块化VLA框架，集成感知、语言与动作用于室内自主智能体
 
 
 <div class="dpr-home-promo-card">

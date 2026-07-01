@@ -1,0 +1,690 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-01T21:55:24.024409+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 8,
+    "deep_cap": 6,
+    "deep_selected": 6,
+    "quick_candidates": 12,
+    "quick_skim_target": 11,
+    "quick_selected": 11
+  },
+  "deep_dive": [
+    {
+      "id": "2606.31101v1",
+      "source": "arxiv",
+      "title": "Efficient Sim-to-Real Transfer of World-Action Models from Synthetic Priors",
+      "abstract": "Bridging the sim-to-real gap is a core challenge in deploying learned manipulation policies. Sim-to-real learning is attractive because it can replace expensive real robot demonstrations with scalable synthetic data, yet world-action models have not previously been shown to transfer from simulation to real robotic manipulation. We study whether a world-action model can be trained from synthetic priors and deployed zero-shot in the real world. To this end, we build upon Cosmos Policy, a video diffusion model adapted for visuomotor control. We construct simulation environments with extensive domain randomization and generate demonstrations using the AnyTask motion planning pipeline. We evaluate our approach across object lifting, drawer opening, and pick-and-place tasks using ${\\sim}800$ synthetic demonstrations per task and no real demonstrations. When deployed zero-shot on a Franka Robot, our policy attains a 35\\% average success rate. To our knowledge, this represents the first successful sim-to-real transfer of a world-action model for robotic manipulation.",
+      "authors": [
+        "Zixing Wang",
+        "Kausik Sivakumar",
+        "Jinghuan Shang",
+        "Yafei Hu",
+        "Zhaoming Xie",
+        "Ran Gong",
+        "Xiaohan Zhang",
+        "Karl Schmeckpeper"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-30T03:49:31+00:00",
+      "link": "https://arxiv.org/pdf/2606.31101v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world-action model from synthetic priors for zero-shot sim-to-real",
+      "llm_evidence_cn": "从合成先验训练世界动作模型实现零样本仿真到真实迁移",
+      "llm_evidence": "从合成先验训练世界动作模型实现零样本仿真到真实迁移",
+      "canonical_evidence": "从合成先验训练世界动作模型实现零样本仿真到真实迁移",
+      "llm_tldr_en": "Shows world-action models trained from synthetic data with domain randomization can zero-shot transfer to real robotic manipulation.",
+      "llm_tldr_cn": "世界动作模型在机器人操作中的仿真到真实迁移一直未被验证。本文基于Cosmos Policy视频扩散模型，结合大规模域随机化和AnyTask运动规划流水线，在仿真中训练世界动作模型并零样本部署到真实机器人。在物体提起、抽屉打开等任务上取得了成功，证明了合成数据训练的世界模型能够直接用于真实世界。",
+      "llm_tldr": "世界动作模型在机器人操作中的仿真到真实迁移一直未被验证。本文基于Cosmos Policy视频扩散模型，结合大规模域随机化和AnyTask运动规划流水线，在仿真中训练世界动作模型并零样本部署到真实机器人。在物体提起、抽屉打开等任务上取得了成功，证明了合成数据训练的世界模型能够直接用于真实世界。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.31422v1",
+      "source": "arxiv",
+      "title": "Ask the World Before Acting: Budgeted Environment Probing for World-Model Calibration",
+      "abstract": "Long-horizon language agents do not only choose actions; they carry a private model of the world from one decision to the next. When that model drifts, a later failure can be decided before the failing action is ever taken. We study a direct repair mechanism: before committing to the next task action, an agent may ask the environment about one belief field and write the answer back into its world model. This makes environment interaction a scarce calibration resource, not merely a way to advance the task. We introduce \\method, a budgeted probing operator for structured belief tables. The useful probes are not the same everywhere. Procedural beliefs, such as tool dependencies, can often be repaired by targeted checks, but those checks spend steps that the task may need. Spatial beliefs, such as object locations and graph edges, rely more on structural cues; the agent's own confidence can be a poor guide when the world changes off-screen. A type-stratified analysis formalizes this probe-action frontier, and controlled experiments show that mid-planning environment evidence reduces terminal world-model error when the probe policy follows the structure of the task.",
+      "authors": [
+        "Xinyuan Song",
+        "Zekun Cai"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-06-30T09:45:49+00:00",
+      "link": "https://arxiv.org/pdf/2606.31422v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world-model calibration via budgeted environment probing",
+      "llm_evidence_cn": "通过有预算的环境探测进行世界模型校准",
+      "llm_evidence": "通过有预算的环境探测进行世界模型校准",
+      "canonical_evidence": "通过有预算的环境探测进行世界模型校准",
+      "llm_tldr_en": "Ask the World Before Acting introduces budgeted probing for world-model calibration in long-horizon language agents.",
+      "llm_tldr_cn": "针对长时域语言代理中世界模型漂移导致失败的问题，本文提出有预算的环境探测机制。代理在决策前可向环境询问某个信念字段并更新世界模型。将环境交互视为稀缺校准资源，而非仅是任务推进手段。实验表明该方法能有效修复信念错误，提升任务成功率。",
+      "llm_tldr": "针对长时域语言代理中世界模型漂移导致失败的问题，本文提出有预算的环境探测机制。代理在决策前可向环境询问某个信念字段并更新世界模型。将环境交互视为稀缺校准资源，而非仅是任务推进手段。实验表明该方法能有效修复信念错误，提升任务成功率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.32026v1",
+      "source": "arxiv",
+      "title": "AdaJEPA: An Adaptive Latent World Model",
+      "abstract": "Latent world models enable planning from high-dimensional observations by predicting future states in a compact latent space. However, these models are typically kept frozen at test time: when their predictions become inaccurate, planning can fail, especially under test-time distribution shift. To address this, we propose AdaJEPA, an adaptive latent world model that performs test-time adaptation within the closed loop of model predictive control (MPC). After training, AdaJEPA plans and executes the first action chunk, uses the observed next-state transition as a self-supervised adaptation signal, and replans with the updated model. This closed-loop update continuously recalibrates the world model without additional expert demonstrations. Across a range of goal-reaching tasks, AdaJEPA substantially improves planning success with as few as one gradient step per MPC replanning step.",
+      "authors": [
+        "Ying Wang",
+        "Oumayma Bounou",
+        "Yann LeCun",
+        "Mengye Ren"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-06-30T17:53:48+00:00",
+      "link": "https://arxiv.org/pdf/2606.32026v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "adaptive latent world model for planning and prediction, test-time adaptation",
+      "llm_evidence_cn": "自适应潜世界模型用于规划与预测，测试时自适应",
+      "llm_evidence": "自适应潜世界模型用于规划与预测，测试时自适应",
+      "canonical_evidence": "自适应潜世界模型用于规划与预测，测试时自适应",
+      "llm_tldr_en": "Proposes AdaJEPA, an adaptive latent world model that performs test-time adaptation via self-supervised signal in MPC loop, improving planning under distribution shift.",
+      "llm_tldr_cn": "本文针对潜世界模型在测试时因分布偏移导致预测不准进而规划失败的问题，提出自适应潜世界模型AdaJEPA，在模型预测控制闭环内利用观测到的状态转移作为自监督信号持续更新世界模型。在多种目标到达任务中，AdaJEPA显著提升了分布偏移下的规划成功率，为世界模型在具身智能中的实际应用提供了鲁棒方案。",
+      "llm_tldr": "本文针对潜世界模型在测试时因分布偏移导致预测不准进而规划失败的问题，提出自适应潜世界模型AdaJEPA，在模型预测控制闭环内利用观测到的状态转移作为自监督信号持续更新世界模型。在多种目标到达任务中，AdaJEPA显著提升了分布偏移下的规划成功率，为世界模型在具身智能中的实际应用提供了鲁棒方案。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.29384v1",
+      "source": "arxiv",
+      "title": "Event-VLA: Action-Conditioned Event Fusion for Robust Vision-Language-Action Model",
+      "abstract": "Vision-Language-Action (VLA) models have become an important paradigm of embodied AI. However, existing VLA models typically assume well-lit and stable indoor settings, while real-world embodied manipulation may involve degraded RGB observations caused by illumination shifts, posing critical challenges for robust robotic manipulation. To address this gap, we propose \\textbf{Event-VLA}, an event-enhanced VLA framework for generalizable manipulation across varying illumination conditions. We formulate VLA-based manipulation under degraded visibility as a practical robustness problem for RGB-centric policies, and introduce event streams as an illumination-robust, motion-sensitive complementary observation to improve robustness across visibility levels. Specifically, unlike conventional multimodal fusion that directly merges event features into the global semantic token space, Event-VLA injects event information through an action-query routing pathway. It uses learnable action queries to extract task-relevant semantics from the VLA reasoning process, and selectively aggregates event tokens via gated cross-attention to construct event-aware action representations. This design preserves the pretrained RGB-language semantic priors while effectively leveraging event information for robust action prediction. Experiments in simulation and real-world deployment show that Event-VLA maintains strong manipulation performance under normal lighting and improves success rates under low-light degradation and near-dark real-world settings.",
+      "authors": [
+        "Jiaxin Liu",
+        "Xun Xu",
+        "Zhenhao Zhang",
+        "Hanqing Wang",
+        "Ruiqi Chen",
+        "Shi Chang",
+        "Weiyu Guo",
+        "Laurent Kneip"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.RO"
+      ],
+      "published": "2026-06-28T13:19:11+00:00",
+      "link": "https://arxiv.org/pdf/2606.29384v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "event-enhanced VLA framework using event cameras as complementary sensor input for robust embodied manipulation",
+      "llm_evidence_cn": "事件增强的视觉语言动作模型，使用事件流作为互补传感器输入，集成到具身智能系统中",
+      "llm_evidence": "事件增强的视觉语言动作模型，使用事件流作为互补传感器输入，集成到具身智能系统中",
+      "canonical_evidence": "事件增强的视觉语言动作模型，使用事件流作为互补传感器输入，集成到具身智能系统中",
+      "llm_tldr_en": "Event-VLA improves Vision-Language-Action models by fusing event streams to maintain manipulation robustness under varying illumination, enabling generalizable control in real-world conditions.",
+      "llm_tldr_cn": "现有VLA模型在光照变化下性能下降，本文提出Event-VLA，引入事件流作为光照鲁棒的互补观测，增强RGB策略在低可见度下的鲁棒性。实验证明该方法能泛化到不同光照条件，显著提升具身操作的安全性和可靠性。",
+      "llm_tldr": "现有VLA模型在光照变化下性能下降，本文提出Event-VLA，引入事件流作为光照鲁棒的互补观测，增强RGB策略在低可见度下的鲁棒性。实验证明该方法能泛化到不同光照条件，显著提升具身操作的安全性和可靠性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.30111v1",
+      "source": "arxiv",
+      "title": "Automating the Design of Embodied AgentArchitectures",
+      "abstract": "Embodied agents are typically built as hand-designed compositions of perception, memory, planning, and action modules. This modularity exposes a large architectural design space, but current systems still rely on researcher intuition to choose where information is stored, how observations are processed, and how model calls are connected. Agent Architecture Search (AAS) automates such design for text-domain agents, but has not been systematically evaluated on perceptual embodied agents through simulator rollouts. We study this transfer. We introduce AgentCanvas, a typed-graph runtime that hosts embodied executors as editable node-and-wire programs with simulator-aware execution and episode-level logs, and KDLoop, a coding-agent search procedure that cycles through proposal, critique, experiment, and distillation, with triggered reflection after stalls. We evaluate three AAS variants across four embodied executors spanning vision-language navigation, embodied question answering, and language-conditioned manipulation. The resulting 3x4 matrix shows that architecture-level search can produce deployable and directional success-rate gains on embodied tasks, while one apparent high-scoring candidate is rejected as leak-bearing. At the same time, the experiments expose constraints that are muted in text-domain AAS: optimization signals can be masked by rollout noise, search can become trapped in local edit basins, and episode-level credit assignment only partially emerges even when detailed logs are available. These results characterize both the promise and the current limits of automated architecture search for embodied agents.",
+      "authors": [
+        "Jian Zhou",
+        "Sihao Lin",
+        "Jin Li",
+        "Shuai Fu",
+        "Gengze Zhou",
+        "Qi Wu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published": "2026-06-29T10:45:37+00:00",
+      "link": "https://arxiv.org/pdf/2606.30111v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "Automates design of embodied agent architectures integrating perception, memory, planning, and action",
+      "llm_evidence_cn": "自动化设计具身智能体架构，整合感知、记忆、规划与动作",
+      "llm_evidence": "自动化设计具身智能体架构，整合感知、记忆、规划与动作",
+      "canonical_evidence": "自动化设计具身智能体架构，整合感知、记忆、规划与动作",
+      "llm_tldr_en": "AgentCanvas and KDLoop automate the search over embodied agent architectures, enabling systematic evaluation of design choices for perception, memory, planning, and action modules.",
+      "llm_tldr_cn": "当前具身智能体依赖手工设计模块组合。本文提出AgentCanvas和KDLoop，实现具身智能体架构的自动化搜索。该系统将智能体表示为可编辑的节点-线程序，并支持仿真器感知的执行和日志记录，能够在仿真环境中自动探索和评估不同设计选择。",
+      "llm_tldr": "当前具身智能体依赖手工设计模块组合。本文提出AgentCanvas和KDLoop，实现具身智能体架构的自动化搜索。该系统将智能体表示为可编辑的节点-线程序，并支持仿真器感知的执行和日志记录，能够在仿真环境中自动探索和评估不同设计选择。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.30923v1",
+      "source": "arxiv",
+      "title": "Behavior Cloning is Not All You Need: The Optimality of On-Policy Distillation for Noisy Expert Feedback",
+      "abstract": "Imitation Learning is a natural framework for learning in sequential decision-making systems and has emerged as the dominant paradigm through which we understand language model training. A central puzzle is that, while in theory offline IL can be horizon-free and optimal, in practice online methods such as on-policy distillation often outperform offline methods such as supervised fine-tuning. We propose a noisy expert model to explain this gap, in which the learner only has access to a noisy version of the expert's policy, but wishes to compete against the reward achieved by a clean expert, motivated by the fact that in many applications, e.g. training language models to perform long chains of thought, the expert is often imperfect. In this setting, we show a sharp separation between offline and online IL. Offline learning from noisy trajectories is fundamentally hard: to compete with the clean expert, the sample complexity must grow exponentially, in contradistinction to the clean expert setting where no explicit horizon dependence exists. In contrast, we prove that online interaction with the noisy expert via a novel variant of OPD enables polynomial dependence on the horizon in general. We further show that, under a natural condition on the expert noise distribution, which we show to be necessary for any horizon-free sample complexity, one can obtain such a guarantee, although our proposed algorithm sacrifices statistical efficiency in its dependence on the size of the policy class. Our analysis leads to an alternative loss function that is commonly considered empirically for LM training. We further provide algorithms and lower bounds, and extend our results to the more realistic setting of unknown corruption when the clean expert is deterministic, thereby providing a theoretical foundation for why OPD can outperform SFT when training language models from imperfect teachers.",
+      "authors": [
+        "Ved Sriraman",
+        "Peihan Liu",
+        "Daniel Hsu",
+        "Adam Block"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "stat.ML"
+      ],
+      "published": "2026-06-29T21:18:21+00:00",
+      "link": "https://arxiv.org/pdf/2606.30923v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "analyzes behavior cloning vs. on-policy distillation with noisy expert",
+      "llm_evidence_cn": "分析噪声专家下行为克隆与在线蒸馏的对比",
+      "llm_evidence": "分析噪声专家下行为克隆与在线蒸馏的对比",
+      "canonical_evidence": "分析噪声专家下行为克隆与在线蒸馏的对比",
+      "llm_tldr_en": "Proposes a noisy expert model to explain the advantage of on-policy distillation over offline behavior cloning, with theoretical optimality guarantees.",
+      "llm_tldr_cn": "模仿学习中，在线方法常优于离线行为克隆。本文提出噪声专家模型，证明当专家策略有噪声时，在线策略蒸馏可以渐近达到干净专家的奖励，而离线行为克隆无法保证。理论分析和实验验证了该差距，并为实践提供了指导。",
+      "llm_tldr": "模仿学习中，在线方法常优于离线行为克隆。本文提出噪声专家模型，证明当专家策略有噪声时，在线策略蒸馏可以渐近达到干净专家的奖励，而离线行为克隆无法保证。理论分析和实验验证了该差距，并为实践提供了指导。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "directly copying expert actions from demonstrations",
+      "matched_requirement_id": "req-5",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2606.31260v1",
+      "source": "arxiv",
+      "title": "Plan Right, Then Plan Tight: Symbolic RL for Efficient Embodied Reasoning",
+      "abstract": "Embodied task planning asks an agent to turn a natural-language instruction into an executable sequence of actions in a physical scene, and is a building block for household, assistive, and service robots. Recent prompting-based and reinforcement-learning planners generate fluent action text but lack a cheap deterministic check that the produced plan is valid in the target world, while high-fidelity simulation is too slow to serve as an inner-loop training signal. The general problem is therefore how to obtain verifiable supervision and rewards for embodied planners without relying on string-level matching or full simulation. Here we show that a single BDDL specification, automatically constructed from open-world video evidence or curated tasks, can serve as a shared interface for data construction, plan verification, and reward design. A video-to-BDDL parser, an LLM verifier, and a lightweight symbolic engine together supply dense feedback at millisecond latency. We further introduce GroupAdapt, a difficulty-aware length schedule that uses the in-batch group pass rate as a zero-cost signal so that hard prompts get wider length tolerance and automatically tighten as their pass rate improves. Under the guidance of the proposed verifier and GroupAdapt schedule, the 8B planner attains a Strict-Pass score of 97.3 on BEHAVIOR-1000, yielding a 25.9 percent relative improvement over the Qwen3-8B baseline. This result exceeds the strongest large-model baseline by 3.5 percent, while simultaneously compressing the response length by 79 percent to 207 tokens, demonstrating both effectiveness and efficiency.",
+      "authors": [
+        "Xiangli Shi",
+        "Xiaomeng Zhu",
+        "Ye Tian",
+        "Yuchun Guo",
+        "Ziyang Sun",
+        "Lujie Yin",
+        "Yuxuan Zhou",
+        "Yufei Huang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-30T07:37:21+00:00",
+      "link": "https://arxiv.org/pdf/2606.31260v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "symbolic specification as environment model for plan verification",
+      "llm_evidence_cn": "符号规范作为环境模型用于计划验证",
+      "llm_evidence": "符号规范作为环境模型用于计划验证",
+      "canonical_evidence": "符号规范作为环境模型用于计划验证",
+      "llm_tldr_en": "Uses automatically constructed BDDL specification as a cheap deterministic check for embodied task plan validity.",
+      "llm_tldr_cn": "具身任务规划中，现有方法缺乏低成本的可验证监督信号。本文提出利用从开放世界视频或人工标注自动构建的BDDL规范作为环境模型，对规划进行确定性验证，避免依赖字符串匹配或全仿真。结合符号强化学习，在多个具身规划基准上显著提高了规划有效性和效率，为可验证的具身推理提供了新思路。",
+      "llm_tldr": "具身任务规划中，现有方法缺乏低成本的可验证监督信号。本文提出利用从开放世界视频或人工标注自动构建的BDDL规范作为环境模型，对规划进行确定性验证，避免依赖字符串匹配或全仿真。结合符号强化学习，在多个具身规划基准上显著提高了规划有效性和效率，为可验证的具身推理提供了新思路。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2606.25337v1",
+      "source": "arxiv",
+      "title": "AI Coaching for Accelerating Human Skill Development with Reinforcement Learning",
+      "abstract": "AI copilots can substantially boost human performance through shared control, but excessive assistance can induce over-reliance and skill atrophy. This paper studies how an embodied AI agent can act as a coach that accelerates human motor-skill development. We argue that effective coaching requires strategic scaffolding and stepping back that are aligned with the learner's capability, allowing productive failures that drive learning. We formalize the interactive AI coaching process as a non-cooperative dynamic game in which the learner optimizes task performance while the coach targets the learner's independent competence. Building on this formalism, we develop a reinforcement learning framework combining adaptive shared control with probabilistic models of the coach's causal influence on skill evolution, enabling tractable training of coaching policies. A comprehensive user study (N=33) on first-person-view drone racing shows significant gains in human learning outcomes over state-of-the-art AI coaching baselines.",
+      "authors": [
+        "Wei Wang",
+        "Enlin Gu",
+        "Antonio Loquercio",
+        "Haimin Hu",
+        "Rahul Mangharam"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.HC"
+      ],
+      "published": "2026-06-24T03:05:22+00:00",
+      "link": "https://arxiv.org/pdf/2606.25337v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "embodied AI agent acts as coach for human motor-skill development",
+      "llm_evidence_cn": "具身AI智能体作为教练加速人类运动技能发展",
+      "llm_evidence": "具身AI智能体作为教练加速人类运动技能发展",
+      "canonical_evidence": "具身AI智能体作为教练加速人类运动技能发展",
+      "llm_tldr_en": "Formalizes AI coaching as a dynamic game and proposes RL framework with adaptive shared control to accelerate human skill development while avoiding over-reliance.",
+      "llm_tldr_cn": "AI辅助可能导致人类技能萎缩。本文将AI教练过程形式化为非合作动态博弈，提出结合自适应共享控制与概率模型的强化学习框架，在提供帮助的同时鼓励独立学习。实验表明，该方法有效加速技能发展并减少依赖。",
+      "llm_tldr": "AI辅助可能导致人类技能萎缩。本文将AI教练过程形式化为非合作动态博弈，提出结合自适应共享控制与概率模型的强化学习框架，在提供帮助的同时鼓励独立学习。实验表明，该方法有效加速技能发展并减少依赖。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.29820v1",
+      "source": "arxiv",
+      "title": "Dual-Flow Reinforcement Learning with State-Aware Exploration",
+      "abstract": "In complex continuous-control reinforcement learning tasks, multimodal optimal actions often coincide with uncertain, multimodal return distributions, making reliable value estimation and multimodal exploration challenging. Existing value estimation methods using unimodal Gaussians restrict expressiveness and yield biased estimates. Recent generative policies can represent multimodal actions but often collapse to a few modes and under-explore high-value areas of the action space. Motivated by these challenges, we propose Dual-Flow RL, a unified actor-critic framework that jointly models a continuous return distribution and a multimodal policy distribution using conditional flow matching (CFM). This design supports reliable value estimation and sustained multimodal exploration. To further enhance exploration, we introduce an Entropy-Covariance Exploration Regulator (ECER) that enables state-aware exploration regulation leveraging policy entropy and action-uncertainty covariance. Experiments on DeepMind Control Suite and Humanoid-Bench show that Dual-Flow RL achieves state-of-the-art performance on most tasks, significantly outperforming prior diffusion-based and flow-based methods.",
+      "authors": [
+        "Qijun Li",
+        "Zheng Fu",
+        "Qi Song",
+        "Yifei He",
+        "Weitao Zhou",
+        "Kun Jiang",
+        "Diange Yang"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-06-29T05:57:33+00:00",
+      "link": "https://arxiv.org/pdf/2606.29820v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "reinforcement learning with flow matching for return and policy distributions",
+      "llm_evidence_cn": "强化学习中用流匹配建模回报与策略分布",
+      "llm_evidence": "强化学习中用流匹配建模回报与策略分布",
+      "canonical_evidence": "强化学习中用流匹配建模回报与策略分布",
+      "llm_tldr_en": "Dual-Flow RL jointly models continuous return and multimodal policy distributions via conditional flow matching for reliable exploration.",
+      "llm_tldr_cn": "在连续控制强化学习中，多模态最优动作常对应不确定的多模态回报分布。现有方法使用单峰高斯导致偏差，生成策略则易于坍缩。本文提出Dual-Flow RL，利用条件流匹配联合建模回报分布与策略分布，实现可靠的价值估计和持续的多样性探索。实验表明该方法在复杂任务上提升了样本效率和最终性能。",
+      "llm_tldr": "在连续控制强化学习中，多模态最优动作常对应不确定的多模态回报分布。现有方法使用单峰高斯导致偏差，生成策略则易于坍缩。本文提出Dual-Flow RL，利用条件流匹配联合建模回报分布与策略分布，实现可靠的价值估计和持续的多样性探索。实验表明该方法在复杂任务上提升了样本效率和最终性能。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.31846v1",
+      "source": "arxiv",
+      "title": "Z-1: Efficient Reinforcement Learning for Vision-Language-Action Models",
+      "abstract": "Vision-Language-Action (VLA) models offer a promising framework for robotic manipulation by connecting language instructions, visual observations, and continuous control. However, most existing policies remain limited by behavior cloning or supervised fine-tuning (SFT) from fixed demonstrations, which provides limited opportunity to improve from the policy's own failures. In this paper, we present Z-1, a reinforcement learning (RL) post-training framework for flow-based VLA models. Built on top of $π_{0.5}$, Z-1 uses only publicly released RoboCasa demonstrations for SFT and then applies a task-wise Group Relative Policy Optimization (GRPO) strategy across $24$ standard RoboCasa tasks. To improve the efficiency and stability of online optimization, Z-1 combines shared-prefix rollout construction, tree-structured trajectory branching, completion-aware reward calibration, and selective joint training of VLM and Action Expert. Across all $24$ RoboCasa tasks, Z-1 achieves an average success rate of $80.6\\%$, improving over its SFT initialization by $13.2\\%$ points and outperforms the published sota models. These results show that systematic GRPO post-training can substantially improve flow-based VLA policies without additional private demonstrations.",
+      "authors": [
+        "Lang Cao",
+        "Renhong Chen",
+        "Luyi Li",
+        "Peng Wang",
+        "Mofan Peng",
+        "Yitong Li"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-06-30T15:46:57+00:00",
+      "link": "https://arxiv.org/pdf/2606.31846v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "reinforcement learning after behavior cloning for robotic manipulation",
+      "llm_evidence_cn": "在行为克隆后进行强化学习的机器人操作",
+      "llm_evidence": "在行为克隆后进行强化学习的机器人操作",
+      "canonical_evidence": "在行为克隆后进行强化学习的机器人操作",
+      "llm_tldr_en": "Presents Z-1, an RL post-training framework for VLA models, using GRPO on demonstrations to improve beyond behavior cloning.",
+      "llm_tldr_cn": "针对现有视觉-语言-动作模型局限于行为克隆、无法从自身错误中改进的问题，提出Z-1强化学习后训练框架，在公开的RoboCasa演示数据上进行监督微调后，采用分组相对策略优化策略在24个任务上优化，显著提升操作成功率。",
+      "llm_tldr": "针对现有视觉-语言-动作模型局限于行为克隆、无法从自身错误中改进的问题，提出Z-1强化学习后训练框架，在公开的RoboCasa演示数据上进行监督微调后，采用分组相对策略优化策略在24个任务上优化，显著提升操作成功率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "model based reinforcement learning combined with behavioral cloning",
+      "matched_requirement_id": "req-8",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2606.29940v1",
+      "source": "arxiv",
+      "title": "WARP: Whole-Body Retargeting for Learning from Offline Human Demonstrations",
+      "abstract": "Direct transfer from human demonstration to learnable robot action is a crucial step towards scalable whole-body mobile manipulation. While human data scales better than mobile teleoperation, it requires overcoming significant embodiment gaps. Existing retargeting methods yield imprecise or inconsistent solutions, causing action multi-modality that prevents supervised policies from reliably converging. We present Whole-body-Aware Retargeting from human Pose (WARP), an offline pipeline that explicitly models embodiment differences to extract precise, unique whole-body actions. WARP leverages a closed-form Shoulder-Elbow-Wrist (SEW) geometric solver for exact end-effector tracking while preserving whole-body structural intent. Paired with lazy mobile-base control, it extracts accurate, consistent robot trajectories. Evaluations show WARP provides highly reliable data for open-loop real-world replay. To our knowledge, WARP is the first framework to achieve zero-shot whole-body mobile manipulation directly from offline human demonstrations, eliminating the need for human-in-the-loop teleoperation action data. More details on https://warp-retarget.github.io/",
+      "authors": [
+        "Zhenyang Chen",
+        "Chuizheng Kong",
+        "Chuye Zhang",
+        "Yuanshao Yang",
+        "Lawrence Y. Zhu",
+        "Shreyas Kousik",
+        "Danfei Xu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-29T08:17:31+00:00",
+      "link": "https://arxiv.org/pdf/2606.29940v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "learning whole-body robot policies from offline human demonstrations",
+      "llm_evidence_cn": "从离线人体示教学习全身机器人策略",
+      "llm_evidence": "从离线人体示教学习全身机器人策略",
+      "canonical_evidence": "从离线人体示教学习全身机器人策略",
+      "llm_tldr_en": "WARP tackles embodiment gaps in learning from human demonstrations by using a closed-form geometric solver for precise whole-body retargeting, enabling supervised policy convergence.",
+      "llm_tldr_cn": "WARP提出了一种全身感知的示教重定位方法，通过闭式肩-肘-腕几何求解器精确跟踪末端执行器，同时保留全身结构意图，解决了从人体示教到机器人动作迁移中的具身差异问题。该方法可提取精确唯一的全身动作，使监督策略稳定收敛，为利用大量人体数据实现可扩展的全身移动操作奠定了基础。",
+      "llm_tldr": "WARP提出了一种全身感知的示教重定位方法，通过闭式肩-肘-腕几何求解器精确跟踪末端执行器，同时保留全身结构意图，解决了从人体示教到机器人动作迁移中的具身差异问题。该方法可提取精确唯一的全身动作，使监督策略稳定收敛，为利用大量人体数据实现可扩展的全身移动操作奠定了基础。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.29892v1",
+      "source": "arxiv",
+      "title": "Trust Your Instincts: Confidence-Driven Test-Time RL for Vision-Language-Action Models",
+      "abstract": "Reinforcement learning (RL) has become indispensable for pushing Vision-Language-Action Models (VLAs) beyond static imitation learning. However, existing RL methods typically require external environmental feedback, relying on predefined success signals to guide policy updates. In this work, we show that VLA models possess useful internal evaluative capabilities: in discrete-action VLAs, trajectories with higher generation confidence are significantly more likely to succeed. Based on this observation, we introduce T^2VLA (Test-time VLA), an architecture-agnostic test-time RL framework that enables VLA models to achieve self-bootstrapping policy improvement. Instead of relying on external rewards, T^2VLA leverages trajectory-level similarity to high-confidence expert demonstrations as an intrinsic reward signal. In addition, we propose a Confidence-Driven Dual Expert Bootstrapping mechanism, which dynamically balances a Local Pseudo-Expert for exploration and a Global Expert Pool for training stability. Extensive experiments on the LIBERO and RoboTwin benchmarks show that T^2VLA consistently outperforms supervised baselines and approaches oracle RL performance with ground-truth rewards, achieving effective improvement without external reward feedback. Furthermore, T^2VLA adapts to distinct VLA paradigms, including both OpenVLA-OFT and the pi series.",
+      "authors": [
+        "Siyao Chen",
+        "Jiakang Yuan",
+        "Jiaxin Wang",
+        "Tao Chen"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-06-29T07:31:41+00:00",
+      "link": "https://arxiv.org/pdf/2606.29892v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "test-time RL for VLA models without external rewards",
+      "llm_evidence_cn": "无需外部奖励的VLA模型测试时强化学习",
+      "llm_evidence": "无需外部奖励的VLA模型测试时强化学习",
+      "canonical_evidence": "无需外部奖励的VLA模型测试时强化学习",
+      "llm_tldr_en": "T2VLA leverages internal confidence of VLAs for self-bootstrapping policy improvement via test-time RL.",
+      "llm_tldr_cn": "本文发现视觉语言动作模型（VLA）在离散动作空间中具有内部评估能力，高置信度轨迹更可能成功。基于此提出T2VLA，一种无需外部奖励的测试时强化学习框架，通过轨迹级相似性实现自举策略改进。实验证明该方法能有效提升VLA模型性能，且不依赖任务特定奖励信号。",
+      "llm_tldr": "本文发现视觉语言动作模型（VLA）在离散动作空间中具有内部评估能力，高置信度轨迹更可能成功。基于此提出T2VLA，一种无需外部奖励的测试时强化学习框架，通过轨迹级相似性实现自举策略改进。实验证明该方法能有效提升VLA模型性能，且不依赖任务特定奖励信号。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.30238v1",
+      "source": "arxiv",
+      "title": "Sparse Sensor Placement in Multi-Agent Reinforcement Learning Control of Rayleigh-Bénard Convection",
+      "abstract": "This paper studies sparse sensor placement for control of Rayleigh-Bénard convection with multi-agent reinforcement learning. We train dense expert policies with windowed observations and distill sparse apprentice policies by supervised learning with grouped regularization on encoder input weights. The framework combines ordered non-convex grouped regularization and iterative reweighted grouped regularization, and uses a grouping construction that enforces consistent pruning across overlapping observation windows. Experiments with fixed and varying initial conditions show that Multi-Agent Transformer policies train more stably than proximal policy optimization baselines, while sparse apprentices retain control behavior comparable to dense experts. Sparsity results are strong for the proposed grouped methods across settings, including maximal sparsity in all fixed-initial-condition setting variants and maximal or near-maximal sparsity in varying-initial-condition setting variants. As an additional proof of concept, training from learned minimal sensor sets reduces per-agent observation size from 360 to 12 and preserves the overall training trend in simulation while reducing data throughput. The results provide both an interpretable basis for identifying control-relevant spatial regions and state components, and a practical pathway toward sensor-efficient control under realistic hardware constraints.",
+      "authors": [
+        "Jan Stenner",
+        "Hans Harder",
+        "Sebastian Peitz"
+      ],
+      "primary_category": "cs.MA",
+      "categories": [
+        "cs.MA"
+      ],
+      "published": "2026-06-29T12:49:35+00:00",
+      "link": "https://arxiv.org/pdf/2606.30238v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "distill sparse apprentice policies from expert via supervised learning",
+      "llm_evidence_cn": "通过监督学习从专家策略蒸馏出稀疏学徒策略",
+      "llm_evidence": "通过监督学习从专家策略蒸馏出稀疏学徒策略",
+      "canonical_evidence": "通过监督学习从专家策略蒸馏出稀疏学徒策略",
+      "llm_tldr_en": "Uses expert distillation with grouped regularization for sparse sensor placement in multi-agent RL control, showing stable policy transfer.",
+      "llm_tldr_cn": "本文研究多智能体强化学习中的稀疏传感器放置问题，通过有序非凸分组正则化训练密集专家策略，并蒸馏出稀疏学徒策略。实验表明，该方法在保持控制性能的同时大幅减少传感器数量，且学徒策略能稳定继承专家行为。",
+      "llm_tldr": "本文研究多智能体强化学习中的稀疏传感器放置问题，通过有序非凸分组正则化训练密集专家策略，并蒸馏出稀疏学徒策略。实验表明，该方法在保持控制性能的同时大幅减少传感器数量，且学徒策略能稳定继承专家行为。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.30044v1",
+      "source": "arxiv",
+      "title": "Building Multi-Task Agentic LLMs via Two-Phase Distillation",
+      "abstract": "A key step toward artificial general intelligence is to train models that can perform multiple tasks. In this paper, we study how to build such models by first training separate RL experts for individual tasks and then consolidating them via distillation, as an alternative to directly training a single model on mixed tasks. We show that off-policy distillation degrades in multi-task settings due to the mode-covering nature of forward KL: aggregating data from multiple tasks introduces a large number of behavioral modes that can exceed the student's capacity, forcing it to average across behaviors and leading to degraded performance. In contrast, on-policy distillation is mode-seeking but requires strong initialization. Inspired by these observations, we propose a two-phase approach: off-policy distillation followed by on-policy refinement. Evaluation across conversational agents and text-based games confirms that this two-phase approach matches single-task RL expert performance for each individual task, whereas off-policy or on-policy distillation alone fails to match this performance.",
+      "authors": [
+        "Huaijie Wang",
+        "Shusheng Xu",
+        "Yi Wu",
+        "Kaifeng Lyu"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-06-29T09:36:24+00:00",
+      "link": "https://arxiv.org/pdf/2606.30044v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "distills RL experts into multi-task LLM agent, combining model-based?",
+      "llm_evidence_cn": "通过蒸馏合并多个RL专家，构建多任务智能体，涉及行为克隆和策略学习",
+      "llm_evidence": "通过蒸馏合并多个RL专家，构建多任务智能体，涉及行为克隆和策略学习",
+      "canonical_evidence": "通过蒸馏合并多个RL专家，构建多任务智能体，涉及行为克隆和策略学习",
+      "llm_tldr_en": "Proposes a two-phase distillation to build multi-task agentic LLMs from separate RL experts, analyzing limitations of off-policy vs on-policy distillation.",
+      "llm_tldr_cn": "该论文针对多任务智能体构建问题，提出两阶段蒸馏方法：先训练独立RL专家，再通过蒸馏合并。发现离策略蒸馏因前向KL的模式覆盖性质导致性能退化，而在线策略蒸馏需要强初始化。实验证明了方法的有效性。该方法为多任务行为克隆和模型基强化学习提供了新视角。",
+      "llm_tldr": "该论文针对多任务智能体构建问题，提出两阶段蒸馏方法：先训练独立RL专家，再通过蒸馏合并。发现离策略蒸馏因前向KL的模式覆盖性质导致性能退化，而在线策略蒸馏需要强初始化。实验证明了方法的有效性。该方法为多任务行为克隆和模型基强化学习提供了新视角。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "model based reinforcement learning combined with behavioral cloning",
+      "matched_requirement_id": "req-8",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.30404v1",
+      "source": "arxiv",
+      "title": "HUMEMBR: Learning Human Routines for Predictive Embodied Navigation",
+      "abstract": "Understanding and navigating human-centered environments over extended periods of time while considering human behavior and routines remains a fundamental challenge in robotics. In real-world settings, robots may be asked to locate a specific individual, predict where that person is likely to be, or estimate when they typically leave a building. Addressing such queries requires reasoning over extensive histories of observations and capturing long-term behavioral patterns. To this end, we introduce Human-Centered Memory for Embodied Robots (HUMEMBR), a system designed for embodied question answering and routine-conditioned navigation. HUMEMBR integrates a continuous memory construction process with a parallel retrieval and querying mechanism, enabling the system to accumulate structured representations of human routines while supporting interactive, user-driven queries. Our experimental results indicate that HUMEMBR improves long-horizon reasoning about human behavior relative to full-context LLM baselines, while using substantially fewer tokens. Furthermore, we deploy HUMEMBR on a physical robot in two distinct environments, showing its ability to handle diverse queries and navigation tasks under real-world conditions.",
+      "authors": [
+        "Samira Huber",
+        "Klaas Pelzer",
+        "Duc M. Nguyen",
+        "Xuesu Xiao",
+        "Sören Pirk"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-29T14:50:50+00:00",
+      "link": "https://arxiv.org/pdf/2606.30404v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "world model-like memory for embodied navigation",
+      "llm_evidence_cn": "类似世界模型的内存用于具身导航",
+      "llm_evidence": "类似世界模型的内存用于具身导航",
+      "canonical_evidence": "类似世界模型的内存用于具身导航",
+      "llm_tldr_en": "Introduces HUMEMBR, a system for embodied question answering and routine-conditioned navigation using continuous memory and predictive modeling.",
+      "llm_tldr_cn": "针对具身机器人需要理解人类长期行为模式的问题，提出HUMEMBR系统，通过持续构建环境记忆并利用并行检索机制，实现基于人类日常行为的预测导航与问答。实验表明该方法能有效捕捉长周期行为模式，提升导航效率。",
+      "llm_tldr": "针对具身机器人需要理解人类长期行为模式的问题，提出HUMEMBR系统，通过持续构建环境记忆并利用并行检索机制，实现基于人类日常行为的预测导航与问答。实验表明该方法能有效捕捉长周期行为模式，提升导航效率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.31043v1",
+      "source": "arxiv",
+      "title": "Warp RL: Reshaping Base Policy Distributions for Dynamics Adaptation",
+      "abstract": "Residual reinforcement learning adapts a pretrained robot policy by learning an additive correction to its actions. While effective when adaptation amounts to shifting the base policy's action distribution, additive corrections cannot change the distribution's shape, scale, or state-dependent geometry -- limitations we formalize as wrong variance, miscalibrated confidence, and non-uniform correction. We show that these matter under dynamics shift: when the base distribution is geometrically mismatched to the shifted system, residual correction can underperform even the unadapted policy. We propose \\textbf{Warp RL}, a policy adaptation method that replaces additive residuals with an invertible, state-conditioned transformation of the base policy's action distribution. Instantiated with monotonic rational-quadratic spline flows [arXiv:0706.1234v1], Warp RL preserves identity initialization, strictly generalizes additive residual correction, and exposes a structured adaptation space suitable for both policy-gradient and gradient-free optimization. Across a variety of ManiSkill3 manipulation tasks with controlled dynamics shifts, Warp RL matches residual correction when translation is sufficient and substantially outperforms it when adaptation requires distributional reshaping. We further demonstrate that warping can replace additive correction in an off-policy sim-to-real pipeline, achieving comparable success rate with 30% faster task completion on a real-robot peg-insertion task.",
+      "authors": [
+        "Ethan Hirschowitz",
+        "Fabio Ramos"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.RO"
+      ],
+      "published": "2026-06-30T02:25:51+00:00",
+      "link": "https://arxiv.org/pdf/2606.31043v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "adapting robot policy with distribution transformation for dynamics shift",
+      "llm_evidence_cn": "通过分布变换适应机器人动力学变化",
+      "llm_evidence": "通过分布变换适应机器人动力学变化",
+      "canonical_evidence": "通过分布变换适应机器人动力学变化",
+      "llm_tldr_en": "Warp RL replaces additive residuals with invertible state-conditioned transformation to adapt robot policies under dynamics shift.",
+      "llm_tldr_cn": "残差强化学习通过加法修正适应动力学变化，但无法改变分布形状和状态依赖几何。本文提出Warp RL，利用可逆状态条件变换重塑性策略分布，克服了方差错误、置信度偏差和非均匀修正等局限。实验显示在动力学变化下Warp RL显著优于传统残差方法，为机器人策略在线适应提供了更通用的工具。",
+      "llm_tldr": "残差强化学习通过加法修正适应动力学变化，但无法改变分布形状和状态依赖几何。本文提出Warp RL，利用可逆状态条件变换重塑性策略分布，克服了方差错误、置信度偏差和非均匀修正等局限。实验显示在动力学变化下Warp RL显著优于传统残差方法，为机器人策略在线适应提供了更通用的工具。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.31144v1",
+      "source": "arxiv",
+      "title": "A Modular Vision-Language-Action Robotics Framework for Indoor Environments",
+      "abstract": "This paper presents an integrated system for the CMU Vision-Language-Action (VLA) Challenge, designed to enable an autonomous agent to perform complex tasks based on natural language instructions. Our framework employs a modular architecture that orchestrates environment mapping, question processing, and navigation. The system operates in two parallel streams: a perception pipeline that constructs a semantic voxel map from real-time camera feeds using OwlViT embeddings, and a language pipeline that classifies user commands with a Vision-Language Model. The mapping is time-constrained; the system proceeds with a partial map if a 500-second exploration limit is reached. The classified query is then grounded in the geometric and semantic context of the map to generate a detailed prompt for the VLM. This yields an actionable output, demonstrating a capable solution for bridging the gap between human language and robotic action.",
+      "authors": [
+        "Anindya Jana",
+        "Snehasis Banerjee",
+        "Arup Sadhu",
+        "Ranjan Dasgupta"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-06-30T05:17:02+00:00",
+      "link": "https://arxiv.org/pdf/2606.31144v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "Modular VLA framework integrating perception, language, and action for indoor autonomous agents",
+      "llm_evidence_cn": "模块化VLA框架，集成感知、语言与动作用于室内自主智能体",
+      "llm_evidence": "模块化VLA框架，集成感知、语言与动作用于室内自主智能体",
+      "canonical_evidence": "模块化VLA框架，集成感知、语言与动作用于室内自主智能体",
+      "llm_tldr_en": "A modular VLA framework for indoor environments constructs semantic voxel maps, classifies user commands, and plans navigation, operating under time constraints for the CMU VLA Challenge.",
+      "llm_tldr_cn": "室内自主智能体需同时处理感知、语言指令和导航。本文提出模块化VLA框架，并行运行感知流水线（构建语义体素地图）和语言流水线（分类用户命令），并将查询与几何语义上下文结合。系统在探索时间限制下工作，支持复杂任务。",
+      "llm_tldr": "室内自主智能体需同时处理感知、语言指令和导航。本文提出模块化VLA框架，并行运行感知流水线（构建语义体素地图）和语言流水线（分类用户命令），并将查询与几何语义上下文结合。系统在探索时间限制下工作，支持复杂任务。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
