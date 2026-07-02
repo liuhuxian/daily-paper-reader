@@ -1,0 +1,622 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-02T21:39:38.500525+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 10,
+    "deep_cap": 6,
+    "deep_selected": 6,
+    "quick_candidates": 9,
+    "quick_skim_target": 11,
+    "quick_selected": 9
+  },
+  "deep_dive": [
+    {
+      "id": "2607.00836v1",
+      "source": "arxiv",
+      "title": "From World Models to World Action Models: A Concise Tutorial for Robotics",
+      "abstract": "World models are increasingly used in embodied intelligence and generative simulation, yet their scope remains ambiguous across communities. This tutorial presents a design-space view of world models as action-conditioned predictive models that estimate the future evolution of task-relevant observations or states. We categorize existing methods into observation-space and state-space world models, comparing their trade-offs in visual fidelity, spatial structure, physical interpretability, and control usability. We further introduce world action models, which connect predicted futures with executable robot actions, and summarize four representative paradigms: imagine-then-execute, video-feature-conditioned action prediction, joint video-action modeling, and auxiliary video prediction for policy learning. The goal of this tutorial is to clarify the conceptual scope of world (action) models and provide a structured taxonomy for embodied prediction and control.",
+      "authors": [
+        "Xiaoxiong Zhang",
+        "Xiong Zeng",
+        "Wei Zhang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "eess.SY"
+      ],
+      "published": "2026-07-01T11:56:54+00:00",
+      "link": "https://arxiv.org/pdf/2607.00836v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 10.0,
+      "llm_evidence_en": "tutorial on world models and world action models for robotics, directly addressing internal environment models",
+      "llm_evidence_cn": "关于机器人的世界模型和世界行动模型教程，直接涉及内部环境模型",
+      "llm_evidence": "关于机器人的世界模型和世界行动模型教程，直接涉及内部环境模型",
+      "canonical_evidence": "关于机器人的世界模型和世界行动模型教程，直接涉及内部环境模型",
+      "llm_tldr_en": "A tutorial presenting design space for world models as action-conditioned predictive models, introducing world action models for robotics.",
+      "llm_tldr_cn": "这篇教程系统梳理了世界模型作为动作条件预测模型的设计空间，将现有方法分为观测空间和状态空间两大类，并比较了各自在视觉保真度、空间结构、可解释性及控制可用性上的权衡。进一步提出世界行动模型概念，连接预测未来与可执行机器人动作，总结出四种典型范式。直接对应世界模型在具身智能中的应用。",
+      "llm_tldr": "这篇教程系统梳理了世界模型作为动作条件预测模型的设计空间，将现有方法分为观测空间和状态空间两大类，并比较了各自在视觉保真度、空间结构、可解释性及控制可用性上的权衡。进一步提出世界行动模型概念，连接预测未来与可执行机器人动作，总结出四种典型范式。直接对应世界模型在具身智能中的应用。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.30421v1",
+      "source": "arxiv",
+      "title": "OWMDrive: Causality-Aware End-to-End Autonomous Driving via 4D Occupancy World Model",
+      "abstract": "Autonomous driving systems are steadily moving toward end-to-end paradigms to mitigate the limited adaptability of rule-based pipelines in complex traffic environments. However, most existing learning-based methods still make decisions from static representations of the current scene, without explicit future rollouts or modeling of the temporal causal dynamics in traffic interactions. This limitation often results in unstable or overly conservative planning under high-uncertainty conditions, such as occlusions and unexpected events. To overcome these challenges, we introduce OWMDrive, a generative end-to-end driving framework built upon an Occupancy World Model for multi-step 3D occupancy forecasting, which serves as a conditional prior to guide diffusion-based planning. Conditioned on both current observations and predicted future states, the planner iteratively refines trajectory candidates to generate a reinforced driving trajectory. By explicitly modeling scene evolution over future horizons, OWMDrive captures key spatiotemporal causal dependencies, which leads to more foresighted and robust trajectory generation. Extensive experiments demonstrate that OWMDrive significantly improves planning reliability and safety, especially in challenging and partially observable driving scenarios.",
+      "authors": [
+        "Junjie Cheng",
+        "Ruiqi Song",
+        "Ye Wu",
+        "Nanxing Zeng",
+        "Ximiao Li",
+        "Yunfeng Ai"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-29T15:05:41+00:00",
+      "link": "https://arxiv.org/pdf/2606.30421v1",
+      "tags": [
+        "keyword:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "occupancy world model for future rollout and planning in autonomous driving",
+      "llm_evidence_cn": "占用世界模型用于自动驾驶的未来展开和规划",
+      "llm_evidence": "占用世界模型用于自动驾驶的未来展开和规划",
+      "canonical_evidence": "占用世界模型用于自动驾驶的未来展开和规划",
+      "llm_tldr_en": "Introduces OWMDrive, a causal end-to-end autonomous driving framework using 4D occupancy world model for multi-step forecasting and planning.",
+      "llm_tldr_cn": "提出OWMDrive，一个基于4D占用世界模型的因果端到端自动驾驶框架。该世界模型能够进行多步3D占用预测，作为规划的条件先验。通过显式建模交通交互中的时间因果动态，在遮挡和意外事件等高不确定性条件下实现了更稳定和风险感知的规划。直接将世界模型应用于具身驾驶任务。",
+      "llm_tldr": "提出OWMDrive，一个基于4D占用世界模型的因果端到端自动驾驶框架。该世界模型能够进行多步3D占用预测，作为规划的条件先验。通过显式建模交通交互中的时间因果动态，在遮挡和意外事件等高不确定性条件下实现了更稳定和风险感知的规划。直接将世界模型应用于具身驾驶任务。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.31682v1",
+      "source": "arxiv",
+      "title": "HABIT: Human-Aware Behavior and Interaction Training Dataset for Robot Manipulation",
+      "abstract": "Large-scale demonstration datasets have been central to recent progress in general-purpose robot policies. However, existing datasets are collected in human-absent settings, and policies trained on such data may perform tasks competently in isolation but fail to exhibit human-aware behaviors. To address this gap, we introduce HABIT, a large-scale robot demonstration dataset for human-present environments. We organize tasks into three roles capturing distinct modes of human-robot interaction: Collaborator, where human and robot jointly accomplish a task; Coworker, where they pursue separate tasks in a shared space; and Supervisor, where the human directs the robot. The dataset comprises over 10K episodes and over 160 hours across 60 tasks. Our experiments show that training on human-present data elicits human-aware behaviors that robot-only data fails to produce: spatiotemporal synchronization in Collaborator tasks, yielding in Coworker tasks, and gesture grounding in Supervisor tasks. Moreover, training on HABIT enables rapid adaptation to new human-robot interaction tasks. By introducing human presence as a new axis of dataset diversity, HABIT extends robot policies to environments shared with humans.",
+      "authors": [
+        "Jaehwi Song",
+        "Suchae Jeong",
+        "Byeongguk Jeon",
+        "Sungdong Kim",
+        "Minjoon Seo",
+        "Hyungmok Son",
+        "Kimin Lee"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-30T13:58:19+00:00",
+      "link": "https://arxiv.org/pdf/2606.31682v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "large-scale demonstration dataset for human-aware robot manipulation",
+      "llm_evidence_cn": "面向人机协作的大规模机器人操作演示数据集",
+      "llm_evidence": "面向人机协作的大规模机器人操作演示数据集",
+      "canonical_evidence": "面向人机协作的大规模机器人操作演示数据集",
+      "llm_tldr_en": "HABIT dataset provides over 10K episodes of robot manipulation demonstrations in human-present environments, enabling policies with human-aware behaviors.",
+      "llm_tldr_cn": "针对现有演示数据集缺乏人类在场场景的问题，构建了HABIT数据集，包含超过10000个回合、160小时的人类-机器人交互演示，覆盖合作、共事和监督三种角色。该数据集支持训练具有人类感知能力的通用机器人策略，促进机器人在真实人类环境中安全、自然地操作。",
+      "llm_tldr": "针对现有演示数据集缺乏人类在场场景的问题，构建了HABIT数据集，包含超过10000个回合、160小时的人类-机器人交互演示，覆盖合作、共事和监督三种角色。该数据集支持训练具有人类感知能力的通用机器人策略，促进机器人在真实人类环境中安全、自然地操作。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.00457v1",
+      "source": "arxiv",
+      "title": "Multi-scale Mixture of World Models for Embodied Agents in Evolving Environments",
+      "abstract": "Embodied agents operating in the real world require multi-scale reasoning and knowledge adaptation as conditions change. We identify two challenges in applying Mixture of Experts (MoE) to this setting: routing lacks an explicit notion of scale, preventing targeted updates at specific scales, and a uniform update policy cannot accommodate the different rates at which knowledge at each scale becomes outdated. We present MuSix, a framework that addresses both challenges through scale-aware world model mixture and evolution. A two-stage routing mechanism grounds scale selection in experiential distance, a measure of situational novelty inspired by Construal Level Theory: a meta-router first maps this quantity to a weight over continuous scale space, then per-scale base routers select world models within the identified scale. For adaptation, scale-dependent forgetting rates allow low-scale knowledge to refresh rapidly while high-scale abstractions persist, and gated inter-scale transfer maintains coherence across the hierarchy. Experiments on EmbodiedBench and HAZARD show that MuSix improves over state-of-the-art baselines on multi-scale reasoning and dynamic adaptation.",
+      "authors": [
+        "Jinwoo Jang",
+        "Daniel J. Rho",
+        "Sihyung Yoon",
+        "Hyunsuk Cho",
+        "Honguk Woo"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-07-01T05:23:56+00:00",
+      "link": "https://arxiv.org/pdf/2607.00457v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "multi-scale world models for embodied agents",
+      "llm_evidence_cn": "多尺度世界模型用于具身智能体",
+      "llm_evidence": "多尺度世界模型用于具身智能体",
+      "canonical_evidence": "多尺度世界模型用于具身智能体",
+      "llm_tldr_en": "Proposes MuSix, a framework with scale-aware world model mixture and evolution for embodied agents, addressing multi-scale reasoning and knowledge adaptation.",
+      "llm_tldr_cn": "本文提出MuSix框架，针对具身智能体在变化环境中的多尺度推理和知识适应问题，通过尺度感知的世界模型混合与演化机制，利用经验距离度量情境新颖性，实现跨尺度知识更新。该框架有效提升了具身智能体在动态环境中的适应性和规划能力。",
+      "llm_tldr": "本文提出MuSix框架，针对具身智能体在变化环境中的多尺度推理和知识适应问题，通过尺度感知的世界模型混合与演化机制，利用经验距离度量情境新颖性，实现跨尺度知识更新。该框架有效提升了具身智能体在动态环境中的适应性和规划能力。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.00678v1",
+      "source": "arxiv",
+      "title": "ABot-M0.5: Unified Mobility-and-Manipulation World Action Model",
+      "abstract": "Mobile manipulation is a key capability for general-purpose robots, yet remains challenging for current embodied learning methods. VLA policies are typically reactive and lack explicit world modeling, while existing World Action Models (WAMs) are still poorly aligned with the structure of mobile manipulation: they operate on coarse video chunks, model entangled navigation-manipulation actions, and train inverse dynamics under supervision that does not match autoregressive inference. As a result, they often miss fine-grained contact dynamics, suffer from action-distribution conflicts, and accumulate errors over long-horizon rollouts. We propose ABot-M0.5, a new WAM built on the insight that mobile manipulation requires alignment at three levels: temporal granularity, action space, and train-test consistency. To align temporal granularity, we introduce intermediate latent actions that capture local visual state transitions and serve as an bridging action space between video latents and embodiment-specific controls. To align action space, we design a dual-level Mixture-of-Transformers architecture that disentangles both modality representations and heterogeneous action subspaces such as base movement and arm manipulation. To align inference conditions, we propose the dream-forcing training strategy that progressively trains inverse dynamics on model-predicted videos, improving train-test alignment and robustness during autoregressive prediction. Experiments on challenging mobile and fine-grained manipulation benchmarks demonstrate that ABot-M0.5 achieves state-of-the-art performance in both long-horizon task success and finegrained control accuracy. These results highlight the critical importance of granularity-aligned, action-disentangled, and inference-consistent world-action modeling.",
+      "authors": [
+        "Ronghan Chen",
+        "Yandan Yang",
+        "Zuojin Tang",
+        "Dongjie Huo",
+        "Tong Lin",
+        "Haoning Wu",
+        "Haoyun Liu",
+        "Yuzhi Chen",
+        "Lulu Zheng",
+        "Botai Yuan",
+        "Tianlun Li",
+        "Mingxin Wang",
+        "Dekang Qi",
+        "Bin Hu",
+        "Wei Mei",
+        "Yuze Xuan",
+        "Haolong Yang",
+        "Yanqing Zhu",
+        "Mu Xu",
+        "Zhiheng Ma",
+        "Xinyuan Chang"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.RO"
+      ],
+      "published": "2026-07-01T09:21:20+00:00",
+      "link": "https://arxiv.org/pdf/2607.00678v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "World Action Model for mobile manipulation integrating learned world dynamics",
+      "llm_evidence_cn": "用于移动操作的世界动作模型，整合学习的世界动力学",
+      "llm_evidence": "用于移动操作的世界动作模型，整合学习的世界动力学",
+      "canonical_evidence": "用于移动操作的世界动作模型，整合学习的世界动力学",
+      "llm_tldr_en": "ABot-M0.5 proposes a unified World Action Model for mobile manipulation with alignment at temporal granularity, action distribution, and autoregressive inference, reducing error accumulation.",
+      "llm_tldr_cn": "该论文针对移动操作中缺乏显式世界模型、现有世界动作模型粒度不匹配等问题，提出ABot-M0.5，在时间粒度、动作分布和自回归推理三个层面进行对齐。实验表明该模型在长期滚动中显著减少误差积累，提升了移动操作任务的性能。贡献在于为具身智能中的世界模型应用提供了更精准的动作预测能力。",
+      "llm_tldr": "该论文针对移动操作中缺乏显式世界模型、现有世界动作模型粒度不匹配等问题，提出ABot-M0.5，在时间粒度、动作分布和自回归推理三个层面进行对齐。实验表明该模型在长期滚动中显著减少误差积累，提升了移动操作任务的性能。贡献在于为具身智能中的世界模型应用提供了更精准的动作预测能力。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.30749v1",
+      "source": "arxiv",
+      "title": "From Grasps to Dexterity: Large-Scale Grasp Pretraining for Dexterous Manipulation",
+      "abstract": "Large-scale dexterous grasp datasets encode rich priors over hand-object interaction, but their use has largely been confined to grasp generation and pick-and-place manipulation. We study whether such data can instead support functional dexterity in articulated tool use, where a robot must acquire a tool, maintain contact, and operate its functional moving parts. We adapt a hierarchical imitation learning framework that combines high-level hand sub-goal prediction with a low-level goal-conditioned controller. We construct a 355k-trajectory grasp-pretraining dataset from large-scale dexterous grasp annotations and use it to pretrain the low-level controller. The controller is then fine-tuned on downstream task demonstrations. To evaluate this setting, we introduce DexCraft, a simulation benchmark with six articulated tool-use tasks requiring coordinated finger motion. Across simulation and real-world experiments, our approach outperforms end-to-end diffusion policy baselines and hierarchical policies trained from scratch. In the real world, it improves full-task success by 33.3 percentage points over DP3. These results show that grasp datasets can serve not only as resources for grasp synthesis, but also as scalable pretraining data for contact-rich dexterous manipulation. Videos are shown on https://yingyuan0414.github.io/grasp2dexterity/ .",
+      "authors": [
+        "Ying Yuan",
+        "Xinyu Liu",
+        "Sriram Krishna",
+        "David Held"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-29T18:00:22+00:00",
+      "link": "https://arxiv.org/pdf/2606.30749v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "hierarchical imitation learning for dexterous manipulation",
+      "llm_evidence_cn": "层次化模仿学习用于灵巧操作",
+      "llm_evidence": "层次化模仿学习用于灵巧操作",
+      "canonical_evidence": "层次化模仿学习用于灵巧操作",
+      "llm_tldr_en": "Uses large-scale grasp pretraining to enable dexterous tool manipulation via hierarchical imitation learning, fine-tuned on downstream tasks.",
+      "llm_tldr_cn": "本文利用大规模灵巧抓取数据集预训练低层控制器，结合高层次手部子目标预测的层次化模仿学习框架，实现了从抓取到功能性工具使用的灵巧操作迁移。实验表明，预训练显著提升了下游任务的成功率和泛化能力。",
+      "llm_tldr": "本文利用大规模灵巧抓取数据集预训练低层控制器，结合高层次手部子目标预测的层次化模仿学习框架，实现了从抓取到功能性工具使用的灵巧操作迁移。实验表明，预训练显著提升了下游任务的成功率和泛化能力。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2606.31377v1",
+      "source": "arxiv",
+      "title": "Stage-Transition Dense Reward Modeling for Reinforcement Learning",
+      "abstract": "Reinforcement learning for long-horizon robotic manipulation is often limited by sparse and delayed rewards, while manually designing dense shaping signals is costly and brittle to changes in environments and object configurations. This work proposes Stage-Transition Dense Reward (STDR), a visual reward-learning framework that converts unstructured expert videos into logically grounded dense rewards for training RL agents from scratch. STDR leverages semantic understanding to infer a task's stage structure from demonstrations, and delivers two complementary learning signals during online training: (i) stage-transition feedback that provides goal-directed reward, and (ii) within-stage progress feedback that supplies fine-grained guidance toward completing each stage. Furthermore, an out-of-distribution (OOD) detection mechanism and a grasping regulation module are integrated to enhance robustness and prevent reward hacking. Experiments on 14 manipulation tasks across MetaWorld, ManiSkill, and Franka Kitchen show that STDR consistently improves sample efficiency and success rates over multiple baselines, and matches or surpasses handcrafted dense rewards on several challenging tasks. Real-robot evaluations further indicate that STDR assigns stable, progress-aligned rewards on successful executions while producing appropriately low rewards for failures, suggesting robustness to visual noise and better-calibrated reward assignment across settings.",
+      "authors": [
+        "Yang Yang",
+        "Bingjie Chen",
+        "Zihan Wang",
+        "Yizhe Li",
+        "Guoping Pan",
+        "Yi Cheng",
+        "Houde Liu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-06-30T09:07:19+00:00",
+      "link": "https://arxiv.org/pdf/2606.31377v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "reward learning from expert videos for RL in long-horizon manipulation",
+      "llm_evidence_cn": "从专家视频中学习奖励信号用于长时程机器人操作强化学习",
+      "llm_evidence": "从专家视频中学习奖励信号用于长时程机器人操作强化学习",
+      "canonical_evidence": "从专家视频中学习奖励信号用于长时程机器人操作强化学习",
+      "llm_tldr_en": "Stage-Transition Dense Reward uses expert videos to infer task stage structure and provides both stage-transition and within-stage progress rewards for training RL agents from scratch in long-horizon manipulation.",
+      "llm_tldr_cn": "Stage-Transition Dense Reward (STDR)利用专家视频通过语义理解推断任务的阶段结构，并生成阶段转换和阶段内进度两种互补的稠密奖励信号，用于从零开始训练强化学习智能体。在长时程机器人操作任务中，STDR显著提升了样本效率和最终性能，减轻了对人工设计奖励函数的依赖。该方法为利用视频演示进行强化学习奖励设计提供了有效途径。",
+      "llm_tldr": "Stage-Transition Dense Reward (STDR)利用专家视频通过语义理解推断任务的阶段结构，并生成阶段转换和阶段内进度两种互补的稠密奖励信号，用于从零开始训练强化学习智能体。在长时程机器人操作任务中，STDR显著提升了样本效率和最终性能，减轻了对人工设计奖励函数的依赖。该方法为利用视频演示进行强化学习奖励设计提供了有效途径。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2606.31132v1",
+      "source": "arxiv",
+      "title": "ELASTIC: Efficiently Learning to Adaptively Scale Test-Time Compute for Generative Control Policies",
+      "abstract": "Generative control policies (GCPs), such as diffusion policies and flow-based vision-language-action models, enable test-time scaling in robot control. Test-time compute can be allocated along two axes: sequential scaling, which increases denoising steps to refine actions, and parallel scaling, which samples multiple candidate actions to search across modes of the policy distribution. However, the optimal allocation of sequential and parallel compute is hard to know a priori as it is state-, task-, and policy-dependent. For example, early stages of a grasp may benefit from broader parallel exploration, while near-contact phases may require more sequential refinement for precision. We present ELASTIC, an algorithm that learns state-dependent test-time compute schedules for GCPs. We formulate compute allocation as a meta-Markov Decision Process in which a meta-policy interacts with a frozen pretrained robot policy and selects sequential steps and parallel samples at each denoising iteration to maximize task success while minimizing compute. Using reinforcement learning, this meta-policy also learns adaptive compute schedules without access to the GCP's training data. Across simulated manipulation benchmarks with diffusion policies, ELASTIC Pareto-dominates fixed and single-axis scaling baselines at matched compute budgets. On real-world robot manipulation with the $π_{0.5}$ vision-language-action model, ELASTIC matches best-of-$10$ success while reducing wall-clock latency by 34%.",
+      "authors": [
+        "Andrew Zou Li",
+        "Gokul Swamy",
+        "Yonatan Bisk",
+        "Andrea Bajcsy"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-30T05:00:32+00:00",
+      "link": "https://arxiv.org/pdf/2606.31132v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "learning generative control policies from demonstrations",
+      "llm_evidence_cn": "从演示中学习生成控制策略",
+      "llm_evidence": "从演示中学习生成控制策略",
+      "canonical_evidence": "从演示中学习生成控制策略",
+      "llm_tldr_en": "Introduces ELASTIC, which learns to adaptively allocate test-time compute for generative control policies, improving action quality.",
+      "llm_tldr_cn": "本文提出ELASTIC算法，自适应学习生成控制策略（如扩散策略）在测试时的计算分配，根据状态选择顺序和并行计算量，从而在保持效率的同时提升动作质量。实验表明，该方法在机器人操作任务中优于固定分配策略。",
+      "llm_tldr": "本文提出ELASTIC算法，自适应学习生成控制策略（如扩散策略）在测试时的计算分配，根据状态选择顺序和并行计算量，从而在保持效率的同时提升动作质量。实验表明，该方法在机器人操作任务中优于固定分配策略。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.25357v1",
+      "source": "arxiv",
+      "title": "Compositional Behavioral Semantics for State Abstraction in Reinforcement Learning",
+      "abstract": "State abstraction plays a key role in scaling reinforcement learning to complex but structured systems. In studying such systems, a wide range of behavioral structures have been studied in reinforcement learning, including value functions, invariants, bisimulation relations, and behavioral metrics. However, a general principle for determining what structures are provably preserved under state abstraction is still lacking. In this paper, we present a unified framework for defining and analyzing behavioral structures in reinforcement learning. Our framework provides a compositional way to specify behavioral semantics based on local, one-step descriptions of system dynamics. Using this framework, we establish results showing how behavioral structures can be safely transferred between abstract and concrete systems. We further show how to construct quantitative metrics from logical behavioral semantics with soundness guarantees. Together, these results provide a principled foundation for reasoning about behaviors under state abstraction in reinforcement learning and offer reusable definition and proof principles for a broad class of behavioral structures in reinforcement learning.",
+      "authors": [
+        "Yivan Zhang",
+        "Ziyan Luo",
+        "Manuel Baltieri"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "math.CT"
+      ],
+      "published": "2026-06-24T03:43:47+00:00",
+      "link": "https://arxiv.org/pdf/2606.25357v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "theoretical framework for state abstraction in RL with dynamics",
+      "llm_evidence_cn": "强化学习中基于动力学状态抽象的理论框架",
+      "llm_evidence": "强化学习中基于动力学状态抽象的理论框架",
+      "canonical_evidence": "强化学习中基于动力学状态抽象的理论框架",
+      "llm_tldr_en": "A unified compositional framework for behavioral semantics in RL state abstraction, ensuring preservation of value functions and invariants under abstraction based on local dynamics.",
+      "llm_tldr_cn": "该论文针对强化学习中的状态抽象问题，提出一个统一的行为语义框架，基于局部一步动力学描述来定义行为结构。该框架支持组合式语义规范，并证明多种行为结构（如价值函数、不变量、双模拟关系）在抽象下得以保留。该工作为可解释和可迁移的RL提供了理论基础。",
+      "llm_tldr": "该论文针对强化学习中的状态抽象问题，提出一个统一的行为语义框架，基于局部一步动力学描述来定义行为结构。该框架支持组合式语义规范，并证明多种行为结构（如价值函数、不变量、双模拟关系）在抽象下得以保留。该工作为可解释和可迁移的RL提供了理论基础。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.00351v1",
+      "source": "arxiv",
+      "title": "Unleashing More Actions via Action Compositional Training for VLA Models",
+      "abstract": "Vision-Language-Action models excel at robotic manipulation, driven by the scale and diversity of demonstration data. However, standard training paradigms often cause VLA models to severely overfit to specific behavioral patterns, rendering them unable to generalize to out-of-distribution scenarios even when those scenarios merely require novel combinations of identical sub-skills. While expanding datasets can mitigate this overfitting, acquiring high-quality robot data remains notoriously labor-intensive and cost-prohibitive. To resolve this impasse without expensive human teleoperation and to truly unleash more actions,i.e., enable VLA models to compose known sub-skills into a much broader set of executable behaviors beyond the original demonstrations-we propose ACT-VLA (Action Compositional Training for VLA Models), an offline data augmentation framework that leverages the model's latent task representations to synthesize novel, physically valid demonstrations directly from existing tasks for policy training. By eliminating additional manual data collection, our method automatically expands the training distribution and mitigates overfitting. We evaluate our approach on challenging manipulation tasks in simulation. Experiments demonstrate that while baseline VLA models generalize poorly due to original distribution overfitting, policies trained with our synthesized data achieve substantially higher success rates, validating that leveraging existing tasks for automated demonstration synthesis provides an effective, scalable, and data-efficient route to broadening VLA generalization.",
+      "authors": [
+        "Kai Peng",
+        "Jie Lu",
+        "Xiaojiang Peng"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-01T02:48:17+00:00",
+      "link": "https://arxiv.org/pdf/2607.00351v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "learning policies from expert demonstrations via action compositional training",
+      "llm_evidence_cn": "通过动作组合训练从专家演示学习策略",
+      "llm_evidence": "通过动作组合训练从专家演示学习策略",
+      "canonical_evidence": "通过动作组合训练从专家演示学习策略",
+      "llm_tldr_en": "Proposes action compositional training for VLA models to combine sub-skills from demonstrations, enabling generalization to new combinations.",
+      "llm_tldr_cn": "本文针对VLA模型在演示数据上过拟合的问题，提出动作组合训练方法，通过强制模型学习子技能的可组合性，使模型能够泛化到训练中未见过的动作组合，无需额外演示数据。实验证明该方法显著提升了零样本组合泛化能力。",
+      "llm_tldr": "本文针对VLA模型在演示数据上过拟合的问题，提出动作组合训练方法，通过强制模型学习子技能的可组合性，使模型能够泛化到训练中未见过的动作组合，无需额外演示数据。实验证明该方法显著提升了零样本组合泛化能力。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2606.31958v1",
+      "source": "arxiv",
+      "title": "Adapting Generalist Robot Policies with Semantic Reinforcement Learning",
+      "abstract": "Generalist robot policies learn a diverse repertoire of behaviors from large-scale pretraining. In principle, this makes them excellent priors for downstream adaptation via reinforcement learning (RL). In practice, however, standard RL methods leveraging this prior optimize directly over robot actions, requiring the base policy's action distribution to be close to that of a performant policy from the start. This assumption breaks down for complex or long-horizon tasks that fall outside the pretraining distribution. Our key insight is that, for sufficiently expressive generalist policies, language prompts are an effective alternative space for learning to solve such tasks: modulating language inputs elicits skills already within the policy's repertoire, which can be composed to solve tasks beyond its zero-shot capabilities. We propose Semantic Action Reinforcement Learning (SARL), which learns to optimize this prompt space through online interaction, treating the generalist policy as a controllable skill prior. Importantly, leveraging pretrained skills rather than learning new ones from scratch yields structured, semantically meaningful exploration and highly efficient online improvement, and learning to modulate prompts through experience grounds them in induced real-world behaviors for robust task-solving. Across real-world settings and simulated benchmarks, we show SARL unlocks fundamentally new capabilities -- adapting VLA behavior to solve complex, long-horizon tasks -- and significantly outperforms existing approaches for improving robot behavior in deployment.",
+      "authors": [
+        "Jagdeep Singh Bhatia",
+        "Andrew Wagenmaker",
+        "William Chen",
+        "Sergey Levine"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-30T17:00:33+00:00",
+      "link": "https://arxiv.org/pdf/2606.31958v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "adapting robot policies via RL from expert demonstrations as prior",
+      "llm_evidence_cn": "通过强化学习从专家演示先验中适应机器人策略",
+      "llm_evidence": "通过强化学习从专家演示先验中适应机器人策略",
+      "canonical_evidence": "通过强化学习从专家演示先验中适应机器人策略",
+      "llm_tldr_en": "Adapting generalist robot policies with semantic RL using language prompts as action space for efficient task learning.",
+      "llm_tldr_cn": "本文针对通用机器人策略在复杂任务上适应难的问题，提出语义强化学习方法，将语言提示作为动作空间，利用策略已有的技能库。通过优化语言提示来调用合适技能，无需直接修改动作分布，在长期复杂任务上有效提升性能。",
+      "llm_tldr": "本文针对通用机器人策略在复杂任务上适应难的问题，提出语义强化学习方法，将语言提示作为动作空间，利用策略已有的技能库。通过优化语言提示来调用合适技能，无需直接修改动作分布，在长期复杂任务上有效提升性能。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.28196v1",
+      "source": "arxiv",
+      "title": "Learning Stable In-Grasp Manipulation in a Non-Dropping Action Space",
+      "abstract": "Traditionally, dexterous manipulation controllers are designed using analytic models constrained by strong assumptions about the hand and the objects being manipulated. Reinforcement learning (RL) has become another common approach in which skills are explored openly in an end-to-end manner but is inefficient because of unnoticeable instability and conflicts in learning objectives. This paper attempts to efficiently explore stable and accurate manipulation skills by decomposing dexterous skills into multiple simpler/analyzable components. Each skill component is subsequently learned with constraints and guidance from classical physics and control theory. Our work shows that for stable grasp, in-grasp reposition/reorientation with different objects, sensor/motor noise, latency, and frictional conditions, skill learning becomes efficient and stable with prior knowledge from theory.",
+      "authors": [
+        "Ha Thang Long Doan",
+        "Hikaru Arita",
+        "Kazuto Nakashima",
+        "Kenji Tahara"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-26T15:43:55+00:00",
+      "link": "https://arxiv.org/pdf/2606.28196v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "reinforcement learning with physics-guidance for manipulation",
+      "llm_evidence_cn": "结合物理引导的强化学习用于操作",
+      "llm_evidence": "结合物理引导的强化学习用于操作",
+      "canonical_evidence": "结合物理引导的强化学习用于操作",
+      "llm_tldr_en": "Decomposes dexterous manipulation into components learned with RL and physics constraints, achieving stable in-grasp reorientation.",
+      "llm_tldr_cn": "本文提出将灵巧操作技能分解为更简单的组件，每个组件在经典物理和控制理论约束下通过强化学习学习，从而高效探索稳定且准确的操作技能。实验表明，该方法在稳定抓取和物体重定位上优于端到端RL。",
+      "llm_tldr": "本文提出将灵巧操作技能分解为更简单的组件，每个组件在经典物理和控制理论约束下通过强化学习学习，从而高效探索稳定且准确的操作技能。实验表明，该方法在稳定抓取和物体重定位上优于端到端RL。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.01060v1",
+      "source": "arxiv",
+      "title": "RoboWorld: Fast and Reliable Neural Simulators for Generalist Robot Policy Evaluation",
+      "abstract": "Video world models are emerging as a scalable alternative for evaluating generalist robot policies, bypassing the physical constraints and engineering burdens of real-world deployment. However, evaluating policies with video world models remains challenging, as world-model errors can make generated rollouts unreliable and slow inference limits large-scale throughput. We introduce RoboWorld, an automated evaluation pipeline that pairs a fast autoregressive video world model with a task-progress-aware vision-language model scoring. To enable reliable long-horizon autoregressive world-model rollouts, we propose Step Forcing, which combines anchored and one-step self-forwarded contexts to reduce train--test mismatch while preserving action--observation dynamics. Together, these components enable RoboWorld to align strongly with real-world robot evaluation across tasks and environments, achieving Pearson's r = 0.989 and Spearman's \\r{ho} = 0.970.",
+      "authors": [
+        "Byeongguk Jeon",
+        "Seonghyeon Ye",
+        "JaeHyeok Doo",
+        "Sungdong Kim",
+        "Minjoon Seo",
+        "Hyungmok Son",
+        "Kimin Lee"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-01T15:22:41+00:00",
+      "link": "https://arxiv.org/pdf/2607.01060v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "video world model as internal environment simulator for robot policy evaluation",
+      "llm_evidence_cn": "视频世界模型作为内部环境模拟器用于机器人策略评估",
+      "llm_evidence": "视频世界模型作为内部环境模拟器用于机器人策略评估",
+      "canonical_evidence": "视频世界模型作为内部环境模拟器用于机器人策略评估",
+      "llm_tldr_en": "RoboWorld provides a fast and reliable video world model pipeline for evaluating generalist robot policies, using Step Forcing for reliable long-horizon rollouts.",
+      "llm_tldr_cn": "视频世界模型为通用机器人策略评估提供了可扩展替代方案，但存在误差累积和推理慢的问题。RoboWorld结合快速自回归视频世界模型与任务进度感知VLM评分器，提出Step Forcing技术减少训练-测试不匹配，实现可靠长程推演，加速策略评估。",
+      "llm_tldr": "视频世界模型为通用机器人策略评估提供了可扩展替代方案，但存在误差累积和推理慢的问题。RoboWorld结合快速自回归视频世界模型与任务进度感知VLM评分器，提出Step Forcing技术减少训练-测试不匹配，实现可靠长程推演，加速策略评估。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2607.00342v1",
+      "source": "arxiv",
+      "title": "Semantic-based Internet of Embodied Intelligence: Visions and Frontiers",
+      "abstract": "Recent advances in generative artificial intelligence (AI) and embodied intelligence (EI) enable autonomous agents to interact with the physical world. However, scaling these systems into networks of multiple agents, namely the Internet of EI (IoEI), faces critical bottlenecks. These include the overhead of massive multimodal data transmission and the decoupling of logical reasoning from physical constraints. To address these challenges, we envision the Semantic-based IoEI (SIoEI), which leverages semantic information as a unified metric throughout the agent lifecycle. We systematically define four key dimensions of EI: perception, intelligence, control, and communication. We further elaborate how semantic empowerment revolutionizes environmental perception, cognition and task planning, action generation and robust control, and communication and networking. We also present a case study to verify that, the semantic-empowered end-to-end process significantly improves channel robustness and reduces end-to-end latency for EI. Finally, we outline critical open research directions for the SIoEI paradigm.",
+      "authors": [
+        "Yaheng Wang",
+        "Rui Meng",
+        "Xiaodong Xu",
+        "Yiming Liu",
+        "Feiliang Song",
+        "Linyuan Hu",
+        "Huishi Song",
+        "Lexi Xu",
+        "Tony Q. S. Quek",
+        "Ping Zhang"
+      ],
+      "primary_category": "eess.SP",
+      "categories": [
+        "eess.SP"
+      ],
+      "published": "2026-07-01T02:32:48+00:00",
+      "link": "https://arxiv.org/pdf/2607.00342v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "AI integrated with physical agents and sensors via semantic internet",
+      "llm_evidence_cn": "通过语义互联网将AI与物理智能体和传感器集成",
+      "llm_evidence": "通过语义互联网将AI与物理智能体和传感器集成",
+      "canonical_evidence": "通过语义互联网将AI与物理智能体和传感器集成",
+      "llm_tldr_en": "Envisions Semantic-based Internet of Embodied Intelligence (SIoEI) using semantic information as a unified metric, defining four key dimensions.",
+      "llm_tldr_cn": "本文提出基于语义的具身智能互联网（SIoEI）愿景，利用语义信息作为统一度量，系统定义了感知、智能、控制和通信四个关键维度，旨在解决大规模多智能体系统的多模态数据传输和物理约束解耦瓶颈。",
+      "llm_tldr": "本文提出基于语义的具身智能互联网（SIoEI）愿景，利用语义信息作为统一度量，系统定义了感知、智能、控制和通信四个关键维度，旨在解决大规模多智能体系统的多模态数据传输和物理约束解耦瓶颈。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.01225v1",
+      "source": "arxiv",
+      "title": "Language-Critique Imitation Learning from Suboptimal Demonstrations",
+      "abstract": "Prior work on imitation learning from suboptimal demonstrations typically relies on compressed supervision signals such as confidence estimates, discriminator scores, or importance weights. These scalar signals are inherently limited, as they cannot explicitly express intermediate reasoning about task progress, failure modes, or corrective actions. We propose a language-critique framework for imitation learning from suboptimal demonstrations that instead leverages natural language as a structured supervision signal, avoiding the collapse of expressive feedback into scalars. Our method first constructs language labels from demonstrations that explicitly describe current progress, identify suboptimal behaviors, and provide fine-grained corrective guidance. We then introduce a language-critique loss that directly trains policies using these structured signals without reducing them to scalars, and instantiate it for both behavior cloning and diffusion policies, yielding LC-BC and LC-DP. We further provide a theoretical result showing that the proposed objective upper-bounds the expert performance gap under standard assumptions. Empirically, we evaluate on diverse continuous control tasks spanning navigation, manipulation, and gameplay, where our methods consistently outperform strong imitation learning and offline reinforcement learning baselines. These results demonstrate that language can serve as a powerful and structured form of supervision for learning robust policies from suboptimal data.",
+      "authors": [
+        "Chih-Han Yang",
+        "Dai-Jie Wu",
+        "Yun-Ping Huang",
+        "Ping-Chun Hsieh",
+        "Kenneth Marino",
+        "Shao-Hua Sun"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-07-01T17:57:22+00:00",
+      "link": "https://arxiv.org/pdf/2607.01225v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "Imitation learning from suboptimal demonstrations using language critique",
+      "llm_evidence_cn": "使用语言批评从次优演示进行模仿学习",
+      "llm_evidence": "使用语言批评从次优演示进行模仿学习",
+      "canonical_evidence": "使用语言批评从次优演示进行模仿学习",
+      "llm_tldr_en": "Proposes a language-critique framework that uses natural language as structured supervision to improve imitation learning from suboptimal demonstrations.",
+      "llm_tldr_cn": "该论文针对次优演示中传统标量监督信号表达能力不足的问题，提出基于语言批评的模仿学习框架。通过从演示中自动生成描述进度、次优行为和纠正指导的语言标签，利用自然语言作为结构化监督。在机器人操作任务上，该方法优于基于标量信号的方法，有效利用了次优演示。",
+      "llm_tldr": "该论文针对次优演示中传统标量监督信号表达能力不足的问题，提出基于语言批评的模仿学习框架。通过从演示中自动生成描述进度、次优行为和纠正指导的语言标签，利用自然语言作为结构化监督。在机器人操作任务上，该方法优于基于标量信号的方法，有效利用了次优演示。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    }
+  ]
+}
