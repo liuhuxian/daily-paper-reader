@@ -1,0 +1,584 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-03T21:34:39.738081+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 9,
+    "deep_cap": 6,
+    "deep_selected": 6,
+    "quick_candidates": 8,
+    "quick_skim_target": 11,
+    "quick_selected": 8
+  },
+  "deep_dive": [
+    {
+      "id": "2606.28804v1",
+      "source": "arxiv",
+      "title": "ViPSim: Collaborating Visual and Parameter Spaces for Consistent Long-Horizon Embodied World Models",
+      "abstract": "Embodied World Models (EWMs) have emerged as a scalable and risk-free paradigm for advancing embodied intelligence, enabling the safety-critical evaluation of Vision-Language-Action systems. However, their reliability as evaluation benchmarks and foundational simulators is often hindered by the representation gap between low-dimensional actions and high-dimensional video synthesis. This gap results in a lack of geometric correspondence, manifesting as accumulated trajectory drift and inconsistent robot-object interactions during long-horizon rollouts. To bridge this gap, we propose ViPSim, a framework that achieves consistent long-horizon generation through the synergistic collaboration of Visual and Parameter Spaces. We define the Visual Space as a domain of explicit spatial priors, integrating pixel-aligned projections of end-effector pose, camera perspectives, depth-informed scene geometry, and robotic morphological masks to provide dense structural grounding. Concurrently, the Parameter Space serves as a domain of numerical drivers, injecting raw action sequences and camera matrices to provide precise motion guidance. By unifying these two spaces, ViPSim ensures that the generated states are simultaneously anchored by geometric boundaries and steered by numerical commands. Extensive experiments demonstrate that ViPSim is backbone-agnostic and significantly enhances trajectory consistency. Notably, our approach exhibits emergent capabilities in generating complex interactions with deformable objects (e.g., cloth folding) and maintains robust performance in out-of-distribution and cross-embodiment scenarios, providing a high-fidelity foundation for the automated evaluation and predictive control of embodied agents.",
+      "authors": [
+        "Longyu Chen",
+        "Heng Li",
+        "Wei Yang",
+        "Manqi Zhao",
+        "Dongsheng Jiang"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.RO"
+      ],
+      "published": "2026-06-27T08:18:09+00:00",
+      "link": "https://arxiv.org/pdf/2606.28804v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "internal environment models for planning and prediction",
+      "llm_evidence_cn": "用于规划和预测的内部环境模型",
+      "llm_evidence": "用于规划和预测的内部环境模型",
+      "canonical_evidence": "用于规划和预测的内部环境模型",
+      "llm_tldr_en": "ViPSim bridges the representation gap in embodied world models by collaborating visual and parameter spaces for consistent long-horizon generation.",
+      "llm_tldr_cn": "具身世界模型在长程rollout中因表示间隙常出现轨迹漂移和交互不一致。本文提出ViPSim框架，通过视觉空间与参数空间的协同合作，实现长程一致的视频生成。实验表明该方法显著提升了几何对应性和交互稳定性，为具身智能安全评估提供了可靠的世界模型基础。",
+      "llm_tldr": "具身世界模型在长程rollout中因表示间隙常出现轨迹漂移和交互不一致。本文提出ViPSim框架，通过视觉空间与参数空间的协同合作，实现长程一致的视频生成。实验表明该方法显著提升了几何对应性和交互稳定性，为具身智能安全评估提供了可靠的世界模型基础。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.30457v1",
+      "source": "arxiv",
+      "title": "Behavior Prompting Policy: Demonstrations as Prompts for Manipulation",
+      "abstract": "We study behavior prompting, a paradigm that enables robots to perform new tasks at inference time given a single human demonstration, which we call a behavior prompt. To enable this capability, we present contributions in algorithm, data, and evaluation. For algorithm, we introduce Behavior Prompting Policy (BPP), an in-context visuomotor architecture that translates the behavior prompt and the current observation into robot actions. For data, we identify that task diversity is the primary driver of the prompting capability and introduce iPhUMI, a handheld manipulation interface for collecting diverse training data. For evaluation, we introduce DrawAnything and LIBERO-Gen to evaluate test-time adaptation to unseen drawing and tabletop manipulation tasks. We also demonstrate that iPhUMI serves as a practical interface for specifying behavior prompts at test time, enabling a human to command a robot via a single demonstration to complete known tasks or to define new robot capabilities. Altogether, behavior prompting provides a flexible and scalable way to teach robots new skills without the need for expensive fine-tuning. Our project website is located at https://behavior-prompting.github.io/ .",
+      "authors": [
+        "Austin Patel",
+        "Ben Pekarek",
+        "Joel Enrique Castro Hernandez",
+        "Shuran Song"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-29T15:23:44+00:00",
+      "link": "https://arxiv.org/pdf/2606.30457v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "behavior prompting policy using single human demonstration as prompt for manipulation",
+      "llm_evidence_cn": "行为提示策略，将单次人类演示作为提示用于操作",
+      "llm_evidence": "行为提示策略，将单次人类演示作为提示用于操作",
+      "canonical_evidence": "行为提示策略，将单次人类演示作为提示用于操作",
+      "llm_tldr_en": "BPP is an in-context visuomotor architecture that enables robots to perform new tasks given a single human demonstration as a behavior prompt.",
+      "llm_tldr_cn": "提出行为提示（behavior prompting）范式，使机器人能在推理时仅凭借单次人类演示（行为提示）执行新任务。算法上提出行为提示策略（BPP），一种上下文视觉运动架构，将演示和当前观测映射为动作。数据上开发iPhUMI手持接口收集多样化训练数据。在绘图和桌面操作任务上验证了零样本泛化能力。",
+      "llm_tldr": "提出行为提示（behavior prompting）范式，使机器人能在推理时仅凭借单次人类演示（行为提示）执行新任务。算法上提出行为提示策略（BPP），一种上下文视觉运动架构，将演示和当前观测映射为动作。数据上开发iPhUMI手持接口收集多样化训练数据。在绘图和桌面操作任务上验证了零样本泛化能力。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.00836v2",
+      "source": "arxiv",
+      "title": "From World Models to World Action Models: A Concise Tutorial for Robotics",
+      "abstract": "World models are increasingly used in embodied intelligence and generative simulation, yet their scope remains ambiguous across communities. This tutorial presents a design-space view of world models as action-conditioned predictive models that estimate the future evolution of task-relevant observations or states. We categorize existing methods into observation-space and state-space world models, comparing their trade-offs in visual fidelity, spatial structure, physical interpretability, and control usability. We further introduce world action models, which connect predicted futures with executable robot actions, and summarize four representative paradigms: imagine-then-execute, video-feature-conditioned action prediction, joint video-action modeling, and auxiliary video prediction for policy learning. The goal of this tutorial is to clarify the conceptual scope of world (action) models and provide a structured taxonomy for embodied prediction and control.",
+      "authors": [
+        "Xiaoxiong Zhang",
+        "Xiong Zeng",
+        "Wei Zhang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "eess.SY"
+      ],
+      "published": "2026-07-01T11:56:54+00:00",
+      "link": "https://arxiv.org/pdf/2607.00836v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Tutorial on world models for robotics, covering design space and paradigms",
+      "llm_evidence_cn": "面向机器人学的世界模型教程，涵盖设计空间与范式",
+      "llm_evidence": "面向机器人学的世界模型教程，涵盖设计空间与范式",
+      "canonical_evidence": "面向机器人学的世界模型教程，涵盖设计空间与范式",
+      "llm_tldr_en": "Provides a comprehensive tutorial on world models and world action models for robotics, categorizing methods and outlining four paradigms for connecting prediction to action.",
+      "llm_tldr_cn": "本文是一篇系统性的世界模型教程，面向机器人学领域。它从设计空间角度定义世界模型为动作条件预测模型，分类梳理观测空间和状态空间方法，并引入世界动作模型连接预测与行动。总结出四种代表性范式，为具身智能体利用内部环境模型进行规划和控制提供清晰指南。",
+      "llm_tldr": "本文是一篇系统性的世界模型教程，面向机器人学领域。它从设计空间角度定义世界模型为动作条件预测模型，分类梳理观测空间和状态空间方法，并引入世界动作模型连接预测与行动。总结出四种代表性范式，为具身智能体利用内部环境模型进行规划和控制提供清晰指南。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.01938v1",
+      "source": "arxiv",
+      "title": "PhysMani: Physics-principled 3D World Model for Dynamic Object Manipulation",
+      "abstract": "Manipulating fast and dynamically moving targets in unstructured 3D environments remains challenging for embodied AI. Existing visual-language-action models and world models struggle with accurate 3D geometry and physically meaningful forecasting. We propose PhysMani, a framework that couples a physics-principled 3D Gaussian world model with a future-aware action policy model. The world model learns a divergence-free Gaussian velocity field via online optimization for fast and physically grounded future dynamics prediction. The policy model integrates the predicted 3D scene future dynamics through a learnable token based cross-attention module. We introduce PhysMani-Bench, a dynamic manipulation benchmark with 16 tasks, and demonstrate a superior success rate over strong baselines in both simulation and real-world robot experiments.",
+      "authors": [
+        "Peng Yun",
+        "Shouwang Huang",
+        "Hao Li",
+        "Jinxi Li",
+        "Jianan Wang",
+        "Bo Yang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.CL",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "published": "2026-07-02T09:32:39+00:00",
+      "link": "https://arxiv.org/pdf/2607.01938v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "physics-principled 3D world model for dynamic object manipulation in embodied AI",
+      "llm_evidence_cn": "基于物理原理的3D世界模型用于具身智能中的动态物体操作",
+      "llm_evidence": "基于物理原理的3D世界模型用于具身智能中的动态物体操作",
+      "canonical_evidence": "基于物理原理的3D世界模型用于具身智能中的动态物体操作",
+      "llm_tldr_en": "PhysMani couples a physics-principled 3D Gaussian world model with a future-aware action policy for dynamic manipulation, achieving superior performance on 16 tasks.",
+      "llm_tldr_cn": "针对具身智能中快速动态目标操作挑战，PhysMani提出将物理原理启发的3D高斯世界模型与未来感知动作策略模型耦合。世界模型通过在线优化学习无散度高斯速度场，实现快速且物理可信的未来动态预测；策略模型通过可学习token的交叉注意模块融合预测的3D场景未来动态。在包含16个任务的基准上表现优越。",
+      "llm_tldr": "针对具身智能中快速动态目标操作挑战，PhysMani提出将物理原理启发的3D高斯世界模型与未来感知动作策略模型耦合。世界模型通过在线优化学习无散度高斯速度场，实现快速且物理可信的未来动态预测；策略模型通过可学习token的交叉注意模块融合预测的3D场景未来动态。在包含16个任务的基准上表现优越。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.02403v1",
+      "source": "arxiv",
+      "title": "ACID: Action Consistency via Inverse Dynamics for Planning with World Models",
+      "abstract": "Decision-time planning with action-conditioned world models has become a popular paradigm for embodied control. However, the standard planning cost judges a candidate solely by how close its predicted terminal state lies to the goal, leaving the realizability of the intermediate transitions unchecked -- a predicted trajectory can look convincing while the environment rollout drifts away from it. In this paper, we propose ACID, a decision-time planning framework that introduces cycle action consistency: the action inferred backward from a predicted transition by an inverse dynamics model should recover the one that was conditioned on. We fold this per-step residual into the planning cost via a scale-invariant adaptive weight. Across four action-conditioned world models and six tasks spanning rigid and deformable manipulation, articulated control, and visual navigation, ACID consistently improves planning and matches the baseline's accuracy with substantially less planning compute.",
+      "authors": [
+        "Gawon Seo",
+        "Dongwon Kim",
+        "Suha Kwak"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.CV"
+      ],
+      "published": "2026-07-02T16:38:10+00:00",
+      "link": "https://arxiv.org/pdf/2607.02403v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "cycle action consistency with inverse dynamics for decision-time planning using world models",
+      "llm_evidence_cn": "基于逆动力学的循环动作一致性用于世界模型决策规划",
+      "llm_evidence": "基于逆动力学的循环动作一致性用于世界模型决策规划",
+      "canonical_evidence": "基于逆动力学的循环动作一致性用于世界模型决策规划",
+      "llm_tldr_en": "ACID improves world-model-based planning by enforcing cycle consistency between forward action and backward inferred action via inverse dynamics, enhancing trajectory realizability.",
+      "llm_tldr_cn": "基于世界模型的决策规划通常只考虑终点接近目标，忽略中间轨迹的可实现性。ACID引入逆动力学模型，要求前向动作与反向推断动作一致，作为规划成本的约束。在多个动作控制任务上，ACID显著提升了规划轨迹的执行准确性和任务成功率。",
+      "llm_tldr": "基于世界模型的决策规划通常只考虑终点接近目标，忽略中间轨迹的可实现性。ACID引入逆动力学模型，要求前向动作与反向推断动作一致，作为规划成本的约束。在多个动作控制任务上，ACID显著提升了规划轨迹的执行准确性和任务成功率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.02431v1",
+      "source": "arxiv",
+      "title": "WorldSample: Closed-loop Real-robot RL with World Modelling",
+      "abstract": "Reinforcement learning (RL) can overcome the demonstration-coverage limitation of imitation learning (IL) by allowing robots to improve through trial-and-error interaction beyond the states observed in demonstrations. However, deploying RL on real robots remains constrained by high interaction costs, since each physical rollout is costly and reflects only one realized action-outcome path. To address this challenge, we propose WorldSample, a physically grounded data augmentation framework for real-robot RL that closes a real-synthetic loop between physical rollouts, world-model generation, and policy improvement. Grounded on real rollouts, WorldSample generates high-fidelity synthetic transitions through a post-trained world model, which greatly lowers the visual hallucination. Specifically, rather than simply using these transitions as real-world experience, WorldSample introduces Policy-Paced Learning (PPL) to regulate the training process through sample selection and scheduling, balancing useful augmentation against value overestimation and mitigating the hallucination-induced noise. Experiments on robot manipulation tasks involving contact-rich and precise tasks show that WorldSample improves policy success rate by 28% while reducing training steps by 59% compared with baselines. Furthermore, WorldSample improves world model visual fidelity by 19.4dB in PSNR and 0.47 in SSIM over demonstration-only post-training, validating the effectiveness of the real-synthetic loop for both policy and world model performance.",
+      "authors": [
+        "Yuquan Xue",
+        "Le Xu",
+        "Zeyi Liu",
+        "Zhenyu Wu",
+        "Zhengyi Gu",
+        "Xinyang Song",
+        "Bofang Jia",
+        "Ziwei Wang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-07-02T17:00:37+00:00",
+      "link": "https://arxiv.org/pdf/2607.02431v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "model based RL combined with behavioral cloning",
+      "llm_evidence_cn": "结合行为克隆的基于模型的强化学习",
+      "llm_evidence": "结合行为克隆的基于模型的强化学习",
+      "canonical_evidence": "结合行为克隆的基于模型的强化学习",
+      "llm_tldr_en": "WorldSample closes the loop between real rollouts, world model generation, and policy improvement for efficient real-robot RL.",
+      "llm_tldr_cn": "真实机器人强化学习因交互成本高昂而受限。本文提出WorldSample，在真实rollout、世界模型生成和策略改进之间形成闭环，利用后训练世界模型生成高保真合成转移。实验表明该方法大幅降低真实交互需求，显著提升策略性能，是模型强化学习与模仿学习的有效融合。",
+      "llm_tldr": "真实机器人强化学习因交互成本高昂而受限。本文提出WorldSample，在真实rollout、世界模型生成和策略改进之间形成闭环，利用后训练世界模型生成高保真合成转移。实验表明该方法大幅降低真实交互需求，显著提升策略性能，是模型强化学习与模仿学习的有效融合。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "model based reinforcement learning combined with behavioral cloning",
+      "matched_requirement_id": "req-8",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2607.01051v1",
+      "source": "arxiv",
+      "title": "AutoSpeed: Annotation-Free Stage-Adaptive Motion Speed Learning for Robot Manipulation",
+      "abstract": "Different stages of manipulation tasks exhibit varying levels of difficulty, suggesting stage-dependent motion speeds and temporal prediction horizons. However, existing IL-based visuomotor policies typically imitate the execution speed of expert demonstrations and operate with a fixed temporal prediction horizon, limiting flexibility and overall task throughput. In this paper, we introduce AutoSpeed, a model-agnostic learning framework that enables existing visuomotor policies to predict trajectories with stage-adaptive motion speeds, without requiring speed or stage annotations. We treat future trajectories at different speeds as candidate optimization targets, evaluate each candidate using a composite cost that trades off prediction error against prediction horizon, and optimize the policy toward the minimum-cost candidate. With a fixed-length action sequence, speed modulation adjusts the effective temporal prediction horizon: simple stages are executed faster with a longer prediction horizon, whereas complex stages are executed more slowly with a shorter prediction horizon. Specifically, we implement speed modulation in the frequency domain via the discrete cosine transform (DCT), which enables smooth, non-integer speed scaling and thus preserves motion continuity. Extensive evaluations show that AutoSpeed substantially reduces task execution time while also improving success rates. Under the AutoSpeed framework, the inferred motion speeds exhibit a strong correspondence with task stages.",
+      "authors": [
+        "Qingda Hu",
+        "Ziheng Qiu",
+        "Jieru Zhao",
+        "Zhongxue Gan",
+        "Wenchao Ding"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-01T15:13:12+00:00",
+      "link": "https://arxiv.org/pdf/2607.01051v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "imitation learning for robot manipulation with adaptive speed",
+      "llm_evidence_cn": "自适应速度的模仿学习用于机器人操作",
+      "llm_evidence": "自适应速度的模仿学习用于机器人操作",
+      "canonical_evidence": "自适应速度的模仿学习用于机器人操作",
+      "llm_tldr_en": "AutoSpeed enables stage-adaptive motion speeds in imitation learning policies without speed/stage annotations.",
+      "llm_tldr_cn": "现有基于模仿学习的视觉运动策略通常固定模仿专家执行速度，限制了吞吐量。本文提出AutoSpeed，一种模型无关的学习框架，使现有视觉运动策略能够预测具有阶段自适应运动速度的轨迹，无需速度或阶段标注。它将不同速度的未来轨迹作为候选目标，通过权衡预测质量和执行时间的复合成本选择最优速度。实验表明，AutoSpeed在保持成功率的条件下提升了任务吞吐量。",
+      "llm_tldr": "现有基于模仿学习的视觉运动策略通常固定模仿专家执行速度，限制了吞吐量。本文提出AutoSpeed，一种模型无关的学习框架，使现有视觉运动策略能够预测具有阶段自适应运动速度的轨迹，无需速度或阶段标注。它将不同速度的未来轨迹作为候选目标，通过权衡预测质量和执行时间的复合成本选择最优速度。实验表明，AutoSpeed在保持成功率的条件下提升了任务吞吐量。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2606.31919v1",
+      "source": "arxiv",
+      "title": "MVP-Nav: Multi-layer Value Map Planner Navigator",
+      "abstract": "Zero-shot Object Goal Navigation (ZSON) with RGB-only perception poses a fundamental challenge for embodied agents, as the absence of explicit depth information introduces severe physical uncertainty and semantic-physical misalignment. Existing approaches either rely on high-level semantic reasoning without geometric grounding or learn end-to-end policies that lack explicit physical constraints, often resulting in semantically plausible but physically unsafe behaviors. In this paper, we propose MVP-Nav, a physical-aware RGB-only navigation framework that aligns perception, planning, and control with the real 3D world. MVP-Nav reconstructs explicit physical occupancy from monocular observations by leveraging 3D foundation models to project 2D semantic instances into 3D oriented bounding boxes, forming a global spatial semantic representation. To unify high-level semantic reasoning and low-level physical constraints, we introduce a Multi-layer Value Map (MVM) that integrates semantic priorities and reconstructed geometry into a shared cost space, enabling physically grounded geometric planning. Extensive experiments on zero-shot object navigation benchmarks demonstrate that MVP-Nav significantly outperforms existing depth-free methods, achieving state-of-the-art performance and validating that structured physical priors can effectively compensate for the absence of active depth sensors.",
+      "authors": [
+        "Wenyuan Xie",
+        "Shaokai Wu",
+        "Yijin Zhou",
+        "Yanbiao Ji",
+        "Guodong Zhang",
+        "Bayram Bayramli",
+        "Qiuchang Li",
+        "Xunchu Zhou",
+        "Yue Ding",
+        "Hongtao Lu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.CV"
+      ],
+      "published": "2026-06-30T16:25:47+00:00",
+      "link": "https://arxiv.org/pdf/2606.31919v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "physical-aware RGB-only navigation framework that reconstructs explicit physical occupancy for planning",
+      "llm_evidence_cn": "物理感知的仅RGB导航框架，重建显式物理占用用于规划",
+      "llm_evidence": "物理感知的仅RGB导航框架，重建显式物理占用用于规划",
+      "canonical_evidence": "物理感知的仅RGB导航框架，重建显式物理占用用于规划",
+      "llm_tldr_en": "MVP-Nav enables zero-shot object goal navigation with RGB sensors by reconstructing 3D occupancy from monocular images for collision-free planning.",
+      "llm_tldr_cn": "零样本目标导航中，仅使用RGB感知缺乏深度信息，导致物理不确定性和语义物理错位。MVP-Nav利用3D基础模型将2D语义实例投影到3D方向，重建显式物理占用地图，实现物理感知的路径规划，在导航任务中达到高成功率且避免碰撞。",
+      "llm_tldr": "零样本目标导航中，仅使用RGB感知缺乏深度信息，导致物理不确定性和语义物理错位。MVP-Nav利用3D基础模型将2D语义实例投影到3D方向，重建显式物理占用地图，实现物理感知的路径规划，在导航任务中达到高成功率且避免碰撞。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.29570v1",
+      "source": "arxiv",
+      "title": "Hierarchical Policy Learning via Spectral Decomposition",
+      "abstract": "In this paper, we identify a semantic decomposition in robot action sequences, separating task-level motion intent from execution-level refinements. By analyzing actions in the spectral domain using the discrete cosine transform (DCT), we observe that low-frequency components capture global motion trajectories, while high-frequency components encode precise timing, alignment, and contact behaviors. Motivated by this structure, we propose Causal Spectral Policy (CSP), which models action generation as a causal coarse-to-fine process: coarse motion is predicted from observation and language, and fine corrections are generated conditionally on the realized trajectory. Across simulation and real-world evaluations, CSP consistently outperforms strong baselines on precision-sensitive manipulation tasks. Additionally, we propose human-inspired teleoperation noise injection as a data augmentation method, under which our approach demonstrates strong robustness to noisy demonstrations.",
+      "authors": [
+        "Shuxin Cao",
+        "Liquan Wang",
+        "Walker Byrnes",
+        "Yiye Chen",
+        "Yilun Du",
+        "Animesh Garg"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-28T19:22:40+00:00",
+      "link": "https://arxiv.org/pdf/2606.29570v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "hierarchical policy learning with coarse-to-fine generation",
+      "llm_evidence_cn": "层次化策略学习与从粗到细生成",
+      "llm_evidence": "层次化策略学习与从粗到细生成",
+      "canonical_evidence": "层次化策略学习与从粗到细生成",
+      "llm_tldr_en": "CSP models action generation as causal coarse-to-fine process using spectral decomposition, outperforming baselines on precise robotic tasks.",
+      "llm_tldr_cn": "机器人动作序列包含任务级运动意图与执行级精调。本文利用离散余弦变换将动作分解为低频轨迹与高频细节，提出因果谱策略（CSP），按先粗后细方式生成动作。在仿真与真实机器人任务中，CSP在精度指标上显著优于现有方法，验证了谱分解在策略学习中的有效性。",
+      "llm_tldr": "机器人动作序列包含任务级运动意图与执行级精调。本文利用离散余弦变换将动作分解为低频轨迹与高频细节，提出因果谱策略（CSP），按先粗后细方式生成动作。在仿真与真实机器人任务中，CSP在精度指标上显著优于现有方法，验证了谱分解在策略学习中的有效性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.01651v1",
+      "source": "arxiv",
+      "title": "One Demonstration Is Enough for Real-World Robotic Reinforcement Learning",
+      "abstract": "Learning effective robot control policies on physical hardware is challenging due to costly data collection and the difficulty of reward specification. Prior work has incorporated demonstrations into reinforcement learning (RL), yet existing approaches either require large numbers of demonstrations or depend on continuous human intervention during training. To address these limitations, we present AutoSERL, a framework that leverages a single demonstration to fully automate the intervention process in real-world robot RL. The framework includes three complementary mechanisms to accomplish certain tasks: a sliding window intervention mechanism that continuously guides exploration to prevent local optima and unsafe deviations, a safety recovery mechanism that detects and corrects failure states via predefined trajectory recovery points, and an intervention termination criterion that automatically disables guidance once the policy can independently complete the task, preserving its exploration advantage. We evaluate AutoSERL on six contact-intensive manipulation tasks across two robot platforms, spanning insertion, hanging, and hinge-based tasks. AutoSERL consistently outperforms SERL initialized with 20 demonstrations, behavior cloning, and MILES -- a dedicated one-shot imitation learning baseline -- across all tasks while matching HIL-SERL, achieves 100% success rate on insertion tasks, and demonstrates improved robustness to positional variations, all from a single demonstration. Code and videos are available on our project website: https://autoserl.github.io/.",
+      "authors": [
+        "Yuwan Liu",
+        "Hongze Yu",
+        "Song Liu",
+        "Yuhan Wang",
+        "Junge Zhang",
+        "Yaodong Yang",
+        "Yuanpei Chen",
+        "Ceyao Zhang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-02T03:23:40+00:00",
+      "link": "https://arxiv.org/pdf/2607.01651v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "single demonstration real-world robotic RL with automated intervention",
+      "llm_evidence_cn": "单次示范的真实世界机器人强化学习与自动干预",
+      "llm_evidence": "单次示范的真实世界机器人强化学习与自动干预",
+      "canonical_evidence": "单次示范的真实世界机器人强化学习与自动干预",
+      "llm_tldr_en": "AutoSERL leverages a single demonstration to automate intervention in real-world robot RL, achieving efficient learning with minimal human effort.",
+      "llm_tldr_cn": "针对真实世界机器人强化学习数据收集昂贵且奖励设计困难的问题，AutoSERL框架利用单次人类示范完全自动化干预过程。包含滑动窗口干预、安全恢复等机制，引导探索避免局部最优和危险偏离。在真实机器人上仅需一次示范即可有效学习策略。",
+      "llm_tldr": "针对真实世界机器人强化学习数据收集昂贵且奖励设计困难的问题，AutoSERL框架利用单次人类示范完全自动化干预过程。包含滑动窗口干预、安全恢复等机制，引导探索避免局部最优和危险偏离。在真实机器人上仅需一次示范即可有效学习策略。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2607.02501v1",
+      "source": "arxiv",
+      "title": "Embodied.cpp: A Portable Inference Runtime of Embodied AI Models on Heterogeneous Robots",
+      "abstract": "Embodied AI models now span vision-language-action (VLA) models and world-action models (WAMs), but practical deployment remains fragmented across model-specific Python stacks, backend assumptions, and robot-side glue code, especially on heterogeneous edge devices. Existing inference runtimes are designed mainly for request-response serving and therefore do not satisfy the runtime contract of embodied deployment: multi-rate execution inside closed-loop control, latency-first batch-1 inference on heterogeneous hardware, and extensible embodied interfaces beyond fixed token I/O. We present Embodied.cpp, a portable C++ inference runtime for embodied models. Based on an architectural analysis of representative VLA models and WAMs, Embodied.cpp captures a shared execution path and organizes it into five layers: input adapters, sequence builders, backbone execution, head plugins, and deployment adapters. The runtime provides modular multi-rate execution, latency-first fused inference, and extensible operator and I/O support, enabling deployment across heterogeneous devices, robots, and simulators through one backend abstraction. We evaluate Embodied.cpp on two VLA models, HY-VLA and pi0.5, and on a preliminary WAM benchmark using a LingBot-VA Transformer block. The VLA deployments achieve successful closed-loop execution with 100.0% and 91.0% task success rates, respectively. The WAM benchmark reduces block memory from 312.2 MiB to 88.1 MiB. These results show that Embodied.cpp improves deployment efficiency while preserving high accuracy across diverse embodied model architectures.",
+      "authors": [
+        "Ling Xu",
+        "Chuyu Han",
+        "Borui Li",
+        "Hao Wu",
+        "Shiqi Jiang",
+        "Ting Cao",
+        "Chuanyou Li",
+        "Sheng Zhong",
+        "Shuai Wang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV",
+        "cs.OS"
+      ],
+      "published": "2026-07-02T17:58:28+00:00",
+      "link": "https://arxiv.org/pdf/2607.02501v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "Runtime inference engine for world action models in embodied AI",
+      "llm_evidence_cn": "面向具身AI世界动作模型的推理运行时",
+      "llm_evidence": "面向具身AI世界动作模型的推理运行时",
+      "canonical_evidence": "面向具身AI世界动作模型的推理运行时",
+      "llm_tldr_en": "Embodied.cpp provides a portable C++ inference runtime for embodied AI models (VLA and WAM), addressing deployment challenges on heterogeneous robots with multi-rate closed-loop control and low-latency inference.",
+      "llm_tldr_cn": "现有具身AI模型部署面临Python栈碎片化和推理运行时不满足闭环控制需求的问题。本文提出Embodied.cpp，一个可移植C++推理运行时，支持VLA模型和世界动作模型(WAM)在异构机器人上的部署。其设计考虑多速率执行、低延迟批处理1推理和可扩展接口，使得世界模型在具身智能系统中的实际应用成为可能。该工作为世界模型的工程落地提供了关键基础设施。",
+      "llm_tldr": "现有具身AI模型部署面临Python栈碎片化和推理运行时不满足闭环控制需求的问题。本文提出Embodied.cpp，一个可移植C++推理运行时，支持VLA模型和世界动作模型(WAM)在异构机器人上的部署。其设计考虑多速率执行、低延迟批处理1推理和可扩展接口，使得世界模型在具身智能系统中的实际应用成为可能。该工作为世界模型的工程落地提供了关键基础设施。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.31043v2",
+      "source": "arxiv",
+      "title": "Warp RL: Reshaping Base Policy Distributions for Dynamics Adaptation",
+      "abstract": "Residual reinforcement learning adapts a pretrained robot policy by learning an additive correction to its actions. While effective when adaptation amounts to shifting the base policy's action distribution, additive corrections cannot change the distribution's shape, scale, or state-dependent geometry -- limitations we formalize as wrong variance, miscalibrated confidence, and non-uniform correction. We show that these matter under dynamics shift: when the base distribution is geometrically mismatched to the shifted system, residual correction can underperform even the unadapted policy. We propose Warp RL, a policy adaptation method that replaces additive residuals with an invertible, state-conditioned transformation of the base policy's action distribution. Instantiated with monotonic rational-quadratic spline flows (arXiv:1906.04032), Warp RL preserves identity initialization, strictly generalizes additive residual correction, and exposes a structured adaptation space suitable for both policy-gradient and gradient-free optimization. Across a variety of ManiSkill3 manipulation tasks with controlled dynamics shifts, Warp RL matches residual correction when translation is sufficient and substantially outperforms it when adaptation requires distributional reshaping. We further demonstrate that warping can replace additive correction in an off-policy sim-to-real pipeline, achieving comparable success rate with 30% faster task completion on a real-robot peg-insertion task.",
+      "authors": [
+        "Ethan Hirschowitz",
+        "Fabio Ramos"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.RO"
+      ],
+      "published": "2026-06-30T02:25:51+00:00",
+      "link": "https://arxiv.org/pdf/2606.31043v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "reinforcement learning with dynamics adaptation for policy distribution",
+      "llm_evidence_cn": "强化学习中的动力学适应策略分布重塑",
+      "llm_evidence": "强化学习中的动力学适应策略分布重塑",
+      "canonical_evidence": "强化学习中的动力学适应策略分布重塑",
+      "llm_tldr_en": "Proposes Warp RL, a method that replaces additive residuals in residual RL with an invertible state-conditioned transformation to better adapt to dynamics shifts.",
+      "llm_tldr_cn": "现有残差强化学习在动力学偏移时因只能做加法修正而效果不佳。本文提出Warp RL，用可逆状态条件变换替代加法残差，重塑基策略的动作分布以适应新动力学。实验表明该方法在动力学偏移下优于残差修正和无修正的基策略，为策略适应提供了新思路。",
+      "llm_tldr": "现有残差强化学习在动力学偏移时因只能做加法修正而效果不佳。本文提出Warp RL，用可逆状态条件变换替代加法残差，重塑基策略的动作分布以适应新动力学。实验表明该方法在动力学偏移下优于残差修正和无修正的基策略，为策略适应提供了新思路。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.02092v1",
+      "source": "arxiv",
+      "title": "Guided Action Flow: Q-Guided Inference for Flow-Matching Vision-Language-Action Policies",
+      "abstract": "Flow-matching vision-language-action policies generate robot action chunks through an iterative transport process, creating an opportunity for test-time guidance without retraining the base policy. We study this opportunity in Guided Action Flow, an inference-time framework that keeps a pretrained SmolVLA policy frozen and uses a learned action-chunk critic to guide its reverse-time flow sampler. The critic is trained from real success and failure rollouts, can condition on task-description features from the frozen SmolVLA language pathway, and is used only through action gradients during sampling. We evaluate the approach on LIBERO manipulation tasks. A single-task critic improves success from 68.0% to 82.0% on one seed window and from 82.0% to 86.0% on another. A multi-family task-description critic improves validation success from 46.0% to 56.0%, while the locked held-out test gain is positive but modest, from 65.0% to 67.5%. These results support the feasibility of Q-guided inference for frozen flow-matching VLA policies, while showing that critic generalization and uncertainty-aware guidance remain the central bottlenecks.",
+      "authors": [
+        "Liuhaichen Yang",
+        "Zhuang Jiang",
+        "Chenchao Sheng",
+        "Zezhi Tang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-07-02T12:30:50+00:00",
+      "link": "https://arxiv.org/pdf/2607.02092v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "Test-time guidance for flow-matching VLA policies in manipulation",
+      "llm_evidence_cn": "流匹配VLA策略的测试时引导用于操作任务",
+      "llm_evidence": "流匹配VLA策略的测试时引导用于操作任务",
+      "canonical_evidence": "流匹配VLA策略的测试时引导用于操作任务",
+      "llm_tldr_en": "Applies a learned action-chunk critic to guide frozen flow-matching VLA policies at inference time, improving LIBERO manipulation success rates without retraining.",
+      "llm_tldr_cn": "本文提出Guided Action Flow框架，在预训练的流匹配VLA策略推理时，使用学习的动作片段评论家通过梯度引导采样过程。该方法无需重新训练基策略，仅靠测试时引导就能提升操作成功率。在LIBERO基准上，单任务评论家将成功率从68.0%提升至82.0%。",
+      "llm_tldr": "本文提出Guided Action Flow框架，在预训练的流匹配VLA策略推理时，使用学习的动作片段评论家通过梯度引导采样过程。该方法无需重新训练基策略，仅靠测试时引导就能提升操作成功率。在LIBERO基准上，单任务评论家将成功率从68.0%提升至82.0%。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2607.02466v1",
+      "source": "arxiv",
+      "title": "Learning to Move Before Learning to Do: Task-Agnostic pretraining for VLAs",
+      "abstract": "Vision-Language-Action (VLA) models are fundamentally bottlenecked by the scarcity of expert demonstrations -- triplets of observations, instructions, and actions that are costly to collect at scale. We argue that this bottleneck stems from conflating two distinct learning objectives: acquiring physical competence (how to move) and acquiring semantic alignment (what to do). Crucially, only the latter requires language supervision. Building on this Decomposition Hypothesis, we propose Task-Agnostic Pretraining (TAP), a two-stage framework that first learns transferable motor priors from cheap, unlabeled interaction data -- including discarded off-task trajectories and autonomous robot play -- via a self-supervised Inverse Dynamics objective. A lightweight second stage then grounds these priors in language using minimal expert data. On the SIMPLER benchmark, TAP matches models trained on over 1M expert trajectories while using orders of magnitude less labeled data, yielding a 10% absolute gain over standard behavior cloning. On a real-world WidowX platform, TAP retains 25% success under camera perturbations where internet-scale baselines collapse to 0%, demonstrating that task-agnostic pretraining produces robust, transferable physical representations and offers a scalable path forward for Embodied AI.",
+      "authors": [
+        "Junhao Shi",
+        "Siyin Wang",
+        "Xiaopeng Yu",
+        "Li Ji",
+        "Jingjing Gong",
+        "Xipeng Qiu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-07-02T17:33:37+00:00",
+      "link": "https://arxiv.org/pdf/2607.02466v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "task-agnostic pretraining with inverse dynamics to learn motor priors for visuomotor control",
+      "llm_evidence_cn": "基于逆动力学的任务无关预训练，学习用于视觉运动控制的运动先验",
+      "llm_evidence": "基于逆动力学的任务无关预训练，学习用于视觉运动控制的运动先验",
+      "canonical_evidence": "基于逆动力学的任务无关预训练，学习用于视觉运动控制的运动先验",
+      "llm_tldr_en": "TAP pretrains motor priors from unlabeled interaction data via inverse dynamics, improving few-shot imitation learning for vision-language-action models.",
+      "llm_tldr_cn": "视觉-语言-动作模型（VLA）受限于昂贵的专家演示。TAP提出将“如何移动”和“做什么”解耦，通过自监督逆动力目标从未标记交互数据（包括离轨轨迹和自主探索）中学习可迁移的运动先验，再结合少量语言标注数据实现高效模仿学习，显著降低VLA对专家演示的依赖。",
+      "llm_tldr": "视觉-语言-动作模型（VLA）受限于昂贵的专家演示。TAP提出将“如何移动”和“做什么”解耦，通过自监督逆动力目标从未标记交互数据（包括离轨轨迹和自主探索）中学习可迁移的运动先验，再结合少量语言标注数据实现高效模仿学习，显著降低VLA对专家演示的依赖。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
