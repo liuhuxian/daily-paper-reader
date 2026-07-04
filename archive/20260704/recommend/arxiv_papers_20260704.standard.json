@@ -1,0 +1,300 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-04T21:12:19.278985+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 1,
+    "deep_cap": 6,
+    "deep_selected": 1,
+    "quick_candidates": 6,
+    "quick_skim_target": 11,
+    "quick_selected": 6
+  },
+  "deep_dive": [
+    {
+      "id": "2607.02195v1",
+      "source": "arxiv",
+      "title": "Bridge-WA: Predicting Where and How the World Changes for Robotic Action",
+      "abstract": "General-purpose vision-language-action models benefit from large vision-language priors, but effective manipulation also requires anticipating action-relevant scene changes. Existing world-action models often rely on large generative world models or dense future rollouts, which are expensive and spend capacity on visual details weakly coupled to control. We present Bridge-WA, a lightweight world-action framework that distills a frozen future-change teacher into three compact priors: future tokens for intended outcomes, change maps for intervention support, and motion-flow maps for local transition direction. A WorldBridge conditions the action transformer on these priors through multi-source attention memories and spatial-temporal biases, while the teacher model is removed at inference. Across VLABench, RoboTwin2.0, LIBERO-Plus and real-robot evaluations, Bridge-WA improves task success, progress, and robustness, with particularly clear gains under out-of-distribution visual shifts. By focusing action generation on where and how the scene will change, Bridge-WA suppresses nuisance appearance factors such as background, lighting, and distractors, leading to better generalization without deployment-time dense future-image generation. Code and visualizations are available at: https://hcplab-sysu.github.io/BRIDGE-WA .",
+      "authors": [
+        "Yongjie Bai",
+        "Hanting Wang",
+        "Mingtong Dai",
+        "Qijun Zhong",
+        "Yang Liu",
+        "Liang Lin"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-02T14:03:44+00:00",
+      "link": "https://arxiv.org/pdf/2607.02195v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world-action framework predicting where and how the world changes for action",
+      "llm_evidence_cn": "世界-动作框架预测世界变化位置和方式以指导动作",
+      "llm_evidence": "世界-动作框架预测世界变化位置和方式以指导动作",
+      "canonical_evidence": "世界-动作框架预测世界变化位置和方式以指导动作",
+      "llm_tldr_en": "Bridge-WA distills future change priors into compact representations for efficient action-conditioned world prediction, enabling lightweight robotic manipulation without expensive generative models.",
+      "llm_tldr_cn": "现有世界动作模型依赖大生成模型进行未来预测，计算昂贵且与控制弱关联。本文提出Bridge-WA，从冻结的未来变化教师中蒸馏出三种紧凑先验（未来令牌、变化图、运动流图），并通过WorldBridge模块在动作变压器中融合。实验表明该方法在保证性能的同时显著降低计算开销。",
+      "llm_tldr": "现有世界动作模型依赖大生成模型进行未来预测，计算昂贵且与控制弱关联。本文提出Bridge-WA，从冻结的未来变化教师中蒸馏出三种紧凑先验（未来令牌、变化图、运动流图），并通过WorldBridge模块在动作变压器中融合。实验表明该方法在保证性能的同时显著降低计算开销。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2606.31071v1",
+      "source": "arxiv",
+      "title": "Hierarchical 3D Scene Graph Construction and Belief-based Planning for Semantic Navigation",
+      "abstract": "Semantic navigation is a fundamental task for embodied agents operating in unseen environments, requiring both semantic understanding and long-term decision-making. Recent foundation models have empowered agents with rich semantic priors for this task. However, without structured global representations, decision-making often falls back on local observations and greedy strategies, resulting in inefficient exploration and myopic behaviors, especially in long-distance navigation. To address these challenges, we propose a zero-shot semantic navigation framework. Our method incrementally maintains an online Hierarchical 3D Scene Graph (HSG) to form a multi-granular semantic topology over objects, zones, and regions, serving as a compact state abstraction for global planning. Building on this memory, we introduce a hierarchical belief-based planning framework that fuses semantic priors with exploration evidence on the HSG, and performs finite-horizon rollouts on an HSG-based simulator to explicitly estimate the long-term expected returns of candidate macro-actions. This enables globally consistent decisions and reduces redundant backtracking. Extensive experiments in high-fidelity simulation environments across multiple tasks and datasets demonstrate that our method outperforms existing state-of-the-art methods, particularly in long-distance scenarios, where our approach improves SR and SPL by an average of 9.4\\% and 5.0\\%, respectively.",
+      "authors": [
+        "Bing Wu",
+        "Zuyao Chen",
+        "Changwen Chen"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.RO"
+      ],
+      "published": "2026-06-30T03:01:44+00:00",
+      "link": "https://arxiv.org/pdf/2606.31071v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "internal environment model via hierarchical 3D scene graph for planning",
+      "llm_evidence_cn": "通过层次化3D场景图作为内部环境模型进行规划",
+      "llm_evidence": "通过层次化3D场景图作为内部环境模型进行规划",
+      "canonical_evidence": "通过层次化3D场景图作为内部环境模型进行规划",
+      "llm_tldr_en": "This framework incrementally builds a hierarchical 3D scene graph as an internal environment representation for zero-shot semantic navigation, enabling belief-based planning.",
+      "llm_tldr_cn": "语义导航中缺乏结构化全局表示导致短视行为。本文提出零样本框架，在线构建层次化3D场景图（HSG），包含物体、区域等多粒度语义拓扑。基于该图进行信念规划，支持长距离导航。实验表明该方法在未见环境中显著优于贪婪策略。该工作为embodied agent提供了紧凑可扩展的内部环境模型。",
+      "llm_tldr": "语义导航中缺乏结构化全局表示导致短视行为。本文提出零样本框架，在线构建层次化3D场景图（HSG），包含物体、区域等多粒度语义拓扑。基于该图进行信念规划，支持长距离导航。实验表明该方法在未见环境中显著优于贪婪策略。该工作为embodied agent提供了紧凑可扩展的内部环境模型。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.29834v1",
+      "source": "arxiv",
+      "title": "STEAM: Self-Supervised Temporal Ensemble Advantage Modeling for Real-World Robot Learning",
+      "abstract": "Real-world robot learning increasingly relies on heterogeneous data, but demonstrations and rollouts often mix useful progress with stalls, corrections, and suboptimal behavior. Effective policy learning therefore requires frame-level advantages that distinguish reliable local progress from failures and regressions. We propose Self-supervised Temporal Ensemble Advantage Modeling (STEAM), a label-free method that learns such advantages from expert demonstrations. STEAM trains an ensemble of temporal-offset predictors on frame pairs within expert trajectories, using the normalized temporal offset between two frames as a self-supervised signal. Each predictor maps a frame pair to a distribution over temporal offsets, which is converted into a scalar advantage. STEAM then takes the minimum advantage across the ensemble to score mixed-quality rollout data conservatively. Across real-world bimanual towel folding, chip checkout, cola restocking, and single-arm pick-and-place tasks, STEAM identifies stalls, failures, and recoveries. When combined with CFGRL, STEAM further improves policy success rate by 59%, 54.3%, 23% and 16.2% over baselines, respectively.",
+      "authors": [
+        "Zhihao Liu",
+        "Qiuyi Gu",
+        "Yitao Wang",
+        "Dongming Qiao",
+        "Yixian Zhang",
+        "Shuaihang Chen",
+        "Liangzhi Shi",
+        "Tianxing Zhou",
+        "Zefang Huang",
+        "Kang Chen",
+        "Zhen Guo",
+        "Quanlu Zhang",
+        "Jincheng Yu",
+        "Xiaodan Liang",
+        "Guoliang Fan",
+        "Yu Wang",
+        "Feng Gao",
+        "Xinlei Chen",
+        "Chao Yu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-29T06:19:35+00:00",
+      "link": "https://arxiv.org/pdf/2606.29834v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "self-supervised learning of frame-level advantages from expert demonstrations for robot policy",
+      "llm_evidence_cn": "从专家演示中自监督学习帧级优势以辅助机器人策略学习",
+      "llm_evidence": "从专家演示中自监督学习帧级优势以辅助机器人策略学习",
+      "canonical_evidence": "从专家演示中自监督学习帧级优势以辅助机器人策略学习",
+      "llm_tldr_en": "STEAM learns dense frame-level advantages from expert trajectories using ensemble temporal offset prediction for robot learning.",
+      "llm_tldr_cn": "真实世界机器人数据常包含停顿和纠正，不利于策略学习。STEAM提出自监督时间集合优势建模，从专家轨迹中学习帧级优势信号，区分可靠进展与失败。通过集成时间偏移预测器，无需人工标注即可生成密集优势，有效提升在次优数据上学习策略的性能。",
+      "llm_tldr": "真实世界机器人数据常包含停顿和纠正，不利于策略学习。STEAM提出自监督时间集合优势建模，从专家轨迹中学习帧级优势信号，区分可靠进展与失败。通过集成时间偏移预测器，无需人工标注即可生成密集优势，有效提升在次优数据上学习策略的性能。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.01410v1",
+      "source": "arxiv",
+      "title": "BIFROST: Bridging Invariant Feature Representation for Observation-space Sim2Real Transfer",
+      "abstract": "Sim2real transfer for robot policy learning suffers due to mismatch between simulation and reality. Existing methods typically address each gap in isolation through separate adaptation modules, which are composed or layered when both gaps coexist. Yet the basis for attempting sim2real in the first place is that there is shared structure between a task in simulation and reality, where equivalent actions from equivalent configurations produce equivalent long term outcomes regardless of domain specific differences in rendering or physics. In this paper, we study whether we can identify and exploit this shared structure from raw observations to train a policy that enables zero shot transfer. We introduce BIFROST, which learns a shared history encoder on paired cross-domain data via cross-domain bisimulation objective: observation-action sequences leading to equivalent long-term behavior are mapped to nearby latent states, regardless of domain. Policies trained on these latent states in simulation transfer zero-shot to reality. We provide empirical evidence on sim2sim visual navigation and sim2real contact rich manipulation task and visual servoing task that BIFROST achieves effective transfer where domain adaptation and co-training baselines fail under both visual and dynamics domain gaps.",
+      "authors": [
+        "Yunfu Deng",
+        "Josiah P. Hanna"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.LG"
+      ],
+      "published": "2026-07-01T19:15:17+00:00",
+      "link": "https://arxiv.org/pdf/2607.01410v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "learns invariant features for sim2real transfer in robot policy learning from observations",
+      "llm_evidence_cn": "从观测中学习不变特征用于机器人策略的仿真到现实迁移",
+      "llm_evidence": "从观测中学习不变特征用于机器人策略的仿真到现实迁移",
+      "canonical_evidence": "从观测中学习不变特征用于机器人策略的仿真到现实迁移",
+      "llm_tldr_en": "BIFROST learns a shared latent representation from raw observations that is invariant to domain-specific rendering and physics, enabling zero-shot sim2real transfer.",
+      "llm_tldr_cn": "仿真到现实的迁移因渲染和物理差异而困难，现有方法孤立处理每个差异。本文提出BIFROST，从原始观测中学习共享的隐层表示，该表示对领域特定的渲染和物理差异不变，使得从等价状态执行等价动作可产生等价长期结果。实验证明零样本迁移可行，为机器人策略部署提供了有效方案。",
+      "llm_tldr": "仿真到现实的迁移因渲染和物理差异而困难，现有方法孤立处理每个差异。本文提出BIFROST，从原始观测中学习共享的隐层表示，该表示对领域特定的渲染和物理差异不变，使得从等价状态执行等价动作可产生等价长期结果。实验证明零样本迁移可行，为机器人策略部署提供了有效方案。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.30474v1",
+      "source": "arxiv",
+      "title": "Grasp-Oriented Non-Prehensile Manipulation via Learning a Graspability Field",
+      "abstract": "Non-prehensile manipulation is often used as a preparatory step for robotic grasping, yet existing approaches typically require a predefined target object pose. In practice, however, objects admit multiple graspable configurations and the desired pose is not known in advance. We reformulate non-prehensile manipulation for grasping as optimizing an object centric graspability objective rather than reaching a specific pose. We construct a graspable set from synthesized grasps and define a graspability field that measures how suitable an object configuration is for successful grasp execution. The scalar measure provides a dense learning signal for reinforcement learning and determines when to terminate manipulation. This yields a closed-loop manipulation-to-grasp pipeline driven by a single policy. Experiments in simulation and on a real robot show that the policy reliably reconfigures objects into graspable states and transitions to grasping without external planners or manually specified stopping conditions. The predicted graspability distance correlates with real world grasp success, which indicates that the learned representation captures grasp feasibility of object configurations.",
+      "authors": [
+        "Licheng Zhong",
+        "Gim Hee Lee"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-29T15:33:27+00:00",
+      "link": "https://arxiv.org/pdf/2606.30474v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "robotic manipulation for grasping using reinforcement learning and graspability field",
+      "llm_evidence_cn": "通过强化学习和可抓取性场进行机器人抓取操作",
+      "llm_evidence": "通过强化学习和可抓取性场进行机器人抓取操作",
+      "canonical_evidence": "通过强化学习和可抓取性场进行机器人抓取操作",
+      "llm_tldr_en": "Reformulates non-prehensile manipulation for grasping as optimizing a graspability field, using RL with a dense reward signal to determine termination.",
+      "llm_tldr_cn": "该论文将非预抓取操作重新定义为优化可抓取性场，通过强化学习提供密集奖励信号，并决定何时终止操作，从而实现无需预设目标位姿的闭环抓取。",
+      "llm_tldr": "该论文将非预抓取操作重新定义为优化可抓取性场，通过强化学习提供密集奖励信号，并决定何时终止操作，从而实现无需预设目标位姿的闭环抓取。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.01897v1",
+      "source": "arxiv",
+      "title": "Rank-Then-Act: Reward-Free Control from Frame-Order Progress",
+      "abstract": "We introduce Rank-Then-Act (RTA), a framework for learning control policies from expert video demonstrations without environment rewards. RTA trains a Vision-Language Model (VLM) offline as a progress-based ordinal scorer, using a Group Relative Policy Optimization (GRPO) objective over shuffled frame sequences, which forces the model to recover temporal ordering from visual semantics rather than trivial time cues. Importantly, instead of using the scorer directly as a scalar reward model, we propose a correlation-based reward function for reinforcement learning: at each interaction window, we compute the Spearman rank correlation between predicted progress rankings and true temporal indices, yielding a bounded, scale-invariant learning signal. This design decouples reward learning from absolute calibration and enables stable transfer across tasks and environments. We evaluate RTA on discrete control benchmarks (PyBoy: Catrap, Kirby) and continuous control tasks (PointMaze, MetaWorld). RTA consistently matches or outperforms prior video-based reward learning methods and rank-based baselines, while demonstrating strong cross-task reuse of a single pretrained progress scorer. Our results suggest that correlation-structured supervision over video-derived ordinal signals is sufficient for policy learning, offering a scalable alternative to explicit reward design.",
+      "authors": [
+        "Yuriy Maksyuta",
+        "George Bredis",
+        "Ruslan Rakhimov",
+        "Daniil Gavrilov"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-07-02T08:50:32+00:00",
+      "link": "https://arxiv.org/pdf/2607.01897v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "learning control policies from expert video demonstrations without rewards",
+      "llm_evidence_cn": "从专家视频演示学习控制策略，无需奖励",
+      "llm_evidence": "从专家视频演示学习控制策略，无需奖励",
+      "canonical_evidence": "从专家视频演示学习控制策略，无需奖励",
+      "llm_tldr_en": "Introduces Rank-Then-Act, a framework that learns control policies from expert video demonstrations using a VLM-based ordinal scorer and correlation-based reward, enabling reward-free imitation.",
+      "llm_tldr_cn": "提出了Rank-Then-Act框架，从专家视频演示中学习控制策略。该方法离线训练视觉语言模型作为进度排序器，并通过相关性奖励函数进行强化学习，无需环境奖励即可实现模仿学习。实验表明该方法能有效利用帧序信息。",
+      "llm_tldr": "提出了Rank-Then-Act框架，从专家视频演示中学习控制策略。该方法离线训练视觉语言模型作为进度排序器，并通过相关性奖励函数进行强化学习，无需环境奖励即可实现模仿学习。实验表明该方法能有效利用帧序信息。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.32027v1",
+      "source": "arxiv",
+      "title": "Freeform Preference Learning for Robotic Manipulation",
+      "abstract": "Reward design remains a central bottleneck for autonomous robot policy improvement, especially in long-horizon manipulation tasks where sparse success labels provide too little signal and binary preferences collapse many competing notions of quality into one ambiguous signal. We introduce Freeform Preference Learning (FPL), a method for learning robot policies from freeform human preferences. Rather than asking annotators which of two trajectories is better overall, FPL lets them define natural-language preference axes, such as speed, safety, quality of placement, or carefulness, and provide pairwise preferences along each axis. These annotations are used to learn a language-conditioned reward model that maps a trajectory and preference label to an axis-specific reward. We use this model to train a reward-conditioned policy that optimizes across the multiple human-specified dimensions. Across four real-world and two simulated long-horizon manipulation tasks, FPL improves over sparse-reward and binary-preference methods by 38 percentage points. Beyond improved performance, FPL learns dense progress signals without explicit subtask segmentation, shows compositionality of behavior not present in the data, and allows users to steer the policy towards different behaviors at test time without retraining. Blog post with videos available at https://freeform-pl.github.io/fpl.website/",
+      "authors": [
+        "Marcel Torne",
+        "Anubha Mahajan",
+        "Abhijnya Bhat",
+        "Chelsea Finn"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published": "2026-06-30T17:54:02+00:00",
+      "link": "https://arxiv.org/pdf/2606.32027v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "freeform preference learning for robotic manipulation; related to imitation learning via human feedback",
+      "llm_evidence_cn": "基于自由形式人类偏好的机器人操作学习，通过人类反馈与模仿学习相关",
+      "llm_evidence": "基于自由形式人类偏好的机器人操作学习，通过人类反馈与模仿学习相关",
+      "canonical_evidence": "基于自由形式人类偏好的机器人操作学习，通过人类反馈与模仿学习相关",
+      "llm_tldr_en": "Freeform Preference Learning (FPL) learns a language-conditioned reward model from freeform human preferences defined along natural-language axes, enabling robot policy improvement without direct expert demonstrations.",
+      "llm_tldr_cn": "该论文提出自由形式偏好学习（FPL），允许注释者定义自然语言偏好轴（如速度、安全性）并提供偏对偏好，学习一个语言条件化的奖励模型，用于机器人策略优化。与需要演示的模仿学习不同，FPL利用人类丰富的定性反馈，适用于长时域操作任务。实验表明，FPL能有效学习轴特定奖励，并提升策略性能，为机器人学习提供了比二元偏好更灵活的替代方案。该方法虽非直接模仿学习，但通过人类反馈间接学习行为偏好，对具身智能中的策略学习有重要启示。",
+      "llm_tldr": "该论文提出自由形式偏好学习（FPL），允许注释者定义自然语言偏好轴（如速度、安全性）并提供偏对偏好，学习一个语言条件化的奖励模型，用于机器人策略优化。与需要演示的模仿学习不同，FPL利用人类丰富的定性反馈，适用于长时域操作任务。实验表明，FPL能有效学习轴特定奖励，并提升策略性能，为机器人学习提供了比二元偏好更灵活的替代方案。该方法虽非直接模仿学习，但通过人类反馈间接学习行为偏好，对具身智能中的策略学习有重要启示。",
+      "llm_tags": [
+        "query:wmi:composite"
+      ],
+      "matched_query_tag": "query:wmi:composite",
+      "matched_query_text": "Papers central to 世界模型，具身智能，模仿学习, especially work that connects or combines: internal environment models for planning and prediction; artificial intelligence integrated with physical agents and sensors; learning policies from expert demonstrations; reinforcement learning with learned world dynamics; directly copying expert actions from demonstrations; world model applications in embodied artificial intelligence; imitation learning for robotic manipulation; model based reinforcement learning combined with behavioral cloning.",
+      "matched_requirement_id": "req-composite-wmi",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}

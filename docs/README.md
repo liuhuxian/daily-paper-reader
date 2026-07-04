@@ -6,64 +6,41 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-03
-- 运行时间：2026-07-03 21:42:52 UTC
+- 最新运行日期：2026-07-04
+- 运行时间：2026-07-04 21:17:32 UTC
 - 运行状态：成功
-- 本次总论文数：14
-- 精读区：6
-- 速读区：8
+- 本次总论文数：7
+- 精读区：1
+- 速读区：6
 
 ### 今日简报（AI）
-今日精选14篇机器人具身智能论文，6篇精读聚焦长时域世界模型与操作策略。
-最值得关注：ViPSim实现视觉与参数空间协同构建一致世界模型，Behavior Prompting Policy将示范作为提示直接引导操作，双双获得9.0高分。
-普通读者可先精读这两篇，速读中的AutoSpeed（无标注自适应速度学习）和One Demonstration（单示范强化学习）同样实用。
-- 详情：[/202607/03/README](/202607/03/README)
+今日精读1篇、速读6篇，关注机器人动作预测与语义导航进阶。最值得看《Bridge-WA》预测世界变化指导机器人动作，以及层次场景图与Sim2Real迁移的速读论文。建议优先精读《Bridge-WA》理解预测机制，再浏览速读中导航与迁移方法作为对比。
+- 详情：[/202607/04/README](/202607/04/README)
 
 ### 精读区论文标签
-1. [ViPSim: Collaborating Visual and Parameter Spaces for Consistent Long-Horizon Embodied World Models](/202607/03/2606.28804v1-vipsim-collaborating-visual-and-parameter-spaces-for-consistent-long-horizon-embodied-world-models)  
+1. [Bridge-WA: Predicting Where and How the World Changes for Robotic Action](/202607/04/2607.02195v1-bridge-wa-predicting-where-and-how-the-world-changes-for-robotic-action)  
    标签：评分：9.0/10、query:wmi
-   evidence：用于规划和预测的内部环境模型
-2. [Behavior Prompting Policy: Demonstrations as Prompts for Manipulation](/202607/03/2606.30457v1-behavior-prompting-policy-demonstrations-as-prompts-for-manipulation)  
-   标签：评分：9.0/10、query:wmi
-   evidence：行为提示策略，将单次人类演示作为提示用于操作
-3. [From World Models to World Action Models: A Concise Tutorial for Robotics](/202607/03/2607.00836v2-from-world-models-to-world-action-models-a-concise-tutorial-for-robotics)  
-   标签：评分：9.0/10、query:wmi
-   evidence：面向机器人学的世界模型教程，涵盖设计空间与范式
-4. [PhysMani: Physics-principled 3D World Model for Dynamic Object Manipulation](/202607/03/2607.01938v1-physmani-physics-principled-3d-world-model-for-dynamic-object-manipulation)  
-   标签：评分：9.0/10、query:wmi
-   evidence：基于物理原理的3D世界模型用于具身智能中的动态物体操作
-5. [ACID: Action Consistency via Inverse Dynamics for Planning with World Models](/202607/03/2607.02403v1-acid-action-consistency-via-inverse-dynamics-for-planning-with-world-models)  
-   标签：评分：9.0/10、query:wmi
-   evidence：基于逆动力学的循环动作一致性用于世界模型决策规划
-6. [WorldSample: Closed-loop Real-robot RL with World Modelling](/202607/03/2607.02431v1-worldsample-closed-loop-real-robot-rl-with-world-modelling)  
-   标签：评分：9.0/10、query:wmi
-   evidence：结合行为克隆的基于模型的强化学习
+   evidence：世界-动作框架预测世界变化位置和方式以指导动作
 
 ### 速读区论文标签
-1. [AutoSpeed: Annotation-Free Stage-Adaptive Motion Speed Learning for Robot Manipulation](/202607/03/2607.01051v1-autospeed-annotation-free-stage-adaptive-motion-speed-learning-for-robot-manipulation)  
-   标签：评分：8.0/10、query:wmi
-   evidence：自适应速度的模仿学习用于机器人操作
-2. [One Demonstration Is Enough for Real-World Robotic Reinforcement Learning](/202607/03/2607.01651v1-one-demonstration-is-enough-for-real-world-robotic-reinforcement-learning)  
-   标签：评分：8.0/10、query:wmi
-   evidence：单次示范的真实世界机器人强化学习与自动干预
-3. [Guided Action Flow: Q-Guided Inference for Flow-Matching Vision-Language-Action Policies](/202607/03/2607.02092v1-guided-action-flow-q-guided-inference-for-flow-matching-vision-language-action-policies)  
-   标签：评分：8.0/10、query:wmi
-   evidence：流匹配VLA策略的测试时引导用于操作任务
-4. [MVP-Nav: Multi-layer Value Map Planner Navigator](/202607/03/2606.31919v1-mvp-nav-multi-layer-value-map-planner-navigator)  
+1. [Hierarchical 3D Scene Graph Construction and Belief-based Planning for Semantic Navigation](/202607/04/2606.31071v1-hierarchical-3d-scene-graph-construction-and-belief-based-planning-for-semantic-navigation)  
    标签：评分：7.0/10、query:wmi
-   evidence：物理感知的仅RGB导航框架，重建显式物理占用用于规划
-5. [Embodied.cpp: A Portable Inference Runtime of Embodied AI Models on Heterogeneous Robots](/202607/03/2607.02501v1-embodiedcpp-a-portable-inference-runtime-of-embodied-ai-models-on-heterogeneous-robots)  
+   evidence：通过层次化3D场景图作为内部环境模型进行规划
+2. [BIFROST: Bridging Invariant Feature Representation for Observation-space Sim2Real Transfer](/202607/04/2607.01410v1-bifrost-bridging-invariant-feature-representation-for-observation-space-sim2real-transfer)  
    标签：评分：7.0/10、query:wmi
-   evidence：面向具身AI世界动作模型的推理运行时
-6. [Hierarchical Policy Learning via Spectral Decomposition](/202607/03/2606.29570v1-hierarchical-policy-learning-via-spectral-decomposition)  
+   evidence：从观测中学习不变特征用于机器人策略的仿真到现实迁移
+3. [Rank-Then-Act: Reward-Free Control from Frame-Order Progress](/202607/04/2607.01897v1-rank-then-act-reward-free-control-from-frame-order-progress)  
+   标签：评分：7.0/10、query:wmi
+   evidence：从专家视频演示学习控制策略，无需奖励
+4. [STEAM: Self-Supervised Temporal Ensemble Advantage Modeling for Real-World Robot Learning](/202607/04/2606.29834v1-steam-self-supervised-temporal-ensemble-advantage-modeling-for-real-world-robot-learning)  
    标签：评分：6.0/10、query:wmi
-   evidence：层次化策略学习与从粗到细生成
-7. [Warp RL: Reshaping Base Policy Distributions for Dynamics Adaptation](/202607/03/2606.31043v2-warp-rl-reshaping-base-policy-distributions-for-dynamics-adaptation)  
+   evidence：从专家演示中自监督学习帧级优势以辅助机器人策略学习
+5. [Grasp-Oriented Non-Prehensile Manipulation via Learning a Graspability Field](/202607/04/2606.30474v1-grasp-oriented-non-prehensile-manipulation-via-learning-a-graspability-field)  
    标签：评分：6.0/10、query:wmi
-   evidence：强化学习中的动力学适应策略分布重塑
-8. [Learning to Move Before Learning to Do: Task-Agnostic pretraining for VLAs](/202607/03/2607.02466v1-learning-to-move-before-learning-to-do-task-agnostic-pretraining-for-vlas)  
+   evidence：通过强化学习和可抓取性场进行机器人抓取操作
+6. [Freeform Preference Learning for Robotic Manipulation](/202607/04/2606.32027v1-freeform-preference-learning-for-robotic-manipulation)  
    标签：评分：6.0/10、query:wmi
-   evidence：基于逆动力学的任务无关预训练，学习用于视觉运动控制的运动先验
+   evidence：基于自由形式人类偏好的机器人操作学习，通过人类反馈与模仿学习相关
 
 
 <div class="dpr-home-promo-card">
