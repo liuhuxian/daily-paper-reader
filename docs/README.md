@@ -6,41 +6,28 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-04
-- 运行时间：2026-07-04 21:17:32 UTC
+- 最新运行日期：2026-07-05
+- 运行时间：2026-07-05 20:47:40 UTC
 - 运行状态：成功
-- 本次总论文数：7
+- 本次总论文数：2
 - 精读区：1
-- 速读区：6
+- 速读区：1
 
 ### 今日简报（AI）
-今日精读1篇、速读6篇，关注机器人动作预测与语义导航进阶。最值得看《Bridge-WA》预测世界变化指导机器人动作，以及层次场景图与Sim2Real迁移的速读论文。建议优先精读《Bridge-WA》理解预测机制，再浏览速读中导航与迁移方法作为对比。
-- 详情：[/202607/04/README](/202607/04/README)
+1) 今日精读《ASPIRE: Agentic Skills Discovery for Robotics》，速读《Learning from Demonstration via Spatiotemporal Tubes》，涵盖机器人技能发现与示教学习两大前沿。
+2) 最值得关注的是**智能体驱动的机器人技能自动发现方法**，以及**利用时空管道处理未知欧拉-拉格朗日系统的示教学习框架**。
+3) 建议将技能发现与示教学习结合，可显著提升机器人在非结构化环境中的泛化能力。
+- 详情：[/202607/05/README](/202607/05/README)
 
 ### 精读区论文标签
-1. [Bridge-WA: Predicting Where and How the World Changes for Robotic Action](/202607/04/2607.02195v1-bridge-wa-predicting-where-and-how-the-world-changes-for-robotic-action)  
-   标签：评分：9.0/10、query:wmi
-   evidence：世界-动作框架预测世界变化位置和方式以指导动作
+1. [ASPIRE: Agentic /Skills Discovery for Robotics](/202607/05/2607.00272v1-aspire-agentic-skills-discovery-for-robotics)  
+   标签：评分：8.0/10、query:wmi
+   evidence：具多模态感知和执行的机器人持续学习系统
 
 ### 速读区论文标签
-1. [Hierarchical 3D Scene Graph Construction and Belief-based Planning for Semantic Navigation](/202607/04/2606.31071v1-hierarchical-3d-scene-graph-construction-and-belief-based-planning-for-semantic-navigation)  
+1. [Learning from Demonstration via Spatiotemporal Tubes for Unknown Euler-Lagrange Systems](/202607/05/2607.00534v1-learning-from-demonstration-via-spatiotemporal-tubes-for-unknown-euler-lagrange-systems)  
    标签：评分：7.0/10、query:wmi
-   evidence：通过层次化3D场景图作为内部环境模型进行规划
-2. [BIFROST: Bridging Invariant Feature Representation for Observation-space Sim2Real Transfer](/202607/04/2607.01410v1-bifrost-bridging-invariant-feature-representation-for-observation-space-sim2real-transfer)  
-   标签：评分：7.0/10、query:wmi
-   evidence：从观测中学习不变特征用于机器人策略的仿真到现实迁移
-3. [Rank-Then-Act: Reward-Free Control from Frame-Order Progress](/202607/04/2607.01897v1-rank-then-act-reward-free-control-from-frame-order-progress)  
-   标签：评分：7.0/10、query:wmi
-   evidence：从专家视频演示学习控制策略，无需奖励
-4. [STEAM: Self-Supervised Temporal Ensemble Advantage Modeling for Real-World Robot Learning](/202607/04/2606.29834v1-steam-self-supervised-temporal-ensemble-advantage-modeling-for-real-world-robot-learning)  
-   标签：评分：6.0/10、query:wmi
-   evidence：从专家演示中自监督学习帧级优势以辅助机器人策略学习
-5. [Grasp-Oriented Non-Prehensile Manipulation via Learning a Graspability Field](/202607/04/2606.30474v1-grasp-oriented-non-prehensile-manipulation-via-learning-a-graspability-field)  
-   标签：评分：6.0/10、query:wmi
-   evidence：通过强化学习和可抓取性场进行机器人抓取操作
-6. [Freeform Preference Learning for Robotic Manipulation](/202607/04/2606.32027v1-freeform-preference-learning-for-robotic-manipulation)  
-   标签：评分：6.0/10、query:wmi
-   evidence：基于自由形式人类偏好的机器人操作学习，通过人类反馈与模仿学习相关
+   evidence：从演示中学习的统一框架
 
 
 <div class="dpr-home-promo-card">

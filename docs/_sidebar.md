@@ -1,6 +1,11 @@
 * <a class="dpr-sidebar-root-link" href="#/">首页</a>
 * <a class="dpr-sidebar-root-link dpr-sidebar-noactive-link" href="javascript:void(0)" data-dpr-hash="#/tutorial/README">使用教程</a>
 * Daily Papers
+  * 2026-07-05 <!--dpr-date:20260705-->
+    * 精读区
+      * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/05/2607.00272v1-aspire-agentic-skills-discovery-for-robotics" data-sidebar-item="{&quot;title&quot;: &quot;ASPIRE: Agentic /Skills Discovery for Robotics&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2607.00272v1-aspire-agentic-skills-discovery-for-robotics&quot;, &quot;score&quot;: &quot;8.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;wmi&quot;}], &quot;evidence&quot;: &quot;具多模态感知和执行的机器人持续学习系统&quot;}">ASPIRE: Agentic /Skills Discovery for Robotics</a>
+    * 速读区
+      * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/05/2607.00534v1-learning-from-demonstration-via-spatiotemporal-tubes-for-unknown-euler-lagrange-systems" data-sidebar-item="{&quot;title&quot;: &quot;Learning from Demonstration via Spatiotemporal Tubes for Unknown Euler-Lagrange Systems&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2607.00534v1-learning-from-demonstration-via-spatiotemporal-tubes-for-unknown-euler-lagrange-systems&quot;, &quot;score&quot;: &quot;7.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;wmi&quot;}], &quot;evidence&quot;: &quot;从演示中学习的统一框架&quot;}">Learning from Demonstration via Spatiotemporal Tubes for Unknown Euler-Lagrange Systems</a>
   * 2026-07-04 <!--dpr-date:20260704-->
     * 精读区
       * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/04/2607.02195v1-bridge-wa-predicting-where-and-how-the-world-changes-for-robotic-action" data-sidebar-item="{&quot;title&quot;: &quot;Bridge-WA: Predicting Where and How the World Changes for Robotic Action&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2607.02195v1-bridge-wa-predicting-where-and-how-the-world-changes-for-robotic-action&quot;, &quot;score&quot;: &quot;9.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;wmi&quot;}], &quot;evidence&quot;: &quot;世界-动作框架预测世界变化位置和方式以指导动作&quot;}">Bridge-WA: Predicting Where and How the World Changes for Robotic Action</a>
