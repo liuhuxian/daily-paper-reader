@@ -1,0 +1,715 @@
+Title: DSGE as a Structured World Model:Benchmarking Counterfactual Generalization in Economic Worlds
+
+URL Source: https://arxiv.org/pdf/2607.03144v1
+
+Published Time: Tue, 07 Jul 2026 01:18:57 GMT
+
+Number of Pages: 22
+
+Markdown Content:
+# DSGE as a Structured World Model: Benchmarking Counterfactual Generalization in Economic Worlds 
+
+Wenli Xu 
+
+Faculty of Finance City University of Macau 
+
+wlxu@cityu.edu.mo 
+
+# Abstract 
+
+Modern world models—Dreamer, transformer world models (IRIS, Genie), and JEPA / next-latent architectures—learn dynamics from observed trajectories but share a weakness: their transition map is disciplined only where data were seen, so it degrades under policy-induced distribution shift and on counterfactual states 
+
+off the training path. We argue that a Dynamic Stochastic General Equilibrium (DSGE) model is a structured world model : its state is a belief state —the very object a latent world model learns, but supplied with causal structure and hard cross-equation constraints. We introduce DSGE-Gym , a benchmark of eight DSGE environments with off-path counterfactual test sets, scaling to the ECB’s 230-variable New Area-Wide Model. We find that (i) learned world models match the dynamics on-path but collapse off-path (5 σ tail RMSE up to ∼40 × the on-path level), and (ii) training the same architectures on data the DSGE generates 
+
+across rare and counterfactual-policy states—coverage only a structural model can synthesize—roughly halves tail error and cuts policy-regime error 10 –280 × where the counterfactual rule shifts the ergodic support. Because such coverage cannot be sampled from any single history, this measures structure’s ability to manufacture 
+
+the missing distribution. DSGE-Gym and all code are released as a reproducible testbed for counterfactual generalization.                  
+
+> (a) The world-model loop
+> both learn the same object
+> otEnc ztΓˆzt+1
+> belief state
+> at(policy)
+> rollout
+> Learned: Γfit from trajectories, dis-ciplined only on the data support.
+> DSGE: Γ,Φdeduced from theory, defined at every state.
+> (b) On-path vs. off-path
+> where the two diverge
+> DSGE: valid everywhere
+> on-path
+> learned WM trained here
+> ⋆tail
+> ▲regime
+> learned WM breaks ×
+
+Figure 1: DSGE as a structured world model. (a) A learned world model and a DSGE describe the same object—an encoder mapping observations to a belief state zt (the latent a world model is trained to learn) and a transition Γ that rolls it forward under a policy action at. They differ in origin: the learned map is fit from sampled trajectories, whereas the DSGE map Γ and its cross-equation constraints Φ are deduced from theory. (b) That difference bites off-path. A learned model is disciplined only on the on-path ergodic region it was trained on (blue); on tail states and counterfactual regime shifts (red) it must extrapolate and breaks. The DSGE is defined and internally consistent at every state, so it can not only predict off-path but generate the missing coverage—the mechanism we exploit and benchmark in this paper. 
+
+> arXiv:2607.03144v1 [econ.GN] 3 Jul 2026
+
+# 1 Introduction 
+
+Two research traditions have converged on the same object from opposite directions. In machine learning, a world model is an internal predictive model of an environment that an agent simulates to evaluate actions before taking them [Ha and Schmidhuber, 2018, Hafner et al., 2020, LeCun, 2022]. In macroeconomics, a DSGE model is a structural description of how an economy evolves under shocks and policy, used for forecasting, counterfactual analysis, and policy evaluation [Kydland and Prescott, 1982, Smets and Wouters, 2007]. Both describe states, actions, transitions, and futures; both exist so that an agent can imagine consequences before acting. 
+
+Off-path generalization is the crux. A world model earns its keep precisely when an agent uses it to evaluate actions it has not yet taken, and thus to predict states the environment has not yet visited. A model accurate only on its training distribution is of little use for planning, policy counterfactuals, or risk assessment—the very settings where the decision-relevant states lie off the observed path. This is doubly true in economics, where the questions that matter are inherently counterfactual: what if the central bank changes its rule? what if a once-a-decade disaster hits? what if the same deficit is financed by debt rather than taxes? Evaluating a world model on held-out on-path data—the standard protocol—therefore measures the wrong thing. The right test is off-path, and it is the test we build a benchmark around. The machine-learning world model is learned : a neural network fits a transition zt+1 = F (zt, a t)
+
+from observed trajectories. This recipe has driven remarkable progress—latent imagination in the Dreamer family [Hafner et al., 2019, 2020, 2021, 2023], sequence modeling of dynamics in transformer world models [Micheli et al., 2023, Bruce et al., 2024, Alonso et al., 2024], and prediction in representation space in the JEPA program [LeCun, 2022, Assran et al., 2023, Bardes et al., 2024, Teoh et al., 2025]. Yet the fitted map carries no guarantee away from the states it was trained on. Three failure modes are decisive for economics: 1. Policy-induced distribution shift. A change in policy moves the endogenous state dis-tribution, so a transition fit under one policy is evaluated where it was never trained—the machine-learning form of the Lucas critique [Lucas, 1976]. 2. Rare-event extrapolation. Disasters, binding constraints, and tail risk are exactly the states underrepresented on any observed path. 3. Weak causal grounding. A black-box transition need not respect accounting identities, technology, or intertemporal optimality, so its off-path predictions can be internally incon-sistent. A DSGE model has the complementary profile. It is theory-given rather than data-fit; its parameters are structural and interpretable; and its equilibrium conditions impose causal structure and exact constraints that hold everywhere in the state space , including states never observed. This contrast motivates our central question: 
+
+Can economic theory itself serve as a world model—and does its structure buy the counterfactual generalization that learned world models lack? 
+
+A recent and important step in this direction is Equilibrium World Models [Schaab and Scheidegger, 2026], which use deep learning to solve DSGE models globally. Our question is different and complementary: rather than building a better solver, we treat the DSGE as the world model an agent plans with, and we ask how the structure it carries affects counterfactual generalization—using the DSGE both as ground truth and as a generator of training coverage. 
+
+What we find. On four environments spanning real, monetary, fiscal, and open-economy policy (RBC, NK, TANK, TCM)—plus a 230-variable production model (NAWM) as a scale test—the results are consistent and sharp. (i) Learned world models collapse off-path. Models that match the structured dynamics on-path (normalized RMSE ≈0.004 – 0.08 ) blow up under 5σ tail shocks, with the most flexible sequence/attention models—the closest analogues of modern world models— reaching RMSE ≈3–4, two orders of magnitude worse; flexibility correlates with off-path fragility .
+
+(ii) Structure recovers it through coverage. Training the same architectures, at the same sample size, on data the DSGE generates across rare states and counterfactual policy regimes recovers 2off-path accuracy—robustly halving tail error for the expressive models, and 10 –280 × lower error on policy-regime shifts that are unobservable in any real dataset and that only a structural model can synthesize. The largest regime gains arise wherever the counterfactual rule moves the ergodic support—government spending in RBC, and, replicating across very different mechanisms, the unemployment benefit in a search-and-matching economy and the carbon tax in an environmental-NK economy (§5.6)—whereas where the rule instead contracts the support (NK, TANK, TCM) the narrow-trained error is already small and the gain is correspondingly smaller (§5.4). (iii) Approximate structure is not enough. A first-order DSGE oracle and naive static-equilibrium penalties do not close the gap, because they miss the intertemporal dynamics that drive off-path behavior—which is exactly why the structure should be learned , not imposed wholesale. Together these isolate coverage generation as the concrete, measurable mechanism by which economic structure helps. 
+
+Contributions. 
+
+1. A reframing (§3). We argue that DSGE is a structured world model and show that its state variable is a belief state in the precise sense used by recent transformer world models [Teoh et al., 2025, Hu et al., 2025]—the conceptual bridge that makes the two literatures one. 2. A benchmark (§4). DSGE-Gym : ten DSGE environments with a unified world-model interface and off-path counterfactual test sets (tail shocks, policy-regime shifts, permanent shocks), built on a higher-order global solver. 3. A controlled study (§5). Across four environments (RBC, New Keynesian, the two-agent TANK economy, and a two-country open economy)—and, as a scale test, the 230-variable ECB New Area-Wide Model—we confirm that learned world models collapse off-path, and show that DSGE-generated coverage of rare and counterfactual states recovers off-path generalization for the same architectures—each model exercising a different policy “action” (real, monetary, fiscal, open-economy). We also report an instructive negative result—a first-order oracle and naive structural penalties do not suffice—which motivates learning 
+
+structured world models. 
+
+# 2 Related Work 
+
+Latent and recurrent world models. Ha and Schmidhuber [2018] showed that a generative latent dynamics model can train a controller entirely inside a learned “dream.” The Dreamer family built this into a general online-RL paradigm: PlaNet [Hafner et al., 2019] introduced the recurrent state-space model (RSSM); Dreamer [Hafner et al., 2020] learned behaviors by backpropagating through imagined latent rollouts; DreamerV2 [Hafner et al., 2021] adopted discrete latents; and DreamerV3 [Hafner et al., 2023] achieved robust performance across more than 150 tasks with fixed hyperparameters. These models compress history into a compact recurrent state—by architecture, a sufficient statistic. 
+
+Transformer and generative world models. Casting dynamics as sequence modeling, IRIS [Micheli et al., 2023] learns an autoregressive transformer over discrete image tokens and is highly sample-efficient on Atari; Genie [Bruce et al., 2024] learns controllable, generative interactive environments at scale; and DIAMOND [Alonso et al., 2024] uses diffusion for visually faithful world simulation. Transformers, however, retain a memory that grows with sequence length and have no inherent pressure to compress history into a compact state [Teoh et al., 2025]—the property our structural view supplies for free. 
+
+Joint-embedding and self-predictive architectures. LeCun’s JEPA program [LeCun, 2022] argues for predicting in representation space rather than observation space; I-JEPA [Assran et al., 2023] and V-JEPA [Bardes et al., 2024] instantiate this for images and video. Most relevant to us, NextLat [Teoh et al., 2025] augments next-token training with a next-latent self-prediction loss and proves the hidden state converges to a belief state ; Belief State Transformers [Hu et al., 2025] target the same object. This line builds on self-predictive representation learning in RL [Tang et al., 2023, Ni et al., 2024]. These works make “the model’s latent is a sufficient statistic” a concrete, trainable property—exactly the property a structural state variable has by construction. 3Belief states and sufficient statistics. A belief state is a sufficient statistic of history for predicting the future [Kaelbling et al., 1998, Striebel, 1965]. In economics the state variable of a recursive (Bellman) formulation is precisely such a statistic—the same idea, formalized decades earlier and embedded in the rational-expectations equilibrium concept. 
+
+Deep learning for dynamic economic models. A fast-growing literature solves high-dimensional dynamic models with neural networks: Deep Equilibrium Nets [Azinovic et al., 2022], deep learning for dynamic economic models [Maliar et al., 2021], economics-inspired networks with stabilizing homotopies [Azinovic et al., 2023], and global solutions with endogenous wealth distributions [Fernández-Villaverde et al., 2023]. Equilibrium World Models [Schaab and Scheidegger, 2026] are the closest prior work: they enforce exact equilibrium conditions on a broad, model-generated distribution of ordinary, rare, and counterfactual states and certify the resulting policy. Our question differs. EWM and the above solve a DSGE (output: a policy function π(x)); we ask what happens when the DSGE is the world model an agent plans with, and study counterfactual generalization. EWM’s coverage insight reappears in §5 as the operative mechanism by which structure helps. Broader surveys of reinforcement learning for economics [Rawat, 2026] situate this agenda within ML-for-economics. 
+
+# 3 DSGE as a Structured World Model 
+
+3.1 Problem formulation 
+
+We work with a controlled stochastic process generating observations ot ∈ O under actions at ∈ A ,with history ht = ( o1: t, a 1: t−1). Following the world-model literature we are interested in compact 
+
+predictors of the future. 
+
+Definition 1 (World model) . A world model is a map F and a state space Z such that the next state is zt+1 = F (zt, a t, ε t+1 ) with exogenous innovation εt+1 , and the future observation law factorizes through z, i.e. p(ot+1 | ht, a t) = p(ot+1 | zt, a t).
+
+Definition 2 (Belief state / sufficient statistic) . A statistic zt = σ(ht) is a belief state if it is sufficient for the future given the action sequence: for all k ≥ 1,
+
+p(ot+1: t+k | ht, a t:t+k−1) = p(ot+1: t+k | zt, a t:t+k−1) .
+
+Equivalently I(o>t ; ht | zt, a ≥t) = 0 : conditioning on the full history adds no predictive information beyond zt.
+
+This is the object recurrent and self-predictive world models are trained to recover [Hafner et al., 2023, Teoh et al., 2025, Hu et al., 2025]: a finite code that screens off history. A DSGE is exactly such an object in recursive (Bellman) form. With structural state xt (predetermined and exogenous variables), control/policy at, and structural shock εt, the rational-expectations equilibrium induces a law of motion 
+
+xt+1 = Γ( xt, a t, ε t+1 ), Et Φ( xt+1 , x t, a t) = 0 for all xt, (1) where Φ collects the cross-equation restrictions—Euler equations, market clearing, technology, policy rules—that hold at every xt, not only on the ergodic path. Γ is the policy function obtained by solving (1); in DSGE-Gym it is a pruned third-order perturbation, exact up to the perturbation order. 
+
+Task and metric. We study the one-step world-model task : learn ˆF predicting zt+1 from (zt, ε t+1 ),scored by normalized RMSE on a split D, RMSE( ˆF ; D) =  ED ∥ ˆF (zt, ε t+1 ) − zt+1 ∥22
+
+1/2 on 
+
+z-scored variables. Writing Don for the on-path ergodic distribution and Doff for an off-path (tail or counterfactual-regime) distribution, the headline quantity is the off-path generalization gap 
+
+∆( ˆF ) = RMSE( ˆF ; Doff ) − RMSE( ˆF ; Don ). (2) A world model is useful for planning and policy analysis precisely when ∆ is small, because the decision-relevant states are typically those absent from historical data. 
+
+3.2 Two kinds of world model 
+
+A learned world model and a DSGE describe the same tuple (states, actions, transitions, futures) but obtain it by opposite routes, and the difference is exactly along the axes that govern off-path behavior (Table 1). 4Table 1: Two kinds of world model. The axes that differ are precisely those that govern off-path generalization.                     
+
+> Dimension DSGE Learned (JEPA/Dreamer-style) Origin Deduced from theory + equilibrium Induced from sampled data Training signal Cross-equation restrictions ΦPrediction loss on trajectories Interpretability Structural, economically meaningful Black-box latent Causality Strong causal structure Weak / correlational Constraints Exact, hold at every state Soft, data-region only Off-path behavior Disciplined by ΦUnconstrained extrapolation Coverage Generator: synthesizes any state Bounded by data support Adaptivity Brittle to misspecification Improves with data
+
+Origin and training signal. A learned world model induces its transition from sampled trajectories: it sees (zt, a t, z t+1 ) tuples and minimizes a prediction loss. Its knowledge is therefore bounded by the support of the data—it can interpolate where trajectories are dense and must extrapolate everywhere else. A DSGE deduces its transition from primitives (preferences, technology, market clearing) and an equilibrium concept; the resulting map Γ and constraints Φ in (1) are defined at every point of the state space, not only where data happen to fall. 
+
+Causality and constraints. Because the learned map fits a conditional expectation, it has no built-in reason to respect accounting identities, technological feasibility, or intertemporal optimality; these can be violated freely in regions with little training mass. The DSGE encodes them as hard cross-equation restrictions that hold identically, so its predictions are internally consistent even on never-seen states—the property that underwrites counterfactual reasoning. 
+
+What each one buys. The learned model wins on flexibility, scale, and adaptivity : it can absorb high-dimensional observations, improve with more data, and—crucially—degrade gracefully under misspecification, since it is not committed to a fixed structural form. The DSGE wins on inter-pretability, causality, off-path discipline, and generativity : its parameters have economic meaning, its structure survives policy change (§3.4), and it can synthesize valid data anywhere. The two profiles are mirror images—each is strong exactly where the other is weak—which is why we read them not as competitors but as the two halves of a single design space (§3.3). 
+
+3.3 The bridge: a DSGE state variable is a belief state 
+
+The conceptual core of the paper is that the two literatures study the same object. We make this precise. 
+
+Proposition 1 (The structural state is a belief state) . Let {ot} be generated by a rational-expectations equilibrium with law of motion (1) and an observation map ot = g(xt). Then the structural state 
+
+xt is a belief state in the sense of Definition 2. If g is injective on the ergodic set, xt is moreover a 
+
+minimal sufficient statistic. Proof sketch. By (1) the process is first-order Markov in xt: the conditional law of xt+1 given the entire history depends only on (xt, a t) through Γ. Iterating, the k-step-ahead law p(xt+1: t+k |
+
+ht, a t:t+k−1) factors through xt, and since ot+j = g(xt+j ) the same holds for observations, giving sufficiency (Definition 2). Minimality: if g is injective on the ergodic set then xt is recoverable from 
+
+ot, so no coarser statistic of the history retains sufficiency; hence xt is minimal. (When g is not injective—partial observability—the minimal sufficient statistic is the posterior over xt, recovering the classical POMDP belief state [Kaelbling et al., 1998].) 
+
+Remark 1. Proposition 1 is, by design, elementary: it restates that the state of a recursive (Markov) equilibrium is a sufficient statistic. Its role is not technical depth but identification—it pins down, exactly, the object that recurrent and self-predictive world models spend capacity learning and that a DSGE supplies by construction . The contribution of §3.3 is this correspondence, not the lemma. 
+
+Proposition 1 says the DSGE state variable satisfies, by construction , exactly the property that NextLat [Teoh et al., 2025] trains a transformer to acquire and that Belief State Transformers [Hu et al., 2025] target: 5NextLat’s belief state ≡ a DSGE state variable. 
+
+The two literatures are therefore complementary , not opposed. A learned world model searches 
+
+for a compact sufficient statistic from data and must discover the generating map; a DSGE hands you one , together with the causal map Γ that generates it and the constraints Φ it satisfies. What the LeCun/JEPA world model lacks—structure, causality, constraints—is precisely what a DSGE supplies; what the DSGE lacks—adaptivity to data and graceful degradation under misspecification— is what learning supplies. This complementarity is the seed of the second paper in our agenda: learn a NextLat-style latent world model whose belief state is regularized toward Φ, inheriting the data-fit of the transformer and the off-path discipline of the structure. 
+
+3.4 Why structure should help off-path 
+
+Three properties of (1) bear directly on the off-path gap (2). 
+
+(P1) Policy invariance (the Lucas critique, restated). Partition the parameters into deep param-eters θ (preferences, technology) and a policy rule indexed by ψ (e.g. a Taylor coefficient, a fiscal rule). The decisive structural assumption is that θ ⊥ ψ: deep parameters do not move when the rule changes. 
+
+Proposition 2 (Re-composition under policy change) . Suppose the equilibrium map factorizes as 
+
+Γψ (x, a, ε ) = G x, π ψ (x), ε ; θ, where G depends on ψ only through the action a = πψ (x). Then a world model that has learned G(·; θ) from regime ψ predicts correctly under any new regime ψ′ by substituting πψ′ , whereas a black-box that has fit the reduced-form composition Γψ directly is biased off its training regime by ∥G(x, π ψ′ (x), ·) − Γψ (x, ·)∥.
+
+This is the Lucas critique [Lucas, 1976] as a statement about world-model generalization: structural models re-compose under counterfactual policy; reduced-form learners do not. It predicts exactly the failure we observe on the regime split. 
+
+Remark 2 (Scope of Proposition 2) . The clean factorization holds exactly for the transition of the 
+
+predetermined states. For forward-looking jump variables the one-step map under ψ′ depends on agents’ expectations of the entire future rule, so G generally moves with ψ beyond the contemporane-ous action; re-composition then requires the new equilibrium decision rule πψ′ itself. That object is produced by re-solving the structural model and is not recoverable by a reduced-form learner trained on baseline-regime data. The proposition should thus be read as bounding what any single-regime learner can achieve off-regime, and as identifying re-solving structure—not more data—as the only admissible route to the counterfactual map. This is the precise sense in which our regime results are about structure rather than extrapolation. 
+
+(P2) Counterfactual consistency. The constraints Φ in (1) hold at every x, including states with zero training mass. They therefore pin the map off-path where a likelihood-trained model is unconstrained—a hard inductive bias active exactly where data are absent. 
+
+(P3) Coverage by construction. Because the DSGE is a generator , it can synthesize valid tran-sitions anywhere in the state space—rare ( 5σ) states and entire counterfactual regimes that are unobservable in real data. This turns structure into a data advantage: a structural model can teach a learned world model where history never went. §5 isolates (P3) as the operative mechanism in practice—and shows (P2), in the form of a fixed linearized oracle or static penalties, is not sufficient on its own, motivating learned structure. 
+
+# 4 DSGE-Gym: A Benchmark 
+
+Environments. DSGE-Gym wraps a coherent suite of DSGE models with unified notation and a shared world-model interface, plus a 230-variable production model as a scale test. This paper fully specifies and benchmarks eight environments (Table 2; equilibrium systems, calibrations, and steady states in Appendix A)—the four main economies (RBC, NK, TANK, TCM), three further mechanisms not present in any of them ( DMP search-and-matching unemployment , an 
+
+Environmental NK economy with a carbon stock and a productivity-damage feedback, and an endogenous firm-entry economy with a product-variety margin, §5.6), and the 230-variable NAWM 6Table 2: Main DSGE-Gym environments fully specified and benchmarked in this paper. Additional environments are distributed with the released code but are not specified or benchmarked here. Model Mechanism / counterfactual axis RBC Baseline real economy; government-spending action New Keynesian Monetary policy / Taylor-rule action; nominal rigidity TANK Household heterogeneity, hand-to-mouth agents, fiscal-financing action Two-country (TCM) Open economy, real exchange rate, international bonds; monetary action DMP Search-and-matching unemployment; labor-market (UI-benefit) action E-NK Environmental NK; carbon stock + productivity damage; climate (carbon-tax) action Firm entry Endogenous product variety (BGM); entry-cost / deregulation action NAWM (230 vars) Production-scale Euro Area–US model (ECB); scale stress test scale test. The released code additionally targets a further set of mechanisms—Gertler–Karadi banks/QE, a non-tradable-goods open economy, and trend growth with permanent (unit-root) shocks— so that the suite spans monetary, fiscal, labor, financial, climate, open-economy, firm-dynamics, and non-stationary mechanisms, including heterogeneous-agent (TANK) economies in the spirit of Kaplan et al. [2018]; these last three are distributed with the code but are not specified or benchmarked here, and enter no headline claim of this paper. Each environment is solved and simulated with a pruned third-order perturbation solver—for genuine nonlinearity—and exposes zt+1 = F (zt, a t, ε t+1 ),where zt are model variables, at the policy/exogenous “action,” and εt the structural shocks. The complete equilibrium conditions, calibrations, steady states, and the explicit (zt, a t, ε t) world-model mapping for every environment reported in the body are given in Appendix A; the counterfactual test-set construction and all implementation details are in Appendices B–C. 
+
+Unified interface. Every environment exposes the same API, so a baseline written once runs on all of them. A model is registered by its variable and shock names; the simulator returns aligned arrays of levels, and a thin loader forms supervised pairs xt = [ zt, ε t+1 ], yt = zt+1 (the realized next-period shock is supplied as the “action” so the transition is near-deterministic and RMSE isolates the learned map). Two reference oracles—a first-order analytic policy and the pruned third-order policy—are exposed through the same interface, giving every task a structural upper bound. The split generator (next paragraph) is identical across environments; only the model file and its counterfactual parameters change. This is what lets DSGE-Gym scale from an 11-variable RBC to the 230-variable NAWM—and to the full ten-model suite—with no change to the learning code. 
+
+Tasks. DSGE-Gym defines three tasks of increasing difficulty. (T1) One-step prediction: given 
+
+(zt, ε t+1 ), predict zt+1 ; this is the task we study in depth and the cleanest probe of whether a model has learned the transition. (T2) Multi-step latent rollout: autoregress the model k steps under a shock path and score accumulated error, which exposes compounding off-path drift that one-step error can hide. (T3) Lookahead planning: choose an action sequence at:t+H to reach a target state, scored by regret against a model-consistent reference—the action sequence that the true dynamics Γ
+
+imply reaches the target at least cost under the model’s own laws of motion (a control benchmark, not a welfare-optimal Ramsey policy; the precise objective is fixed in the released T3 specification). T1 tests the world model as a predictor; T2 tests it as a simulator; T3 tests it as a decision tool—the use that makes off-path accuracy matter. Because the realized shock εt+1 is supplied as input, T1 is a deterministic-map regression that isolates whether a model has captured Γ; the distributional and multi-step content that makes a world model a planning tool lives in T2/T3. We report T1 here and release T2/T3 with the benchmark; the results below should be read as one-step map fidelity, the necessary first probe rather than the whole of world-model quality. 
+
+Counterfactual test sets. The defining feature of DSGE-Gym is that train and test are drawn from the same solved model but different regions of its state space, so the gap between them is a clean measurement of off-path generalization rather than a confound of data source. From each model we generate (Appendix B): on-path train/test (baseline policy, ergodic 1σ shocks); tail (5σ
+
+shocks, pushing into the nonlinear region the third-order solution captures); regime (a counterfactual change to a policy-rule parameter—spending persistence in RBC, the Taylor coefficient in NK, the fiscal-financing rule in TANK—evaluated by a model trained only on the baseline regime, the 7operational form of the Lucas critique); and, where relevant, permanent (non-stationary, unit-root) shocks. A fourth wide split is a training set the DSGE synthesizes across rare and counterfactual states at fixed sample size, used to test the coverage hypothesis (P3). 
+
+Metrics. We report (i) normalized RMSE per split (errors z-scored on on-path train statistics, so units are comparable across variables and environments); (ii) the off-path generalization gap 
+
+∆ = RMSE off − RMSE on (2) , the headline quantity; and (iii) a belief-state sufficiency probe that regresses the true structural state on a model’s learned latent and reports R2—a direct test of whether the latent has become the sufficient statistic of Definition 2. Reference oracles bound each metric from below. This paper reports (i)–(ii); the sufficiency probe (iii) is most informative for learned 
+
+latent world models with a non-trivial internal state, so we release it with the benchmark and analyze it alongside the structured latent model of Paper 2 rather than report it on the deterministic-map baselines here. 
+
+# 5 Experiments 
+
+Setup. We study four environments that share the same protocol but exercise different policy “actions”: RBC (11 variables, 2 shocks; action = government spending), NK (15 variables, 3 shocks; action = the monetary-policy rate via a Taylor rule), TANK (22 variables, 3 shocks; two household types and public debt; action = the fiscal-financing rule, under which Ricardian equivalence fails), and TCM (45 variables, 6 shocks; a two-country open economy with a real exchange rate, terms of trade, and international bond positions; action = the two Taylor rules). Each is solved with a pruned third-order perturbation (quarterly calibrations from Nispi Landi, 2018, 2021; steady states verified against the published values—e.g. TCM’s non-analytic steady state, solved numerically, reproduces all reported digits). The one-step task predicts the next-period vector of model variables from the current vector plus the realized next-period shocks; inputs/outputs are z-scored on on-path training statistics. The regime (counterfactual) split changes a policy-rule parameter that the learner never sees on-path—higher/persistent spending (RBC), a hawkish Taylor coefficient ϕπ :1 .5→3.0 (NK), aggressive debt/spending stabilization ϕd, ϕ g (TANK), or an exchange-rate-leaning rule ϕe:0 →0.5
+
+(TCM)—while the tail split applies 5σ shocks. Baselines span the capacity spectrum: a linear (ridge) extrapolator, an MLP , an LSTM , a Transformer , and NextLat (a Transformer with the next-latent self-prediction loss of Teoh et al., 2025). We report means over three seeds. A fifth environment, the ECB New Area-Wide Model (NAWM; 230 variables, 21 shocks; §5.5), serves as a production-scale stress test. Implementation: MacroModelling.jl [Müller, 2023] for solving/simulation and PyTorch for the learned baselines. We present the RBC study in detail (§5.1–3), then show the pattern replicates on NK and TANK (§5.4). 
+
+5.1 Learned world models collapse off-path (H1) 
+
+Trained on on-path data, all learned models fit the dynamics well on-path (normalized RMSE ≈0.004 –
+
+0.08 ) but their error explodes off-path. Under 5 σ tail shocks the attention/sequence models—the closest analogues of LeCun/JEPA-style world models—reach RMSE ≈3.3–3.8, a gap of two orders of magnitude (Table 3, “narrow”); the low-capacity linear extrapolator degrades far less. Flexibility correlates with off-path fragility : precisely the models with the most expressive learned dynamics fail hardest where data are absent. We do not claim this is surprising in isolation—unconstrained over-parameterized predictors are known to extrapolate poorly outside their training support, and the NAWM scale test (§5.5) makes this explicit by exhibiting the same collapse on a linear DGP that a linear baseline fits exactly. The contribution is not that learners extrapolate badly but that a structural generator can supply the missing support (H2), and that approximate imposed structure cannot (§5.2). Baselines are comparably and modestly tuned across environments for protocol uniformity, so H1 should be read as the behavior of standard learners under a common budget, not as a proof of an intrinsic ceiling (see Limitations). 
+
+5.2 A first-order DSGE oracle is a poor world model (negative result) 
+
+A first-order (linearized) DSGE policy—a natural “structured” baseline—is a local Taylor expansion around the steady state. On the nonlinear (third-order) data it already has nonzero on-path error and is worse than the black-box MLP off-path (tail RMSE ≈0.80 vs. 0.37 ). Adding the static equilibrium 8Table 3: Off-path RMSE, narrow (on-path) vs. wide (DSGE-coverage) training (mean over 3 seeds; standard deviations < 0.15 ). Lower is better; bold marks the large gains from DSGE-generated coverage. Tail (5 σ) Policy regime Architecture narrow wide narrow wide Linear 0.254 0.407 0.690 0.021 
+
+MLP 0.379 0.393 1.177 0.064 
+
+LSTM 3.436 1.404 2.778 0.109 
+
+Transformer 3.824 1.498 2.913 0.297 
+
+NextLat 3.312 2.002 2.393 0.276 
+
+Figure 2: DSGE-generated coverage recovers counterfactual generalization. The same architectures are trained on narrow (on-path) vs. wide (DSGE-coverage) data and evaluated off-path; log scale. The regime test (right) is unobservable in real data and only a structural model can synthesize it. conditions as a soft penalty to the MLP also does not help, because those identities are already satisfied on-path and do not pin the intertemporal (Euler) dynamics that drive off-path behavior. 
+
+Approximate structure is not enough —which is exactly why the next step is to learn structured dynamics rather than impose a fixed approximation. 
+
+5.3 DSGE-generated coverage recovers off-path generalization (H2) 
+
+The structural model’s decisive advantage is that it is a generator : it can synthesize valid training data where real data never visit. We train the same architectures on a wide training set the DSGE produces across rare states (1–5 σ shocks) and counterfactual policy regimes (varied spending and policy persistence), holding the sample size fixed at the on-path level—so only coverage differs, not data quantity. Results are in Table 3 and Figure 2. 
+
+What “coverage” measures (and what it does not). We are deliberately explicit about the design. The wide set spans the same off-path regions the off-path tests probe—rare-shock scales and counterfactual policy regimes (Appendix B)—and the evaluated test_regime parameters lie within 
+
+that span. H2 therefore does not measure a learner extrapolating to a regime it never saw; it measures what becomes possible once a structural generator manufactures the regime distribution that no single history contains. The scientific content is the generativity of structure (Remark 2: re-solving is the only admissible route to the counterfactual map), not generalization of the learner. We read the regime numbers in that light, and flag two controls we do not yet run but release with the benchmark: (a) a stricter leave-one-regime-out sweep (train on a band of regimes, test on a withheld one), and (b) a 
+
+non-structural coverage source (regime-dummy VARs, parameter-perturbation augmentation) that would isolate equilibrium structure from coverage per se . Both sharpen the claim and are deferred to Paper 2 (see Limitations). 9The effect is dramatic on the policy-regime test—a 10–40 × reduction in RMSE—precisely the setting that is unobservable in real data and that only a structural model can synthesize. On tail events the flexible black-box models improve ∼2.5×, because they have the capacity to exploit the added coverage. The mechanism is exactly the coverage principle of Schaab and Scheidegger [2026], here used not to solve the model but to teach a world model where data cannot go . This is the practical content of our thesis: structure helps off-path because a structural model is a counterfactual data generator. 
+
+Trade-off. Wide-coverage training spreads capacity over a larger region, so on-path sharpness drops (wide-trained sequence models have higher on-path RMSE). The net effect is a world model that is less precise on-path but far more robust off-path—usually the right trade for planning and policy evaluation, where the states that matter are exactly the ones absent from historical data. 
+
+5.4 The pattern replicates on NK, TANK, and TCM 
+
+We repeat the identical protocol on three richer economies whose policy “action” is different in kind: NK (monetary policy, with nominal rigidity and a Taylor rule), TANK (fiscal policy, with two household types, public debt, and a failure of Ricardian equivalence), and TCM (a two-country open economy, with a real exchange rate, terms of trade, and international bond positions; 45 variables, 6 shocks). Table 4 and Figures 3–4 report the result. H1 holds for the tail split throughout: 
+
+trained on-path, the flexible sequence/attention models again blow up under 5σ tail shocks (RMSE 
+
+≈3.2–4.3). On the regime split, by contrast, the narrow-trained error is already small here (RMSE 
+
+≈0.16 –0.28 ): the counterfactual policies (a hawkish Taylor rule; aggressive fiscal stabilization; an exchange-rate-leaning rule) contract the ergodic region rather than shift its center, so even narrow-trained models stay near the data they saw and there is little collapse to recover. H2 is accordingly clearest on the tail, where DSGE-generated wide coverage—same sample size—roughly halves the error for the expressive models. On the regime split, wide coverage reliably helps the lower-capacity learners (linear/MLP improve 3–8×), but its benefit shrinks and, for the most expressive models in the contracting-support environments, can vanish or mildly reverse (e.g. TANK and TCM NextLat and TCM Transformer in Table 4 move by ≤ 0.07 or worsen). We therefore do not claim a uniform regime gain: the dramatic 10 –280 × regime recovery appears wherever the counterfactual rule shifts 
+
+the ergodic support—not in these contracting-support economies, but in RBC and in the three added support-shifting mechanisms (DMP, E-NK, Firm; §5.6)—and we state this scope rather than average it away. What does survive unchanged from an 11-variable closed economy to a 45-variable two-country open economy is the tail collapse and its coverage-based recovery—evidence it is a property of the structure-vs-learning contrast, not of any one model. 
+
+5.5 Scaling to a production model: NAWM (230 variables) 
+
+To test whether the benchmark—and the result—survive at the scale of a real policy model, we add the 
+
+New Area-Wide Model of the European Central Bank [Coenen et al., 2008], an estimated two-region (Euro Area + United States) DSGE with 230 variables and 21 structural shocks , taken unmodified from the MacroModelling.jl model library. At this size a third-order solution is infeasible, so the data are generated from the first-order solution; the off-path regime makes Euro-Area monetary policy hawkish ( ϕEA π :2 →4). Results are in Table 5 and Figure 5. Two findings stand out. First, H1 survives to production scale : trained on-path, the se-quence/attention models again collapse under 5σ tail shocks (RMSE ≈3.4–3.5) even though the data-generating process is linear —they overfit the ergodic region and extrapolate badly—while the linear ridge, which matches the DGP, is essentially exact. Second, H2 holds on the tail but interacts with capacity : DSGE-generated coverage cuts the sequence models’ tail error by ∼40% (3.4→2.1,
+
+3.5→1.9), but on the (already small) regime test only the lower-capacity learners exploit the added coverage—the linear model improves 7× (0.17 →0.025 )—whereas the fixed-size sequence models, underfit on a 230-dimensional target, spread their capacity too thin and do not. The headline collapse and its coverage-based tail recovery are thus robust from an 11-variable RBC to a 230-variable esti-mated central-bank model; the regime result additionally exposes that exploiting structural coverage requires sufficient model capacity—itself a useful signal the benchmark surfaces. 10 Table 4: Replication on NK, TANK, and TCM: off-path normalized RMSE, narrow (on-path) vs. wide (DSGE-coverage) training, fixed sample size (mean over 3 seeds). The tail H1 →H2 pattern of Table 3 recurs under monetary (NK), fiscal (TANK), and open-economy (TCM) actions; the regime 
+
+split shows little narrow-trained collapse here (the counterfactual contracts rather than shifts the ergodic support), so regime gains are small and capacity-dependent; the large regime recovery instead appears in the support-shifting economies (RBC, and DMP/E-NK in Table 6). Bold marks coverage gains; note the unbolded regime cells where wide training ties or worsens the expressive models. Tail (5 σ) Policy regime Env Architecture narrow wide narrow wide NK Linear 1.966 2.236 0.210 0.055 
+
+MLP 1.602 1.802 0.193 0.098 
+
+LSTM 3.715 1.853 0.198 0.097 
+
+Transformer 4.330 2.009 0.194 0.140 
+
+NextLat 3.634 2.022 0.198 0.143 
+
+TANK Linear 0.622 1.758 0.249 0.031 
+
+MLP 0.580 1.799 0.274 0.082 
+
+LSTM 3.289 1.656 0.263 0.095 
+
+Transformer 3.798 1.643 0.280 0.175 
+
+NextLat 3.227 1.836 0.276 0.273 
+
+TCM Linear 1.640 1.703 0.271 0.066 
+
+MLP 1.328 1.227 0.155 0.136 
+
+LSTM 3.649 1.912 0.167 0.137 
+
+Transformer 4.204 1.839 0.179 0.180 
+
+NextLat 3.752 1.997 0.179 0.243 
+
+Table 5: NAWM (230 variables, 21 shocks; first-order DGP): off-path normalized RMSE, narrow vs. wide training (mean over 3 seeds). H1 and the tail-coverage gain (H2) survive to production scale; on the small regime test, only lower-capacity learners exploit coverage. Tail (5 σ) Policy regime Architecture narrow wide narrow wide Linear 0.331 0.331 0.174 0.025 
+
+MLP 0.858 0.498 0.092 0.084 
+
+LSTM 3.375 2.055 0.172 0.300 
+
+Transformer 3.526 1.860 0.156 0.251 
+
+NextLat 3.480 2.129 0.192 0.418 
+
+5.6 Three further mechanisms: search unemployment, climate, and firm entry (DMP, E-NK, Firm) 
+
+To show the protocol extends beyond the real/monetary/fiscal/open-economy block and to test whether the dramatic regime recovery is special to RBC, we add three environments whose mechanisms appear in none of the others. DMP is a Diamond–Mortensen–Pissarides search-and-matching economy (12 variables, 1 shock; Appendix A.5) with an explicit labor market—vacancies, a matching function, and a Nash-bargained wage—whose “action” is the unemployment-benefit / value-of-non-work 
+
+b; the off-path regime raises b (a more generous UI rule). E-NK is the NK economy augmented with a climate block (17 variables, 3 shocks; Appendix A.6): emissions proportional to output, an atmospheric carbon stock , and a carbon →productivity damage feedback; its action is climate policy, the carbon tax that sets abatement intensity ¯μ (¯μ:0 →0.4). Firm is an endogenous-entry economy (Bilbiie–Ghironi–Melitz; 11 variables, 1 shock; Appendix A.7) with a mass of firms, entrants, and firm value on a product-variety margin; its action is entry policy—the sunk entry cost fE , which the off-path regime lowers ( fE :1 .0→0.7, deregulation). All three regimes shift the ergodic support (more generous UI raises steady-state unemployment; tighter abatement lowers the carbon stock; lower 11 Figure 3: Coverage replication on NK (top) and TANK (bottom). Same architectures trained on narrow (on-path) vs. wide (DSGE-coverage) data and evaluated off-path; log scale. As in RBC (Figure 2), DSGE-generated coverage lowers off-path error for the expressive sequence/attention models, under both monetary (NK) and fiscal (TANK) policy actions. 
+
+Figure 4: Coverage replication on the two-country open economy (TCM; 45 variables, 6 shocks). The same H1 →H2 pattern holds with an open-economy monetary action (exchange-rate-leaning Taylor rules), confirming the effect is not an artifact of model size or closure. entry cost raises the firm count from ≈8.7 to ≈12 .4), the configuration under which Proposition 2 predicts the largest gap. Table 6 reports the result. 
+
+H1 recurs: trained on-path, the sequence/attention models again blow up under 5σ tail shocks (RMSE 
+
+≈3.1–4.4). On the regime split all three economies show a large narrow-trained collapse (RMSE 
+
+≈3.3–18 .9), exactly as in RBC and unlike the support-contracting NK/TANK/TCM counterfactuals— direct evidence that the size of the regime gap is governed by whether the counterfactual moves the support, not by the model family. H2 then recovers the regime split dramatically ( 10 –670 ×; wide RMSE ≈0.02 –0.72 ), confirming that the RBC-scale regime recovery is a property of support-shifting 
+
+12 Figure 5: Scaling to the ECB New Area-Wide Model (NAWM; 230 variables, 21 shocks). The off-path collapse (H1) and its tail recovery from DSGE coverage (H2) persist at the scale of a production policy model; the linear baseline matches the first-order DGP and is exact on the tail. Table 6: Three further mechanisms: off-path normalized RMSE, narrow (on-path) vs. wide (DSGE-coverage) training, fixed sample size (mean over 3 seeds). All three regimes shift the ergodic support, and—as in RBC—wide coverage recovers the regime split by 10 –670 ×. Bold marks coverage gains on the expressive models; note the tail cells where a slow stock variable makes wide coverage spread capacity and not help. Tail (5 σ) Policy regime Env Architecture narrow wide narrow wide DMP Linear 0.219 0.431 5.681 0.020 
+
+MLP 0.446 0.504 3.345 0.036 
+
+LSTM 3.149 2.160 3.874 0.154 
+
+Transformer 3.678 2.875 4.230 0.146 
+
+NextLat 3.074 2.920 3.672 0.357 
+
+E-NK Linear 1.952 1.862 6.694 0.114 
+
+MLP 1.546 3.990 4.560 0.089 
+
+LSTM 3.703 4.119 6.910 0.153 
+
+Transformer 4.404 6.522 6.912 0.308 
+
+NextLat 3.738 6.372 6.641 0.222 
+
+Firm Linear 0.192 0.361 18 .882 0.028 
+
+MLP 0.326 1.897 12 .899 0.096 
+
+LSTM 3.458 5.276 14 .956 0.266 
+
+Transformer 3.928 5.209 15 .114 0.297 
+
+NextLat 3.204 10 .565 14 .647 0.716 
+
+counterfactuals, now replicated under labor-market, climate, and firm-entry actions. On the tail split the picture is the familiar mixed one: coverage roughly halves DMP’s sequence-model error, but for E-NK and Firm —whose slow, near-unit-root stocks (carbon stock; firm mass) make the wide regime segments sit far from the on-path normalizer—wide training spreads capacity and does not help the tail, an instance of the coverage ×capacity interaction we flag throughout (it does not undo the regime gain, which is what the structural generator uniquely supplies). 
+
+# 6 Discussion and Limitations 
+
+What the results mean. Our claim is deliberately scoped: a DSGE is a structured world model , and its structure—through coverage and constraint satisfaction—buys the counterfactual generalization that learned world models lack. The experiments make this concrete and measurable. The collapse of flexible learners off-path (H1) is not a tuning artifact: it reproduces across eight economies, two solution orders (first- and third-order, i.e. both linear and genuinely nonlinear data-generating 13 processes), and model sizes spanning 11 to 230 variables, and it worsens with capacity —the models with the most expressive learned dynamics fail hardest exactly where data are absent. The recovery (H2) localizes why structure helps to a single operational mechanism: not the constraints per se, but the ability to generate coverage of states history never visited. A structural model is, first and foremost, a counterfactual data generator; that is the property a purely learned world model cannot replicate, because it has no access to states outside its training distribution. 
+
+A lesson beyond economics. The finding is an instance of a general principle for model-based agents: when the decision-relevant states lie off the data manifold—policy counterfactuals, rare events, sim-to-real gaps—a generative structural prior dominates a data-bounded learner, and the cleanest way to inject that prior is as synthetic coverage rather than as a soft penalty. This reframes the role of mechanistic models (physics engines, simulators, economic theory) in the world-model program: their value is not only as ground truth but as distribution shapers that teach a learned model where reality has not yet gone. Economics is an unusually sharp testbed for this idea because its counterfactuals (policy-rule changes) are both first-class objects of theory and provably absent from any single historical sample—the Lucas critique made empirical. We stress the symmetric danger: because the off-path region is exactly where model classes disagree most, synthetic coverage is only as trustworthy as the generating model there , and using it amounts to trusting structure precisely where data cannot check it. That is not a reason to avoid structural coverage but the strongest argument for 
+
+learning structure that data can later correct (Paper 2), rather than imposing a fixed model wholesale. 
+
+When does coverage help? The capacity interaction. The NAWM scale test (§5.5) refines the headline. Coverage reliably recovers the tail gap at every scale, but exploiting coverage on a counterfactual-regime test requires sufficient model capacity: on the 230 -variable target the fixed-size sequence models are underfit and cannot absorb the broader training distribution, so their regime error does not improve (and can degrade), whereas the lower-capacity linear and MLP learners improve sharply. Two readings follow. First, the benchmark surfaces a real and under-appreciated trade-off—coverage and capacity must scale together—rather than hiding it. Second, it suggests that the payoff from structural coverage is largest when paired with a model expressive enough to use it, which is precisely the learned structured world model we turn to next. 
+
+Limitations. 
+
+1. Solution order at scale, and what the scale test does (not) show. The four main environ-ments use a pruned third-order solution (genuine nonlinearity); NAWM, at 230 variables, is solved only at first order, so its tail is linear and a linear baseline matches the DGP exactly. The NAWM result therefore validates the harness and isolates pure out-of-support extrapolation of the learners, but it does not test the nonlinear off-path claim at production scale—that claim is established only at the 11–45-variable scale. A second-order solve of NAWM is the natural next step and we flag it as the key missing piece of the scale story. 2. Structure vs. coverage, and baseline strength. Our design shows DSGE-generated cov-erage helps, but does not yet isolate structure from coverage per se . The decisive control is a non-structural coverage source—regime-dummy VARs, parameter-perturbation aug-mentation, or a learned simulator—matched on sample size and support; only then does “the equilibrium structure matters” separate from “a wider training region matters.” Re-latedly, baselines are shared and modestly tuned for protocol uniformity, and standard off-path-robustness interventions (input-noise augmentation, weight/spectral norms, distri-butional/quantile heads, ensembles) are not exhausted; H1 is thus the behavior of standard, comparably-tuned learners, not a proof of an intrinsic ceiling. We regard the non-structural control as the single most important addition for the next revision and Paper 2. 3. Structure is imposed, not learned. The structured references here—the DSGE itself, its linearized oracle, and the static-equilibrium penalty—are exact-or-fixed solutions, not 
+
+learned structured models. The negative results (the first-order oracle is a poor off-path world model; static penalties do not help) show that imposing approximate structure is insufficient; learning it is the central object of Paper 2. 4. Misspecification. DSGE-generated coverage is only as good as the model class. If the true economy departs from the DSGE, synthetic off-path data can be confidently wrong—a 14 real risk, and itself an argument for learning structure (which can adapt) over imposing it wholesale. 5. Scope of the task. We study one-step prediction (T1); compounding error in multi-step rollouts (T2) and planning regret (T3) are released with the benchmark but not analyzed here, as is the belief-state sufficiency probe. We also assume full observability ( zt contains the structural state); the partially observed case, where the belief state is a posterior, is left to future work. Baselines are deliberately modestly tuned and shared across environments to keep the protocol uniform rather than to maximize any single number. We regard limitations 2 and 3 as the central open problems, and the bridge to a learned, NextLat-style structured world model for economics. 
+
+# 7 Conclusion 
+
+We recast DSGE models as structured world models and showed, via Proposition 1, that their state variable is the belief state that modern transformer world models are trained to learn—making two literatures that grew up apart provably about the same object. To study the consequence we built 
+
+DSGE-Gym , a benchmark that draws train and test from the same solved model but different regions of its state space, turning off-path generalization into a clean measurement. Across eight economies— from an 11 -variable RBC to the 230 -variable New Area-Wide Model of the ECB, and spanning real, monetary, fiscal, open-economy, labor-market, climate, and firm-entry policy actions—the story is consistent: purely learned world models match the structured dynamics on-path but collapse off-path, and re-emerge when the same architectures are trained on data the DSGE generates across rare and counterfactual states. Structure helps off-path not as a constraint but as a generator of coverage. The negative results sharpen the agenda. A first-order oracle and static-equilibrium penalties— approximate, imposed structure—do not close the gap, and at production scale coverage pays off only when model capacity can absorb it. Both point the same way: learn a compact latent world model that carries DSGE structure as a training signal rather than as a fixed scaffold. That is Paper 2 of this agenda (a NextLat-style structured latent world model for economics); Paper 3 builds multi-agent digital-twin economies on top of it. DSGE-Gym, its protocol, and all code are released so the community can measure—and contest—counterfactual generalization of world models on common ground. 
+
+# Reproducibility and Resource Availability 
+
+All code (Julia DSGE environments built on MacroModelling.jl and PyTorch baselines), generated datasets, and scripts to reproduce every table and figure are released at the project repository. DSGE-Gym is designed as a reusable benchmark: each environment exposes the same interface and counterfactual test sets. Consistent with Datasets & Benchmarks norms, the artifact ships with a datasheet documenting every environment (variables, shocks, calibration source, steady-state verification against published values), per-environment dataset sizes and generation seeds, the train/test split definitions of Appendix B (including the leave-one-regime-out and non-structural-coverage variants discussed above), and an OSI-approved open-source license; an anonymized artifact link is provided to reviewers and de-anonymized for camera-ready. 
+
+# References 
+
+Eloi Alonso, Adam Jelley, Vincent Micheli, Anssi Kanervisto, Amos Storkey, Tim Pearce, and François Fleuret. Diffusion for world modeling: Visual details matter in atari. In Advances in Neural Information Processing Systems (NeurIPS) , 2024. Mahmoud Assran, Quentin Duval, Ishan Misra, Piotr Bojanowski, Pascal Vincent, Michael Rabbat, Yann LeCun, and Nicolas Ballas. Self-supervised learning from images with a joint-embedding predictive architecture. In IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) , 2023. Marlon Azinovic, Luca Gaegauf, and Simon Scheidegger. Deep equilibrium nets. International Economic Review , 63(4):1471–1525, 2022. 15 Marlon Azinovic, Harold Cole, and Felix Kubler. Economics-inspired neural networks with stabilizing homotopies. arXiv preprint arXiv:2303.14802 , 2023. Adrien Bardes, Quentin Garrido, Jean Ponce, Xinlei Chen, Michael Rabbat, Yann LeCun, Mahmoud Assran, and Nicolas Ballas. Revisiting feature prediction for learning visual representations from video. arXiv preprint arXiv:2404.08471 , 2024. Florin O. Bilbiie. Limited asset markets participation, monetary policy and (inverted) aggregate demand logic. Journal of Economic Theory , 140(1):162–196, 2008. Jake Bruce, Michael Dennis, Ashley Edwards, Jack Parker-Holder, Yuge Shi, et al. Genie: Generative interactive environments. In International Conference on Machine Learning (ICML) , 2024. Günter Coenen, Roland Straub, and Mathias Trabandt. The new area-wide model of the euro area: A micro-founded open-economy model for forecasting and policy analysis. ECB Working Paper / International Finance , 2008. New Area-Wide Model (NAWM), Euro Area–US. Jesús Fernández-Villaverde, Samuel Hurtado, and Galo Nuño. Financial frictions and the wealth distribution. Econometrica , 91(3):869–901, 2023. Jordi Galí, J. David López-Salido, and Javier Vallés. Understanding the effects of government spending on consumption. Journal of the European Economic Association , 5(1):227–270, 2007. David Ha and Jürgen Schmidhuber. World models. arXiv preprint arXiv:1803.10122 , 2018. Danijar Hafner, Timothy Lillicrap, Ian Fischer, Ruben Villegas, David Ha, Honglak Lee, and James Davidson. Learning latent dynamics for planning from pixels. In International Conference on Machine Learning (ICML) , 2019. Danijar Hafner, Timothy Lillicrap, Jimmy Ba, and Mohammad Norouzi. Dream to control: Learning behaviors by latent imagination. In International Conference on Learning Representations (ICLR) ,2020. Danijar Hafner, Timothy Lillicrap, Mohammad Norouzi, and Jimmy Ba. Mastering atari with discrete world models. In International Conference on Learning Representations (ICLR) , 2021. Danijar Hafner, Jurgis Pasukonis, Jimmy Ba, and Timothy Lillicrap. Mastering diverse domains through world models. arXiv preprint arXiv:2301.04104 , 2023. Edward S. Hu et al. Belief state transformers. In International Conference on Learning Representa-tions (ICLR) , 2025. Leslie Pack Kaelbling, Michael L. Littman, and Anthony R. Cassandra. Planning and acting in partially observable stochastic domains. Artificial Intelligence , 101(1-2):99–134, 1998. Greg Kaplan, Benjamin Moll, and Giovanni L. Violante. Monetary policy according to hank. 
+
+American Economic Review , 108(3):697–743, 2018. Finn E. Kydland and Edward C. Prescott. Time to build and aggregate fluctuations. Econometrica ,50(6):1345–1370, 1982. Yann LeCun. A path towards autonomous machine intelligence. Open Review , 2022. Version 0.9.2. Robert E. Lucas. Econometric policy evaluation: A critique. Carnegie-Rochester Conference Series on Public Policy , 1:19–46, 1976. Lilia Maliar, Serguei Maliar, and Pablo Winant. Deep learning for solving dynamic economic models. 
+
+Journal of Monetary Economics , 122:76–101, 2021. Vincent Micheli, Eloi Alonso, and François Fleuret. Transformers are sample-efficient world models. In International Conference on Learning Representations (ICLR) , 2023. Thore Müller. Macromodelling.jl: A julia package for developing and solving dynamic stochastic general equilibrium models, 2023. Julia package. 16 Tianwei Ni, Benjamin Eysenbach, Erfan Seyedsalehi, et al. Bridging state and history representations: Understanding self-predictive rl. International Conference on Learning Representations (ICLR) ,2024. Valerio Nispi Landi. The real business cycle model, 2018. Lecture notes, Bank of Italy. Valerio Nispi Landi. The new keynesian model and the tank model, 2021. Lecture notes, Bank of Italy. Pranjal Rawat. A survey of reinforcement learning for economics. arXiv preprint arXiv:2603.08956 ,2026. Andreas Schaab and Simon Scheidegger. Equilibrium world models. arXiv preprint arXiv:2606.23463 , 2026. Frank Smets and Rafael Wouters. Shocks and frictions in us business cycles: A bayesian dsge approach. American Economic Review , 97(3):586–606, 2007. Charlotte Striebel. Sufficient statistics in the optimum control of stochastic systems. Journal of Mathematical Analysis and Applications , 12(3):576–592, 1965. Yunhao Tang, Zhaohan Daniel Guo, Pierre Harvey Richemond, et al. Understanding self-predictive learning for reinforcement learning. International Conference on Machine Learning (ICML) , 2023. Jayden Teoh, Manan Tomar, Kwangjun Ahn, Edward S. Hu, Tim Pearce, Pratyusha Sharma, Akshay Krishnamurthy, Riashat Islam, Alex Lamb, and John Langford. Next-latent prediction transformers learn compact world models. arXiv preprint arXiv:2511.0XXXX , 2025. Microsoft Research. 17 A DSGE-Gym environment specifications 
+
+This appendix gives the complete equilibrium system, calibration, and steady state of each environ-ment reported in the body (RBC, NK, TANK, TCM), together with the explicit world-model mapping. Notation follows Nispi Landi [2018, 2021]: c is consumption, h labor, k capital, i investment, y
+
+output, w the real wage, rk the rental rate of capital, rr the real interest rate, λ the marginal utility of consumption, a total factor productivity, and g government spending; in the nominal models r
+
+is the gross nominal rate, π gross inflation, mc real marginal cost, and q Tobin’s q. Bracketed time indices in the verified source ( MacroModelling.jl ) map to the standard convention x[−1] ≡ xt−1,
+
+x[0] ≡ xt, x[1] ≡ Etxt+1 . Every steady state below is solved numerically and matches the published calibration to all reported digits. 
+
+World-model mapping. Each environment is cast as zt+1 = F (zt, a t, ε t+1 ) with the assignment in Table 7. The state zt is the full vector of model variables (the predetermined/exogenous components— capital, lagged investment, debt, the lagged policy rate, and the exogenous processes—are the minimal Markov state; the remaining jump variables are functions of these). The action at is the policy block whose counterfactual is studied; the shocks εt are the structural innovations. Table 7: World-model assignment per environment. “Min. state” lists the predetermined and exoge-nous variables that constitute the Markov state (jumpers omitted). 
+
+Env Min. state (predetermined + exog.) Action (policy) Shocks εt
+
+RBC kt−1, a t, g t gov. spending g (rule) εa, ε g
+
+NK kt−1, i t−1, r t−1, a t, g t nominal rate r (Taylor rule) εa, ε g , ε m
+
+TANK kt−1, i t−1, d t−1, r t−1, a t, g t fiscal financing (tax rules) εa, ε g , ε m
+
+TCM k, i, r, a, g, b H , b F , s, p H (& Foreign) two Taylor rules ( ϕe) εa, ε g , ε m (& *) 
+
+A.1 RBC 
+
+The real-business-cycle environment [Nispi Landi, 2018] has 11 endogenous variables 
+
+{λ, c, rr, rk, w, h, y, k, i, g, a } and 2 shocks {εa, ε g }. With investment adjustment cost set to zero, Tobin’s q ≡ 1 is dropped. The equilibrium conditions are 
+
+λt = c−σt , κLhϕt = λtwt, (3) 
+
+λt = β λ t+1 rr t, 1 = β λt+1  
+
+> λt
+
+(rk t+1 + 1 − δ), (4) 
+
+kt = (1 − δ)kt−1 + it, yt = atkαt−1h1−αt , (5) 
+
+α y t = rk tkt−1, (1 − α) yt = wtht, yt = ct + it + gt, (6) 
+
+log at = (1 − ρa) log ¯ a + ρa log at−1 + σaεat , (7) 
+
+log gt = (1 − ρg ) log ¯ g + ρg log gt−1 + σg εgt . (8) Calibration (quarterly): β=0 .99 , α=0 .33 , δ=0 .025 , σ=2 , ϕ=1 , ρa=ρg =0 .9, ¯g=0 .2, σa=σg =0 .01 ,with ¯a=0 .98377 and κL=18 .889 calibrated so that y ≈ 1, h ≈ 1/3. The off-path regime split raises the spending process to (¯ g, ρ g )=(0 .25 , 0.97) ; the process remains stationary ( ρg < 1), so the ergodic set is well defined and the counterfactual shifts its location (not just its shape). This relocation of the support is why RBC exhibits the largest regime collapse—and the largest coverage recovery—in the suite (§5.4). 
+
+A.2 New Keynesian (NK) 
+
+The NK environment [Nispi Landi, 2021] adds monopolistic competition, Rotem-berg price adjustment, investment adjustment costs, and a Taylor rule: 15 variables 
+
+{λ, c, rr, rk, w, h, y, k, q, i, r, mc, π, g, a } and 3 shocks {εa, ε g , ε m}. The equilibrium condi-18 tions are 
+
+λt = c−σt , 1 = β λt+1  
+
+> λt
+> rt
+> πt+1
+
+, κLhϕt = λtwt, (9) 
+
+1 = β λt+1  
+
+> λt
+> rk t+1 +(1 −δ)qt+1
+> qt
+
+, (10) 
+
+kt = (1 − δ)kt−1 + 1 − κI 
+
+> 2
+
+(it/i t−1 − 1) 2it, (11) 
+
+1 = qt
+
+1 − κI 
+
+> 2
+
+(it/i t−1 − 1) 2 − κI it 
+
+> it−1
+
+(it/i t−1 − 1) 
+
++ κI β λt+1  
+
+> λt
+
+qt+1 
+
+(it+1 /i t)2(it+1 /i t − 1) , (12) 
+
+rr t = rt 
+
+> πt+1
+
+, yt = atkαt−1h1−αt , (13) 
+
+(1 − α)mc tyt = wtht, α mc tyt = rk tkt−1, (14) 
+
+πt(πt − ¯π) = β λt+1  
+
+> λt
+
+πt+1 (πt+1 − ¯π) yt+1  
+
+> yt
+
++ εκP
+
+ mc t − ε−1
+
+> ε
+
+, (15) 
+
+yt = ct + it + gt + κP 
+
+> 2
+
+(πt − ¯π)2yt, (16)  
+
+> rt
+> ¯r
+
+=   rt−1
+
+> ¯r
+
+ρr (πt/¯π)ϕπ (yt/¯y)ϕy 1−ρr
+
+exp( σmεmt ), (17) 
+
+log at = (1 − ρa) log ¯ a + ρa log at−1 + σaεat , (18) 
+
+log gt = (1 − ρg ) log ¯ g + ρg log gt−1 + σg εgt . (19) Here ε is the elasticity of substitution across varieties and κP the Rotemberg cost. Calibra-tion: β=0 .99 , α=0 .33 , ε=6 , δ=0 .025 , σ=2 , ϕ=1 , ¯g=0 .2, ¯π=¯ y=1 , ¯r=1 /β , ϕπ =1 .5, ϕy =0 .125 ,
+
+κI =2 .48 , ρa=ρg =0 .9, ρr =0 .8, κP =28 .003 (Calvo-equivalent 0.66 ), σa=σg =0 .01 , σm=0 .0025 ,with ¯a=1 .0584 and κL=13 .768 . Steady state: π=1 , y=1 , h=1 /3, mc =5 /6, r=rr =1 /β , q=1 ,
+
+k=7 .835 . The regime split sets a hawkish Taylor rule (ϕπ , ϕ y )=(3 .0, 0.5) .
+
+A.3 Two-agent New Keynesian (TANK) 
+
+TANK [Galí et al., 2007] splits households into a fraction 1 − η of optimizing (Ricardian) agents and η rule-of-thumb (hand-to-mouth) agents, adds public debt d and two tax-financing rules: 22 vari-ables {λ, c, rr, rk, w, h, y, k, q, i, r, mc, π, g, a, c o, c r , h o, h r , t r , t o, d } and 3 shocks. Superscripts 
+
+o, r denote optimizers and rule-of-thumb agents. The Euler, capital, Phillips, production, Taylor, and exogenous-process equations are as in NK (with optimizer marginal utility λt = ( cot )−σ and labor supply κL(hot )ϕ = λtwt); the additional blocks are 
+
+κL(hrt )ϕ(crt )σ = wt, ct = (1 − η)cot + ηc rt , ht = (1 − η)hot + ηh rt , (20) 
+
+crt = wthrt − trt , gt + rt−1 
+
+> πt
+
+dt−1 = (1 − η)tot + ηt rt + dt, (21) 
+
+trt − ¯tr = ϕd(dt−1 − ¯d) + ϕg (gt−1 − ¯g), (22) 
+
+tot − ¯to = ϕd(dt−1 − ¯d) + ϕg (gt−1 − ¯g). (23) Because rule-of-thumb agents consume disposable income, Ricardian equivalence fails: how spending is financed (the ϕd, ϕ g rules) affects aggregate consumption. This is why the TANK action is the fiscal-financing block. Calibration: β=0 .99 , α=1 /3, ε=6 , δ=0 .025 , σ=1 , ϕ=0 .2, η=0 .5, ¯g=0 .2,
+
+¯d=4 (annual debt/GDP = 1 ), ϕπ =1 .5, ϕy =0 , κI =2 .48 , ρa=ρg =0 .9, ρr =0 , ϕg =0 .1, ϕd=0 .33 ,
+
+κP =58 .252 , with ¯a=1 .0438 , κL=3 .448 , ¯tr = − 0.0466 , ¯to=0 .5274 . Steady state: c=co=cr =0 .602 ,
+
+d=4 , k=7 .914 , λ=1 .661 , y=1 . The regime split uses aggressive stabilization (ϕd, ϕ g )=(0 .6, 0.5) .
+
+Determinacy caveat: large hand-to-mouth shares η violate the Taylor principle (inverted aggregate-demand logic, Bilbiie, 2008) and render the solution explosive; we therefore hold η fixed and vary fiscal/persistence parameters for coverage. 
+
+A.4 Two-country open economy (TCM) 
+
+TCM [after Galí et al., 2007] is a two-country New Keynesian world economy (Home of size n,Foreign of size 1 − n) with incomplete markets, producer-currency pricing and the law of one price, physical capital, and Rotemberg pricing: 45 variables and 6 shocks (Home {εa, ε g , ε m} and Foreign 
+
+{εa∗, ε g∗, ε m∗}). Within each country the block mirrors the NK equations of Appendix A.2 (marginal utility, capital Euler, labor supply/demand, investment FOC, capital accumulation, production, 19 Rotemberg Phillips curve, Taylor rule, exogenous processes), written for Home goods (Foreign vars starred). The distinctive open-economy blocks are 
+
+1 = β λt+1  
+
+> λt
+> r∗
+> t
+> π∗
+> t+1
+> st+1
+> st
+
+− κD (bF t − ¯bF ), (Foreign-bond Euler / UIP) (24)  
+
+> st
+> st−1
+
+= ∆ et π∗ 
+
+> t
+> πt
+
+, pHt = stp∗
+
+> Ht
+
+, pF t = stp∗
+
+> F t
+
+, (RER, law of one price) (25) 
+
+1 = (1 − γ)p1−ηHt + γp 1−ηF t , (Home CPI aggregator) (26) 
+
+n b Ht + (1 − n)b∗ 
+
+> Ht
+
+= 0 , n b F t + (1 − n)b∗ 
+
+> F t
+
+= 0 , (bond clearing) (27) together with Home/Foreign goods-market clearing that mixes domestic and imported demand, the trade balance, and gdp t = pHt yHt . The Taylor rules optionally respond to the gross deprecia-tion ∆et with coefficient ϕe (Home +ϕe, Foreign −ϕe); κD is a small bond-adjustment cost that renders net foreign assets stationary. Calibration: β=0 .99 , α=0 .33 , ε=6 , δ=0 .025 , σ=2 , ϕ=1 ,
+
+η=1 .5 (intratemporal substitution), n=0 .2, openness ω=0 .3 giving γ=0 .2444 , γ∗=0 .0556 ; ϕπ =1 .5,
+
+ϕy =0 .125 , ϕe=0 , κI =2 .48 , κD =0 .01 , ρa=ρg =0 .9, ρr =0 .8, κP =28 .003 ; external debt/GDP D=0 ,
+
+D∗=0 .1. The steady state is not analytic (the source solves pH by a numerical root-find); our solver reproduces all published values, e.g. pH =1 .0206 , real exchange rate s=0 .9443 , gdp =1 ,
+
+gdp ∗=1 .1649 , k=7 .835 , k∗=9 .127 , bH =1 .76 , b∗ 
+
+> H
+
+= − 0.44 , tb = − 0.0178 . The regime split turns on the exchange-rate response ϕe:0 →0.5.
+
+A.5 Search-and-matching unemployment (DMP) 
+
+The DMP environment embeds a Diamond–Mortensen–Pissarides labor market in an RBC shell: 11 endogenous variables plus TFP {a, c, n, u, v, θ, m, q, f, w, y, λ } and a single TFP shock εa. Let 
+
+n be employment, u = 1 − (1 − s)nt−1 the job seekers after separations, v vacancies, θ = v/u 
+
+tightness, m = χu ξ v1−ξ matches, f = m/u and q = m/v the job-finding and vacancy-filling rates. The equilibrium is 
+
+λt = c−σt , nt = (1 − s)nt−1 + mt, yt = atnt, ct = yt − κv t, (28)  
+
+> κqt
+
+= β λt+1 
+
+> λt
+
+ at+1 − wt+1 + (1 − s) κqt+1 
+
+, wt = η (at + κθ t) + (1 − η) b, (29) 
+
+log at = ρa log at−1 + σaεat , (30) with a Cobb–Douglas matching function and Nash bargaining (Hosios at ξ = η). Calibration (quarterly): β=0 .99 , σ=2 , ξ=η=0 .5, separation s=0 .10 , matching efficiency χ=0 .6, vacancy cost 
+
+κ=0 .44 , value of non-work b=0 .40 , ρa=0 .95 , σa=0 .007 , targeting ¯θ=1 , ¯f =¯ q=0 .6, employment 
+
+¯n=0 .9375 (unemployment 6.25% ). The action is the labor-market policy b; the regime split raises it to b=0 .55 (more generous UI), which lowers steady-state employment and shifts the ergodic support. 
+
+A.6 Environmental New Keynesian (E-NK) 
+
+E-NK augments the NK economy (Appendix A.2) with a climate block: 17 variables 
+
+{λ, c, rr, rk, w, h, y, k, q, i, r, mc, π, g, a, em, stock } and the same 3 shocks. Production carries a carbon →productivity damage and the resource constraint nets out abatement cost, 
+
+yt = at e−d stock t−1 kαt−1h1−αt , yt (1 − ψa ¯μ2) = ct + it + gt + κP 
+
+> 2
+
+(πt − ¯π)2yt, (31) 
+
+em t = ϕe yt (1 − ¯μ), stock t = (1 − δx) stock t−1 + em t, (32) with all other NK blocks (marginal utility, capital/investment Euler, Phillips curve, Taylor rule, exogenous processes) unchanged. New calibration: emission intensity ϕe=0 .10 , carbon decay 
+
+δx=0 .10 , damage d=0 .02 , abatement cost-share ψa=0 .05 , baseline abatement ¯μ=0 ; remaining parameters as in NK. The action is climate policy—the carbon tax that sets abatement intensity 
+
+¯μ; the regime split tightens it to ¯μ=0 .4, which cuts steady-state emissions and the carbon stock (≈0.99 →0.60 ) and hence the damage drag, shifting the ergodic support. The slow, near-unit-root stock is also why E-NK’s tail split does not benefit from wide coverage (§5.6): the wide regime segments sit far from the on-path normalizer fit on train .20 A.7 Endogenous firm entry (Firm) 
+
+The firm-entry environment is the real Bilbiie–Ghironi–Melitz (2012) economy with a product-variety margin: 10 endogenous variables plus productivity {Z, C, N, N E , d, v, w, L, ρ, y, λ } and one productivity shock εz . With CES elasticity θ (gross markup μ = θ/ (θ − 1) ), a mass Nt of producing firms, NE,t entrants, per-firm profit dt, and firm value vt, the equilibrium is 
+
+ρt = N 1/(θ−1)  
+
+> t
+
+, ρt = θθ−1 
+
+> wt
+> Zt
+
+, yt = ρ−θt Ct, dt = 1 
+
+> θ
+
+ρtyt, (33) 
+
+Lt = Ntyt 
+
+> Zt
+
++ fE NE,t  
+
+> Zt
+
+, vt = wtfE 
+
+> Zt
+
+, vt = β λt+1  
+
+> λt
+
+(1 − δ)( vt+1 + dt+1 ), (34) 
+
+Nt = (1 − δ)( Nt−1 + NE,t −1), λt = C−σt , χL φt = wtλt, log Zt = ρz log Zt−1 + σz εzt ,
+
+(35) where ρt is the relative price of a variety (the variety effect N 1/(θ−1)  
+
+> t
+
+) and free entry equates firm value to the sunk entry cost fE in effective-labor units. Calibration (quarterly): β=0 .99 , exit δ=0 .025 ,
+
+θ=3 .8 (μ≈1.36 ), σ=1 , φ=4 , fE =1 , χ=0 .6, ρz =0 .9, σz =0 .01 (steady state ¯N ≈8.6). The action is entry policy fE ; the regime split lowers it to fE =0 .7 (deregulation), raising entry and the firm count to ≈12 .4 and so shifting the ergodic support. As in E-NK, the slow firm-mass state makes the tail 
+
+split unresponsive to wide coverage. 
+
+# B Counterfactual test-set construction 
+
+From each single solved model we generate five splits with a pruned third-order simulation. (i) train 
+
+(on-path): 5000 periods under the baseline policy and ergodic shocks ( 1σ). (ii) test_onpath : 1000 held-out periods, same regime. (iii) test_tail (off-path): 1000 periods with 5σ innovations, pushing into the nonlinear region. (iv) test_regime (off-path): 1000 periods under the counterfactual pol-icy parameters listed per model above, evaluated by a model trained only on the baseline regime. (v) train_wide (the “coverage” condition): the same total size as train (5000), built by the DSGE across shock scales 1–5σ (five 600-period segments) and four counterfactual policy regimes (four 500-period segments at 2σ); only the coverage differs from train , not the quantity. All learned mod-els share a normalizer fit on the narrow on-path train so that RMSE is comparable across conditions. A numerical guard rejects any explosive segment (used only for TANK, see Appendix A.3). Trans-parency on overlap: the four wide regimes include the parameter setting used to build test_regime ,so the H2 regime result quantifies the value of a structural generator synthesizing the counterfactual distribution (which no single history contains; §5, Remark 2), not a learner extrapolating to a withheld regime. The released benchmark additionally provides (a) a leave-one-regime-out construction—wide training over a band of regimes with one withheld for test—and (b) a non-structural coverage baseline (regime-dummy VAR / parameter-perturbation augmentation) matched on size and support, as the two stricter probes that separate structure from coverage; these are released with the code and analyzed in Paper 2. 
+
+# C Implementation details 
+
+Task and normalization. The one-step input is xt = [ zt, ε t+1 ] and the target is zt+1 ; including the realized next-period shock as the “action” makes the transition (near-)deterministic so RMSE isolates the learned map. All tensors are z-scored using train statistics only; reported RMSE is in normalized units. 
+
+Terminology. Two distinct objects are involved and we keep them separate. The policy action is the rule/regime block whose counterfactual defines the regime split (e.g. the Taylor or fiscal-financing coefficients); it is fixed within an environment , not chosen per step, and it is the “action” of the world-model framing (§3) and of Table 7. The per-step quantity fed to the one-step predictor is the structural shock εt+1 , supplied so that the transition is deterministic. Where the interface treats εt+1 
+
+as the controllable input we say “shock,” and reserve “action” for the policy block; the MDP reading in which an agent chooses actions is exercised by T3 (planning), not by the T1 regression studied here. 
+
+Baselines. Linear : ridge regression ( ℓ2 = 10 −3). MLP : two hidden layers of 128 units, SiLU. 
+
+LSTM /Transformer : a shared encoder over a length-8 context window mapping to a 64-d latent 21 (Transformer: 2 layers, 4 heads, FFN 2×), with a head conditioned on the action. NextLat : the Transformer plus a next-latent self-prediction auxiliary loss (weight 0.1) on temporally contiguous batches [Teoh et al., 2025]. All models train with Adam (weight decay 10 −5), MLP/vector models for 80 epochs at lr 2 × 10 −3, sequence models for 60 epochs at lr 10 −3, batch size 256; means over 3 seeds. 
+
+DSGE oracles. The first-order oracle reads the analytic policy matrix exported from MacroMod-elling.jl and predicts zt+1 = SS + P 
+
+> s
+
+Cs(state s − SS s) + P 
+
+> e
+
+Ceεe. The third-order oracle evaluates the pruned policy from the observable state with the realized shock. Both are upper-bound references and are not part of the headline narrow-vs-wide sweep. 
+
+Structural penalty (ablation). The optional hybrid adds, as a soft penalty, the model’s static 
+
+(policy-invariant) equilibrium residuals—marginal utility, factor demands, production, resource constraint, capital accumulation, and (TANK) the household aggregation/budget identities—evaluated on the denormalized one-step prediction, including an EWM-style collocation set of noised inputs. Intertemporal (Euler/Phillips) conditions and policy-rule coefficients are excluded so the prior remains valid across counterfactual regimes. 
+
+NAWM at scale. The NAWM environment (§5.5) is the unmodified NAWM_EAUS_2008 model from the MacroModelling.jl library ( 230 variables, 21 shocks). Because a third-order solve is infeasible at this size, its data are generated from the first-order solution and it has no third-order oracle; only the first-order oracle and the headline narrow-vs-wide sweep are run. Its variable and shock names are read programmatically and recorded in a sidecar so the Python loader infers the column layout automatically—no per-model code is needed, which is what makes scaling the benchmark mechanical. The identical split generator, normalizer, and baselines are used as for the small models. 22
