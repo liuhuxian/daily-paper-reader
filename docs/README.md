@@ -6,80 +6,71 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-07
-- 运行时间：2026-07-07 21:09:22 UTC
+- 最新运行日期：2026-07-08
+- 运行时间：2026-07-08 21:19:11 UTC
 - 运行状态：成功
-- 本次总论文数：20
-- 精读区：9
+- 本次总论文数：17
+- 精读区：6
 - 速读区：11
 
 ### 今日简报（AI）
-今日精选20篇论文，精读9篇，重点聚焦机器人世界动作模型与移动操作统一框架。最值得看《From World Models to World Action Models》满分解读教程及《ABot-M0.5》高分统一模型，代表从感知到行动的演进方向。建议优先精读这两篇高分论文，再速读环境可迁移空间记忆与闭环动作生成等补充工作。
-- 详情：[/202607/07/README](/202607/07/README)
+今日聚焦机器人通用控制，两篇高分论文将传统世界模型升级为世界动作模型，实现更泛化的机器人操作。最值得关注的是WSA₁的3D空间-动作联合建模与配套教程，为机器人学习提供新范式。建议普通读者优先阅读动作模型如何将环境感知与动作决策统一，这能帮助理解机器人任务泛化的前沿方向。
+- 详情：[/202607/08/README](/202607/08/README)
 
 ### 精读区论文标签
-1. [From World Models to World Action Models: A Concise Tutorial for Robotics](/202607/07/2607.00836v3-from-world-models-to-world-action-models-a-concise-tutorial-for-robotics)  
-   标签：评分：10.0/10、query:wmi
-   evidence：关于世界模型和世界动作模型在具身智能与机器人中的教程
-2. [ABot-M0.5: Unified Mobility-and-Manipulation World Action Model](/202607/07/2607.00678v2-abot-m05-unified-mobility-and-manipulation-world-action-model)  
+1. [From World Models to World Action Models: A Concise Tutorial for Robotics](/202607/08/2607.00836v3-from-world-models-to-world-action-models-a-concise-tutorial-for-robotics)  
    标签：评分：9.0/10、query:wmi
-   evidence：面向具身智能的统一移动与操作世界动作模型
-3. [TACO: TActile World Model as a Self-COrrector forScalable VLA Post-Training](/202607/07/2607.02840v1-taco-tactile-world-model-as-a-self-corrector-forscalable-vla-post-training)  
+   evidence：关于世界模型和世界行动模型在具身智能中的教程
+2. [WSA$_1$: a 3D-Centric World-Spatial-Action Model for Generalizable Robot Control](/202607/08/2607.03941v1-wsa1-a-3d-centric-world-spatial-action-model-for-generalizable-robot-control)  
    标签：评分：9.0/10、query:wmi
-   evidence：触觉世界模型用于VLA模型的后训练纠正
-4. [DSGE as a Structured World Model:Benchmarking Counterfactual Generalization in Economic Worlds](/202607/07/2607.03144v1-dsge-as-a-structured-world-modelbenchmarking-counterfactual-generalization-in-economic-worlds)  
+   evidence：提出3D世界-空间-动作模型，结合演示数据模仿学习，用于具身AI通用机器人控制
+3. [HALO-WA: Hybrid-Attention Latent-Guided Online Reinforcement Learning for World-Action Models](/202607/08/2607.04265v1-halo-wa-hybrid-attention-latent-guided-online-reinforcement-learning-for-world-action-models)  
    标签：评分：9.0/10、query:wmi
-   evidence：DSGE作为结构化世界模型，用于反事实泛化基准测试
-5. [Reduced-Order Models: The Mother of World Models](/202607/07/2607.03198v1-reduced-order-models-the-mother-of-world-models)  
+   evidence：提出面向世界-动作模型的在线强化学习以适应真实世界误差
+4. [KAM-WM: Kinematic Affordance Maps from Latent World Models for Robot Manipulation](/202607/08/2607.04652v1-kam-wm-kinematic-affordance-maps-from-latent-world-models-for-robot-manipulation)  
    标签：评分：9.0/10、query:wmi
-   evidence：世界模型作为动作条件预测和规划的潜在表示
-6. [WSA$_1$: a 3D-Centric World-Spatial-Action Model for Generalizable Robot Control](/202607/07/2607.03941v1-wsa1-a-3d-centric-world-spatial-action-model-for-generalizable-robot-control)  
+   evidence：利用潜在视频世界模型提取运动功能映射指导操作
+5. [RoboTALES: Learning Reasoning-Guided Robot Policies via Task-Aligned Simulated Futures](/202607/08/2607.06018v1-robotales-learning-reasoning-guided-robot-policies-via-task-aligned-simulated-futures)  
    标签：评分：9.0/10、query:wmi
-   evidence：面向机器人控制的3D中心世界-空间-动作模型，利用模仿学习和世界动力学
-7. [Worldscape-MoE: A Unified Mixture-of-Experts World Model for Scalable Heterogeneous Action Control](/202607/07/2607.03964v1-worldscape-moe-a-unified-mixture-of-experts-world-model-for-scalable-heterogeneous-action-control)  
+   evidence：任务对齐的模拟未来用于机器人策略学习
+6. [RynnWorld-Teleop: An Action-Conditioned World Model for Digital Teleoperation](/202607/08/2607.06558v1-rynnworld-teleop-an-action-conditioned-world-model-for-digital-teleoperation)  
    标签：评分：9.0/10、query:wmi
-   evidence：面向异构动作控制的统一混合专家世界模型
-8. [Learning Task-Sufficient World Models by Synergizing Agentic Exploration and Structured Modeling](/202607/07/2607.04409v1-learning-task-sufficient-world-models-by-synergizing-agentic-exploration-and-structured-modeling)  
-   标签：评分：9.0/10、query:wmi
-   evidence：用于规划与预测的世界模型
-9. [ACE-Brain-0.5: A Unified Embodied Foundational Model for Physical Agentic AI](/202607/07/2607.04426v1-ace-brain-05-a-unified-embodied-foundational-model-for-physical-agentic-ai)  
-   标签：评分：9.0/10、query:wmi
-   evidence：统一的具身基础模型，用于物理代理AI
+   evidence：使用生成式世界模型进行数字遥操作，合成轨迹用于模仿学习
 
 ### 速读区论文标签
-1. [OpenSPM: An Environment-Transferable Robotic Key Spatial Pose Memory and Closed-Loop High-Frequency Flow-Matching Action Generation Model](/202607/07/2606.29936v2-openspm-an-environment-transferable-robotic-key-spatial-pose-memory-and-closed-loop-high-frequency-flow-matching-action-generation-model)  
+1. [Object-Centric Environment Modeling for Agentic Tasks](/202607/08/2607.02846v1-object-centric-environment-modeling-for-agentic-tasks)  
    标签：评分：8.0/10、query:wmi
-   evidence：具身AI，空间记忆与动作生成，用于机器人操作
-2. [Automating the Design of Embodied Agent Architectures](/202607/07/2606.30111v2-automating-the-design-of-embodied-agent-architectures)  
+   evidence：面向对象的可执行环境模型用于智能体规划
+2. [ObjRetarget: An Object-Aware Motion Retargeting Framework with Anthropomorphic Arm Constraints and Polyhedral Hand Modeling](/202607/08/2607.03828v1-objretarget-an-object-aware-motion-retargeting-framework-with-anthropomorphic-arm-constraints-and-polyhedral-hand-modeling)  
    标签：评分：8.0/10、query:wmi
-   evidence：自动化设计带有传感器和执行器的具身智能体架构
-3. [Ask the World Before Acting: Environment Probing for Calibrated Agent World Models](/202607/07/2606.31422v2-ask-the-world-before-acting-environment-probing-for-calibrated-agent-world-models)  
+   evidence：从人类视频进行运动重定向以学习机器人灵巧操纵
+3. [A Few Teacher Steps Go a Long Way: Cost-Efficient On-Policy Data Augmentation for Agent Post-Training](/202607/08/2607.04574v1-a-few-teacher-steps-go-a-long-way-cost-efficient-on-policy-data-augmentation-for-agent-post-training)  
    标签：评分：8.0/10、query:wmi
-   evidence：代理世界模型与环境探测，用于长时任务中的信念校准
-4. [AutoSpeed: Annotation-Free Stage-Adaptive Motion Speed Learning for Robot Manipulation](/202607/07/2607.01051v2-autospeed-annotation-free-stage-adaptive-motion-speed-learning-for-robot-manipulation)  
+   evidence：从教师示范中进行在策略数据增强以改善学生模仿
+4. [Simple-to-Complex Structured Demonstrations for Vision-Language-Action Learning](/202607/08/2607.04591v1-simple-to-complex-structured-demonstrations-for-vision-language-action-learning)  
    标签：评分：8.0/10、query:wmi
-   evidence：基于模仿学习的机器人操作阶段自适应速度学习
-5. [Guided Action Flow: Q-Guided Inference for Flow-Matching Vision-Language-Action Policies](/202607/07/2607.02092v2-guided-action-flow-q-guided-inference-for-flow-matching-vision-language-action-policies)  
+   evidence：结构化演示收集策略用于VLA模仿学习
+5. [Freeform Preference Learning for Robotic Manipulation](/202607/08/2606.32027v1-freeform-preference-learning-for-robotic-manipulation)  
    标签：评分：7.0/10、query:wmi
-   evidence：利用学习到的评论家对机器人操作中的流匹配VLA策略进行测试时引导
-6. [PhysMirror: Physics-Aware Mirror Object Generation](/202607/07/2607.03470v1-physmirror-physics-aware-mirror-object-generation)  
+   evidence：从人类偏好学习机器人操作策略
+6. [Hardware-Enforced Semantic Coordination for Safety-Critical Real-Time Autonomous Systems](/202607/08/2607.02376v1-hardware-enforced-semantic-coordination-for-safety-critical-real-time-autonomous-systems)  
    标签：评分：7.0/10、query:wmi
-   evidence：为具身AI合成训练数据的物理感知镜像生成
-7. [OmniTacTune: Policy-Agnostic Real-World RL for Tactile Residual Adaptation of Visual Policies](/202607/07/2607.03723v1-omnitactune-policy-agnostic-real-world-rl-for-tactile-residual-adaptation-of-visual-policies)  
+   evidence：硬件强化的协调架构，集成世界模型和AI智能体的自主系统
+7. [Embodied.cpp: A Portable Inference Runtime of Embodied AI Models on Heterogeneous Robots](/202607/08/2607.02501v2-embodiedcpp-a-portable-inference-runtime-of-embodied-ai-models-on-heterogeneous-robots)  
    标签：评分：7.0/10、query:wmi
-   evidence：从演示中学习的视觉策略通过触觉残差适应提升机器人操作
-8. [InternVLA-A1.5: Unifying Understanding, Latent Foresight, and Action for Compositional Generalization](/202607/07/2607.04988v1-internvla-a15-unifying-understanding-latent-foresight-and-action-for-compositional-generalization)  
+   evidence：提供面向具身AI模型（包括世界-动作模型）的便携式推理运行时
+8. [Operator-on-F complements value-equivalence: a planning-time diagnostic for latent world models](/202607/08/2607.04464v1-operator-on-f-complements-value-equivalence-a-planning-time-diagnostic-for-latent-world-models)  
    标签：评分：7.0/10、query:wmi
-   evidence：具有潜在预见能力的统一模型，用于未来预测和动作生成
-9. [CLEAR: Closed-Loop Reinforcement Learning at Scale for End-to-End Autonomous Driving](/202607/07/2607.02841v1-clear-closed-loop-reinforcement-learning-at-scale-for-end-to-end-autonomous-driving)  
+   evidence：基于模型的强化学习中潜在世界模型的诊断工具
+9. [EVA-Client: A Unified Data Collection, Inference, and Deployment Framework for Embodied Policies on Real Robots](/202607/08/2607.02646v1-eva-client-a-unified-data-collection-inference-and-deployment-framework-for-embodied-policies-on-real-robots)  
    标签：评分：6.0/10、query:wmi
-   evidence：通过强化学习改善自动驾驶的闭环规划
-10. [HiMe: Hierarchical Embodied Memory for Long-Horizon Vision-Language-Action Control](/202607/07/2607.03449v1-hime-hierarchical-embodied-memory-for-long-horizon-vision-language-action-control)  
+   evidence：用于真实机器人上具身策略部署和数据采集的框架
+10. [PRISM: Personalized Robotic Dataset Generation via Image-based Scene and Motion Synthesis](/202607/08/2607.04880v1-prism-personalized-robotic-dataset-generation-via-image-based-scene-and-motion-synthesis)  
    标签：评分：6.0/10、query:wmi
-   evidence：层次化具身记忆用于视觉-语言-动作控制
-11. [CAC-VLA: Context-Gated Action Conditioning for Vision-Language-Action Models](/202607/07/2607.04816v1-cac-vla-context-gated-action-conditioning-for-vision-language-action-models)  
+   evidence：生成个性化机器人数据集，支持模仿学习策略训练
+11. [Diffusion-Guided Uncertainty-Aware Delayed Policy Optimization](/202607/08/2607.05064v1-diffusion-guided-uncertainty-aware-delayed-policy-optimization)  
    标签：评分：6.0/10、query:wmi
-   evidence：用于机器人操作的VLA模型上下文门控动作条件化
+   evidence：使用扩散模型为延迟强化学习建模状态差异
 
 
 <div class="dpr-home-promo-card">
