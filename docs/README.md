@@ -6,71 +6,76 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-08
-- 运行时间：2026-07-08 21:19:11 UTC
+- 最新运行日期：2026-07-09
+- 运行时间：2026-07-09 22:02:24 UTC
 - 运行状态：成功
-- 本次总论文数：17
-- 精读区：6
+- 本次总论文数：18
+- 精读区：7
 - 速读区：11
 
 ### 今日简报（AI）
-今日聚焦机器人通用控制，两篇高分论文将传统世界模型升级为世界动作模型，实现更泛化的机器人操作。最值得关注的是WSA₁的3D空间-动作联合建模与配套教程，为机器人学习提供新范式。建议普通读者优先阅读动作模型如何将环境感知与动作决策统一，这能帮助理解机器人任务泛化的前沿方向。
-- 详情：[/202607/08/README](/202607/08/README)
+今日精读7篇，重点推荐两篇9分大作：3D空间动作模型WSA$_1$与双系统基础模型DSWAM，推动机器人通用操控新突破。  
+值得关注世界空间动作泛化及精细操作方向，速读中空间注意力与灵巧手潜在运动先验也值得一看。  
+建议优先深入精读两篇9分文章的方法论，再结合速读中的可部署系统与灵巧手实践做对比验证。
+- 详情：[/202607/09/README](/202607/09/README)
 
 ### 精读区论文标签
-1. [From World Models to World Action Models: A Concise Tutorial for Robotics](/202607/08/2607.00836v3-from-world-models-to-world-action-models-a-concise-tutorial-for-robotics)  
+1. [WSA$_1$: a 3D-Centric World-Spatial-Action Model for Generalizable Robot Control](/202607/09/2607.03941v1-wsa1-a-3d-centric-world-spatial-action-model-for-generalizable-robot-control)  
    标签：评分：9.0/10、query:wmi
-   evidence：关于世界模型和世界行动模型在具身智能中的教程
-2. [WSA$_1$: a 3D-Centric World-Spatial-Action Model for Generalizable Robot Control](/202607/08/2607.03941v1-wsa1-a-3d-centric-world-spatial-action-model-for-generalizable-robot-control)  
+   evidence：面向具身机器人控制的3D世界模型
+2. [DSWAM: A Dual-System World Action Foundation Model for Fine-Grained Robot Manipulation](/202607/09/2607.04927v1-dswam-a-dual-system-world-action-foundation-model-for-fine-grained-robot-manipulation)  
    标签：评分：9.0/10、query:wmi
-   evidence：提出3D世界-空间-动作模型，结合演示数据模仿学习，用于具身AI通用机器人控制
-3. [HALO-WA: Hybrid-Attention Latent-Guided Online Reinforcement Learning for World-Action Models](/202607/08/2607.04265v1-halo-wa-hybrid-attention-latent-guided-online-reinforcement-learning-for-world-action-models)  
+   evidence：世界动作模型作为内部环境模型用于规划和操作
+3. [Cortex: A Bidirectionally Aligned Embodied Agent Framework for Long-horizon Manipulation](/202607/09/2607.05377v1-cortex-a-bidirectionally-aligned-embodied-agent-framework-for-long-horizon-manipulation)  
    标签：评分：9.0/10、query:wmi
-   evidence：提出面向世界-动作模型的在线强化学习以适应真实世界误差
-4. [KAM-WM: Kinematic Affordance Maps from Latent World Models for Robot Manipulation](/202607/08/2607.04652v1-kam-wm-kinematic-affordance-maps-from-latent-world-models-for-robot-manipulation)  
+   evidence：双向对齐的具身智能体框架；从VLM到VLA的可执行计划
+4. [Learning 4D Geometric Priors for Inference-Efficient World Action Models](/202607/09/2607.05468v1-learning-4d-geometric-priors-for-inference-efficient-world-action-models)  
    标签：评分：9.0/10、query:wmi
-   evidence：利用潜在视频世界模型提取运动功能映射指导操作
-5. [RoboTALES: Learning Reasoning-Guided Robot Policies via Task-Aligned Simulated Futures](/202607/08/2607.06018v1-robotales-learning-reasoning-guided-robot-policies-via-task-aligned-simulated-futures)  
+   evidence：使用4D几何先验的世界动作模型用于操作
+5. [Hypothesis-driven Model Expansion under Uncertainty for Open-World Robot Planning](/202607/09/2607.06501v1-hypothesis-driven-model-expansion-under-uncertainty-for-open-world-robot-planning)  
    标签：评分：9.0/10、query:wmi
-   evidence：任务对齐的模拟未来用于机器人策略学习
-6. [RynnWorld-Teleop: An Action-Conditioned World Model for Digital Teleoperation](/202607/08/2607.06558v1-rynnworld-teleop-an-action-conditioned-world-model-for-digital-teleoperation)  
+   evidence：面向机器人规划的不确定性感知世界模型扩展
+6. [RynnWorld-Teleop: An Action-Conditioned World Model for Digital Teleoperation](/202607/09/2607.06558v1-rynnworld-teleop-an-action-conditioned-world-model-for-digital-teleoperation)  
    标签：评分：9.0/10、query:wmi
-   evidence：使用生成式世界模型进行数字遥操作，合成轨迹用于模仿学习
+   evidence：基于生成式世界模型的数字遥操作生成专家演示
+7. [WAM-TTT: Steering World-Action Models by Watching Human Play at Test Time](/202607/09/2607.06988v1-wam-ttt-steering-world-action-models-by-watching-human-play-at-test-time)  
+   标签：评分：9.0/10、query:wmi
+   evidence：从人类视频引导世界动作模型而非直接模仿
 
 ### 速读区论文标签
-1. [Object-Centric Environment Modeling for Agentic Tasks](/202607/08/2607.02846v1-object-centric-environment-modeling-for-agentic-tasks)  
+1. [Embodied Operators and Benchmarking: Toward Reusable and Deployable Embodied Intelligence Systems](/202607/09/2607.03283v1-embodied-operators-and-benchmarking-toward-reusable-and-deployable-embodied-intelligence-systems)  
    标签：评分：8.0/10、query:wmi
-   evidence：面向对象的可执行环境模型用于智能体规划
-2. [ObjRetarget: An Object-Aware Motion Retargeting Framework with Anthropomorphic Arm Constraints and Polyhedral Hand Modeling](/202607/08/2607.03828v1-objretarget-an-object-aware-motion-retargeting-framework-with-anthropomorphic-arm-constraints-and-polyhedral-hand-modeling)  
+   evidence：定义可重用具身算子，用于转换多模态观察、机器人状态和人类演示
+2. [Spatial Attention: Adapting Execution Horizons for Diffusion Policies via Observation Sensitivity](/202607/09/2607.04739v1-spatial-attention-adapting-execution-horizons-for-diffusion-policies-via-observation-sensitivity)  
    标签：评分：8.0/10、query:wmi
-   evidence：从人类视频进行运动重定向以学习机器人灵巧操纵
-3. [A Few Teacher Steps Go a Long Way: Cost-Efficient On-Policy Data Augmentation for Agent Post-Training](/202607/08/2607.04574v1-a-few-teacher-steps-go-a-long-way-cost-efficient-on-policy-data-augmentation-for-agent-post-training)  
+   evidence：模仿学习中扩散策略的自适应执行视界
+3. [LAMP: Latent Motion Prior-Guided Real-World Learning for Dexterous Hand Manipulation](/202607/09/2607.06323v1-lamp-latent-motion-prior-guided-real-world-learning-for-dexterous-hand-manipulation)  
    标签：评分：8.0/10、query:wmi
-   evidence：从教师示范中进行在策略数据增强以改善学生模仿
-4. [Simple-to-Complex Structured Demonstrations for Vision-Language-Action Learning](/202607/08/2607.04591v1-simple-to-complex-structured-demonstrations-for-vision-language-action-learning)  
+   evidence：模仿学习结合强化学习用于灵巧手操作
+4. [SIEVE: Structure-Aware Data Selection for Imitation Learning with VLA Models](/202607/09/2607.06442v1-sieve-structure-aware-data-selection-for-imitation-learning-with-vla-models)  
    标签：评分：8.0/10、query:wmi
-   evidence：结构化演示收集策略用于VLA模仿学习
-5. [Freeform Preference Learning for Robotic Manipulation](/202607/08/2606.32027v1-freeform-preference-learning-for-robotic-manipulation)  
+   evidence：面向VLA模型模仿学习的数据选择，结构感知
+5. [SPECTRA: Context-Conditioned Spectral Movement Primitives for Robot Skill Generalization](/202607/09/2607.06978v1-spectra-context-conditioned-spectral-movement-primitives-for-robot-skill-generalization)  
+   标签：评分：8.0/10、query:wmi
+   evidence：使用频谱运动基元的机器人操作模仿学习框架
+6. [CoRe: Combined Rewards with Vision-Language Model Feedback for Preference-Aligned Reinforcement Learning](/202607/09/2607.01721v1-core-combined-rewards-with-vision-language-model-feedback-for-preference-aligned-reinforcement-learning)  
    标签：评分：7.0/10、query:wmi
-   evidence：从人类偏好学习机器人操作策略
-6. [Hardware-Enforced Semantic Coordination for Safety-Critical Real-Time Autonomous Systems](/202607/08/2607.02376v1-hardware-enforced-semantic-coordination-for-safety-critical-real-time-autonomous-systems)  
+   evidence：结合形式奖励和残差奖励的强化学习分解
+7. [XS-VLA: Coupling Coarse-grained Spatial Distillation with Latent Flow Matching for Lightweight Robotic Control](/202607/09/2607.04171v1-xs-vla-coupling-coarse-grained-spatial-distillation-with-latent-flow-matching-for-lightweight-robotic-control)  
    标签：评分：7.0/10、query:wmi
-   evidence：硬件强化的协调架构，集成世界模型和AI智能体的自主系统
-7. [Embodied.cpp: A Portable Inference Runtime of Embodied AI Models on Heterogeneous Robots](/202607/08/2607.02501v2-embodiedcpp-a-portable-inference-runtime-of-embodied-ai-models-on-heterogeneous-robots)  
+   evidence：从演示中学习策略结合空间蒸馏
+8. [EmbodiedGen V2: An Agentic, Simulation-Ready 3D World Engine for Embodied AI](/202607/09/2607.07459v1-embodiedgen-v2-an-agentic-simulation-ready-3d-world-engine-for-embodied-ai)  
    标签：评分：7.0/10、query:wmi
-   evidence：提供面向具身AI模型（包括世界-动作模型）的便携式推理运行时
-8. [Operator-on-F complements value-equivalence: a planning-time diagnostic for latent world models](/202607/08/2607.04464v1-operator-on-f-complements-value-equivalence-a-planning-time-diagnostic-for-latent-world-models)  
-   标签：评分：7.0/10、query:wmi
-   evidence：基于模型的强化学习中潜在世界模型的诊断工具
-9. [EVA-Client: A Unified Data Collection, Inference, and Deployment Framework for Embodied Policies on Real Robots](/202607/08/2607.02646v1-eva-client-a-unified-data-collection-inference-and-deployment-framework-for-embodied-policies-on-real-robots)  
+   evidence：生成式3D世界引擎，为具身智能构建可模拟环境；支持策略训练
+9. [ACE: Agentic Control for Embodied Manipulation via Zero-shot Workflow Reasoning](/202607/09/2607.04162v1-ace-agentic-control-for-embodied-manipulation-via-zero-shot-workflow-reasoning)  
    标签：评分：6.0/10、query:wmi
-   evidence：用于真实机器人上具身策略部署和数据采集的框架
-10. [PRISM: Personalized Robotic Dataset Generation via Image-based Scene and Motion Synthesis](/202607/08/2607.04880v1-prism-personalized-robotic-dataset-generation-via-image-based-scene-and-motion-synthesis)  
+   evidence：具身操作中的代理控制框架与物理体交互
+10. [Multi-Turn On-Policy Distillation with Prefix Replay](/202607/09/2607.04763v1-multi-turn-on-policy-distillation-with-prefix-replay)  
    标签：评分：6.0/10、query:wmi
-   evidence：生成个性化机器人数据集，支持模仿学习策略训练
-11. [Diffusion-Guided Uncertainty-Aware Delayed Policy Optimization](/202607/08/2607.05064v1-diffusion-guided-uncertainty-aware-delayed-policy-optimization)  
+   evidence：多轮智能体模仿的在线蒸馏与前缀重放
+11. [Optimal Transport Q-Learning for Flow Policy Steering and Acceleration](/202607/09/2607.06262v1-optimal-transport-q-learning-for-flow-policy-steering-and-acceleration)  
    标签：评分：6.0/10、query:wmi
-   evidence：使用扩散模型为延迟强化学习建模状态差异
+   evidence：使用RL微调流策略，结合模仿学习和强化学习
 
 
 <div class="dpr-home-promo-card">
