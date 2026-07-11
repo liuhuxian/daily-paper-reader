@@ -1,0 +1,441 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-11T19:52:49.496795+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 8,
+    "deep_cap": 6,
+    "deep_selected": 6,
+    "quick_candidates": 4,
+    "quick_skim_target": 11,
+    "quick_selected": 4
+  },
+  "deep_dive": [
+    {
+      "id": "2607.04978v1",
+      "source": "arxiv",
+      "title": "Qantara: Bridge-Flow Training for Multi-Paradigm JEPA Control",
+      "abstract": "Joint-Embedding Predictive Architectures (JEPAs) underpin a growing family of latent world models for control from raw pixels, but every existing JEPA world model commits at training time to a single inference paradigm: either trajectory optimisation in a learned dynamics model, or direct behaviour cloning. A single checkpoint that serves both would defer this choice to inference, when deployment constraints (rollout cost, observation accessibility) determine which path wins. We present Qantara, an end-to-end JEPA whose joint training objective pairs a Brownian-bridge interpolant between consecutive clean latents on the state axis with noise-to-data flow matching on the action axis. The same checkpoint serves three inference paradigms without retraining: latent planning, behaviour-cloning action sampling, and inverse dynamics, which we query through a video-inverse composition that first predicts the next latent without action conditioning, then extracts the action. Training concentrates mass on the edges of the (action-time, state-time) noise square, where inference queries the predictor: replacing it with uniform interior sampling drops Push-T planning from 90.1 to 53.3 SR at matched compute. On the LeWM control suite, Qantara reaches a 91.2 SR three-train-seed average and sets new SOTA on OGBench-Cube (+7.7 SR over DINO-WM, +19.7 over LeWM). From the same weights, the behaviour-cloning and video-inverse paths reach 82-83 SR on Push-T and 71-73 SR on Cube. These results move JEPA world models from single-paradigm planners to multi-paradigm controllers.",
+      "authors": [
+        "Ruslan Rakhimov",
+        "George Bredis",
+        "Yuriy Maksyuta",
+        "Daniil Gavrilov"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.CV",
+        "cs.RO"
+      ],
+      "published": "2026-07-06T12:12:50+00:00",
+      "link": "https://arxiv.org/pdf/2607.04978v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 10.0,
+      "llm_evidence_en": "latent world model for planning and prediction with multi-paradigm inference",
+      "llm_evidence_cn": "用于规划与预测的潜世界模型，支持多范式推理",
+      "llm_evidence": "用于规划与预测的潜世界模型，支持多范式推理",
+      "canonical_evidence": "用于规划与预测的潜世界模型，支持多范式推理",
+      "llm_tldr_en": "Qantara trains a JEPA latent world model with bridge-flow matching that supports trajectory optimization and behavior cloning from a single checkpoint.",
+      "llm_tldr_cn": "现有JEPA世界模型在训练时需承诺单一推理范式（轨迹优化或行为克隆），Qantara通过联合训练目标（状态轴布朗桥插值与动作轴噪声到数据流匹配）使同一检查点支持三种推理范式而不需重训，实现在部署时根据约束灵活选择，推动了潜世界模型在控制中的实用化。",
+      "llm_tldr": "现有JEPA世界模型在训练时需承诺单一推理范式（轨迹优化或行为克隆），Qantara通过联合训练目标（状态轴布朗桥插值与动作轴噪声到数据流匹配）使同一检查点支持三种推理范式而不需重训，实现在部署时根据约束灵活选择，推动了潜世界模型在控制中的实用化。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.02865v1",
+      "source": "arxiv",
+      "title": "DREAMSTEER: Latent World Models Can Steer VLA Policies During Deployment Without Any Finetuning",
+      "abstract": "Pretrained vision-language-action (VLA) policies show promising zero-shot generalization, but often fail under deployment-time distribution shift, leading to decreased robustness and inconsistent instruction following. While prior work commonly tackles this by finetuning on in-distribution data, it assumes demonstrations collected on tasks in the target environment. In this work, we propose DREAMSTEER, a deployment-time steering framework for pretrained VLAs without any finetuning or parameter modifications. The key insight in DREAMSTEER is to leverage a latent world model and a value model to steer pretrained VLA policies. During deployment, DREAMSTEER samples candidate action chunks from a VLA policy and predefined motion primitives, imagines their outcomes using an action-conditioned latent world model, and ranks the imagined trajectories with a language-conditioned value model. Across four real-world manipulation benchmarks with unseen objects, DREAMSTEER improves task success rate from 23.75% to 66.25% and instruction-following accuracy from 38.75% to 56.25% over the base VLA policy.",
+      "authors": [
+        "Hanchen Cui",
+        "Sergio Arnaud",
+        "Arjun Majumdar",
+        "Daniel Dugas",
+        "Elie Aljalbout",
+        "Karthik Desingh",
+        "Krishna Murthy Jatavallabhula",
+        "Franziska Meier"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-03T02:08:50+00:00",
+      "link": "https://arxiv.org/pdf/2607.02865v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "latent world model for steering VLA policies",
+      "llm_evidence_cn": "用于引导VLA策略的潜在世界模型",
+      "llm_evidence": "用于引导VLA策略的潜在世界模型",
+      "canonical_evidence": "用于引导VLA策略的潜在世界模型",
+      "llm_tldr_en": "DREAMSTEER uses a latent world model and value model to steer pretrained VLA policies at deployment time without finetuning, improving robustness under distribution shift.",
+      "llm_tldr_cn": "预训练VLA策略在部署时面临分布偏移，现有方法需要目标域演示进行微调。本文提出DREAMSTEER，利用潜在世界模型和价值模型在部署时引导策略，无需任何微调或参数修改。通过采样候选动作并使用世界模型评估，选择最优动作，提升了零样本鲁棒性和指令遵循能力。",
+      "llm_tldr": "预训练VLA策略在部署时面临分布偏移，现有方法需要目标域演示进行微调。本文提出DREAMSTEER，利用潜在世界模型和价值模型在部署时引导策略，无需任何微调或参数修改。通过采样候选动作并使用世界模型评估，选择最优动作，提升了零样本鲁棒性和指令遵循能力。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.03461v1",
+      "source": "arxiv",
+      "title": "WorldBagel: Uncovering the Power of Unified Multimodal Models for Vision-Language-Action-World Modeling",
+      "abstract": "World models aim to capture environment dynamics in ways that support perception, reasoning, and action, and have recently become a central direction in Vision-Language-Action-World (VLAW) modeling. Meanwhile, unified vision-language models have demonstrated strong multimodal generation capabilities, yet their potential as world models remains underexplored. In this work, we introduce \\texttt{WorldBagel}, a unified VLAW framework built on BAGEL, a modern multimodal unified model, and use it to systematically investigate the role of unification in world modeling. Across multi-task robotic manipulation and cross-domain experiments, \\texttt{WorldBagel} consistently outperforms task-specific alternatives and learns action representations that are more structured and semantically aligned with visual and linguistic context. Experiments on LIBERO, Language Table, and Franka show that unification is not only an architectural convenience, but also a key factor in learning effective VLAW models, leading to consistent empirical gains and deeper insights into multimodal world modeling. Code and model checkpoints will be released upon acceptance.",
+      "authors": [
+        "Zelin Zhao",
+        "Min Shi",
+        "Bo Yuan",
+        "Haotian Xue",
+        "Jialuo Li",
+        "Lama Moukheiber",
+        "Humphrey Shi",
+        "Yongxin Chen"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "published": "2026-07-03T16:18:20+00:00",
+      "link": "https://arxiv.org/pdf/2607.03461v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world model framework for embodied AI with VLAW modeling",
+      "llm_evidence_cn": "用于具身AI的世界模型框架，结合视觉-语言-动作-世界建模",
+      "llm_evidence": "用于具身AI的世界模型框架，结合视觉-语言-动作-世界建模",
+      "canonical_evidence": "用于具身AI的世界模型框架，结合视觉-语言-动作-世界建模",
+      "llm_tldr_en": "WorldBagel unifies vision, language, action, and world modeling in a single framework, outperforming task-specific alternatives on robotic manipulation and cross-domain tasks.",
+      "llm_tldr_cn": "本文探索统一多模态模型作为世界模型的潜力，提出WorldBagel框架，将视觉-语言-动作-世界建模统一于BAGEL模型之上。在多任务机器人操作和跨领域实验中，WorldBagel一致优于任务专用方法，并学到可迁移的动作表示，为具身智能中的世界模型提供了新范式。",
+      "llm_tldr": "本文探索统一多模态模型作为世界模型的潜力，提出WorldBagel框架，将视觉-语言-动作-世界建模统一于BAGEL模型之上。在多任务机器人操作和跨领域实验中，WorldBagel一致优于任务专用方法，并学到可迁移的动作表示，为具身智能中的世界模型提供了新范式。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.07287v1",
+      "source": "arxiv",
+      "title": "TouchWorld: A Predictive and Reactive Tactile Foundation Model for Dexterous Manipulation",
+      "abstract": "Dexterous manipulation in everyday environments requires both anticipation and reaction: a robot must predict how contact should evolve while rapidly correcting local errors caused by slip, misalignment, unstable grasping, or force mismatch. Vision and language provide semantic and geometric guidance, but they cannot reliably reveal hidden contact states such as force, slip, and contact stability. Although tactile sensing exposes these physical cues, most existing policies treat touch as a low-frequency observation stream within a monolithic action model, coupling slow task reasoning, action generation, and fast contact feedback in a single loop. We introduce TouchWorld, a predictive-and-reactive tactile foundation model for dexterous manipulation. TouchWorld uses a hierarchical policy that separates vision-language subtask planning, tactile world-model prediction, visuo-tactile goal-conditioned action generation, and high-frequency tactile residual refinement. A High-Level Planning Layer produces executable subtasks and predicts tactile subgoals; a Visuo-Tactile Goal-Conditioned Policy generates nominal action chunks; and a Tactile-Conditioned Refinement Policy performs online residual correction using recent tactile and proprioceptive feedback. By using touch as both a predictive contact reference and a fast feedback signal, TouchWorld preserves the semantic generalization of vision-language-action policies while improving local contact adaptation. Across six long-horizon and contact-rich dexterous manipulation tasks, TouchWorld achieves 65.0% success in the clean setting and 53.7% success under human perturbations, outperforming the strongest baseline by 15.7 and 18.5 percentage points, respectively.",
+      "authors": [
+        "Jianyi Zhou",
+        "Feiyang Hong",
+        "Yunhao Li",
+        "Yicheng Zhao",
+        "Yongjue Cen",
+        "Zirui Liu",
+        "Jiakang Huang",
+        "Zirui Chen",
+        "Ruiyang Zhang",
+        "Weizhuo Zhu",
+        "Xuhua Song",
+        "Shuo Yang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-08T11:28:13+00:00",
+      "link": "https://arxiv.org/pdf/2607.07287v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "predictive world model of tactile contacts for dexterous manipulation",
+      "llm_evidence_cn": "灵巧操作中触觉接触的预测世界模型",
+      "llm_evidence": "灵巧操作中触觉接触的预测世界模型",
+      "canonical_evidence": "灵巧操作中触觉接触的预测世界模型",
+      "llm_tldr_en": "TouchWorld is a predictive and reactive tactile foundation model that anticipates contact evolution and corrects errors for dexterous manipulation.",
+      "llm_tldr_cn": "灵巧操作需要同时预测接触状态并快速纠正滑动等错误。TouchWorld将触觉感知建模为可预测的接触演化过程，结合轻量反应式动作调制。实验表明，该模型在多种灵巧操作任务中实现了更高的成功率和鲁棒性，尤其是在接触不稳定场景下。",
+      "llm_tldr": "灵巧操作需要同时预测接触状态并快速纠正滑动等错误。TouchWorld将触觉感知建模为可预测的接触演化过程，结合轻量反应式动作调制。实验表明，该模型在多种灵巧操作任务中实现了更高的成功率和鲁棒性，尤其是在接触不稳定场景下。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.08436v1",
+      "source": "arxiv",
+      "title": "EgoWAM: World Action Models Beyond Pixels with In-the-Wild Egocentric Human Data",
+      "abstract": "Egocentric human data offers scalable supervision for robot manipulation. However, behavior cloning entangles transferable content like objects, scenes, and task semantics, with non-transferable factors like human morphology, head motion, and behavioral style. We study whether World Action Models (WAMs) provide a better training signal by requiring policies to predict not only actions, but also how the scene evolves. The central question is what world representation best enables human-to-robot transfer. We hypothesize that an effective world target should abstract appearance, capture agent-invariant physical effects, and separate camera motion from environment change. We introduce EgoWAM, a controlled human-robot co-training framework that fixes the policy backbone, action head, and data mixture while varying only the world prediction target, comparing Pixel, DINO, and 3D motion flow. Across three real-world bimanual tasks, WAM co-training scales more effectively with in-the-wild egocentric human data than behavior cloning. Pixel-based prediction transfers weakly, while DINO and 3D flow yield substantial gains: DINO improves out-of-distribution object and scene generalization by up to 4x, and 3D flow improves in-domain performance by 20-30%. More details: https://gatech-rl2.github.io/egowam.github.io",
+      "authors": [
+        "Baoyu Li",
+        "Xinchen Yin",
+        "Mengying Lin",
+        "Yixin Zhang",
+        "Danfei Xu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-07-08T16:11:37+00:00",
+      "link": "https://arxiv.org/pdf/2607.08436v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world action model for human-to-robot transfer",
+      "llm_evidence_cn": "用于人机迁移的世界动作模型",
+      "llm_evidence": "用于人机迁移的世界动作模型",
+      "canonical_evidence": "用于人机迁移的世界动作模型",
+      "llm_tldr_en": "EgoWAM studies world action models for human-to-robot transfer using egocentric human data, proposing a representation that abstracts appearance and captures agent-invariant physics.",
+      "llm_tldr_cn": "自我中心人类数据为机器人操作提供可扩展监督，但行为克隆混杂了非迁移因素。本文研究世界动作模型是否通过要求预测场景演变来提供更好的训练信号。提出EgoWAM，通过角色无关表示分离运动和环境，实现高效的人到机器人迁移。实验表明，基于世界模型的训练信号优于纯行为克隆。",
+      "llm_tldr": "自我中心人类数据为机器人操作提供可扩展监督，但行为克隆混杂了非迁移因素。本文研究世界动作模型是否通过要求预测场景演变来提供更好的训练信号。提出EgoWAM，通过角色无关表示分离运动和环境，实现高效的人到机器人迁移。实验表明，基于世界模型的训练信号优于纯行为克隆。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.03693v1",
+      "source": "arxiv",
+      "title": "CoRE-VLA: Towards Scalable and Robust Vision-Language-Action Modeling via Conditional Routing of Experts",
+      "abstract": "Vision-language-action (VLA) models have advanced generalist robotic manipulation, yet real-world deployment reveals a fundamental challenge: robots are equipped with diverse and heterogeneous sensor configurations, auxiliary sensors can fail unexpectedly during operation, and different robot embodiments often lack certain sensors by design. A unified policy that can exploit auxiliary perceptual inputs when available while remaining reliable under sensor absence, whether incidental or by design, is therefore essential for practical deployment. However, existing VLA policies couple action generation to a fixed sensor set through shared dense computation, making them brittle when sensors are missing and limiting their ability to specialize across diverse tasks and long-horizon behaviors. We propose CoRE-VLA, a scalable and robust VLA framework that formulates action generation as context-conditioned sparse computation. Sensor availability gates modality-specialized experts, enabling graceful degradation under missing sensors without retraining. Task intent further routes action-side representations to task-relevant experts, improving specialization across diverse tasks and long-horizon subgoals. While the framework is designed to accommodate different auxiliary sensors, we focus on depth as a representative and practically important auxiliary modality in our experiments. Experiments on LIBERO, RoboCasa GR1 Tabletop, and real-world dual-arm manipulation show that CoRE-VLA achieves strong results on long-horizon and multi-task benchmarks, and outperforms both a dense-action-generator ablation and a strong pretrained VLA baseline, including in zero-shot generalization to unseen scenarios. Modality analysis shows that CoRE-VLA can exploit auxiliary depth when available while remaining robust when depth is unavailable during deployment.",
+      "authors": [
+        "Haozhe Zhang",
+        "Sixian Li",
+        "Yifei Zhang",
+        "Zezheng Huai",
+        "Hao Chen",
+        "Chunhua Shen",
+        "Jingjing Gong",
+        "Xipeng Qiu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-04T03:58:09+00:00",
+      "link": "https://arxiv.org/pdf/2607.03693v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "integrates vision-language-action model with diverse sensor configurations for robotic manipulation",
+      "llm_evidence_cn": "集成视觉-语言-动作模型与多样化传感器配置用于机器人操作",
+      "llm_evidence": "集成视觉-语言-动作模型与多样化传感器配置用于机器人操作",
+      "canonical_evidence": "集成视觉-语言-动作模型与多样化传感器配置用于机器人操作",
+      "llm_tldr_en": "CoRE-VLA uses conditional routing of experts to handle diverse and potentially absent sensors in vision-language-action models for robust robotic manipulation.",
+      "llm_tldr_cn": "现有VLA模型依赖固定传感器集合，在传感器缺失时脆弱。CoRE-VLA通过条件专家路由，让模型根据可用传感器自适应激活相关子网络，从而在传感器异构或故障时保持稳定。实验证明该方法在多种传感器缺失场景下显著优于基线，提升了实际部署的鲁棒性。",
+      "llm_tldr": "现有VLA模型依赖固定传感器集合，在传感器缺失时脆弱。CoRE-VLA通过条件专家路由，让模型根据可用传感器自适应激活相关子网络，从而在传感器异构或故障时保持稳定。实验证明该方法在多种传感器缺失场景下显著优于基线，提升了实际部署的鲁棒性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2607.04546v1",
+      "source": "arxiv",
+      "title": "Mask2Real-WM: Segmentation Masks as a Sim-to-Real Bridge for Controllable Dexterous World Models",
+      "abstract": "Action-conditioned world models allow robots to predict the future consequences of candidate actions without additional physical interaction, supporting policy evaluation, planning, and data augmentation. We present Mask2Real-WM, a two-stage action-conditioned world model for dexterous manipulation that decouples pixel prediction into a dynamics model and a rendering model. The dynamics model predicts future segmentation masks from past masks and 23-DoF action sequences. The rendering model maps the predicted masks to photorealistic RGB using a ControlNet-augmented Stable Video Diffusion backbone. The smaller sim-to-real gap in segmentation space enables the dynamics model to benefit from large-scale pretraining on over 50 h of synthetic simulation data, followed by fine-tuning on fewer than 2.5 h of real demonstrations. Experiments on a dexterous pick-and-place benchmark show that mask conditioning and simulation pretraining are both required for per-DoF action controllability across all 23 degrees of freedom. In contrast, monolithic baselines capture broad hand and end-effector trajectories but do not reliably reflect fine-grained, per-joint action effects.",
+      "authors": [
+        "Riccardo O. Feingold",
+        "Davide Liconti",
+        "Chenyu Yang",
+        "Robert K. Katzschmann"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "published": "2026-07-05T23:29:23+00:00",
+      "link": "https://arxiv.org/pdf/2607.04546v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "action-conditioned world model for dexterous manipulation with segmentation masks",
+      "llm_evidence_cn": "用于灵巧操作的动作条件世界模型，基于分割掩码",
+      "llm_evidence": "用于灵巧操作的动作条件世界模型，基于分割掩码",
+      "canonical_evidence": "用于灵巧操作的动作条件世界模型，基于分割掩码",
+      "llm_tldr_en": "Proposes Mask2Real-WM, a two-stage action-conditioned world model decoupling dynamics and rendering for dexterous manipulation, leveraging segmentation masks.",
+      "llm_tldr_cn": "针对灵巧操作中的动作条件世界模型，论文提出两阶段方法：动态模型预测未来分割掩码，渲染模型基于控制网络增强的稳定视频扩散生成逼真RGB。分割空间的sim-to-real间隙小，使得动态模型能利用大规模预训练数据，支持策略评估、规划等应用。",
+      "llm_tldr": "针对灵巧操作中的动作条件世界模型，论文提出两阶段方法：动态模型预测未来分割掩码，渲染模型基于控制网络增强的稳定视频扩散生成逼真RGB。分割空间的sim-to-real间隙小，使得动态模型能利用大规模预训练数据，支持策略评估、规划等应用。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2607.06701v1",
+      "source": "arxiv",
+      "title": "SPEAR: A Simulator for Photorealistic Embodied AI Research",
+      "abstract": "Interactive simulators have become powerful tools for training embodied agents and generating synthetic visual data, but existing photorealistic simulators suffer from limited generality, programmability, and rendering speed. We address these limitations by introducing SPEAR: A Simulator for Photorealistic Embodied AI Research. At its core, SPEAR is a Python library that can connect to, and programmatically control, any Unreal Engine (UE) application via a modular plugin architecture. SPEAR exposes over 14K unique UE functions to Python, representing an order-of-magnitude increase in programmable functionality over existing UE-based simulators. Additionally, a single SPEAR instance can render 1920x1080 photorealistic beauty images directly into a user's NumPy array at 73 frames per second - an order of magnitude faster than existing UE plugins - while also providing ground truth image modalities that are not available in any existing UE-based simulator (e.g., a non-diffuse intrinsic image decomposition, material IDs, and physically based shading parameters). Finally, SPEAR introduces an expressive high-level programming model that enables users to specify complex graphs of UE work with arbitrary data dependencies among work items, and to execute these graphs deterministically within a single UE frame. We demonstrate the utility of SPEAR through a diverse collection of example applications: controlling multiple embodied agents with distinct action spaces (e.g., humans, cars, and robots) across several in-the-wild UE projects; rendering photorealistic city-scale environments; manipulating UE's procedural content generation systems; rendering synchronized multi-view images of detailed human faces; coordinating an interactive co-simulation with the MuJoCo physics simulator; and editing scenes with natural language via an AI coding assistant.",
+      "authors": [
+        "Mike Roberts",
+        "Renhan Wang",
+        "Rushikesh Zawar",
+        "Rachith Dey-Prakash",
+        "Quentin Leboutet",
+        "Stephan R. Richter",
+        "Matthias Müller",
+        "German Ros",
+        "Rui Tang",
+        "Stefan Leutenegger",
+        "Yannick Hold-Geoffroy",
+        "Kalyan Sunkavalli",
+        "Vladlen Koltun"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.GR",
+        "cs.LG",
+        "cs.RO"
+      ],
+      "published": "2026-07-07T18:20:33+00:00",
+      "link": "https://arxiv.org/pdf/2607.06701v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "photorealistic simulator for embodied AI with programmable control",
+      "llm_evidence_cn": "面向具身AI的光真模拟器与可编程控制",
+      "llm_evidence": "面向具身AI的光真模拟器与可编程控制",
+      "canonical_evidence": "面向具身AI的光真模拟器与可编程控制",
+      "llm_tldr_en": "SPEAR provides a Python library to control Unreal Engine for photorealistic embodied AI simulation, exposing over 14K functions.",
+      "llm_tldr_cn": "针对现有光真模拟器通用性、可编程性和渲染速度的局限，SPEAR提出Python库，通过模块化插件连接并程序化控制任何Unreal Engine应用，暴露超14000个UE函数，实现1920x1080光真图像的实时渲染，为具身AI研究提供强大仿真平台。",
+      "llm_tldr": "针对现有光真模拟器通用性、可编程性和渲染速度的局限，SPEAR提出Python库，通过模块化插件连接并程序化控制任何Unreal Engine应用，暴露超14000个UE函数，实现1920x1080光真图像的实时渲染，为具身AI研究提供强大仿真平台。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.06370v1",
+      "source": "arxiv",
+      "title": "Training-Free Acceleration for Vision-Language-Action Models with Action Caching and Refinement",
+      "abstract": "Vision-Language-Action (VLA) models have emerged as a promising approach for generalizable robotic manipulations. In particular, flow matching-based VLA models have shown remarkable success due to their capability to generate precise and smooth action sequences and capture multimodal distributions. However, the iterative denoising process in the action head acts as a major computational bottleneck, posing a critical challenge for real-time deployment. To address this challenge, we propose ActionCache, a plug-and-play external cache that opportunistically reuses past intermediate actions to warm-start generations from the vicinity of target actions, thereby drastically reducing the inference latency. Specifically, ActionCache stores the intermediate actions with compact multimodal keys, which enables retrieval from similar past contexts across different episodes or even different tasks. Experimental results in simulation and real-world environments demonstrate that ActionCache maintains high task success rates in a low-latency regime, achieving inference acceleration of up to $11.75\\times$ and $34.43\\times$ for representative flow-based VLA models, $π_{0.5}$ and GR00T-N1.6, respectively.",
+      "authors": [
+        "Ryuji Oi",
+        "Hikari Otsuka",
+        "Kosuke Matsushima",
+        "Yuki Ichikawa",
+        "Masato Motomura",
+        "Tatsuya Kaneko",
+        "Daichi Fujiki"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "published": "2026-07-07T15:10:15+00:00",
+      "link": "https://arxiv.org/pdf/2607.06370v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "VLA models for robotic manipulation, caching accelerates inference",
+      "llm_evidence_cn": "视觉-语言-动作模型用于机器人操作，缓存加速推理",
+      "llm_evidence": "视觉-语言-动作模型用于机器人操作，缓存加速推理",
+      "canonical_evidence": "视觉-语言-动作模型用于机器人操作，缓存加速推理",
+      "llm_tldr_en": "ActionCache accelerates Vision-Language-Action models by reusing past intermediate actions to warm-start generations, reducing inference latency for real-time robotic manipulation.",
+      "llm_tldr_cn": "针对Vision-Language-Action模型推理速度慢的问题，本文提出ActionCache，一种即插即用的外部缓存，通过复用历史中间动作来热启动生成，大幅降低推理延迟。在机器人操作任务上，该方法无需额外训练即可提升实时性，为VLA模型在具身智能中的部署提供了高效加速方案。",
+      "llm_tldr": "针对Vision-Language-Action模型推理速度慢的问题，本文提出ActionCache，一种即插即用的外部缓存，通过复用历史中间动作来热启动生成，大幅降低推理延迟。在机器人操作任务上，该方法无需额外训练即可提升实时性，为VLA模型在具身智能中的部署提供了高效加速方案。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.04714v1",
+      "source": "arxiv",
+      "title": "Geometry-Aware Motion Latents for Learning Robust Manipulation Policies",
+      "abstract": "Learning motion latents for robotic manipulation heavily relies on extracting motion patterns from visual sequences, yet effective action abstractions require understanding three-dimensional geometric transformations. Here, we introduce GeoMoLa (Geometry-Aware Motion Latents), which learns discrete motion latent codes by predicting how point clouds evolve during manipulation rather than reconstructing visual observations. This four-dimensional objective -- spatial geometry changing through time -- forces latent representations to encode actual physical motion rather than appearance patterns. GeoMoLa achieves state-of-the-art performance using only single-view RGB-D input, while existing methods require multi-view reconstruction, succeeding across diverse manipulation benchmarks. Our ablations reveal that geometric prediction is the key to driving performance, quantitatively validating that manipulation depends on spatial understanding. Furthermore, the learned codes exhibit effective motion abstraction: applying them to novel scenes produces physically consistent transformations regardless of visual context. Our real-world experiments also confirm this robustness capability, achieving robust manipulation with minimal demonstrations in cluttered environments where geometric reasoning determines success. Thus, we demonstrate that effective motion latents for robot control can better emerge from understanding motion through its three-dimensional effects rather than pixel-level patterns.",
+      "authors": [
+        "Yunchao Zhang",
+        "Yijia Weng",
+        "Ruizhe Liu",
+        "Ming Hu",
+        "Leonidas Guibas",
+        "Yanchao Yang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-07-06T06:34:14+00:00",
+      "link": "https://arxiv.org/pdf/2607.04714v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "learns motion latent codes from point cloud evolution for manipulation; robust policy learning",
+      "llm_evidence_cn": "从点云演化学习运动隐码用于操作；鲁棒策略学习",
+      "llm_evidence": "从点云演化学习运动隐码用于操作；鲁棒策略学习",
+      "canonical_evidence": "从点云演化学习运动隐码用于操作；鲁棒策略学习",
+      "llm_tldr_en": "Introduces GeoMoLa, which learns discrete motion latent codes by predicting point cloud evolution over time, achieving robust manipulation policies from single-view RGB-D.",
+      "llm_tldr_cn": "针对现有运动隐码学习过度依赖视觉外观而缺乏三维几何理解的问题，提出GeoMoLa，通过预测点云随时间的演化来学习离散运动隐码，迫使潜在表示编码物理运动而非外观模式。仅需单视角RGB-D输入即可达到SOTA，并跨任务泛化。",
+      "llm_tldr": "针对现有运动隐码学习过度依赖视觉外观而缺乏三维几何理解的问题，提出GeoMoLa，通过预测点云随时间的演化来学习离散运动隐码，迫使潜在表示编码物理运动而非外观模式。仅需单视角RGB-D输入即可达到SOTA，并跨任务泛化。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    }
+  ]
+}
