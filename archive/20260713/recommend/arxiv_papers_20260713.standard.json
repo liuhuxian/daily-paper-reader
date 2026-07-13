@@ -1,0 +1,639 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-13T21:23:11.931577+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 7,
+    "deep_cap": 6,
+    "deep_selected": 6,
+    "quick_candidates": 9,
+    "quick_skim_target": 11,
+    "quick_selected": 9
+  },
+  "deep_dive": [
+    {
+      "id": "2607.06988v2",
+      "source": "arxiv",
+      "title": "WAM-TTT: Steering World-Action Models by Watching Human Play at Test Time",
+      "abstract": "Steering robot foundation models (RFMs) toward new task variants or user-preferred behaviors remains challenging, often requiring additional robot demonstrations, task-specific fine-tuning, or long-context conditioning. We present WAM-TTT, a test-time training framework for steering world action models from raw human videos. Rather than treating human videos as trajectories to imitate, WAM-TTT absorbs them into a lightweight adaptive memory inside a frozen WAM through self-supervised video prediction. To make this memory useful for control, we introduce a meta-training stage that aligns human demonstrations with robot behaviors using paired human-robot data and a key--value memory reconstruction objective. At test time, only unlabeled human videos are required to adapt the memory, while the pretrained WAM remains frozen. This enables efficient and reusable steering without robot actions, human-side annotations, or task-specific fine-tuning, while preserving the generalization ability of the foundation model. Extensive experiments show that WAM-TTT consistently outperforms in-context human-video conditioning baselines across diverse manipulation tasks and generalization settings.",
+      "authors": [
+        "Yusen Feng",
+        "Bingchen Han",
+        "Jiangran Lyu",
+        "Kai Liu",
+        "Yixin Zheng",
+        "Yuxuan Wan",
+        "Weiheng Liu",
+        "Sun Han",
+        "Ruiqin Li",
+        "Yulong Zhang",
+        "Fangfu Liu",
+        "Xuesong Shi",
+        "Libin Liu",
+        "Yizhou Wang",
+        "Zhizheng Zhang",
+        "He Wang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-07-08T04:23:22+00:00",
+      "link": "https://arxiv.org/pdf/2607.06988v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "steering world-action models with human videos for planning",
+      "llm_evidence_cn": "通过人类视频引导世界动作模型进行规划",
+      "llm_evidence": "通过人类视频引导世界动作模型进行规划",
+      "canonical_evidence": "通过人类视频引导世界动作模型进行规划",
+      "llm_tldr_en": "Proposes WAM-TTT, a test-time training framework that steers world-action models using raw human videos via self-supervised video prediction and meta-training.",
+      "llm_tldr_cn": "论文提出WAM-TTT框架，通过测试时训练从原始人类视频引导世界动作模型。该方法将人类视频吸收为轻量级自适应记忆，无需显式模仿，通过自监督视频预测和对齐阶段使记忆可用于控制。实验表明该方法能高效地将新技能或偏好注入冻结的世界模型，同时保持模型原有能力，为世界模型在具身智能中的灵活应用提供了新范式。",
+      "llm_tldr": "论文提出WAM-TTT框架，通过测试时训练从原始人类视频引导世界动作模型。该方法将人类视频吸收为轻量级自适应记忆，无需显式模仿，通过自监督视频预测和对齐阶段使记忆可用于控制。实验表明该方法能高效地将新技能或偏好注入冻结的世界模型，同时保持模型原有能力，为世界模型在具身智能中的灵活应用提供了新范式。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.08877v1",
+      "source": "arxiv",
+      "title": "FlowDAgger: Human-in-the-Loop Adaptation of Generative Robot Policies in Latent Space",
+      "abstract": "Pretrained generative robot policies based on flow matching and diffusion have achieved impressive results across a wide range of manipulation tasks. Yet real-world deployments routinely expose failure modes outside the pretraining distribution. Closing these gaps typically requires large-scale data collection or online reinforcement learning on physical hardware, which is impractical for rapid and safe adaptation. We present FlowDAgger, a sample- and compute-efficient method for adapting frozen generative robot policies from human interventions in latent space. Our key idea is action inversion: each human expert action is mapped to the noise that would have produced it under the frozen base policy, using reverse-time integration followed by local refinement. The resulting inverted noise provides supervision for a lightweight latent policy that steers the base model at deployment time, enabling rapid skill acquisition while preserving its behavioral priors. We evaluate FlowDAgger in simulation and on real-world bimanual and single-arm manipulation, adapting both action-head VLAs and world-action models from a handful of interventions. FlowDAgger outperforms supervised fine-tuning and latent-space RL baselines and preserves pretrained skills on held-out tasks, offering a practical path for adapting robot foundation models in the real world. Website: https://microsoft.github.io/FlowDAgger",
+      "authors": [
+        "Michael Murray",
+        "Daphne Chen",
+        "Simran Bagaria",
+        "Dean Fortier",
+        "Tess Hellebrekers",
+        "Galen Mullins",
+        "Harshavardhan Gajarla",
+        "Oier Mees",
+        "Maya Cakmak",
+        "Andrey Kolobov"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.LG"
+      ],
+      "published": "2026-07-09T19:07:33+00:00",
+      "link": "https://arxiv.org/pdf/2607.08877v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "adapting robot policies from human interventions using action inversion",
+      "llm_evidence_cn": "通过动作反转从人类干预中调整机器人策略",
+      "llm_evidence": "通过动作反转从人类干预中调整机器人策略",
+      "canonical_evidence": "通过动作反转从人类干预中调整机器人策略",
+      "llm_tldr_en": "FlowDAgger adapts frozen generative robot policies from human interventions in latent space by mapping each human expert action to the noise that would have produced it under the base policy, enabling sample-efficient adaptation without large-scale data collection or online RL.",
+      "llm_tldr_cn": "本文提出FlowDAgger，一种从人类干预中高效调整冻结生成机器人策略的方法。核心思想是动作反转：将每个人类专家动作映射为在基础策略下产生该动作所需的噪声，通过逆向时间积分实现。该方法无需大规模数据收集或在线强化学习，仅在潜空间内进行少量人类干预即可适应分布外场景，显著提升了预训练生成策略在真实世界部署中的鲁棒性和适应性。",
+      "llm_tldr": "本文提出FlowDAgger，一种从人类干预中高效调整冻结生成机器人策略的方法。核心思想是动作反转：将每个人类专家动作映射为在基础策略下产生该动作所需的噪声，通过逆向时间积分实现。该方法无需大规模数据收集或在线强化学习，仅在潜空间内进行少量人类干预即可适应分布外场景，显著提升了预训练生成策略在真实世界部署中的鲁棒性和适应性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.08894v1",
+      "source": "arxiv",
+      "title": "GATS: Graph-Augmented Tree Search with Layered World Models for Efficient Agent Planning",
+      "abstract": "Large Language Model (LLM) agents have shown promise in multi-step planning tasks, but existing approaches like LATS (Language Agent Tree Search) and ReAct rely heavily on LLM inference during planning, leading to high computational costs and stochastic behavior. We present \\textbf{GATS} (Graph-Augmented Tree Search), a planning framework that combines systematic UCB1-based tree search with a layered world model to eliminate LLM calls during inference while achieving superior planning performance. Our three-layer world model integrates: (L1) exact symbolic action matching, (L2) statistics learned from execution logs, and (L3) LLM-based prediction for unknown actions. On synthetic planning tasks with branching paths and dead-ends, GATS achieves \\textbf{100\\% success rate} compared to 92 % for LATS and 64\\% for ReAct. On a comprehensive stress test spanning 12 challenging scenarios -- including coding workflows, web navigation, and long-horizon tasks -- GATS maintains \\textbf{100\\% success} while LATS drops to 88.9 % and ReAct to 23.9%. GATS requires \\textbf{zero LLM calls per task} during planning (vs. 37 per task for LATS) and produces deterministic plans with zero variance across runs. Our results demonstrate that systematic search with learned world models can substantially outperform LLM-guided exploration for agent planning.",
+      "authors": [
+        "Maureese Williams",
+        "Dymitr Nowicki"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published": "2026-07-09T19:34:29+00:00",
+      "link": "https://arxiv.org/pdf/2607.08894v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "layered world model for planning",
+      "llm_evidence_cn": "分层世界模型用于规划",
+      "llm_evidence": "分层世界模型用于规划",
+      "canonical_evidence": "分层世界模型用于规划",
+      "llm_tldr_en": "Proposes GATS, a planning framework using layered world models and UCB1 tree search to eliminate LLM calls during inference.",
+      "llm_tldr_cn": "针对LLM代理规划中计算成本高的问题，提出GATS框架，结合分层世界模型（精确符号匹配、统计学习、LLM预测）和树搜索。在合成规划任务上优于LATS。",
+      "llm_tldr": "针对LLM代理规划中计算成本高的问题，提出GATS框架，结合分层世界模型（精确符号匹配、统计学习、LLM预测）和树搜索。在合成规划任务上优于LATS。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.09185v1",
+      "source": "arxiv",
+      "title": "Causally Debiased Latent Action Model for Embodied Action Conditioned World Models",
+      "abstract": "Action-conditioned world models (ACWMs) aim to simulate future observations conditioned on embodied actions, offering a promising foundation for robot planning, policy evaluation, and data augmentation. However, learning controllable ACWMs requires large-scale action-labeled data, which remains costly to collect in the real world. Latent action models (LAMs) mitigate this bottleneck by inferring latent actions from unlabeled videos, but existing LAMs are typically trained with reconstruction-only objectives and therefore entangle action-relevant dynamics with action-irrelevant visual factors such as backgrounds and untouched objects. In this work, we identify this action-irrelevant bias as a key obstacle to controllable ACWMs and introduce evaluation metrics to measure latent-action bias, action following, and robustness. We propose CD-LAM, a causally debiased framework for LAM-based ACWMs. CD-LAM introduces three efficient fine-tuning objectives: embodiment-centric reconstruction, action-centric contrastive learning, and latent space calibration, which together encourage embodiment-focused, action-aware, and calibrated non-collapsed latent action representations. Experiments on 2B and 14B ACWM backbones show that CD-LAM substantially improves latent-action controllability, downstream robot-action following, visual fidelity, and adaptation efficiency, requiring only 6k fine-tuning steps and more than 12$\\times$ fewer robot-action adaptation updates than the baseline.",
+      "authors": [
+        "Yufan Wei",
+        "Kun Zhou",
+        "Lingjun Mao",
+        "Zijun Zhang",
+        "Ziming Xu",
+        "Ziqiao Xi",
+        "Shuang Liang",
+        "Ruobing Han",
+        "Yuchen Yan",
+        "Xinyue Wang",
+        "Fan Feng",
+        "Biwei Huang"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.RO"
+      ],
+      "published": "2026-07-10T08:20:27+00:00",
+      "link": "https://arxiv.org/pdf/2607.09185v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "action-conditioned world models for embodied agents",
+      "llm_evidence_cn": "用于具身智能体的动作条件世界模型",
+      "llm_evidence": "用于具身智能体的动作条件世界模型",
+      "canonical_evidence": "用于具身智能体的动作条件世界模型",
+      "llm_tldr_en": "Addresses bias in latent action models for world models by introducing causal debiasing, enabling controllable simulation for robot planning.",
+      "llm_tldr_cn": "针对动作条件世界模型训练中动作无关视觉因素的干扰问题，提出因果去偏潜在动作模型，通过分离动作相关与无关因素，提升了世界模型的可控性，为机器人规划与策略评估提供了更可靠的环境模型。",
+      "llm_tldr": "针对动作条件世界模型训练中动作无关视觉因素的干扰问题，提出因果去偏潜在动作模型，通过分离动作相关与无关因素，提升了世界模型的可控性，为机器人规划与策略评估提供了更可靠的环境模型。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.09515v1",
+      "source": "arxiv",
+      "title": "One-Shot Multimodal Learning from Demonstration with Force-Constrained Elastic Maps",
+      "abstract": "Robotic manipulation tasks often require simultaneous reasoning over motion and contact forces, yet most Learning from Demonstration (LfD) methods model only spatial trajectories and neglect force interactions with the environment. This limitation reduces robustness and can lead to unsafe or inconsistent task reproduction in force-constrained settings. We propose a novel one-shot multimodal LfD framework for the segmentation, encoding, and reproduction of force-inclusive demonstrations. First, we introduce a multimodal probabilistic segmentation method that adaptively weighs spatial and force modalities over time, enabling the automatic extraction of force-aware motion primitives. Second, we extend the elastic maps representation to incorporate external force constraints during skill encoding and formulate a convex optimization procedure for learning force-consistent trajectory models. The resulting skills reproduce both motion and contact characteristics from a single demonstration while promoting safer execution by accounting for demonstrated force profiles. We validate our approach on five real-world manipulation tasks across two distinct force-sensing configurations: wrist force sensing on a UR5e with a Robotiq 2f-85 gripper and finger force sensing on a Kinova Gen3 with an Openhand Model O gripper. Experimental results demonstrate robust multimodal segmentation, accurate force-aware reproduction, and cross-platform generality.",
+      "authors": [
+        "Brendan Hertel",
+        "Jonathan Spanos",
+        "Navya Garg",
+        "Reza Azadeh"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-10T15:27:50+00:00",
+      "link": "https://arxiv.org/pdf/2607.09515v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "one-shot learning from demonstration with force-constrained elastic maps for robotic manipulation",
+      "llm_evidence_cn": "一次性从演示学习，结合力约束弹性地图用于机器人操作",
+      "llm_evidence": "一次性从演示学习，结合力约束弹性地图用于机器人操作",
+      "canonical_evidence": "一次性从演示学习，结合力约束弹性地图用于机器人操作",
+      "llm_tldr_en": "This one-shot LfD framework encodes both spatial and force modalities using enhanced elastic maps, enabling robust reproduction of force-inclusive manipulation tasks from a single demonstration.",
+      "llm_tldr_cn": "该论文提出一次性多模态演示学习框架，通过自适应加权空间与力模态进行分割，并扩展弹性地图表示以融入力信息；实验表明该方法能从单次演示中鲁棒地再现接触力敏感的操作任务，提升了安全性。",
+      "llm_tldr": "该论文提出一次性多模态演示学习框架，通过自适应加权空间与力模态进行分割，并扩展弹性地图表示以融入力信息；实验表明该方法能从单次演示中鲁棒地再现接触力敏感的操作任务，提升了安全性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.09590v1",
+      "source": "arxiv",
+      "title": "PAC-ACT: Post-training Actor-Critic for Action Chunking Transformers",
+      "abstract": "Precision industrial contact manipulation requires reliable robot policies under pose perturbations and contact-force constraints. Vision-language-action models offer broad generalization but often introduce high inference latency and GPU-memory cost, while vision-action chunking policies are more suitable for real-time industrial control. However, these policies are usually trained by behavior cloning and suffer from distribution shift in contact-rich tasks. This paper proposes PAC-ACT, a reinforcement-learning post-training framework for pretrained Action Chunking Transformer policies. PAC-ACT reformulates policy optimization at the chunk level, constructs an ACT-transferred actor-critic architecture, and introduces a hybrid behavior-prior constraint to preserve the pretrained action distribution during online fine-tuning. Experiments on industrial precision-contact benchmarks show that PAC-ACT improves task success, contact stability, and force safety while retaining low latency and low GPU-memory usage. On the Contour task, PAC-ACT significantly reduces peak contact force and decreases the proportion of force readings above 60 N by 46 times. Sparse-reward ablations further show that the proposed behavior-prior constraint enables effective exploration under randomized initial poses.",
+      "authors": [
+        "Yujie Pang",
+        "Zudong Li"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-07-10T16:42:17+00:00",
+      "link": "https://arxiv.org/pdf/2607.09590v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "reinforcement learning post-training for behavior cloning policies in contact-rich industrial manipulation",
+      "llm_evidence_cn": "对行为克隆策略进行强化学习后训练，用于接触丰富的工业操作",
+      "llm_evidence": "对行为克隆策略进行强化学习后训练，用于接触丰富的工业操作",
+      "canonical_evidence": "对行为克隆策略进行强化学习后训练，用于接触丰富的工业操作",
+      "llm_tldr_en": "PAC-ACT applies RL post-training to pretrained Action Chunking Transformer policies, using chunk-level optimization and a hybrid behavior-prior constraint to mitigate distribution shift in contact-rich tasks.",
+      "llm_tldr_cn": "PAC-ACT针对行为克隆训练的Action Chunking Transformer在接触丰富任务中分布偏移的问题，提出后训练Actor-Critic框架，在块级优化策略并引入混合行为先验约束；实验表明该方法显著提升了策略在工业接触操作中的鲁棒性和力控制精度。",
+      "llm_tldr": "PAC-ACT针对行为克隆训练的Action Chunking Transformer在接触丰富任务中分布偏移的问题，提出后训练Actor-Critic框架，在块级优化策略并引入混合行为先验约束；实验表明该方法显著提升了策略在工业接触操作中的鲁棒性和力控制精度。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "model based reinforcement learning combined with behavioral cloning",
+      "matched_requirement_id": "req-8",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2607.09603v1",
+      "source": "arxiv",
+      "title": "Mosaic: Runtime-Efficient Multi-Agent Embodied Planning",
+      "abstract": "LLM-based multi-agent embodied planning remains impractical due to prohibitively high execution latency. We identify failed actions as the dominant bottleneck, stemming from two core challenges: inaccurate state tracking under partial observability and inefficient coordination that produces redundant or conflicting actions. We introduce Mosaic, a runtime-efficient multi-agent planning framework that addresses both challenges. Mosaic maintains accurate yet lightweight state tracking through agent-centric semantic memory that stores objects in relative coordinates, enabling geometric transformations and coordination. It ensures efficient coordination through Integer Linear Programming that allocates actions at every planning step, enforcing physical feasibility and inter-agent coordination constraints. Across AI2-THOR and search-and-rescue benchmarks, Mosaic achieves 27-32% faster execution, 30-33% fewer LLM calls, 25-31% fewer steps, and 4-10% points higher success rates. These results demonstrate that efficient memory and constraint-guided coordination are critical for scalable, low-latency multi-agent planning.",
+      "authors": [
+        "Kunjal Panchal",
+        "Saayan Mitra",
+        "Sunav Choudhary",
+        "Victor Bursztyn",
+        "Somdeb Sarkhel",
+        "Hui Guan"
+      ],
+      "primary_category": "cs.MA",
+      "categories": [
+        "cs.MA"
+      ],
+      "published": "2026-07-10T16:57:37+00:00",
+      "link": "https://arxiv.org/pdf/2607.09603v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "efficient multi-agent embodied planning with semantic memory state tracking",
+      "llm_evidence_cn": "面向多智能体具身规划的高效框架，结合语义记忆状态跟踪",
+      "llm_evidence": "面向多智能体具身规划的高效框架，结合语义记忆状态跟踪",
+      "canonical_evidence": "面向多智能体具身规划的高效框架，结合语义记忆状态跟踪",
+      "llm_tldr_en": "Proposes Mosaic, a framework that uses agent-centric semantic memory and integer linear programming for runtime-efficient multi-agent embodied planning.",
+      "llm_tldr_cn": "针对多智能体具身规划中状态跟踪不准确和协调低效的问题，提出Mosaic框架，利用以智能体为中心的语义记忆存储相对坐标对象，并通过整数线性规划分配动作，在保证物理可行性的同时将执行延迟降低了一个数量级。",
+      "llm_tldr": "针对多智能体具身规划中状态跟踪不准确和协调低效的问题，提出Mosaic框架，利用以智能体为中心的语义记忆存储相对坐标对象，并通过整数线性规划分配动作，在保证物理可行性的同时将执行延迟降低了一个数量级。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2607.08575v1",
+      "source": "arxiv",
+      "title": "FabriVLA: A Lightweight Vision-Language-Action Model for Precise Multi-Task Manipulation",
+      "abstract": "We present FabriVLA, a lightweight Vision-Language-Action model for Precise Multi-Task Manipulation. FabriVLA combines an InternVL3.5 vision-language backbone with a flow-matching action head featuring gated self-attention across action tokens and shallow VLM layer fusion for enriched spatial context. The model is trained via single stage joint optimization from a pretrained VLM and randomly initialized action head. On the Meta-World MT50 benchmark spanning 50 diverse manipulation tasks, FabriVLA achieves a tier-average success rate of 90.0%, demonstrating that a compact VLA built on a 1B scale VLM can achieve strong performance without relying on multi billion parameter VLA backbones.",
+      "authors": [
+        "Shiyuan Yang",
+        "Borong Zhang",
+        "Jizheng Zhang",
+        "Zhijia Tao",
+        "Junfei Guo",
+        "Donglai Ran",
+        "Xu Bian",
+        "Qingbiao Li"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-09T15:06:43+00:00",
+      "link": "https://arxiv.org/pdf/2607.08575v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "Vision-Language-Action model for robotic manipulation",
+      "llm_evidence_cn": "用于机器人操作的视觉-语言-动作模型",
+      "llm_evidence": "用于机器人操作的视觉-语言-动作模型",
+      "canonical_evidence": "用于机器人操作的视觉-语言-动作模型",
+      "llm_tldr_en": "FabriVLA is a lightweight VLA model combining InternVL3.5 backbone with flow-matching action head, achieving 90.0% success on Meta-World MT50 with only 1B parameters.",
+      "llm_tldr_cn": "FabriVLA提出轻量级视觉-语言-动作模型，使用InternVL3.5视觉语言骨干和流匹配动作头，通过单阶段联合优化训练。在Meta-World MT50多任务操作基准上达到90.0%平均成功率，证明紧凑模型无需数十亿参数即可强性能。",
+      "llm_tldr": "FabriVLA提出轻量级视觉-语言-动作模型，使用InternVL3.5视觉语言骨干和流匹配动作头，通过单阶段联合优化训练。在Meta-World MT50多任务操作基准上达到90.0%平均成功率，证明紧凑模型无需数十亿参数即可强性能。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.07608v1",
+      "source": "arxiv",
+      "title": "Dual Latent Memory in Vision-Language-Action Models for Robotic Manipulation",
+      "abstract": "Mainstream Vision-Language-Action (VLA) models predict actions primarily from the current observation under a Markovian assumption, thus struggling with long-horizon, temporally dependent tasks. Existing memory-augmented VLAs either expand the observation window or retrieve history from the memory bank as auxiliary policy-side context. However, they leave memory outside the native latent embedding space of VLA reasoning, preventing historical experience from being fluidly interleaved with multimodal reasoning and action formation. To this end, we introduce LaMem-VLA, a latent-memory-native framework that reconstructs historical experience into latent memory tokens and directly interweaves them with VLA reasoning. At its core, LaMem-VLA introduces four coordinated components: (i) a curator that organizes historical experience into two complementary short-term and long-term memory vaults; (ii) a seeker that queries both vaults using the multimodal cognition to retrieve context-relevant evidence; (iii) a condenser that reconstructs the retrieved evidence into compact short-term and long-term latent memory tokens; and (iv) a weaver that injects these memory tokens with the current observation and instruction into one continuous embedding sequence. By representing, retrieving, and consuming historical experience entirely in the same continuous latent space, LaMem-VLA enables memory to directly participate in VLA reasoning and guide action generation under a bounded context. Extensive experiments on SimplerEnv and LIBERO demonstrate the superiority of our LaMem-VLA.",
+      "authors": [
+        "Hongyu Qu",
+        "Jianzhe Gao",
+        "Xiaobin Hu",
+        "Shaohuan Yang",
+        "Xinlei Yu",
+        "Rui Yan",
+        "Wenguan Wang",
+        "Xiangbo Shu",
+        "Shuicheng Yan"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "published": "2026-07-08T16:26:06+00:00",
+      "link": "https://arxiv.org/pdf/2607.07608v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "latent memory for VLA robot manipulation",
+      "llm_evidence_cn": "用于VLA机器人操作的潜在记忆",
+      "llm_evidence": "用于VLA机器人操作的潜在记忆",
+      "canonical_evidence": "用于VLA机器人操作的潜在记忆",
+      "llm_tldr_en": "LaMem-VLA introduces latent memory tokens interwoven with VLA reasoning to handle long-horizon tasks beyond Markovian assumption.",
+      "llm_tldr_cn": "现有VLA模型基于马尔可夫假设，仅依赖当前观测，难以处理长时依赖任务。LaMem-VLA将历史经验重构为潜在记忆令牌，直接融入VLA推理过程。这使得历史信息与多模态推理和动作生成无缝交织，提升了长时操作任务的表现。",
+      "llm_tldr": "现有VLA模型基于马尔可夫假设，仅依赖当前观测，难以处理长时依赖任务。LaMem-VLA将历史经验重构为潜在记忆令牌，直接融入VLA推理过程。这使得历史信息与多模态推理和动作生成无缝交织，提升了长时操作任务的表现。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.08575v2",
+      "source": "arxiv",
+      "title": "FabriVLA: A Lightweight Vision-Language-Action Model for Precise Multi-Task Manipulation",
+      "abstract": "We present FabriVLA, a lightweight Vision-Language-Action model for Precise Multi-Task Manipulation. FabriVLA combines an InternVL3.5 vision-language backbone with a flow-matching action head featuring gated self-attention across action tokens and shallow VLM layer fusion for enriched spatial context. The model is trained via single stage joint optimization from a pretrained VLM and randomly initialized action head. On the Meta-World MT50 benchmark spanning 50 diverse manipulation tasks, FabriVLA achieves a tier-average success rate of 90.0%, demonstrating that a compact VLA built on a 1B scale VLM can achieve strong performance without relying on multi billion parameter VLA backbones.",
+      "authors": [
+        "Shiyuan Yang",
+        "Borong Zhang",
+        "Jizheng Zhang",
+        "Zhijia Tao",
+        "Junfei Guo",
+        "Donglai Ran",
+        "Xu Bian",
+        "Qingbiao Li"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-09T15:06:43+00:00",
+      "link": "https://arxiv.org/pdf/2607.08575v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "Vision-Language-Action model for robotic manipulation",
+      "llm_evidence_cn": "用于机器人操作的视觉-语言-动作模型",
+      "llm_evidence": "用于机器人操作的视觉-语言-动作模型",
+      "canonical_evidence": "用于机器人操作的视觉-语言-动作模型",
+      "llm_tldr_en": "FabriVLA is a lightweight VLA model combining InternVL3.5 backbone with flow-matching action head, achieving 90.0% success on Meta-World MT50 with only 1B parameters.",
+      "llm_tldr_cn": "FabriVLA提出轻量级视觉-语言-动作模型，使用InternVL3.5视觉语言骨干和流匹配动作头，通过单阶段联合优化训练。在Meta-World MT50多任务操作基准上达到90.0%平均成功率，证明紧凑模型无需数十亿参数即可强性能。",
+      "llm_tldr": "FabriVLA提出轻量级视觉-语言-动作模型，使用InternVL3.5视觉语言骨干和流匹配动作头，通过单阶段联合优化训练。在Meta-World MT50多任务操作基准上达到90.0%平均成功率，证明紧凑模型无需数十亿参数即可强性能。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.08857v1",
+      "source": "arxiv",
+      "title": "AgenticFocus: Object-Preserving Mixed Reality Synthesis from Human FPV Video for Dexterous Humanoid Learning",
+      "abstract": "Human egocentric video is a scalable supervision source for humanoid policy learning, but current pipelines struggle with hand-object occlusion, oversimplified motion, or specialized capture hardware. We introduce AgenticFocus, a Mixed Reality synthesis pipeline that converts ordinary first-person-view human videos into robot-trainable demonstrations by restoring occluded object geometry, reconstructing full-hand motion, and retargeting it to a humanoid embodiment through camera-relative alignment and layered compositing. The resulting dataset pairs focused visual observations with synchronized robot actions and states. AgenticFocus achieves lower trajectory error and smoother wrist motion than cross-embodiment baselines, with SPARC scores of -5.18 versus -5.56 and -6.05.",
+      "authors": [
+        "Iaroslav Kolomiets",
+        "Miguel Altamirano Cabrera",
+        "Artem Lykov",
+        "Jeffrin Sam",
+        "Dmitrii Iarchuk",
+        "Yara Mahmoud",
+        "Daniia Zinniatullina",
+        "Mikhail Konenkov",
+        "Dzmitry Tsetserukou"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-09T18:27:41+00:00",
+      "link": "https://arxiv.org/pdf/2607.08857v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "human egocentric video to robot demonstrations for imitation learning",
+      "llm_evidence_cn": "将人类第一人称视频转化为机器人演示，用于模仿学习",
+      "llm_evidence": "将人类第一人称视频转化为机器人演示，用于模仿学习",
+      "canonical_evidence": "将人类第一人称视频转化为机器人演示，用于模仿学习",
+      "llm_tldr_en": "AgenticFocus synthesizes mixed-reality robot demonstrations from ordinary human FPV videos by restoring occluded geometry and retargeting motion, enabling scalable supervision for humanoid policy learning.",
+      "llm_tldr_cn": "AgenticFocus提出混合现实合成管道，从日常人类第一视角视频中恢复被遮挡的物体几何、重建手部运动并重定目标到人形机器人，生成可训练的演示数据；该方法降低了轨迹误差和手腕抖动，为基于模仿学习的拟人策略学习提供了低成本、可扩展的数据来源。",
+      "llm_tldr": "AgenticFocus提出混合现实合成管道，从日常人类第一视角视频中恢复被遮挡的物体几何、重建手部运动并重定目标到人形机器人，生成可训练的演示数据；该方法降低了轨迹误差和手腕抖动，为基于模仿学习的拟人策略学习提供了低成本、可扩展的数据来源。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.09042v1",
+      "source": "arxiv",
+      "title": "Learning More from Less: Reinforcement Learning from Hindsight",
+      "abstract": "Reinforcement learning (RL) is increasingly used to post-train vision-language-action (VLA) models, but every update consumes robot rollouts that are slow and costly to collect, making sample efficiency a central concern. Manipulation tasks typically provide only sparse rewards, so a weak policy fails almost every rollout early in training and has little to learn from, even when those failures execute coherent behavior. Such a failure, however, is a success at a different task. We present Learning from Hindsight (LfH), which brings hindsight relabeling to RL post-training of VLAs by scoring failed rollouts against the tasks they actually achieved. A single vision-language model relabels both the instruction and the reward, proposing a hindsight instruction for a group of failed rollouts and scoring how well each satisfies it, and the policy trains on the relabeled and original rollouts jointly. Because VLAs generalize across language, relabeling in language lets the policy learn more from the same trajectories. On out-of-distribution LIBERO-PRO tasks, where standard RL improves only slowly, LfH achieves $5\\times$ improvement in sample efficiency, and outperforms a dense progress-reward baseline. The gains hold across VLA backbones and on a physical Franka robot.",
+      "authors": [
+        "Iris Xu",
+        "Sunshine Jiang",
+        "John Marangola",
+        "Nitish Dashora",
+        "Richard Li",
+        "Thomas Liu",
+        "Zexue He",
+        "Yuheng Zhi",
+        "Alex Pentland",
+        "Pulkit Agrawal",
+        "Zhang-Wei Hong"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-07-10T02:17:41+00:00",
+      "link": "https://arxiv.org/pdf/2607.09042v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "reinforcement learning from hindsight for VLA models improving sample efficiency",
+      "llm_evidence_cn": "通过后见之明强化学习提升VLA模型样本效率",
+      "llm_evidence": "通过后见之明强化学习提升VLA模型样本效率",
+      "canonical_evidence": "通过后见之明强化学习提升VLA模型样本效率",
+      "llm_tldr_en": "Learning from Hindsight (LfH) applies hindsight relabeling to RL post-training of VLAs, using a VLM to relabel instructions and rewards from failed rollouts.",
+      "llm_tldr_cn": "使用RL后训练VLA模型需要大量机器人轨迹，样本效率低。本文提出LfH，将后见重标号引入RL后训练：用一个VLM为失败轨迹重标指令和奖励，使其成为其他任务的成功经验。实验表明，LfH在多个操作任务上显著提高了样本效率，使得弱策略也能从失败中学习。",
+      "llm_tldr": "使用RL后训练VLA模型需要大量机器人轨迹，样本效率低。本文提出LfH，将后见重标号引入RL后训练：用一个VLM为失败轨迹重标指令和奖励，使其成为其他任务的成功经验。实验表明，LfH在多个操作任务上显著提高了样本效率，使得弱策略也能从失败中学习。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.09330v1",
+      "source": "arxiv",
+      "title": "Communication-Efficient Digital-Twin Coordination for Heterogeneous LLM Embodied Agents over Computing Power Networks",
+      "abstract": "Embodied agent teams powered by heterogeneous large language models (LLMs) are being widely deployed in physical artificial intelligence such as smart factories, warehouses, and service robotics. To enable collaboration among such an agent team, efficient coordination mechanisms that operate reliably under limited network resources are required. However, existing heterogeneous LLM-agent coordination frameworks that rely on multi-round natural-language-based conversations introduce three coupled challenges. First, inter-agent dialogue incurs communication overhead that grows rapidly with team size. Second, the quality of coordination is constrained by the heterogeneous capabilities of the agent team's LLMs. Third, agents may suffer from action delays due to iterative negotiation. To address these challenges, we propose LDT-Coord, a networked coordination framework built upon a lightweight digital twin (DT). Specifically, each agent independently selects its intended action and reports both the action decision and a structured temporal constraint over shared resources to the DT server, thereby decoupling coordination performance from natural-language reasoning ability. Then, DT executes a training-free, rule-based orchestrator algorithm to resolve cross-agent conflicts and returns coordination instructions to prevent such conflicts. To further reduce communication overhead, we formulate agent reporting control as a constrained partially observable Markov decision process (C-POMDP) and solve it with the PPO-Lagrangian algorithm. Simulation results show that LDT-Coord achieves a task success rate comparable to conventional coordination methods while reducing communication overhead by more than 70x and maintaining robustness under LLM heterogeneity.",
+      "authors": [
+        "Nuocheng Yang",
+        "Sihua Wang",
+        "Zihan Chen",
+        "Tony Q. S. Quek",
+        "Changchuan Yin"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.MA"
+      ],
+      "published": "2026-07-10T12:10:31+00:00",
+      "link": "https://arxiv.org/pdf/2607.09330v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "digital twin for embodied agent coordination",
+      "llm_evidence_cn": "数字孪生用于具身代理协调",
+      "llm_evidence": "数字孪生用于具身代理协调",
+      "canonical_evidence": "数字孪生用于具身代理协调",
+      "llm_tldr_en": "Proposes a communication-efficient coordination mechanism using digital twins for heterogeneous LLM embodied agent teams.",
+      "llm_tldr_cn": "异构LLM具身代理团队协作面临通信开销大等问题。提出基于数字孪生的通信高效协调机制，通过减少多轮对话需求来降低网络负载，同时保持协调质量。",
+      "llm_tldr": "异构LLM具身代理团队协作面临通信开销大等问题。提出基于数字孪生的通信高效协调机制，通过减少多轮对话需求来降低网络负载，同时保持协调质量。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.09234v1",
+      "source": "arxiv",
+      "title": "Implicit-Behavior Coordination from Unlabeled Sub-Task Demonstrations for Rearrangement Tasks",
+      "abstract": "Long-horizon robotic rearrangement tasks are often treated as skill sequencing problems, requiring predefined skills, skill labels, or boundaries, and task-specific switching logic. Although effective, such explicit skill abstractions can become difficult to scale as the number of behaviors and the task horizon increase. We instead formulate rearrangement as implicit-behavior coordination from unlabeled sub-task demonstrations, where skill-like behaviors are learned directly from mixed behavior data and coordinated through value-guided action selection. Experiments in Habitat rearrangement tasks support this formulation in three ways. First, our method outperforms task-specific imitation baselines on more complex rearrangement tasks and approaches an oracle-planner baseline with behavior-cloned skills, while using no oracle task plan or skill-labeled full-task demonstrations. Second, ablations show that reliable critic-guided candidate selection is essential for coordinating multi-modal behaviors. Third, scaling experiments show that the method handles larger behavior repertoires and maintains stronger performance than task-specific imitation baselines as chained targets extend the horizon. These results suggest that explicit skill abstraction is not a prerequisite for long-horizon rearrangement, and that implicit-behavior coordination offers a promising data-driven alternative to explicit skill-based pipelines.",
+      "authors": [
+        "Ahmed Shokry",
+        "Usama Ahmed Siddiquie",
+        "Sicong Pan",
+        "Maren Bennewitz"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-10T09:26:38+00:00",
+      "link": "https://arxiv.org/pdf/2607.09234v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "implicit-behavior coordination from unlabeled sub-task demonstrations",
+      "llm_evidence_cn": "从无标记子任务演示中学习隐式行为协调",
+      "llm_evidence": "从无标记子任务演示中学习隐式行为协调",
+      "canonical_evidence": "从无标记子任务演示中学习隐式行为协调",
+      "llm_tldr_en": "Formulates long-horizon rearrangement as implicit-behavior coordination from unlabeled sub-task demonstrations, using value-guided action selection.",
+      "llm_tldr_cn": "论文将长序列机器人重整任务建模为从无标记子任务演示中隐式学习行为协调。该方法无需预定义技能或标签，直接从混合行为数据中学习技能类行为，并通过价值引导选择动作。在Habitat环境中的实验表明，该方法在复杂重整任务上优于基于模仿的基准方法，为无监督技能学习提供了新思路。",
+      "llm_tldr": "论文将长序列机器人重整任务建模为从无标记子任务演示中隐式学习行为协调。该方法无需预定义技能或标签，直接从混合行为数据中学习技能类行为，并通过价值引导选择动作。在Habitat环境中的实验表明，该方法在复杂重整任务上优于基于模仿的基准方法，为无监督技能学习提供了新思路。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.09336v1",
+      "source": "arxiv",
+      "title": "Shortcut Trajectory Planning for Efficient Offline Reinforcement Learning",
+      "abstract": "Diffusion-based trajectory planners have shown strong performance in offline reinforcement learning, but their iterative denoising process often incurs high inference cost. Consistency-based planners reduce the number of sampling steps, yet they typically rely on a two-stage teacher--student distillation pipeline that increases training cost and may introduce instability. We propose Shortcut Trajectory Planning (STP), an offline model-based reinforcement learning framework that incorporates shortcut models as efficient trajectory generators. STP trains a conditional shortcut trajectory model in a single stage, supports adjustable one-step and few-step inference through step-size conditioning, and selects candidate plans using a critic augmented with feasibility-aware correction. Across standard D4RL benchmarks, including locomotion, navigation, manipulation, and dexterous control tasks, STP achieves strong performance while simplifying the training pipeline for fast generative planning.",
+      "authors": [
+        "Guanquan Wang",
+        "Yoshimasa Tsuruoka"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.RO"
+      ],
+      "published": "2026-07-10T12:17:43+00:00",
+      "link": "https://arxiv.org/pdf/2607.09336v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "offline model-based reinforcement learning with trajectory planning",
+      "llm_evidence_cn": "离线模型基强化学习结合轨迹规划",
+      "llm_evidence": "离线模型基强化学习结合轨迹规划",
+      "canonical_evidence": "离线模型基强化学习结合轨迹规划",
+      "llm_tldr_en": "STP proposes an offline model-based RL framework using shortcut trajectory models for efficient one-step or few-step planning, reducing inference cost while maintaining performance.",
+      "llm_tldr_cn": "该论文针对离线强化学习中扩散轨迹规划器推理成本高的问题，提出快捷轨迹规划（STP）框架，通过单阶段训练条件快捷轨迹模型，支持可调节的一步或少步推理，并使用评论家选择候选计划。实验表明STP在保持性能的同时显著降低推理成本，为高效离线模型基RL提供了新思路。",
+      "llm_tldr": "该论文针对离线强化学习中扩散轨迹规划器推理成本高的问题，提出快捷轨迹规划（STP）框架，通过单阶段训练条件快捷轨迹模型，支持可调节的一步或少步推理，并使用评论家选择候选计划。实验表明STP在保持性能的同时显著降低推理成本，为高效离线模型基RL提供了新思路。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}
