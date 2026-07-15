@@ -1,0 +1,439 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-15T21:25:45.202991+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 3,
+    "deep_cap": 6,
+    "deep_selected": 3,
+    "quick_candidates": 7,
+    "quick_skim_target": 11,
+    "quick_selected": 7
+  },
+  "deep_dive": [
+    {
+      "id": "2607.06978v2",
+      "source": "arxiv",
+      "title": "SPECTRA: Context-Conditioned Spectral Movement Primitives for Robot Skill Generalization",
+      "abstract": "Robot imitation learning for manipulation should preserve demonstrated task geometry while producing dynamically admissible robot motions. Existing pipelines often learn task-dependent trajectories and impose execution limits afterward through filtering, smoothing, clipping, or time scaling, which may distort task-critical end-effector paths.   We propose the Spectral Movement Primitive (SMP), a frequency-domain imitation learning framework that couples task-space skill generation with joint-space execution regulation. Demonstrations are represented by truncated finite-horizon Fourier coefficients. An empirically selected low-frequency task band captures the dominant motion geometry, while higher harmonics contribute disproportionately to derivative growth. A frame-aware context-conditioned GMM/GMR prior predicts the task-band coefficients in a canonical task frame, and the resulting Cartesian trajectory is mapped to joint space through sequential inverse kinematics. A phase-coupled regulator then limits the requested phase progression without modifying the spectral coefficients, thereby enforcing joint velocity and acceleration limits while preserving the represented path.   Experiments evaluate task-band reconstruction, robustness to composite demonstration corruption, out-of-distribution cross-board generalization, joint-space dynamic admissibility, end-effector path preservation, and deployment on a Franka Panda robot. Results show compact geometric reconstruction, consistent transfer across unseen task frames, substantial reductions in dynamic violations and jerk, and preservation of the intended end-effector path during phase regulation.",
+      "authors": [
+        "Boxuan Zhang",
+        "Sheng Liu",
+        "Chenlin Ming",
+        "Ahmed Abdelrahman"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-08T04:02:19+00:00",
+      "link": "https://arxiv.org/pdf/2607.06978v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "imitation learning for manipulation skill generalization",
+      "llm_evidence_cn": "用于操作技能泛化的模仿学习",
+      "llm_evidence": "用于操作技能泛化的模仿学习",
+      "canonical_evidence": "用于操作技能泛化的模仿学习",
+      "llm_tldr_en": "SPECTRA introduces Spectral Movement Primitive (SMP), a frequency-domain imitation learning framework that couples task-space skill generation with joint-space execution regulation for manipulation tasks.",
+      "llm_tldr_cn": "本文提出频谱运动基元（SMP），一种频域模仿学习框架，面向机器人操作技能泛化。现有方法学习任务轨迹后施加执行限制可能扭曲路径。SMP通过傅里叶系数表示示范，分离低频任务几何与高频细节，实现任务空间技能生成与关节空间执行调节的耦合。实验表明该方法能有效保留任务几何并生成动力可接受的机器人运动。",
+      "llm_tldr": "本文提出频谱运动基元（SMP），一种频域模仿学习框架，面向机器人操作技能泛化。现有方法学习任务轨迹后施加执行限制可能扭曲路径。SMP通过傅里叶系数表示示范，分离低频任务几何与高频细节，实现任务空间技能生成与关节空间执行调节的耦合。实验表明该方法能有效保留任务几何并生成动力可接受的机器人运动。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.11004v1",
+      "source": "arxiv",
+      "title": "Affordance-Based Manipulation Planning with Text Goals and Sim-to-Real Generalisation via Real-to-Sim Image Conversion",
+      "abstract": "We present a manipulation planning system based on affordance recognition and action effect prediction. The system reasons through possible futures in visual form, and evaluates candidate plans by agreement of predicted outcomes with text-based goals set at run-time, using a multi-modal goal-matching module. Positions of objects named in the goal text are tracked through predictions even when occluded, making it possible to generate action plans even when objects become occluded, or when their initial descriptors cease to identify them in future states. We further expand the system with an image conversion module for translating real-world state images with objects of varied shapes and visual appearances into a consistent visual appearance, to facilitate manipulation planning in a physical robot setup. We evaluate performance of the system's modules in isolation and demonstrate the integrated system's manipulation planning capabilities on a set of challenging tasks in both simulation and on hardware.",
+      "authors": [
+        "Solvi Arnold",
+        "Rin Karashima",
+        "Tadashi Adachi",
+        "Takafumi Mochizuki",
+        "Kimitoshi Yamazaki"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-07-13T02:04:36+00:00",
+      "link": "https://arxiv.org/pdf/2607.11004v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "reasoning through possible futures in visual form for manipulation planning",
+      "llm_evidence_cn": "以视觉形式推理未来可能性以进行操作规划",
+      "llm_evidence": "以视觉形式推理未来可能性以进行操作规划",
+      "canonical_evidence": "以视觉形式推理未来可能性以进行操作规划",
+      "llm_tldr_en": "A manipulation planning system that uses affordance recognition and action effect prediction to reason in visual futures, evaluating plans against text goals with real-to-sim transfer.",
+      "llm_tldr_cn": "提出基于可操作性识别和动作效果预测的操作规划系统，以视觉形式推理未来状态，通过多模态目标匹配模块评估候选规划与文本目标的一致性。系统还包含真实到仿真图像转换模块，实现从真实世界到仿真器的泛化，在机器人操作任务中展示了鲁棒的规划能力。",
+      "llm_tldr": "提出基于可操作性识别和动作效果预测的操作规划系统，以视觉形式推理未来状态，通过多模态目标匹配模块评估候选规划与文本目标的一致性。系统还包含真实到仿真图像转换模块，实现从真实世界到仿真器的泛化，在机器人操作任务中展示了鲁棒的规划能力。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.12894v1",
+      "source": "arxiv",
+      "title": "Hy-Embodied-VLM-1.0: Efficient Physical-World Agents",
+      "abstract": "Building capable embodied agents requires not only multimodal perception and understanding, but also agentic capabilities for reasoning about actions, adapting to evolving situations, and interacting with the physical world. In this report, we introduce Hy-Embodied-VLM-1.0, an efficient and powerful embodied foundation model specifically designed for embodied agents operating in the physical world. To cultivate such capabilities from the pre-training stage onward, we define an action-centric capability taxonomy comprising three progressive dimensions: Action-Relevant State Understanding, Action-Transition Reasoning, and Sequential and Adaptive Reasoning. Guided by this taxonomy, we develop a systematic data pipeline and curate data mixtures spanning both pre-training and post-training. To deliver strong physical-world understanding and interaction capabilities while supporting latency-sensitive deployment, we build our model on the Hy3-A3B language backbone and the Hy-ViT2 vision encoder. Its efficient Mixture-of-Experts architecture combines strong model capacity with high inference efficiency. We evaluate Hy-Embodied-VLM-1.0 on a comprehensive suite of 38 benchmarks covering embodied perception, physical-world understanding, and embodied reasoning. The model achieves the best performance among similarly sized models on 19 of the 38 benchmarks and substantially outperforms strong competitors, including Qwen3.6-A3B and Cosmos 3. Compared with the previous-generation Hy-Embodied-0.5 MoT-2B, Hy-Embodied-VLM-1.0 improves average performance by 8.4%. Despite activating only 3B parameters, it achieves performance close to that of the previous-generation model with 32B activated parameters. Beyond static benchmark evaluation, Hy-Embodied-VLM-1.0 also demonstrates strong performance on embodied agentic tasks requiring multi-turn interaction and long-horizon reasoning.",
+      "authors": [
+        "Ziyi Wang",
+        "Xumin Yu",
+        "Yongming Rao",
+        "Yonggen Ling",
+        "Yunheng Li",
+        "Oran Wang",
+        "Mingqi Gao",
+        "Yuchen Zhou",
+        "Yves Liang",
+        "Zuyan Liu",
+        "Yani Zhang",
+        "Rui Huang",
+        "Xiaoran Xu",
+        "Bowen Yuan",
+        "Yifu Yuan",
+        "Xu Tan",
+        "He Zhang",
+        "Yufei Huang",
+        "Shenghao Zhang",
+        "Hongsheng Wu",
+        "Han Hu",
+        "Zhengyou Zhang"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-07-14T15:34:17+00:00",
+      "link": "https://arxiv.org/pdf/2607.12894v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "efficient physical-world agents",
+      "llm_evidence_cn": "高效的物理世界智能体",
+      "llm_evidence": "高效的物理世界智能体",
+      "canonical_evidence": "高效的物理世界智能体",
+      "llm_tldr_en": "Hy-Embodied-VLM-1.0 is an embodied foundation model designed for physical-world agents, featuring an action-centric capability taxonomy and systematic data pipeline for pre-training.",
+      "llm_tldr_cn": "本文提出Hy-Embodied-VLM-1.0，一个专为物理世界智能体设计的高效具身基础模型。该模型从预训练阶段开始培养动作理解、转态推理和序列适应能力。通过定义以动作为核心的能力分类体系，并构建系统的数据流程，模型在多种具身任务上展现出高效性能。这项工作为构建通用物理世界智能体提供了新的基础架构。",
+      "llm_tldr": "本文提出Hy-Embodied-VLM-1.0，一个专为物理世界智能体设计的高效具身基础模型。该模型从预训练阶段开始培养动作理解、转态推理和序列适应能力。通过定义以动作为核心的能力分类体系，并构建系统的数据流程，模型在多种具身任务上展现出高效性能。这项工作为构建通用物理世界智能体提供了新的基础架构。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2607.12931v1",
+      "source": "arxiv",
+      "title": "ExToken: Structured Exploration for Efficient Vision-Language-Action Reinforcement Fine-tuning",
+      "abstract": "Reinforcement Learning (RL) has demonstrated significant potential for improving Vision-Language-Action (VLA) models on complex manipulation tasks. However, its practical scalability remains severely limited by the substantial cost of environmental interactions. In this work, we first investigate the exploration stagnation bottleneck in current VLA-RL frameworks and reveal that trajectory diversity is fundamentally more important to sample efficiency than the sheer quantity of collected rollouts. Motivated by these insights, we introduce RL Exploration Token (ExToken), a simple yet general framework that condition VLA policies on discrete behavioral priors derived from offline demonstrations for structured exploration. By conditioning the policy on different tokens during rollout collection, ExToken encourages the agent to explore diverse behavioral modes, substantially improving state-action coverage and exploration efficiency. To bridge exploration during training with deterministic inference at deployment, ExToken further incorporates a state-conditioned token selector that adaptively predicts effective behavioral modes for unseen scenarios. Extensive experiments across simulated and real-world robotic manipulation tasks demonstrate that ExToken consistently accelerates convergence, improves task performance, and exhibits strong robustness under highly constrained interaction budgets.",
+      "authors": [
+        "Yilun Kong",
+        "Yunpeng Qing",
+        "Guozheng Ma",
+        "Haoyu Wang",
+        "Li Shen",
+        "Zhi Hou",
+        "Dacheng Tao"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-14T16:04:41+00:00",
+      "link": "https://arxiv.org/pdf/2607.12931v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "structured exploration from offline demonstrations for VLA RL",
+      "llm_evidence_cn": "从离线演示中进行结构化探索以提升VLA强化学习",
+      "llm_evidence": "从离线演示中进行结构化探索以提升VLA强化学习",
+      "canonical_evidence": "从离线演示中进行结构化探索以提升VLA强化学习",
+      "llm_tldr_en": "ExToken introduces a structured exploration framework for VLA RL by conditioning policies on discrete behavioral priors from offline demonstrations, improving sample efficiency in complex manipulation tasks.",
+      "llm_tldr_cn": "针对视觉-语言-动作模型强化学习探索效率低的问题，本文提出RL探索标记（ExToken），通过将策略条件于从离线演示中提取的离散行为先验，实现结构化探索。该方法避免了随机探索的盲目性，在多个复杂操作任务上，以更少的交互次数取得了更高的成功率，显著提升了强化学习的样本效率。",
+      "llm_tldr": "针对视觉-语言-动作模型强化学习探索效率低的问题，本文提出RL探索标记（ExToken），通过将策略条件于从离线演示中提取的离散行为先验，实现结构化探索。该方法避免了随机探索的盲目性，在多个复杂操作任务上，以更少的交互次数取得了更高的成功率，显著提升了强化学习的样本效率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.07880v1",
+      "source": "arxiv",
+      "title": "GIRAF: Towards Generalizable Human Interactions with Articulated Objects",
+      "abstract": "Synthesizing realistic full-body human interactions with articulated objects is a fundamental challenge for embodied AI and graphics, with applications in robotics training and virtual agents. Existing models remain limited: some focus on simple activities with static objects, while others restrict attention to hand-only manipulation. This leaves open the problem of generating coordinated full-body motion that approaches, manipulates, and moves articulated objects in a realistic and generalizable way. The key difficulty lies in reasoning jointly about locomotion, fine-grained contact, and object articulation. Models must capture subtle hand-object correspondences that transfer across object geometries, while also producing seamless transitions from navigation to manipulation. At the same time, the scarcity of large-scale paired motion-scene data makes it difficult to generalize across diverse object positions and shapes. We introduce a text-conditioned diffusion model that addresses these challenges through three core ideas: an object-centric representation that unifies hand-object contact with object surfaces, a mixed-domain training strategy that balances locomotion and interaction, and a contact-based augmentation scheme that expands training diversity. Through experiments, our method demonstrated strong generalization to unseen object configurations, surpassing current state-of-the-art methods.",
+      "authors": [
+        "Xiaohan Zhang",
+        "Sebastian Starke",
+        "Alexander Winkler",
+        "Federica Bogo",
+        "Samir Aroudj",
+        "Yuting Ye"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-07-08T19:30:44+00:00",
+      "link": "https://arxiv.org/pdf/2607.07880v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "AI integrated with physical agents and sensors for full-body interaction",
+      "llm_evidence_cn": "人工智能与物理智能体和传感器集成，实现全身交互",
+      "llm_evidence": "人工智能与物理智能体和传感器集成，实现全身交互",
+      "canonical_evidence": "人工智能与物理智能体和传感器集成，实现全身交互",
+      "llm_tldr_en": "Addresses full-body human interaction with articulated objects for embodied AI, combining locomotion, contact, and object articulation reasoning.",
+      "llm_tldr_cn": "该论文聚焦于具身AI中全身与可动关节物体的交互，要求同时推理运动、精细接触和物体关节。提出一种统一框架生成从接近到操作的自然过渡，在多个基准上展示了泛化能力。",
+      "llm_tldr": "该论文聚焦于具身AI中全身与可动关节物体的交互，要求同时推理运动、精细接触和物体关节。提出一种统一框架生成从接近到操作的自然过渡，在多个基准上展示了泛化能力。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.09648v1",
+      "source": "arxiv",
+      "title": "B-spline Policy: Accelerating Manipulation Policies via B-spline Action Representations",
+      "abstract": "In this work, we present B-spline Policy (BSP), an action representation designed for accelerating robot manipulation policies. Rather than predicting discrete-time action chunks, BSP parameterizes actions as continuous B-spline curves defined by a set of knots and control points. This representation yields smooth, time-continuous trajectories that can be temporally scaled and executed by low-level controllers at higher frequencies and speeds. We show that B-spline-parameterized actions can be seamlessly integrated into standard policy learning pipelines by directly predicting B-spline parameters. Experiments on simulated and real-world tasks demonstrate that BSP significantly reduces task completion time, achieving substantial improvements over baseline methods while maintaining strong success rates. More results: https://b-spline-policy.github.io",
+      "authors": [
+        "Xiaoshen Han",
+        "Haoyu Xiong",
+        "Haonan Chen",
+        "Chaoqi Liu",
+        "Antonio Torralba",
+        "Yuke Zhu",
+        "Yilun Du"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-10T17:46:32+00:00",
+      "link": "https://arxiv.org/pdf/2607.09648v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "action representation for manipulation policy learning",
+      "llm_evidence_cn": "用于操作策略学习的动作表示",
+      "llm_evidence": "用于操作策略学习的动作表示",
+      "canonical_evidence": "用于操作策略学习的动作表示",
+      "llm_tldr_en": "BSP parameterizes robot manipulation actions as continuous B-spline curves, enabling smooth trajectories and faster execution in policy learning pipelines.",
+      "llm_tldr_cn": "本文提出B样条策略（BSP），一种用于机器人操作策略的动作表示方法。BSP将动作参数化为连续B样条曲线，替代离散时间动作块，生成平滑时间连续轨迹，可直接集成到标准策略学习流水线中。实验表明，BSP显著缩短了任务完成时间，在模拟和真实任务上实现了大幅加速。该工作展示了连续动作表示在机器人学习中的潜力。",
+      "llm_tldr": "本文提出B样条策略（BSP），一种用于机器人操作策略的动作表示方法。BSP将动作参数化为连续B样条曲线，替代离散时间动作块，生成平滑时间连续轨迹，可直接集成到标准策略学习流水线中。实验表明，BSP显著缩短了任务完成时间，在模拟和真实任务上实现了大幅加速。该工作展示了连续动作表示在机器人学习中的潜力。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.10706v1",
+      "source": "arxiv",
+      "title": "Action Map Policy: Learning 3D Closed-loop Manipulation via Pixel Classification",
+      "abstract": "The action space poses a major challenge in robot learning, since it is often high-dimensional, can span long time horizons, and frequently admits multi-modal optimal solutions. A good choice of action representation and loss function can help to address these concerns, but there are often trade offs. We propose Action Map Policy (AMP), which casts 3D closed-loop manipulation policy learning as a classification problem in image space. While classification has been an effective formulation in generative language models, applying it to robot action learning is difficult because naively discretizing high-dimensional continuous actions explodes the token vocabulary. Our key idea is to project 3D actions onto the camera image planes and treat each pixel location as a discrete class, thus controlling dimensionality while retaining multi-modality. This method supports millimeter-level precision for high-dimensional actions without requiring a prohibitively large vocabulary, while preserving fine-grained pixel-wise visual signals. Furthermore, it can predict the entire action chunk in a single forward pass, avoiding complex noise scheduling and iterative denoising while achieving substantially faster inference than diffusion policies. Experiments on various manipulation tasks show that AMP outperforms strong baselines, achieving higher success rates, faster inference, and enhanced spatial reasoning.",
+      "authors": [
+        "Haojie Huang",
+        "Zhang Ye",
+        "Linfeng Zhao",
+        "Boce Hu",
+        "Mingxi Jia",
+        "Yu Qi",
+        "Ahmed Agha",
+        "Dian Wang",
+        "Robert Platt",
+        "Robin Walters"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "published": "2026-07-12T10:58:06+00:00",
+      "link": "https://arxiv.org/pdf/2607.10706v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "3D closed-loop manipulation policy learning via pixel classification",
+      "llm_evidence_cn": "通过像素分类学习3D闭循环操作策略",
+      "llm_evidence": "通过像素分类学习3D闭循环操作策略",
+      "canonical_evidence": "通过像素分类学习3D闭循环操作策略",
+      "llm_tldr_en": "AMP casts 3D manipulation policy learning as image-space classification by projecting 3D actions onto camera planes, enabling multi-modal action representation.",
+      "llm_tldr_cn": "本文提出动作映射策略（AMP），将3D闭循环操作策略学习转化为图像空间的分类问题。通过将3D动作投影到相机图像平面，AMP避免了高维连续动作的离散化带来的词汇爆炸，同时保留了多模态最优解。该方法在模拟操作任务上展示了有效的动作表示和策略学习能力，为机器人操作学习提供了新视角。",
+      "llm_tldr": "本文提出动作映射策略（AMP），将3D闭循环操作策略学习转化为图像空间的分类问题。通过将3D动作投影到相机图像平面，AMP避免了高维连续动作的离散化带来的词汇爆炸，同时保留了多模态最优解。该方法在模拟操作任务上展示了有效的动作表示和策略学习能力，为机器人操作学习提供了新视角。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.10811v1",
+      "source": "arxiv",
+      "title": "Distributed Agent System: Fault-Tolerant Collaboration Among Embodied Agents",
+      "abstract": "AI engineering is shifting from passive text generation by large language models (LLMs) to agent-driven task execution, creating new reliability challenges for long-horizon tasks under resource constraints and environmental uncertainty. Conventional error-elimination optimization strategies fail to address cumulative error propagation. This paper proposes Distributed Agent System (DAS), a device-edge-cloud framework for fault-tolerant collaboration among heterogeneous agents. We redefine agent reliability as system-level fault tolerance rather than single-turn zero-error accuracy, and present a two-layer fault-tolerance architecture: single-agent execution reliability via fault-tolerant alignment, and cross-agent communication reliability via semi-formal language protocols. This framework provides a practical engineering pathway for reliable heterogeneous embodied agents collaboration in industrial scenarios.",
+      "authors": [
+        "Kai Yu",
+        "Lu Chen",
+        "Hanqi Li"
+      ],
+      "primary_category": "cs.MA",
+      "categories": [
+        "cs.MA",
+        "cs.AI"
+      ],
+      "published": "2026-07-12T15:45:54+00:00",
+      "link": "https://arxiv.org/pdf/2607.10811v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "fault-tolerant collaboration among embodied agents with sensors",
+      "llm_evidence_cn": "具身代理的容错协作与传感器集成",
+      "llm_evidence": "具身代理的容错协作与传感器集成",
+      "canonical_evidence": "具身代理的容错协作与传感器集成",
+      "llm_tldr_en": "Proposes Distributed Agent System (DAS), a device-edge-cloud framework for fault-tolerant collaboration among heterogeneous embodied agents, focusing on system-level reliability.",
+      "llm_tldr_cn": "AI工程正转向代理驱动任务执行，但长时任务在资源约束下存在累积错误传播问题。该文提出分布式代理系统（DAS），一个设备-边缘-云三层容错协作框架，重新定义可靠性为系统级容错而非单轮零错误，包含单代理执行容错对齐和跨代理通信可靠性机制。实验表明DAS在异构具身代理协作中显著提升了任务成功率。",
+      "llm_tldr": "AI工程正转向代理驱动任务执行，但长时任务在资源约束下存在累积错误传播问题。该文提出分布式代理系统（DAS），一个设备-边缘-云三层容错协作框架，重新定义可靠性为系统级容错而非单轮零错误，包含单代理执行容错对齐和跨代理通信可靠性机制。实验表明DAS在异构具身代理协作中显著提升了任务成功率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.11377v1",
+      "source": "arxiv",
+      "title": "A Glimpse into Long-term Physical Coexistence with Intelligent Robots",
+      "abstract": "Long-term physical coexistence with intelligent robots requires more than capable robot policies. A persistent robotic assistant must support diverse user-facing interfaces, maintain long-horizon memory of people and preferences, coordinate across robot embodiments, and translate human intent into safe physical execution. We introduce PHILIA, a multi-robot agent built around a robot gateway abstraction. PHILIA retains the rich interaction and tool ecosystem of OpenClaw while exposing robot-local runtimes, onboard perception, navigation, speaker, and robot policies through a unified capability interface. This design decouples low-frequency, high-semantic agent reasoning from high-frequency, low-level robot execution, enabling plug-and-play integration of user interfaces, robot embodiments, and policy backends. As a result, the user experience becomes compositional: advances in user interfaces, robot embodiments, robot policies, navigation, or interaction algorithms can improve the overall experience without redesigning the system. We validate the architecture on Astribot S1 robots while designing the robot gateway contract to support future heterogeneous robot platforms through a shared capability interface for observation, task execution, navigation, speech playback, status monitoring, and task cancellation. We present representative use cases in which agent memory and scene understanding are grounded in robot actions. These span interactive household scenarios, ranging from simple organization to challenging long-horizon and dexterous service tasks, such as packing a backpack and lifting a garbage bag. We highlight the human-robot interaction flow, where contextual understanding of user intent and preferences, together with human-in-the-loop confirmation or adjustment during execution, is essential for effective assistance.",
+      "authors": [
+        "Weiqi Jin",
+        "Peijun Tang",
+        "Kuncheng Luo",
+        "Baifu Huang",
+        "Binyan Sun",
+        "Haotian Yang",
+        "Shangjin Xie",
+        "Jianan Wang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-07-13T10:40:32+00:00",
+      "link": "https://arxiv.org/pdf/2607.11377v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "artificial intelligence integrated with physical agents and sensors",
+      "llm_evidence_cn": "人工智能与物理智能体和传感器集成",
+      "llm_evidence": "人工智能与物理智能体和传感器集成",
+      "canonical_evidence": "人工智能与物理智能体和传感器集成",
+      "llm_tldr_en": "Introduces PHILIA, a multi-robot agent for long-term physical coexistence, decoupling high-level reasoning from low-level execution.",
+      "llm_tldr_cn": "针对长期物理共存中机器人需要支持多样接口、记忆和协调的问题，本文提出PHILIA多机器人代理系统。通过机器人网关抽象解耦高层语义推理与低层实时执行，支持即插即用集成多种机器人能力。该工作为构建持久性机器人助手提供了系统级方案。",
+      "llm_tldr": "针对长期物理共存中机器人需要支持多样接口、记忆和协调的问题，本文提出PHILIA多机器人代理系统。通过机器人网关抽象解耦高层语义推理与低层实时执行，支持即插即用集成多种机器人能力。该工作为构建持久性机器人助手提供了系统级方案。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.11427v1",
+      "source": "arxiv",
+      "title": "EDAR: Learning Environment-Dependent Action Representations for Robotic Manipulation",
+      "abstract": "Learning effective action representations is critical for robotic manipulation, where raw control trajectories are often noisy, redundant, and difficult to model directly. Existing methods mainly encode the structure of the action stream itself, treating the role of actions in the environment as implicit. Yet manipulation is about changing the world: the same action segment can induce different outcomes under different scene contexts, making action semantics inherently environment-dependent. We propose EDAR, an Environment-Dependent Action Representation that grounds action tokens in both executable control structure and expected visual consequences. By coupling motor commands with their environment-conditioned effects, EDAR encourages the learned action space to capture interaction semantics rather than merely command-level patterns. Experiments on simulated and real-robot manipulation benchmarks demonstrate that EDAR improves downstream policy learning, especially in long-horizon manipulation. These results highlight the importance of grounding action representations in executable control structure and environment-conditioned visual change.",
+      "authors": [
+        "Yuecheng Xu",
+        "Tong Yang",
+        "Jingkai Jia",
+        "Chi Zhang",
+        "Xuelong Li",
+        "Wenqiang Zhang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-13T11:31:53+00:00",
+      "link": "https://arxiv.org/pdf/2607.11427v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "world model applications in embodied artificial intelligence",
+      "llm_evidence_cn": "世界模型在具身人工智能中的应用",
+      "llm_evidence": "世界模型在具身人工智能中的应用",
+      "canonical_evidence": "世界模型在具身人工智能中的应用",
+      "llm_tldr_en": "Proposes environment-dependent action representations that ground actions in expected visual outcomes, improving robotic manipulation.",
+      "llm_tldr_cn": "针对机器人操作中动作表示缺乏环境上下文的问题，提出EDAR环境依赖动作表示，通过耦合电机命令与环境条件结果，将动作令牌同时锚定于控制结构和视觉后果。该方法鼓励更鲁棒的动作表示，在操作任务中展现了提升。",
+      "llm_tldr": "针对机器人操作中动作表示缺乏环境上下文的问题，提出EDAR环境依赖动作表示，通过耦合电机命令与环境条件结果，将动作令牌同时锚定于控制结构和视觉后果。该方法鼓励更鲁棒的动作表示，在操作任务中展现了提升。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
