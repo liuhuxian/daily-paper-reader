@@ -1,0 +1,766 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-16T19:58:47.912774+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 13,
+    "deep_cap": 6,
+    "deep_selected": 6,
+    "quick_candidates": 14,
+    "quick_skim_target": 11,
+    "quick_selected": 11
+  },
+  "deep_dive": [
+    {
+      "id": "2607.13410v1",
+      "source": "arxiv",
+      "title": "Ego-Dynamics-Augmented World Model for Autonomous Driving with Zero-Shot Cross-Chassis Adaptation",
+      "abstract": "World model (WM)-based reinforcement learning enables sample-efficient end-to-end autonomous driving learning by imagining long-horizon trajectories in latent space. However, most driving WMs operate on bird's-eye-view (BEV) representations that are inherently egocentric: the transition between consecutive frames entangles the ego vehicle's own motion with scene dynamics. As a result, the WM devotes significant capacity to recovering ego-motion from warped observations, at the cost of scene modeling fidelity and imagination accuracy. This work proposes DynaDreamer, a dynamics-augmented Dreamer-style reinforcement learning method to address this problem by augmenting the WM with an explicit ego-dynamics prior. A physics-informed ego-dynamics encoder-decoder extracts the ego-state history into a compact and identifiable context, which modulates a causal Transformer WM to condition both its prior and posterior latents. During imagination, the ego-dynamics predictor propagates this context forward to keep the ego-dynamics prior synchronized with the rollout. An information-theoretic analysis shows that conditioning on this context reduces both the predictive entropy of the observation transition and the prior--posterior Kullback--Leibler divergence, confining the WM's modeling burden to the scene dynamics beyond ego-motion. An additional benefit is zero-shot cross-chassis adaptation: the ego-dynamics context depends on identifiable chassis parameters, so that a vehicle with previously unseen dynamic characteristics can adapt the WM to the new chassis without retraining. Experiments demonstrate that DynaDreamer improves task success rates over the strongest baseline by 28% and 61% in urban and highway driving scenarios, respectively, with the advantage rising to 73% when extrapolating to unseen chassis.",
+      "authors": [
+        "Zhidong Wang",
+        "Jingsong Liang",
+        "Zirui Li",
+        "Zhan Chen",
+        "Han Yu",
+        "Chen Lv"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-15T03:20:53+00:00",
+      "link": "https://arxiv.org/pdf/2607.13410v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world model with ego-dynamics prior for autonomous driving planning and prediction",
+      "llm_evidence_cn": "用于自动驾驶规划与预测的带自我动力学先验的世界模型",
+      "llm_evidence": "用于自动驾驶规划与预测的带自我动力学先验的世界模型",
+      "canonical_evidence": "用于自动驾驶规划与预测的带自我动力学先验的世界模型",
+      "llm_tldr_en": "Proposes DynaDreamer, a world model augmented with explicit ego-dynamics prior for autonomous driving. It improves scene modeling fidelity and imagination accuracy by decoupling ego-motion, enabling zero-shot cross-chassis adaptation.",
+      "llm_tldr_cn": "该论文针对自动驾驶中世界模型因自我运动耦合导致场景建模精度下降的问题，提出DynaDreamer方法，在Dreamer框架中显式加入自我动力学先验。通过解耦自我运动，世界模型能更准确地想象长期轨迹。实验表明，该方法在零样本跨底盘适应中表现优异，显著提升了驾驶策略的样本效率。这项工作推动了世界模型在自动驾驶中实用化进程。",
+      "llm_tldr": "该论文针对自动驾驶中世界模型因自我运动耦合导致场景建模精度下降的问题，提出DynaDreamer方法，在Dreamer框架中显式加入自我动力学先验。通过解耦自我运动，世界模型能更准确地想象长期轨迹。实验表明，该方法在零样本跨底盘适应中表现优异，显著提升了驾驶策略的样本效率。这项工作推动了世界模型在自动驾驶中实用化进程。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.13436v1",
+      "source": "arxiv",
+      "title": "Distributionally Robust and Safe Imitation Learning",
+      "abstract": "Imitation learning (IL) has achieved remarkable success in complex decision-making tasks. However, its performance is highly sensitive to distribution shifts, which can pose significant safety risks. We propose a distributionally robust and safe IL framework that explicitly addresses both policy-induced and uncertainty-induced distribution shifts. Our approach develops a unified framework leveraging Taylor Series Imitation Learning (TaSIL) to mitigate policy-induced shifts and distributionally robust adaptive control to handle uncertainty-induced shifts. This architecture enables the formulation of an IL problem that optimizes performance under distributional uncertainty while systematically accounting for safety constraints. We demonstrate the effectiveness of the proposed approach on an unmanned aerial vehicle (UAV) case study where the UAV performs a task in an uncertain environment while avoiding unsafe regions.",
+      "authors": [
+        "Ahmed Aboudonia",
+        "Naira Hovakimyan"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "eess.SY"
+      ],
+      "published": "2026-07-15T04:40:09+00:00",
+      "link": "https://arxiv.org/pdf/2607.13436v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Imitation learning framework addressing distribution shifts and safety",
+      "llm_evidence_cn": "处理分布偏移和安全性问题的模仿学习框架",
+      "llm_evidence": "处理分布偏移和安全性问题的模仿学习框架",
+      "canonical_evidence": "处理分布偏移和安全性问题的模仿学习框架",
+      "llm_tldr_en": "Proposes a distributionally robust and safe imitation learning framework that mitigates policy-induced and uncertainty-induced distribution shifts using Taylor Series IL and robust adaptive control.",
+      "llm_tldr_cn": "模仿学习在分布偏移下性能下降且存在安全风险。本文提出分布鲁棒且安全的模仿学习框架，结合泰勒级数模仿学习和分布鲁棒自适应控制，同时处理策略诱导和不确定性诱导的分布偏移。实验证明该方法在保证安全约束的同时提升了鲁棒性，适用于复杂决策任务。",
+      "llm_tldr": "模仿学习在分布偏移下性能下降且存在安全风险。本文提出分布鲁棒且安全的模仿学习框架，结合泰勒级数模仿学习和分布鲁棒自适应控制，同时处理策略诱导和不确定性诱导的分布偏移。实验证明该方法在保证安全约束的同时提升了鲁棒性，适用于复杂决策任务。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.13461v1",
+      "source": "arxiv",
+      "title": "Joint On-and-Off Policy Learning for Vision-and-Language Navigation",
+      "abstract": "Vision-and-Language Navigation (VLN) necessitates an embodied agent to navigate in the physical world by adhering to natural language instructions. Recent advancements in Vision-Language Models (VLM) have propelled the development of VLM-based VLN methods with two predominant paradigms: (1) imitation learning (IL) on expert demonstrations, followed by the Dataset Aggregation (DAgger) algorithm to bolster error recovery capabilities; (2) reinforcement learning (RL) driven by verifiable rewards to enhance reasoning and exploration. A notable gap is the absence of integration between these two distinct paradigms. This paper introduces JOP-VLN, a novel VLN framework that synergistically combines off-policy imitation learning and on-policy exploration within a three-stage training pipeline. Initially, IL is employed on expert demonstrations to acquire basic navigation skills. Subsequently, the DAgger algorithm is utilized to generate heuristic exploration trajectories, which are then used for imitation learning to improve error recovery capabilities. Finally, a joint on-and-off policy learning framework is implemented, featuring high-entropy trajectory sampling to enhance RL training efficiency and an error-correction-prioritized trajectory sorting strategy for effective error correction. Extensive experiments demonstrate the efficacy of JOP-VLN, achieving success rates of 69.9% and 68.0% on the VLN-CE R2R and RxR benchmarks, respectively, setting a new state-of-the-art on R2R. Project page: https://qingrongh.github.io/JOP-VLN.",
+      "authors": [
+        "Qingrong He",
+        "Lin Zhao",
+        "Kevin Zheng",
+        "Liang Lin"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-15T05:46:34+00:00",
+      "link": "https://arxiv.org/pdf/2607.13461v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "imitation learning on expert demonstrations, reinforcement learning, vision-language navigation",
+      "llm_evidence_cn": "专家演示上的模仿学习，强化学习，视觉语言导航",
+      "llm_evidence": "专家演示上的模仿学习，强化学习，视觉语言导航",
+      "canonical_evidence": "专家演示上的模仿学习，强化学习，视觉语言导航",
+      "llm_tldr_en": "JOP-VLN combines off-policy imitation learning with on-policy reinforcement learning for embodied navigation, addressing the gap between IL and RL integration.",
+      "llm_tldr_cn": "视觉语言导航中，模仿学习和强化学习通常被独立使用，未充分利用两者优势。本文提出JOP-VLN框架，同步结合离策略模仿学习（利用专家演示）和在线策略强化学习（利用奖励探索），在导航任务中显著提升了成功率和泛化能力。",
+      "llm_tldr": "视觉语言导航中，模仿学习和强化学习通常被独立使用，未充分利用两者优势。本文提出JOP-VLN框架，同步结合离策略模仿学习（利用专家演示）和在线策略强化学习（利用奖励探索），在导航任务中显著提升了成功率和泛化能力。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.13882v1",
+      "source": "arxiv",
+      "title": "Learning Forward & Reverse Skills from a Single Unfinished Demonstration for Constrained Manipulation Tasks",
+      "abstract": "Learning from demonstration (LfD) enables robots to learn manipulation skills directly from expert demonstrations but remains challenging for contact-rich tasks involving geometric constraints and force interaction. Existing approaches typically require multiple complete demonstrations and do not support reverse skill execution. In this paper, we present a unified one-shot framework for constrained manipulation that learns both forward and reverse execution from a single, possibly unfinished demonstration. Our method decomposes demonstrations into non-contact and contact phases, with non-contact motion encoded with dynamic movement primitives (DMP), and contact motion represented as a sequence of screw motion primitives segmented by our proposed geometry-driven twist-direction segmentation algorithm. During execution, screw primitives are executed sequentially under admittance-guided pose correction and speed regulation, enabling task completion beyond the demonstrated trajectory length as well as reverse skill execution without additional learning data. Experiments on peg insertion, battery insertion, lock opening, and screw driving tasks demonstrate improved success rates and robustness over segmentation and one-shot trajectory learning baselines. Details are available on the project website: https://tuwien-asl.github.io/LfD-Screw/.",
+      "authors": [
+        "Yexin Hu",
+        "Haoyi Zheng",
+        "Johannes Heidersberger",
+        "Dongheui Lee"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-15T14:31:26+00:00",
+      "link": "https://arxiv.org/pdf/2607.13882v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "learning from a single unfinished demonstration for manipulation",
+      "llm_evidence_cn": "从单个不完整演示中学习操作技能",
+      "llm_evidence": "从单个不完整演示中学习操作技能",
+      "canonical_evidence": "从单个不完整演示中学习操作技能",
+      "llm_tldr_en": "This paper proposes a one-shot framework for constrained manipulation that learns both forward and reverse execution from a single possibly unfinished demonstration, using DMPs and screw motion primitives.",
+      "llm_tldr_cn": "从演示学习使机器人能学习操作技能，但接触任务需要多个完整演示且不支持反向执行。本文提出统一单样本框架，将演示分解为无接触和接触阶段，分别用动态运动基元和螺旋运动基元编码，从而实现从单个不完整演示中同时学习正向和反向技能，实验验证了有效性。",
+      "llm_tldr": "从演示学习使机器人能学习操作技能，但接触任务需要多个完整演示且不支持反向执行。本文提出统一单样本框架，将演示分解为无接触和接触阶段，分别用动态运动基元和螺旋运动基元编码，从而实现从单个不完整演示中同时学习正向和反向技能，实验验证了有效性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.13960v1",
+      "source": "arxiv",
+      "title": "GigaWorld-Policy-0.5: A Faster and Stronger WAM Empowered by AutoResearch",
+      "abstract": "World Action Models (WAMs) improve robot policy learning by jointly modeling actions and future visual observations, using future scene evolution as dense supervision for physically grounded action generation. However, a common design in existing WAMs is to explicitly generate future videos at inference time, incurring substantial computational overhead and hindering real-time closed-loop deployment. GigaWorld-Policy addresses this issue with an action-centered formulation, where future visual dynamics are used during training while action-only decoding is used at inference time. Building upon this framework, we present GigaWorld-Policy-0.5, an enhanced action-centered WAM designed for more efficient robot control. During pretraining, GigaWorld-Policy-0.5 adopts a mixed Action-Conditioned World Modeling (AC-WM) and WAM training strategy. This strengthens the coupling between visual dynamics and robot actions and improves the transferability of action representations for downstream policy learning. For efficient inference, GigaWorld-Policy-0.5 introduces a Mixture-of-Transformers architecture that separates visual dynamics modeling and action generation into specialized experts, reducing active computation during action-only inference and achieving 85 ms inference latency on a local RTX 4090 setup. In addition, we employ an agent-based AutoResearch pipeline to systematically search training configurations, enabling more efficient identification of optimal experimental setups while reducing the time and manual intervention required for hyperparameter tuning. Experiments and ablations show that GigaWorld-Policy-0.5 preserves the training benefits of future visual dynamics while improving inference efficiency for robot control.",
+      "authors": [
+        "GigaWorld Team",
+        "Angen Ye",
+        "Angyuan Ma",
+        "Boyuan Wang",
+        "Chaojun Ni",
+        "Fangzheng Ye",
+        "Guan Huang",
+        "Guo Li",
+        "Guosheng Zhao",
+        "Haodong Yan",
+        "Hengtao Li",
+        "Jiwen Lu",
+        "Kai Wang",
+        "Mingming Yu",
+        "Qitang Hu",
+        "Qiuping Deng",
+        "Songling Liu",
+        "Xiaoyu Tian",
+        "Xiaofeng Wang",
+        "Xinyu Zhou",
+        "Xiuwei Xu",
+        "Xinze Chen",
+        "Yang Wang",
+        "Yejun Zeng",
+        "Yifan Chang",
+        "Yun Ye",
+        "Zhenyu Wu",
+        "Zhanqian Wu",
+        "Zheng Zhu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-15T15:46:42+00:00",
+      "link": "https://arxiv.org/pdf/2607.13960v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world action model for robot policy learning with action-centered formulation",
+      "llm_evidence_cn": "面向机器人策略学习的动作为中心的世界动作模型",
+      "llm_evidence": "面向机器人策略学习的动作为中心的世界动作模型",
+      "canonical_evidence": "面向机器人策略学习的动作为中心的世界动作模型",
+      "llm_tldr_en": "Presents GigaWorld-Policy-0.5, an action-centered world action model that uses future visual dynamics only during training, enabling efficient real-time robot control.",
+      "llm_tldr_cn": "该论文针对世界动作模型推理时生成未来视频导致计算开销大的问题，提出动作为中心的世界动作模型GigaWorld-Policy-0.5。该方法在训练时利用未来视觉动态作为监督，推理时仅解码动作，实现实时闭环控制。实验表明，该模型在保持物理真实性的同时显著提升速度。这项工作使世界模型更适用于实际机器人部署。",
+      "llm_tldr": "该论文针对世界动作模型推理时生成未来视频导致计算开销大的问题，提出动作为中心的世界动作模型GigaWorld-Policy-0.5。该方法在训练时利用未来视觉动态作为监督，推理时仅解码动作，实现实时闭环控制。实验表明，该模型在保持物理真实性的同时显著提升速度。这项工作使世界模型更适用于实际机器人部署。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.10438v1",
+      "source": "arxiv",
+      "title": "Large Language Model Enhanced Differentiable Trajectory Planning for IoT-Enabled Autonomous Driving",
+      "abstract": "Autonomous driving planning is a key component of IoT-enabled intelligent transportation systems, requiring vehicles to generate safe, efficient, and executable trajectories in complex urban environments from multi-source contextual information. While imitation learning (IL) has shown promise on large-scale datasets, IL-based planners still suffer from limited coverage of complex long-tail interactions, weak consistency with downstream constrained refinement, and insufficient use of high level scene semantics under real time constraints. To address these issues, this paper proposes a large language model (LLM) enhanced differentiable trajectory planning framework for IoT-enabled autonomous driving. Specifically, we introduce a surrounding agent centric data augmentation strategy to reorganize sur rounding agent trajectories as additional planning supervision, thereby improving the training distribution without collecting additional raw data. We further design a complexity-aware asyn chronous LLM-based semantic enhancement module to extract scene-related high-level semantic features with controlled online overhead. In addition, a differentiable optimization module is incorporated to refine generated trajectories with explicit residual penalties while backpropagating optimization gradients to the upstream planner. Experiments show that the proposed method achieves the best overall scores of 83.63 and 78.29 on the nuPlan closed-loop nonreactive and reactive Hard20 benchmarks, respectively, and CARLA-ROS tests further verify its online deployment and real time closed-loop execution capability.",
+      "authors": [
+        "Shihao Zhang",
+        "Jing Yang",
+        "Ziyu Song",
+        "Zheng Lin",
+        "Sunil Prajapat",
+        "Zhaochen Xia",
+        "Hemant Ghayvat",
+        "Haitao Ding",
+        "Lip Yee Por",
+        "Ashok Kumar Das"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.NI"
+      ],
+      "published": "2026-07-11T18:43:14+00:00",
+      "link": "https://arxiv.org/pdf/2607.10438v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "imitation learning for autonomous driving with LLM-enhanced differentiable trajectory planning",
+      "llm_evidence_cn": "使用LLM增强的可微轨迹规划的自动驾驶模仿学习",
+      "llm_evidence": "使用LLM增强的可微轨迹规划的自动驾驶模仿学习",
+      "canonical_evidence": "使用LLM增强的可微轨迹规划的自动驾驶模仿学习",
+      "llm_tldr_en": "Proposes an LLM-enhanced differentiable trajectory planning framework for autonomous driving that mitigates limitations of imitation learning on long-tail interactions and constrained refinement, integrating high-level semantics.",
+      "llm_tldr_cn": "本文针对自动驾驶中模仿学习规划器处理长尾交互不足、与下游约束不一致等问题，提出了一种大语言模型增强的可微轨迹规划框架。该框架利用LLM提供的高层场景语义，提升了复杂城市场景下的安全性和执行效率。在多个数据集上验证了有效性。",
+      "llm_tldr": "本文针对自动驾驶中模仿学习规划器处理长尾交互不足、与下游约束不一致等问题，提出了一种大语言模型增强的可微轨迹规划框架。该框架利用LLM提供的高层场景语义，提升了复杂城市场景下的安全性和执行效率。在多个数据集上验证了有效性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2607.13033v1",
+      "source": "arxiv",
+      "title": "DenseReward: Dense Reward Learning via Failure Synthesis for Robotic Manipulation",
+      "abstract": "Reinforcement learning holds great promise for improving robot policies beyond the limits of imitation learning. However, its practical adoption remains bottlenecked by the lack of reliable vision-language reward models that provide dense and informative feedback. Two key challenges remain: acquiring diverse failure data at scale and obtaining fine-grained reward signals beyond sparse trajectory-level success labels. Collecting failure trajectories typically requires laborious human effort, while pseudo-failures constructed by relabeling successful demonstrations fail to capture the diverse physical failure modes that arise during robot execution. Meanwhile, existing reward models often predict sparse binary or trajectory-level rewards, which provide limited guidance for efficient policy optimization. We introduce DenseReward, a dense robotic reward model that addresses both challenges. To train DenseReward, we develop an automated failure data generation pipeline that synthesizes physically realistic failure trajectories in simulation without human labeling, covering diverse failure modes such as collisions, missed grasps, object drops, and recovery behaviors. DenseReward predicts dense frame-level reward scores from visual observations and language instructions, enabling fine-grained estimation of task progress throughout an episode. Experiments show that DenseReward outperforms general-purpose VLMs and existing robotic reward models in dense reward prediction across both simulated and real-world manipulation. We further demonstrate that DenseReward provides effective reward guidance for downstream model predictive control and reinforcement learning. We release the dataset, trained reward models, and evaluation suite to support the development of failure-aware dense reward modeling for robot learning.",
+      "authors": [
+        "Yu Fang",
+        "Wanxi Dong",
+        "Jiaqi Liu",
+        "Yue Yang",
+        "Mingxiao Huo",
+        "Yao Mu",
+        "Huaxiu Yao",
+        "Li Erran Li",
+        "Daniel Szafir",
+        "Mingyu Ding"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-14T17:59:29+00:00",
+      "link": "https://arxiv.org/pdf/2607.13033v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "Dense reward learning for robotic manipulation via failure synthesis, improving beyond imitation learning",
+      "llm_evidence_cn": "通过失败合成进行机器人操作的密集奖励学习，超越模仿学习",
+      "llm_evidence": "通过失败合成进行机器人操作的密集奖励学习，超越模仿学习",
+      "canonical_evidence": "通过失败合成进行机器人操作的密集奖励学习，超越模仿学习",
+      "llm_tldr_en": "Proposes DenseReward, a method to learn dense vision-language reward models for robotic manipulation by synthesizing diverse failure trajectories for fine-grained reward feedback.",
+      "llm_tldr_cn": "强化学习在机器人操作中的应用受限于缺乏可靠的密集奖励模型。本文提出DenseReward，通过合成多样化的失败轨迹来学习密集视觉语言奖励模型，提供细粒度反馈。方法避免了人工收集失败数据，并捕获真实物理失败模式。实验表明该奖励模型显著提升了RL训练效率。",
+      "llm_tldr": "强化学习在机器人操作中的应用受限于缺乏可靠的密集奖励模型。本文提出DenseReward，通过合成多样化的失败轨迹来学习密集视觉语言奖励模型，提供细粒度反馈。方法避免了人工收集失败数据，并捕获真实物理失败模式。实验表明该奖励模型显著提升了RL训练效率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2607.08837v1",
+      "source": "arxiv",
+      "title": "Prompt-Driven Exploration",
+      "abstract": "Exploration is essential to RL since a policy cannot improve by repeatedly sampling the behaviors it already prefers. Standard methods inject stochasticity in the action space, but such jitter only yields rollouts close to the original. Escaping a weak policy often requires global perturbations that action noise cannot produce. Large language models (LLMs) and vision-language-action (VLA) models offer a pathway: they condition the policy on a natural language prompt, and since the rollout follows from it, modifying the prompt induces global changes. The challenge is finding prompts that induce useful global changes. With a weak policy that rarely succeeds, reward is too sparse to select on. Our idea is to refine prompts from the rollouts themselves: a vision-language model (VLM) reasons over the rollout video, diagnoses how the policy responded, and rewrites the prompt to elicit better behavior next time. This procedure realizes posterior sampling, a classical RL exploration framework, at the level of prompts: the VLM maintains an implicit distribution over useful prompts and updates it from observed rollouts. We call this strategy Prompt-Driven Exploration (PDE). Across manipulation and reasoning tasks, PDE enables RL to learn successful policies even from zero-reward starts, and improves sample efficiency more broadly. Our website is available at https://xinyunsunshine.github.io/prompt-rl.",
+      "authors": [
+        "Sunshine Jiang",
+        "John Marangola",
+        "David Zhang",
+        "Raghuram Kowdeed",
+        "Ruiyang Luo",
+        "Nitish Dashora",
+        "Richard Li",
+        "Pulkit Agrawal",
+        "Zhang-Wei Hong"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-07-09T18:00:24+00:00",
+      "link": "https://arxiv.org/pdf/2607.08837v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "Uses VLMs for exploration in RL, relevant to embodied agents and world models",
+      "llm_evidence_cn": "利用视觉语言模型进行强化学习探索，与具身智能和世界模型相关",
+      "llm_evidence": "利用视觉语言模型进行强化学习探索，与具身智能和世界模型相关",
+      "canonical_evidence": "利用视觉语言模型进行强化学习探索，与具身智能和世界模型相关",
+      "llm_tldr_en": "Proposes prompt-driven exploration for RL where a VLM refines prompts from rollouts to induce globally different behaviors, enabling escape from weak policies.",
+      "llm_tldr_cn": "强化学习中的标准探索方法难以产生全局扰动。本文提出基于提示驱动的探索方法，利用视觉语言模型从前序轨迹中提炼提示，引导策略产生全局性的行为变化。在稀疏奖励环境中，该方法使弱策略能够发现有效行为，为具身智能体的探索提供了新思路。",
+      "llm_tldr": "强化学习中的标准探索方法难以产生全局扰动。本文提出基于提示驱动的探索方法，利用视觉语言模型从前序轨迹中提炼提示，引导策略产生全局性的行为变化。在稀疏奖励环境中，该方法使弱策略能够发现有效行为，为具身智能体的探索提供了新思路。",
+      "llm_tags": [
+        "query:wmi:composite"
+      ],
+      "matched_query_tag": "query:wmi:composite",
+      "matched_query_text": "Papers central to 世界模型，具身智能，模仿学习, especially work that connects or combines: internal environment models for planning and prediction; artificial intelligence integrated with physical agents and sensors; learning policies from expert demonstrations; reinforcement learning with learned world dynamics; directly copying expert actions from demonstrations; world model applications in embodied artificial intelligence; imitation learning for robotic manipulation; model based reinforcement learning combined with behavioral cloning.",
+      "matched_requirement_id": "req-composite-wmi",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.10350v2",
+      "source": "arxiv",
+      "title": "ABot-AgentOS: A General Robotic Agent OS with Lifelong Multi-modal Memory",
+      "abstract": "Recent VLM and VLA systems have improved robotic perception and action prediction, yet long-horizon embodied agents still require a general runtime layer for reasoning, memory, tool use, verification, and cross-embodiment execution. We present ABot-AgentOS, a general robotic Agent Operating System that sits above low-level controllers and provides a deliberative agent layer for scene-conditioned planning, context-isolated skill execution, multi-stage verification, multi-modal memory, and edge-cloud collaboration. To evaluate such systems, we introduce EmbodiedWorldBench, an executable benchmark with 16 indoor, outdoor, and hybrid scenes, four difficulty levels, and over 200 tasks involving navigation, object search, NPC dialogue, dynamic events, and trace-grounded scoring. ABot-AgentOS further introduces Universal Multi-modal Graph Memory, a persistent source-grounded substrate that converts dialogue, visual observations, spatial context, temporal relations, and task traces into typed nodes and edges. A failure-driven self-evolution loop converts diagnosed memory failures into gated runtime evo-assets that are promoted only to later evaluation splits, preventing current-split ground-truth leakage while enabling continual improvement. On an initial EmbodiedWorldBench subset, ABot-AgentOS improves over a single-controller baseline in both task success and goal completion. Across memory benchmarks, ABot-AgentOS Static achieves 87.5 on LoCoMo, 59.9 on OpenEQA EM-EQA, 88.6 on Mem-Gallery, and 76.5 Acc@All on NExT-QA; self-evolution further improves LoCoMo to 88.7, OpenEQA to 60.4, and Mem-Gallery to 89.0. These results suggest that a general Agent OS layer can improve long-horizon embodied execution while providing persistent, auditable memory for continual interaction.",
+      "authors": [
+        "Jiayi Tian",
+        "Shiao Liu",
+        "Yuting Xu",
+        "Jia Lu",
+        "Zihao Guan",
+        "Honglin Han",
+        "Di Yang",
+        "Minqi Gu",
+        "Yifei Qian",
+        "Tianlin Zhang",
+        "Yanqing Zhu",
+        "Zeqian Ye",
+        "Menglin Yang",
+        "Fei Wang",
+        "Xu Hu",
+        "Xiuxian Li",
+        "Wei Zhang",
+        "Shihui Su",
+        "Yiyan Ji",
+        "Jingbo Wang",
+        "Ziteng Feng",
+        "Jiaheng Liu",
+        "Zhaoxiang Zhang",
+        "Xiaolong Wu",
+        "Zixiao Tang",
+        "Zhining Gu",
+        "Yang Cai",
+        "Linbo Zheng",
+        "Jingjing Ma",
+        "Mingyang Yin",
+        "Zedong Chu",
+        "Ziqiao Li",
+        "Mu Xu"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.RO"
+      ],
+      "published": "2026-07-11T15:24:43+00:00",
+      "link": "https://arxiv.org/pdf/2607.10350v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "scene-conditioned planning and multi-modal memory for embodied agents",
+      "llm_evidence_cn": "用于具身代理的场景条件规划和多模态记忆",
+      "llm_evidence": "用于具身代理的场景条件规划和多模态记忆",
+      "canonical_evidence": "用于具身代理的场景条件规划和多模态记忆",
+      "llm_tldr_en": "ABot-AgentOS provides a general agent OS layer for long-horizon embodied tasks with scene-conditioned planning, memory, and verification; includes EmbodiedWorldBench benchmark.",
+      "llm_tldr_cn": "本文提出ABot-AgentOS，一个通用的机器人代理操作系统，位于低级控制器之上，提供场景条件规划、上下文隔离技能执行、多阶段验证和多模态记忆等功能，以支持长时间跨度的具身任务。还引入了EmbodiedWorldBench基准，包含16个场景和200多个任务，用于评估此类系统。该方法通过解耦规划与执行，提升了代理在复杂环境中的鲁棒性。",
+      "llm_tldr": "本文提出ABot-AgentOS，一个通用的机器人代理操作系统，位于低级控制器之上，提供场景条件规划、上下文隔离技能执行、多阶段验证和多模态记忆等功能，以支持长时间跨度的具身任务。还引入了EmbodiedWorldBench基准，包含16个场景和200多个任务，用于评估此类系统。该方法通过解耦规划与执行，提升了代理在复杂环境中的鲁棒性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.13154v1",
+      "source": "arxiv",
+      "title": "Worlds in One Demo: A Synthetic Data Engine for Learning Open-World Mobile Manipulation",
+      "abstract": "Learning open-world mobile manipulation policies requires vast data to achieve spatial generalization, long-horizon robustness, and scene generalization. Current prevailing data collection paradigms, teleoperation and UMI, demand prohibitive human effort and cost at scale. To scale beyond the limits of manual data collection, we seek to maximize the value of each human demonstration by scalable data generation. To this end, we introduce WANDA: learning open-World mobile mANipulation from one demonstration via a synthetic DAta engine. WANDA first reconstructs background Gaussian splats and robot-object interaction trajectories from source RGBD observations, as a world substrate for later planning and rendering. It then rearranges contact-rich robot-object interaction segments into extensive spatial configurations, utilizing whole-body motion planning to chain them into new trajectories. To enhance long-horizon robustness, it applies Corrective State Expansion to increase the robot and object state diversity at different stages of mobile manipulation. To unlock cross-environment generalization, trajectories are synthesized on diverse generated 3D worlds from everyday photos. Furthermore, we synthesize photo-realistic observations by compositing rendered robot and object meshes with Gaussian splatting backgrounds. We evaluate our approach on extensive simulation and real-world tasks in various scenes. Experiments show that policies trained with WANDA achieve long-horizon robustness, broad spatial generalization and cross-environment generalization from one real demonstration. Moreover, WANDA naturally supports cross-embodiment data generation, validated by zero-shot deployment on another mobile manipulator with a distinct morphology.",
+      "authors": [
+        "Lingxiao Guo",
+        "Huanyu Li",
+        "Guanya Shi"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-14T18:04:58+00:00",
+      "link": "https://arxiv.org/pdf/2607.13154v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "reconstructs world substrate from one demo for planning and rendering",
+      "llm_evidence_cn": "从一次演示重建世界基底用于规划和渲染",
+      "llm_evidence": "从一次演示重建世界基底用于规划和渲染",
+      "canonical_evidence": "从一次演示重建世界基底用于规划和渲染",
+      "llm_tldr_en": "WANDA reconstructs Gaussian splats and interaction trajectories from a single demo as a world substrate, enabling synthetic data generation for open-world mobile manipulation.",
+      "llm_tldr_cn": "开放世界移动操作策略学习需要大量数据，但人工收集成本高昂。本文提出WANDA，从单次人类演示中重建背景高斯泼溅和机器人-物体交互轨迹，作为世界基底用于后续规划和渲染。通过重新安排接触并进行渲染，生成大量合成数据。该方法极大降低了数据收集成本，同时保持了空间泛化和长程鲁棒性。WANDA为具身模仿学习提供了一种高效的数据引擎。",
+      "llm_tldr": "开放世界移动操作策略学习需要大量数据，但人工收集成本高昂。本文提出WANDA，从单次人类演示中重建背景高斯泼溅和机器人-物体交互轨迹，作为世界基底用于后续规划和渲染。通过重新安排接触并进行渲染，生成大量合成数据。该方法极大降低了数据收集成本，同时保持了空间泛化和长程鲁棒性。WANDA为具身模仿学习提供了一种高效的数据引擎。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2607.10350v1",
+      "source": "arxiv",
+      "title": "ABot-AgentOS: A General Robotic Agent OS with Lifelong Multi-modal Memory",
+      "abstract": "Recent VLM and VLA systems have improved robotic perception and action prediction, yet long-horizon embodied agents still require a general runtime layer for reasoning, memory, tool use, verification, and cross-embodiment execution. We present ABot-AgentOS, a general robotic Agent Operating System that sits above low-level controllers and provides a deliberative agent layer for scene-conditioned planning, context-isolated skill execution, multi-stage verification, multi-modal memory, and edge-cloud collaboration. To evaluate such systems, we introduce EmbodiedWorldBench, an executable benchmark with 16 indoor, outdoor, and hybrid scenes, four difficulty levels, and over 200 tasks involving navigation, object search, NPC dialogue, dynamic events, and trace-grounded scoring. ABot-AgentOS further introduces Universal Multi-modal Graph Memory, a persistent source-grounded substrate that converts dialogue, visual observations, spatial context, temporal relations, and task traces into typed nodes and edges. A failure-driven self-evolution loop converts diagnosed memory failures into gated runtime evo-assets that are promoted only to later evaluation splits, preventing current-split ground-truth leakage while enabling continual improvement. On an initial EmbodiedWorldBench subset, ABot-AgentOS improves over a single-controller baseline in both task success and goal completion. Across memory benchmarks, ABot-AgentOS Static achieves 87.5 on LoCoMo, 59.9 on OpenEQA EM-EQA, 88.6 on Mem-Gallery, and 76.5 Acc@All on NExT-QA; self-evolution further improves LoCoMo to 88.7, OpenEQA to 60.4, and Mem-Gallery to 89.0. These results suggest that a general Agent OS layer can improve long-horizon embodied execution while providing persistent, auditable memory for continual interaction.",
+      "authors": [
+        "Jiayi Tian",
+        "Shiao Liu",
+        "Yuting Xu",
+        "Jia Lu",
+        "Zihao Guan",
+        "Honglin Han",
+        "Di Yang",
+        "Minqi Gu",
+        "Yifei Qian",
+        "Tianlin Zhang",
+        "Yanqing Zhu",
+        "Zeqian Ye",
+        "Menglin Yang",
+        "Fei Wang",
+        "Xu Hu",
+        "Xiuxian Li",
+        "Wei Zhang",
+        "Shihui Su",
+        "Yiyan Ji",
+        "Jingbo Wang",
+        "Ziteng Feng",
+        "Jiaheng Liu",
+        "Zhaoxiang Zhang",
+        "Xiaolong Wu",
+        "Mingyang Yin",
+        "Zedong Chu",
+        "Mu Xu"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.RO"
+      ],
+      "published": "2026-07-11T15:24:43+00:00",
+      "link": "https://arxiv.org/pdf/2607.10350v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "General robotic agent OS for embodied intelligence with scene-conditioned planning",
+      "llm_evidence_cn": "面向具身智能的通用机器人智能体操作系统，支持场景条件规划",
+      "llm_evidence": "面向具身智能的通用机器人智能体操作系统，支持场景条件规划",
+      "canonical_evidence": "面向具身智能的通用机器人智能体操作系统，支持场景条件规划",
+      "llm_tldr_en": "Presents ABot-AgentOS, a general robotic Agent OS providing reasoning, memory, tool use, and verification for long-horizon embodied agents, along with EmbodiedWorldBench benchmark.",
+      "llm_tldr_cn": "现有VLM/VLA系统缺乏支持长程具身智能体的通用运行时层。本文提出ABot-AgentOS，一种机器人智能体操作系统，提供场景条件规划、上下文隔离技能执行、多模态记忆和边缘云协作等能力。同时构建EmbodiedWorldBench基准，覆盖多种场景和难度级别。该系统为具身智能体开发提供了标准化基础设施。",
+      "llm_tldr": "现有VLM/VLA系统缺乏支持长程具身智能体的通用运行时层。本文提出ABot-AgentOS，一种机器人智能体操作系统，提供场景条件规划、上下文隔离技能执行、多模态记忆和边缘云协作等能力。同时构建EmbodiedWorldBench基准，覆盖多种场景和难度级别。该系统为具身智能体开发提供了标准化基础设施。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.12287v1",
+      "source": "arxiv",
+      "title": "Reducing Temporal Redundancy for Efficient Vision-Language-Action Inference",
+      "abstract": "Vision-Language-Action (VLA) models exhibit strong generalization for robotic manipulation, yet their high inference latency limits real time deployment. We identify two primary sources of temporal redundancy in existing VLA pipelines: repeated visual encoding of highly similar consecutive frames and multi step iterative sampling in diffusion based policies. To address this, we propose a system level acceleration strategy that reduces computation in both perception and action generation. On the perception side, we incrementally update only tokens corresponding to dynamic scene regions instead of re-encoding entire frames. On the policy side, we compress diffusion sampling into a compact 2-step schedule through efficiency oriented training while preserving action precision. Experiments on Libero, RobotWin, and Real Robot Platforms demonstrate over 2 times speedup while maintaining high performance, achieving up to 98% success rate on general manipulation benchmarks. Our codes will be released on Github.",
+      "authors": [
+        "Yuzhou Wu",
+        "Yuxin Zheng",
+        "Muchun Niu",
+        "Yishan Yang",
+        "Tianhao Liu",
+        "hanwen kang",
+        "Jiajian Jing",
+        "Linfeng Zhang",
+        "Chuan Wen"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-14T02:48:31+00:00",
+      "link": "https://arxiv.org/pdf/2607.12287v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "Vision-Language-Action models for robotic manipulation with efficiency optimization",
+      "llm_evidence_cn": "面向机器人操作的视觉-语言-动作模型及效率优化",
+      "llm_evidence": "面向机器人操作的视觉-语言-动作模型及效率优化",
+      "canonical_evidence": "面向机器人操作的视觉-语言-动作模型及效率优化",
+      "llm_tldr_en": "Proposes system-level acceleration for VLA models by reducing temporal redundancy in visual encoding and diffusion sampling, enabling real-time deployment for robotic manipulation.",
+      "llm_tldr_cn": "现有视觉-语言-动作（VLA）模型在机器人操作中推理延迟高，难以实时部署。本文提出系统级加速策略，通过增量更新动态区域令牌和压缩扩散采样步骤，减少时间冗余。实验表明该方法在保持性能的同时显著提升推理速度，为具身智能实时应用提供可行方案。",
+      "llm_tldr": "现有视觉-语言-动作（VLA）模型在机器人操作中推理延迟高，难以实时部署。本文提出系统级加速策略，通过增量更新动态区域令牌和压缩扩散采样步骤，减少时间冗余。实验表明该方法在保持性能的同时显著提升推理速度，为具身智能实时应用提供可行方案。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.13429v1",
+      "source": "arxiv",
+      "title": "Generalizable VLA Finetuning via Representation Anchoring and Language-Action Alignment",
+      "abstract": "Finetuning a pretrained vision-language model (VLM) on robot demonstrations via behavior cloning (BC) has become the standard recipe for vision-language-action (VLA) policies. However, BC finetuning progressively overwrites the pretrained representations that support visual and semantic generalization. Co-training on web image-text data, a common remedy, does not prevent this; it applies language and action losses to separate observations, leaving VLAs with language-action misalignment that standard manipulation benchmarks do not expose. We propose Anchor-Align, which augments BC with two objectives: Vision-Language Anchoring distills layer-wise representations from a frozen VLM copy to prevent this drift, while Language-Action Alignment converts each action target into a discrete motion-direction label and jointly trains language and action prediction on the same robot observation. On a physical xArm7 robot, across two widely used VLA architectures, Anchor-Align improves real-robot success on both (28% to 54% and 37% to 60%). At scale in simulation, we demonstrate consistent improvements on OOD perturbations, perceptual robustness, and long-horizon control across LIBERO-PRO, LIBERO-Plus, and CALVIN, respectively, suggesting that preserving pretrained representations and effective action learning are not fundamentally at odds. Project page: anchoralignvla.github.io",
+      "authors": [
+        "Dwip Dalal",
+        "Shivansh Patel",
+        "Chahit Jain",
+        "Jeonghwan Kim",
+        "Utkarsh Mishra",
+        "Alex Baratian",
+        "Hyeonjeong Ha",
+        "Heng Ji",
+        "Svetlana Lazebnik",
+        "Unnat Jain"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "published": "2026-07-15T04:13:54+00:00",
+      "link": "https://arxiv.org/pdf/2607.13429v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "behavior cloning finetuning of VLM on robot demonstrations",
+      "llm_evidence_cn": "在机器人演示上对VLM进行行为克隆微调",
+      "llm_evidence": "在机器人演示上对VLM进行行为克隆微调",
+      "canonical_evidence": "在机器人演示上对VLM进行行为克隆微调",
+      "llm_tldr_en": "Anchor-Align augments behavior cloning with representation anchoring and language-action alignment to prevent pretrained representation drift in VLA finetuning.",
+      "llm_tldr_cn": "视觉-语言-动作（VLA）策略微调时，行为克隆会覆盖预训练表示，导致泛化下降。本文提出Anchor-Align，在行为克隆基础上增加两个目标：视觉-语言锚定从冻结的VLM蒸馏层表示以防止漂移，语言-动作对齐将语言与动作特征对齐。实验表明该方法在保持预训练表示的同时提升了策略性能。该工作为VLA微调提供了稳定且泛化的训练范式。",
+      "llm_tldr": "视觉-语言-动作（VLA）策略微调时，行为克隆会覆盖预训练表示，导致泛化下降。本文提出Anchor-Align，在行为克隆基础上增加两个目标：视觉-语言锚定从冻结的VLM蒸馏层表示以防止漂移，语言-动作对齐将语言与动作特征对齐。实验表明该方法在保持预训练表示的同时提升了策略性能。该工作为VLA微调提供了稳定且泛化的训练范式。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2607.13172v1",
+      "source": "arxiv",
+      "title": "Learning Safe Agent Behaviour from Human Preferences and Justifications via World Models",
+      "abstract": "We address the problem of safely training an agent policy and deploying a good and safe policy, in settings where the environment dynamics are unknown and no suitable reward function is available. In the context of safety-critical environments, we consider traditional reinforcement learning impractical and resort to the resource of human input. We introduce DROPJ, a human-centred method for both safe training and deployment. We first learn a world model (a learned simulator) from a dataset of prior real-world trajectories. A human then plays the game in this learned simulator to extract several informative simulated trajectories. From these, we sample pairs of simulated trajectory segments and elicit from a human their preference over these segments, as well as a reason (justification) for their choice. We then train a reward model from these justified preferences and use it, together with the world model, to directly deploy the agent using model predictive control. Running real-user experiments, we find that generating informative simulated trajectories from a user significantly reduces the computational cost during training compared to other strategies, and can also improve the performance during deployment. In the context of training within a learned simulator, we show that the use of preferences rather than other types of feedback substantially improves the performance during deployment. We further demonstrate that safety justifications accompanying preferences can significantly enhance safety or prioritise user-prescribed aspects of safety associated with them during deployment.",
+      "authors": [
+        "Ilias Kazantzidis",
+        "Timothy J. Norman",
+        "Yali Du",
+        "Christopher T. Freeman"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published": "2026-07-14T18:22:14+00:00",
+      "link": "https://arxiv.org/pdf/2607.13172v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "world model for safe reinforcement learning from human preferences",
+      "llm_evidence_cn": "利用世界模型从人类偏好进行安全强化学习",
+      "llm_evidence": "利用世界模型从人类偏好进行安全强化学习",
+      "canonical_evidence": "利用世界模型从人类偏好进行安全强化学习",
+      "llm_tldr_en": "DROPJ learns a world model from trajectories, then uses human preferences over simulated segments to train a safe policy without a reward function.",
+      "llm_tldr_cn": "在安全关键环境中传统RL不可行，DROPJ先学习世界模型作为模拟器，人类在其中生成轨迹并给出偏好，从而训练安全策略，无需奖励函数。",
+      "llm_tldr": "在安全关键环境中传统RL不可行，DROPJ先学习世界模型作为模拟器，人类在其中生成轨迹并给出偏好，从而训练安全策略，无需奖励函数。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.12590v1",
+      "source": "arxiv",
+      "title": "Environment Parameter Gradient Theorem for Policy-Environment Co-Design in Reinforcement Learning",
+      "abstract": "Reinforcement learning (RL) is traditionally concerned with learning a control policy for a fixed environment. In many engineering systems, however, the environment itself is alterable: physical or operational parameters can be tuned to shape the transition dynamics and costs experienced by the agent. This motivates jointly optimizing both the policy and the environment design parameters. To this end, we establish an Environment Parameter Gradient Theorem -- a formal expression for the gradient of the value function with respect to environment parameters. The key theoretical device is a generalized action-value function $Q_{π,ξ}(s,a,ζ)$, which comprises two copies of the environment parameters: $ζ$ governs the cost and transition dynamics at the current state--action pair, while $ξ$ governs the future rollouts. This decoupling yields a tractable closed-form gradient expression and is essential to the theorem's derivation. Building on this result, we develop a model-free algorithm that simultaneously learns the optimal policy and the environment parameters. We demonstrate the efficacy of our framework on a UAV network design problem, where the optimal UAV placement (environment parameters) and communication routes (governed by the policy) are learned jointly to minimize the total communication cost in the network.",
+      "authors": [
+        "Amber Srivastava"
+      ],
+      "primary_category": "eess.SY",
+      "categories": [
+        "eess.SY",
+        "cs.LG"
+      ],
+      "published": "2026-07-14T10:05:06+00:00",
+      "link": "https://arxiv.org/pdf/2607.12590v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "Theoretical framework for optimizing environment parameters in RL, relevant to world dynamics",
+      "llm_evidence_cn": "强化学习中环境参数优化的理论框架，与学习世界动力学相关",
+      "llm_evidence": "强化学习中环境参数优化的理论框架，与学习世界动力学相关",
+      "canonical_evidence": "强化学习中环境参数优化的理论框架，与学习世界动力学相关",
+      "llm_tldr_en": "Establishes the Environment Parameter Gradient Theorem for jointly optimizing policy and environment parameters in RL, using a generalized action-value function.",
+      "llm_tldr_cn": "传统强化学习假设环境固定，但许多工程场景可调整环境参数。本文提出环境参数梯度定理，为目标函数对环境参数的梯度提供闭式表达。核心思想是引入广义动作价值函数，包含两组环境参数。该理论为策略-环境联合优化奠定基础，可扩展至基于模型的控制。",
+      "llm_tldr": "传统强化学习假设环境固定，但许多工程场景可调整环境参数。本文提出环境参数梯度定理，为目标函数对环境参数的梯度提供闭式表达。核心思想是引入广义动作价值函数，包含两组环境参数。该理论为策略-环境联合优化奠定基础，可扩展至基于模型的控制。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.13498v1",
+      "source": "arxiv",
+      "title": "Factorized Spectral Representations for Reinforcement Learning",
+      "abstract": "Learning a compact model of the world from interaction data is central to sample-efficient deep reinforcement learning. Spectral representation methods have become the leading paradigm for representation learning in continuous control by taking a matrix view of the transition kernel, with state-action pairs on one side and next states on the other, and learning a low-rank factorization through self-supervised contrastive objectives. We take this view one step further. The transition kernel is naturally a three-mode tensor over states, actions, and next states, and a CP decomposition gives one feature map per mode. We propose FaStR, which fits this decomposition with a noise contrastive objective, producing separate state, action, and next-state encoders that together form a single spectral representation. The factored form yields a smaller hypothesis class, and the sample size needed for representation learning shrinks by a factor that scales with the smaller of the state and action dimensions. Empirically, FaStR delivers its largest gains on high-dimensional locomotion tasks whose dynamics align with the factored structure, and the learned state encoder transfers intact across actuator shift while only the action encoder is retrained.",
+      "authors": [
+        "Junyi Wu",
+        "Dan Li"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-07-15T06:52:58+00:00",
+      "link": "https://arxiv.org/pdf/2607.13498v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "spectral representation learning of world model via tensor decomposition",
+      "llm_evidence_cn": "通过张量分解进行世界模型的光谱表示学习",
+      "llm_evidence": "通过张量分解进行世界模型的光谱表示学习",
+      "canonical_evidence": "通过张量分解进行世界模型的光谱表示学习",
+      "llm_tldr_en": "FaStR factorizes the transition kernel tensor with CP decomposition, learning separate state, action, and next-state encoders for RL.",
+      "llm_tldr_cn": "深度强化学习中学习世界模型是样本高效的关键，但现有方法将转移核视为矩阵，忽略其天然三维结构。本文提出FaStR，采用CP分解将转移核作为张量分解，学习独立的状态、动作和下一状态编码器。通过噪声对比目标拟合分解，每个编码器捕获对应模态的特定信息。实验表明该表示在连续控制任务中提升了样本效率和性能。该工作为世界模型学习提供了更自然的谱分解方法。",
+      "llm_tldr": "深度强化学习中学习世界模型是样本高效的关键，但现有方法将转移核视为矩阵，忽略其天然三维结构。本文提出FaStR，采用CP分解将转移核作为张量分解，学习独立的状态、动作和下一状态编码器。通过噪声对比目标拟合分解，每个编码器捕获对应模态的特定信息。实验表明该表示在连续控制任务中提升了样本效率和性能。该工作为世界模型学习提供了更自然的谱分解方法。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2607.13818v1",
+      "source": "arxiv",
+      "title": "Learning Robust Execution in Robotic Manipulation with Agentic Reinforcement Learning",
+      "abstract": "Robotic manipulation poses fundamental challenges due to uncertainty, long-horizon execution, and compounding errors, which can easily destabilize execution and lead to task failure. Although recent vision-language-action (VLA) models exhibit strong generalization, they typically lack explicit mechanisms to assess execution stability and to recover when execution deviates from its nominal behavior. In this paper, we propose: (1) two complementary metrics to assess execution quality at runtime, and (2) an agentic reinforcement learning framework that learns to restore effective execution through high-level decision-making rather than directly learning low-level actions. In this framework, an agentic policy reasons over recent execution history and selects among a small set of execution modes to regulate the execution process. Under execution degradation, it triggers appropriate recovery mechanisms to restore the robot to previously visited nominal states, enabling the task to continue. We evaluate the proposed method on the LIBERO benchmark, achieving up to a 13.7% improvement in success rate under standard settings and up to a 39.2% improvement under disturbance settings, demonstrating substantially enhanced execution robustness.",
+      "authors": [
+        "Xiaopeng Zhang",
+        "Yueyang Weng",
+        "Qi Liu",
+        "Yongjin Mu",
+        "Yanjie Li"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-15T13:25:52+00:00",
+      "link": "https://arxiv.org/pdf/2607.13818v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "robotic manipulation, reinforcement learning for execution recovery",
+      "llm_evidence_cn": "机器人操作，用于恢复执行的强化学习",
+      "llm_evidence": "机器人操作，用于恢复执行的强化学习",
+      "canonical_evidence": "机器人操作，用于恢复执行的强化学习",
+      "llm_tldr_en": "Agentic RL framework for robotic manipulation that learns to assess execution quality and recover from failures through high-level decisions, improving robustness without direct low-level action learning.",
+      "llm_tldr_cn": "机器人操作面临不确定性、长时序执行和复合错误等挑战，现有VLA模型缺乏执行稳定性的评估与恢复机制。本文提出一个智能体强化学习框架，通过运行时评估执行质量并学习高层决策恢复策略，而不是直接学习底层动作，在机器人操作任务中提升了执行鲁棒性。",
+      "llm_tldr": "机器人操作面临不确定性、长时序执行和复合错误等挑战，现有VLA模型缺乏执行稳定性的评估与恢复机制。本文提出一个智能体强化学习框架，通过运行时评估执行质量并学习高层决策恢复策略，而不是直接学习底层动作，在机器人操作任务中提升了执行鲁棒性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}
