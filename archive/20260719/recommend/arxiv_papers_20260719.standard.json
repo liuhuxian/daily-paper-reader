@@ -1,0 +1,228 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-19T20:59:17.032368+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 5,
+    "quick_skim_target": 11,
+    "quick_selected": 5
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2607.14182v1",
+      "source": "arxiv",
+      "title": "Semantic Audio-driven Understanding for Dynamic Humanoid Whole Body Control",
+      "abstract": "Recent advances in humanoid robotics and reinforcement learning have enabled the acquisition of highly expressive whole-body motion policies. However, most robotic performances remain based on pre-scripted sequences or externally triggered behaviors, limiting autonomy and responsiveness to dynamic environments. In this work, we introduce a novel multi-modal orchestration framework for semantic audio-driven humanoid control, enabling robots to autonomously select and execute appropriate motion skills in real time. The system processes continuous audio streams and routes them into music or speech branches. Music input is handled via audio fingerprinting and semantic embeddings to retrieve track identity and temporal alignment, allowing dynamic mapping between musical segments and motion policies. Speech input is grounded into a discrete library of imitation-learned skills, enabling direct human-robot interaction. Both modalities share a unified interface that schedules skill execution over a reinforcement learning control pipeline. We validate the approach in simulation and on a Unitree G1 humanoid, showing robust sim-to-real transfer and consistent audio-conditioned policy selection. Supplementary materials are available at the following site: https://lab-rococo-sapienza.github.io/semantic-WBC/",
+      "authors": [
+        "J. M. A. Marcelo",
+        "M. Brienza",
+        "E. Bugli",
+        "L. Comito",
+        "D. Nardi",
+        "D. D. Bloisi",
+        "V. Suriani"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-07-15T14:24:00+00:00",
+      "link": "https://arxiv.org/pdf/2607.14182v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "humanoid whole-body control driven by semantic audio, integrating AI with physical agents and sensors",
+      "llm_evidence_cn": "由语义音频驱动的人形全身控制，整合了人工智能与物理智能体和传感器",
+      "llm_evidence": "由语义音频驱动的人形全身控制，整合了人工智能与物理智能体和传感器",
+      "canonical_evidence": "由语义音频驱动的人形全身控制，整合了人工智能与物理智能体和传感器",
+      "llm_tldr_en": "Introduces a multi-modal framework for humanoid robots to autonomously select and execute motion skills based on real-time semantic audio understanding.",
+      "llm_tldr_cn": "当前人形机器人运动大多依赖预编程或外部触发，缺乏自主响应动态环境的能力。本文提出语义音频驱动的人形全身控制框架，通过音频指纹和语义嵌入实时理解音乐或语音指令，动态映射为相应运动技能。实验展示了在多种场景下的灵活性和鲁棒性，推进了具身智能的自主性。",
+      "llm_tldr": "当前人形机器人运动大多依赖预编程或外部触发，缺乏自主响应动态环境的能力。本文提出语义音频驱动的人形全身控制框架，通过音频指纹和语义嵌入实时理解音乐或语音指令，动态映射为相应运动技能。实验展示了在多种场景下的灵活性和鲁棒性，推进了具身智能的自主性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.12892v1",
+      "source": "arxiv",
+      "title": "UR-VC: Unsupervised Robotic Value Correction for Time-Derived Progress Proxies",
+      "abstract": "Modern robot learning systems increasingly rely on dense progress or value signals to evaluate intermediate states, guide policy learning, and detect task completion, making the quality of these signals critical. Since such dense labels are rarely available at scale, normalized time within a demonstration is often used as a scalable substitute: later frames are treated as higher progress. However, this time-derived label is only a noisy proxy for physical task progress. In contact-rich manipulation, a robot may make progress and then lose it through slips, failed grasps, or partial undoing, while the time-derived label continues to increase monotonically. We introduce Unsupervised Robotic Value Correction (UR-VC), an offline, training-free method for correcting time-derived progress labels. UR-VC exploits a simple regularity in demonstration data: similar states often recur across different episodes, but at different timestamps. Instead of trusting the timestamp from a single trajectory, UR-VC retrieves similar states from other episodes and aggregates their time-derived labels to obtain a corrected progress estimate. UR-VC requires no manual progress labels, reward annotations, or additional value model. We evaluate UR-VC on real bimanual cloth flatten-and-fold data, a long-horizon deformable-object manipulation task with visible intermediate progress. The corrected labels capture local regressions and non-uniform progress that normalized time cannot represent, while preserving the overall task trend. We further use the corrected signal to construct advantage labels for VLA training, following recent advantage-conditioned policy learning. UR-VC shows a positive trend in real-robot task success under matched data, model, and training settings.",
+      "authors": [
+        "Lirui Zhao",
+        "Modi Shi",
+        "Li Chen",
+        "Qi Liu",
+        "Ping Luo",
+        "Hongyang Li"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-07-14T15:33:33+00:00",
+      "link": "https://arxiv.org/pdf/2607.12892v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "Unsupervised value correction for robot manipulation progress",
+      "llm_evidence_cn": "无监督价值校正用于机器人操作进度",
+      "llm_evidence": "无监督价值校正用于机器人操作进度",
+      "canonical_evidence": "无监督价值校正用于机器人操作进度",
+      "llm_tldr_en": "Introduces UR-VC, an offline training-free method that corrects time-derived progress labels in robot manipulation demonstrations to provide better dense supervision for policy learning.",
+      "llm_tldr_cn": "该文提出UR-VC，一种离线、免训练的方法，用于纠正机器人操作演示中基于时间进度代理的标签，消除因滑动、抓取失败等导致的时间-进度错位，从而为策略学习提供更准确的价值信号。",
+      "llm_tldr": "该文提出UR-VC，一种离线、免训练的方法，用于纠正机器人操作演示中基于时间进度代理的标签，消除因滑动、抓取失败等导致的时间-进度错位，从而为策略学习提供更准确的价值信号。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.14393v1",
+      "source": "arxiv",
+      "title": "An offline approach to fNIRS-guided reinforcement learning for robot behavior",
+      "abstract": "Human-in-the-loop Reinforcement Learning has become a popular approach to training, finetuning, and aligning robot behavior with user preferences. Our paper explores the feasibility of using brain signals via functional near-infrared spectroscopy (fNIRS) to modulate robot learning in simulation. We compare agents trained on passive (observational) versus active (demonstrative) interaction tasks, and test multiple methods for enhancing the RL algorithm with the neural signal, focusing on parameter augmentation rather than replacement. We further examine how model granularity and noise affect agent learning. Our results show that this framework is effective: the neural signal improves learning when augmenting trajectory priorities and state-action q-values. Additionally, the framework learns successfully from offline data, offering a practical alternative for settings where real-time BCI setups are impractical or only limited data is available.",
+      "authors": [
+        "Julia Santaniello",
+        "Madelaine Brower",
+        "Benson Jiang",
+        "Donatello Sassaroli",
+        "Robert Jacob",
+        "Jivko Sinapov"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-07-15T22:12:39+00:00",
+      "link": "https://arxiv.org/pdf/2607.14393v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "uses fNIRS brain signals as sensor to modulate robot RL",
+      "llm_evidence_cn": "利用fNIRS脑信号作为传感器调节机器人强化学习",
+      "llm_evidence": "利用fNIRS脑信号作为传感器调节机器人强化学习",
+      "canonical_evidence": "利用fNIRS脑信号作为传感器调节机器人强化学习",
+      "llm_tldr_en": "Explores offline fNIRS-guided reinforcement learning for robot behavior, showing that neural signals improve learning when augmenting trajectory priorities.",
+      "llm_tldr_cn": "本文探索了一种离线式fNIRS引导的机器人行为强化学习方法，通过脑信号（fNIRS）作为传感器来调节机器人的学习过程。在模拟环境中，比较了被动观察与主动演示两种交互任务，并采用参数增强而非替换的方式将神经信号融入强化学习算法。结果表明，神经信号在增强轨迹优先级和状态-动作对时能有效改善学习效果，为人类反馈强化学习提供了新的传感器模态。",
+      "llm_tldr": "本文探索了一种离线式fNIRS引导的机器人行为强化学习方法，通过脑信号（fNIRS）作为传感器来调节机器人的学习过程。在模拟环境中，比较了被动观察与主动演示两种交互任务，并采用参数增强而非替换的方式将神经信号融入强化学习算法。结果表明，神经信号在增强轨迹优先级和状态-动作对时能有效改善学习效果，为人类反馈强化学习提供了新的传感器模态。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.14609v1",
+      "source": "arxiv",
+      "title": "Representation-Aligned Tactile Grounding for Contact-Rich Robotic Manipulation",
+      "abstract": "Tactile-enhanced vision-language-action (VLA) policies have been introduced for contact-rich manipulation, where critical interaction states are often hidden from vision. Future tactile prediction is a promising way to use touch because it turns tactile outcomes into supervision for action-induced contact dynamics. Yet VLA policies contain representations with different roles, from perceptual encoding to motor prediction, making it unclear where this supervision should be applied. We study this as a representation-alignment problem. Through a linear probe analysis, we find that future tactile states are most predictable from intermediate action-expert features, rather than from vision-language features or final action states. Motivated by this observation, we introduce a lightweight Latent Tactile Predictor (LTP), which predicts compact future tactile embeddings from the identified intermediate representation. By avoiding direct prediction of noisy raw tactile signals, LTP provides an action-outcome grounding signal that aligns intermediate action representations with future contact consequences. Experiments on real-world contact-rich manipulation tasks show that representation-aligned tactile grounding outperforms less aligned or multi-interface tactile prediction, highlighting the importance of where tactile supervision is applied.",
+      "authors": [
+        "Ruilin Chen",
+        "Jingkai Jia",
+        "Tong Yang",
+        "Xinyu Zhou",
+        "Qiao Sun",
+        "Jiangwei Zhong",
+        "Shizeng Zhang",
+        "Nuo Chen",
+        "Bailin He",
+        "Wei Li",
+        "Wenqiang Zhang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-16T06:12:05+00:00",
+      "link": "https://arxiv.org/pdf/2607.14609v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "tactile grounding for contact-rich robotic manipulation",
+      "llm_evidence_cn": "触觉接地用于接触丰富的机器人操作",
+      "llm_evidence": "触觉接地用于接触丰富的机器人操作",
+      "canonical_evidence": "触觉接地用于接触丰富的机器人操作",
+      "llm_tldr_en": "Studies representation alignment for future tactile prediction in VLA policies, finding intermediate expert features most predictive.",
+      "llm_tldr_cn": "触觉增强的VLA策略在接触丰富操作中有效，但未来触觉预测的监督信号应作用于哪些表示尚不明确。本文通过线性探针发现，中间动作专家特征最能预测未来触觉状态，并据此提出表示对齐方法，提升了操作性能。",
+      "llm_tldr": "触觉增强的VLA策略在接触丰富操作中有效，但未来触觉预测的监督信号应作用于哪些表示尚不明确。本文通过线性探针发现，中间动作专家特征最能预测未来触觉状态，并据此提出表示对齐方法，提升了操作性能。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.14514v1",
+      "source": "arxiv",
+      "title": "VTM-Nav: Hierarchical Visual-Topological Memory for Cross-Episode Object-Goal Navigation",
+      "abstract": "Object-goal navigation requires an embodied agent to locate and reach an instance of a specified object category in an indoor environment. Recent training-free approaches leverage vision-language models (VLMs) for open-vocabulary semantic reasoning, but are typically evaluated under an episodic protocol that resets all scene-specific state after each episode. We introduce Cross-Episode Object-Goal Navigation, in which an agent repeatedly operates in the same scene, retains only self-acquired experience, and keeps its model parameters fixed. To support experience reuse, we present \\method, a training-free VLM navigation framework with a persistent hierarchical Visual-Topological Memory (VTM). The VTM organizes scene knowledge at room and object levels and retrieves relevant experience through coarse-to-fine matching, providing memory as soft guidance only when it agrees with current observations. A conservative execution guard further mitigates oscillations, blocked motions, and premature stopping. Under a controlled same-scene protocol, we evaluate \\method{} on three benchmarks, HM3D v0.1, HM3D v0.2, and MP3D, and compare it with a strengthened WMNav baseline augmented with cross-episode textual memory, while keeping the VLM backbone and action pipeline identical. \\method{} achieves the best performance across all three benchmarks, demonstrating the effectiveness and robustness of structured visual-topological experience reuse across datasets.",
+      "authors": [
+        "Xiaoran Xu",
+        "Yupeng Wu",
+        "Tianyu Xue",
+        "Yifan Xu",
+        "Xuanran Dong",
+        "Xiaoshan Yang",
+        "Changsheng Xu"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "published": "2026-07-16T03:11:37+00:00",
+      "link": "https://arxiv.org/pdf/2607.14514v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "builds a hierarchical visual-topological memory as an internal environment model for navigation planning",
+      "llm_evidence_cn": "构建层次化视觉-拓扑记忆作为内部环境模型用于导航规划",
+      "llm_evidence": "构建层次化视觉-拓扑记忆作为内部环境模型用于导航规划",
+      "canonical_evidence": "构建层次化视觉-拓扑记忆作为内部环境模型用于导航规划",
+      "llm_tldr_en": "Proposes cross-episode object-goal navigation with a hierarchical visual-topological memory that retains scene knowledge across episodes for better planning.",
+      "llm_tldr_cn": "传统目标导航在每轮重置场景状态，无法利用跨轮经验。本文提出跨轮目标导航设置，并设计层次化视觉-拓扑记忆（VTM）来组织房间和物体信息。该记忆可跨轮持久化，在无需重新训练的情况下利用先前经验。实验表明VTM-Nav显著提高了导航成功率，尤其在大场景和长周期中。",
+      "llm_tldr": "传统目标导航在每轮重置场景状态，无法利用跨轮经验。本文提出跨轮目标导航设置，并设计层次化视觉-拓扑记忆（VTM）来组织房间和物体信息。该记忆可跨轮持久化，在无需重新训练的情况下利用先前经验。实验表明VTM-Nav显著提高了导航成功率，尤其在大场景和长周期中。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}
