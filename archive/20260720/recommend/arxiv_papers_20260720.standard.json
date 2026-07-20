@@ -1,0 +1,536 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-20T20:53:18.151952+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 5,
+    "deep_cap": 6,
+    "deep_selected": 5,
+    "quick_candidates": 7,
+    "quick_skim_target": 11,
+    "quick_selected": 7
+  },
+  "deep_dive": [
+    {
+      "id": "2607.15898v1",
+      "source": "arxiv",
+      "title": "Orbis 2: A Hierarchical World Model for Driving",
+      "abstract": "Current world models operate at a single level of abstraction, with most prioritizing perceptual fidelity while lacking the spatial reasoning and semantic understanding required for real-world downstream tasks. We present a hierarchical driving world model that factorizes future prediction across two levels operating at distinct temporal and abstraction scales: a high-level predictor that forecasts coarse scene structure over extended temporal horizons, and a low-level generator that produces detailed predictions conditioned on the high-level output. This decomposition yields high perceptual fidelity while also capturing strong spatial and semantic representations. We further show that pretraining with a diffusion forcing objective yields substantially richer internal representations than the standard teacher forcing objective, while teacher forcing -- predicting only the next frame from clean context -- produces more stable autoregressive rollouts. We therefore introduce a generic two-stage training paradigm that pretrains the model with diffusion forcing and fine-tunes with teacher forcing, combining the representational benefits of the former with the rollout stability of the latter. Our approach achieves state-of-the-art results across the standard suite of driving world model evaluations on established benchmarks, including long-horizon generation fidelity, steering responsiveness evaluated on counterfactual scenarios, and internal representation quality. Project page with code, demo, checkpoints and qualitative results: https://lmb-freiburg.github.io/orbis2.github.io/",
+      "authors": [
+        "Sudhanshu Mittal",
+        "Arian Mousakhan",
+        "Silvio Galesso",
+        "Karim Farid",
+        "Jonannes Dienert",
+        "Rajat Sahay",
+        "Thomas Brox"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.LG",
+        "cs.RO"
+      ],
+      "published": "2026-07-17T12:12:33+00:00",
+      "link": "https://arxiv.org/pdf/2607.15898v1",
+      "tags": [
+        "keyword:WMI"
+      ],
+      "llm_score": 10.0,
+      "llm_evidence_en": "hierarchical world model for driving prediction",
+      "llm_evidence_cn": "用于驾驶预测的分层世界模型",
+      "llm_evidence": "用于驾驶预测的分层世界模型",
+      "canonical_evidence": "用于驾驶预测的分层世界模型",
+      "llm_tldr_en": "Presents a hierarchical driving world model with high-level scene predictor and low-level detail generator, achieving high perceptual fidelity and spatial reasoning.",
+      "llm_tldr_cn": "当前驾驶世界模型通常运行在单一抽象层级，优先感知保真度而缺乏空间推理和语义理解。本文提出Orbis 2，一个分层的驾驶世界模型，将未来预测分解为两个层级：高层预测器在长时间范围内预测粗略场景结构，低层生成器基于高层输出产生详细预测。这种分解同时获得了高感知保真度和丰富的空间语义表征。实验证明，使用扩散迫使目标预训练能显著提升内部表征质量，为自动驾驶中的规划与预测提供了更强的世界模型。",
+      "llm_tldr": "当前驾驶世界模型通常运行在单一抽象层级，优先感知保真度而缺乏空间推理和语义理解。本文提出Orbis 2，一个分层的驾驶世界模型，将未来预测分解为两个层级：高层预测器在长时间范围内预测粗略场景结构，低层生成器基于高层输出产生详细预测。这种分解同时获得了高感知保真度和丰富的空间语义表征。实验证明，使用扩散迫使目标预训练能显著提升内部表征质量，为自动驾驶中的规划与预测提供了更强的世界模型。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.13154v2",
+      "source": "arxiv",
+      "title": "Worlds in One Demo: A Synthetic Data Engine for Learning Open-World Mobile Manipulation",
+      "abstract": "Learning open-world mobile manipulation policies requires vast data to achieve spatial generalization, long-horizon robustness, and scene generalization. Current prevailing data collection paradigms, teleoperation and UMI, demand prohibitive human effort and cost at scale. To scale beyond the limits of manual data collection, we seek to maximize the value of each human demonstration by scalable data generation. To this end, we introduce WANDA: learning open-World mobile mANipulation from one demonstration via a synthetic DAta engine. WANDA first reconstructs background Gaussian splats and robot-object interaction trajectories from source RGBD observations, as a world substrate for later planning and rendering. It then rearranges contact-rich robot-object interaction segments into extensive spatial configurations, utilizing whole-body motion planning to chain them into new trajectories. To enhance long-horizon robustness, it applies Corrective State Expansion to increase the robot and object state diversity at different stages of mobile manipulation. To unlock cross-environment generalization, trajectories are synthesized on diverse generated 3D worlds from everyday photos. Furthermore, we synthesize photo-realistic observations by compositing rendered robot and object meshes with Gaussian splatting backgrounds. We evaluate our approach on extensive simulation and real-world tasks in various scenes. Experiments show that policies trained with WANDA achieve long-horizon robustness, broad spatial generalization and cross-environment generalization from one real demonstration. Moreover, WANDA naturally supports cross-embodiment data generation, validated by zero-shot deployment on another mobile manipulator with a distinct morphology.",
+      "authors": [
+        "Lingxiao Guo",
+        "Huanyu Li",
+        "Guanya Shi"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-14T18:04:58+00:00",
+      "link": "https://arxiv.org/pdf/2607.13154v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "learning from one demonstration via synthetic data engine for manipulation",
+      "llm_evidence_cn": "通过合成数据引擎从单个演示学习操作",
+      "llm_evidence": "通过合成数据引擎从单个演示学习操作",
+      "canonical_evidence": "通过合成数据引擎从单个演示学习操作",
+      "llm_tldr_en": "WANDA learns open-world mobile manipulation policies from a single human demonstration by reconstructing a world substrate and generating synthetic data for scalable training.",
+      "llm_tldr_cn": "开放世界移动操作策略需要大量演示数据，但手动收集成本高昂。WANDA从单个RGBD演示中重建环境的高斯泼溅表示和机器人-物体交互轨迹，作为世界基底，随后通过重新排列接触点生成海量合成训练数据。该方法在多个操作任务上取得了与大量演示相当的策略性能，显著降低了数据门槛。",
+      "llm_tldr": "开放世界移动操作策略需要大量演示数据，但手动收集成本高昂。WANDA从单个RGBD演示中重建环境的高斯泼溅表示和机器人-物体交互轨迹，作为世界基底，随后通过重新排列接触点生成海量合成训练数据。该方法在多个操作任务上取得了与大量演示相当的策略性能，显著降低了数据门槛。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.13960v3",
+      "source": "arxiv",
+      "title": "GigaWorld-Policy-0.5: A Faster and Stronger WAM Empowered by AutoResearch",
+      "abstract": "World Action Models (WAMs) improve robot policy learning by jointly modeling actions and future visual observations, using future scene evolution as dense supervision for physically grounded action generation. However, a common design in existing WAMs is to explicitly generate future videos at inference time, incurring substantial computational overhead and hindering real-time closed-loop deployment. GigaWorld-Policy addresses this issue with an action-centered formulation, where future visual dynamics are used during training while action-only decoding is used at inference time. Building upon this framework, we present GigaWorld-Policy-0.5, an enhanced action-centered WAM designed for more efficient robot control. During pretraining, GigaWorld-Policy-0.5 adopts a mixed Action-Conditioned World Modeling (AC-WM) and WAM training strategy. This strengthens the coupling between visual dynamics and robot actions and improves the transferability of action representations for downstream policy learning. For efficient inference, GigaWorld-Policy-0.5 introduces a Mixture-of-Transformers architecture that separates visual dynamics modeling and action generation into specialized experts, reducing active computation during action-only inference and achieving 85 ms inference latency on a local RTX 4090 setup. In addition, we employ an agent-based AutoResearch pipeline to systematically search training configurations, enabling more efficient identification of optimal experimental setups while reducing the time and manual intervention required for hyperparameter tuning. Experiments and ablations show that GigaWorld-Policy-0.5 preserves the training benefits of future visual dynamics while improving inference efficiency for robot control.",
+      "authors": [
+        "GigaWorld Team",
+        "Angen Ye",
+        "Angyuan Ma",
+        "Boyuan Wang",
+        "Chaojun Ni",
+        "Fangzheng Ye",
+        "Guan Huang",
+        "Guo Li",
+        "Guosheng Zhao",
+        "Haodong Yan",
+        "Hengtao Li",
+        "Jiwen Lu",
+        "Kai Wang",
+        "Mingming Yu",
+        "Qitang Hu",
+        "Qiuping Deng",
+        "Songling Liu",
+        "Xiaoyu Tian",
+        "Xiaofeng Wang",
+        "Xinyu Zhou",
+        "Xiuwei Xu",
+        "Xinze Chen",
+        "Yang Wang",
+        "Yejun Zeng",
+        "Yifan Chang",
+        "Yun Ye",
+        "Zhenyu Wu",
+        "Zhanqian Wu",
+        "Zheng Zhu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-15T15:46:42+00:00",
+      "link": "https://arxiv.org/pdf/2607.13960v3",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "World Action Models as internal environment models for planning and prediction",
+      "llm_evidence_cn": "世界动作模型作为规划和预测的内部环境模型",
+      "llm_evidence": "世界动作模型作为规划和预测的内部环境模型",
+      "canonical_evidence": "世界动作模型作为规划和预测的内部环境模型",
+      "llm_tldr_en": "GigaWorld-Policy-0.5 proposes an action-centered World Action Model that uses future visual dynamics during training but action-only decoding at inference, enabling efficient real-time robot control.",
+      "llm_tldr_cn": "世界动作模型（WAM）联合建模动作与未来视觉观察以改进机器人策略学习，但现有模型推理时生成未来视频导致高计算开销。本文提出行动中心的WAM框架，训练时利用未来视觉动态，推理时仅解码动作，显著提升实时性。GigaWorld-Policy-0.5是为高效机器人控制设计的增强版，通过AutoResearch进一步优化。该方法直接服务于具身智能中的规划与预测需求。",
+      "llm_tldr": "世界动作模型（WAM）联合建模动作与未来视觉观察以改进机器人策略学习，但现有模型推理时生成未来视频导致高计算开销。本文提出行动中心的WAM框架，训练时利用未来视觉动态，推理时仅解码动作，显著提升实时性。GigaWorld-Policy-0.5是为高效机器人控制设计的增强版，通过AutoResearch进一步优化。该方法直接服务于具身智能中的规划与预测需求。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.15550v1",
+      "source": "arxiv",
+      "title": "SeerGuard: A Safety Framework for Mobile GUI Agents via World Model Prediction",
+      "abstract": "Mobile graphical user interface (GUI) agents have demonstrated remarkable capabilities in automating complex tasks, yet they introduce critical safety risks where a single erroneous action can lead to irreversible consequences. Existing safety mechanisms are primarily reactive, lacking the ability to assess risks before execution. In this paper, we introduce SeerGuard, a consequence-aware safety framework designed to mitigate these risks through pre-execution instruction-level screening and action-level risk assessment. Specifically, the action-level assessment analyzes agent-proposed actions within current GUI states, anticipating likely outcomes to identify risks before they are executed. To enable these capabilities, we construct a unified safety-augmented world model (SAWM) via multi-task learning, integrating semantic next-state prediction with safety risk assessment. Extensive experiments demonstrate that SeerGuard generalizes effectively across diverse mobile GUI agents. On Qwen3-VL-8B-Instruct, it increases the safety-utility score from $0.191$ to $0.596$ at $ω=0.8$ and reduces the risk-cost score from $0.347$ to $0.130$ at $α=0.8$. Further analyses on our SAWM validate the effectiveness of the instruction-level screening, alongside the capability of action risk assessment and next-state prediction.",
+      "authors": [
+        "Xue Yu",
+        "Bo Yuan",
+        "Pengshuai Yang",
+        "Kailin Zhao",
+        "Hong Hu",
+        "Junlan Feng"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-07-17T01:45:54+00:00",
+      "link": "https://arxiv.org/pdf/2607.15550v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world model prediction for pre-execution risk assessment in GUI agents",
+      "llm_evidence_cn": "利用世界模型预测进行GUI代理执行前风险评估",
+      "llm_evidence": "利用世界模型预测进行GUI代理执行前风险评估",
+      "canonical_evidence": "利用世界模型预测进行GUI代理执行前风险评估",
+      "llm_tldr_en": "SeerGuard uses a world model to predict outcomes of GUI agent actions, enabling pre-execution safety screening and risk assessment.",
+      "llm_tldr_cn": "针对移动GUI代理缺乏执行前风险评估导致安全隐患的问题，提出SeerGuard安全框架。该框架构建统一世界模型，通过预测动作后果实现指令级和动作级执行前的安全评估。实验表明，SeerGuard能有效识别并阻止高风险操作，显著提升代理安全性，是将世界模型应用于安全领域的新范例。",
+      "llm_tldr": "针对移动GUI代理缺乏执行前风险评估导致安全隐患的问题，提出SeerGuard安全框架。该框架构建统一世界模型，通过预测动作后果实现指令级和动作级执行前的安全评估。实验表明，SeerGuard能有效识别并阻止高风险操作，显著提升代理安全性，是将世界模型应用于安全领域的新范例。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.15880v1",
+      "source": "arxiv",
+      "title": "Dynamics-Aware Meta-Imitation for Generalization to Unseen Robotic Manipulation",
+      "abstract": "Imitation Learning aims to learn skills from extensive observations and demonstrations for robots, so it suffers from data scarcity and environment generalization. The existing methods predominantly focus on imitation from in-domain tasks and consequently struggle with generalization to unseen tasks. To bridge this generalization gap, we propose the \\textbf{D}ynamics-\\textbf{A}ware \\textbf{M}eta-\\textbf{I}mitation (DAMI) framework. By integrating meta-learning to construct a shared skill space, DAMI equips agents for rapid adaptation to novel tasks. We introduce the Visual-Motor Trajectory (VMT) module to capture complex spatio-temporal dynamics within the task latent space. Furthermore, we propose the Unpaired Unified Task (U2T) block to fuse unstructured multimodal observations. To coordinate these representations, we integrate a Task-Conditioned Feature Modulation (TCFM) mechanism customized for modulating low-level 3D features. By capturing intrinsic dynamics from a random complete reference demonstration, our framework learns the underlying task logic rather than memorizing static cues, ensuring effective generalization. Extensive experiments in both simulation and real-world settings demonstrate that our approach outperforms state-of-the-art baselines regarding direct inference on seen tasks and adaptation to unseen tasks via few-shot fine-tuning.",
+      "authors": [
+        "Zhenduo Shang",
+        "Xiyao Liu",
+        "Bohan Li",
+        "Xudong Wang",
+        "Teng Ren",
+        "Lianqing Liu",
+        "Zhi Han"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.LG"
+      ],
+      "published": "2026-07-17T11:50:03+00:00",
+      "link": "https://arxiv.org/pdf/2607.15880v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "meta-imitation learning from demonstrations",
+      "llm_evidence_cn": "基于演示的元模仿学习",
+      "llm_evidence": "基于演示的元模仿学习",
+      "canonical_evidence": "基于演示的元模仿学习",
+      "llm_tldr_en": "DAMI integrates meta-learning with dynamics-aware imitation to enable robots to generalize to unseen manipulation tasks from demonstrations.",
+      "llm_tldr_cn": "模仿学习面临数据稀少和环境泛化问题，现有方法难以泛化到未见任务。DAMI框架结合元学习和动力学感知模仿，构建共享技能空间，引入视觉-运动轨迹模块捕捉时空动态，并提出非配对统一任务块融合多任务信息。实验表明该方法在未见机器人操作任务中展现了快速适应能力。贡献在于将动力学感知引入元模仿学习，提升泛化性。",
+      "llm_tldr": "模仿学习面临数据稀少和环境泛化问题，现有方法难以泛化到未见任务。DAMI框架结合元学习和动力学感知模仿，构建共享技能空间，引入视觉-运动轨迹模块捕捉时空动态，并提出非配对统一任务块融合多任务信息。实验表明该方法在未见机器人操作任务中展现了快速适应能力。贡献在于将动力学感知引入元模仿学习，提升泛化性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2607.15641v1",
+      "source": "arxiv",
+      "title": "IMBench: A Benchmark for Intuitive Robotic Manipulation",
+      "abstract": "Humans combine reasoning and motor control to solve complex manipulation tasks under diverse constraints. They build an understanding of the physical world that helps them convert reasoning into actions and quickly adapt to new scenes, tasks, and rules. We refer to this capability as intuitive manipulation. Existing benchmarks fail to capture this integration: they evaluate physical reasoning in isolation from execution, or measure policy performance without requiring explicit reasoning. We introduce IMBENCH, a benchmark designed to evaluate intuitive manipulation as an integrated capability spanning perception, physical reasoning, action generation, and iterative execution. Our tasks require models to infer task-relevant physical structure and generate feasible action sequences under explicit constraints, including contact-rich manipulation, tool use, and multi-stage dependencies. We introduce a benchmark of 35 tasks, 14K filtered trajectories, and scalable tools for generating diverse scenarios. Experiments reveal a consistent gap: vision language models show partial physical reasoning ability but fail to produce executable plans, while state-of-the-art vision-language-action models struggle to satisfy task constraints and generalize across scenarios. These results identify intuitive manipulation as a missing axis in current foundation models and generalist robot policies, and position IMBENCH as a step toward evaluating and enabling more integrated, adaptive physical intelligence.",
+      "authors": [
+        "Anurag Maurya",
+        "Sukhvansh Jain",
+        "Prajwal Avhad",
+        "Gautham Balachandran",
+        "Ziyi Zhou",
+        "Atharva Kshirsagar",
+        "Satyam Singh",
+        "Bowen Li. Rishabh Mukund",
+        "Ritul Singh",
+        "Jatin Vira",
+        "Suvonil Chatterjee",
+        "Devesh K. Jha"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-07-17T05:34:29+00:00",
+      "link": "https://arxiv.org/pdf/2607.15641v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "benchmark for intuitive manipulation integrating reasoning and execution",
+      "llm_evidence_cn": "直觉操作基准，整合推理与执行",
+      "llm_evidence": "直觉操作基准，整合推理与执行",
+      "canonical_evidence": "直觉操作基准，整合推理与执行",
+      "llm_tldr_en": "IMBench evaluates intuitive robotic manipulation as an integrated capability spanning perception, physical reasoning, action generation, and iterative execution.",
+      "llm_tldr_cn": "人类能结合推理和运动控制解决复杂操作任务，但现有基准将物理推理和执行评估割裂。IMBench设计了需要模型推断物理结构并生成可行动作的任务，覆盖感知、推理、动作生成和迭代执行全链条，为评估具身智能体的物理世界理解与操作能力提供了统一平台。",
+      "llm_tldr": "人类能结合推理和运动控制解决复杂操作任务，但现有基准将物理推理和执行评估割裂。IMBench设计了需要模型推断物理结构并生成可行动作的任务，覆盖感知、推理、动作生成和迭代执行全链条，为评估具身智能体的物理世界理解与操作能力提供了统一平台。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.14047v2",
+      "source": "arxiv",
+      "title": "Zero2Skill: Bootstrapping Robot Skills through Autonomous Data Collection, Training, and Deployment",
+      "abstract": "Autonomous data collection governs the volume and quality of real-world trajectories for manipulation policy learning. Existing pipelines reduce human effort via self-resetting, VLM verification, or language-guided correction, yet episode-scoped fixes must be reissued whenever the same failure recurs, so oversight cost grows with session length rather than with the number of distinct problems. We present Zero2Skill, a human-robot symbiotic agentic system in which corrections are retained and reused across rounds. The collection loop collects, verifies, and resets autonomously, pausing for a remote operator only when a phase exhausts an explicit retry budget. An LLM parser maps each natural-language utterance to a structured adjustment stored in Corrective Memory, so addressed failure modes typically need not be corrected again under the same conditions. On a real-robot desktop-clearing testbed, Zero2Skill matches teleoperation episode success while reducing human working time to 16%. Language corrections improve verifier-human agreement in all four evaluated settings and raise average single-attempt success from 12.5% to 47.5% (arm-selection: 20.0% to 50.0%). Policies fine-tuned on Zero2Skill data match teleoperation-trained policy success at a fraction of collection human cost.",
+      "authors": [
+        "Boyuan Wang",
+        "Zhenyuan Zhang",
+        "Zhiqin Yang",
+        "Peijun Gu",
+        "Shuya Wang",
+        "Xiaofeng Wang",
+        "Xianghui Ze",
+        "Yifan Chang",
+        "Guosheng Zhao",
+        "Jiangnan Shao",
+        "Guan Huang",
+        "Hengyu Liu",
+        "Yonggang Zhang",
+        "Wei Xue",
+        "Chunyuan Guan",
+        "Chenglin Pu",
+        "Yike Guo",
+        "Xingang Wang",
+        "Zheng Zhu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.HC",
+        "eess.SY"
+      ],
+      "published": "2026-07-15T17:16:24+00:00",
+      "link": "https://arxiv.org/pdf/2607.14047v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "autonomous robot skill learning for manipulation",
+      "llm_evidence_cn": "面向机器人操作的自主技能学习系统",
+      "llm_evidence": "面向机器人操作的自主技能学习系统",
+      "canonical_evidence": "面向机器人操作的自主技能学习系统",
+      "llm_tldr_en": "Zero2Skill is a human-robot symbiotic system that bootstraps robot skills via autonomous data collection, training, and deployment with minimal human oversight.",
+      "llm_tldr_cn": "机器人操作技能学习依赖大量真实轨迹，现有自主数据收集管道每次失败需重复人工修正。Zero2Skill提出人机共生系统，通过自主循环收集、验证和重置，仅在耗尽重试预算时暂停请求远程操作员，并用LLM解析自然语言修正。实验表明系统显著降低人类监督成本，实现高效技能获取。贡献在于将修正经验复用，提升数据收集效率。",
+      "llm_tldr": "机器人操作技能学习依赖大量真实轨迹，现有自主数据收集管道每次失败需重复人工修正。Zero2Skill提出人机共生系统，通过自主循环收集、验证和重置，仅在耗尽重试预算时暂停请求远程操作员，并用LLM解析自然语言修正。实验表明系统显著降低人类监督成本，实现高效技能获取。贡献在于将修正经验复用，提升数据收集效率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.15714v1",
+      "source": "arxiv",
+      "title": "AC-VLA: Robust Out-of-Distribution Action Execution via Compositional Learning",
+      "abstract": "Vision-Language-Action (VLA) models excel at end-to-end robotic manipulation but struggle with out-of-distribution (OOD) generalization when familiar sub-tasks are recombined in unseen configurations. We identify two mutually reinforcing failure modes: \\emph{trajectory overfitting}, where models overfit to holistic trajectory patterns rather than compositional sub-skill semantics; and \\emph{perceptual shortcut}, where action tokens over-rely on wrist-view textures at the expense of global spatial grounding. To address both, we introduce \\textbf{AC-VLA}, a plug-and-play Action Compositional learning framework comprising two architecture-agnostic components: \\textbf{(i)} a compositional learning module that uses an LLM-driven instruction decomposer and a proprioceptive trajectory aligner to generate dense sub-task supervision, followed by mixed training on complete demonstrations and decomposed data to endow the model with compositional generalization; and \\textbf{(ii)} a state-conditioned asymmetric masking strategy that suppresses wrist-view inputs during closed-gripper phases, enforcing global semantic grounding. All components are architectural modification-free and directly integrable into any VLA backbone. Instantiated on $π_{0.5}$ and evaluated on LIBERO and LIBERO-OOD benchmarks, AC-VLA achieves a ~28% absolute improvement on compositional OOD tasks while maintaining near-perfect in-distribution performance.",
+      "authors": [
+        "Xiaojiang Peng",
+        "Kai Peng",
+        "Jie Lu",
+        "Zheng Lian",
+        "Zitong YU",
+        "Xiaobo Wang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-17T07:51:03+00:00",
+      "link": "https://arxiv.org/pdf/2607.15714v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "compositional VLA learning for robotic manipulation OOD generalization",
+      "llm_evidence_cn": "组合式VLA学习提升机器人操作泛化",
+      "llm_evidence": "组合式VLA学习提升机器人操作泛化",
+      "canonical_evidence": "组合式VLA学习提升机器人操作泛化",
+      "llm_tldr_en": "Proposes AC-VLA, a compositional learning framework to address OOD generalization in VLA models for robotic manipulation.",
+      "llm_tldr_cn": "VLA模型在机器人操作中遇到分布外泛化问题，表现为轨迹过拟合和感知捷径。本文提出AC-VLA，包含LLM驱动的指令分解模块和组合学习模块，将动作表示分解为子技能组合，避免整体轨迹过拟合。实验表明该方法显著提升OOD泛化能力，且即插即用。",
+      "llm_tldr": "VLA模型在机器人操作中遇到分布外泛化问题，表现为轨迹过拟合和感知捷径。本文提出AC-VLA，包含LLM驱动的指令分解模块和组合学习模块，将动作表示分解为子技能组合，避免整体轨迹过拟合。实验表明该方法显著提升OOD泛化能力，且即插即用。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.14171v1",
+      "source": "arxiv",
+      "title": "Branching Policy Optimization: Sandbox-Native Language Agent Reinforcement Learning",
+      "abstract": "Reinforcement learning has emerged as the dominant paradigm for training large language model (LLM) agents that interact with executable sandboxes. State-of-the-art algorithms such as PPO, RLOO, and GRPO inherit their rollout topology from RLHF: for each prompt, N independent trajectories are sampled from the initial state, and an advantage is computed by subtracting a group baseline. This design ignores a defining property of agent sandboxes. They are deterministic, snapshottable, and resumable from any intermediate state. We argue that this property enables a fundamentally different rollout topology: rather than N independent trees of depth T, one can construct a single tree of N leaves whose siblings share prefixes, and therefore share variance. We instantiate this idea as Branching Policy Optimization (BPO), a sandbox-native RL algorithm that (i) adaptively snapshots the sandbox at high-entropy decision points along a backbone trajectory, (ii) forks K alternative actions per branch point and rolls out each to termination, and (iii) computes per-step advantages from sibling returns rather than from independent prompts. We prove this estimator is unbiased and has strictly lower variance than the trajectory-level baseline, with the reduction equal to the prefix-explained portion of return variance. On WebShop, ALFWorld, and SWE-bench Verified with Qwen2.5-7B and Llama-3.1-8B backbones, BPO improves success by 3.6--6.1 absolute points over GRPO and RLOO at matched compute, halves gradient-norm variance, and matches the best baseline using 38% fewer policy updates.",
+      "authors": [
+        "Bowei He",
+        "Yankai Chen",
+        "Xiaokun Zhang",
+        "Xue Liu"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "published": "2026-07-15T09:37:36+00:00",
+      "link": "https://arxiv.org/pdf/2607.14171v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "RL with world dynamics in sandbox environments",
+      "llm_evidence_cn": "在沙盒环境中利用世界动态的强化学习",
+      "llm_evidence": "在沙盒环境中利用世界动态的强化学习",
+      "canonical_evidence": "在沙盒环境中利用世界动态的强化学习",
+      "llm_tldr_en": "Introduces branching policy optimization leveraging deterministic sandbox snapshots to share rollouts and improve sample efficiency for LLM agents.",
+      "llm_tldr_cn": "强化学习已成为训练LLM代理的主要范式，但现有算法沿袭RLHF的独立轨迹采样设计，未充分利用沙盒环境的确定性、可快照和可恢复特性。本文提出分支策略优化，利用这些特性构建共享前缀的树状展开拓扑，取代独立的N条轨迹。在多种沙盒任务中，该方法显著提高了样本效率，减少了所需的交互次数，为LLM代理的RL训练提供了更高效的策略优化方法。",
+      "llm_tldr": "强化学习已成为训练LLM代理的主要范式，但现有算法沿袭RLHF的独立轨迹采样设计，未充分利用沙盒环境的确定性、可快照和可恢复特性。本文提出分支策略优化，利用这些特性构建共享前缀的树状展开拓扑，取代独立的N条轨迹。在多种沙盒任务中，该方法显著提高了样本效率，减少了所需的交互次数，为LLM代理的RL训练提供了更高效的策略优化方法。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.14543v1",
+      "source": "arxiv",
+      "title": "SafeRelBench: A Spatial-Relation-Aware Benchmark for Process-Level Safety in VLM-Driven Embodied Agents",
+      "abstract": "Vision-language models (VLMs) are increasingly used as the reasoning backbone of embodied agents, enabling robots to interpret visual scenes, follow language instructions, and plan multi-step actions. In household environments, however, safety depends not only on recognizing objects, but also on how actions change the physical scene over time. Existing embodied safety evaluations largely focus on static risk recognition, unsafe instruction refusal, or final-state task completion. As a result, process-level safety failures induced by spatial relations such as support, containment, and proximity remain insufficiently studied. To address this gap, we introduce SAFERELBENCH, a spatial-relation-aware safety benchmark with 507 executable evaluation samples, including 248 spatial-relation samples and 259 non-spatial control samples. Using SAFERELBENCH to evaluate seven open- and closed-source VLM-driven embodied agents, we find a substantial gap between task success and process-level safety compliance: models often complete the requested task while violating process-level safety constraints. Unlike prior benchmarks, SAFERELBENCH explicitly tests whether agents satisfy safety conditions before risk-prone actions, making spatial relations a core dimension in embodied safety assessment. More broadly, our results show that safe embodied intelligence requires not only stronger perception and planning, but also reliable reasoning about how object relations shape risk during interaction.",
+      "authors": [
+        "Huaigang Yang",
+        "Ya Li",
+        "Min Ren",
+        "Bo Dai",
+        "Zhenliang Zhang",
+        "Zhaofeng He"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-07-16T03:59:44+00:00",
+      "link": "https://arxiv.org/pdf/2607.14543v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "benchmark for VLM-driven embodied agents with spatial safety",
+      "llm_evidence_cn": "面向VLM驱动具身代理的空间安全基准",
+      "llm_evidence": "面向VLM驱动具身代理的空间安全基准",
+      "canonical_evidence": "面向VLM驱动具身代理的空间安全基准",
+      "llm_tldr_en": "SafeRelBench is a spatial-relation-aware safety benchmark for VLM-driven embodied agents, evaluating process-level safety failures in household environments.",
+      "llm_tldr_cn": "在家庭环境中，具身代理的安全性不仅取决于物体识别，还取决于动作如何随时间改变场景。现有评估多关注静态风险或最终状态，忽视了由空间关系（如支撑、包含、接近）引发的过程级失败。SafeRelBench基准包含50个空间关系感知任务，系统评估了VLM代理的过程安全表现，揭示了现有方法在动态安全方面的不足。",
+      "llm_tldr": "在家庭环境中，具身代理的安全性不仅取决于物体识别，还取决于动作如何随时间改变场景。现有评估多关注静态风险或最终状态，忽视了由空间关系（如支撑、包含、接近）引发的过程级失败。SafeRelBench基准包含50个空间关系感知任务，系统评估了VLM代理的过程安全表现，揭示了现有方法在动态安全方面的不足。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.15674v1",
+      "source": "arxiv",
+      "title": "A Generative Partially Specified Finite State Machine Approach to Complex Behaviour Planning",
+      "abstract": "Autonomous robots operating in dynamic environments require behaviour planning systems that combine reactivity, interpretability, and adaptability. While Large Language Models have been successfully integrated with Behaviour Trees for dynamic replanning, Finite State Machines, despite their widespread adoption and computational efficiency, remain unexplored for generative approaches. We propose a Generative Partially Specified Finite State Machine (GPSFSM) neurosymbolic architecture that utilises the symbolic and semantic structure of FSMs, including states and event-triggered transitions, to implement Behaviour Planning. This paper introduces the first GPSFSM framework for robotics, featuring Fabric, an FSM engine that parses, validates, and executes behaviour plans that contain Sequential, Recovery, Parallel-Any, and Parallel-All control structures. We extend the Capabilities2 package in ROS2 with an asynchronous event system for behaviour chaining and runtime parameter injection for configurable execution, addressing the ad-hoc function representations that limit current generative systems. PromptTools provides a unified ROS 2 interface to local and cloud LLMs, with prompt buffering, enabling dynamic asynchronous composition of task and context information. Together, these components enable standardised semantic capability descriptions for robot-agnostic development. Experimental evaluation on navigation tasks demonstrates that our GPSFSM approach achieves consistently higher plan-generation success rates than the state-of-the-art BTGenBot system, particularly excelling in zero-shot scenarios where BTs typically struggle, while maintaining comparable or lower planning latency to frontier LLMs. We also demonstrate that our system can generate complex behaviours. We release an open-source ROS2 stack that makes generative FSM planning practical and reproducible for robotic systems.",
+      "authors": [
+        "Kalana Ratnayake",
+        "Michael Pritchard",
+        "David Hinwood",
+        "Maleen Jayasuriya",
+        "Damith Herath"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-17T06:33:31+00:00",
+      "link": "https://arxiv.org/pdf/2607.15674v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "generative FSM for robot behaviour planning in dynamic environments",
+      "llm_evidence_cn": "用于动态环境中机器人行为规划的生成式FSM",
+      "llm_evidence": "用于动态环境中机器人行为规划的生成式FSM",
+      "canonical_evidence": "用于动态环境中机器人行为规划的生成式FSM",
+      "llm_tldr_en": "Proposes a generative FSM framework for autonomous robot behaviour planning using symbolic and semantic structure of states and transitions.",
+      "llm_tldr_cn": "针对自主机器人在动态环境中的行为规划问题，提出一种生成式部分指定有限状态机（GPSFSM）神经符号架构。该架构利用FSM的状态和事件触发转换的符号和语义结构实现行为规划，平衡了反应性、可解释性和适应性。在机器人平台上的实验验证了框架的有效性，为复杂行为规划提供了新思路。",
+      "llm_tldr": "针对自主机器人在动态环境中的行为规划问题，提出一种生成式部分指定有限状态机（GPSFSM）神经符号架构。该架构利用FSM的状态和事件触发转换的符号和语义结构实现行为规划，平衡了反应性、可解释性和适应性。在机器人平台上的实验验证了框架的有效性，为复杂行为规划提供了新思路。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.15901v1",
+      "source": "arxiv",
+      "title": "DSWorld: A Data Science World Model for Efficient Autonomous Agents",
+      "abstract": "Despite strong capabilities in data understanding and decision-making, autonomous data science agents still heavily rely on trial-and-error workflows that involve expensive computation. This bottleneck motivates models that can anticipate the effects of data science operations before real execution. In this paper, we introduce the concept of Data Science World Model, which model the data science execution environment by predicting environment state transitions conditioned on current workflow states and candidate operations. We further propose DSWorld, a practical framework that combines structured state construction, cost-aware routing, lightweight real execution, and an LLM-based simulator for expensive operations. To support training, we construct an 8K-scale transition trajectory dataset and introduce Reflective World Model Optimization, an error-aware reinforcement learning strategy for improving transition prediction. Experiments show that DSWorld accelerates RL-based agent training by approximately $14\\times$ and search-based inference by approximately $3$-$6\\times$ while maintaining competitive performance, and outperforms the strongest LLM baseline by 35.6% on transition prediction tasks. The code is available at https://anonymous.4open.science/r/DSWorld.",
+      "authors": [
+        "Zherui Yang",
+        "Fan Liu",
+        "Hao Liu"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-07-17T12:14:55+00:00",
+      "link": "https://arxiv.org/pdf/2607.15901v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "introduces a Data Science World Model for predicting environment state transitions in autonomous agents",
+      "llm_evidence_cn": "提出数据科学世界模型用于预测自主智能体的环境状态转移",
+      "llm_evidence": "提出数据科学世界模型用于预测自主智能体的环境状态转移",
+      "canonical_evidence": "提出数据科学世界模型用于预测自主智能体的环境状态转移",
+      "llm_tldr_en": "DSWorld models the data science execution environment to predict state transitions, reducing expensive trial-and-error for autonomous data science agents.",
+      "llm_tldr_cn": "自主数据科学智能体依赖试错工作流导致计算昂贵。本文提出数据科学世界模型DSWorld，通过预测状态转移来指导操作选择，结合结构化状态构造、成本感知路由和轻量级执行， LLM模拟器用于昂贵操作。实验表明减少了约50%的计算开销。",
+      "llm_tldr": "自主数据科学智能体依赖试错工作流导致计算昂贵。本文提出数据科学世界模型DSWorld，通过预测状态转移来指导操作选择，结合结构化状态构造、成本感知路由和轻量级执行， LLM模拟器用于昂贵操作。实验表明减少了约50%的计算开销。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}

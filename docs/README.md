@@ -6,38 +6,58 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-19
-- 运行时间：2026-07-19 21:01:05 UTC
+- 最新运行日期：2026-07-20
+- 运行时间：2026-07-20 21:01:33 UTC
 - 运行状态：成功
-- 本次总论文数：5
-- 精读区：0
-- 速读区：5
+- 本次总论文数：12
+- 精读区：5
+- 速读区：7
 
 ### 今日简报（AI）
-今日速读5篇论文，涵盖语音驱动全身控制、fNIRS强化学习及跨场景导航，未做精读。  
-最值得关注的是《Semantic Audio-driven Understanding for Dynamic Humanoid Whole Body Control》与《VTM-Nav》两篇，前者探索声音语义控制仿人运动，后者提出层次化视觉拓扑记忆提升导航效率。  
-建议普通读者优先阅读《VTM-Nav》，其跨场景目标导航思路清晰，便于理解机器人记忆与决策的结合。
-- 详情：[/202607/19/README](/202607/19/README)
+今日精选12篇论文，精读2篇，重点聚焦自动驾驶世界模型与开放世界移动操作合成数据引擎。  
+最值得看的是满分推荐的Orbis 2分层世界模型与9分的Worlds in One Demo合成数据引擎，分别推动驾驶与操作任务的泛化能力。  
+建议优先精读这两篇高分论文，并关注速读中AC-VLA的鲁棒执行与Zero2Skill的自主数据收集方法。
+- 详情：[/202607/20/README](/202607/20/README)
 
 ### 精读区论文标签
-- 本次无精读推荐。
+1. [Orbis 2: A Hierarchical World Model for Driving](/202607/20/2607.15898v1-orbis-2-a-hierarchical-world-model-for-driving)  
+   标签：评分：10.0/10、query:wmi
+   evidence：用于驾驶预测的分层世界模型
+2. [Worlds in One Demo: A Synthetic Data Engine for Learning Open-World Mobile Manipulation](/202607/20/2607.13154v2-worlds-in-one-demo-a-synthetic-data-engine-for-learning-open-world-mobile-manipulation)  
+   标签：评分：9.0/10、query:wmi
+   evidence：通过合成数据引擎从单个演示学习操作
+3. [GigaWorld-Policy-0.5: A Faster and Stronger WAM Empowered by AutoResearch](/202607/20/2607.13960v3-gigaworld-policy-05-a-faster-and-stronger-wam-empowered-by-autoresearch)  
+   标签：评分：9.0/10、query:wmi
+   evidence：世界动作模型作为规划和预测的内部环境模型
+4. [SeerGuard: A Safety Framework for Mobile GUI Agents via World Model Prediction](/202607/20/2607.15550v1-seerguard-a-safety-framework-for-mobile-gui-agents-via-world-model-prediction)  
+   标签：评分：9.0/10、query:wmi
+   evidence：利用世界模型预测进行GUI代理执行前风险评估
+5. [Dynamics-Aware Meta-Imitation for Generalization to Unseen Robotic Manipulation](/202607/20/2607.15880v1-dynamics-aware-meta-imitation-for-generalization-to-unseen-robotic-manipulation)  
+   标签：评分：9.0/10、query:wmi
+   evidence：基于演示的元模仿学习
 
 ### 速读区论文标签
-1. [Semantic Audio-driven Understanding for Dynamic Humanoid Whole Body Control](/202607/19/2607.14182v1-semantic-audio-driven-understanding-for-dynamic-humanoid-whole-body-control)  
+1. [IMBench: A Benchmark for Intuitive Robotic Manipulation](/202607/20/2607.15641v1-imbench-a-benchmark-for-intuitive-robotic-manipulation)  
    标签：评分：7.0/10、query:wmi
-   evidence：由语义音频驱动的人形全身控制，整合了人工智能与物理智能体和传感器
-2. [An offline approach to fNIRS-guided reinforcement learning for robot behavior](/202607/19/2607.14393v1-an-offline-approach-to-fnirs-guided-reinforcement-learning-for-robot-behavior)  
+   evidence：直觉操作基准，整合推理与执行
+2. [AC-VLA: Robust Out-of-Distribution Action Execution via Compositional Learning](/202607/20/2607.15714v1-ac-vla-robust-out-of-distribution-action-execution-via-compositional-learning)  
    标签：评分：7.0/10、query:wmi
-   evidence：利用fNIRS脑信号作为传感器调节机器人强化学习
-3. [VTM-Nav: Hierarchical Visual-Topological Memory for Cross-Episode Object-Goal Navigation](/202607/19/2607.14514v1-vtm-nav-hierarchical-visual-topological-memory-for-cross-episode-object-goal-navigation)  
-   标签：评分：7.0/10、query:wmi
-   evidence：构建层次化视觉-拓扑记忆作为内部环境模型用于导航规划
-4. [UR-VC: Unsupervised Robotic Value Correction for Time-Derived Progress Proxies](/202607/19/2607.12892v1-ur-vc-unsupervised-robotic-value-correction-for-time-derived-progress-proxies)  
+   evidence：组合式VLA学习提升机器人操作泛化
+3. [Zero2Skill: Bootstrapping Robot Skills through Autonomous Data Collection, Training, and Deployment](/202607/20/2607.14047v2-zero2skill-bootstrapping-robot-skills-through-autonomous-data-collection-training-and-deployment)  
    标签：评分：6.0/10、query:wmi
-   evidence：无监督价值校正用于机器人操作进度
-5. [Representation-Aligned Tactile Grounding for Contact-Rich Robotic Manipulation](/202607/19/2607.14609v1-representation-aligned-tactile-grounding-for-contact-rich-robotic-manipulation)  
+   evidence：面向机器人操作的自主技能学习系统
+4. [Branching Policy Optimization: Sandbox-Native Language Agent Reinforcement Learning](/202607/20/2607.14171v1-branching-policy-optimization-sandbox-native-language-agent-reinforcement-learning)  
    标签：评分：6.0/10、query:wmi
-   evidence：触觉接地用于接触丰富的机器人操作
+   evidence：在沙盒环境中利用世界动态的强化学习
+5. [SafeRelBench: A Spatial-Relation-Aware Benchmark for Process-Level Safety in VLM-Driven Embodied Agents](/202607/20/2607.14543v1-saferelbench-a-spatial-relation-aware-benchmark-for-process-level-safety-in-vlm-driven-embodied-agents)  
+   标签：评分：6.0/10、query:wmi
+   evidence：面向VLM驱动具身代理的空间安全基准
+6. [A Generative Partially Specified Finite State Machine Approach to Complex Behaviour Planning](/202607/20/2607.15674v1-a-generative-partially-specified-finite-state-machine-approach-to-complex-behaviour-planning)  
+   标签：评分：6.0/10、query:wmi
+   evidence：用于动态环境中机器人行为规划的生成式FSM
+7. [DSWorld: A Data Science World Model for Efficient Autonomous Agents](/202607/20/2607.15901v1-dsworld-a-data-science-world-model-for-efficient-autonomous-agents)  
+   标签：评分：6.0/10、query:wmi
+   evidence：提出数据科学世界模型用于预测自主智能体的环境状态转移
 
 
 <div class="dpr-home-promo-card">
