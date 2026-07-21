@@ -6,58 +6,73 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-20
-- 运行时间：2026-07-20 21:01:33 UTC
+- 最新运行日期：2026-07-21
+- 运行时间：2026-07-21 20:53:24 UTC
 - 运行状态：成功
-- 本次总论文数：12
-- 精读区：5
-- 速读区：7
+- 本次总论文数：17
+- 精读区：6
+- 速读区：11
 
 ### 今日简报（AI）
-今日精选12篇论文，精读2篇，重点聚焦自动驾驶世界模型与开放世界移动操作合成数据引擎。  
-最值得看的是满分推荐的Orbis 2分层世界模型与9分的Worlds in One Demo合成数据引擎，分别推动驾驶与操作任务的泛化能力。  
-建议优先精读这两篇高分论文，并关注速读中AC-VLA的鲁棒执行与Zero2Skill的自主数据收集方法。
-- 详情：[/202607/20/README](/202607/20/README)
+今天收录17篇论文，聚焦具身智能与强化学习，精读2篇9.0分高分论文分别探索物理动作视觉世界模型强化学习与解耦认知规划的自我演化操作系统。  
+最值得看的两大方向：PAVXploreRL通过动作探索提升物理世界模型效率，以及PhyAgentOS提出的认知-执行分离架构为具身智能体提供可扩展范式。  
+建议普通读者优先研读速读中的可扩展因果模仿学习与奖励驱动大模型工作流，能快速把握自主决策与轨迹校正的核心逻辑。
+- 详情：[/202607/21/README](/202607/21/README)
 
 ### 精读区论文标签
-1. [Orbis 2: A Hierarchical World Model for Driving](/202607/20/2607.15898v1-orbis-2-a-hierarchical-world-model-for-driving)  
-   标签：评分：10.0/10、query:wmi
-   evidence：用于驾驶预测的分层世界模型
-2. [Worlds in One Demo: A Synthetic Data Engine for Learning Open-World Mobile Manipulation](/202607/20/2607.13154v2-worlds-in-one-demo-a-synthetic-data-engine-for-learning-open-world-mobile-manipulation)  
+1. [PAVXploreRL: Physical-Action-Visual World Model Reinforcement Learning with Action Exploration](/202607/21/2607.16602v1-pavxplorerl-physical-action-visual-world-model-reinforcement-learning-with-action-exploration)  
    标签：评分：9.0/10、query:wmi
-   evidence：通过合成数据引擎从单个演示学习操作
-3. [GigaWorld-Policy-0.5: A Faster and Stronger WAM Empowered by AutoResearch](/202607/20/2607.13960v3-gigaworld-policy-05-a-faster-and-stronger-wam-empowered-by-autoresearch)  
+   evidence：面向具身 AI 的基于世界模型的强化学习与动作探索
+2. [PhyAgentOS: A Self-Evolving Operating System for Embodied Agents with Decoupled Cognitive Planning and Physical Execution](/202607/21/2607.16636v1-phyagentos-a-self-evolving-operating-system-for-embodied-agents-with-decoupled-cognitive-planning-and-physical-execution)  
    标签：评分：9.0/10、query:wmi
-   evidence：世界动作模型作为规划和预测的内部环境模型
-4. [SeerGuard: A Safety Framework for Mobile GUI Agents via World Model Prediction](/202607/20/2607.15550v1-seerguard-a-safety-framework-for-mobile-gui-agents-via-world-model-prediction)  
+   evidence：为具身智能体集成世界模型与物理执行的运行时基础
+3. [Predictive Training with Latent Imagination for Visual Quadruped Navigation](/202607/21/2607.17574v1-predictive-training-with-latent-imagination-for-visual-quadruped-navigation)  
    标签：评分：9.0/10、query:wmi
-   evidence：利用世界模型预测进行GUI代理执行前风险评估
-5. [Dynamics-Aware Meta-Imitation for Generalization to Unseen Robotic Manipulation](/202607/20/2607.15880v1-dynamics-aware-meta-imitation-for-generalization-to-unseen-robotic-manipulation)  
+   evidence：使用潜在想象进行导航规划的预测训练
+4. [SAGE: Subgoal-Conditioned Action Generation for Latent World Model Planning](/202607/21/2607.17973v1-sage-subgoal-conditioned-action-generation-for-latent-world-model-planning)  
    标签：评分：9.0/10、query:wmi
-   evidence：基于演示的元模仿学习
+   evidence：潜在世界模型规划，子目标条件动作生成
+5. [Certifiable Safe Model-Based Reinforcement Learning with Control-Affine Dynamics Approximation](/202607/21/2607.16501v1-certifiable-safe-model-based-reinforcement-learning-with-control-affine-dynamics-approximation)  
+   标签：评分：8.0/10、query:wmi
+   evidence：安全基于模型的强化学习结合学习动态近似
+6. [Environment-free Synthetic Data Generation for API-Calling Agents](/202607/21/2607.16900v1-environment-free-synthetic-data-generation-for-api-calling-agents)  
+   标签：评分：8.0/10、query:wmi
+   evidence：利用LLM作为即时数字世界模型生成合成轨迹
 
 ### 速读区论文标签
-1. [IMBench: A Benchmark for Intuitive Robotic Manipulation](/202607/20/2607.15641v1-imbench-a-benchmark-for-intuitive-robotic-manipulation)  
+1. [Scalable Causal Imitation Learning](/202607/21/2607.17003v1-scalable-causal-imitation-learning)  
+   标签：评分：8.0/10、query:wmi
+   evidence：从专家演示中学习策略的因果模仿学习
+2. [Reward-Driven LLM Agent Workflows: Synthesizing POMDP Routing and Self-Correction for Autonomous Decision-Making](/202607/21/2607.17038v1-reward-driven-llm-agent-workflows-synthesizing-pomdp-routing-and-self-correction-for-autonomous-decision-making)  
+   标签：评分：8.0/10、query:wmi
+   evidence：带内部自纠正奖励模型的 POMDP 路由用于规划
+3. [Asynchronous Multimodal Diffusion Policy Composition via Latency-Aware Guidance Fusion](/202607/21/2607.17257v1-asynchronous-multimodal-diffusion-policy-composition-via-latency-aware-guidance-fusion)  
+   标签：评分：8.0/10、query:wmi
+   evidence：异步多模态扩散策略用于机器人模仿学习，采用延迟感知融合
+4. [Mobile Network Control with a World Model](/202607/21/2607.17747v1-mobile-network-control-with-a-world-model)  
+   标签：评分：8.0/10、query:wmi
+   evidence：世界模型用于移动网络控制，预测动作对未来状态的影响
+5. [Open-AoE: An Open Egocentric Manipulation Dataset and Toolchain for Embodied Learning](/202607/21/2607.14183v2-open-aoe-an-open-egocentric-manipulation-dataset-and-toolchain-for-embodied-learning)  
    标签：评分：7.0/10、query:wmi
-   evidence：直觉操作基准，整合推理与执行
-2. [AC-VLA: Robust Out-of-Distribution Action Execution via Compositional Learning](/202607/20/2607.15714v1-ac-vla-robust-out-of-distribution-action-execution-via-compositional-learning)  
+   evidence：面向直接模仿学习的自我中心操作数据集
+6. [When to Plan: Learning to Select Between Reactive Control and Deliberative Planning](/202607/21/2607.16421v1-when-to-plan-learning-to-select-between-reactive-control-and-deliberative-planning)  
    标签：评分：7.0/10、query:wmi
-   evidence：组合式VLA学习提升机器人操作泛化
-3. [Zero2Skill: Bootstrapping Robot Skills through Autonomous Data Collection, Training, and Deployment](/202607/20/2607.14047v2-zero2skill-bootstrapping-robot-skills-through-autonomous-data-collection-training-and-deployment)  
+   evidence：使用RL学习在反应式控制和深思规划之间选择
+7. [User-Driven Learning from Demonstration: A Trajectory and Impedance Learning Method](/202607/21/2607.16998v1-user-driven-learning-from-demonstration-a-trajectory-and-impedance-learning-method)  
+   标签：评分：7.0/10、query:wmi
+   evidence：通过轨迹和阻抗学习从演示中直接复制专家动作
+8. [Generalize and Guide: Decomposing Rewards for Few-Shot Inverse Reinforcement Learning](/202607/21/2607.17760v1-generalize-and-guide-decomposing-rewards-for-few-shot-inverse-reinforcement-learning)  
+   标签：评分：7.0/10、query:wmi
+   evidence：少样本逆强化学习从多任务演示中学习新任务策略
+9. [SEED: Self-Evolving On-Policy Distillation for Agentic Reinforcement Learning](/202607/21/2607.14777v1-seed-self-evolving-on-policy-distillation-for-agentic-reinforcement-learning)  
    标签：评分：6.0/10、query:wmi
-   evidence：面向机器人操作的自主技能学习系统
-4. [Branching Policy Optimization: Sandbox-Native Language Agent Reinforcement Learning](/202607/20/2607.14171v1-branching-policy-optimization-sandbox-native-language-agent-reinforcement-learning)  
+   evidence：基于轨迹奖励的智能体强化学习
+10. [EgoExoMoCap: Distributed Ego-Exo Human Motion Capture](/202607/21/2607.15868v1-egoexomocap-distributed-ego-exo-human-motion-capture)  
    标签：评分：6.0/10、query:wmi
-   evidence：在沙盒环境中利用世界动态的强化学习
-5. [SafeRelBench: A Spatial-Relation-Aware Benchmark for Process-Level Safety in VLM-Driven Embodied Agents](/202607/20/2607.14543v1-saferelbench-a-spatial-relation-aware-benchmark-for-process-level-safety-in-vlm-driven-embodied-agents)  
+   evidence：用于具身 AI 的分布式自我-外部人体运动捕捉
+11. [Embodied Active Learning under Limited Annotation and Navigation Budget for Object Detection](/202607/21/2607.15974v1-embodied-active-learning-under-limited-annotation-and-navigation-budget-for-object-detection)  
    标签：评分：6.0/10、query:wmi
-   evidence：面向VLM驱动具身代理的空间安全基准
-6. [A Generative Partially Specified Finite State Machine Approach to Complex Behaviour Planning](/202607/20/2607.15674v1-a-generative-partially-specified-finite-state-machine-approach-to-complex-behaviour-planning)  
-   标签：评分：6.0/10、query:wmi
-   evidence：用于动态环境中机器人行为规划的生成式FSM
-7. [DSWorld: A Data Science World Model for Efficient Autonomous Agents](/202607/20/2607.15901v1-dsworld-a-data-science-world-model-for-efficient-autonomous-agents)  
-   标签：评分：6.0/10、query:wmi
-   evidence：提出数据科学世界模型用于预测自主智能体的环境状态转移
+   evidence：具身主动学习结合机器人导航与传感器
 
 
 <div class="dpr-home-promo-card">
