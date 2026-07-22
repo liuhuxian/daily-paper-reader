@@ -6,73 +6,52 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-21
-- 运行时间：2026-07-21 20:53:24 UTC
+- 最新运行日期：2026-07-22
+- 运行时间：2026-07-22 21:35:55 UTC
 - 运行状态：成功
-- 本次总论文数：17
+- 本次总论文数：10
 - 精读区：6
-- 速读区：11
+- 速读区：4
 
 ### 今日简报（AI）
-今天收录17篇论文，聚焦具身智能与强化学习，精读2篇9.0分高分论文分别探索物理动作视觉世界模型强化学习与解耦认知规划的自我演化操作系统。  
-最值得看的两大方向：PAVXploreRL通过动作探索提升物理世界模型效率，以及PhyAgentOS提出的认知-执行分离架构为具身智能体提供可扩展范式。  
-建议普通读者优先研读速读中的可扩展因果模仿学习与奖励驱动大模型工作流，能快速把握自主决策与轨迹校正的核心逻辑。
-- 详情：[/202607/21/README](/202607/21/README)
+今天精读了两篇满分论文，聚焦于物理动作视觉世界模型和潜在世界模型中的动作分离。
+最值得看的方向：PAVXploreRL 提出动作探索的物理-动作-视觉世界模型强化学习，DWM 则分离世界效应与动作，两者均为满分论文，是世界模型研究的核心突破。
+建议优先阅读这两篇论文，理解如何通过动作探索和动作分离提升物理AI的泛化能力。
+- 详情：[/202607/22/README](/202607/22/README)
 
 ### 精读区论文标签
-1. [PAVXploreRL: Physical-Action-Visual World Model Reinforcement Learning with Action Exploration](/202607/21/2607.16602v1-pavxplorerl-physical-action-visual-world-model-reinforcement-learning-with-action-exploration)  
+1. [PAVXploreRL: Physical-Action-Visual World Model Reinforcement Learning with Action Exploration](/202607/22/2607.16602v2-pavxplorerl-physical-action-visual-world-model-reinforcement-learning-with-action-exploration)  
+   标签：评分：10.0/10、query:wmi
+   evidence：用强化学习训练世界模型，满足物理合理性和动作探索
+2. [DWM: Separating World Effects from Actions in Latent World Models](/202607/22/2607.18715v1-dwm-separating-world-effects-from-actions-in-latent-world-models)  
+   标签：评分：10.0/10、query:wmi
+   evidence：在潜在世界模型中分离世界效应与动作，用于基于模型的强化学习
+3. [Masked Visual Actions for Unified World Modeling](/202607/22/2607.19343v1-masked-visual-actions-for-unified-world-modeling)  
+   标签：评分：10.0/10、query:wmi
+   evidence：用蒙版视觉动作将视频模型转化为前向动力学世界模型
+4. [WorldScape Policy 2.0: Empowering Steerable World Action Modeling with Reasoning-Augmented Memory](/202607/22/2607.18840v1-worldscape-policy-20-empowering-steerable-world-action-modeling-with-reasoning-augmented-memory)  
    标签：评分：9.0/10、query:wmi
-   evidence：面向具身 AI 的基于世界模型的强化学习与动作探索
-2. [PhyAgentOS: A Self-Evolving Operating System for Embodied Agents with Decoupled Cognitive Planning and Physical Execution](/202607/21/2607.16636v1-phyagentos-a-self-evolving-operating-system-for-embodied-agents-with-decoupled-cognitive-planning-and-physical-execution)  
-   标签：评分：9.0/10、query:wmi
-   evidence：为具身智能体集成世界模型与物理执行的运行时基础
-3. [Predictive Training with Latent Imagination for Visual Quadruped Navigation](/202607/21/2607.17574v1-predictive-training-with-latent-imagination-for-visual-quadruped-navigation)  
-   标签：评分：9.0/10、query:wmi
-   evidence：使用潜在想象进行导航规划的预测训练
-4. [SAGE: Subgoal-Conditioned Action Generation for Latent World Model Planning](/202607/21/2607.17973v1-sage-subgoal-conditioned-action-generation-for-latent-world-model-planning)  
-   标签：评分：9.0/10、query:wmi
-   evidence：潜在世界模型规划，子目标条件动作生成
-5. [Certifiable Safe Model-Based Reinforcement Learning with Control-Affine Dynamics Approximation](/202607/21/2607.16501v1-certifiable-safe-model-based-reinforcement-learning-with-control-affine-dynamics-approximation)  
+   evidence：世界动作模型用于具身人工智能
+5. [RoboInter1.5: A Holistic Intermediate Representation Suite for Embodied World Modeling and Robotic Manipulation](/202607/22/2607.18709v1-robointer15-a-holistic-intermediate-representation-suite-for-embodied-world-modeling-and-robotic-manipulation)  
    标签：评分：8.0/10、query:wmi
-   evidence：安全基于模型的强化学习结合学习动态近似
-6. [Environment-free Synthetic Data Generation for API-Calling Agents](/202607/21/2607.16900v1-environment-free-synthetic-data-generation-for-api-calling-agents)  
+   evidence：具身世界建模与机器人操作套件
+6. [Agentic Real2Sim: Physics-based World Modeling with Vision-Language Agents](/202607/22/2607.19190v1-agentic-real2sim-physics-based-world-modeling-with-vision-language-agents)  
    标签：评分：8.0/10、query:wmi
-   evidence：利用LLM作为即时数字世界模型生成合成轨迹
+   evidence：基于视觉语言代理从真实录音构建物理世界模型，用于具身智能
 
 ### 速读区论文标签
-1. [Scalable Causal Imitation Learning](/202607/21/2607.17003v1-scalable-causal-imitation-learning)  
-   标签：评分：8.0/10、query:wmi
-   evidence：从专家演示中学习策略的因果模仿学习
-2. [Reward-Driven LLM Agent Workflows: Synthesizing POMDP Routing and Self-Correction for Autonomous Decision-Making](/202607/21/2607.17038v1-reward-driven-llm-agent-workflows-synthesizing-pomdp-routing-and-self-correction-for-autonomous-decision-making)  
-   标签：评分：8.0/10、query:wmi
-   evidence：带内部自纠正奖励模型的 POMDP 路由用于规划
-3. [Asynchronous Multimodal Diffusion Policy Composition via Latency-Aware Guidance Fusion](/202607/21/2607.17257v1-asynchronous-multimodal-diffusion-policy-composition-via-latency-aware-guidance-fusion)  
-   标签：评分：8.0/10、query:wmi
-   evidence：异步多模态扩散策略用于机器人模仿学习，采用延迟感知融合
-4. [Mobile Network Control with a World Model](/202607/21/2607.17747v1-mobile-network-control-with-a-world-model)  
-   标签：评分：8.0/10、query:wmi
-   evidence：世界模型用于移动网络控制，预测动作对未来状态的影响
-5. [Open-AoE: An Open Egocentric Manipulation Dataset and Toolchain for Embodied Learning](/202607/21/2607.14183v2-open-aoe-an-open-egocentric-manipulation-dataset-and-toolchain-for-embodied-learning)  
+1. [Compositional Semantic Communication for Physical AI: Category Theory Meets Game Theory](/202607/22/2607.18115v1-compositional-semantic-communication-for-physical-ai-category-theory-meets-game-theory)  
    标签：评分：7.0/10、query:wmi
-   evidence：面向直接模仿学习的自我中心操作数据集
-6. [When to Plan: Learning to Select Between Reactive Control and Deliberative Planning](/202607/21/2607.16421v1-when-to-plan-learning-to-select-between-reactive-control-and-deliberative-planning)  
+   evidence：物理AI中的分布式传感智能体与语义通信
+2. [Planning as Emergent Behavior in Reinforcement Learning with Relational Hidden States](/202607/22/2607.18589v1-planning-as-emergent-behavior-in-reinforcement-learning-with-relational-hidden-states)  
    标签：评分：7.0/10、query:wmi
-   evidence：使用RL学习在反应式控制和深思规划之间选择
-7. [User-Driven Learning from Demonstration: A Trajectory and Impedance Learning Method](/202607/21/2607.16998v1-user-driven-learning-from-demonstration-a-trajectory-and-impedance-learning-method)  
-   标签：评分：7.0/10、query:wmi
-   evidence：通过轨迹和阻抗学习从演示中直接复制专家动作
-8. [Generalize and Guide: Decomposing Rewards for Few-Shot Inverse Reinforcement Learning](/202607/21/2607.17760v1-generalize-and-guide-decomposing-rewards-for-few-shot-inverse-reinforcement-learning)  
-   标签：评分：7.0/10、query:wmi
-   evidence：少样本逆强化学习从多任务演示中学习新任务策略
-9. [SEED: Self-Evolving On-Policy Distillation for Agentic Reinforcement Learning](/202607/21/2607.14777v1-seed-self-evolving-on-policy-distillation-for-agentic-reinforcement-learning)  
+   evidence：强化学习中关系隐藏状态涌现的规划行为，与内部世界模型相关
+3. [Towards Human-like Physical Intelligence: Lifelong Vision-Language-Action Learning for Robotic Manipulation](/202607/22/2607.14852v2-towards-human-like-physical-intelligence-lifelong-vision-language-action-learning-for-robotic-manipulation)  
    标签：评分：6.0/10、query:wmi
-   evidence：基于轨迹奖励的智能体强化学习
-10. [EgoExoMoCap: Distributed Ego-Exo Human Motion Capture](/202607/21/2607.15868v1-egoexomocap-distributed-ego-exo-human-motion-capture)  
+   evidence：终身视觉-语言-动作学习用于机器人操作
+4. [Data and Learning Where it Matters for Contact-Rich Manipulation](/202607/22/2607.15982v1-data-and-learning-where-it-matters-for-contact-rich-manipulation)  
    标签：评分：6.0/10、query:wmi
-   evidence：用于具身 AI 的分布式自我-外部人体运动捕捉
-11. [Embodied Active Learning under Limited Annotation and Navigation Budget for Object Detection](/202607/21/2607.15974v1-embodied-active-learning-under-limited-annotation-and-navigation-budget-for-object-detection)  
-   标签：评分：6.0/10、query:wmi
-   evidence：具身主动学习结合机器人导航与传感器
+   evidence：用离线深度强化学习处理接触丰富操纵，结合传统规划
 
 
 <div class="dpr-home-promo-card">

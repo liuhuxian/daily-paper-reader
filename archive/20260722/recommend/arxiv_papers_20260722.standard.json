@@ -1,0 +1,445 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-22T21:29:16.336434+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 6,
+    "deep_cap": 6,
+    "deep_selected": 6,
+    "quick_candidates": 4,
+    "quick_skim_target": 11,
+    "quick_selected": 4
+  },
+  "deep_dive": [
+    {
+      "id": "2607.16602v2",
+      "source": "arxiv",
+      "title": "PAVXploreRL: Physical-Action-Visual World Model Reinforcement Learning with Action Exploration",
+      "abstract": "Action-conditioned world models are a key component of embodied AI, serving as scalable policy evaluators that reduce reliance on expensive real-world rollouts. To accurately capture diverse action-induced dynamics, such models should satisfy three key objectives-Physical Plausibility (P), Action Adherence (A), and Visual Fidelity (V), collectively referred to as PAV-while remaining robust to both in-distribution (ID) expert demonstrations and out-of-distribution (OOD) actions. However, existing methods primarily rely on ID action-video pairs and pixel-level reconstruction losses, which do not explicitly optimize PAV objectives and generalize poorly beyond expert data. To address this, we propose PAVXploreRL, a reinforcement learning framework built on a pretrained latent world model that explicitly optimizes PAV objectives through reward-driven training. To improve action generalization, our method jointly leverages ID trajectories and noise-driven OOD action exploration, without paired video supervision. Experiments show that PAVXploreRL consistently outperforms pretrained baselines, achieving a 5.6% average gain across benchmarks and producing higher-quality PAV properties. As a policy evaluator, it also yields more reliable performance estimates and reduces the overestimation bias of prior expert-only world models such as Ctrl-World. Code: https://github.com/Social-AI-Studio/PAVXploreRL",
+      "authors": [
+        "Han Wang",
+        "Zijun Wang",
+        "Shuoshuo Xue",
+        "Rui Cao",
+        "Fengjiao Cheng",
+        "Xiaodan Liang",
+        "Roy Ka-Wei Lee"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-07-18T02:42:27+00:00",
+      "link": "https://arxiv.org/pdf/2607.16602v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 10.0,
+      "llm_evidence_en": "reinforcement learning for world model training with physical plausibility and action exploration",
+      "llm_evidence_cn": "用强化学习训练世界模型，满足物理合理性和动作探索",
+      "llm_evidence": "用强化学习训练世界模型，满足物理合理性和动作探索",
+      "canonical_evidence": "用强化学习训练世界模型，满足物理合理性和动作探索",
+      "llm_tldr_en": "PAVXploreRL uses reinforcement learning to train a world model that explicitly optimizes physical plausibility, action adherence, and visual fidelity, while also exploring out-of-distribution actions to improve robustness.",
+      "llm_tldr_cn": "针对现有世界模型在专家数据外泛化差的问题，本文提出PAVXploreRL，将世界模型训练视为强化学习问题，优化物理合理性、动作遵循和视觉保真度三个目标。通过主动探索OOD动作，模型在ID和OOD场景下均表现鲁棒。实验证明该方法优于基于重建损失的方法，为世界模型训练提供了新范式。",
+      "llm_tldr": "针对现有世界模型在专家数据外泛化差的问题，本文提出PAVXploreRL，将世界模型训练视为强化学习问题，优化物理合理性、动作遵循和视觉保真度三个目标。通过主动探索OOD动作，模型在ID和OOD场景下均表现鲁棒。实验证明该方法优于基于重建损失的方法，为世界模型训练提供了新范式。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "model based reinforcement learning combined with behavioral cloning",
+      "matched_requirement_id": "req-8",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.18715v1",
+      "source": "arxiv",
+      "title": "DWM: Separating World Effects from Actions in Latent World Models",
+      "abstract": "Latent world models underpin much of modern model-based control, yet current action-conditioned formulations supervise   the next-latent transition with a single, undifferentiated target, forcing a monolithic learning signal to absorb every   source of state change. In real world, however, transitions arise from two heterogeneous sources: an action-driven   component induced by the agent, and an action-invariant world effect -- the change that would still occur under a null   action, dictated by the environment's intrinsic dynamics (e.g., gravity-driven sliding, inertia, contact rebound, and   persistent drift). Fusing them into a single target entangles the two inside the latent transition, prevents the model   from attributing observed changes to their underlying causes, and undermines the transferability of the learned   dynamics. We introduce DWM (Decomposed World Model), a supervision-level framework that operationalizes this   decomposition. DWM augments the predictor of a latent world model with an auxiliary world head, regularized by a   normalized world-contrastive objective to be action-invariant, while the original pred head is coupled to it via an   orthogonality constraint; together, the two signals induce an explicit additive decomposition of the predicted   transition into an action-invariant and a complementary action-driven component, without altering the underlying   architecture or inference pipeline. To evaluate DWM under persistent world effects, we construct W-variants of three   standard control benchmarks -- PushT-W, Reacher-W, and TwoRoom-W -- each instantiating a distinct action-invariant   dynamic. DWM matches strong baselines on the flat counterparts and delivers a mean absolute improvement of 13.1% in CEM   planning success across the W-variants.",
+      "authors": [
+        "Yi-Ge Zhang",
+        "Tianqi Du",
+        "Qi Zhang",
+        "Yisen Wang"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-07-21T05:13:26+00:00",
+      "link": "https://arxiv.org/pdf/2607.18715v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 10.0,
+      "llm_evidence_en": "separating world effects from actions in latent world models for model-based RL",
+      "llm_evidence_cn": "在潜在世界模型中分离世界效应与动作，用于基于模型的强化学习",
+      "llm_evidence": "在潜在世界模型中分离世界效应与动作，用于基于模型的强化学习",
+      "canonical_evidence": "在潜在世界模型中分离世界效应与动作，用于基于模型的强化学习",
+      "llm_tldr_en": "DWM disentangles action-driven and action-invariant dynamics in latent world models by using separate targets, enabling better attribution and improved model-based control.",
+      "llm_tldr_cn": "针对当前动作条件潜在世界模型将动作驱动变化与环境固有变化混合的问题，本文提出DWM，将潜在状态转移分解为动作驱动分量和动作不变世界效应分量。通过分离监督目标，模型能更好地归因状态变化来源。实验表明该方法在模型预测准确性和下游控制中均优于未解耦基线。",
+      "llm_tldr": "针对当前动作条件潜在世界模型将动作驱动变化与环境固有变化混合的问题，本文提出DWM，将潜在状态转移分解为动作驱动分量和动作不变世界效应分量。通过分离监督目标，模型能更好地归因状态变化来源。实验表明该方法在模型预测准确性和下游控制中均优于未解耦基线。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.19343v1",
+      "source": "arxiv",
+      "title": "Masked Visual Actions for Unified World Modeling",
+      "abstract": "Video models absorb rich priors over how the visual world moves, interacts, and responds to contact, making them promising substrates for robotic world modeling. The central challenge is how to communicate action to such models in a form aligned with the visual space in which they learned these interaction priors, yet still grounded in physical manipulation. We introduce Masked Visual Actions, a pixel-space control interface that expresses action as a partially revealed trajectory of an arbitrary entity in a video. Revealing robot motion makes the model act as a forward dynamics model that predicts the scene's response to low-level robot actions, while revealing desired object motion makes the same model recover robot behavior consistent with that outcome. Finetuned with only 15 hours of masked examples from real videos and simulation, a single checkpoint achieves strong visual fidelity and controllability across diverse scenes and multiple embodiments. In downstream manipulation settings, the model produces imagined rollouts whose outcomes correlate with real-world execution for policy evaluation, improves decision making by ranking candidate futures in model-based planning, and supports inverse modeling by synthesizing robot motion from desired object motion.",
+      "authors": [
+        "Hadi Alzayer",
+        "Wenlong Huang",
+        "Haonan Chen",
+        "Christopher Luey",
+        "Lvmin Zhang",
+        "Maneesh Agrawala",
+        "Gordon Wetzstein",
+        "Li Fei-Fei",
+        "Yilun Du",
+        "Jiajun Wu",
+        "Jia-Bin Huang"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.RO"
+      ],
+      "published": "2026-07-21T17:59:11+00:00",
+      "link": "https://arxiv.org/pdf/2607.19343v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 10.0,
+      "llm_evidence_en": "masked visual actions as pixel-space control for world model as forward dynamics",
+      "llm_evidence_cn": "用蒙版视觉动作将视频模型转化为前向动力学世界模型",
+      "llm_evidence": "用蒙版视觉动作将视频模型转化为前向动力学世界模型",
+      "canonical_evidence": "用蒙版视觉动作将视频模型转化为前向动力学世界模型",
+      "llm_tldr_en": "Masked Visual Actions expresses robot action as a partially revealed trajectory in video, enabling a pretrained video model to act as a forward dynamics model predicting scene response to actions, and also to infer actions from desired outcomes.",
+      "llm_tldr_cn": "本文针对机器人世界模型中动作与视觉空间的对齐问题，提出蒙版视觉动作（Masked Visual Actions），将动作表示为视频中任意实体的部分轨迹。通过揭示机器人运动，模型成为前向动力学模型预测场景响应；揭示物体目标运动则能恢复机器人行为。该方法统一了动作表达与视觉先验，为机器人世界建模提供了新范式。",
+      "llm_tldr": "本文针对机器人世界模型中动作与视觉空间的对齐问题，提出蒙版视觉动作（Masked Visual Actions），将动作表示为视频中任意实体的部分轨迹。通过揭示机器人运动，模型成为前向动力学模型预测场景响应；揭示物体目标运动则能恢复机器人行为。该方法统一了动作表达与视觉先验，为机器人世界建模提供了新范式。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.18840v1",
+      "source": "arxiv",
+      "title": "WorldScape Policy 2.0: Empowering Steerable World Action Modeling with Reasoning-Augmented Memory",
+      "abstract": "World Action Models (WAMs) offer a promising paradigm for robotic manipulation by jointly modeling visual state transitions and robot actions. However, existing WAMs are constrained by limited temporal context, coarse episode-level language supervision, and predominantly text-only conditioning, which hinder task-progress tracking and fine-grained language-video-action grounding while limiting visual-context reasoning and cross-embodiment transfer. In this paper, we introduce WorldScape Policy 2.0, a controllable WAM with reasoning-augmented long short-term memory. Its causal short-term visual memory supplies recent observations as DiT prefill to preserve local interaction dynamics, while its long short-term event memory organizes historical VLM outputs into global-history, local-active, and event-boundary representations for progress-aware retrieval. The retrieved history augments perception and autoregressively generated planning tokens, yielding an implicit subgoal condition for autonomous planning; semantic forcing further transfers event-level instruction semantics into this latent planning pathway. To establish fine-grained multimodal controllability, we construct ManipEvent-5M, an event-grounded embodied pretraining dataset containing nearly 5 million event segments with aligned action trajectories, episode-level task instructions, segment-level subtask captions, goal images, and video demonstrations. These designs provide a unified interface for autonomous planning from high-level instructions and controllable execution from fine-grained text, goal-image, or video-context prompts. Experiments in both simulation and real-world platforms demonstrate superior capabilities in long-horizon autonomous planning, fine-grained instruction following and in-context adaptation.",
+      "authors": [
+        "Haisheng Su",
+        "Zongdai Liu",
+        "Xin Jin",
+        "Haoxuan Dou",
+        "Chengming Hu",
+        "Baorun Li",
+        "Zhanwang Liu",
+        "Ruiyan Xu",
+        "Jianjie Fang",
+        "Xin Zhang",
+        "Zhenjie Yang",
+        "Xue Yang",
+        "Chen Gao",
+        "Junchi Yan",
+        "Yong Li",
+        "Wei Wu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-21T08:25:37+00:00",
+      "link": "https://arxiv.org/pdf/2607.18840v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world action models for embodied AI",
+      "llm_evidence_cn": "世界动作模型用于具身人工智能",
+      "llm_evidence": "世界动作模型用于具身人工智能",
+      "canonical_evidence": "世界动作模型用于具身人工智能",
+      "llm_tldr_en": "Presents a world action model with reasoning-augmented memory for controllable robotic manipulation, enabling fine-grained language-video-action grounding and cross-embodiment transfer.",
+      "llm_tldr_cn": "现有世界动作模型受限于时域上下文的短浅和语言监督的粗粒度，本文提出WorldScape Policy 2.0，通过引入推理增强的长短时记忆，将因果短时视觉记忆和长时事件记忆结合，实现可操控的世界动作建模与细粒度语言-视频-动作对齐，在机器人操作任务上提升了任务跟踪和跨实体迁移能力。",
+      "llm_tldr": "现有世界动作模型受限于时域上下文的短浅和语言监督的粗粒度，本文提出WorldScape Policy 2.0，通过引入推理增强的长短时记忆，将因果短时视觉记忆和长时事件记忆结合，实现可操控的世界动作建模与细粒度语言-视频-动作对齐，在机器人操作任务上提升了任务跟踪和跨实体迁移能力。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.18709v1",
+      "source": "arxiv",
+      "title": "RoboInter1.5: A Holistic Intermediate Representation Suite for Embodied World Modeling and Robotic Manipulation",
+      "abstract": "Existing robot datasets remain expensive to curate, embodiment-specific, and insufficiently annotated with the fine-grained structure required for generalizable reasoning, execution, or long-horizon environment dynamics simulation. Building on our prior work, RoboInter1.0, we present RoboInter1.5, an extended and holistic suite of intermediate representations for both robotic manipulation and embodied world modeling. RoboInter1.5 provides a unified resource of data, benchmarks, and models centered on dense manipulation-oriented intermediate representations. Specifically, RoboInter-Data contains over 230k manipulation episodes across 571 scenes with dense per-frame annotations covering more than ten types of intermediate representations, including subtasks, primitive skills, object and gripper grounding, segmentation, affordance, grasp poses, contact points, motion traces, etc. Built upon these annotations, RoboInter-VQA introduces spatial and temporal embodied VQA tasks to benchmark and improve the intermediate-representation reasoning capabilities of our RoboInter-VLM. RoboInter-VLA further studies how such representations benefit action execution through implicit, explicit, and modular plan-then-execute paradigms. To better model the physical world, we further introduce RoboInter-World, which leverages intermediate representations as structured conditioning signals for controllable prediction of future world states. Extensive evaluations demonstrate that RoboInter1.5 provides a unified spatiotemporal scaffolding for intermediate representations. Rather than treating intermediate representations merely as interpretable signals, RoboInter1.5 conceptualizes them as a bidirectional interface that both regularizes low-level action spaces and constrains the latent rollouts of open-world physical simulators.",
+      "authors": [
+        "Ziqin Wang",
+        "Hao Li",
+        "Weijun Wang",
+        "Junhao Cai",
+        "Jia Zeng",
+        "Yilun Chen",
+        "Jiangmiao Pang",
+        "Si Liu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-21T05:05:01+00:00",
+      "link": "https://arxiv.org/pdf/2607.18709v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "embodied world modeling and robotic manipulation suite",
+      "llm_evidence_cn": "具身世界建模与机器人操作套件",
+      "llm_evidence": "具身世界建模与机器人操作套件",
+      "canonical_evidence": "具身世界建模与机器人操作套件",
+      "llm_tldr_en": "RoboInter1.5 provides a holistic intermediate representation suite for embodied world modeling and robotic manipulation, with 230k episodes and dense annotations.",
+      "llm_tldr_cn": "现有机器人数据集昂贵且缺乏细粒度标注，难以支持通用推理和长程环境动力学模拟。RoboInter1.5扩展了中间表示套件，包含超过23万个操作片段和571个场景的密集逐帧标注，覆盖多种操作相关的中间表示。该资源为具身世界建模和机器人操作提供了统一的数据、基准和模型，有望推动通用操作智能的发展。",
+      "llm_tldr": "现有机器人数据集昂贵且缺乏细粒度标注，难以支持通用推理和长程环境动力学模拟。RoboInter1.5扩展了中间表示套件，包含超过23万个操作片段和571个场景的密集逐帧标注，覆盖多种操作相关的中间表示。该资源为具身世界建模和机器人操作提供了统一的数据、基准和模型，有望推动通用操作智能的发展。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.19190v1",
+      "source": "arxiv",
+      "title": "Agentic Real2Sim: Physics-based World Modeling with Vision-Language Agents",
+      "abstract": "Real-to-sim conversion for robotic interaction with objects remains labor-intensive because it requires more than visual reconstruction: a streamlined real2sim process must recover scene geometries and object states, infer physical parameters, and assemble actors, objects, cameras, poses, and trajectories into a runnable physical simulation. Today this process still depends on manual tuning of visual foundation models, mesh cleanup, coordinate-frame alignment, and brittle workflow glue across visual perception tools and simulators. We introduce \\textit{Agentic Real2Sim}, a framework for generalized physical world modeling with vision-language agents, converting a real-world recording of object-robot interaction into a simulatable episodic twin which preserves observations, geometries, robot interactions, and object states. We evaluate Agentic Real2Sim on rigid-object manipulation, deformable-object interaction, and humanoid motion scenes, spanning domains that are usually handled by separate Real2Sim pipelines, marking a first step toward scalable conversion. The framework's agentic decisions can be driven by an open-weight VLM backend at a small fraction of the cost of frontier models, while attaining comparable conversion success rate. We aim to use the resulting real-world-aligned twins for downstream robotics tasks, specifically policy learning and evaluation. The project site is available at https://ericchen321.github.io/agentic_real2sim.github.io/.",
+      "authors": [
+        "Guanxiong Chen",
+        "Qianjun Xia",
+        "Jiawei Peng",
+        "Heng Zhang",
+        "Bole Ma",
+        "Justin Qian",
+        "Ziyi Jiao",
+        "Bingyang Zhou",
+        "Luoxin Ye",
+        "Kaifeng Zhang",
+        "Kunyi Wang",
+        "Weijia Zeng",
+        "Yunuo Chen",
+        "Pengzhi Yang",
+        "Ziqiu Zeng",
+        "Huamin Wang",
+        "Chao Liu",
+        "Alan Yuille",
+        "Fan Shi",
+        "Changxi Zheng",
+        "Yunzhu Li",
+        "Chenfanfu Jiang",
+        "Peter Yichen Chen"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-07-21T15:23:38+00:00",
+      "link": "https://arxiv.org/pdf/2607.19190v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "Physics-based world modeling from real recordings using vision-language agents for embodied AI",
+      "llm_evidence_cn": "基于视觉语言代理从真实录音构建物理世界模型，用于具身智能",
+      "llm_evidence": "基于视觉语言代理从真实录音构建物理世界模型，用于具身智能",
+      "canonical_evidence": "基于视觉语言代理从真实录音构建物理世界模型，用于具身智能",
+      "llm_tldr_en": "Agentic Real2Sim converts real-world robot-object interactions into runnable physical simulations using vision-language agents, automating world modeling for embodied AI.",
+      "llm_tldr_cn": "从真实场景构建可用于机器人交互的物理仿真需要大量手动工作。Agentic Real2Sim提出通用框架，使用视觉语言代理自动将真实世界中物体-机器人交互记录转化为可运行的物理仿真副本。该方法恢复场景几何、物体状态、物理参数并组装仿真场景，极大简化了真实到仿真的转换流程，为具身AI中的世界模型应用提供了自动化工具。",
+      "llm_tldr": "从真实场景构建可用于机器人交互的物理仿真需要大量手动工作。Agentic Real2Sim提出通用框架，使用视觉语言代理自动将真实世界中物体-机器人交互记录转化为可运行的物理仿真副本。该方法恢复场景几何、物体状态、物理参数并组装仿真场景，极大简化了真实到仿真的转换流程，为具身AI中的世界模型应用提供了自动化工具。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2607.18115v1",
+      "source": "arxiv",
+      "title": "Compositional Semantic Communication for Physical AI: Category Theory Meets Game Theory",
+      "abstract": "Physical artificial intelligence (AI) systems involve distributed sensing agents with embedded AI models that must coordinate to perceive, reason, and act in networked environments. Transmitting raw sensor data incurs significant communication overhead, latency, and redundancy. While semantic communication (SC) mitigates these challenges by transmitting task-relevant information, existing deep learning-based joint source-channel coding approaches exhibit limited adaptability, poor out-of-distribution generalization, and scalability challenges. To address these limitations, this paper proposes a framework for compositional semantic communication (CSC), enabling heterogeneous physical AI sources to transmit semantic representations (SRs) that compose meaningfully at a base station (BS) or edge server for remote inference. First, a category-theoretic measure of compositional semantics is developed to quantify each device's contribution to inference tasks beyond mutual information. Second, Grothendieck topologies and presheaves formalize semantic composition across devices, ensuring consistency and task relevance. Building on these foundations, multi-device coordination is formulated as a Stackelberg game in which devices commit to encoding strategies and the BS optimally composes received SRs. An ADMM-based algorithm computes equilibrium signaling strategies. Equilibrium existence is established under mild conditions and is Pareto optimal when compositional information yields increasing collective benefit. Simulation results demonstrate that the proposed approach achieves up to 17% bandwidth reduction and 53% lower end-to-end latency than cooperative multi-agent, distributed gradient descent, and uniform-selection CSC baselines while maintaining 85% inference accuracy across diverse autonomous driving scenarios.",
+      "authors": [
+        "Christo Kurisummoottil Thomas",
+        "Walid Saad",
+        "Emilio Calvanese Strinati"
+      ],
+      "primary_category": "cs.IT",
+      "categories": [
+        "cs.IT",
+        "cs.GT",
+        "eess.SP"
+      ],
+      "published": "2026-07-20T16:10:38+00:00",
+      "link": "https://arxiv.org/pdf/2607.18115v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "physical AI with distributed sensing agents and semantic communication",
+      "llm_evidence_cn": "物理AI中的分布式传感智能体与语义通信",
+      "llm_evidence": "物理AI中的分布式传感智能体与语义通信",
+      "canonical_evidence": "物理AI中的分布式传感智能体与语义通信",
+      "llm_tldr_en": "Proposes compositional semantic communication for physical AI systems to enable efficient coordination among distributed sensing agents.",
+      "llm_tldr_cn": "本文针对物理AI系统中分布式传感智能体协调感知、推理和行动时的通信开销问题，提出组合语义通信框架。该框架利用范畴论和博弈论，使异构物理AI源能够传输语义表示，减少冗余。方法在适应性、泛化性和可扩展性上优于现有深度学习方法。为物理具身智能的协同通信提供了新思路。",
+      "llm_tldr": "本文针对物理AI系统中分布式传感智能体协调感知、推理和行动时的通信开销问题，提出组合语义通信框架。该框架利用范畴论和博弈论，使异构物理AI源能够传输语义表示，减少冗余。方法在适应性、泛化性和可扩展性上优于现有深度学习方法。为物理具身智能的协同通信提供了新思路。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.14852v2",
+      "source": "arxiv",
+      "title": "Towards Human-like Physical Intelligence: Lifelong Vision-Language-Action Learning for Robotic Manipulation",
+      "abstract": "Similar to the natural capabilities of humans to sequentially learn new tasks, robots with Vision-Language-Action (VLA) models should possess lifelong learning ability to learn a new task when deployed in open-world environments. However, most recently proposed lifelong learning models aim to effectively learn the current task (plasticity) or maintain high accuracy on previous tasks (stability), while the plasticity-stability trade-off remains largely unsolved in robotic manipulation models. To address this fundamental challenge, we propose a cache-efficient lifelong Vision-Language-Action learning framework for robotic manipulation (i.e., LifelongVLA), which alleviates the plasticity-stability trade-off with a dual-timescale adaptation mechanism while achieving low-cost robotic deployment with a cache-efficient replay strategy. More concretely, we propose a dual-timescale LoRA gating module to decompose VLA adaptation into two lightweight pathways: a short-term adapter for plasticity and a long-term adapter for stable consolidation. These pathways are integrated via a task-aware gate, enabling explicit control of the plasticity-stability trade-off. In the skill replay phase, a cache-efficient stochastic replay strategy is proposed to preserve more balanced retention signals without full-trajectory storage. Finally, experiments show that LifelongVLA outperforms existing baselines, demonstrating efficient skill expansion, robust retention of learned manipulation behaviors, and reduced reliance on retraining for real-world deployment on an xArm robot.",
+      "authors": [
+        "Yao He",
+        "Gan Sun",
+        "Wenqi Liang",
+        "Fazeng Li",
+        "Yang Cong"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-16T11:22:06+00:00",
+      "link": "https://arxiv.org/pdf/2607.14852v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "Lifelong Vision-Language-Action learning for robotic manipulation",
+      "llm_evidence_cn": "终身视觉-语言-动作学习用于机器人操作",
+      "llm_evidence": "终身视觉-语言-动作学习用于机器人操作",
+      "canonical_evidence": "终身视觉-语言-动作学习用于机器人操作",
+      "llm_tldr_en": "Proposes LifelongVLA, a cache-efficient lifelong learning framework for robotic manipulation that balances plasticity and stability in VLA models.",
+      "llm_tldr_cn": "机器人操作中的终身学习面临塑性-稳定性权衡。本文提出LifelongVLA框架，通过双缓存机制高效管理任务数据，在保持旧任务性能的同时学习新任务。在多个连续操作任务序列上，该方法有效缓解了灾难性遗忘，同时保持了学习新任务的能力。工作为具身智能体的持续部署提供了实用方案。",
+      "llm_tldr": "机器人操作中的终身学习面临塑性-稳定性权衡。本文提出LifelongVLA框架，通过双缓存机制高效管理任务数据，在保持旧任务性能的同时学习新任务。在多个连续操作任务序列上，该方法有效缓解了灾难性遗忘，同时保持了学习新任务的能力。工作为具身智能体的持续部署提供了实用方案。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.18589v1",
+      "source": "arxiv",
+      "title": "Planning as Emergent Behavior in Reinforcement Learning with Relational Hidden States",
+      "abstract": "Reinforcement learning is conventionally divided into model-based and model-free methods. In this taxonomy, model-based methods perform lookahead planning over a learned world model, whereas model-free methods learn a reactive state-action mapping. Recent work, however, has shown that planning can emerge from model-free reinforcement learning alone. The conditions under which this behavior emerges from a pure reward-maximization objective have so far remained unclear. In this paper, we present evidence that, in the observed cases, the hidden-state structure of the neural architecture is the deciding factor. We find that a network of relational hidden states, each anchored to an environment state and exchanging messages along learned relations, acquires a planning mechanism. These hidden states recover the environment's transition structure in their learned relations, and improve the policy at decision time by planning over the learned graph. In a matched control agent that must additionally discover which cells represent which states, no such binding arises, and no planning follows from it. We argue that this explains the observed phenomenon of emergent planning in model-free reinforcement learning and raises the question of how common such emergent planning might be more generally. Finally, we hypothesize that the discovered mechanism could describe how planning emerges from pure reward maximization in the human brain through a neural architectural prior.",
+      "authors": [
+        "Armin Sommer"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-07-20T23:49:42+00:00",
+      "link": "https://arxiv.org/pdf/2607.18589v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "planning as emergent behavior from relational hidden states in RL, related to internal world models",
+      "llm_evidence_cn": "强化学习中关系隐藏状态涌现的规划行为，与内部世界模型相关",
+      "llm_evidence": "强化学习中关系隐藏状态涌现的规划行为，与内部世界模型相关",
+      "canonical_evidence": "强化学习中关系隐藏状态涌现的规划行为，与内部世界模型相关",
+      "llm_tldr_en": "Shows that planning can emerge from model-free RL with relational hidden states, providing insights into internal environment representations.",
+      "llm_tldr_cn": "强化学习中模型无关方法传统上不进行显式规划。本文发现，当神经网络具有关系隐藏状态结构时，规划可以从纯粹的奖励最大化中涌现出来。通过实验证明，隐藏状态锚定到环境状态并交换消息的结构是规划出现的关键因素。这一发现为理解内部环境表征的涌现提供了新视角。",
+      "llm_tldr": "强化学习中模型无关方法传统上不进行显式规划。本文发现，当神经网络具有关系隐藏状态结构时，规划可以从纯粹的奖励最大化中涌现出来。通过实验证明，隐藏状态锚定到环境状态并交换消息的结构是规划出现的关键因素。这一发现为理解内部环境表征的涌现提供了新视角。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.15982v1",
+      "source": "arxiv",
+      "title": "Data and Learning Where it Matters for Contact-Rich Manipulation",
+      "abstract": "Learned policies trained end-to-end on large datasets often remain brittle in high-precision tasks and struggle with generalization. We find that these limitations largely stem from a lack of structure and focus in data collection. Our key insight is to leverage dense data collection only for the critical segment of contact-rich tasks and to rely on traditional planning during simple free-space motion. We propose an automated data-collection scheme in combination with offline deep reinforcement learning for the critical segment of the task, eliminating reliance on a teleoperator's skill and on online policy updates. Across four challenging real-world tasks, using only 2 to 2.5 hours of autonomous data collection, we achieve an average success rate of 96%, compared to the strongest baseline at 55%. Notably, performance remains high in out-of-distribution scenarios where end-to-end approaches struggle. Our results pave the way for targeted data collection for contact-rich tasks and for high success rates in precision applications.",
+      "authors": [
+        "Oliver Hausdörfer",
+        "Linus Schwarz",
+        "Gabor Marko",
+        "Christian Dietz",
+        "Timo Class",
+        "Luka Hofer",
+        "Jim Yun-Jin Li",
+        "Johannes Hechtl",
+        "Ralf Römer",
+        "Angela P. Schoellig"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-17T14:18:20+00:00",
+      "link": "https://arxiv.org/pdf/2607.15982v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "offline deep reinforcement learning for contact-rich manipulation with traditional planning",
+      "llm_evidence_cn": "用离线深度强化学习处理接触丰富操纵，结合传统规划",
+      "llm_evidence": "用离线深度强化学习处理接触丰富操纵，结合传统规划",
+      "canonical_evidence": "用离线深度强化学习处理接触丰富操纵，结合传统规划",
+      "llm_tldr_en": "Automated data collection combined with offline deep RL focuses learning on the critical contact segment, achieving 96% success on challenging tasks with only 2-2.5 hours of data.",
+      "llm_tldr_cn": "针对端到端策略在接触丰富任务中泛化差的问题，本文提出仅在关键接触段进行密集数据收集和离线深度强化学习，自由空间段使用传统规划。在四个真实世界任务上，仅2-2.5小时自主数据收集即达到96%成功率。该方法虽未显式构建世界模型，但其离线RL与规划结合的思想与基于模型的方法有联系。",
+      "llm_tldr": "针对端到端策略在接触丰富任务中泛化差的问题，本文提出仅在关键接触段进行密集数据收集和离线深度强化学习，自由空间段使用传统规划。在四个真实世界任务上，仅2-2.5小时自主数据收集即达到96%成功率。该方法虽未显式构建世界模型，但其离线RL与规划结合的思想与基于模型的方法有联系。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
