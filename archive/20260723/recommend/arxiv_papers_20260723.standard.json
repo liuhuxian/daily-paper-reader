@@ -1,0 +1,532 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-23T21:06:24.066034+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 6,
+    "deep_cap": 6,
+    "deep_selected": 6,
+    "quick_candidates": 7,
+    "quick_skim_target": 11,
+    "quick_selected": 7
+  },
+  "deep_dive": [
+    {
+      "id": "2607.19719v1",
+      "source": "arxiv",
+      "title": "Koopman Dreamer: Spectrally Constrained Latent Dynamics for Stable World-Model Imagination",
+      "abstract": "Latent world models improve sample efficiency in continuous control by optimizing policies over imagined latent trajectories, but common neural transitions offer limited direct control over modal persistence and error accumulation in long rollouts. We propose Koopman Dreamer, a Dreamer-style world model with a spectrally constrained deterministic latent dynamics core. Its Koopman-inspired backbone uses two-dimensional rotation--scaling blocks with bounded radii to represent damping, rotation, and near-periodic modes. Linear and low-rank bilinear action terms capture global and state-dependent control effects, while stochastic-state modulation supplies local correction information. To reduce the mismatch between posterior-conditioned training and prior-only imagination, the model combines posterior-conditioned EMA teacher targets with one-step consistency, multi-step rollout, and open-loop observation-prediction objectives. We further derive a multi-step rollout-error bound that separates amplification by the spectral backbone and bilinear interaction from the additive effects of stochastic-state mismatch and modeling residuals, clarifying the trade-off between error attenuation and long-term information retention. Experimental results on proprioceptive continuous-control tasks from the DeepMind Control Suite and UAV-LiDAR autonomous navigation demonstrate that Koopman Dreamer improves the stability of long-horizon latent rollouts and achieves stronger closed-loop control performance on tasks that rely on high-quality multi-step imagination.",
+      "authors": [
+        "Jiaqi Li",
+        "Xinglong Zhang",
+        "Haibin Xie",
+        "Yixing Lan",
+        "Wei Pan",
+        "Xin Xu"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.RO"
+      ],
+      "published": "2026-07-22T03:38:15+00:00",
+      "link": "https://arxiv.org/pdf/2607.19719v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Koopman-based spectrally constrained latent dynamics for stable world model imagination",
+      "llm_evidence_cn": "基于Koopman的谱约束潜在动力学，实现稳定世界模型想象",
+      "llm_evidence": "基于Koopman的谱约束潜在动力学，实现稳定世界模型想象",
+      "canonical_evidence": "基于Koopman的谱约束潜在动力学，实现稳定世界模型想象",
+      "llm_tldr_en": "Koopman Dreamer improves Dreamer-style world models with spectrally constrained Koopman dynamics for stable long-horizon imagination in continuous control.",
+      "llm_tldr_cn": "潜在世界模型在连续控制中提高样本效率，但长期轨迹想象存在误差累积。本文提出Koopman Dreamer，在Dreamer框架中引入谱约束的Koopman动力学核心，使用二维旋转-缩放块刻画阻尼、旋转等模态，并通过线性与低秩双线性项建模动作影响。该方法增强了对模态持续性和误差累积的控制。实验表明，在多个连续控制任务上，Koopman Dreamer的想象稳定性优于传统Dreamer变体，尤其是长展开场景。这项工作为世界模型中的动力学建模提供了新范式。",
+      "llm_tldr": "潜在世界模型在连续控制中提高样本效率，但长期轨迹想象存在误差累积。本文提出Koopman Dreamer，在Dreamer框架中引入谱约束的Koopman动力学核心，使用二维旋转-缩放块刻画阻尼、旋转等模态，并通过线性与低秩双线性项建模动作影响。该方法增强了对模态持续性和误差累积的控制。实验表明，在多个连续控制任务上，Koopman Dreamer的想象稳定性优于传统Dreamer变体，尤其是长展开场景。这项工作为世界模型中的动力学建模提供了新范式。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.19749v1",
+      "source": "arxiv",
+      "title": "The World Model Remembers, the Actor Forgets: Dream Rehearsal for Continual Model-Based RL",
+      "abstract": "Model-based reinforcement-learning agents of the DreamerV3 family forget catastrophically when trained on task sequences, even when an unbounded replay buffer preserves every earlier experience. We ask a question the continual-RL literature has assumed an answer to but never measured: which component forgets? Under never-clear replay, pre-registered component-level probes (n=3 seeds throughout) show that the world model retains essentially everything measurable about old tasks -- reward discrimination (retention ratio ~1.0), value estimates, and termination structure -- while the actor's behavior collapses. Forgetting in this regime is a channel problem, not a memory problem. We demonstrate this by intervention: with the world model frozen and identical imagined rollouts, reinforcement learning in imagination fails to recover a lost skill (0/3 seeds), while supervised self-imitation on the world model's own graded dreams recovers it on 3/3 seeds with zero environment interaction. Interleaved during training, this graded dream rehearsal yields a task-label-free, parameter-constant continual learner: 3/3 four-task chains retained where plain replay passes 0/3, 3/3 eight-task chains, and consistent gains over matched real-episode cloning (paired difference +0.13, bootstrap 95% CI [0.07, 0.24], complete seed separation). The dream-grading step is load-bearing: we characterize two scoring failure modes, provide an offline selection gauge that caught both before they contaminated results, and give a realized-first grading rule that closes them. All experiments were pre-registered with committed protocols; every refuted hypothesis is reported.",
+      "authors": [
+        "Gurp Nijjer"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-07-22T04:46:49+00:00",
+      "link": "https://arxiv.org/pdf/2607.19749v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world model in model-based RL for planning and dynamics",
+      "llm_evidence_cn": "基于模型强化学习中的世界模型用于规划与动力学",
+      "llm_evidence": "基于模型强化学习中的世界模型用于规划与动力学",
+      "canonical_evidence": "基于模型强化学习中的世界模型用于规划与动力学",
+      "llm_tldr_en": "Investigates forgetting in DreamerV3 agents under continual RL, finding the world model retains old task knowledge while the actor forgets; proposes dream rehearsal to address actor forgetting.",
+      "llm_tldr_cn": "本文针对基于模型的强化学习智能体在任务序列上的灾难性遗忘问题，系统探究了遗忘发生的组件。通过组件级探针实验发现，在无限重放缓冲下世界模型几乎完美保留旧任务知识，而演员策略发生崩溃。据此提出梦境重放（Dream Rehearsal）方法，通过世界模型生成虚拟经验来巩固演员策略。结果表明，仅需极少额外计算即可显著缓解遗忘，揭示了遗忘是信道问题而非记忆问题。",
+      "llm_tldr": "本文针对基于模型的强化学习智能体在任务序列上的灾难性遗忘问题，系统探究了遗忘发生的组件。通过组件级探针实验发现，在无限重放缓冲下世界模型几乎完美保留旧任务知识，而演员策略发生崩溃。据此提出梦境重放（Dream Rehearsal）方法，通过世界模型生成虚拟经验来巩固演员策略。结果表明，仅需极少额外计算即可显著缓解遗忘，揭示了遗忘是信道问题而非记忆问题。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.19809v1",
+      "source": "arxiv",
+      "title": "Dreamer-CPC: Message Learning with World Models for Decentralized Multi-agent Reinforcement Learning",
+      "abstract": "In multi-agent reinforcement learning (MARL), inter-agent communication is effective for improving performance under partial observability. Representation learning-based approaches enable decentralized agents to learn messages grounded in their own observations, but they rely only on current observations and cannot convey information accumulated over time. We propose Dreamer-CPC, a decentralized model-based MARL method that integrates message learning based on Collective Predictive Coding (CPC) into the world model of DreamerV3. Each agent independently maintains a world model and a message module, and infers and exchanges messages from the latent states of the world model that reflect the history of past observations and actions. We evaluated Dreamer-CPC in two environments: Observer, a non-cooperative information-sharing task, and CatchApple, a newly introduced task in which task-relevant observations are temporarily missing. In both environments, Dreamer-CPC outperformed IPPO-CPC, an existing CPC-based method that generates messages from current observations, as well as no-communication baselines. In particular, in CatchApple, Dreamer-CPC achieved 4 to 5 times the episode return of IPPO-CPC, demonstrating effective coordination where other methods fail due to missing observations. These results suggest that communication grounded in the latent dynamics of world models can support decentralized decision-making when current observations alone are insufficient.",
+      "authors": [
+        "Taisuke Takayama",
+        "Naoto Yoshida",
+        "Tadahiro Taniguchi"
+      ],
+      "primary_category": "cs.MA",
+      "categories": [
+        "cs.MA",
+        "cs.LG"
+      ],
+      "published": "2026-07-22T06:42:03+00:00",
+      "link": "https://arxiv.org/pdf/2607.19809v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Integrates world model into multi-agent RL for planning and prediction",
+      "llm_evidence_cn": "将世界模型集成到多智能体强化学习中用于规划与预测",
+      "llm_evidence": "将世界模型集成到多智能体强化学习中用于规划与预测",
+      "canonical_evidence": "将世界模型集成到多智能体强化学习中用于规划与预测",
+      "llm_tldr_en": "Dreamer-CPC enhances decentralized MARL by integrating message learning into DreamerV3 world models, enabling agents to exchange history-compressed latent information.",
+      "llm_tldr_cn": "Dreamer-CPC将基于集体预测编码的消息学习融入DreamerV3世界模型，使每个智能体独立维护世界模型并交换蕴含历史信息的潜变量，从而在部分可观场景下提升多智能体协作性能，实现了基于世界模型的分散式通信。",
+      "llm_tldr": "Dreamer-CPC将基于集体预测编码的消息学习融入DreamerV3世界模型，使每个智能体独立维护世界模型并交换蕴含历史信息的潜变量，从而在部分可观场景下提升多智能体协作性能，实现了基于世界模型的分散式通信。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.19194v2",
+      "source": "arxiv",
+      "title": "Cognitive Dual-Process Planning for Autonomous Driving with Structured Scene Knowledge and Verifiable Reasoning-Action Consistency",
+      "abstract": "High-level planning for autonomous driving is a knowledge-intensive engineering decision task that requires accurate scene understanding, timely inference, and internally consistent action selection. Vision-language models (VLMs) can make intermediate reasoning explicit, but their use in deployed planners is constrained by costly structured supervision, unnecessary reasoning in routine scenes, and possible inconsistencies between generated rationales and driving actions. We present a cognitive dual-process planning framework that represents planning-relevant scene knowledge in a machine-parsable structured chain-of-thought (S-CoT) schema. An automated data engine integrates perception foundation models, critical-path filtering, and an expert VLM to generate S-CoT supervision without manual annotation of individual rationales. A lightweight visual Arbiter estimates scene complexity from multilevel vision-encoder features before language decoding and routes each input to either fast meta-action prediction or slow structured reasoning. For slow-path outputs, a deterministic rule-based validator checks whether the parsed S-CoT fields are consistent with the final meta-action and provides verifiable rewards for Group Relative Policy Optimization (GRPO). In a 195-scene manual audit, the generated annotations achieve 91.8\\% CoT accuracy and a 98.5\\% Logical Consistency Score (LCS). On 574 manually verified NAVSIM test samples, the planner achieves 80.14\\% planning accuracy and 97.20\\% LCS while reducing average latency by 17.39\\% relative to applying slow reasoning to every scene. Evaluation on external long-tail subsets further identifies conditions under which routing and planning performance degrade. Together, these results show how explicit scene knowledge can be operationalized through adaptive reasoning and rule-based verification to support high-level VLM planning decisions.",
+      "authors": [
+        "Zhongyao Yang",
+        "Haoyu Li",
+        "Yu Yan",
+        "Zhuangxuan Yu",
+        "Jiangfeng Nan",
+        "Jinrui Nan"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "published": "2026-07-21T15:29:21+00:00",
+      "link": "https://arxiv.org/pdf/2607.19194v2",
+      "tags": [
+        "keyword:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "structured scene knowledge for planning and prediction",
+      "llm_evidence_cn": "结构化场景知识用于规划与预测",
+      "llm_evidence": "结构化场景知识用于规划与预测",
+      "canonical_evidence": "结构化场景知识用于规划与预测",
+      "llm_tldr_en": "Proposes a cognitive dual-process planning framework for autonomous driving using structured scene knowledge, with a machine-parsable chain-of-thought schema and reasoning-action consistency verification.",
+      "llm_tldr_cn": "本文针对自动驾驶中视觉语言模型规划器存在的结构化监督成本高、推理不一致等问题，提出了一种认知双过程规划框架。该框架利用机器可解析的结构化思维链（S-CoT）场景知识，并验证推理与行动的一致性。实验表明，该方法在保持高效推理的同时提升了规划可靠性，推动了自动驾驶决策的可解释性发展。",
+      "llm_tldr": "本文针对自动驾驶中视觉语言模型规划器存在的结构化监督成本高、推理不一致等问题，提出了一种认知双过程规划框架。该框架利用机器可解析的结构化思维链（S-CoT）场景知识，并验证推理与行动的一致性。实验表明，该方法在保持高效推理的同时提升了规划可靠性，推动了自动驾驶决策的可解释性发展。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.19876v1",
+      "source": "arxiv",
+      "title": "KineBench: Benchmarking Embodied World Models via IDM-Free Kinematic Grounding",
+      "abstract": "Evaluating the physical consistency of embodied world models(EWMs) is a critical open challenge. While closed-loop evaluation via simulator rollouts offers a more faithful assessment of physical plausibility than open-loop alternatives, existing frameworks almost exclusively rely on Inverse Dynamics Models(IDMs) for action extraction. Due to the intricate mapping from 2D pixel space to 3D kinematic space, the learned IDMs can be brittle to data outside their training distribution, resulting in unreliable action extraction from the generated videos with novel objects and scenarios. This creates an unavoidable attribution ambiguity between world model inaccuracies and extractor errors. To reduce this ambiguity, we present KineBench, an IDM-free closed-loop benchmark for EWMs, built upon an explicit kinematic grounding pipeline. Given a generated video, KineBench employs cascaded visual foundation models to directly extract 6D end-effector poses from individual frames, which are then executed in a physics simulator for closed-loop validation. Beyond execution-based task success, KineBench incorporates two classical 3D kinematic metrics--Spectral Arc Length (SPARC) and the Maruyama Manipulability Index--to characterize trajectory smoothness and kinematic feasibility from a robot-centric perspective. Built on 20 diverse manipulation tasks in ManiSkill3, KineBench evaluates EWMs across four progressive suites: basic execution, task transfer, visual out-of-distribution generalization, and complexity-conditioned scaling. Evaluation across frontier models reveals task-complexity-bounded nonlinear scaling in embodied video generation, providing empirical guidance for future data-scaling strategies.",
+      "authors": [
+        "Zeyu Liu",
+        "Zhangzhe Zhu",
+        "Yang Zhang",
+        "Chenyou Fan",
+        "Chenjia Bai",
+        "Xuelong Li"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "published": "2026-07-22T08:04:17+00:00",
+      "link": "https://arxiv.org/pdf/2607.19876v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "benchmarking embodied world models with kinematic grounding",
+      "llm_evidence_cn": "用运动学基准评估具身世界模型",
+      "llm_evidence": "用运动学基准评估具身世界模型",
+      "canonical_evidence": "用运动学基准评估具身世界模型",
+      "llm_tldr_en": "Introduces KineBench, an IDM-free benchmark to evaluate physical consistency of embodied world models, reducing attribution ambiguity between model and extractor errors.",
+      "llm_tldr_cn": "评估具身世界模型的物理一致性存在逆动力学模型引起的不确定性归属问题。本文提出KineBench，无需逆动力学模型，通过运动学基准直接评测世界模型的物理合理性。该基准减少了模型误差与提取器误差的混淆，更可靠地反映世界模型性能。",
+      "llm_tldr": "评估具身世界模型的物理一致性存在逆动力学模型引起的不确定性归属问题。本文提出KineBench，无需逆动力学模型，通过运动学基准直接评测世界模型的物理合理性。该基准减少了模型误差与提取器误差的混淆，更可靠地反映世界模型性能。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.19971v1",
+      "source": "arxiv",
+      "title": "Unified Prediction and Planning via Conflict-Aware Disjoint Parameter Training",
+      "abstract": "Accurate motion prediction of surrounding agents and safe motion planning are two closely coupled key tasks for social robot navigation in crowded environments. Deploying these systems on resource-constrained edge devices necessitates compact, unified models that can perform both tasks simultaneously. However, within these compact shared encoders, recent unified models often overlook severe representational conflicts that arise from the distinct objectives of predicting neighbor behaviors versus ego-centric safety planning. To address this issue, we first identify the Skill Conflict$\\unicode{x2014}$a phenomenon where overlapping parameter assignments cause distinct tasks to compete for the same weights, preventing the model from fully specializing in individual skills. To resolve this, we propose a novel model-merging-based framework, Disjoint Parameter Training (DPT). DPT mitigates performance degradation caused by Skill Conflict through distributed parameter learning, which separates the key parameter regions of each task while preserving their core capabilities prior to merging. In addition, we observe that sparse merging, which selectively integrates only the most influential parameters for each task rather than combining all task-specific parameters, yields optimal performance by preventing interference among adjacent features and concentrating representational capacity. DPT can be applied in parallel with a variety of merging methods. Evaluated on standard crowd navigation benchmarks (JRDB and JTA), our framework demonstrates superior performance, validating its versatility and effectiveness for safe, resource-efficient robot navigation.",
+      "authors": [
+        "Taewon Seo",
+        "Seonae Jeon",
+        "Giwon Lee",
+        "Kuk-Jin Yoon",
+        "Daehee Park"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "published": "2026-07-22T09:54:22+00:00",
+      "link": "https://arxiv.org/pdf/2607.19971v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "unified prediction and planning model with conflict-aware training",
+      "llm_evidence_cn": "统一预测与规划模型，采用冲突感知参数训练",
+      "llm_evidence": "统一预测与规划模型，采用冲突感知参数训练",
+      "canonical_evidence": "统一预测与规划模型，采用冲突感知参数训练",
+      "llm_tldr_en": "Proposes a unified model for motion prediction and planning with conflict-aware disjoint parameter training to resolve skill conflicts.",
+      "llm_tldr_cn": "社交机器人导航中，预测和规划任务共享编码器会导致表示冲突。本文识别了技能冲突现象，并提出冲突感知分离参数训练方法，为不同任务分配专用参数，避免权重竞争。在统一模型架构下同时实现预测和规划，且适用于边缘设备。实验表明该方法在预测精度和规划安全性上均优于统一模型基线。这项工作为资源受限场景下的多任务模型设计提供了新思路。",
+      "llm_tldr": "社交机器人导航中，预测和规划任务共享编码器会导致表示冲突。本文识别了技能冲突现象，并提出冲突感知分离参数训练方法，为不同任务分配专用参数，避免权重竞争。在统一模型架构下同时实现预测和规划，且适用于边缘设备。实验表明该方法在预测精度和规划安全性上均优于统一模型基线。这项工作为资源受限场景下的多任务模型设计提供了新思路。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2607.14919v1",
+      "source": "arxiv",
+      "title": "Human-Robot Interaction in GenAI Architectures via the Agent-Client Protocol",
+      "abstract": "Recent advances in Generative Artificial Intelligence (GenAI), particularly Large Language Models (LLMs), are driving robotic architectures toward agent-based high-level orchestration, in which natural-language instructions can be translated into context-aware action sequences. While the integration of these agents and robotic capabilities is increasingly converging toward standardization through the Model Context Protocol (MCP), the upper Human-Robot Interaction (HRI) layer remains fragmented by proprietary, ad hoc interfaces that hinder real-time human-in-the-loop collaboration.   To address this fragmentation, this paper proposes the adoption of the Agent-Client Protocol (ACP) -- a communication standard originally introduced for coding agents in software engineering -- as a unified communication contract for the HRI layer in agent-based robotic systems. By combining ACP at the interface-agent link and MCP at the agent-execution link, we formulate a fully decoupled three-layer architecture that separates human interaction, deliberative orchestration, and physical execution. This topology removes rigid architectural dependencies, enabling heterogeneous user interfaces to connect to the same robotic system and allowing the underlying robotic platform to be replaced without requiring client-specific integration changes. Moreover, it provides native support for collaborative HRI capabilities such as real-time observability, explicit human authorization, and immediate task interruption. We experimentally evaluate the proposed architecture on a physical mobile robot, demonstrating interoperability across three heterogeneous user interfaces and validating real-time human-in-the-loop workflows with negligible latency overhead.",
+      "authors": [
+        "Jesus Moncada-Ramirez",
+        "Jose-Raul Ruiz-Sarmiento",
+        "Javier Gonzalez-Jimenez"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-16T12:38:48+00:00",
+      "link": "https://arxiv.org/pdf/2607.14919v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "AI integrated with physical agents (robots) via communication protocol",
+      "llm_evidence_cn": "通过通信协议将人工智能与物理智能体（机器人）集成",
+      "llm_evidence": "通过通信协议将人工智能与物理智能体（机器人）集成",
+      "canonical_evidence": "通过通信协议将人工智能与物理智能体（机器人）集成",
+      "llm_tldr_en": "Proposes the Agent-Client Protocol (ACP) to standardize human-robot interaction in GenAI-driven robotic architectures, enabling seamless AI integration with physical agents.",
+      "llm_tldr_cn": "本文针对生成式人工智能驱动的机器人架构中人机交互层碎片化、缺乏标准化接口的问题，提出了采用智能体-客户端协议（ACP）作为通信标准。该协议原本用于编码智能体，现扩展至机器人领域，支持自然语言指令实时转化为上下文感知动作序列。实验证明，ACP有效促进了人工智能与物理智能体的集成，为具身智能系统提供了开放统一的交互标准。",
+      "llm_tldr": "本文针对生成式人工智能驱动的机器人架构中人机交互层碎片化、缺乏标准化接口的问题，提出了采用智能体-客户端协议（ACP）作为通信标准。该协议原本用于编码智能体，现扩展至机器人领域，支持自然语言指令实时转化为上下文感知动作序列。实验证明，ACP有效促进了人工智能与物理智能体的集成，为具身智能系统提供了开放统一的交互标准。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.15660v1",
+      "source": "arxiv",
+      "title": "ToolVerse: Unlocking Massive Environments and Long-Horizon Tasks for Agentic Reinforcement Learning",
+      "abstract": "While LLM agents demonstrate strong reasoning abilities in compact and well-defined scenarios, they struggle to maintain robustness and effectiveness when faced with large-scale, diverse, and dynamic real-world environments that demand seamless tool integration. To address this gap, we introduce ToolVerse, a comprehensive framework that scales up agentic RL environments and enables agents to perform complex long-horizon reasoning in Tool-Integrated Reasoning (TIR) tasks. First, ToolVerse automatically builds the massive executable agent training environments from nearly 400 real-world Model Context Protocols (MCPs) that contain about 4500 tools. Second, we propose a task design strategy based on a tool dependency graph, utilizing Dynamic Unlocking Sampling Algorithm to generate long-horizon tasks, and produce GUST (Graph Unlocking Sampling Tasks) dataset. Third, to alleviate the credit assigment problem in long-horizon agentic RL, we propose a fine-grained Turn-Aware Relative Advantage algorithm. We conduct extensive Agentic RL training using ToolVerse and evaluate our framework on serveral agentic benchmarks. Experimental results demonstrate that our framework significantly strengthens LLMs' capabilities in long-horizon tool use, achieving a marked performance boost and showcasing robust reasoning within dynamic environments.",
+      "authors": [
+        "Shuaiyu Zhou",
+        "Fengpeng Yue",
+        "Zengjie Hu",
+        "Yuanzhe Shen",
+        "Chenyang Zhang",
+        "feng hong",
+        "Cao Liu",
+        "Ke Zeng"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-07-17T06:12:04+00:00",
+      "link": "https://arxiv.org/pdf/2607.15660v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "framework for massive agentic RL environments with tool integration",
+      "llm_evidence_cn": "大规模代理强化学习环境框架，集成工具使用",
+      "llm_evidence": "大规模代理强化学习环境框架，集成工具使用",
+      "canonical_evidence": "大规模代理强化学习环境框架，集成工具使用",
+      "llm_tldr_en": "ToolVerse automatically builds massive executable agent training environments from real-world MCPs to enable long-horizon tool-integrated reasoning.",
+      "llm_tldr_cn": "LLM代理在真实世界大规模动态环境中难以保持鲁棒性。本文提出ToolVerse，一个从近400个真实模型上下文协议（MCP）自动构建可执行训练环境的框架，包含约4500个工具。该框架支持长程工具集成推理（TIR）任务。通过工具依赖图的任务设计策略，ToolVerse显著提升了代理在复杂环境中的泛化能力。这项工作为代理强化学习提供了可扩展的环境生成方法。",
+      "llm_tldr": "LLM代理在真实世界大规模动态环境中难以保持鲁棒性。本文提出ToolVerse，一个从近400个真实模型上下文协议（MCP）自动构建可执行训练环境的框架，包含约4500个工具。该框架支持长程工具集成推理（TIR）任务。通过工具依赖图的任务设计策略，ToolVerse显著提升了代理在复杂环境中的泛化能力。这项工作为代理强化学习提供了可扩展的环境生成方法。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.17651v1",
+      "source": "arxiv",
+      "title": "HCPG-Flow:Hierarchical Contact-Progress Guidance for Flow-Policy Robot Manipulation",
+      "abstract": "Flow policies can represent multimodal action distributions for robot manipulation, yet a robot must execute one action at each control step. When several proposals are sampled, critic-based ranking makes data collection depend on value estimates over candidate actions that may be weakly represented in replay. We introduce HCPG-Flow, an analytic rollout-time selector that augments SAC-Flow with hierarchical, object-centric contact-progress guidance while preserving its actor and critic objectives. HCPG switches from end-effector approach to task progress after contact, scores each proposal by the first-order reduction of a task-relevant distance, standardizes scores within the candidate set, and executes a temperature-controlled action embedding. Across ten simulated tasks, HCPG improves mean success over SAC-Flow on both benchmarks, including a 9.5 percentage-point gain on Maniskill. Four physical tasks further show high success with a 17.4% reduction in successful completion steps.Project page: https://hitxraz.github.io/HCPG-Flow/",
+      "authors": [
+        "Guanghu Xie",
+        "Mingxu Li",
+        "Shuo Zhang",
+        "Yonglong Zhang",
+        "Yifan Yang",
+        "Yang Liu",
+        "Zongwu Xie",
+        "Baoshi Cao"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-20T08:04:35+00:00",
+      "link": "https://arxiv.org/pdf/2607.17651v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "flow policy for robot manipulation with hierarchical contact-progress guidance",
+      "llm_evidence_cn": "用于机器人操作的流策略，结合层次化接触进度引导",
+      "llm_evidence": "用于机器人操作的流策略，结合层次化接触进度引导",
+      "canonical_evidence": "用于机器人操作的流策略，结合层次化接触进度引导",
+      "llm_tldr_en": "Introduces HCPG-Flow, an analytic rollout-time selector for flow policy in robot manipulation, using hierarchical contact-progress guidance to improve action selection.",
+      "llm_tldr_cn": "针对流策略在多模态动作选择中依赖弱表示值估计的问题，提出HCPG-Flow，在SAC-Flow基础上增加层次化的物体中心接触进度引导，在候选动作中选择能最大化任务相关距离减少的动作，并引入温度控制嵌入。实验表明提升了操作任务的样本效率和成功率。",
+      "llm_tldr": "针对流策略在多模态动作选择中依赖弱表示值估计的问题，提出HCPG-Flow，在SAC-Flow基础上增加层次化的物体中心接触进度引导，在候选动作中选择能最大化任务相关距离减少的动作，并引入温度控制嵌入。实验表明提升了操作任务的样本效率和成功率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.17299v1",
+      "source": "arxiv",
+      "title": "WAR: Workload-Aware Rollouts for Synchronous Agentic Reinforcement Learning",
+      "abstract": "Long-horizon rollout generation has become the dominant systems bottleneck in agentic reinforcement learning (RL). As agents interact with environments over many turns, trajectories rapidly grow to tens of thousands of tokens, making synchronous RL training increasingly constrained by rollout. We propose WAR, a workload-aware rollout system that substantially accelerates synchronous agentic RL by jointly optimizing decoding and scheduling. WAR is built on a key observation: the optimal rollout optimization strategy depends on runtime load: (1) Under low load, WAR enables model-free speculative decoding with SuffixDecoding, which reuses suffix patterns from previously completed trajectories as speculative drafts for future rollouts. Unlike model-based drafters, SuffixDecoding introduces no additional draft model and avoids GPU contention with rollout generation. (2) Under high load, where saturated batched decoding leaves limited room for speculative speedup, WAR shifts the optimization focus to cache-aware scheduling. A global scheduler places requests across rollout replicas based on cache locality, trajectory progress and server load, reducing redundant KV-cache recomputation and mitigating load imbalance. By combining decoding-level suffix reuse with system-level rollout scheduling, WAR delivers robust throughput improvements across workload regimes without changing the underlying RL algorithm. WAR improves long-context agentic rollout throughput by 1.4x under low load and up to 1.6x under high load. These results show that WAR removes a major rollout bottleneck in synchronous agentic RL and provides a practical path toward scalable long-context agent training.",
+      "authors": [
+        "Ryan Xu",
+        "Atlas Zhao",
+        "David Bao",
+        "Frank Du"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL",
+        "cs.OS"
+      ],
+      "published": "2026-07-19T15:31:13+00:00",
+      "link": "https://arxiv.org/pdf/2607.17299v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "accelerates rollout generation in agentic reinforcement learning with world dynamics",
+      "llm_evidence_cn": "加速智能体强化学习中与动态环境交互的轨迹生成",
+      "llm_evidence": "加速智能体强化学习中与动态环境交互的轨迹生成",
+      "canonical_evidence": "加速智能体强化学习中与动态环境交互的轨迹生成",
+      "llm_tldr_en": "Introduces WAR, a workload-aware rollout system that accelerates synchronous agentic RL by optimizing decoding and scheduling based on runtime load.",
+      "llm_tldr_cn": "针对智能体强化学习中长程轨迹生成成为系统瓶颈的问题，提出WAR系统，根据运行时负载联合优化解码和调度：低负载时使用无模型推测解码复用后缀模式，高负载时动态调整。实验表明显著加速同步智能体RL训练。",
+      "llm_tldr": "针对智能体强化学习中长程轨迹生成成为系统瓶颈的问题，提出WAR系统，根据运行时负载联合优化解码和调度：低负载时使用无模型推测解码复用后缀模式，高负载时动态调整。实验表明显著加速同步智能体RL训练。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.19534v1",
+      "source": "arxiv",
+      "title": "Learning Personalized Safety Interventions for Haptic Human-Robot Shared Control",
+      "abstract": "Haptic feedback provides an implicit channel for communicating safety intentions during human-robot shared control. Existing haptic guidance systems typically employ predefined intervention strategies that cannot accommodate the diverse safety preferences of individual users or application scenarios. To address this limitation, we propose a Learning from Haptics (LfH) framework that learns user-preferred safety interventions from sparse demonstrations, eliminating the need for manual trial-and-error design. Our framework is built on a differentiable Control Barrier Function (CBF)-based optimization layer that automatically adjusts the underlying safety parameters to match the demonstrated haptic responses. Instead of tuning controller parameters directly, users teach the system how they expect it to intervene during teleoperation. The resulting haptic guidance reflects the demonstrated intervention preferences while preserving the intuitive interaction of haptic shared control. Simulation and hardware experiments demonstrate that the proposed framework can learn personalized safety interventions from sparse user input and reduce the mismatch between the generated haptic feedback and the demonstrated preferences.",
+      "authors": [
+        "Dawei Zhang",
+        "Roberto Tron"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-21T19:28:41+00:00",
+      "link": "https://arxiv.org/pdf/2607.19534v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "learning user-preferred safety interventions from sparse demonstrations",
+      "llm_evidence_cn": "从稀疏演示中学习用户偏好的安全干预",
+      "llm_evidence": "从稀疏演示中学习用户偏好的安全干预",
+      "canonical_evidence": "从稀疏演示中学习用户偏好的安全干预",
+      "llm_tldr_en": "Proposes a Learning from Haptics framework that learns personalized safety interventions from sparse demonstrations using a differentiable CBF optimization layer.",
+      "llm_tldr_cn": "针对现有人机共享控制中安全干预策略无法适应个体偏好问题，提出从触觉演示中学习的框架，利用可微控制障碍函数优化层从稀疏演示调整安全参数，无需手动调试。实验表明能匹配用户偏好的干预策略。",
+      "llm_tldr": "针对现有人机共享控制中安全干预策略无法适应个体偏好问题，提出从触觉演示中学习的框架，利用可微控制障碍函数优化层从稀疏演示调整安全参数，无需手动调试。实验表明能匹配用户偏好的干预策略。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.19880v1",
+      "source": "arxiv",
+      "title": "EA-Nav: Learning Safe Visual Navigation Policies with Embodiment Awareness",
+      "abstract": "Cross-embodiment navigation is a key challenge in embodied intelligence. Due to differences in embodiment, the same visual observation may imply different actions for different agents, making prediction ambiguous when relying solely on vision. Existing studies mainly rely on reinforcement learning, which requires large-scale interaction and careful reward design, making it difficult to support scalable pretraining and real-world adaptation. In contrast, imitation-learning-based approaches remain limited. To address these challenges, we propose an imitation-learning-based embodiment-aware navigation framework with a modular multi-stage design. In pretraining, we construct a cross-embodiment navigation dataset from Internet videos and introduce embodiment geometry as conditional tokens to reduce action ambiguity under the same observation. In fine-tuning, we design a multimodal information injection mechanism based on a decoupled architecture. Specifically, we design a trajectory augmentation strategy to generate high-risk samples, which are used to train spatial perception and risk-aware correction separately, thereby explicitly incorporating embodiment geometry for safe navigation. Experimental results show that the proposed method effectively improves navigation performance across different embodiment settings, demonstrating the effectiveness of incorporating embodiment geometry into embodied navigation.",
+      "authors": [
+        "Jialu Zhang",
+        "Yong Du",
+        "Xianda Guo",
+        "Shunwang Sun",
+        "Xinqi Liu",
+        "Yue Sun",
+        "Guodong Lu",
+        "Wei Sui",
+        "Jituo Li"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "published": "2026-07-22T08:10:49+00:00",
+      "link": "https://arxiv.org/pdf/2607.19880v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "embodied awareness and imitation learning for navigation",
+      "llm_evidence_cn": "具身感知与模仿学习用于导航",
+      "llm_evidence": "具身感知与模仿学习用于导航",
+      "canonical_evidence": "具身感知与模仿学习用于导航",
+      "llm_tldr_en": "EA-Nav proposes an imitation-learning-based navigation framework with embodiment awareness, enabling safe cross-embodiment visual navigation by constructing a cross-embodiment dataset from Internet videos.",
+      "llm_tldr_cn": "跨具身导航是具身智能的关键挑战，现有强化学习方法需要大量交互且难以扩展。本文提出EA-Nav，一种基于模仿学习的具身感知导航框架，通过从互联网视频构建跨具身导航数据集，并结合模块化多阶段设计，使机器人能够安全地在不同形态间迁移导航策略。实验表明该方法在多种具身上有效，为可扩展的具身导航提供了新思路。",
+      "llm_tldr": "跨具身导航是具身智能的关键挑战，现有强化学习方法需要大量交互且难以扩展。本文提出EA-Nav，一种基于模仿学习的具身感知导航框架，通过从互联网视频构建跨具身导航数据集，并结合模块化多阶段设计，使机器人能够安全地在不同形态间迁移导航策略。实验表明该方法在多种具身上有效，为可扩展的具身导航提供了新思路。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.20110v1",
+      "source": "arxiv",
+      "title": "Extreme-RGMT: Continual Learning of Highly Dynamic Skills for Robust Generalist Humanoid Control",
+      "abstract": "Humans can progressively acquire highly dynamic motor skills while preserving reliable everyday motor abilities. In contrast, existing humanoid controllers face a trade-off between generalist and specialist capabilities: generalist motion tracking policies struggle to reliably execute rare highly dynamic motions, whereas specialist training can degrade previously acquired behaviors. We introduce Extreme-RGMT, a two-stage continual learning framework for robust generalist humanoid control. The method first learns a generalist motion-tracking base policy from diverse multi-source motion data, then employs an asymmetric skill acquisition and capability consolidation mechanism to constrain policy drift on mastered motions while emphasizing difficult dynamic segments. To address the scarcity of highly dynamic motions, their high failure rates, and the resulting shortage of informative samples, Extreme-RGMT combines difficulty-aware sampling with advantage-prioritized trajectory resampling to emphasize critical segments. Experiments show that Extreme-RGMT achieves state-of-the-art generalist whole-body motion-tracking performance, including substantially improved completion of challenging highly dynamic motions. The resulting controller directly executes diverse unseen highly dynamic motions under fixed references and online inertial motion-capture inputs, advancing generalist whole-body motion-tracking controllers toward highly dynamic motor capabilities at the human-expert level.",
+      "authors": [
+        "Yubiao Ma",
+        "Han Yu",
+        "Kai Guo",
+        "Changtai Lv",
+        "Zhengquan Mao",
+        "Boyang Xing",
+        "Xuemei Ren",
+        "Dongdong Zheng"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-22T13:10:22+00:00",
+      "link": "https://arxiv.org/pdf/2607.20110v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "learning dynamic motor skills from expert demonstrations",
+      "llm_evidence_cn": "从专家演示中学习动态运动技能",
+      "llm_evidence": "从专家演示中学习动态运动技能",
+      "canonical_evidence": "从专家演示中学习动态运动技能",
+      "llm_tldr_en": "Introduces Extreme-RGMT, a continual learning framework for humanoid control that learns a generalist motion-tracking policy from diverse multi-source motion data and consolidates skills to avoid forgetting.",
+      "llm_tldr_cn": "本文针对人形机器人控制器在通用与专用能力之间的权衡问题，提出了Extreme-RGMT两阶段持续学习框架。第一阶段从多源运动数据学习通用运动跟踪策略，第二阶段通过非对称技能获取与能力巩固机制抑制已掌握技能的漂移。实验表明，该方法能有效学习动态运动技能同时保持日常运动能力，为实现稳健通用人形控制提供了新思路。",
+      "llm_tldr": "本文针对人形机器人控制器在通用与专用能力之间的权衡问题，提出了Extreme-RGMT两阶段持续学习框架。第一阶段从多源运动数据学习通用运动跟踪策略，第二阶段通过非对称技能获取与能力巩固机制抑制已掌握技能的漂移。实验表明，该方法能有效学习动态运动技能同时保持日常运动能力，为实现稳健通用人形控制提供了新思路。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}
