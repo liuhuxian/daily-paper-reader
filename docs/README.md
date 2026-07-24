@@ -6,61 +6,64 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-23
-- 运行时间：2026-07-23 21:14:22 UTC
+- 最新运行日期：2026-07-24
+- 运行时间：2026-07-24 20:41:35 UTC
 - 运行状态：成功
-- 本次总论文数：13
+- 本次总论文数：14
 - 精读区：6
-- 速读区：7
+- 速读区：8
 
 ### 今日简报（AI）
-1) 今日13篇论文聚焦世界模型与机器人交互，精读2篇高分研究揭示稳定动力学与持续强化学习新突破。
-2) 《Koopman Dreamer》（9.0）提出谱约束潜动力学解决世界模型不稳定想象，《Dream Rehearsal》（9.0）则让智能体在遗忘中记住关键经验。
-3) 建议优先精读这两篇拿高分论文，若关注人机协作可速读HCPG-Flow和共享控制类工作。
-- 详情：[/202607/23/README](/202607/23/README)
+1) 今日日报聚焦可解释注意力与残差强化学习在机器人操作中的突破，共精读6篇、速读8篇。  
+2) 最值得关注：**《GuidedAttention》**（9.0分）提出可解释、可纠正的视觉注意力机制，显著提升模仿学习在分布外场景的鲁棒性；**《Foresight Residual RL》**（8.0分）结合视觉-语言-动作模型，解决长程操作任务。  
+3) 下步建议：优先细读上述两篇精读文章，关注其开源代码或实验细节；速读部分可接着看流式扩散模型用于多智能体协同，以及结构化场景推理的自动驾驶方法。
+- 详情：[/202607/24/README](/202607/24/README)
 
 ### 精读区论文标签
-1. [Koopman Dreamer: Spectrally Constrained Latent Dynamics for Stable World-Model Imagination](/202607/23/2607.19719v1-koopman-dreamer-spectrally-constrained-latent-dynamics-for-stable-world-model-imagination)  
+1. [GuidedAttention: Interpretable and Correctable Visual Attention for OOD-Robust Robot Manipulation via Imitation Learning](/202607/24/2607.21049v1-guidedattention-interpretable-and-correctable-visual-attention-for-ood-robust-robot-manipulation-via-imitation-learning)  
    标签：评分：9.0/10、query:wmi
-   evidence：基于Koopman的谱约束潜在动力学，实现稳定世界模型想象
-2. [The World Model Remembers, the Actor Forgets: Dream Rehearsal for Continual Model-Based RL](/202607/23/2607.19749v1-the-world-model-remembers-the-actor-forgets-dream-rehearsal-for-continual-model-based-rl)  
-   标签：评分：9.0/10、query:wmi
-   evidence：基于模型强化学习中的世界模型用于规划与动力学
-3. [Dreamer-CPC: Message Learning with World Models for Decentralized Multi-agent Reinforcement Learning](/202607/23/2607.19809v1-dreamer-cpc-message-learning-with-world-models-for-decentralized-multi-agent-reinforcement-learning)  
-   标签：评分：9.0/10、query:wmi
-   evidence：将世界模型集成到多智能体强化学习中用于规划与预测
-4. [Cognitive Dual-Process Planning for Autonomous Driving with Structured Scene Knowledge and Verifiable Reasoning-Action Consistency](/202607/23/2607.19194v2-cognitive-dual-process-planning-for-autonomous-driving-with-structured-scene-knowledge-and-verifiable-reasoning-action-consistency)  
+   evidence：结合可解释视觉注意力的模仿学习用于机器人操作
+2. [Foresight Residual RL for Long-Horizon Robot Manipulation with Vision-Language-Action Models](/202607/24/2607.16506v1-foresight-residual-rl-for-long-horizon-robot-manipulation-with-vision-language-action-models)  
    标签：评分：8.0/10、query:wmi
-   evidence：结构化场景知识用于规划与预测
-5. [KineBench: Benchmarking Embodied World Models via IDM-Free Kinematic Grounding](/202607/23/2607.19876v1-kinebench-benchmarking-embodied-world-models-via-idm-free-kinematic-grounding)  
+   evidence：结合视觉-语言-动作模型、残差强化学习和前瞻值用于机器人操作
+3. [RynnBrain 1.1: Towards More Capable and Generalizable Embodied Foundation Model](/202607/24/2607.17977v1-rynnbrain-11-towards-more-capable-and-generalizable-embodied-foundation-model)  
    标签：评分：8.0/10、query:wmi
-   evidence：用运动学基准评估具身世界模型
-6. [Unified Prediction and Planning via Conflict-Aware Disjoint Parameter Training](/202607/23/2607.19971v1-unified-prediction-and-planning-via-conflict-aware-disjoint-parameter-training)  
+   evidence：具身基础模型，支持感知、推理、规划与操作
+4. [Towards Capability-Aware Traversability Navigation for Unstructured Environments](/202607/24/2607.20679v1-towards-capability-aware-traversability-navigation-for-unstructured-environments)  
    标签：评分：8.0/10、query:wmi
-   evidence：统一预测与规划模型，采用冲突感知参数训练
+   evidence：将物理限制嵌入特征空间用于机器人导航
+5. [Emergent Compositional Skills in Mixture-of-Experts VLAs](/202607/24/2607.20771v1-emergent-compositional-skills-in-mixture-of-experts-vlas)  
+   标签：评分：8.0/10、query:wmi
+   evidence：从专家演示学习组合式机器人策略
+6. [HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving](/202607/24/2607.20988v1-hyworldvla-a-vision-language-action-model-with-hybrid-world-modeling-for-autonomous-driving)  
+   标签：评分：8.0/10、query:wmi
+   evidence：自动驾驶中视觉-语言-动作的混合世界建模
 
 ### 速读区论文标签
-1. [Human-Robot Interaction in GenAI Architectures via the Agent-Client Protocol](/202607/23/2607.14919v1-human-robot-interaction-in-genai-architectures-via-the-agent-client-protocol)  
+1. [Streaming Multi-Agent Autoregressive Diffusion Model with World State Registers](/202607/24/2607.21594v1-streaming-multi-agent-autoregressive-diffusion-model-with-world-state-registers)  
+   标签：评分：8.0/10、query:wmi
+   evidence：多智能体世界模型与跨智能体世界状态寄存器用于具身视频扩散
+2. [Cognitive Dual-Process Planning for Autonomous Driving with Structured Scene Knowledge and Verifiable Reasoning-Action Consistency](/202607/24/2607.19194v1-cognitive-dual-process-planning-for-autonomous-driving-with-structured-scene-knowledge-and-verifiable-reasoning-action-consistency)  
    标签：评分：7.0/10、query:wmi
-   evidence：通过通信协议将人工智能与物理智能体（机器人）集成
-2. [HCPG-Flow:Hierarchical Contact-Progress Guidance for Flow-Policy Robot Manipulation](/202607/23/2607.17651v1-hcpg-flowhierarchical-contact-progress-guidance-for-flow-policy-robot-manipulation)  
+   evidence：面向自动驾驶规划与推理的内部场景知识表示
+3. [Offline RL with Hierarchical Action Chunking](/202607/24/2607.20834v1-offline-rl-with-hierarchical-action-chunking)  
    标签：评分：7.0/10、query:wmi
-   evidence：用于机器人操作的流策略，结合层次化接触进度引导
-3. [Learning Personalized Safety Interventions for Haptic Human-Robot Shared Control](/202607/23/2607.19534v1-learning-personalized-safety-interventions-for-haptic-human-robot-shared-control)  
+   evidence：离线目标条件强化学习与层次规划
+4. [Expert Behavior Prior Reinforcement Learning](/202607/24/2607.21302v1-expert-behavior-prior-reinforcement-learning)  
    标签：评分：7.0/10、query:wmi
-   evidence：从稀疏演示中学习用户偏好的安全干预
-4. [EA-Nav: Learning Safe Visual Navigation Policies with Embodiment Awareness](/202607/23/2607.19880v1-ea-nav-learning-safe-visual-navigation-policies-with-embodiment-awareness)  
+   evidence：利用离线专家演示作为行为先验进行策略学习
+5. [AXIS: A Growable Community-Driven Data Engine for Scalable Robot Manipulation](/202607/24/2607.21588v1-axis-a-growable-community-driven-data-engine-for-scalable-robot-manipulation)  
    标签：评分：7.0/10、query:wmi
-   evidence：具身感知与模仿学习用于导航
-5. [Extreme-RGMT: Continual Learning of Highly Dynamic Skills for Robust Generalist Humanoid Control](/202607/23/2607.20110v1-extreme-rgmt-continual-learning-of-highly-dynamic-skills-for-robust-generalist-humanoid-control)  
-   标签：评分：7.0/10、query:wmi
-   evidence：从专家演示中学习动态运动技能
-6. [ToolVerse: Unlocking Massive Environments and Long-Horizon Tasks for Agentic Reinforcement Learning](/202607/23/2607.15660v1-toolverse-unlocking-massive-environments-and-long-horizon-tasks-for-agentic-reinforcement-learning)  
+   evidence：机器人操作演示数据收集用于策略学习
+6. [Patch Policy: Efficient Embodied Control via Dense Visual Representations](/202607/24/2607.18236v1-patch-policy-efficient-embodied-control-via-dense-visual-representations)  
    标签：评分：6.0/10、query:wmi
-   evidence：大规模代理强化学习环境框架，集成工具使用
-7. [WAR: Workload-Aware Rollouts for Synchronous Agentic Reinforcement Learning](/202607/23/2607.17299v1-war-workload-aware-rollouts-for-synchronous-agentic-reinforcement-learning)  
+   evidence：密集视觉表示用于高效具身控制
+7. [STeP: Signal Temporal Logic for Precise Specifications for Action Generation with Vision Language Models](/202607/24/2607.18580v1-step-signal-temporal-logic-for-precise-specifications-for-action-generation-with-vision-language-models)  
    标签：评分：6.0/10、query:wmi
-   evidence：加速智能体强化学习中与动态环境交互的轨迹生成
+   evidence：使用信号时序逻辑和视觉语言模型的分层框架用于机器人动作生成
+8. [Scale Up Strategically: Learning Compositional Generalization via Bias-Aware Evaluation and Data Collection for Robotic Manipulation](/202607/24/2607.21582v1-scale-up-strategically-learning-compositional-generalization-via-bias-aware-evaluation-and-data-collection-for-robotic-manipulation)  
+   标签：评分：6.0/10、query:wmi
+   evidence：通过偏差感知数据收集从演示学习策略
 
 
 <div class="dpr-home-promo-card">

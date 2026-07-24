@@ -1,0 +1,601 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-24T20:34:10.561342+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 7,
+    "deep_cap": 6,
+    "deep_selected": 6,
+    "quick_candidates": 8,
+    "quick_skim_target": 11,
+    "quick_selected": 8
+  },
+  "deep_dive": [
+    {
+      "id": "2607.21049v1",
+      "source": "arxiv",
+      "title": "GuidedAttention: Interpretable and Correctable Visual Attention for OOD-Robust Robot Manipulation via Imitation Learning",
+      "abstract": "End-to-end visuomotor policies provide little opportunity for humans to understand or correct the policy's visual attention. We propose GuidedAttention, a visuomotor imitation learning framework that introduces interpretable and correctable visual attention as an explicit intermediate representation. Task-relevant attention keypoints are predicted from camera images and condition a diffusion-based action policy. Users can inspect and optionally correct selected keypoints once at rollout initialization, after which the corrected attention is automatically propagated throughout execution by a tracking module. Experiments in simulation and the real world demonstrate that GuidedAttention consistently improves robot manipulation performance, particularly under positional and appearance out-of-distribution (OOD) conditions.",
+      "authors": [
+        "Masaki Murooka",
+        "Ryoichi Nakajo",
+        "Keisuke Shirai",
+        "Tomohiro Motoda",
+        "Hanbit Oh",
+        "Ryo Hanai",
+        "Yukiyasu Domae"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-23T08:33:40+00:00",
+      "link": "https://arxiv.org/pdf/2607.21049v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "imitation learning with interpretable visual attention for robot manipulation",
+      "llm_evidence_cn": "结合可解释视觉注意力的模仿学习用于机器人操作",
+      "llm_evidence": "结合可解释视觉注意力的模仿学习用于机器人操作",
+      "canonical_evidence": "结合可解释视觉注意力的模仿学习用于机器人操作",
+      "llm_tldr_en": "GuidedAttention introduces interpretable and correctable visual attention keypoints as intermediate representation in visuomotor imitation learning for robot manipulation.",
+      "llm_tldr_cn": "端到端视觉运动策略缺乏对视觉注意的解释性和可控性。本文提出GuidedAttention，在模仿学习中引入可解释且可修正的注意力关键点作为中间表示，用户可在初始化时检查和修正关键点，随后由跟踪模块自动传播。在仿真和真实实验中，该方法提升了策略的鲁棒性和可解释性。",
+      "llm_tldr": "端到端视觉运动策略缺乏对视觉注意的解释性和可控性。本文提出GuidedAttention，在模仿学习中引入可解释且可修正的注意力关键点作为中间表示，用户可在初始化时检查和修正关键点，随后由跟踪模块自动传播。在仿真和真实实验中，该方法提升了策略的鲁棒性和可解释性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.17977v1",
+      "source": "arxiv",
+      "title": "RynnBrain 1.1: Towards More Capable and Generalizable Embodied Foundation Model",
+      "abstract": "We present RynnBrain 1.1, a family of embodied foundation models spanning 2B, 9B, and 122B-A10B scales. Trained with a unified spatio-temporal and physically grounded framework, RynnBrain 1.1 supports embodied perception, spatial reasoning, localization, and planning. Compared with RynnBrain 1.0, it further introduces contact-point prediction across the model family and native 3D grounding for the 2B and 9B models, yielding representations and outputs that are more directly aligned with robot manipulation. We also develop RynnBrain-VLA with a unified cross-embodiment action space and embodiment-specific masking, and deploy it on Unitree G1, Astribot-S1, and Tianji-Wuji. RynnBrain 1.1 achieves strong results on embodied cognition, localization, and 3D grounding, with the 122B-A10B model outperforming all evaluated proprietary and open-source models on VSI-Bench, MMSI, and RefSpatial-Bench. Real-robot experiments show that RynnBrain-initialized policies outperform Qwen-based and representative generalist VLAs, while joint multi-task and multi-embodiment training improves process scores and success rates over per-task training.",
+      "authors": [
+        "Kehan Li",
+        "Bohan Hou",
+        "Minghao Zhu",
+        "Tianyi Zhang",
+        "Zesen Cheng",
+        "Zhikai Wang",
+        "Sicong Leng",
+        "Xin Li",
+        "Xiao Lin",
+        "Biying Yao",
+        "Minghua Zeng",
+        "Jiangpin Liu",
+        "Ronghao Dang",
+        "Jiayan Guo",
+        "Siteng Huang",
+        "Haoyu Zhao",
+        "Heng Ping",
+        "Yaxi Zhao",
+        "Kexiang Wang",
+        "Tong Lu",
+        "Shengke Xue",
+        "Jiahao Tang",
+        "Yulei Wang",
+        "Zejing Wang",
+        "Jianwei Gao",
+        "Shijian Lu",
+        "Chengju Liu",
+        "Jianfei Yang",
+        "Mingxiu Chen",
+        "Deli Zhao"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-20T14:13:27+00:00",
+      "link": "https://arxiv.org/pdf/2607.17977v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "embodied foundation model for perception, reasoning, planning, and manipulation",
+      "llm_evidence_cn": "具身基础模型，支持感知、推理、规划与操作",
+      "llm_evidence": "具身基础模型，支持感知、推理、规划与操作",
+      "canonical_evidence": "具身基础模型，支持感知、推理、规划与操作",
+      "llm_tldr_en": "RynnBrain 1.1 is a family of embodied foundation models (2B-122B) with unified spatio-temporal training, supporting perception, localization, planning, and contact-point prediction for robot manipulation.",
+      "llm_tldr_cn": "提出RynnBrain 1.1系列具身基础模型（2B-122B参数规模），采用统一时空和物理接地框架训练，支持感知、空间推理、定位与规划，新增接触点预测和原生3D接地，使表示更直接对齐机器人操作。在多项具身认知和操作基准上达到领先结果，并部署于多种机器人平台。",
+      "llm_tldr": "提出RynnBrain 1.1系列具身基础模型（2B-122B参数规模），采用统一时空和物理接地框架训练，支持感知、空间推理、定位与规划，新增接触点预测和原生3D接地，使表示更直接对齐机器人操作。在多项具身认知和操作基准上达到领先结果，并部署于多种机器人平台。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.16506v1",
+      "source": "arxiv",
+      "title": "Foresight Residual RL for Long-Horizon Robot Manipulation with Vision-Language-Action Models",
+      "abstract": "Vision-Language-Action (VLA) policies offer strong general-purpose manipulation priors, but often fail on tight-tolerance, contact-rich assembly due to long-horizon credit assignment and subtask coupling: a state that is geometrically successful for the current skill can be brittle for downstream skills. We show this failure mode in residual reinforcement learning (RL) over a frozen VLA base policy: constant sparse success rewards improve each subtask in isolation yet yield little or no gain when skills are chained, because terminal state quality is uncontrolled. We propose Foresight Residual RL, which optimizes handoff quality by augmenting each subtask's sparse success reward with an offline-estimated foresight value -- the probability of future subtask success conditioned on the terminal state of the current subtask. Concretely, we (i) train a visual foresight predictor from images of terminal states of the base policy, labeled using downstream rollout statistics, and (ii) train residual policies via backward foresight induction, using the predictor output as a reward multiplier. On a three-phase wrench-based nut-tightening assembly task in Isaac Gym (grasp, move-insert, rotate), our method achieves 85.6% full-task success, outperforming standard subtask residual RL (54.5%) and VLA baselines, while leaving per-subtask success unchanged. These results highlight that improving long-horizon performance requires shaping which successful states are produced at each sub-task, not only whether success occurs.",
+      "authors": [
+        "Yuhan Liu",
+        "Xinyu Zhang",
+        "Litao Liu",
+        "Abdeslam Boularias"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.LG"
+      ],
+      "published": "2026-07-17T21:00:28+00:00",
+      "link": "https://arxiv.org/pdf/2607.16506v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "combines VLA policies, residual RL, and foresight values for robot manipulation",
+      "llm_evidence_cn": "结合视觉-语言-动作模型、残差强化学习和前瞻值用于机器人操作",
+      "llm_evidence": "结合视觉-语言-动作模型、残差强化学习和前瞻值用于机器人操作",
+      "canonical_evidence": "结合视觉-语言-动作模型、残差强化学习和前瞻值用于机器人操作",
+      "llm_tldr_en": "Foresight Residual RL augments sparse success rewards with offline-estimated foresight values to improve handoff quality in long-horizon robot manipulation with VLA base policies.",
+      "llm_tldr_cn": "在长时域机器人操作中，基于VLA策略的残差强化学习常因子任务终端状态质量失控而失效。本文提出前瞻残差强化学习，为每个子任务的成功奖励添加离线估计的前瞻值，优化子任务间切换质量。实验证明该方法在接触丰富的装配任务中显著提升了成功率。",
+      "llm_tldr": "在长时域机器人操作中，基于VLA策略的残差强化学习常因子任务终端状态质量失控而失效。本文提出前瞻残差强化学习，为每个子任务的成功奖励添加离线估计的前瞻值，优化子任务间切换质量。实验证明该方法在接触丰富的装配任务中显著提升了成功率。",
+      "llm_tags": [
+        "query:wmi:composite"
+      ],
+      "matched_query_tag": "query:wmi:composite",
+      "matched_query_text": "Papers central to 世界模型，具身智能，模仿学习, especially work that connects or combines: internal environment models for planning and prediction; artificial intelligence integrated with physical agents and sensors; learning policies from expert demonstrations; reinforcement learning with learned world dynamics; directly copying expert actions from demonstrations; world model applications in embodied artificial intelligence; imitation learning for robotic manipulation; model based reinforcement learning combined with behavioral cloning.",
+      "matched_requirement_id": "req-composite-wmi",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.20679v1",
+      "source": "arxiv",
+      "title": "Towards Capability-Aware Traversability Navigation for Unstructured Environments",
+      "abstract": "Estimating traversability in unstructured environments requires conditioning on robot embodiment, as the same terrain can be traversable for one platform and unsafe for another. Existing methods often transfer predictions across morphologies through late-stage trajectory filtering rather than encoding platform constraints in the learned representation. We propose Capability-Aware Traversability (CAT), a framework that embeds physical limits directly into the spatial feature space. CAT grounds dense supervision masks in physical trajectories through an interactive annotation pipeline and modulates semantic terrain maps with robot-specific traversability vectors through Spatially-Adaptive Denormalization (SPADE) blocks. Across human-annotated and trajectory-aligned datasets, CAT leads all ranking-based metrics, improving AUROC by 11.0% on physically executed trajectories and AUPRC by 15.8% on human traces over the strongest baseline. Ablations show that spatial conditioning and per-robot prototypes produce capability sensitivity beyond generic path prediction. Deployments on a legged quadruped and a wheeled skid-steer demonstrate embodiment-aware obstacle avoidance on embedded hardware at 4.8 Hz.",
+      "authors": [
+        "Gianluca Capezzuto",
+        "Felipe Tommaselli",
+        "Matheus P. Angarola",
+        "Ricardo V. Godoy",
+        "Marcelo Becker"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-22T19:28:57+00:00",
+      "link": "https://arxiv.org/pdf/2607.20679v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "embeds physical limits into feature space for robot navigation",
+      "llm_evidence_cn": "将物理限制嵌入特征空间用于机器人导航",
+      "llm_evidence": "将物理限制嵌入特征空间用于机器人导航",
+      "canonical_evidence": "将物理限制嵌入特征空间用于机器人导航",
+      "llm_tldr_en": "Proposes Capability-Aware Traversability (CAT) that embeds robot physical limits into spatial features for traversability estimation in unstructured environments.",
+      "llm_tldr_cn": "针对非结构化环境中机器人可穿越性估计需考虑本体物理限制的问题，提出能力感知可穿越性（CAT）框架，通过交互式标注将物理约束嵌入空间特征，并利用SPADE模块调制语义地图。实验表明该方法能显著提升不同形态机器人跨地形泛化能力，为具身导航提供了一种将物理能力与感知深度融合的有效范式。",
+      "llm_tldr": "针对非结构化环境中机器人可穿越性估计需考虑本体物理限制的问题，提出能力感知可穿越性（CAT）框架，通过交互式标注将物理约束嵌入空间特征，并利用SPADE模块调制语义地图。实验表明该方法能显著提升不同形态机器人跨地形泛化能力，为具身导航提供了一种将物理能力与感知深度融合的有效范式。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.20771v1",
+      "source": "arxiv",
+      "title": "Emergent Compositional Skills in Mixture-of-Experts VLAs",
+      "abstract": "We consider the problem of learning compositional robot policies end-to-end from expert demonstrations, without any pre-specified notion of task decomposition or hierarchy. We ask whether a VLA trained with a simplified Mixture-of-Experts (MoE) action head can emergently learn to decompose tasks into reusable, interpretable primitives. We find that learned experts are heavily reused across tasks and consistently correspond to qualitatively distinct low-level behaviors, suggesting that the router implicitly learns to perform high-level sequencing while experts serve as compositional primitives. Our MoE matches the task performance of a monolithic baseline while demonstrating meaningful expert specialization, a step toward modular, interpretable robot policies that emerge from data alone.",
+      "authors": [
+        "Shlok Shah",
+        "Rhiaan Jhaveri",
+        "Tharun Kumar Tiruppali Kalidoss",
+        "Chirayu Nimonkar",
+        "Ishaan Javali"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published": "2026-07-22T22:36:52+00:00",
+      "link": "https://arxiv.org/pdf/2607.20771v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "compositional robot policies from expert demonstrations",
+      "llm_evidence_cn": "从专家演示学习组合式机器人策略",
+      "llm_evidence": "从专家演示学习组合式机器人策略",
+      "canonical_evidence": "从专家演示学习组合式机器人策略",
+      "llm_tldr_en": "This paper shows that a Mixture-of-Experts VLA can emergently learn to decompose tasks into reusable primitives from expert demonstrations, enabling modular and interpretable robot policies.",
+      "llm_tldr_cn": "该论文研究从专家演示端到端学习组合机器人策略。作者使用简化的混合专家（MoE）动作头训练VLA，发现专家网络在不同任务间被重用并对应不同的低级行为，路由器隐式学习高层排序，使得策略具有模块化与可解释性，且性能不逊于单体基线。",
+      "llm_tldr": "该论文研究从专家演示端到端学习组合机器人策略。作者使用简化的混合专家（MoE）动作头训练VLA，发现专家网络在不同任务间被重用并对应不同的低级行为，路由器隐式学习高层排序，使得策略具有模块化与可解释性，且性能不逊于单体基线。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.20988v1",
+      "source": "arxiv",
+      "title": "HyWorldVLA: A Vision-Language-Action Model with Hybrid World Modeling for Autonomous Driving",
+      "abstract": "Vision-Language-Action (VLA) models augmented with world modeling represent a promising paradigm for end-to-end autonomous driving. While pixel-level future prediction enables fine-grained spatiotemporal reasoning, it compromises robustness in noisy driving scenarios. Conversely, latent-based world models alleviate this sensitivity but often incur limited interpretability and representational degradation due to absent pixel-level grounding. To reconcile this trade-off, we propose HyWorldVLA, a hybrid world-VLA framework that unifies pixel-level supervision and latent representation learning. In the pre-training stage, HyWorldVLA predicts video latents encoded by a pre-trained video VAE, while simultaneously reconstructing video frames to provide precise pixel-level grounding. During the subsequent co-fine-tuning phase, the model exclusively predicts latent features, which are fed into an action expert to generate trajectories. Extensive experiments on NAVSIM v1 and v2 benchmarks demonstrate that HyWorldVLA significantly outperforms both pixel-based and latent-based world model baselines. Notably, we present the first comprehensive qualitative and quantitative analysis of world model noise robustness in autonomous driving, establishing a new benchmark for evaluating future architectures.",
+      "authors": [
+        "Quanfu Yu",
+        "Xian Wu",
+        "Hao Xu",
+        "Liulong Ma"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "published": "2026-07-23T07:11:41+00:00",
+      "link": "https://arxiv.org/pdf/2607.20988v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "hybrid world modeling for vision-language-action in autonomous driving",
+      "llm_evidence_cn": "自动驾驶中视觉-语言-动作的混合世界建模",
+      "llm_evidence": "自动驾驶中视觉-语言-动作的混合世界建模",
+      "canonical_evidence": "自动驾驶中视觉-语言-动作的混合世界建模",
+      "llm_tldr_en": "HyWorldVLA unifies pixel-level supervision and latent representation learning in a hybrid world-VLA framework for end-to-end autonomous driving.",
+      "llm_tldr_cn": "该论文提出HyWorldVLA，一种混合世界建模的视觉-语言-动作（VLA）框架，用于端到端自动驾驶。方法结合像素级未来预测和潜在表示学习的优点，预训练阶段同时预测视频潜变量和重建视频帧。实验表明在鲁棒性和解释性之间取得更好权衡。",
+      "llm_tldr": "该论文提出HyWorldVLA，一种混合世界建模的视觉-语言-动作（VLA）框架，用于端到端自动驾驶。方法结合像素级未来预测和潜在表示学习的优点，预训练阶段同时预测视频潜变量和重建视频帧。实验表明在鲁棒性和解释性之间取得更好权衡。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2607.21594v1",
+      "source": "arxiv",
+      "title": "Streaming Multi-Agent Autoregressive Diffusion Model with World State Registers",
+      "abstract": "Multi-agent interactive world models should not only generate consistent observations, but also maintain world states that persist across agents and evolve across views. Existing autoregressive video diffusion pipelines carry forward observation history as conditioning context, which makes shared state difficult to maintain in multi-agent and multi-view settings. We present WorldWeaver (W^2), a streaming multi-agent video diffusion model that augments rollout with cross-agent world state registers: learnable tokens that store shared world information, track individual agent status, and are dynamically updated after each generated chunk. We ground these registers with supervision signals spanning individual agent status, global state views including bird's-eye views, and scene text. We further improve the architecture with a Mixture-of-Transformers design that uses separate weights for world state modeling and visual frame modeling. Extensive experiments in two-agent Minecraft video generation show that explicit world-state modeling improves logical consistency and generation quality.",
+      "authors": [
+        "Sicheng Mo",
+        "Yuheng Li",
+        "Ziyang Leng",
+        "Krishna Kumar Singh",
+        "Bolei Zhou"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-07-23T17:59:58+00:00",
+      "link": "https://arxiv.org/pdf/2607.21594v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "multi-agent world model with world state registers for embodied video diffusion",
+      "llm_evidence_cn": "多智能体世界模型与跨智能体世界状态寄存器用于具身视频扩散",
+      "llm_evidence": "多智能体世界模型与跨智能体世界状态寄存器用于具身视频扩散",
+      "canonical_evidence": "多智能体世界模型与跨智能体世界状态寄存器用于具身视频扩散",
+      "llm_tldr_en": "WorldWeaver augments autoregressive video diffusion with cross-agent world state registers to maintain persistent shared states in multi-agent interactive world models.",
+      "llm_tldr_cn": "多智能体交互世界模型需要跨视角保持一致的共享状态。现有自回归视频扩散仅传递观测历史，难以维护共享状态。本文提出WorldWeaver，通过跨智能体世界状态寄存器（可学习令牌）存储和动态更新全局及个体状态。实验证明该方法在多智能体视频生成中保持了状态一致性。",
+      "llm_tldr": "多智能体交互世界模型需要跨视角保持一致的共享状态。现有自回归视频扩散仅传递观测历史，难以维护共享状态。本文提出WorldWeaver，通过跨智能体世界状态寄存器（可学习令牌）存储和动态更新全局及个体状态。实验证明该方法在多智能体视频生成中保持了状态一致性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2607.19194v1",
+      "source": "arxiv",
+      "title": "Cognitive Dual-Process Planning for Autonomous Driving with Structured Scene Knowledge and Verifiable Reasoning-Action Consistency",
+      "abstract": "High-level planning for autonomous driving is a knowledge-intensive engineering decision task that requires accurate scene understanding, timely inference, and internally consistent action selection. Vision-language models (VLMs) can make intermediate reasoning explicit, but their use in deployed planners is constrained by costly structured supervision, unnecessary reasoning in routine scenes, and possible inconsistencies between generated rationales and driving actions. We present a cognitive dual-process planning framework that represents planning-relevant scene knowledge in a machine-parsable structured chain-of-thought (S-CoT) schema. An automated data engine integrates perception foundation models, critical-path filtering, and an expert VLM to generate S-CoT supervision without manual annotation of individual rationales. A lightweight visual Arbiter estimates scene complexity from multilevel vision-encoder features before language decoding and routes each input to either fast meta-action prediction or slow structured reasoning. For slow-path outputs, a deterministic rule-based validator checks whether the parsed S-CoT fields are consistent with the final meta-action and provides verifiable rewards for Group Relative Policy Optimization (GRPO). In a 195-scene manual audit, the generated annotations achieve 91.8\\% CoT accuracy and a 98.5\\% Logical Consistency Score (LCS). On 574 manually verified NAVSIM test samples, the planner achieves 80.14\\% planning accuracy and 97.20\\% LCS while reducing average latency by 17.39\\% relative to applying slow reasoning to every scene. Evaluation on external long-tail subsets further identifies conditions under which routing and planning performance degrade. Together, these results show how explicit scene knowledge can be operationalized through adaptive reasoning and rule-based verification to support high-level VLM planning decisions.",
+      "authors": [
+        "Zhongyao Yang",
+        "Haoyu Li",
+        "Yu Yan",
+        "Zhuangxuan Yu",
+        "Jiangfeng Nan",
+        "Jinrui Nan"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "published": "2026-07-21T15:29:21+00:00",
+      "link": "https://arxiv.org/pdf/2607.19194v1",
+      "tags": [
+        "keyword:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "internal scene knowledge representation for planning and reasoning in autonomous driving",
+      "llm_evidence_cn": "面向自动驾驶规划与推理的内部场景知识表示",
+      "llm_evidence": "面向自动驾驶规划与推理的内部场景知识表示",
+      "canonical_evidence": "面向自动驾驶规划与推理的内部场景知识表示",
+      "llm_tldr_en": "Presents a cognitive dual-process planning framework for autonomous driving that uses structured chain-of-thought scene knowledge to enable verifiable reasoning-action consistency, addressing the need for internal environment models.",
+      "llm_tldr_cn": "针对自动驾驶高层规划中需要准确场景理解与内部一致行动选择的问题，提出认知双过程规划框架。该框架将规划相关场景知识表示为机器可解析的结构化思维链（S-CoT）模式，并集成自动化数据引擎。实验表明该框架在保持推理可解释性的同时提高了规划动作的准确性与一致性，可视为内部环境模型在规划中的一种实现。",
+      "llm_tldr": "针对自动驾驶高层规划中需要准确场景理解与内部一致行动选择的问题，提出认知双过程规划框架。该框架将规划相关场景知识表示为机器可解析的结构化思维链（S-CoT）模式，并集成自动化数据引擎。实验表明该框架在保持推理可解释性的同时提高了规划动作的准确性与一致性，可视为内部环境模型在规划中的一种实现。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.18236v1",
+      "source": "arxiv",
+      "title": "Patch Policy: Efficient Embodied Control via Dense Visual Representations",
+      "abstract": "Pretrained dense visual features from Vision Transformers (ViTs) are powerful yet have been underutilized in robot learning. Modern robot policies either compress each observation into a single global token, or rely on visual backbones trained from scratch, sacrificing both fine-grained spatial detail and the benefits of large-scale visual pre-training. While there exist policies that do operate on dense patch features like large vision-language-action models (VLAs), they tend to be heavy and slow, inheriting the full cost of a billion-parameter vision-language model (VLM) backbone. We close this gap with Patch Policy, a minimal architectural extension that enables transformer-based policies to consume dense pre-trained patch tokens directly without the computational overhead of a full VLM. At its core is a block-causal attention mask that preserves the temporal causality of standard policies while letting the model attend over many patch tokens per observation, alongside other state information. Patch Policy is lightweight, fast, and highly effective. Across four simulated and three real-world environment suites, our method achieves a 40% relative improvement over policies using state-of-the-art global-pooled representations. Furthermore, it surpasses fine-tuned OpenVLA-OFT by 18% while using roughly 0.7% of the parameters. We believe Patch Policy provides a pipeline for the robotics community to readily leverage continuing progress in visual representation learning, without sacrificing the training efficiency or inference speed required for high-frequency, reactive control. Videos can be viewed at https://patch-policy.github.io",
+      "authors": [
+        "Gaoyue Zhou",
+        "Zichen Jeff Cui",
+        "Ada Langford",
+        "Bowen Tan",
+        "Yann LeCun",
+        "Lerrel Pinto"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.LG"
+      ],
+      "published": "2026-07-20T17:59:41+00:00",
+      "link": "https://arxiv.org/pdf/2607.18236v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "dense visual representations for efficient embodied control",
+      "llm_evidence_cn": "密集视觉表示用于高效具身控制",
+      "llm_evidence": "密集视觉表示用于高效具身控制",
+      "canonical_evidence": "密集视觉表示用于高效具身控制",
+      "llm_tldr_en": "Proposes Patch Policy, a minimal architecture extension enabling transformer-based policies to directly consume dense pretrained patch tokens, achieving efficient embodied control with fine-grained spatial details.",
+      "llm_tldr_cn": "现有机器人策略要么将观测压缩为全局标记，要么从头训练视觉骨干，丢失了预训练密集特征的细粒度空间信息。Patch Policy通过最小架构扩展，使基于Transformer的策略可直接利用预训练的密集块标记，无需庞大VLM骨干。实验证明该方法在多个具身控制任务上提高了样本效率与最终性能，且推理速度更快，为具身智能体利用视觉预训练提供了轻量方案。",
+      "llm_tldr": "现有机器人策略要么将观测压缩为全局标记，要么从头训练视觉骨干，丢失了预训练密集特征的细粒度空间信息。Patch Policy通过最小架构扩展，使基于Transformer的策略可直接利用预训练的密集块标记，无需庞大VLM骨干。实验证明该方法在多个具身控制任务上提高了样本效率与最终性能，且推理速度更快，为具身智能体利用视觉预训练提供了轻量方案。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.20834v1",
+      "source": "arxiv",
+      "title": "Offline RL with Hierarchical Action Chunking",
+      "abstract": "Offline goal-conditioned reinforcement learning (RL) holds the promise of learning general-purpose policies from static datasets. However, scaling these methods to long-horizon tasks remains a challenge due to the curse of horizon, where value estimation errors can compound through long chains of bootstrapped Bellman backups. Existing hierarchical approaches mitigate this by decomposing tasks into subgoals, yet they often rely on low-level controllers that suffer from myopic execution and biased value estimates. In this work, we propose Hierarchical Implicit Q-Chunking (HiQC), an offline goal-conditioned RL algorithm that combines high-level latent planning with low-level action chunking. By conditioning the low-level critic on temporally extended action sequences, HiQC enables unbiased k-step value backups, compressing the horizon at both the planning and execution levels. We theoretically demonstrate that this dual decomposition results in a tighter bound on value error under a bounded per-backup error model compared to standard hierarchy or flat chunking alone. Empirically, HiQC achieves the highest aggregate performance among the compared methods on the OGBench suite, with its largest gains on long-horizon navigation tasks such as humanoid-giant.",
+      "authors": [
+        "Ahad Jawaid"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-07-23T01:48:46+00:00",
+      "link": "https://arxiv.org/pdf/2607.20834v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "offline goal-conditioned RL with hierarchical planning",
+      "llm_evidence_cn": "离线目标条件强化学习与层次规划",
+      "llm_evidence": "离线目标条件强化学习与层次规划",
+      "canonical_evidence": "离线目标条件强化学习与层次规划",
+      "llm_tldr_en": "Proposes Hierarchical Implicit Q-Chunking (HiQC) for offline goal-conditioned RL, combining high-level latent planning with low-level action chunking to mitigate long-horizon value errors.",
+      "llm_tldr_cn": "针对离线强化学习在长时任务中估值误差累积的问题，提出层次隐式Q分块（HiQC）算法，结合高层潜在规划与低层动作分块，通过将低层评论家条件于时间扩展的动作序列来减少偏差。实验表明HiQC在连续控制任务中优于现有离线方法，为基于模型的离线RL提供了层次化解决方案。",
+      "llm_tldr": "针对离线强化学习在长时任务中估值误差累积的问题，提出层次隐式Q分块（HiQC）算法，结合高层潜在规划与低层动作分块，通过将低层评论家条件于时间扩展的动作序列来减少偏差。实验表明HiQC在连续控制任务中优于现有离线方法，为基于模型的离线RL提供了层次化解决方案。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.18580v1",
+      "source": "arxiv",
+      "title": "STeP: Signal Temporal Logic for Precise Specifications for Action Generation with Vision Language Models",
+      "abstract": "Vision-language-action (VLA) models have shown impressive generalization, but often lack interpretability and can struggle to follow precise natural language instructions that encode spatial, temporal, and logical requirements. We propose a hierarchical framework that uses Signal Temporal Logic (STL) as a shared representation connecting high-level language understanding with low-level robot execution. A high-level policy leverages a VLM to decompose language instructions into high-level subtasks, generate STL specifications for each subtask, and choose a low-level policy for executing each subtask. The STL specifications translate language-derived intent into precise constraints, and the low-level policy selection determines whether those constraints are enforced directly through STL-guided model-predictive control or monitored during execution of a learned policy for perceptually complex, or contact-rich behaviors. By integrating STL into plan validation, low-level policy, subtask monitoring, and replanning, our framework enables language-derived plans to be checked, optimized, and revised at runtime using a common formal structure. We evaluate the approach on a real-world tabletop domain, demonstrating how formal specifications can improve the precision, reliability, and interpretability of language-conditioned robot planning.",
+      "authors": [
+        "Kasra Torshizi",
+        "Anukriti Singh",
+        "Sidharth Mathur",
+        "Khuzema Habib",
+        "Leo Du",
+        "Pratap Tokekar"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-20T23:26:32+00:00",
+      "link": "https://arxiv.org/pdf/2607.18580v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "hierarchical framework using STL and VLM for robot action generation",
+      "llm_evidence_cn": "使用信号时序逻辑和视觉语言模型的分层框架用于机器人动作生成",
+      "llm_evidence": "使用信号时序逻辑和视觉语言模型的分层框架用于机器人动作生成",
+      "canonical_evidence": "使用信号时序逻辑和视觉语言模型的分层框架用于机器人动作生成",
+      "llm_tldr_en": "Proposes a hierarchical framework using Signal Temporal Logic (STL) as a shared representation to connect VLM high-level understanding with low-level robot execution, improving interpretability and precision.",
+      "llm_tldr_cn": "视觉-语言-动作模型虽泛化能力强，但缺乏可解释性且难以遵循精确的时空逻辑指令。本文提出分层框架，利用信号时序逻辑（STL）作为共享表示，将语言指令分解为子任务并生成STL规范，再选择底层策略执行。该方法提升了机器人动作生成的精确性和可解释性，在复杂指令任务上验证了有效性。",
+      "llm_tldr": "视觉-语言-动作模型虽泛化能力强，但缺乏可解释性且难以遵循精确的时空逻辑指令。本文提出分层框架，利用信号时序逻辑（STL）作为共享表示，将语言指令分解为子任务并生成STL规范，再选择底层策略执行。该方法提升了机器人动作生成的精确性和可解释性，在复杂指令任务上验证了有效性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.21302v1",
+      "source": "arxiv",
+      "title": "Expert Behavior Prior Reinforcement Learning",
+      "abstract": "Behavior prior reinforcement learning (BPRL) has emerged as a promising paradigm to improve sample efficiency in online reinforcement learning (RL) by leveraging policy priors derived from offline demonstrations. However, most existing BPRL methods rely on static offline datasets, which often suffer from low data diversity and suboptimal trajectory quality. This reliance restricts the effectiveness of policy priors, hindering both policy exploitation and stability during online training. Consequently, agents are prone to inefficient exploration and unstable learning dynamics. To address these limitations, we deviate from existing offline pre-training methods and propose an Expert Behavior Prior (EBP) algorithm. Specifically, we introduce a Q-guided conditional variational autoencoder (Q-CVAE) that learns to generate expert policy priors directly from the online replay buffer. This enables the generation of high-value actions for guiding policy updates without relying on pre-collected expert trajectories. To further enhance policy exploitation, we propose an expert policy guidance (EPG) mechanism that selects expert actions from a generative support set, and we integrate a policy gradient correction (PGC) module to harmonize Q-guidance with expert supervision, promoting stable and consistent policy improvement. Extensive experiments conducted on robotic control (Gym, PyBullet) and industrial control (DMControl) benchmarks demonstrate that EBP significantly outperforms state-of-the-art online RL algorithms, achieving higher sample efficiency and more stable convergence.",
+      "authors": [
+        "Gong Gao",
+        "Weidong Zhao",
+        "Xianhui Liu",
+        "Ning Jia"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-07-23T13:26:57+00:00",
+      "link": "https://arxiv.org/pdf/2607.21302v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "uses offline expert demonstrations as behavior prior for policy learning",
+      "llm_evidence_cn": "利用离线专家演示作为行为先验进行策略学习",
+      "llm_evidence": "利用离线专家演示作为行为先验进行策略学习",
+      "canonical_evidence": "利用离线专家演示作为行为先验进行策略学习",
+      "llm_tldr_en": "Expert Behavior Prior RL uses a Q-guided conditional VAE to derive a policy prior from offline demonstrations, improving sample efficiency and stability in online RL.",
+      "llm_tldr_cn": "针对行为先验强化学习依赖静态离线数据导致多样性低和轨迹质量差的问题，提出专家行为先验（EBP）算法，通过Q引导的条件变分自编码器从演示中学习先验，在线训练时利用该先验提升探索效率和稳定性，实验表明在多个任务上样本效率显著提高。",
+      "llm_tldr": "针对行为先验强化学习依赖静态离线数据导致多样性低和轨迹质量差的问题，提出专家行为先验（EBP）算法，通过Q引导的条件变分自编码器从演示中学习先验，在线训练时利用该先验提升探索效率和稳定性，实验表明在多个任务上样本效率显著提高。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.21582v1",
+      "source": "arxiv",
+      "title": "Scale Up Strategically: Learning Compositional Generalization via Bias-Aware Evaluation and Data Collection for Robotic Manipulation",
+      "abstract": "Compositional generalization is essential for robot to follow diverse instructions. However, pretrained policies are known to take shortcuts, deferring to salient cues rather than grounding language. We introduce a diagnostic framework that localizes this failure to individual \\textit{instruction factors}, \\textit{e.g.,} reusable semantic components such as color, verb, object, size, and spatial attribute. Our framework formalizes instruction factor bias, the tendency of fine-tuned policies to over-rely on dominant factors as shortcuts, and quantifies it through two metrics: Factor Dominance Rate (FDR), capturing pairwise bias between factors, and Factor Dominance Hierarchy (FDH), aggregating these into a global ranking. Evaluation on six foundation policies reveals broadly consistent ordering, \\textit{i.e.}, color $\\geq$ object $\\geq$ spatial $\\geq$ verb $\\geq$ size, with color dominant, and verb and size most under-grounded. We further show the diagnosis is actionable: a bias-aware data collection strategy that reallocates a fixed budget toward under-grounded factors outperforms baselines in simulation and on a real robot using half the demonstrations, thereby enabling more sample-efficient and generalizable policy learning.",
+      "authors": [
+        "Yu Qi",
+        "Zhang Ye",
+        "Xinyi Xu",
+        "Yuxuan Lu",
+        "Amitoj Sandhu",
+        "Boce Hu",
+        "Haojie Huang",
+        "Jonathan Tremblay",
+        "Lawson L. S. Wong"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "published": "2026-07-23T17:57:09+00:00",
+      "link": "https://arxiv.org/pdf/2607.21582v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "learning policies from demonstrations with bias-aware data collection",
+      "llm_evidence_cn": "通过偏差感知数据收集从演示学习策略",
+      "llm_evidence": "通过偏差感知数据收集从演示学习策略",
+      "canonical_evidence": "通过偏差感知数据收集从演示学习策略",
+      "llm_tldr_en": "Introduces a diagnostic framework for compositional generalization in robotic manipulation, formalizing instruction factor bias and proposing targeted data collection to improve policy learning from demonstrations.",
+      "llm_tldr_cn": "预训练策略在机器人操作中常利用显著线索走捷径，缺乏对语言指令的真正理解。本文提出诊断框架定位指令因子偏差，量化主导度，并指导数据收集以改善组合泛化能力。在仿真和真实任务中验证了该方法能有效减少偏差，提升策略对指令因子的泛化。该工作为从演示中学习鲁棒策略提供了系统分析工具。",
+      "llm_tldr": "预训练策略在机器人操作中常利用显著线索走捷径，缺乏对语言指令的真正理解。本文提出诊断框架定位指令因子偏差，量化主导度，并指导数据收集以改善组合泛化能力。在仿真和真实任务中验证了该方法能有效减少偏差，提升策略对指令因子的泛化。该工作为从演示中学习鲁棒策略提供了系统分析工具。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.21588v1",
+      "source": "arxiv",
+      "title": "AXIS: A Growable Community-Driven Data Engine for Scalable Robot Manipulation",
+      "abstract": "Learning effective robot manipulation policies requires diverse, high-quality demonstrations, yet existing data pipelines are often difficult to scale because they rely on specialized hardware, centralized operators, or fixed task suites. We present AXIS, a growable community-driven data engine and benchmark for scalable robot learning, which enables browser-based teleoperation for large-scale demonstration collection, automatically generates and validates new manipulation tasks, and transforms community-collected demonstrations into training-ready data through automated success checking, quality filtering, trajectory smoothing, and visual and physics-based augmentation. The AXIS dataset currently contains 207 diverse tasks and 50K+ trajectories. Meanwhile, AXIS organizes data into task snapshots and evaluates policies with a systematic held-out protocol. We compare vision-language-action (VLA) policies under a unified AXIS evaluation suite and analyze scaling behavior across different data volumes. Continual pretraining on AXIS substantially improves the overall success rate of $π_{0.5}$ by 5.8%, outperforms the model pretrained on RoboCasa365 by 37.3%, and exhibits consistent scaling with increasing data volume, with the largest gains observed under layout, sensor-noise, and camera perturbations.",
+      "authors": [
+        "Mengfei Zhao",
+        "Dihong Huang",
+        "Yikai Tang",
+        "Peihao Li",
+        "Mingxuan Yan",
+        "Ruiqi Zhuang",
+        "Yanjia Huang",
+        "Jie Wang",
+        "Hai Zhai",
+        "Tony Zhou",
+        "Rui Zhang",
+        "Zhexi Luo",
+        "Yuchen Huang",
+        "Jianfei Yang",
+        "Jiachen Li"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-23T17:58:08+00:00",
+      "link": "https://arxiv.org/pdf/2607.21588v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "robot manipulation demonstration collection for policy learning",
+      "llm_evidence_cn": "机器人操作演示数据收集用于策略学习",
+      "llm_evidence": "机器人操作演示数据收集用于策略学习",
+      "canonical_evidence": "机器人操作演示数据收集用于策略学习",
+      "llm_tldr_en": "AXIS enables scalable robot manipulation learning via a community-driven data engine that collects high-quality expert demonstrations through browser-based teleoperation and automatic task generation.",
+      "llm_tldr_cn": "AXIS是一个社区驱动的可增长数据引擎，用于大规模机器人操作学习。它通过浏览器远程操作收集高质量专家演示，并自动生成和验证新任务，将收集的演示转化为训练就绪数据，包含207个任务和5万条轨迹。该方法降低了数据收集门槛，支持策略模仿学习。",
+      "llm_tldr": "AXIS是一个社区驱动的可增长数据引擎，用于大规模机器人操作学习。它通过浏览器远程操作收集高质量专家演示，并自动生成和验证新任务，将收集的演示转化为训练就绪数据，包含207个任务和5万条轨迹。该方法降低了数据收集门槛，支持策略模仿学习。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}
