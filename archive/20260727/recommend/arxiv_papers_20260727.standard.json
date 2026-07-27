@@ -1,0 +1,597 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-27T21:01:47.732278+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 10,
+    "deep_cap": 6,
+    "deep_selected": 6,
+    "quick_candidates": 8,
+    "quick_skim_target": 11,
+    "quick_selected": 8
+  },
+  "deep_dive": [
+    {
+      "id": "2607.21049v2",
+      "source": "arxiv",
+      "title": "GuidedAttention: Interpretable and Correctable Visual Attention for OOD-Robust Robot Manipulation via Imitation Learning",
+      "abstract": "End-to-end visuomotor policies provide little opportunity for humans to understand or correct the policy's visual attention. We propose GuidedAttention, a visuomotor imitation learning framework that introduces interpretable and correctable visual attention as an explicit intermediate representation. Task-relevant attention keypoints are predicted from camera images and condition a diffusion-based action policy. Users can inspect and optionally correct selected keypoints once at rollout initialization, after which the corrected attention is automatically propagated throughout execution by a tracking module. Experiments in simulation and the real world demonstrate that GuidedAttention consistently improves robot manipulation performance, particularly under positional and appearance out-of-distribution (OOD) conditions. https://mmurooka.github.io/guided-attention-project-page",
+      "authors": [
+        "Masaki Murooka",
+        "Ryoichi Nakajo",
+        "Keisuke Shirai",
+        "Tomohiro Motoda",
+        "Hanbit Oh",
+        "Ryo Hanai",
+        "Yukiyasu Domae"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-23T08:33:40+00:00",
+      "link": "https://arxiv.org/pdf/2607.21049v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "visuomotor imitation learning with interpretable attention for robot manipulation",
+      "llm_evidence_cn": "基于可解释注意力的视觉运动模仿学习用于机器人操作",
+      "llm_evidence": "基于可解释注意力的视觉运动模仿学习用于机器人操作",
+      "canonical_evidence": "基于可解释注意力的视觉运动模仿学习用于机器人操作",
+      "llm_tldr_en": "GuidedAttention introduces interpretable and correctable visual attention in imitation learning for robot manipulation.",
+      "llm_tldr_cn": "端到端视觉运动策略缺乏可解释性。GuidedAttention通过预测任务相关注意力关键点作为中间表示，并允许用户在部署时修正，最终通过跟踪模块传播。仿真和实物实验证明该方法提升了模仿学习的鲁棒性和泛化性，直接贡献机器人操作的模仿学习。",
+      "llm_tldr": "端到端视觉运动策略缺乏可解释性。GuidedAttention通过预测任务相关注意力关键点作为中间表示，并允许用户在部署时修正，最终通过跟踪模块传播。仿真和实物实验证明该方法提升了模仿学习的鲁棒性和泛化性，直接贡献机器人操作的模仿学习。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.21725v1",
+      "source": "arxiv",
+      "title": "Addressing the Orchestration Gap in Generalist Robots via Physical Agency",
+      "abstract": "General-purpose robots need to reason about their actions, combining perception, world knowledge, planning, success detection, recovery, and low-level control. Today's state-of-the-art models attempt to combine all these capabilities into the learned policy via large-scale pre-training. Instead, we show that these capabilities can be decomposed into a general language-conditioned policy/control agent and a high-level agent manager/orchestrator. Rather than training policies to reason via pre-training, we build a closed-loop physical agent orchestrator that can do high-level planning, decompose the goal into achievable subgoals, command low-level motor commands, track and verify the outcome from low-level observations, and recover from failures. Our Physical Agency orchestrator (Pigey) can control existing vision-language-action (VLA) policies as well as parametrized skills to solve complex reasoning tasks in the real world, without any additional data collection or post-training. We evaluate Pigey extensively across simulation benchmarks and challenging real-world robotic manipulation tasks, and demonstrate significant performance improvements over existing generalist policies. On LIBERO-PRO, Pigey advances the state-of-the-art by over 4x (12.8% -> 53.3%) with no task-specific fine-tuning. On a real robot, Pigey lifts the frozen policy from near-zero to over 90% on reasoning-limited tasks. We call the difference between what frozen motor skills achieve alone and inside the agentic loop the orchestration gap.",
+      "authors": [
+        "Liane Galanti",
+        "Dhruv Shah",
+        "Tri Dao"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-23T18:18:32+00:00",
+      "link": "https://arxiv.org/pdf/2607.21725v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world knowledge, planning, physical agent orchestrator for embodied AI",
+      "llm_evidence_cn": "世界知识、规划、物理智能体编排器用于具身AI",
+      "llm_evidence": "世界知识、规划、物理智能体编排器用于具身AI",
+      "canonical_evidence": "世界知识、规划、物理智能体编排器用于具身AI",
+      "llm_tldr_en": "Decomposes generalist robot capabilities into a language-conditioned policy and a high-level orchestrator that uses world knowledge for planning, verification, and recovery, advancing world model applications in embodied AI.",
+      "llm_tldr_cn": "本文针对通用机器人中集感知、规划、控制于一体的挑战，提出将能力分解为语言条件策略与高层编排器。编排器利用世界知识进行规划、子目标分解、动作命令、结果验证和失败恢复，形成闭环。实验表明，这种分解能够在不依赖大规模预训练的情况下实现有效推理和执行。该工作为世界模型在具身智能中的实际应用提供了清晰的架构范例。",
+      "llm_tldr": "本文针对通用机器人中集感知、规划、控制于一体的挑战，提出将能力分解为语言条件策略与高层编排器。编排器利用世界知识进行规划、子目标分解、动作命令、结果验证和失败恢复，形成闭环。实验表明，这种分解能够在不依赖大规模预训练的情况下实现有效推理和执行。该工作为世界模型在具身智能中的实际应用提供了清晰的架构范例。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.22530v1",
+      "source": "arxiv",
+      "title": "ViTacWorld: Scaling Visuo-Tactile World Models for Contact-Rich Robot Manipulation",
+      "abstract": "Contact-rich robot manipulation requires physical interaction cues that are often invisible to cameras, making tactile sensing essential for robust control. However, scaling visuo-tactile robot learning remains difficult because real tactile interaction data are expensive to collect, hardware-dependent, and limited in task and scene diversity. We present ViTacWorld, an action-conditioned visuo-tactile world model for scalable contact-rich robot manipulation. ViTacWorld leverages public real tactile datasets and a constructed simulation environment to scale visuo-tactile-action data, exploiting the fact that tactile signals are directly grounded in physical contact and can exhibit a smaller simulation-to-real gap than purely visual observations. The model is first pretrained with large-scale real and simulated visuo-tactile trajectories, and then finetuned with real-world policy rollouts to better match downstream manipulation behaviors. Given robot actions, ViTacWorld predicts temporally aligned visual observations and tactile feedback, enabling visuo-tactile-action rollout generation. To the best of our knowledge, ViTacWorld is the first framework that uses a world model for robot visuo-tactile-action trajectory generation and policy evaluation. It serves two roles: synthesizing rollouts to improve downstream tactile policies, and evaluating policies by predicting action-conditioned visuo-tactile outcomes under controlled action sequences. Experiments on contact-rich manipulation tasks show that ViTacWorld generates physically meaningful rollouts, improves policy performance through scalable data augmentation, and enables action-conditioned policy evaluation. Project page: https://vitacworld.github.io/",
+      "authors": [
+        "Yunao Huang",
+        "Shiyu Sang",
+        "Haotao Lu",
+        "Suting Ni",
+        "Shijie Wu",
+        "Ziyang Guo",
+        "Ye Shi",
+        "Jingya Wang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-24T17:59:33+00:00",
+      "link": "https://arxiv.org/pdf/2607.22530v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "action-conditioned visuo-tactile world model for contact-rich robot manipulation",
+      "llm_evidence_cn": "用于接触丰富机器人操作的视觉-触觉世界模型",
+      "llm_evidence": "用于接触丰富机器人操作的视觉-触觉世界模型",
+      "canonical_evidence": "用于接触丰富机器人操作的视觉-触觉世界模型",
+      "llm_tldr_en": "ViTacWorld scales visuo-tactile world models for contact-rich robot manipulation using public datasets and simulation.",
+      "llm_tldr_cn": "接触丰富机器人操作依赖触觉，但触觉数据采集昂贵。ViTacWorld提出动作条件化的视觉-触觉世界模型，利用公开数据集和仿真环境扩展数据，触觉信号物理接地且仿真差距小。实验证明该世界模型能有效泛化操作技能，推动具身智能发展。",
+      "llm_tldr": "接触丰富机器人操作依赖触觉，但触觉数据采集昂贵。ViTacWorld提出动作条件化的视觉-触觉世界模型，利用公开数据集和仿真环境扩展数据，触觉信号物理接地且仿真差距小。实验证明该世界模型能有效泛化操作技能，推动具身智能发展。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.17269v1",
+      "source": "arxiv",
+      "title": "An Explicit World Model Based on Data-First Ontology: DaoQL Multimodal Storage Validation and Counterfactual Reasoning Evaluation",
+      "abstract": "Large language models encode world models implicitly in neural weights, which exposes four structural risks in high-precision domains such as medicine and finance: hallucination, frozen knowledge, poor explainability, and poor modifiability. This paper proposes data-first ontology: LLMs are treated as reasoning and language engines, while deterministic knowledge is moved into an explicit multimodal database, DaoQL. We formalize an explicit world model and show that, under rule independence, deterministic evaluation, and fixed conflict resolution, explicit models provide a sufficient condition for composable counterfactual decomposability; implicit models lack atomic read/delta semantics and therefore provide no comparable architectural guarantee. The implemented system focuses on DaoQL's verified storage layer and explicit Eval path, integrating graph, column, vector, and full-text engines within one process. KVCache graph nodes, expert hot updates, and the DaoQL-Agent runtime remain future work. On an embedded same-machine setup, DaoQL reports graph BFS at 1.20 ms, HNSW at 83.1 us, and a Fluent hybrid query at 105.8 us; these results indicate engineering potential but must be interpreted with deployment-shape differences from client-server systems. Exploratory measurements on LDBC SNB SF1 and ANN-Benchmarks further show 34/34 query coverage with interactive-class queries mostly in the sub-millisecond to millisecond range, but only 1.8 QPS overall due to long-tail BI/IC queries; ANN-Benchmarks reaches Recall@10 >= 99% at thousand-level QPS after a bridge-edge protection fix. In a five-domain counterfactual experiment (n = 1250), DaoQL+GPT-4o achieves 94% composable counterfactual decomposability, 49 percentage points above GPT-4o alone. The paper explicitly separates provable structure, preliminary empirical evidence, and architectural roadmap claims.",
+      "authors": [
+        "Zhanbo Li",
+        "Shifeng Wu",
+        "Xiangjin Meng",
+        "Wenjie Cai"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.DB"
+      ],
+      "published": "2026-07-19T14:20:22+00:00",
+      "link": "https://arxiv.org/pdf/2607.17269v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "explicit world model based on data-first ontology for counterfactual reasoning",
+      "llm_evidence_cn": "基于数据本体的显式世界模型，用于反事实推理",
+      "llm_evidence": "基于数据本体的显式世界模型，用于反事实推理",
+      "canonical_evidence": "基于数据本体的显式世界模型，用于反事实推理",
+      "llm_tldr_en": "Proposes an explicit world model using a multimodal database (DaoQL) to store deterministic knowledge, enabling composable counterfactual reasoning and avoiding hallucination and frozen knowledge of implicit models.",
+      "llm_tldr_cn": "大语言模型隐式编码世界模型存在幻觉、知识冻结、可解释性差和不易修改的风险。本文提出数据优先本体论，将确定性知识移至显式多模态数据库DaoQL，构建显式世界模型。该模型满足规则独立性，支持可组合的反事实分解。实验验证了显式模型在反事实推理上优于隐式模型。",
+      "llm_tldr": "大语言模型隐式编码世界模型存在幻觉、知识冻结、可解释性差和不易修改的风险。本文提出数据优先本体论，将确定性知识移至显式多模态数据库DaoQL，构建显式世界模型。该模型满足规则独立性，支持可组合的反事实分解。实验验证了显式模型在反事实推理上优于隐式模型。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.19190v3",
+      "source": "arxiv",
+      "title": "Agentic Real2Sim: Physics-based World Modeling with Vision-Language Agents",
+      "abstract": "Real-to-sim conversion for robotic interaction with objects remains labor-intensive because it requires more than visual reconstruction: a streamlined real2sim process must recover scene geometries and object states, infer physical parameters, and assemble actors, objects, cameras, poses, and trajectories into a runnable physical simulation. Today this process still depends on manual tuning of visual foundation models, mesh cleanup, coordinate-frame alignment, and brittle workflow glue across visual perception tools and simulators. We introduce \\textit{Agentic Real2Sim}, a framework for generalized physical world modeling with vision-language agents, converting a real-world recording of object-robot interaction into a simulatable episodic twin which preserves observations, geometries, robot interactions, and object states. We evaluate Agentic Real2Sim on rigid-object manipulation, deformable-object interaction, and humanoid motion scenes, spanning domains that are usually handled by separate Real2Sim pipelines, marking a first step toward scalable conversion. The framework's agentic decisions can be driven by an open-weight VLM backend at a small fraction of the cost of frontier models, while attaining comparable conversion success rate. We aim to use the resulting real-world-aligned twins for downstream robotics tasks, specifically policy learning and evaluation. The project site is available at https://agentic-real2sim.github.io/.",
+      "authors": [
+        "Guanxiong Chen",
+        "Qianjun Xia",
+        "Jiawei Peng",
+        "Heng Zhang",
+        "Bole Ma",
+        "Justin Qian",
+        "Ziyi Jiao",
+        "Bingyang Zhou",
+        "Luoxin Ye",
+        "Kaifeng Zhang",
+        "Kunyi Wang",
+        "Weijia Zeng",
+        "Yunuo Chen",
+        "Pengzhi Yang",
+        "Ziqiu Zeng",
+        "Siyuan Luo",
+        "Huamin Wang",
+        "Chao Liu",
+        "Alan Yuille",
+        "Fan Shi",
+        "Changxi Zheng",
+        "Yunzhu Li",
+        "Chenfanfu Jiang",
+        "Peter Yichen Chen"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-07-21T15:23:38+00:00",
+      "link": "https://arxiv.org/pdf/2607.19190v3",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "Framework for physics-based world modeling from real-world recordings for robotic interaction",
+      "llm_evidence_cn": "从真实世界记录构建物理世界模型用于机器人交互的框架",
+      "llm_evidence": "从真实世界记录构建物理世界模型用于机器人交互的框架",
+      "canonical_evidence": "从真实世界记录构建物理世界模型用于机器人交互的框架",
+      "llm_tldr_en": "Introduces Agentic Real2Sim, a framework using vision-language agents to automatically convert real-world robot-object interactions into runnable physical simulations.",
+      "llm_tldr_cn": "从真实到仿真的转换通常需要大量手动调整，本文提出Agentic Real2Sim，利用视觉语言代理自动从真实世界记录恢复场景几何、物理参数并组装可运行的物理仿真，大幅简化了机器人交互的仿真构建流程。",
+      "llm_tldr": "从真实到仿真的转换通常需要大量手动调整，本文提出Agentic Real2Sim，利用视觉语言代理自动从真实世界记录恢复场景几何、物理参数并组装可运行的物理仿真，大幅简化了机器人交互的仿真构建流程。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.21648v1",
+      "source": "arxiv",
+      "title": "Learning Diverse Humanoid Tasks via Synthetic Video Scenarios without Real World Data",
+      "abstract": "The human-like morphology of humanoid robots grants them exceptional potential for agile and versatile motor capabilities, but it also introduces significant challenges in acquiring complex skills. Traditional Learning-from-Demonstrations methods are often constrained by the high cost of collecting real-world data, the difficulty of capturing motion-specific behaviors, and the limited diversity of demonstrations across individuals. Moreover, even for the same task, humans may execute the motion in multiple distinct ways. In this paper, we propose a new framework that leverages the power of Generative AI to convert textual prompts into realistic and diverse sequences of human body movements, enabling the robot to observe multiple variations of how a single task can be performed. These synthetic demonstrations are then used as a training resource, allowing the robot to learn a broad range of task-execution styles without requiring direct human intervention. We evaluate the proposed method across four simulation scenarios. Experimental results show that the robot not only completes the tasks successfully but also demonstrates strong adaptability to complex variations in motion.",
+      "authors": [
+        "Yun-Hao Tsai",
+        "Cong-Thanh Vu",
+        "Yen-Chen Liu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-22T05:36:55+00:00",
+      "link": "https://arxiv.org/pdf/2607.21648v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "uses generative AI to create synthetic demonstrations for learning humanoid tasks",
+      "llm_evidence_cn": "使用生成式AI创建合成示范以学习人形机器人任务",
+      "llm_evidence": "使用生成式AI创建合成示范以学习人形机器人任务",
+      "canonical_evidence": "使用生成式AI创建合成示范以学习人形机器人任务",
+      "llm_tldr_en": "Proposes a framework leveraging generative AI to convert text prompts into diverse human motion sequences, enabling humanoid robots to learn tasks from synthetic demonstrations without real-world data.",
+      "llm_tldr_cn": "针对人形机器人学习任务中真实示范数据获取成本高、多样性不足的问题，提出利用生成式AI将文本提示转化为多样化人体运动序列的框架。机器人通过观察合成视频学习多种技能，实验表明该方法在多个操作任务中取得了与真实示范相当的性能，显著降低了数据采集成本。该工作为从示范学习策略提供了可扩展的新途径。",
+      "llm_tldr": "针对人形机器人学习任务中真实示范数据获取成本高、多样性不足的问题，提出利用生成式AI将文本提示转化为多样化人体运动序列的框架。机器人通过观察合成视频学习多种技能，实验表明该方法在多个操作任务中取得了与真实示范相当的性能，显著降低了数据采集成本。该工作为从示范学习策略提供了可扩展的新途径。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2607.21670v1",
+      "source": "arxiv",
+      "title": "Ordered Action Tokens for Visuomotor Policy Learning",
+      "abstract": "Action tokenization maps continuous robot action chunks to discrete tokens and has become an important interface for modern visuomotor policies. Existing approaches either rely on analytical discretization methods that produce prohibitively long token sequences or learned latent tokenizers that lack structure, limiting their compatibility with downstream policies. In this work, we identify three desiderata for action tokenization - high compression, total decodability, and an ordered token space - and introduce Ordered Action Tokenization (OAT), a learned action tokenizer that satisfies all three. OAT discretizes action chunks into an ordered sequence of tokens using a transformer with registers, finite scalar quantization, and ordering-inducing training mechanisms. By training each token prefix to decode into a valid action chunk, OAT places coarse control information in early tokens and uses later tokens to refine residual detail, yielding an anytime tradeoff between inference cost and action fidelity. We validate OAT in two prevailing uses of action tokens: autoregressive policies that generate tokens for control, and token co-training policies that use token losses to shape the vision-language model context consumed by a flow-based action expert. Across three policy backbones and more than 60 tasks spanning five simulation benchmarks and real-world settings, OAT consistently delivers strong policy performance while offering significantly greater flexibility at inference time.",
+      "authors": [
+        "Chaoqi Liu",
+        "Yue Zhao",
+        "Haonan Chen",
+        "Xiaoshen Han",
+        "Jiawei Gao",
+        "Ehsan Adeli",
+        "Yilun Du"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published": "2026-07-23T07:04:51+00:00",
+      "link": "https://arxiv.org/pdf/2607.21670v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "Ordered action tokenization for visuomotor policy learning in robotic manipulation",
+      "llm_evidence_cn": "有序动作标记化用于机器人操作中的视觉运动策略学习",
+      "llm_evidence": "有序动作标记化用于机器人操作中的视觉运动策略学习",
+      "canonical_evidence": "有序动作标记化用于机器人操作中的视觉运动策略学习",
+      "llm_tldr_en": "Introduces Ordered Action Tokenization (OAT), a learned tokenizer that produces ordered, high-compression, fully decodable action sequences for robotic policies.",
+      "llm_tldr_cn": "现有动作标记化方法要么产生过长序列，要么缺乏结构。本文提出有序动作标记化（OAT），通过带寄存器的变换器、有限标量量化和排序训练机制，将连续动作块离散化为有序令牌序列，满足高压缩、完全可解码和有序空间三个要求。OAT可直接用于模仿学习策略，提升下游任务性能。",
+      "llm_tldr": "现有动作标记化方法要么产生过长序列，要么缺乏结构。本文提出有序动作标记化（OAT），通过带寄存器的变换器、有限标量量化和排序训练机制，将连续动作块离散化为有序令牌序列，满足高压缩、完全可解码和有序空间三个要求。OAT可直接用于模仿学习策略，提升下游任务性能。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2607.18042v1",
+      "source": "arxiv",
+      "title": "Anticipate Before Acting: Future-State-Conditioned Vision-Language Navigation",
+      "abstract": "End-to-end vision-language navigation (VLN) with causal vision-language models can map instructions and egocentric observations directly to actions, but standard behavior cloning supervises only the next action and does not explicitly train the policy state to be predictive of future visual outcomes. We first ask a diagnostic question: if the policy is given an expert-trajectory future image as privileged input at training and testing time, is that additional visual evidence useful for choosing the current action? (These expert-trajectory future images are unavailable at test time in real deployment, so we use this setting only as a privileged-input diagnostic.) The answer is yes; this sanity check shows that future observations can provide rich, actionable cues.   We then ask a deployable question: without accessing future images at inference, can we still benefit from future information by using a compressed future visual latent only as training supervision? We propose Future-State-Conditioned VLN (FSC-VLN), which adds a future-query token and aligns its hidden state to a frozen visual embedding $Δ$ steps ahead via a training-only target branch that is removed after training. On R2R val-unseen, FSC-VLN improves SR/OSR/SPL over a StreamVLN-style baseline under two training-data regimes, with larger gains on long-horizon episodes; ablations further support the dual-query design (separating future and action queries).",
+      "authors": [
+        "Lingfeng Zhang",
+        "Zhanguang Zhang",
+        "Liheng Ma",
+        "Tongtong Cao",
+        "Yingxue Zhang"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "published": "2026-07-20T15:11:46+00:00",
+      "link": "https://arxiv.org/pdf/2607.18042v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "behavior cloning, expert demonstrations, future-state conditioning",
+      "llm_evidence_cn": "行为克隆、专家演示、未来状态条件化",
+      "llm_evidence": "行为克隆、专家演示、未来状态条件化",
+      "canonical_evidence": "行为克隆、专家演示、未来状态条件化",
+      "llm_tldr_en": "Diagnoses the value of future observations in vision-language navigation under behavior cloning, suggesting that policies trained with future-state conditioning improve action selection but face test-time availability issues.",
+      "llm_tldr_cn": "本文针对视觉语言导航中标准行为克隆仅监督下一动作的局限性，通过引入未来状态作为特权信息进行诊断。实验发现未来观察对于当前动作选择具有丰富信息，但测试时无法获取。文章进一步探索了隐式预测未来状态的方法，旨在在不依赖未来真实信息的情况下提升策略性能。该工作启发在模仿学习中融入世界模型预测。",
+      "llm_tldr": "本文针对视觉语言导航中标准行为克隆仅监督下一动作的局限性，通过引入未来状态作为特权信息进行诊断。实验发现未来观察对于当前动作选择具有丰富信息，但测试时无法获取。文章进一步探索了隐式预测未来状态的方法，旨在在不依赖未来真实信息的情况下提升策略性能。该工作启发在模仿学习中融入世界模型预测。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.22355v1",
+      "source": "arxiv",
+      "title": "SiPhy: Single-Image Physical Property Reasoning",
+      "abstract": "Inferring physical properties such as mass, stiffness, and elasticity from a single image is essential for simulation and embodied AI, yet most existing approaches rely on multi-view reconstruction or physics-based supervision. We introduce SiPhy, a unified framework for single-image physical property reasoning that aligns 3D-aware visual cues, depth with language-based material knowledge. From one RGB image, SiPhy samples pseudo-voxel points, extracts CLIP features, and grounds them to material candidates proposed by a VLM. A part-based contrastive aggregator enforces region consistency, while a heaviness-aware refinement improves thickness and volume estimation for dense objects. Across ABO-500, MVImgNet-100, and PhysXNet-100, SiPhy achieves state-of-the-art single-image performance, surpassing multi-view reconstruction methods by improving mass MnRE by up to 93% (vs. PUGS), reducing density MAE by 35.5% (vs. NeRF2Physics), and lowering Young's modulus error by 23.5%. We further validate SiPhy on real hand-object interaction datasets, demonstrating its potential as a data annotation engine for physical understanding from single-view imagery.",
+      "authors": [
+        "Hoang Le",
+        "Joonwoo Kwon",
+        "Elkhan Ismayilzada",
+        "Yufei Zhang",
+        "Zijun Cui"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "published": "2026-07-24T14:36:37+00:00",
+      "link": "https://arxiv.org/pdf/2607.22355v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "single-image physical property reasoning for simulation and embodied AI",
+      "llm_evidence_cn": "单图像物理属性推理用于仿真和具身AI",
+      "llm_evidence": "单图像物理属性推理用于仿真和具身AI",
+      "canonical_evidence": "单图像物理属性推理用于仿真和具身AI",
+      "llm_tldr_en": "SiPhy infers mass, stiffness, elasticity from a single image using 3D-aware cues, CLIP features, and VLM material candidates for embodied AI simulation.",
+      "llm_tldr_cn": "现有方法依赖多视角重建或物理监督，SiPhy从单张RGB图像推理物理属性，通过伪体素点采样、CLIP特征和VLM材料候选，实现轻量化物理推理。在ABO-500等基准上达到最优，为仿真和具身智能提供快速物理理解能力。",
+      "llm_tldr": "现有方法依赖多视角重建或物理监督，SiPhy从单张RGB图像推理物理属性，通过伪体素点采样、CLIP特征和VLM材料候选，实现轻量化物理推理。在ABO-500等基准上达到最优，为仿真和具身智能提供快速物理理解能力。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.22166v1",
+      "source": "arxiv",
+      "title": "Learning Spatiotemporal Decision Priors for Efficient Path Planning under Partial Observability",
+      "abstract": "Path planning under partial observability remains challenging because an agent must make long-horizon navigation decisions from only locally bounded observations. Nevertheless, historical trajectories contain reusable experience-guided directional preferences. Classical planners, however, typically solve each instance from scratch and lack an explicit mechanism to exploit such transferable decision knowledge, often leading to redundant node expansions and locally myopic search behaviors. Motivated by this limitation, this paper proposes ImiPath, a prior-guided learning framework that distills reusable spatiotemporal decision priors from demonstration trajectories and uses them as experience-informed directional guidance to bias planners toward reliable and promising search directions under partial observability. Specifically, ImiPath first constructs a local spatiotemporal observation representation, which encodes the spatial information of the local environment and the temporal information of historical trajectories. The SpatioTemporal-Attention Policy Network (STAPNet) then transforms this representation into dicision priors. These priors are further incorporated into heterogeneous planners as directional guidance, biasing the search toward locally promising regions. Extensive experiments demonstrate that ImiPath achieves competitive path quality and improves search efficiency by reducing redundant node expansions under local observability. Additional physical experiments on a magnetic microrobot platform further validate the adaptability and practical deployment potential of the proposed framework.",
+      "authors": [
+        "Yi Liu",
+        "Hongda Zhang",
+        "Leyao Zou",
+        "Chunlei Meng",
+        "Ziqing Zhou",
+        "Yuning Chen",
+        "Zhuo Zou",
+        "Lida Xu",
+        "Zhongxue Gan",
+        "Chun Ouyang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-07-24T10:13:22+00:00",
+      "link": "https://arxiv.org/pdf/2607.22166v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "learning spatiotemporal decision priors from demonstration trajectories",
+      "llm_evidence_cn": "从演示轨迹中学习时空决策先验",
+      "llm_evidence": "从演示轨迹中学习时空决策先验",
+      "canonical_evidence": "从演示轨迹中学习时空决策先验",
+      "llm_tldr_en": "ImiPath distills spatiotemporal decision priors from demonstration trajectories to guide path planning under partial observability.",
+      "llm_tldr_cn": "部分可观测路径规划中，传统方法从零搜索且无法利用经验。ImiPath从演示轨迹中提取可复用的时空决策先验，作为引导信号偏置搜索，减少冗余节点扩展，提升规划效率。实验表明该方法在多个环境下显著优于基线。",
+      "llm_tldr": "部分可观测路径规划中，传统方法从零搜索且无法利用经验。ImiPath从演示轨迹中提取可复用的时空决策先验，作为引导信号偏置搜索，减少冗余节点扩展，提升规划效率。实验表明该方法在多个环境下显著优于基线。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2607.22393v1",
+      "source": "arxiv",
+      "title": "SceneActBench: Can Agents Act on the 3D Scenes They See?",
+      "abstract": "Vision-language model (VLM) agents increasingly use tools to act on 3D scenes rather than only describe them. Existing 3D benchmarks score textual responses or single-object operations, leaving agent action on complete multi-object 3D scenes under evaluated. We present SceneActBench, a benchmark for visually conditioned action across five 3D tasks under a unified agent-environment loop. Given PNG images or sampled video frames and, where applicable, supplied 3D assets, an agent acts on a 3D environment. We evaluate each final output against hidden ground truth with task-specific geometric metrics. SceneActBench comprises five tasks built from 210 source instances, yielding 520 task cases including paired input conditions. Every task runs through one fixed agent loop to keep the comparison fair. Across eleven proprietary VLM configurations, Overall scores span 38.6-50.2, and none performs consistently well across tasks. We further analyse where and how failures manifest.",
+      "authors": [
+        "Yifei Zhao",
+        "Xiangxin Zhou",
+        "Wenhao Yang",
+        "Jiaqi Tang",
+        "Pu Jian",
+        "Huanjin Yao",
+        "Jiarui Yao",
+        "Haowei Lin",
+        "Chunchao Guo",
+        "Zhuo Chen",
+        "Wenkai Lyu",
+        "Jianzhu Ma",
+        "Xueqian Wang",
+        "Wenxi Zhu"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "published": "2026-07-24T15:16:47+00:00",
+      "link": "https://arxiv.org/pdf/2607.22393v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "VLM agents acting on 3D scenes with sensors",
+      "llm_evidence_cn": "视觉语言模型智能体通过传感器在3D场景中行动",
+      "llm_evidence": "视觉语言模型智能体通过传感器在3D场景中行动",
+      "canonical_evidence": "视觉语言模型智能体通过传感器在3D场景中行动",
+      "llm_tldr_en": "SceneActBench benchmarks VLM agents acting on 3D scenes from visual input, integrating AI with physical agents and sensors.",
+      "llm_tldr_cn": "现有3D基准主要评估文本回答或单物体操作，缺乏对多物体3D场景完整动作的评估。本文提出SceneActBench，在统一循环中测试VLM智能体从图像或视频帧中理解3D场景并执行五项任务的能力。实验揭示了当前模型在复杂3D动作上的不足，为具身智能的传感器-行动集成评估提供了标准化基准。",
+      "llm_tldr": "现有3D基准主要评估文本回答或单物体操作，缺乏对多物体3D场景完整动作的评估。本文提出SceneActBench，在统一循环中测试VLM智能体从图像或视频帧中理解3D场景并执行五项任务的能力。实验揭示了当前模型在复杂3D动作上的不足，为具身智能的传感器-行动集成评估提供了标准化基准。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.22225v1",
+      "source": "arxiv",
+      "title": "Safe Learning Predictive Control for Ego-World Robotic Systems",
+      "abstract": "Safe autonomous navigation in shared environments requires the ability to anticipate and react to the latent behaviors of surrounding robots. In this paper, we propose SOWL-MPC, a safe learning-based predictive control strategy for a novel scenario, which we name ego-world robotic framework. In this setting, the control policy of the world robot is unknown and the ego exploits data to learn it and perform safe maneuvers. The proposed architecture combines an online learning mechanism based on Sparse Variational Gaussian Processes (SVGPs) with a receding-horizon control scheme. Relying solely on noisy state measurements, our approach infers a posterior distribution over the latent world policy, which is updated on streaming data via Online Variational Conditioning (OVC). The learned policy is propagated through the nonlinear world dynamics using an approximate moment propagation scheme, and fed to an uncertainty-aware Model Predictive Control (MPC), thus enabling safe maneuvering of the ego robot. The real-time feasibility and safety guarantees of SOWL-MPC are demonstrated through extensive Monte Carlo virtual experiments in ROS 2, and validated on real-world robotic hardware in an indoor arena.",
+      "authors": [
+        "Davide Valenti",
+        "Giuseppe Notarstefano"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-24T11:43:57+00:00",
+      "link": "https://arxiv.org/pdf/2607.22225v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "learns world robot policy as internal environment model for predictive control",
+      "llm_evidence_cn": "学习世界机器人策略作为内部环境模型用于预测控制",
+      "llm_evidence": "学习世界机器人策略作为内部环境模型用于预测控制",
+      "canonical_evidence": "学习世界机器人策略作为内部环境模型用于预测控制",
+      "llm_tldr_en": "Proposes SOWL-MPC combining online learning of latent world policy via SVGPs with receding-horizon control for safe autonomous navigation in ego-world robotic systems.",
+      "llm_tldr_cn": "针对未知世界机器人策略下的安全导航问题，提出SOWL-MPC框架，通过稀疏变分高斯过程在线学习潜在世界策略分布，并结合滚动时域控制实现安全机动。实验表明该方法能够在仅依赖噪声状态测量情况下有效推理并适应环境，提升自主导航安全性。该工作为内部环境模型用于规划预测提供了新的实现思路。",
+      "llm_tldr": "针对未知世界机器人策略下的安全导航问题，提出SOWL-MPC框架，通过稀疏变分高斯过程在线学习潜在世界策略分布，并结合滚动时域控制实现安全机动。实验表明该方法能够在仅依赖噪声状态测量情况下有效推理并适应环境，提升自主导航安全性。该工作为内部环境模型用于规划预测提供了新的实现思路。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2607.22409v1",
+      "source": "arxiv",
+      "title": "Conformal Constraint Tightening for Chance-Constrained Motion Planning with Unknown Dynamics",
+      "abstract": "Motion planning algorithms compute control sequences that drive autonomous robots to goal regions while avoiding unsafe states. Existing methods, from sampling-based planning to deep reinforcement learning, typically provide task-completion guarantees only with respect to a nominal model or simulator, which may be invalidated when the true dynamics are unknown or difficult to model accurately. This letter addresses this limitation for systems with unknown dynamics and an available approximate nominal model, contributing a planner-agnostic constraint-tightening procedure that equips existing planners with a probabilistic task-completion guarantee on the true system. We leverage conformal prediction to provide a probabilistic bound on the nominal-to-true trajectory deviation over a distribution of planning problems. We tighten the planning constraints using that bound, and show that solving the tightened problem under the nominal model is a sufficient condition for solving the original problem on the true system with a prescribed probability. We validate the theoretical guarantees empirically and demonstrate substantially improved task completion relative to nominal-model planning.",
+      "authors": [
+        "Shubham Natraj",
+        "Bruno Sinopoli",
+        "Yiannis Kantaros"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "eess.SY"
+      ],
+      "published": "2026-07-24T15:27:07+00:00",
+      "link": "https://arxiv.org/pdf/2607.22409v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "Conformal prediction for motion planning with unknown dynamics relates to internal environment models for planning and prediction",
+      "llm_evidence_cn": "利用共形预测处理未知动力学的运动规划，与内部环境模型用于规划和预测相关",
+      "llm_evidence": "利用共形预测处理未知动力学的运动规划，与内部环境模型用于规划和预测相关",
+      "canonical_evidence": "利用共形预测处理未知动力学的运动规划，与内部环境模型用于规划和预测相关",
+      "llm_tldr_en": "Proposes a planner-agnostic constraint-tightening procedure using conformal prediction to provide probabilistic task-completion guarantees for motion planning with unknown dynamics, applicable to any planner.",
+      "llm_tldr_cn": "现有运动规划方法在真实动力学未知时任务完成保证失效。该论文提出一种规划器无关的约束收紧方法，利用共形预测为运动规划器提供概率任务完成保证，适用于采样规划与深度强化学习等方法。实验表明，该方法有效弥补真实动力学未知带来的风险，提升了规划安全性。",
+      "llm_tldr": "现有运动规划方法在真实动力学未知时任务完成保证失效。该论文提出一种规划器无关的约束收紧方法，利用共形预测为运动规划器提供概率任务完成保证，适用于采样规划与深度强化学习等方法。实验表明，该方法有效弥补真实动力学未知带来的风险，提升了规划安全性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.22430v1",
+      "source": "arxiv",
+      "title": "On the Identifiability of Controlled World Models",
+      "abstract": "Learning world models that infer environment dynamics from high-dimensional observations and predict outcomes under candidate actions is central to planning and control. Joint-Embedding Predictive Architectures (JEPAs) provide a compelling framework for learning such models in representation space. Recent action-conditioned extensions perform promisingly in visual control and latent-space planning, but leave a fundamental question unresolved: when does controlled latent prediction identify both the underlying state and the controlled dynamics? This is challenging under nonlinear observations and behavior policies with limited conditional action variation, where state-dependent evolution and action effects can be statistically confounded. We establish a joint identifiability theory for controlled world models with Gaussian latent states under state-dependent Gaussian behavior policies. We identify two policy-dependent conditions: spectral separation of the predictable signal governs representation identifiability, while non-degenerate conditional action variation governs transition identifiability. We prove that when both conditions hold, every global minimizer of the JEPA objective identifies the latent state and controlled transition up to an orthogonal transformation. We further derive quantitative bounds on representation and transition identifiability under approximate optimization. Finally, we construct predictor perturbations along weakly excited action directions whose counterfactual-to-on-policy error ratio is the inverse transition-identifiability margin, revealing the cost of limited action coverage. Experiments across nonlinear observation maps and behavior policies corroborate the theory and demonstrate implications for transition identifiability, counterfactual prediction, and goal-conditioned latent planning.",
+      "authors": [
+        "Xiangteng Zhang",
+        "Yang Guan",
+        "Bo Zhang",
+        "Ya-Qin Zhang",
+        "Shengbo Eben Li"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-07-24T15:49:12+00:00",
+      "link": "https://arxiv.org/pdf/2607.22430v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "Theoretical analysis of identifiability of controlled world models for planning",
+      "llm_evidence_cn": "可控世界模型可辨识性的理论分析",
+      "llm_evidence": "可控世界模型可辨识性的理论分析",
+      "canonical_evidence": "可控世界模型可辨识性的理论分析",
+      "llm_tldr_en": "Establishes joint identifiability conditions for latent state and dynamics in controlled world models, addressing confounding from behavior policies.",
+      "llm_tldr_cn": "学习世界模型用于规划时，一个根本问题是否潜状态和动态可辨识。本文针对联合嵌入预测架构，在非线性观测和受限动作变化下建立了联合可辨识性条件，为世界模型的学习提供了理论保障。",
+      "llm_tldr": "学习世界模型用于规划时，一个根本问题是否潜状态和动态可辨识。本文针对联合嵌入预测架构，在非线性观测和受限动作变化下建立了联合可辨识性条件，为世界模型的学习提供了理论保障。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    }
+  ]
+}
