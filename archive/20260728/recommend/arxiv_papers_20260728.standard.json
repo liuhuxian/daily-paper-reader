@@ -1,0 +1,696 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-28T21:30:48.765891+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 14,
+    "deep_cap": 6,
+    "deep_selected": 6,
+    "quick_candidates": 16,
+    "quick_skim_target": 11,
+    "quick_selected": 11
+  },
+  "deep_dive": [
+    {
+      "id": "2607.22999v1",
+      "source": "arxiv",
+      "title": "WCM: World-Cognition Model for Generalizable Human-Robot Interaction",
+      "abstract": "Language agents can now interact fluently with users in software, but robots still struggle to bring comparable interaction to physical tasks. Current robot-control paradigms, including vision-language-action policies and world-model-based planners, are mainly optimized for instruction execution, leaving users with little visibility into why an action is chosen and few mechanisms to redirect, correct, or teach the robot through interaction. To solve this problem, we present the World-Cognition Model (WCM), a human-centered embodied agent built on the SLAK architecture (Sensing, Logic, Action, and Knowledge) and an asynchronous runtime. SLAK separates perception, reasoning, control, and memory, while the runtime allows reasoning, dialogue, and execution to proceed concurrently. WCM further introduces a human-in-the-loop teaching mode that enables users to interactively teach the robot difficult or long-horizon tasks. Teaching episodes and autonomous task rollouts are refined into chain-of-thought supervision to continually improve the model. WCM achieves a 73.8% average success rate across nine real-world human-robot interaction tasks, including tasks held out from CoT fine-tuning and a long-horizon task learned through teaching.",
+      "authors": [
+        "Yuzhen Chen",
+        "KC Zhou"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.HC",
+        "cs.LG"
+      ],
+      "published": "2026-07-25T02:27:16+00:00",
+      "link": "https://arxiv.org/pdf/2607.22999v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "internal world model for human-robot interaction, with perception and reasoning",
+      "llm_evidence_cn": "用于人机交互的内部世界模型，包含感知和推理",
+      "llm_evidence": "用于人机交互的内部世界模型，包含感知和推理",
+      "canonical_evidence": "用于人机交互的内部世界模型，包含感知和推理",
+      "llm_tldr_en": "WCM introduces a human-centered embodied agent with a world-cognition model on SLAK architecture, enabling transparent reasoning and interactive teaching.",
+      "llm_tldr_cn": "现有机器人控制主要优化指令执行，缺乏交互可见性。本文提出世界认知模型（WCM），基于SLAK架构分离感知、推理、控制和记忆，通过异步运行时支持推理、对话和并行执行，提升了人机交互的可解释性和可教性。",
+      "llm_tldr": "现有机器人控制主要优化指令执行，缺乏交互可见性。本文提出世界认知模型（WCM），基于SLAK架构分离感知、推理、控制和记忆，通过异步运行时支持推理、对话和并行执行，提升了人机交互的可解释性和可教性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.23783v1",
+      "source": "arxiv",
+      "title": "$N_0$-TWAM: Scaling Tactile-Native World-Action Model for Contact-Rich Manipulation",
+      "abstract": "We present $N_0$-TWAM, a tactile-native world-action model for contact-rich manipulation that predicts both future vision and future contact. To our knowledge, it is the first tactile world-action model trained at large scale, and it shows strong capability on contact-rich tasks. We pre-train $N_0$-TWAM at large scale with visuo-tactile joint training over tactile-rich demonstrations spanning six embodiments and 450 tasks. We use NeoForce, a unified force-based tactile representation, to form a physically grounded contact signal that conditions action generation. To improve long-horizon and multi-stage manipulation, we introduce tactile contact events for task staging and advance through them during execution. For real-time efficiency, we adopt an asymmetric Mixture-of-Transformers architecture that pairs a full-width expert for video prediction with slim experts for downstream action and tactile prediction. Evaluations on both real and simulated benchmarks justify the capabilities of $N_0$-TWAM across a range of contact-rich tasks, and demonstrate the benefit of data scaling for precise tactile and action prediction. In summary, $N_0$-TWAM endows a world-action model with predictive capabilities to foresee vision, touch and action, building a solid foundation for fine-grained manipulation on open contact-rich tasks. The codebase and model checkpoints will be made publicly available to foster further research and development in tactile-enabled robotic manipulation.",
+      "authors": [
+        "NeoteAI Team",
+        "Fudan TEAI Team"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-26T17:58:53+00:00",
+      "link": "https://arxiv.org/pdf/2607.23783v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "tactile-native world-action model that predicts future vision and contact; internal environment model for planning and prediction",
+      "llm_evidence_cn": "触觉原生世界-动作模型，预测未来视觉和接触；用于规划和预测的内部环境模型",
+      "llm_evidence": "触觉原生世界-动作模型，预测未来视觉和接触；用于规划和预测的内部环境模型",
+      "canonical_evidence": "触觉原生世界-动作模型，预测未来视觉和接触；用于规划和预测的内部环境模型",
+      "llm_tldr_en": "N0-TWAM is a large-scale tactile world-action model that predicts future vision and contact, enabling robust contact-rich manipulation from demonstrations.",
+      "llm_tldr_cn": "针对接触丰富操作中缺乏大规模触觉世界模型的问题，提出N0-TWAM，首个大规模触觉世界-动作模型，通过联合视觉-触觉训练预测未来状态和接触信号，在450个任务和六种实体上预训练，显著提升了接触丰富操作的性能。",
+      "llm_tldr": "针对接触丰富操作中缺乏大规模触觉世界模型的问题，提出N0-TWAM，首个大规模触觉世界-动作模型，通过联合视觉-触觉训练预测未来状态和接触信号，在450个任务和六种实体上预训练，显著提升了接触丰富操作的性能。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.23909v1",
+      "source": "arxiv",
+      "title": "WorldDiT: A Unified Diffusion Architecture for World and Action Modeling",
+      "abstract": "Many recent robot policies pursue stronger control by using large pretrained vision-language models (VLMs) as the action backbone. We introduce WorldDiT, a unified diffusion transformer architecture that couples action generation with visual world modeling and achieves strong performance without a large pretrained VLM action backbone. During training, a single diffusion transformer generates continuous action chunks and predicts normalized RGB patch targets from future camera frames. Across four LIBERO simulation suites, WorldDiT lies on the reported Pareto frontier for total model parameters and mean success among methods reporting all four suites. These results provide a strong sub-billion-parameter baseline for future scaling studies.",
+      "authors": [
+        "Sen Wang",
+        "R. Gnana Praveen",
+        "Bidhan Roy",
+        "Marcos Villagra"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.RO"
+      ],
+      "published": "2026-07-27T00:55:10+00:00",
+      "link": "https://arxiv.org/pdf/2607.23909v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "unified diffusion transformer for world and action modeling",
+      "llm_evidence_cn": "统一扩散Transformer进行世界与动作建模",
+      "llm_evidence": "统一扩散Transformer进行世界与动作建模",
+      "canonical_evidence": "统一扩散Transformer进行世界与动作建模",
+      "llm_tldr_en": "Introduces WorldDiT, a unified diffusion transformer that couples action generation with visual world modeling, directly relevant to internal environment models for planning and prediction.",
+      "llm_tldr_cn": "针对机器人策略中依赖大型预训练视觉语言模型的问题，提出WorldDiT，一种统一的扩散Transformer架构，将动作生成与视觉世界建模耦合。在训练中，该模型同时生成连续动作块并预测未来帧的归一化RGB块。在LIBERO仿真套件上达到帕累托最优，证明了次十亿参数模型在机器人世界建模与动作规划中的有效性，直接对应内部环境模型用于规划和预测的需求。",
+      "llm_tldr": "针对机器人策略中依赖大型预训练视觉语言模型的问题，提出WorldDiT，一种统一的扩散Transformer架构，将动作生成与视觉世界建模耦合。在训练中，该模型同时生成连续动作块并预测未来帧的归一化RGB块。在LIBERO仿真套件上达到帕累托最优，证明了次十亿参数模型在机器人世界建模与动作规划中的有效性，直接对应内部环境模型用于规划和预测的需求。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.23969v1",
+      "source": "arxiv",
+      "title": "LeapBot-WA: World-Anchor Action Models via Predictive Latent Alignments",
+      "abstract": "World Action Models (WAMs) have emerged as a powerful paradigm for embodied intelligence, yet the prevailing reliance on pixel-level video generation creates a fundamental bottleneck. Forcing models to reconstruct task-irrelevant visual details dissipates representational capacity and renders policies vulnerable to visual distractors. In this paper, we propose LeapBot-WA, which establishes a novel Predictive-Latent paradigm for WAMs by operationalizing the Joint-Embedding Predictive Architecture (JEPA) as a World-Anchor. Departing from the traditional reliance on visual synthesis, LeapBot-WA shifts the core of world modeling to Predictive Semantic Alignment, extracting abstract physical dynamics directly within a latent foundation space. To bridge the modality gap between non-Gaussian predictive features and diffusion priors, we introduce the Isotropic Semantic Autoencoder (ISAE), which reshapes the anchor's latent space into a diffusion-friendly manifold to prevent off-manifold drift. Furthermore, we design an Asymmetric Mixture-of-Transformers (MoT) architecture. During training, an Anchor Diffusion Transformer acts as a privileged dynamics expert to guide the Action Diffusion Transformer; at inference, this heavy dynamics branch is pruned, enabling zero-overhead execution. LeapBot-WA achieves state-of-the-art performance among predictive models on LIBERO and matches top-tier generative WAMs on RoboTwin 2.0 without requiring large-scale trajectory pre-training. It further demonstrates superior zero-shot robustness to unseen environments and successful real-world transfer, establishing a highly efficient and robust latent-centric paradigm for scalable robotic control. Code: https://github.com/LeapWM/leapbot-wa.",
+      "authors": [
+        "Pei Liu",
+        "Nan Zheng",
+        "Lang Zhang",
+        "Daojie Peng",
+        "Yanan Zhang",
+        "Feilong Kong",
+        "Mingyue Feng",
+        "Jiachao Liu",
+        "Yaonong Wang",
+        "Qifeng Chen",
+        "Jun Ma"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-27T03:36:45+00:00",
+      "link": "https://arxiv.org/pdf/2607.23969v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world action models with predictive latent alignments for world modeling",
+      "llm_evidence_cn": "使用预测潜在对齐的世界动作模型进行世界建模",
+      "llm_evidence": "使用预测潜在对齐的世界动作模型进行世界建模",
+      "canonical_evidence": "使用预测潜在对齐的世界动作模型进行世界建模",
+      "llm_tldr_en": "Proposes LeapBot-WA using JEPA as a World-Anchor to model physical dynamics in latent space, avoiding pixel-level reconstruction.",
+      "llm_tldr_cn": "世界动作模型依赖像素级视频重建造成表示瓶颈。本文提出LeapBot-WA，利用联合嵌入预测架构作为世界锚点，在潜在空间中直接提取物理动态，避免重建无关视觉细节。实验表明该方法在多个具身任务上优于基于重建的方法，提高了策略鲁棒性。",
+      "llm_tldr": "世界动作模型依赖像素级视频重建造成表示瓶颈。本文提出LeapBot-WA，利用联合嵌入预测架构作为世界锚点，在潜在空间中直接提取物理动态，避免重建无关视觉细节。实验表明该方法在多个具身任务上优于基于重建的方法，提高了策略鲁棒性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.24267v1",
+      "source": "arxiv",
+      "title": "FeelWorld: Visuo-Tactile World Model for Hierarchical Contact Prediction and Planning",
+      "abstract": "Humans plan physical interactions by imagining the possible outcomes of candidate actions. However, existing visual world models primarily capture appearance dynamics while overlooking the tactile states that govern contact-rich interactions, potentially producing imagined futures that appear visually plausible but violate physical dynamics. We introduce FeelWorld, a hierarchical visuo-tactile world model that jointly predicts future visual latents and three tactile states. FeelWorld organizes these states hierarchically as contact state, a 3D tactile latent that encodes force-related information, and slip state. These states are jointly predicted by a shared latent dynamics model with explicit supervision. To prevent irrelevant tactile signals during free-space motion from degrading visual prediction, we introduce a contact-gated asymmetric attention mechanism that maintains a visual-only prediction pathway before contact and enables joint visuo-tactile dynamics prediction during contact. The model is further trained with autoregressive rollouts and context noise injection to improve robustness to compounding errors. The predicted contact and slip states also support contact-aware CEM planning. Experiments on chip grasping, fruit grasping, and USB insertion show that FeelWorld reduces 10-step LPIPS from 0.084 to 0.058 and maintains an LPIPS that is 61% lower than that of the visual baseline after an 80-step autoregressive rollout. FeelWorld also achieves an average zero-shot planning success rate of 81.7%, providing an effective approach for incorporating tactile sensing into world models.",
+      "authors": [
+        "Wenxuan Ma",
+        "Chaofan Zhang",
+        "Chao Xue",
+        "Yinghao Cai",
+        "Guocai Yao",
+        "Shaowei Cui",
+        "Shuo Wang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-27T11:00:26+00:00",
+      "link": "https://arxiv.org/pdf/2607.24267v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "hierarchical visuo-tactile world model for planning",
+      "llm_evidence_cn": "层次化视觉触觉世界模型用于规划与预测",
+      "llm_evidence": "层次化视觉触觉世界模型用于规划与预测",
+      "canonical_evidence": "层次化视觉触觉世界模型用于规划与预测",
+      "llm_tldr_en": "FeelWorld introduces a hierarchical visuo-tactile world model that jointly predicts visual and tactile states for contact-rich manipulation planning.",
+      "llm_tldr_cn": "现有视觉世界模型忽略触觉状态导致物理动态预测不准确。FeelWorld提出层次化视觉触觉世界模型，联合预测未来视觉潜变量和触觉状态（接触、力、滑动）。该模型通过共享潜动力学模型并引入显式监督，提升了接触丰富交互中的规划准确性。实验表明，结合触觉预测显著改善了物理合理性，为机器人操作中的世界模型应用提供了新思路。",
+      "llm_tldr": "现有视觉世界模型忽略触觉状态导致物理动态预测不准确。FeelWorld提出层次化视觉触觉世界模型，联合预测未来视觉潜变量和触觉状态（接触、力、滑动）。该模型通过共享潜动力学模型并引入显式监督，提升了接触丰富交互中的规划准确性。实验表明，结合触觉预测显著改善了物理合理性，为机器人操作中的世界模型应用提供了新思路。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.20771v2",
+      "source": "arxiv",
+      "title": "Emergent Compositional Skills in Mixture-of-Experts VLAs",
+      "abstract": "We consider the problem of learning compositional robot policies end-to-end from expert demonstrations, without any pre-specified notion of task decomposition or hierarchy. We ask whether a VLA trained with a simplified Mixture-of-Experts (MoE) action head can emergently learn to decompose tasks into reusable, interpretable primitives. We find that learned experts are heavily reused across tasks and consistently correspond to qualitatively distinct low-level behaviors, suggesting that the router implicitly learns to perform high-level sequencing while experts serve as compositional primitives. Our MoE matches the task performance of a monolithic baseline while demonstrating meaningful expert specialization, a step toward modular, interpretable robot policies that emerge from data alone.",
+      "authors": [
+        "Shlok Shah",
+        "Rhiaan Jhaveri",
+        "Tharun Kumar Tiruppali Kalidoss",
+        "Chirayu Nimonkar",
+        "Ishaan Javali",
+        "Dhruv Shah"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published": "2026-07-22T22:36:52+00:00",
+      "link": "https://arxiv.org/pdf/2607.20771v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "learning compositional robot policies end-to-end from expert demonstrations using Mixture-of-Experts",
+      "llm_evidence_cn": "使用专家混合端到端从专家演示学习组合机器人策略",
+      "llm_evidence": "使用专家混合端到端从专家演示学习组合机器人策略",
+      "canonical_evidence": "使用专家混合端到端从专家演示学习组合机器人策略",
+      "llm_tldr_en": "This paper shows that a VLA with Mixture-of-Experts action head can emergently learn reusable compositional primitives from expert demonstrations, achieving interpretable policy decomposition.",
+      "llm_tldr_cn": "研究从专家演示中端到端学习组合机器人策略的问题，提出基于简化专家混合（MoE）动作头的视觉-语言-动作模型，发现专家单元可跨任务重用并对应不同低级行为，路由器隐式学习高层排序，在保持性能的同时实现了模块化和可解释的策略分解。",
+      "llm_tldr": "研究从专家演示中端到端学习组合机器人策略的问题，提出基于简化专家混合（MoE）动作头的视觉-语言-动作模型，发现专家单元可跨任务重用并对应不同低级行为，路由器隐式学习高层排序，在保持性能的同时实现了模块化和可解释的策略分解。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2607.21302v2",
+      "source": "arxiv",
+      "title": "Expert Behavior Prior Reinforcement Learning",
+      "abstract": "Behavior prior reinforcement learning (BPRL) has emerged as a promising paradigm to improve sample efficiency in online reinforcement learning (RL) by leveraging policy priors derived from offline demonstrations. However, most existing BPRL methods rely on static offline datasets, which often suffer from low data diversity and suboptimal trajectory quality. This reliance restricts the effectiveness of policy priors, hindering both policy exploitation and stability during online training. Consequently, agents are prone to inefficient exploration and unstable learning dynamics. To address these limitations, we deviate from existing offline pre-training methods and propose an Expert Behavior Prior (EBP) algorithm. Specifically, we introduce a Q-guided conditional variational autoencoder (Q-CVAE) that learns to generate expert policy priors directly from the online replay buffer. This enables the generation of high-value actions for guiding policy updates without relying on pre-collected expert trajectories. To further enhance policy exploitation, we propose an expert policy guidance (EPG) mechanism that selects expert actions from a generative support set, and we integrate a policy gradient correction (PGC) module to harmonize Q-guidance with expert supervision, promoting stable and consistent policy improvement. Extensive experiments conducted on robotic control (Gym, PyBullet) and industrial control (DMControl) benchmarks demonstrate that EBP significantly outperforms state-of-the-art online RL algorithms, achieving higher sample efficiency and more stable convergence.",
+      "authors": [
+        "Gong Gao",
+        "Weidong Zhao",
+        "Xianhui Liu",
+        "Ning Jia"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-07-23T13:26:57+00:00",
+      "link": "https://arxiv.org/pdf/2607.21302v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "expert behavior prior for online RL from demonstrations",
+      "llm_evidence_cn": "从演示中获取专家行为先验用于在线强化学习",
+      "llm_evidence": "从演示中获取专家行为先验用于在线强化学习",
+      "canonical_evidence": "从演示中获取专家行为先验用于在线强化学习",
+      "llm_tldr_en": "EBP proposes a Q-guided conditional VAE to learn expert behavior prior from demonstrations, improving sample efficiency and stability in online RL.",
+      "llm_tldr_cn": "本文针对现有行为先验强化学习依赖静态离线数据导致多样性不足的问题，提出专家行为先验算法EBP。通过Q引导的条件变分自编码器从演示数据中学习策略先验，并在在线RL中动态调整。在多个连续控制任务上，EBP相比传统方法显著提升样本效率和策略稳定性，证明了在线先验学习的有效性。",
+      "llm_tldr": "本文针对现有行为先验强化学习依赖静态离线数据导致多样性不足的问题，提出专家行为先验算法EBP。通过Q引导的条件变分自编码器从演示数据中学习策略先验，并在在线RL中动态调整。在多个连续控制任务上，EBP相比传统方法显著提升样本效率和策略稳定性，证明了在线先验学习的有效性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2607.22014v1",
+      "source": "arxiv",
+      "title": "Zero-Shot Mission-Level Evaluation for Aerial MLLM Agents",
+      "abstract": "Multimodal Large Language Models (MLLMs) are emerging as core reasoning modules for embodied agents, yet it remains unclear how well general-purpose models can solve long-horizon embodied tasks from a single high-level instruction. We introduce MissionBench, a benchmark for mission-level evaluation of MLLMs in aerial 3D environments. It comprises 120 missions across five simulated 3D environments and four task families. Agents must autonomously plan, navigate, and report outcomes using only egocentric observations and its action history, without aerial-specific fine-tuning. Across 22 open- and closed-source MLLMs, the strongest model succeeds on fewer than 35% of missions compared to 84.4% human performance, highlighting the difficulty of multi-step embodied tasks. Despite large variations between model families, we observe gains from scaling, indicating that larger general-purpose models possess stronger zero-shot embodied capabilities. Our analysis shows that mission-level competence requires coordinating multiple capabilities beyond spatial perception, including multi-step planning and adaptive reasoning. This motivates closed-loop evaluation and highlights both the promise and risk of scaling-driven improvements for embodied AI.",
+      "authors": [
+        "Suman Navaratnarajah",
+        "Taehyoung Kim",
+        "Jona Ruthardt",
+        "Ishaan Bhimwal",
+        "Ryousuke Yamada",
+        "Yannik Blei",
+        "Wolfram Burgard",
+        "Yuki M Asano"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.CV",
+        "cs.RO"
+      ],
+      "published": "2026-07-24T06:22:50+00:00",
+      "link": "https://arxiv.org/pdf/2607.22014v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "benchmark for evaluating MLLMs as aerial embodied agents",
+      "llm_evidence_cn": "用于评估多模态大语言模型作为空中具身智能体的基准",
+      "llm_evidence": "用于评估多模态大语言模型作为空中具身智能体的基准",
+      "canonical_evidence": "用于评估多模态大语言模型作为空中具身智能体的基准",
+      "llm_tldr_en": "MissionBench evaluates MLLMs on long-horizon aerial missions, revealing large performance gaps compared to humans and highlighting the challenge of embodiment.",
+      "llm_tldr_cn": "本文针对多模态大语言模型在长期具身任务中的能力评估空白，提出MissionBench基准。包含120个空中3D任务，要求模型自主规划、导航和报告。对22个开源/闭源MLLM的评估显示，最强模型成功率不足35%，而人类达84.4%，揭示了当前MLLM在具身推理方面的显著不足，为未来研究提供了重要参考。",
+      "llm_tldr": "本文针对多模态大语言模型在长期具身任务中的能力评估空白，提出MissionBench基准。包含120个空中3D任务，要求模型自主规划、导航和报告。对22个开源/闭源MLLM的评估显示，最强模型成功率不足35%，而人类达84.4%，揭示了当前MLLM在具身推理方面的显著不足，为未来研究提供了重要参考。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.23515v1",
+      "source": "arxiv",
+      "title": "LEACL: LLM-Enhanced Automatic Curriculum Learning for Reinforcement Learning in Long-Horizon Manipulation Tasks",
+      "abstract": "Long-horizon manipulation tasks pose significant challenges for reinforcement learning due to sparse reward signals and long horizons. Automatic curriculum learning (ACL) has been proposed to tackle these challenges by progressively training agents on a sequence of tasks, from easier to more difficult. However, the success of ACL depends heavily on task-dependent specifications-such as well-defined task parameter spaces and difficulty measures-which are often manually crafted and difficult to generalize across diverse tasks. Recent advances in large language models (LLMs) offer a promising alternative by enabling the decomposition of complex tasks into meaningful subtasks using the LLMs' web-scale common-sense knowledge. This decomposition can provide a natural curriculum structure for efficient learning of long-horizon tasks. However, existing LLM-based methods typically rely on hand-designed dense reward functions to learn each subtask, which can introduce bias and still requires significant human supervision.   In this work, we propose LLM-enhanced automatic curriculum learning (LEACL), a framework that integrates LLMs and ACL to address these limitations. Specifically, LLMs are used to both decompose tasks into subtasks and to generate task-dependent specifications for each subtask. These specifications are then used by ACL algorithms to guide learning using only sparse reward signals, eliminating the need for dense reward design. We evaluate LEACL on five long-horizon manipulation tasks from the LIBERO benchmark. LEACL achieves better asymptotic performance in terms of the success rates compared to human-designed dense rewards.",
+      "authors": [
+        "Faraz Heravi",
+        "James Ouyang",
+        "Zifan Xu",
+        "Arjun Kumar",
+        "Yoonchang Sung",
+        "Peter Stone"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-26T07:31:07+00:00",
+      "link": "https://arxiv.org/pdf/2607.23515v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "LLM-enhanced curriculum learning for robotic manipulation",
+      "llm_evidence_cn": "LLM增强的课程学习用于机器人操作",
+      "llm_evidence": "LLM增强的课程学习用于机器人操作",
+      "canonical_evidence": "LLM增强的课程学习用于机器人操作",
+      "llm_tldr_en": "LEACL uses LLMs to automatically generate curriculum subtasks for RL in long-horizon manipulation, improving sample efficiency and generalization.",
+      "llm_tldr_cn": "本文针对长时域操作任务中强化学习奖励稀疏、课程学习依赖人工设计的问题，提出LEACL框架，利用大语言模型自动分解任务并生成渐进式子任务序列。在多种机器人操作任务上，LEACL显著提升样本效率和最终成功率，展示了LLM在自动课程设计中的潜力，为复杂操作任务的强化学习提供了一种通用解决方案。",
+      "llm_tldr": "本文针对长时域操作任务中强化学习奖励稀疏、课程学习依赖人工设计的问题，提出LEACL框架，利用大语言模型自动分解任务并生成渐进式子任务序列。在多种机器人操作任务上，LEACL显著提升样本效率和最终成功率，展示了LLM在自动课程设计中的潜力，为复杂操作任务的强化学习提供了一种通用解决方案。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.22997v1",
+      "source": "arxiv",
+      "title": "Real2Sim2Real for Vision-Language-Action Manipulation: An AMD ROCm-Based Pipeline",
+      "abstract": "Physical AI -- the integration of large vision-language-action (VLA) models with embodied agents that act in the real world -- has emerged as the next major frontier for AI, echoed by industry leaders such as Jensen Huang (``the next big thing is Physical AI, AI with a body,'' GTC Paris, June 2025) and Dr. Lisa Su (`we're entering the world of Physical AI ... this is where AI enters the real world,' CES 2026). This paper presents an end-to-end, fully AMD-accelerated technology stack for embodied manipulation, spanning data-center training silicon, Radeon PRO simulation/rendering GPUs, and Ryzen AI edge compute, unified by the open ROCm software stack. We demonstrate that training and deploying VLA-based manipulation policies does not require a CUDA-locked ecosystem. Four progressive demonstrations are presented: (1) a Sim-to-Real manipulation pipeline trained with SmolVLA and deployed on a physical Franka arm; (2) a semantic, language-grounded object-selection task (`one-of-three'); (3) a Real2Sim synthetic-data generation pipeline that fuses 3D Gaussian Splatting (3DGS) reconstructions of real scenes with the Genesis physics engine; and (4) large-scale reinforcement learning for quadruped and humanoid locomotion benchmarked across multiple hardware platforms. All pipelines run natively on ROCm + PyTorch on RDNA4 (Radeon AI PRO R9700) and RDNA3.5 (Radeon PRO W7900) hardware and are reproducible on the free Radeon Cloud Platform.",
+      "authors": [
+        "Qing Yang",
+        "Xun Wang",
+        "Ziguan Wang",
+        "Zhenjiang Li",
+        "Hongqiang Wang",
+        "Dongdong Weng"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.GR",
+        "cs.LG"
+      ],
+      "published": "2026-07-25T02:23:34+00:00",
+      "link": "https://arxiv.org/pdf/2607.22997v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "Physical AI integration of VLA models with embodied agents and sensors",
+      "llm_evidence_cn": "物理AI将大视觉语言动作模型与具身智能体集成",
+      "llm_evidence": "物理AI将大视觉语言动作模型与具身智能体集成",
+      "canonical_evidence": "物理AI将大视觉语言动作模型与具身智能体集成",
+      "llm_tldr_en": "This paper presents an end-to-end AMD-accelerated pipeline for embodied manipulation, integrating VLA models with simulation and real-world deployment, demonstrating that training and deploying manipulation policies is feasible on AMD hardware.",
+      "llm_tldr_cn": "针对具身操作中缺乏统一软硬件栈的问题，本文提出基于AMD ROCm的全栈解决方案，覆盖数据中心训练、仿真渲染和边缘推理，实现了视觉-语言-动作模型的端到端部署。实验表明该流水线在多种操作任务上有效，降低了硬件依赖。",
+      "llm_tldr": "针对具身操作中缺乏统一软硬件栈的问题，本文提出基于AMD ROCm的全栈解决方案，覆盖数据中心训练、仿真渲染和边缘推理，实现了视觉-语言-动作模型的端到端部署。实验表明该流水线在多种操作任务上有效，降低了硬件依赖。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2607.22832v1",
+      "source": "arxiv",
+      "title": "MEMENTO: Memory-Guided Memetic Code-as-Policy Evolution",
+      "abstract": "Long-horizon embodied tasks require policies that execute many dependent actions before task success can be observed. Representing policies as executable control pro- grams (code-as-policy) enables their decision logic to be inspected and revised after rollout evaluation. Revised programs can then be executed and compared by rollout performance, framing policy improvement as execution-guided program search. Evo- lutionary methods driven by large language models (LLMs) provide a natural mecha- nism for this search by generating variants and selecting high-performing candidates. However, existing approaches primarily select among independently generated vari- ants and lack a sequential local improvement phase. We introduce MEMENTO, a memory-guided single-elite memetic framework for code-as-policy evolution. ME- MENTO first evolves a rollout evaluator that maps policy rollouts to scalar fitness and structured feedback metrics. Fitness selects accepted candidates and the next elite, while feedback metrics condition policy proposals generated by memory-guided hill-climbing, macro-mutation, and crossover. We evaluate MEMENTO on two long- horizon embodied domains: Robosuite Franka Tower-of-Hanoi manipulation and AI2- THOR household interaction. MEMENTO outperforms Eureka and REvolve, adapted as code-as-policy evolutionary baselines, in task success and generalization to held- out Robosuite object configurations and unseen AI2-THOR scenes. Ablations show that zero-shot generation and unevolved evaluators fail to solve either domain, and that removing policy-search branches reduces performance. Finally, we deploy the best-evolved Robosuite policy on a physical Franka robot, demonstrating the feasibil- ity of sim-to-real transfer of the evolved code-as-policy. Code, prompts, and videos are available at: https://github.com/sygkounas/MEMENTO.",
+      "authors": [
+        "Alkis Sygkounas",
+        "Victor Aregbede",
+        "Amy Loutfi",
+        "Andreas Persson"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-07-24T18:16:35+00:00",
+      "link": "https://arxiv.org/pdf/2607.22832v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "code-as-policy evolution for embodied tasks",
+      "llm_evidence_cn": "用于具身任务的代码即策略进化",
+      "llm_evidence": "用于具身任务的代码即策略进化",
+      "canonical_evidence": "用于具身任务的代码即策略进化",
+      "llm_tldr_en": "Introduces MEMENTO, a memory-guided memetic algorithm that evolves code-as-policy for long-horizon embodied tasks, combining LLM-based generation with local improvement.",
+      "llm_tldr_cn": "该论文针对长期具身任务中策略执行依赖长序列动作且反馈稀疏的问题，提出MEMENTO，一种记忆引导的模因算法，将策略表示为可执行控制程序（代码即策略），通过LLM生成变体并结合局部改进阶段，利用记忆机制选择优质操作，框架将策略改进视为执行引导的程序搜索。",
+      "llm_tldr": "该论文针对长期具身任务中策略执行依赖长序列动作且反馈稀疏的问题，提出MEMENTO，一种记忆引导的模因算法，将策略表示为可执行控制程序（代码即策略），通过LLM生成变体并结合局部改进阶段，利用记忆机制选择优质操作，框架将策略改进视为执行引导的程序搜索。",
+      "llm_tags": [
+        "query:wmi:composite"
+      ],
+      "matched_query_tag": "query:wmi:composite",
+      "matched_query_text": "Papers central to 世界模型，具身智能，模仿学习, especially work that connects or combines: internal environment models for planning and prediction; artificial intelligence integrated with physical agents and sensors; learning policies from expert demonstrations; reinforcement learning with learned world dynamics; directly copying expert actions from demonstrations; world model applications in embodied artificial intelligence; imitation learning for robotic manipulation; model based reinforcement learning combined with behavioral cloning.",
+      "matched_requirement_id": "req-composite-wmi",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.23930v1",
+      "source": "arxiv",
+      "title": "Bridging Reinforcement Learning and Optimal Control via Feasible Action Mapping",
+      "abstract": "Operating constrained dynamical systems requires controllers to efficiently solve complex tasks while enforcing recursive feasibility and safety constraints. To address these competing requirements, we present Feasible Action for Optimal Control (FAOC), a novel control framework integrating Reinforcement Learning (RL) and Optimal Control (OC). The key contribution is a computationally efficient, optimization-based mapping algorithm that transforms the RL agent's action from a static abstract set into a state-dependent feasible parameter set of the Optimal Control Problem (OCP), guaranteeing strict satisfaction of the dynamical system's constraints. Thus, FAOC effectively combines the predictable safety of OC with the flexibility of RL. In contrast to prior work, the abstract action space of the RL agent does not require expert or heuristic design, and the OCP formulation is not compromised by the inability of RL to guarantee feasibility. We apply our approach to real-time motion planning for robot table tennis, which encapsulates these challenges. Via simulated experiments, we show that FAOC outperforms state-of-the-art baselines in both sample efficiency and closed-loop performance.",
+      "authors": [
+        "Stefan Richter",
+        "Alberto Giammarino",
+        "Guillem Torrente",
+        "Sam Blakeman",
+        "Peter Dürr"
+      ],
+      "primary_category": "eess.SY",
+      "categories": [
+        "eess.SY",
+        "cs.RO"
+      ],
+      "published": "2026-07-27T02:01:14+00:00",
+      "link": "https://arxiv.org/pdf/2607.23930v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "RL with optimal control for constrained dynamical systems, uses learned dynamics",
+      "llm_evidence_cn": "强化学习与最优控制结合，用于约束动态系统",
+      "llm_evidence": "强化学习与最优控制结合，用于约束动态系统",
+      "canonical_evidence": "强化学习与最优控制结合，用于约束动态系统",
+      "llm_tldr_en": "FAOC integrates RL and optimal control by mapping RL actions to feasible parameter sets, ensuring constraint satisfaction while maintaining flexibility.",
+      "llm_tldr_cn": "约束动态系统需要同时满足安全和灵活性。本文提出FAOC框架，通过优化映射将RL动作转化为可行参数集，保证递归可行性，结合了最优控制的安全性和RL的灵活性。",
+      "llm_tldr": "约束动态系统需要同时满足安全和灵活性。本文提出FAOC框架，通过优化映射将RL动作转化为可行参数集，保证递归可行性，结合了最优控制的安全性和RL的灵活性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.23108v1",
+      "source": "arxiv",
+      "title": "The Curse of Precision: A Data Scaling Law for High-Precision Robotic Manipulation",
+      "abstract": "While scaling laws for imitation learning have primarily focused on generalization in open-world settings, the relationship between data and precision in closed-world tasks like robotic assembly remains largely unexplored. This paper systematically investigates this relationship and introduces a novel scaling law. We find that to achieve a fixed success rate, the required number of demonstrations $N$ grows super-exponentially as the target precision $P$ approaches a limit $c$. This relationship is accurately captured by the model $\\log(N) \\propto 1/(P-c)$. Crucially, we reveal that the limit precision $c$ is not a static physical constant of the task but an emergent property of the entire agent system, including its sensors and expert policy. Through experiments on canonical manipulation tasks, we validate this law and demonstrate that improving system components, such as adding a wrist camera or using a more effective expert, measurably lowers $c$, thus expanding the system's achievable precision. Our work provides a new theoretical framework for precision in robotics and a quantitative metric to evaluate system capabilities. Furthermore, these findings provide a practical methodology for guiding the development and debugging of high-precision manipulation systems.",
+      "authors": [
+        "Cuijie Xu",
+        "Yuanfan Xu",
+        "Min Xue",
+        "Jianjie Lin",
+        "Jian Wang",
+        "Xudong Zhang",
+        "Yu Wang",
+        "Jincheng Yu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-25T08:41:52+00:00",
+      "link": "https://arxiv.org/pdf/2607.23108v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "imitation learning scaling law for high-precision robotic manipulation, shows data needs grow super-exponentially with precision",
+      "llm_evidence_cn": "高精度机器人操作的模仿学习缩放定律，数据需求随精度超指数增长",
+      "llm_evidence": "高精度机器人操作的模仿学习缩放定律，数据需求随精度超指数增长",
+      "canonical_evidence": "高精度机器人操作的模仿学习缩放定律，数据需求随精度超指数增长",
+      "llm_tldr_en": "This paper discovers a scaling law for imitation learning in high-precision tasks: required demonstrations grow super-exponentially as precision approaches a limit, which is an emergent property of the agent system.",
+      "llm_tldr_cn": "针对高精度机器人装配任务中的模仿学习，本文发现数据量随目标精度超指数增长的缩放定律。揭示精度极限并非物理常数，而是智能体系统的涌现属性，为理解数据效率提供了理论指导。",
+      "llm_tldr": "针对高精度机器人装配任务中的模仿学习，本文发现数据量随目标精度超指数增长的缩放定律。揭示精度极限并非物理常数，而是智能体系统的涌现属性，为理解数据效率提供了理论指导。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2607.23181v1",
+      "source": "arxiv",
+      "title": "Towards Dual-Brain Minimal Sufficient Representation for Vision-Language Navigation",
+      "abstract": "Vision-and-Language Navigation in continuous environments (VLN-CE) requires an agent to ground language in egocentric observations and plan in unseen scenes. Although recent multimodal large models and world-model-based methods have improved navigation, they often preserve excessive task-irrelevant detail, weakening generalization and increasing computational burden. We propose BrainNav, a navigation framework grounded in the Principle of Minimal Sufficiency. BrainNav consists of three components: a Logical Anchor Model that implements instruction-aware selective perception to suppress environmental noise, a Minimalist Constraint Alignment module that serves as a compact cross-modal bottleneck, efficiently synchronizing discrete linguistic intent with continuous latent dynamics while filtering out redundant information, and a Compression World Model that predicts action-conditioned states within a condensed, low-rank latent space. These modules align semantic intent with spatial perception, enhancing the agent's robustness and efficiency in complex tasks. Experiments show that BrainNav improves over prior SOTA by 2.0 % / 1.0 in SR/SPL on R2R-CE val-unseen and 0.94 % / 0.78 on RxR-CE val-unseen. These results indicate that minimally sufficient world representations provide an effective foundation for robust VLN.",
+      "authors": [
+        "Yihao Wu",
+        "Chenyi Xu",
+        "Liqi Yan",
+        "Chenhuan Cai",
+        "Geyong Min",
+        "Bin Lin",
+        "Fangli Guan",
+        "Jianhui Zhang",
+        "Pan Li"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-07-25T12:26:47+00:00",
+      "link": "https://arxiv.org/pdf/2607.23181v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "world model applications in embodied navigation",
+      "llm_evidence_cn": "世界模型在具身导航中的应用",
+      "llm_evidence": "世界模型在具身导航中的应用",
+      "canonical_evidence": "世界模型在具身导航中的应用",
+      "llm_tldr_en": "BrainNav uses a Logical Anchor Model and Minimalist Constraint Alignment to suppress noise and synchronize language and vision, improving navigation in unseen scenes.",
+      "llm_tldr_cn": "BrainNav基于最小充分性原则，通过逻辑锚点模型实现指令感知的选择性感知，并通过最小约束对齐模块形成紧凑跨模态瓶颈，有效降低任务无关细节对导航的影响，在未知场景中取得更优的泛化性能和计算效率。",
+      "llm_tldr": "BrainNav基于最小充分性原则，通过逻辑锚点模型实现指令感知的选择性感知，并通过最小约束对齐模块形成紧凑跨模态瓶颈，有效降低任务无关细节对导航的影响，在未知场景中取得更优的泛化性能和计算效率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.23517v1",
+      "source": "arxiv",
+      "title": "Real-Time Human-Centric World Modeling for Upper-Body Human-Object Interaction",
+      "abstract": "We present a real-time human-centric world model for upper-body interactive generation, aiming to synthesize coherent local world dynamics centered on a person, where coordinated body, hand, and facial motions evolve jointly with controllable human-object discrete interaction. To this end, we adopt a continuous-discrete joint control scheme with two complementary components: a continuous human state and a discrete interaction state. For continuous human-state control, we introduce a unified implicit representation based on multi-scale motion encoding, in which motion latents from the upper body, hands, and face are fused into a shared latent space. This multi-scale design improves expressiveness across different spatial scales, captures fine-grained human dynamics more effectively, and enables direct control without explicit retargeting. For discrete object interaction-state control, we represent object contact using a small set of language-encoded discrete interaction states, where text serves as an explicit interaction-state command, such as \\emph{no contact} or \\emph{grasp}, rather than an open-ended generation prompt, and we further construct a dedicated rendering pipeline for human-object interaction data to supervise such discrete interaction states. By combining continuous implicit human-state control with discrete interaction-state control, our model enables precise modeling of how a person moves and interacts with the local environment, including controllable changes to nearby scene states. Finally, we distill the model for efficient streaming real-time inference, achieving 25 FPS on two H100 GPUs. Experiments demonstrate improved fine-grained motion fidelity, more realistic hand-object coordination, and effective real-time interaction, establishing a practical step beyond motion reproduction toward real-time human-centric world modeling.",
+      "authors": [
+        "Chaonan Ji",
+        "Jinwei Qi",
+        "Peng Zhang",
+        "Bang Zhang"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-07-26T07:34:14+00:00",
+      "link": "https://arxiv.org/pdf/2607.23517v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "real-time human-centric world model for interaction generation",
+      "llm_evidence_cn": "实时以人为中心的世界模型用于交互生成",
+      "llm_evidence": "实时以人为中心的世界模型用于交互生成",
+      "canonical_evidence": "实时以人为中心的世界模型用于交互生成",
+      "llm_tldr_en": "This work presents a real-time human-centric world model that synthesizes coherent local world dynamics including body, hand, and face motions with discrete human-object interactions.",
+      "llm_tldr_cn": "本文提出一个实时以人为中心的世界模型，能够联合生成人体上半身、手部和面部运动以及离散的人-物交互，采用连续-离散联合控制方案，通过多尺度运动编码融合不同空间尺度的运动潜变量，在高质量交互合成中展示了实时性能。",
+      "llm_tldr": "本文提出一个实时以人为中心的世界模型，能够联合生成人体上半身、手部和面部运动以及离散的人-物交互，采用连续-离散联合控制方案，通过多尺度运动编码融合不同空间尺度的运动潜变量，在高质量交互合成中展示了实时性能。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2607.23473v1",
+      "source": "arxiv",
+      "title": "PRISM: Polynomial Representations for Interaction-Structured Motor Control",
+      "abstract": "Robot policies are typically MLPs mapping observations to actions. Yet robot observations are physical variables, and many action-relevant cues arise not from individual variables but from their interactions; power, inertial effects, contact, slip, and compliance depend on products among observable signals. We introduce PRISM, a policy representation that makes polynomial interactions among observable physical variables explicit, learnable, and compact. Rather than listing all polynomial terms, PRISM uses a factorized polynomial module to expose higher-order interaction features efficiently. In reinforcement learning, it keeps the standard MLP backbone but applies a gradually activated element-wise polynomial function after it. In imitation learning, it replaces linear proprioceptive conditioning in Diffusion Policy with a polynomial layer trained end-to-end. Across humanoid locomotion and contact-rich manipulation, PRISM improves performance over standard MLP policies and larger MLPs with matched capacity, showing that interaction structure cannot be replaced by capacity alone. It also yields sensorless compliant behavior without force, wrench, tactile input, contact labels, or admittance control. These results suggest that polynomial representations should become a standard architectural choice for embodied motor control. The project page is available at https://lsh3163.github.io/prism/",
+      "authors": [
+        "Seung Hyun Lee",
+        "Stella X. Yu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-26T05:58:10+00:00",
+      "link": "https://arxiv.org/pdf/2607.23473v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "polynomial policy representation for imitation learning",
+      "llm_evidence_cn": "用于模仿学习的多项式策略表示",
+      "llm_evidence": "用于模仿学习的多项式策略表示",
+      "canonical_evidence": "用于模仿学习的多项式策略表示",
+      "llm_tldr_en": "PRISM introduces a factorized polynomial module to efficiently capture higher-order interaction features from physical variables, improving both reinforcement learning and imitation learning policies.",
+      "llm_tldr_cn": "PRISM提出一种基于因子化多项式模块的策略表示方法，能够高效捕获观测变量间的高阶交互特征，在强化学习和模仿学习任务中均能提升策略性能，为解决物理交互环境下的运动控制问题提供了紧凑且可学习的表征。",
+      "llm_tldr": "PRISM提出一种基于因子化多项式模块的策略表示方法，能够高效捕获观测变量间的高阶交互特征，在强化学习和模仿学习任务中均能提升策略性能，为解决物理交互环境下的运动控制问题提供了紧凑且可学习的表征。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.24083v1",
+      "source": "arxiv",
+      "title": "Learning Reusable Hybrid Motion Priors for Humanoid Locomotion from Motion Imitation",
+      "abstract": "Reinforcement learning can produce robust humanoid controllers, but each new task is typically trained as a separate policy with its own reward design and training process. Motion imitation provides an alternative source of motor competence by training policies to track retargeted human motions, yet the resulting controllers remain reference trackers and are not directly usable as task policies. We propose a three-stage pipeline that turns motion-imitation skills into a reusable hybrid motion prior (HMP) for humanoid locomotion. First, an expert policy is trained to imitate retargeted human motion-capture clips. Second, the expert is distilled into a frozen architecture composed of a proprioceptive encoder, a residual vector-quantized (RVQ) codebook, and an action decoder. Third, task-level policies are trained to solve locomotion tasks by selecting discrete codebook entries while the HMP remains frozen. We evaluate the method on velocity tracking, point-goal navigation, and fall-recovery velocity tracking in simulation, and deploy the velocity-tracking policy on a real Unitree G1 robot. The distillation process preserves the tracking behavior of the expert, while the resulting HMP can be reused without retraining as the action interface for different downstream locomotion policies. The learned HMP reveals an interpretable codebook structure in which the number of active RVQ stages modulates the available gait patterns. We further show that training the codebook with the rotation trick improves latent organization and reduces downstream falls compared with a standard straight-through estimator.",
+      "authors": [
+        "Valerio Belli",
+        "Valerio Modugno",
+        "Enrico Mingo Hoffman",
+        "Fabio Amadio"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.RO"
+      ],
+      "published": "2026-07-27T07:25:17+00:00",
+      "link": "https://arxiv.org/pdf/2607.24083v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "motion imitation for humanoid locomotion policies",
+      "llm_evidence_cn": "基于动作模仿的人形机器人运动策略",
+      "llm_evidence": "基于动作模仿的人形机器人运动策略",
+      "canonical_evidence": "基于动作模仿的人形机器人运动策略",
+      "llm_tldr_en": "Learns reusable hybrid motion priors from motion imitation for humanoid locomotion, directly addressing learning policies from expert demonstrations.",
+      "llm_tldr_cn": "针对现有人形机器人运动策略难以复用的问题，提出三阶段流水线：首先训练专家策略模仿人类运动捕捉数据，然后蒸馏为可复用的混合运动先验（HMP），包含本体感知编码器和残差向量量化。该方法使得从示范中学习到的技能能够高效迁移到新任务，在多种人形机器人运动基准上展示了鲁棒性和泛化能力。",
+      "llm_tldr": "针对现有人形机器人运动策略难以复用的问题，提出三阶段流水线：首先训练专家策略模仿人类运动捕捉数据，然后蒸馏为可复用的混合运动先验（HMP），包含本体感知编码器和残差向量量化。该方法使得从示范中学习到的技能能够高效迁移到新任务，在多种人形机器人运动基准上展示了鲁棒性和泛化能力。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    }
+  ]
+}

@@ -6,62 +6,73 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-27
-- 运行时间：2026-07-27 21:09:59 UTC
+- 最新运行日期：2026-07-28
+- 运行时间：2026-07-28 21:39:56 UTC
 - 运行状态：成功
-- 本次总论文数：14
+- 本次总论文数：17
 - 精读区：6
-- 速读区：8
+- 速读区：11
 
 ### 今日简报（AI）
-今日精读6篇、速读8篇，重点聚焦机器人模仿学习的OOD鲁棒性及通用机器人编排问题；推荐关注《GuidedAttention》的可解释视觉注意力机制与《Addressing the Orchestration Gap》的物理主体性框架；建议读者优先从精读列表中选取与自身机器人任务相关的可解释性方法进行实验验证。
-- 详情：[/202607/27/README](/202607/27/README)
+今日日报聚焦通用人机交互与接触式操作，精读两篇高分论文。  
+最值得关注的是世界认知模型（WCM）与触觉原生动作模型（N0-TWAM），分别提升交互泛化性和高精度操作。  
+建议跟进触觉传感器与仿真到现实迁移技术，关注精度数据缩放定律对策略训练的影响。
+- 详情：[/202607/28/README](/202607/28/README)
 
 ### 精读区论文标签
-1. [GuidedAttention: Interpretable and Correctable Visual Attention for OOD-Robust Robot Manipulation via Imitation Learning](/202607/27/2607.21049v2-guidedattention-interpretable-and-correctable-visual-attention-for-ood-robust-robot-manipulation-via-imitation-learning)  
+1. [WCM: World-Cognition Model for Generalizable Human-Robot Interaction](/202607/28/2607.22999v1-wcm-world-cognition-model-for-generalizable-human-robot-interaction)  
    标签：评分：9.0/10、query:wmi
-   evidence：基于可解释注意力的视觉运动模仿学习用于机器人操作
-2. [Addressing the Orchestration Gap in Generalist Robots via Physical Agency](/202607/27/2607.21725v1-addressing-the-orchestration-gap-in-generalist-robots-via-physical-agency)  
+   evidence：用于人机交互的内部世界模型，包含感知和推理
+2. [$N_0$-TWAM: Scaling Tactile-Native World-Action Model for Contact-Rich Manipulation](/202607/28/2607.23783v1-n0-twam-scaling-tactile-native-world-action-model-for-contact-rich-manipulation)  
    标签：评分：9.0/10、query:wmi
-   evidence：世界知识、规划、物理智能体编排器用于具身AI
-3. [ViTacWorld: Scaling Visuo-Tactile World Models for Contact-Rich Robot Manipulation](/202607/27/2607.22530v1-vitacworld-scaling-visuo-tactile-world-models-for-contact-rich-robot-manipulation)  
+   evidence：触觉原生世界-动作模型，预测未来视觉和接触；用于规划和预测的内部环境模型
+3. [WorldDiT: A Unified Diffusion Architecture for World and Action Modeling](/202607/28/2607.23909v1-worlddit-a-unified-diffusion-architecture-for-world-and-action-modeling)  
    标签：评分：9.0/10、query:wmi
-   evidence：用于接触丰富机器人操作的视觉-触觉世界模型
-4. [An Explicit World Model Based on Data-First Ontology: DaoQL Multimodal Storage Validation and Counterfactual Reasoning Evaluation](/202607/27/2607.17269v1-an-explicit-world-model-based-on-data-first-ontology-daoql-multimodal-storage-validation-and-counterfactual-reasoning-evaluation)  
+   evidence：统一扩散Transformer进行世界与动作建模
+4. [LeapBot-WA: World-Anchor Action Models via Predictive Latent Alignments](/202607/28/2607.23969v1-leapbot-wa-world-anchor-action-models-via-predictive-latent-alignments)  
+   标签：评分：9.0/10、query:wmi
+   evidence：使用预测潜在对齐的世界动作模型进行世界建模
+5. [FeelWorld: Visuo-Tactile World Model for Hierarchical Contact Prediction and Planning](/202607/28/2607.24267v1-feelworld-visuo-tactile-world-model-for-hierarchical-contact-prediction-and-planning)  
+   标签：评分：9.0/10、query:wmi
+   evidence：层次化视觉触觉世界模型用于规划与预测
+6. [Emergent Compositional Skills in Mixture-of-Experts VLAs](/202607/28/2607.20771v2-emergent-compositional-skills-in-mixture-of-experts-vlas)  
    标签：评分：8.0/10、query:wmi
-   evidence：基于数据本体的显式世界模型，用于反事实推理
-5. [Agentic Real2Sim: Physics-based World Modeling with Vision-Language Agents](/202607/27/2607.19190v3-agentic-real2sim-physics-based-world-modeling-with-vision-language-agents)  
-   标签：评分：8.0/10、query:wmi
-   evidence：从真实世界记录构建物理世界模型用于机器人交互的框架
-6. [Learning Diverse Humanoid Tasks via Synthetic Video Scenarios without Real World Data](/202607/27/2607.21648v1-learning-diverse-humanoid-tasks-via-synthetic-video-scenarios-without-real-world-data)  
-   标签：评分：8.0/10、query:wmi
-   evidence：使用生成式AI创建合成示范以学习人形机器人任务
+   evidence：使用专家混合端到端从专家演示学习组合机器人策略
 
 ### 速读区论文标签
-1. [Ordered Action Tokens for Visuomotor Policy Learning](/202607/27/2607.21670v1-ordered-action-tokens-for-visuomotor-policy-learning)  
+1. [Expert Behavior Prior Reinforcement Learning](/202607/28/2607.21302v2-expert-behavior-prior-reinforcement-learning)  
    标签：评分：8.0/10、query:wmi
-   evidence：有序动作标记化用于机器人操作中的视觉运动策略学习
-2. [Learning Spatiotemporal Decision Priors for Efficient Path Planning under Partial Observability](/202607/27/2607.22166v1-learning-spatiotemporal-decision-priors-for-efficient-path-planning-under-partial-observability)  
+   evidence：从演示中获取专家行为先验用于在线强化学习
+2. [Real2Sim2Real for Vision-Language-Action Manipulation: An AMD ROCm-Based Pipeline](/202607/28/2607.22997v1-real2sim2real-for-vision-language-action-manipulation-an-amd-rocm-based-pipeline)  
    标签：评分：8.0/10、query:wmi
-   evidence：从演示轨迹中学习时空决策先验
-3. [Safe Learning Predictive Control for Ego-World Robotic Systems](/202607/27/2607.22225v1-safe-learning-predictive-control-for-ego-world-robotic-systems)  
+   evidence：物理AI将大视觉语言动作模型与具身智能体集成
+3. [The Curse of Precision: A Data Scaling Law for High-Precision Robotic Manipulation](/202607/28/2607.23108v1-the-curse-of-precision-a-data-scaling-law-for-high-precision-robotic-manipulation)  
    标签：评分：8.0/10、query:wmi
-   evidence：学习世界机器人策略作为内部环境模型用于预测控制
-4. [On the Identifiability of Controlled World Models](/202607/27/2607.22430v1-on-the-identifiability-of-controlled-world-models)  
+   evidence：高精度机器人操作的模仿学习缩放定律，数据需求随精度超指数增长
+4. [Real-Time Human-Centric World Modeling for Upper-Body Human-Object Interaction](/202607/28/2607.23517v1-real-time-human-centric-world-modeling-for-upper-body-human-object-interaction)  
    标签：评分：8.0/10、query:wmi
-   evidence：可控世界模型可辨识性的理论分析
-5. [Anticipate Before Acting: Future-State-Conditioned Vision-Language Navigation](/202607/27/2607.18042v1-anticipate-before-acting-future-state-conditioned-vision-language-navigation)  
+   evidence：实时以人为中心的世界模型用于交互生成
+5. [Learning Reusable Hybrid Motion Priors for Humanoid Locomotion from Motion Imitation](/202607/28/2607.24083v1-learning-reusable-hybrid-motion-priors-for-humanoid-locomotion-from-motion-imitation)  
+   标签：评分：8.0/10、query:wmi
+   evidence：基于动作模仿的人形机器人运动策略
+6. [Zero-Shot Mission-Level Evaluation for Aerial MLLM Agents](/202607/28/2607.22014v1-zero-shot-mission-level-evaluation-for-aerial-mllm-agents)  
    标签：评分：7.0/10、query:wmi
-   evidence：行为克隆、专家演示、未来状态条件化
-6. [SceneActBench: Can Agents Act on the 3D Scenes They See?](/202607/27/2607.22393v1-sceneactbench-can-agents-act-on-the-3d-scenes-they-see)  
+   evidence：用于评估多模态大语言模型作为空中具身智能体的基准
+7. [MEMENTO: Memory-Guided Memetic Code-as-Policy Evolution](/202607/28/2607.22832v1-memento-memory-guided-memetic-code-as-policy-evolution)  
    标签：评分：7.0/10、query:wmi
-   evidence：视觉语言模型智能体通过传感器在3D场景中行动
-7. [Conformal Constraint Tightening for Chance-Constrained Motion Planning with Unknown Dynamics](/202607/27/2607.22409v1-conformal-constraint-tightening-for-chance-constrained-motion-planning-with-unknown-dynamics)  
+   evidence：用于具身任务的代码即策略进化
+8. [Towards Dual-Brain Minimal Sufficient Representation for Vision-Language Navigation](/202607/28/2607.23181v1-towards-dual-brain-minimal-sufficient-representation-for-vision-language-navigation)  
    标签：评分：7.0/10、query:wmi
-   evidence：利用共形预测处理未知动力学的运动规划，与内部环境模型用于规划和预测相关
-8. [SiPhy: Single-Image Physical Property Reasoning](/202607/27/2607.22355v1-siphy-single-image-physical-property-reasoning)  
+   evidence：世界模型在具身导航中的应用
+9. [PRISM: Polynomial Representations for Interaction-Structured Motor Control](/202607/28/2607.23473v1-prism-polynomial-representations-for-interaction-structured-motor-control)  
+   标签：评分：7.0/10、query:wmi
+   evidence：用于模仿学习的多项式策略表示
+10. [LEACL: LLM-Enhanced Automatic Curriculum Learning for Reinforcement Learning in Long-Horizon Manipulation Tasks](/202607/28/2607.23515v1-leacl-llm-enhanced-automatic-curriculum-learning-for-reinforcement-learning-in-long-horizon-manipulation-tasks)  
    标签：评分：6.0/10、query:wmi
-   evidence：单图像物理属性推理用于仿真和具身AI
+   evidence：LLM增强的课程学习用于机器人操作
+11. [Bridging Reinforcement Learning and Optimal Control via Feasible Action Mapping](/202607/28/2607.23930v1-bridging-reinforcement-learning-and-optimal-control-via-feasible-action-mapping)  
+   标签：评分：6.0/10、query:wmi
+   evidence：强化学习与最优控制结合，用于约束动态系统
 
 
 <div class="dpr-home-promo-card">
