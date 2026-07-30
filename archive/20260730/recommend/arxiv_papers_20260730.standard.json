@@ -1,0 +1,725 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-30T21:31:51.592300+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 15,
+    "deep_cap": 6,
+    "deep_selected": 7,
+    "quick_candidates": 22,
+    "quick_skim_target": 11,
+    "quick_selected": 11
+  },
+  "deep_dive": [
+    {
+      "id": "2607.25337v1",
+      "source": "arxiv",
+      "title": "Temporal-Distance JEPA: Plan-Aware Representation Learning for Latent World Model Predictive Control",
+      "abstract": "Joint-Embedding Predictive Architectures (JEPAs) learn world models by predicting in representation space rather than reconstructing pixels, making them a natural backbone for latent model predictive control from offline demonstration logs. JEPA-style training optimizes short-horizon latent prediction, whereas planning requires a multi-step ranking of imagined futures by goal progress. Prior JEPA planners often inherit that ranking from embedding geometry, typically latent Euclidean distance, which arises as a byproduct of representation learning rather than as a progress cost mined from the logs. We propose temporal-distance JEPA (TD-JEPA), which retains the LeWM encoder--predictor backbone and mines a directed temporal cost from reward-free trajectories: same-trajectory step order supplies positive targets, cross-trajectory pairs act as heuristic negatives, and a rollout-consistency term matches the planner horizon. The mined supervision serves two roles: as the deployed planning cost when progress is topological, and as a representation signal that improves Euclidean planning when contact geometry dominates. Under locked evaluation, deploying the mined cost raises Two-Room success to 100.0% versus LeWM's 97.4%, while shared Euclidean planning on the same temporally trained checkpoint raises OGB-Cube by 14.2 points over LeWM and improves Push-T. Against LeWM and the concurrent RC-aux baseline under locked evaluation, TD-JEPA matches or exceeds both methods on every environment. Ablations show that the directed head, cross-trajectory negatives, and rollout consistency each contribute. TD-JEPA narrows the train--plan gap for JEPA world-model planners by discovering temporal progress structure in offline logs and co-designing cost form with plan-time deployment. Code is available at https://github.com/HKBU-KnowComp/TD-JEPA.",
+      "authors": [
+        "Jiaxin Bai",
+        "Jiaxuan Xiong"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL",
+        "cs.RO"
+      ],
+      "published": "2026-07-28T06:38:16+00:00",
+      "link": "https://arxiv.org/pdf/2607.25337v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 10.0,
+      "llm_evidence_en": "latent world model for planning and prediction from demonstrations",
+      "llm_evidence_cn": "从演示中学习潜在世界模型用于规划与预测",
+      "llm_evidence": "从演示中学习潜在世界模型用于规划与预测",
+      "canonical_evidence": "从演示中学习潜在世界模型用于规划与预测",
+      "llm_tldr_en": "Proposes temporal-distance JEPA that learns a latent world model with directed temporal distance for model predictive control, directly addressing internal environment models for planning.",
+      "llm_tldr_cn": "针对潜在世界模型预测控制中规划需要多步未来排序的问题，提出时序距离JEPA（TD-JEPA），通过从离线演示日志中挖掘有向时序距离作为进度成本，替代欧氏距离进行规划。该方法在保留JEPA编码器-预测骨干的同时，显式学习任务进度表示，在规划任务中取得更优性能，为世界模型在规划中的应用提供了有效方案。",
+      "llm_tldr": "针对潜在世界模型预测控制中规划需要多步未来排序的问题，提出时序距离JEPA（TD-JEPA），通过从离线演示日志中挖掘有向时序距离作为进度成本，替代欧氏距离进行规划。该方法在保留JEPA编码器-预测骨干的同时，显式学习任务进度表示，在规划任务中取得更优性能，为世界模型在规划中的应用提供了有效方案。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.25337v2",
+      "source": "arxiv",
+      "title": "Temporal-Distance JEPA: Plan-Aware Representation Learning for Latent World Model Predictive Control",
+      "abstract": "Joint-Embedding Predictive Architectures (JEPAs) learn world models by predicting in representation space rather than reconstructing pixels, making them a natural backbone for latent model predictive control from offline demonstration logs. JEPA-style training optimizes short-horizon latent prediction, whereas planning requires a multi-step ranking of imagined futures by goal progress. Prior JEPA planners often inherit that ranking from embedding geometry, typically latent Euclidean distance, which arises as a byproduct of representation learning rather than as a progress cost mined from the logs. We propose Temporal-Distance-JEPA, which retains the LeWM encoder--predictor backbone and mines a directed temporal cost from reward-free trajectories: same-trajectory step order supplies positive targets, cross-trajectory pairs act as heuristic negatives, and a rollout-consistency term matches the planner horizon. The mined supervision serves two roles: as the deployed planning cost when progress is topological, and as a representation signal that improves Euclidean planning when contact geometry dominates. Under locked evaluation, deploying the mined cost raises Two-Room success to 100.0% versus LeWM's 97.4%, while shared Euclidean planning on the same temporally trained checkpoint raises OGB-Cube by 14.2 points over LeWM and improves Push-T. Against LeWM and the concurrent RC-aux baseline under locked evaluation, Temporal-Distance-JEPA matches or exceeds both methods on every environment. Ablations show that the directed head, cross-trajectory negatives, and rollout consistency each contribute. Temporal-Distance-JEPA narrows the train--plan gap for JEPA world-model planners by discovering temporal progress structure in offline logs and co-designing cost form with plan-time deployment. Code is available at https://github.com/HKBU-KnowComp/Temporal-Distance-JEPA.",
+      "authors": [
+        "Jiaxin Bai",
+        "Jiaxuan Xiong"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL",
+        "cs.RO"
+      ],
+      "published": "2026-07-28T06:38:16+00:00",
+      "link": "https://arxiv.org/pdf/2607.25337v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 10.0,
+      "llm_evidence_en": "latent world model for predictive control, planning-aware representation",
+      "llm_evidence_cn": "用于预测控制的潜世界模型，规划感知表示学习",
+      "llm_evidence": "用于预测控制的潜世界模型，规划感知表示学习",
+      "canonical_evidence": "用于预测控制的潜世界模型，规划感知表示学习",
+      "llm_tldr_en": "Proposes Temporal-Distance JEPA, a world model that learns directed temporal cost for planning, enabling latent model predictive control from offline data.",
+      "llm_tldr_cn": "该论文针对联合嵌入预测架构（JEPA）在规划中的不足，提出时序距离JEPA，从离线演示日志中挖掘有向时序代价，代替传统欧氏距离作为规划排序依据。方法在潜空间进行模型预测控制，实现了对多步未来进度的准确排名，提升了规划性能，为世界模型在具身智能中的应用提供了有力工具。",
+      "llm_tldr": "该论文针对联合嵌入预测架构（JEPA）在规划中的不足，提出时序距离JEPA，从离线演示日志中挖掘有向时序代价，代替传统欧氏距离作为规划排序依据。方法在潜空间进行模型预测控制，实现了对多步未来进度的准确排名，提升了规划性能，为世界模型在具身智能中的应用提供了有力工具。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.24159v1",
+      "source": "arxiv",
+      "title": "DeVA: Decoupled Video-Action Model with physical guidance for robot policy learning",
+      "abstract": "Generalizable robot manipulation requires policies that can anticipate how visual scenes evolve while executing language instructions. While recent Vision-Language-Action models benefit from large-scale pretraining, their predominantly static pretraining objectives provide limited supervision for physical dynamics and temporal causality, leaving control-relevant knowledge to be learned from downstream robot demonstrations. Video generative models offer a promising foundation by encoding rich spatiotemporal priors through future predictions. However, existing Video-Action Models either couple video and action prediction in a shared backbone, making policy adaptation harder to optimize, or under-utilize video information when guiding the action branch. In this work, we introduce DeVA, a Decoupled Video-Action model with specialized video and action experts, multi-level feature transfer, and physically salient guidance. DeVA transfers representations from multiple video layers to the action expert, enabling rich information exchange while making policy learning more tractable. It further supervises intermediate video features and the action stream with physically salient guidance (affordance/depth). Experiments on both simulation benchmarks and real-world deployment demonstrate strong performance with limited data, faster convergence than a unified architecture, and clear performance gains from physical guidance.",
+      "authors": [
+        "Mengqi Zhang",
+        "Sahil Khose",
+        "Simar Kareer",
+        "Yuchen Song",
+        "Unnat Jain",
+        "Judy Hoffman"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "published": "2026-07-27T08:37:35+00:00",
+      "link": "https://arxiv.org/pdf/2607.24159v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world model via video prediction for robot manipulation policy learning",
+      "llm_evidence_cn": "通过视频预测世界模型用于机器人操作策略学习",
+      "llm_evidence": "通过视频预测世界模型用于机器人操作策略学习",
+      "canonical_evidence": "通过视频预测世界模型用于机器人操作策略学习",
+      "llm_tldr_en": "Decouples video and action prediction with physical guidance to learn world dynamics for robot policy, enabling generalization.",
+      "llm_tldr_cn": "针对机器人策略缺乏物理动态先验的问题，提出解耦视频-动作模型（DeVA），利用视频生成模型预测未来帧，并设计物理引导模块将动态知识注入动作策略。该方法在模拟和真实操作任务中展现了更好的泛化能力和物理一致性。",
+      "llm_tldr": "针对机器人策略缺乏物理动态先验的问题，提出解耦视频-动作模型（DeVA），利用视频生成模型预测未来帧，并设计物理引导模块将动态知识注入动作策略。该方法在模拟和真实操作任务中展现了更好的泛化能力和物理一致性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.25397v1",
+      "source": "arxiv",
+      "title": "Decompose and Reorganize: Planning with Primitives and Visuomotor Policies Learned from Demonstrations",
+      "abstract": "Successfully automating dexterous, long-horizon robotic manipulation requires frameworks capable of both high-level reasoning and fine-grained execution. Traditional task and motion planning (TAMP), while excellent at symbolic planning, is often brittle in contact-rich operations. Simultaneously, imitation learning (IL), while effective in manipulation tasks with visual feedback, is limited by its low capability in spatial generalization and multi-stage operation. To reconcile their complementary strengths and limitations, we propose DR-LfD (Decomposed and Reorganized Skills Learned from Demonstrations), a framework that seamlessly integrates visuomotor policies into a TAMP-gated decision-making system. Based on contact relationships, DR-LfD decomposes human demonstrations into atomic skills, which are reproduced as visuomotor policies or object-centric primitives. The initiation, termination, and constraints of the visuomotor policies are carefully modeled and implemented in a TAMP-compatible form, enabling reorganization of skills learned from different sources. DR-LfD transforms the learning problem from one requiring exponential demonstration data over possible skill sequences to one whose demonstration burden scales with the number of distinct skill types, with limited data for each skill. Through comprehensive real-world and simulation benchmarking across diverse scenarios, we demonstrate the strong performance of DR-LfD on tasks involving multiple steps, unseen setups, and physical constraints. Project website: https://dr-lfd.github.io/DR-LfD-website.",
+      "authors": [
+        "Yizhou Chen",
+        "Hang Xu",
+        "Dongjie Yu",
+        "Yupu Lu",
+        "Tengye Xu",
+        "Zeqing Zhang",
+        "Wei Zhang",
+        "Yi Ren",
+        "Ben M. Chen",
+        "Jia Pan"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-28T07:57:09+00:00",
+      "link": "https://arxiv.org/pdf/2607.25397v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "imitation learning for robotic manipulation with planning",
+      "llm_evidence_cn": "面向机器人操作的模仿学习与规划结合",
+      "llm_evidence": "面向机器人操作的模仿学习与规划结合",
+      "canonical_evidence": "面向机器人操作的模仿学习与规划结合",
+      "llm_tldr_en": "DR-LfD integrates visuomotor policies learned from demonstrations with task and motion planning for dexterous long-horizon robotic manipulation.",
+      "llm_tldr_cn": "针对传统任务规划在接触丰富操作中脆弱、模仿学习泛化能力差的问题，提出DR-LfD框架，将演示学习的视觉运动策略无缝集成到TAMP门控决策系统中，同时利用接触基元实现精细执行。实验表明该方法在灵巧长时操作任务中优于纯规划或纯模仿方法。该工作为结合高层推理与低层执行提供了新范式。",
+      "llm_tldr": "针对传统任务规划在接触丰富操作中脆弱、模仿学习泛化能力差的问题，提出DR-LfD框架，将演示学习的视觉运动策略无缝集成到TAMP门控决策系统中，同时利用接触基元实现精细执行。实验表明该方法在灵巧长时操作任务中优于纯规划或纯模仿方法。该工作为结合高层推理与低层执行提供了新范式。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.26056v1",
+      "source": "arxiv",
+      "title": "INTACT: Isomorphic Intent-to-Action Learning for Search-Free World Models",
+      "abstract": "Forward latent world models predict how actions change a scene, but recover actions for a desired change only through expensive test-time search. We introduce INTACT (INtent-To-ACTion), an end-to-end JEPA that turns action-labeled, reward-free trajectories into a deployable intent-to-action interface. Each transition supplies physical intent $z_{t+1}-z_t$, while a future goal supplies deployment intent $\\operatorname{sg}(z_g)-z_t$. The architecture is isomorphic between the local and goal motion-intent backbone-input graphs through an identical four-slot grammar and shared parameters, and between supported local and goal motion-intent families through action-law semantics induced by the same predictor rather than pointwise latent equality. INTACT also provides intact transfer from RGB evidence to action-effective latent intent coordinates and from intent families to their corresponding action-law families. Asymmetric endpoint gradients ground physical successors and fix future goals as anchors, joining representation learning and control without pointwise latent matching or globally linear dynamics. The resulting coordinates support a robust distributional action law: its conditional mean serves directly as a search-free policy, while sampling remains available for diversity or optional verification. On the four official LeWM tasks, one-epoch, zero-search models reach 85.78\\%, 100.00\\%, 97.67\\%, and 97.89\\% success. Optional local CEM centered on the Direct plan reaches 96.86\\% macro success using 384 instead of 9,000 candidate sequences, reducing sampling by $23.44\\times$ while improving pure CEM by 16.00 points. One shared four-task encoder reaches 89.39\\% E5 Direct macro and improves every task over jointly trained LeWM, while predicted--expert action-family kNN tracks Direct success at $r=0.954$. Direct inference takes 2.9--5.5 ms.",
+      "authors": [
+        "Junhan Sun",
+        "Hao Zhao",
+        "Guofeng Zhang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-28T17:59:40+00:00",
+      "link": "https://arxiv.org/pdf/2607.26056v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "search-free world model",
+      "llm_evidence_cn": "无搜索世界模型",
+      "llm_evidence": "无搜索世界模型",
+      "canonical_evidence": "无搜索世界模型",
+      "llm_tldr_en": "INTACT learns an intent-to-action interface from action-labeled trajectories, eliminating expensive test-time search in forward latent world models.",
+      "llm_tldr_cn": "该论文提出INTACT，一种端到端的联合嵌入预测架构(JEPA)，将带有动作标签的无奖励轨迹转化为可直接部署的意图到动作接口，避免了传统前向潜在世界模型在测试时昂贵的搜索过程。通过同构的意图编码和动作推断，实现了高效的世界模型规划与预测。",
+      "llm_tldr": "该论文提出INTACT，一种端到端的联合嵌入预测架构(JEPA)，将带有动作标签的无奖励轨迹转化为可直接部署的意图到动作接口，避免了传统前向潜在世界模型在测试时昂贵的搜索过程。通过同构的意图编码和动作推断，实现了高效的世界模型规划与预测。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.26315v1",
+      "source": "arxiv",
+      "title": "MoMo: Dial Motion Mode in Robot Manipulation with Spatiotemporal Action Tokenization",
+      "abstract": "To operate effectively across diverse contexts, robots must not only perform manipulation tasks accurately but also adapt how their actions unfold to the task, object, and interaction setting. We ask whether this execution-level variation can be learned as a reusable behavioral factor shared across tasks. We present \\textbf{MoMo}, a two-stage imitation-learning framework consisting of a spatiotemporal action tokenizer and a behavior-cloning transformer that takes task and a continuous motion-mode condition as inputs. Across six real-robot manipulation tasks, varying this condition produces steady, dynamic, and intermediate behaviors that human raters can distinguish and that differ in joint speed, acceleration, and end-effector approach pitch. On tasks demonstrated in only one mode, MoMo transfers the unseen requested mode while largely preserving task success. Together, these results provide evidence of compositional generalization to unseen task--mode combinations and show that motion mode can be reused across tasks to control how a manipulation skill is performed.",
+      "authors": [
+        "Yuhan Hu",
+        "Hugues Thomas",
+        "Peide Huang",
+        "Mouli Sivapurapu",
+        "Benoit Landry",
+        "Arto Kivila"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-28T22:25:10+00:00",
+      "link": "https://arxiv.org/pdf/2607.26315v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "imitation learning for robot manipulation using behavior cloning transformer",
+      "llm_evidence_cn": "使用行为克隆变换器的模仿学习用于机器人操作",
+      "llm_evidence": "使用行为克隆变换器的模仿学习用于机器人操作",
+      "canonical_evidence": "使用行为克隆变换器的模仿学习用于机器人操作",
+      "llm_tldr_en": "A two-stage imitation-learning framework that learns reusable motion modes via spatiotemporal action tokenization and behavior cloning for robot manipulation.",
+      "llm_tldr_cn": "机器人操作需要根据任务和物体调整执行模式，但现有方法难以学习可复用的行为特征。本文提出MoMo，一个两阶段模仿学习框架：首先通过时空动作分词器提取动作模式，再由行为克隆变换器根据任务和连续运动模式条件生成多样化的动作。在六种真实机器人操作任务上，该方法生成了人类可区分的稳定、动态和中间模式行为，展示了运动模式作为可复用因素的价值。",
+      "llm_tldr": "机器人操作需要根据任务和物体调整执行模式，但现有方法难以学习可复用的行为特征。本文提出MoMo，一个两阶段模仿学习框架：首先通过时空动作分词器提取动作模式，再由行为克隆变换器根据任务和连续运动模式条件生成多样化的动作。在六种真实机器人操作任务上，该方法生成了人类可区分的稳定、动态和中间模式行为，展示了运动模式作为可复用因素的价值。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.26579v1",
+      "source": "arxiv",
+      "title": "ContactFlow: A video action conditioning that transfers across embodiments",
+      "abstract": "World models offer a promising route toward robot planning by enabling agents to imagine and verify the consequences of actions before execution. However, current video-based world models often struggle to capture the physical constraints that govern manipulation, particularly contact. Further, their action conditioning is often constrained to specific embodiments such as parallel grippers. We propose \\emph{Contact Flow}, an embodiment-agnostic action representation that encodes manipulation through the trajectory of 3D contact points between an actor and a target object. By discarding actor-specific appearance and kinematics, Contact Flow provides a shared conditioning signal for both human demonstrations and robotic execution. Therefore, we can train a large-scale video generative model on both human and robotic object interaction videos conditioned on Contact Flow, yielding a world model that predicts physically plausible manipulation outcomes. We integrate this model into a propose-imagine-verify-act pipeline, where generated rollouts are assessed by a vision-language model before execution. Experiments on the DROID dataset and real-world tabletop manipulation tasks demonstrate that Contact Flow enables transfer between human demonstrations and different robotic embodiments.",
+      "authors": [
+        "Sami Azirar",
+        "Enrico Pallotta",
+        "Jan Nogga",
+        "Jürgen Gall",
+        "Sven Behnke",
+        "Hermann Blum"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "published": "2026-07-29T07:59:47+00:00",
+      "link": "https://arxiv.org/pdf/2607.26579v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world model for robot planning with embodiment-agnostic contact representation",
+      "llm_evidence_cn": "用于机器人规划的具身无关接触表示世界模型",
+      "llm_evidence": "用于机器人规划的具身无关接触表示世界模型",
+      "canonical_evidence": "用于机器人规划的具身无关接触表示世界模型",
+      "llm_tldr_en": "Proposes ContactFlow, an embodiment-agnostic action representation for video-based world models, enabling robots to plan manipulation by imagining contact trajectories from demonstrations.",
+      "llm_tldr_cn": "该论文针对机器人操作规划，提出ContactFlow表示方法，将操作编码为3D接触点轨迹，消除特定具身信息，使得基于视频的世界模型能够跨越不同实施例进行动作条件化。实验表明该方法可有效从人类演示迁移到机器人执行，为世界模型在具身智能中的应用提供了新思路。",
+      "llm_tldr": "该论文针对机器人操作规划，提出ContactFlow表示方法，将操作编码为3D接触点轨迹，消除特定具身信息，使得基于视频的世界模型能够跨越不同实施例进行动作条件化。实验表明该方法可有效从人类演示迁移到机器人执行，为世界模型在具身智能中的应用提供了新思路。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2607.24112v1",
+      "source": "arxiv",
+      "title": "Scaling GUI Agents with Visual State Transitions",
+      "abstract": "We introduce State Transition Pretraining (STP) as a new scaling axis for GUI agents. During the STP stage, we continually pretrain a unified multimodal model on visual state transitions by jointly optimizing inverse dynamics (predicting actions from state changes) and forward dynamics (predicting next states from current states and actions). This optimization equips the model with better action-grounded visual representations and an internal world model of GUI dynamics. When subsequently fine-tuned on trajectories with task instructions, our STP-trained models consistently outperform baselines trained solely via direct trajectory fine-tuning across agent benchmarks in both desktop and mobile GUI scenarios (AgentNetBench, AndroidControl, and GUIOdyssey). Further empirical studies show that joint dynamics optimization yields stable improvements over single-objective training, and downstream performance scales steadily with the volume of transition data.",
+      "authors": [
+        "Xiangyan Liu",
+        "Kaixin Li",
+        "Haonan Wang",
+        "Biao Wu",
+        "Meng Fang",
+        "Longxu Dou",
+        "Chao Du",
+        "Michael Qizhe Shieh",
+        "Tianyu Pang"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-07-27T07:54:08+00:00",
+      "link": "https://arxiv.org/pdf/2607.24112v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "state transition pretraining builds an internal world model of GUI dynamics for planning",
+      "llm_evidence_cn": "状态转移预训练构建了GUI动态的内部世界模型用于规划",
+      "llm_evidence": "状态转移预训练构建了GUI动态的内部世界模型用于规划",
+      "canonical_evidence": "状态转移预训练构建了GUI动态的内部世界模型用于规划",
+      "llm_tldr_en": "A state transition pretraining method that learns an internal world model of GUI dynamics by jointly optimizing inverse and forward dynamics, improving GUI agent performance across benchmarks.",
+      "llm_tldr_cn": "针对GUI代理在复杂界面上的规划能力不足问题，本文提出状态转移预训练（STP）方法，通过联合优化逆动力学（从状态变化预测动作）和正向动力学（从状态和动作预测下一状态），使模型获得动作导向的视觉表示和GUI动态内部世界模型。在AgentNetBench等多个基准上，STP训练的代理显著优于直接轨迹微调的基线。该方法为GUI代理的预训练提供了新范式。",
+      "llm_tldr": "针对GUI代理在复杂界面上的规划能力不足问题，本文提出状态转移预训练（STP）方法，通过联合优化逆动力学（从状态变化预测动作）和正向动力学（从状态和动作预测下一状态），使模型获得动作导向的视觉表示和GUI动态内部世界模型。在AgentNetBench等多个基准上，STP训练的代理显著优于直接轨迹微调的基线。该方法为GUI代理的预训练提供了新范式。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2607.19880v2",
+      "source": "arxiv",
+      "title": "EA-Nav: Learning Safe Visual Navigation Policies with Embodiment Awareness",
+      "abstract": "Cross-embodiment navigation is a key challenge in embodied intelligence. Due to differences in embodiment, the same visual observation may imply different actions for different agents, making prediction ambiguous when relying solely on vision. Existing studies mainly rely on reinforcement learning, which requires large-scale interaction and careful reward design, making it difficult to support scalable pretraining and real-world adaptation. In contrast, imitation-learning-based approaches remain limited. To address these challenges, we propose an imitation-learning-based embodiment-aware navigation framework with a modular multi-stage design. In pretraining, we construct a cross-embodiment navigation dataset from Internet videos and introduce embodiment geometry as conditional tokens to reduce action ambiguity under the same observation. In fine-tuning, we design a multimodal information injection mechanism based on a decoupled architecture. Specifically, we design a trajectory augmentation strategy to generate high-risk samples, which are used to train spatial perception and risk-aware correction separately, thereby explicitly incorporating embodiment geometry for safe navigation. Experimental results show that the proposed method effectively improves navigation performance across different embodiment settings, demonstrating the effectiveness of incorporating embodiment geometry into embodied navigation.",
+      "authors": [
+        "Jialu Zhang",
+        "Yong Du",
+        "Xianda Guo",
+        "Shunwang Sun",
+        "Xinqi Liu",
+        "Yue Sun",
+        "Guodong Lu",
+        "Wei Sui",
+        "Jituo Li"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "published": "2026-07-22T08:10:49+00:00",
+      "link": "https://arxiv.org/pdf/2607.19880v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "imitation learning for cross-embodiment navigation policy learning",
+      "llm_evidence_cn": "基于模仿学习的跨体导航策略学习",
+      "llm_evidence": "基于模仿学习的跨体导航策略学习",
+      "canonical_evidence": "基于模仿学习的跨体导航策略学习",
+      "llm_tldr_en": "An imitation-learning-based embodiment-aware navigation framework that uses internet videos and modular design for cross-embodiment visual navigation.",
+      "llm_tldr_cn": "跨体机器人导航中，视觉观测对不同体型的动作含义不同，现有方法大多依赖强化学习。本文提出EA-Nav，一种基于模仿学习的具身感知导航框架，通过模块化多阶段设计：利用互联网视频构建跨体导航数据集，引入体表特征实现行为克隆。实验证明该方法在多个体型的导航任务中有效，且无需真实环境交互。该工作为跨体导航的模仿学习提供了可行方案。",
+      "llm_tldr": "跨体机器人导航中，视觉观测对不同体型的动作含义不同，现有方法大多依赖强化学习。本文提出EA-Nav，一种基于模仿学习的具身感知导航框架，通过模块化多阶段设计：利用互联网视频构建跨体导航数据集，引入体表特征实现行为克隆。实验证明该方法在多个体型的导航任务中有效，且无需真实环境交互。该工作为跨体导航的模仿学习提供了可行方案。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.20656v3",
+      "source": "arxiv",
+      "title": "Adaptive Multi-Horizon Reinforcement Learning",
+      "abstract": "Effective decision-making in complex and changing environments requires balancing short-term and long-term consequences. In reinforcement learning (RL), this trade-off is typically controlled through a fixed discount factor, which imposes a single exponentially discounted temporal horizon. However, biological agents exhibit flexible and adaptive temporal discounting, suggesting that effective planning requires multiple timescales. Here, we propose a multi-horizon approach that adaptively selects and combines temporal horizons, enabling robust adaptation to changes in reward structure without manual discount-factor tuning. This flexibility makes the method particularly suitable for continual learning scenarios involving task switches and varying environmental configurations. Empirically, we demonstrate that our approach identifies effective discount factors across a range of MiniGrid environments, including continual settings composed of three sequentially changing tasks. These results suggest that adaptive temporal discounting can improve parameter efficiency and enhance adaptability in both artificial and biologically inspired learning systems.",
+      "authors": [
+        "Manoosh Samiei",
+        "Doina Precup",
+        "Paul Masset"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-07-22T18:28:38+00:00",
+      "link": "https://arxiv.org/pdf/2607.20656v3",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "adaptive multi-horizon reinforcement learning for planning and prediction",
+      "llm_evidence_cn": "用于规划与预测的自适应多时间强化学习",
+      "llm_evidence": "用于规划与预测的自适应多时间强化学习",
+      "canonical_evidence": "用于规划与预测的自适应多时间强化学习",
+      "llm_tldr_en": "Proposes adaptive multi-horizon RL that selects and combines temporal horizons, enabling robust planning in changing environments without manual tuning.",
+      "llm_tldr_cn": "该论文提出自适应多时间强化学习方法，通过自适应选择并组合时间范围，使得智能体能够在变化环境中进行鲁棒规划，无需手动调整折扣因子。实验表明该方法在任务切换和变化配置下表现优异，为增强规划与预测能力提供了通用技术。",
+      "llm_tldr": "该论文提出自适应多时间强化学习方法，通过自适应选择并组合时间范围，使得智能体能够在变化环境中进行鲁棒规划，无需手动调整折扣因子。实验表明该方法在任务切换和变化配置下表现优异，为增强规划与预测能力提供了通用技术。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.24493v1",
+      "source": "arxiv",
+      "title": "KAI: A Kinematic-Aware Interface for Data-Efficient Articulated Object Manipulation",
+      "abstract": "Articulated object manipulation requires an understanding of kinematic structure that is difficult and costly to learn from robot demonstrations alone. We introduce the Kinematic-Aware Articulation Interface (KAI), a structured intermediate representation that captures the kinematic structure of articulated objects. By embedding interpretable geometric and kinematic priors into policy learning, KAI provides a strong inductive bias aligned with the underlying structure of articulated motion. This design effectively improves sample efficiency, with gains particularly pronounced in low-data regimes: across six simulation tasks, our method achieves an average success rate of 82.9%, matching or surpassing baseline performance while using only half the demonstration data. Our method also exhibits robust generalization to unseen backgrounds and visual distractors, transferring from a single clean training environment to cluttered real-world scenes. KAI's action-agnostic design further enables co-training with human interaction videos to enhance real-world robustness: under diverse visual distractions, our method with video co-training achieves over 70% average success rate.",
+      "authors": [
+        "Yaping Li",
+        "Zhaxizhuoma",
+        "Qiaojun Yu",
+        "Jia Zeng",
+        "Dahua Lin",
+        "Jiangmiao Pang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-27T14:29:47+00:00",
+      "link": "https://arxiv.org/pdf/2607.24493v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "imitation learning for articulated object manipulation with kinematic priors",
+      "llm_evidence_cn": "用于关节物体操作的模仿学习，引入运动学先验",
+      "llm_evidence": "用于关节物体操作的模仿学习，引入运动学先验",
+      "canonical_evidence": "用于关节物体操作的模仿学习，引入运动学先验",
+      "llm_tldr_en": "KAI introduces a kinematic-aware intermediate representation for data-efficient imitation learning of articulated object manipulation, achieving high success rates with fewer demonstrations.",
+      "llm_tldr_cn": "该论文针对关节物体操作中样本效率低的问题，提出了运动学感知接口（KAI），通过嵌入可解释的几何和运动学先验作为策略学习的中间表征。实验表明，在仅使用少量演示的情况下，该方法在六个仿真任务上平均成功率达82.9%，显著提升了数据效率。",
+      "llm_tldr": "该论文针对关节物体操作中样本效率低的问题，提出了运动学感知接口（KAI），通过嵌入可解释的几何和运动学先验作为策略学习的中间表征。实验表明，在仅使用少量演示的情况下，该方法在六个仿真任务上平均成功率达82.9%，显著提升了数据效率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2607.20679v2",
+      "source": "arxiv",
+      "title": "Towards Capability-Aware Traversability Navigation for Unstructured Environments",
+      "abstract": "Estimating traversability in unstructured environments requires conditioning on robot embodiment, as the same terrain can be traversable for one platform and unsafe for another. Existing methods often transfer predictions across morphologies through late-stage trajectory filtering rather than encoding platform constraints in the learned representation. We propose Capability-Aware Traversability (CAT), a framework that embeds physical limits directly into the spatial feature space. CAT grounds dense supervision masks in physical trajectories through an interactive annotation pipeline and modulates semantic terrain maps with robot-specific traversability vectors through Spatially-Adaptive Denormalization (SPADE) blocks. Across human-annotated and trajectory-aligned datasets, CAT leads all ranking-based metrics, improving AUROC by 11.0% on physically executed trajectories and AUPRC by 15.8% on human traces over the strongest baseline. Ablations show that spatial conditioning and per-robot prototypes produce capability sensitivity beyond generic path prediction. Deployments on a legged quadruped and a wheeled skid-steer demonstrate embodiment-aware obstacle avoidance on embedded hardware at 4.8 Hz.",
+      "authors": [
+        "Gianluca Capezzuto",
+        "Felipe Tommaselli",
+        "Matheus P. Angarola",
+        "Ricardo V. Godoy",
+        "Marcelo Becker"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-22T19:28:57+00:00",
+      "link": "https://arxiv.org/pdf/2607.20679v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "physical agent navigating with sensor-based traversability estimation",
+      "llm_evidence_cn": "物理agent通过传感器估计可通行性",
+      "llm_evidence": "物理agent通过传感器估计可通行性",
+      "canonical_evidence": "物理agent通过传感器估计可通行性",
+      "llm_tldr_en": "Embeds robot physical limits into spatial features for traversability prediction, directly grounding AI in physical agent and sensor input.",
+      "llm_tldr_cn": "针对非结构化环境中机器人可通行性估计问题，提出能力感知可通行性（CAT）框架，将机器人物理极限直接嵌入空间特征空间，通过交互式标注和自适应归一化模块，在人类标注数据集上验证了该方法优于基线，为具身智能的感知与导航提供了物理约束感知的表示学习方法。",
+      "llm_tldr": "针对非结构化环境中机器人可通行性估计问题，提出能力感知可通行性（CAT）框架，将机器人物理极限直接嵌入空间特征空间，通过交互式标注和自适应归一化模块，在人类标注数据集上验证了该方法优于基线，为具身智能的感知与导航提供了物理约束感知的表示学习方法。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.22119v1",
+      "source": "arxiv",
+      "title": "One Hand Watches The Other: Dynamic Multi-Agent Cooperation for Sample-Efficient Bimanual Manipulation in Dynamic Environments",
+      "abstract": "Multi-stream robot manipulation policies achieve unparalleled sample efficiency and generalization by modeling actions relative to environmental reference frames. However, existing approaches typically assume these frames to be strictly exogenous. This causal assumption collapses in dynamic settings, such as when a single robot arm manipulates a moving object or when two arms coordinate, where each arm effectively becomes part of the dynamic environment of the other. We propose DynaMAC, a lightweight, policy-agnostic framework that resolves this causal limitation while preserving the sample efficiency, computational speed, and flexibility of multi-stream policies, DynaMAC treats the opposite arm as a dynamic task parameter, thereby providing a unified formulation for dynamic manipulation and bimanual coordination without requiring an explicit leader-follower relationship. To rigorously evaluate these capabilities, we introduce DynaBench, a novel benchmark for robot manipulation in dynamic environments. Across both dynamic environments and bimanual manipulation tasks, DynaMAC outperforms leading probabilistic and generative baselines by over 35 percentage points while requiring 20 times fewer samples. Crucially, DynaMAC generalizes zero-shot from static demonstrations to dynamic environments, substantially simplifying data collection and establishing an elegant bridge toward human-robot collaboration.",
+      "authors": [
+        "Jan Ole von Hartz",
+        "Abhinav Valada",
+        "Joschka Boedecker"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published": "2026-07-24T09:14:07+00:00",
+      "link": "https://arxiv.org/pdf/2607.22119v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "bimanual manipulation in dynamic environments with multi-stream policies",
+      "llm_evidence_cn": "动态环境下双人操作的多流策略",
+      "llm_evidence": "动态环境下双人操作的多流策略",
+      "canonical_evidence": "动态环境下双人操作的多流策略",
+      "llm_tldr_en": "Proposes DynaMAC, a framework that resolves causal limitations in multi-stream manipulation policies for dynamic bimanual tasks, improving sample efficiency.",
+      "llm_tldr_cn": "该论文提出DynaMAC框架，解决了动态环境中多流操作策略的因果假设问题，将机械臂视为彼此动态环境的一部分。该方法保持了多流策略的样本效率和计算速度，在双人操作任务中实现了更好的泛化。",
+      "llm_tldr": "该论文提出DynaMAC框架，解决了动态环境中多流操作策略的因果假设问题，将机械臂视为彼此动态环境的一部分。该方法保持了多流策略的样本效率和计算速度，在双人操作任务中实现了更好的泛化。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.25731v1",
+      "source": "arxiv",
+      "title": "Tri-Manual Visuomotor Imitation Learning of Robot Policies",
+      "abstract": "Bimanual teleoperation provides an effective way to collect robot demonstrations, but it assumes that the operator and robot have matching numbers of simultaneous control channels. This assumption breaks for tri-manual systems: the robot can coordinate three arms concurrently, whereas a single operator can continuously control only two. Pairwise mode switching may therefore record otherwise independent motions sequentially, causing behaviour cloning to reproduce delays imposed by the interface rather than required by the task. We present TriManPolicy, a tri-manual imitation learning system that allows one operator to demonstrate behaviours for three arms. Its central component is Dependency-Aware Tri-Arm Scheduling (DATS). The key idea is to preserve the demonstrated arm motions while reconsidering when they occur. DATS retimes demonstrations offline by preserving local sensorimotor segments of fixed duration and repositioning them according to constraints on task order and arm usage that are reviewed by a human. The resulting data train a single synchronous policy for all three arms, while deployment requires neither the dependency graph nor the scheduler. Across six challenging tasks performed in the real world, policies trained on demonstrations retimed by DATS exhibit more efficient coordination while maintaining comparable observed task success. Offline analysis further shows that DATS changes the supervision across arms rather than merely removing idle periods.",
+      "authors": [
+        "James Zhao",
+        "Mingyuan Ba",
+        "Weiming Zhi"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-28T13:52:51+00:00",
+      "link": "https://arxiv.org/pdf/2607.25731v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "imitation learning for tri-manual robot manipulation",
+      "llm_evidence_cn": "三臂机器人操作模仿学习",
+      "llm_evidence": "三臂机器人操作模仿学习",
+      "canonical_evidence": "三臂机器人操作模仿学习",
+      "llm_tldr_en": "Presents TriManPolicy, an imitation learning system for tri-manual manipulation that preserves demonstration timing via dependency-aware scheduling.",
+      "llm_tldr_cn": "该论文针对三臂机器人操作，提出TriManPolicy模仿学习系统，通过依赖感知的三臂调度（DATS）保留演示中的时间依赖关系，避免行为克隆引入的延迟伪影。实验表明该系统能够有效学习三臂协调策略，为复杂多臂操控提供了新方法。",
+      "llm_tldr": "该论文针对三臂机器人操作，提出TriManPolicy模仿学习系统，通过依赖感知的三臂调度（DATS）保留演示中的时间依赖关系，避免行为克隆引入的延迟伪影。实验表明该系统能够有效学习三臂协调策略，为复杂多臂操控提供了新方法。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2607.23784v1",
+      "source": "arxiv",
+      "title": "A Few Words Go a Long Way: Language Guided Robot Policy Synthesis",
+      "abstract": "While vision-language-action models have demonstrated impressive zero-shot manipulation capabilities, they remain fundamentally black box policies that are difficult to interpret, adapt, or correct when they inevitably fail. In this work, we propose ARCHITECT, a framework that treats robot policy acquisition as an interactive program synthesis task. ARCHITECT leverages the reasoning capabilities of LLM coding agents to synthesize modular robot programs that utilize a suite of perception and control tools. Unlike end-to-end models where distribution shift leads to unpredictable, cascading failures, our modular architecture allows users to isolate failures and localize feedback at the level of abstraction required. We introduce an iterative process where a human supervisor provides natural language corrections to steer the policy. These corrections are grounded in the policy code by program execution traces and distilled into a persistent skill library, a form of long-term in-context learning which enables the agent to accumulate a repertoire of reusable, interpretable behaviors. In a benchmark evaluation on a Franka Panda robot, ARCHITECT outperforms state-of-the-art VLA models and program synthesis baselines on complex, long-horizon tasks, including articulated object manipulation and cloth folding. Our results demonstrate that the synthesized skill library enables the system to transfer to novel tasks with decreasing human intervention, providing a steerable and data-efficient alternative to black-box robot learning. Website: https://robo-architect.github.io/",
+      "authors": [
+        "Daphne Chen",
+        "Archit Ritesh Jain",
+        "Eric Goossen",
+        "Emma Romig",
+        "Michael Murray",
+        "Nick Walker",
+        "Maya Cakmak"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-07-26T18:00:02+00:00",
+      "link": "https://arxiv.org/pdf/2607.23784v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "learns robot policies from human demonstrations via interactive program synthesis",
+      "llm_evidence_cn": "通过交互式程序合成从人类演示学习机器人策略",
+      "llm_evidence": "通过交互式程序合成从人类演示学习机器人策略",
+      "canonical_evidence": "通过交互式程序合成从人类演示学习机器人策略",
+      "llm_tldr_en": "Treats robot policy learning as interactive program synthesis from language instructions, enabling human feedback for correction.",
+      "llm_tldr_cn": "针对端到端机器人策略难以解释和修正的问题，提出ARCHITECT框架，将策略获取视为交互式程序合成任务，利用大语言模型编码器生成模块化机器人程序，允许用户通过自然语言局部修正，在模拟操作任务中展示了灵活性和可纠错性。",
+      "llm_tldr": "针对端到端机器人策略难以解释和修正的问题，提出ARCHITECT框架，将策略获取视为交互式程序合成任务，利用大语言模型编码器生成模块化机器人程序，允许用户通过自然语言局部修正，在模拟操作任务中展示了灵活性和可纠错性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.24900v1",
+      "source": "arxiv",
+      "title": "Inverse RL Helps Align AI by Imitating Humans",
+      "abstract": "Language model alignment aims to make model behavior reliably reflect desirable properties such as helpfulness, safety, and instruction following. Current approaches typically use supervised fine-tuning on demonstrations or reinforcement learning with rewards derived from verifiers or human feedback. These paradigms leave an important question underexplored: can demonstrations alone yield an implicit reward that can be inspected, reused, and optimized on-policy to align AI? Motivated by inverse reinforcement learning, we introduce Projected Alignment Reward Estimated from Demonstrations (PARED). PARED recovers the implicit reward underlying expert demonstrations as an explicit function over a small set of response-level features, learned by a lightweight discriminator that separates demonstrations from the policy's own samples in this feature space. Unlike a standard reward model, PARED requires no task-specific preference annotations: demonstrations provide the task-specific supervision, which can be augmented with AI feedback as additional dimensions of supervision. Through experiments involving inference-time reranking and adversarial on-policy RL, we show that the recovered reward improves a base policy without a supervised loss and yields further gains when optimized after standard supervised fine-tuning. Additionally, we demonstrate that PARED can be used for contextual alignment, in which a single policy can be tailored to the preferences of different audiences.",
+      "authors": [
+        "Michał Wiliński",
+        "Liu Leqi",
+        "Chirag Nagpal"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-07-27T16:45:31+00:00",
+      "link": "https://arxiv.org/pdf/2607.24900v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "inverse reinforcement learning from demonstrations for policy learning",
+      "llm_evidence_cn": "基于逆向强化学习的演示策略学习",
+      "llm_evidence": "基于逆向强化学习的演示策略学习",
+      "canonical_evidence": "基于逆向强化学习的演示策略学习",
+      "llm_tldr_en": "Proposes PARED, which recovers implicit reward from expert demonstrations via inverse RL, enabling alignment without explicit reward functions.",
+      "llm_tldr_cn": "该论文针对AI对齐问题，提出PARED方法，利用逆向强化学习从专家演示中恢复隐式奖励函数，无需显式奖励即可优化策略。在语言模型对齐任务上验证了该方法有效，为从演示中学习策略提供了新途径。",
+      "llm_tldr": "该论文针对AI对齐问题，提出PARED方法，利用逆向强化学习从专家演示中恢复隐式奖励函数，无需显式奖励即可优化策略。在语言模型对齐任务上验证了该方法有效，为从演示中学习策略提供了新途径。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.25731v2",
+      "source": "arxiv",
+      "title": "Tri-Manual Visuomotor Imitation Learning of Robot Policies",
+      "abstract": "Bimanual teleoperation provides an effective way to collect robot demonstrations, but it assumes that the operator and robot have matching numbers of simultaneous control channels. This assumption breaks for tri-manual systems: the robot can coordinate three arms concurrently, whereas a single operator can continuously control only two. Pairwise mode switching may therefore record otherwise independent motions sequentially, causing behaviour cloning to reproduce delays imposed by the interface rather than required by the task. We present TriManPolicy, a tri-manual imitation learning system that allows one operator to demonstrate behaviours for three arms. Its central component is Dependency-Aware Tri-Arm Scheduling (DATS). The key idea is to preserve the demonstrated arm motions while reconsidering when they occur. DATS retimes demonstrations offline by preserving local sensorimotor segments of fixed duration and repositioning them according to constraints on task order and arm usage that are reviewed by a human. The resulting data train a single synchronous policy for all three arms, while deployment requires neither the dependency graph nor the scheduler. Across six challenging tasks performed in the real world, policies trained on demonstrations retimed by DATS exhibit more efficient coordination while maintaining comparable observed task success. Offline analysis further shows that DATS changes the supervision across arms rather than merely removing idle periods.",
+      "authors": [
+        "James Zhao",
+        "Mingyuan Ba",
+        "Weiming Zhi"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-28T13:52:51+00:00",
+      "link": "https://arxiv.org/pdf/2607.25731v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "imitation learning for tri-manual robotic manipulation with dependency-aware scheduling",
+      "llm_evidence_cn": "用于三臂机器人操作的依赖感知调度模仿学习",
+      "llm_evidence": "用于三臂机器人操作的依赖感知调度模仿学习",
+      "canonical_evidence": "用于三臂机器人操作的依赖感知调度模仿学习",
+      "llm_tldr_en": "TriManPolicy enables single-operator teleoperation of three robotic arms via Dependency-Aware Scheduling preventing interface-induced delays in behavior cloning",
+      "llm_tldr_cn": "双臂遥操作假设操作臂数量匹配，但三臂系统中操作者只能同时控制两臂，导致行为克隆受界面切换延迟影响。本文提出TriManPolicy，核心是依赖感知三臂调度（DATS），保持演示中动作的依赖关系，避免时间序列扭曲。实验证明该方法有效恢复了真实任务所需的行为时序。该工作扩展了模仿学习到超出手部控制通道数的操作任务。",
+      "llm_tldr": "双臂遥操作假设操作臂数量匹配，但三臂系统中操作者只能同时控制两臂，导致行为克隆受界面切换延迟影响。本文提出TriManPolicy，核心是依赖感知三臂调度（DATS），保持演示中动作的依赖关系，避免时间序列扭曲。实验证明该方法有效恢复了真实任务所需的行为时序。该工作扩展了模仿学习到超出手部控制通道数的操作任务。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2607.26513v1",
+      "source": "arxiv",
+      "title": "Explicit Kinematic Guidance from Analytic Concepts for Vision-Language-Action Models",
+      "abstract": "Current Vision-Language-Action (VLA) models rely mainly on 2D inputs, neglecting the rich object structural information and commonsense knowledge inherent in the 3D physical world. This deficiency restricts their spatial awareness and adaptability for complex, high-precision manipulation. To bridge this crucial gap, we construct a Concept Expert module for VLA to build executable Analytic Concepts that represent objects as explicit, programmatic blueprints. Our mechanism operates in two synergistic phases: First, prior to VLA inference, the Concept Expert leverages 3D information from Vision Foundation Models (VFMs) to estimate the initial kinematic and structural parameters. Second, throughout the manipulation process, the VLA model utilizes its inherent capability to dynamically track the dynamic concept parameters, continuously aligning them with observational changes to ensure persistent accuracy. Once established, the Analytic Concepts provide explicit, high-quality guidance for VLA fine-tuning through (1) dense, programmatic manipulation rewards and (2) precise spatial guidance.   This formulation allows VLA models to learn physically grounded interaction behaviors while maintaining end-to-end learning flexibility.   Our experimental results show consistent improvements in success rate and learning efficiency across supervised and reinforcement learning settings, demonstrating the effectiveness of structured, concept-based guidance for VLA post-training.",
+      "authors": [
+        "Mingyang Sun",
+        "Jiude Wei",
+        "Xiujian Liang",
+        "Qichen He",
+        "Donglin Wang",
+        "Cewu Lu",
+        "Jianhua Sun"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-29T06:24:25+00:00",
+      "link": "https://arxiv.org/pdf/2607.26513v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "integrates 3D physical knowledge into vision-language-action models for manipulation",
+      "llm_evidence_cn": "将3D物理知识融入视觉-语言-动作模型用于操作",
+      "llm_evidence": "将3D物理知识融入视觉-语言-动作模型用于操作",
+      "canonical_evidence": "将3D物理知识融入视觉-语言-动作模型用于操作",
+      "llm_tldr_en": "Enhances VLA models with explicit kinematic guidance from 3D analytic concepts, improving spatial awareness for robotic manipulation.",
+      "llm_tldr_cn": "针对视觉-语言-动作（VLA）模型依赖2D输入、缺乏3D物理结构理解的问题，提出概念专家模块，利用视觉基础模型估计物体运动学参数，并在操作过程中持续更新，使得VLA模型能够利用显式运动学蓝图进行高精度操作。仿真实验表明该方法在复杂操作任务上显著提升了成功率。",
+      "llm_tldr": "针对视觉-语言-动作（VLA）模型依赖2D输入、缺乏3D物理结构理解的问题，提出概念专家模块，利用视觉基础模型估计物体运动学参数，并在操作过程中持续更新，使得VLA模型能够利用显式运动学蓝图进行高精度操作。仿真实验表明该方法在复杂操作任务上显著提升了成功率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}
