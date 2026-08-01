@@ -1,0 +1,576 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-08-01T20:52:31.202035+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 6,
+    "deep_cap": 6,
+    "deep_selected": 6,
+    "quick_candidates": 7,
+    "quick_skim_target": 11,
+    "quick_selected": 7
+  },
+  "deep_dive": [
+    {
+      "id": "2607.25918v1",
+      "source": "arxiv",
+      "title": "DC-WAM: Dynamic-Centric Visual Supervision and Reasoning for World-Action Models",
+      "abstract": "World-Action Models (WAMs) augment robot policies with future visual prediction, but it remains unclear what the visual modality should learn for control. While photorealistic future prediction provides dense supervision, it also incurs substantial computation and can allocate capacity to texture, illumination, and background variations that are only weakly related to action selection. Recent efficient WAM variants suggest that the main benefit of the video branch may not lie in the rendered future itself, but in the control-relevant visual representations induced during training. In this work, we revisit future video prediction from a dynamic-centric perspective and ask whether an existing RGB-based WAM can be redirected from appearance-dominated reconstruction toward interaction-induced visual dynamics without introducing additional modality-specific predictions or online inputs at deployment. We propose DC-WAM, a dynamic-centric WAM framework that redistributes supervision and computation in the RGB video branch. At the supervision level, DC-WAM combines temporal-difference flow matching with trajectory-guided weighting, emphasizing dense temporal changes and localized regions where the gripper, manipulated objects, and contact areas move. At the reasoning level, DynaRoute predicts token-wise dynamic relevance and converts it into an attention bias, guiding the model toward control-relevant future tokens. Experiments in simulation and on real-world manipulation tasks show that DC-WAM consistently improves policy performance, especially under out-of-distribution perturbations in lighting, object appearance, and background texture.",
+      "authors": [
+        "Haoyuan Ji",
+        "Lingxiang Fan",
+        "Shang Su",
+        "Yinqiao Lu",
+        "Mengkai Shi",
+        "Jun Gao",
+        "Shuo Feng"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-28T16:08:50+00:00",
+      "link": "https://arxiv.org/pdf/2607.25918v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 10.0,
+      "llm_evidence_en": "Revisits future visual prediction in world-action models for control, emphasizing dynamic-centric supervision",
+      "llm_evidence_cn": "重新审视世界动作模型中的未来视觉预测，强调以动态为中心的控制监督",
+      "llm_evidence": "重新审视世界动作模型中的未来视觉预测，强调以动态为中心的控制监督",
+      "canonical_evidence": "重新审视世界动作模型中的未来视觉预测，强调以动态为中心的控制监督",
+      "llm_tldr_en": "World-action models use future visual prediction to aid robot control, but appearance-heavy supervision may waste capacity. This work revisits future prediction from a dynamic-centric view and asks whether RGB-based WAMs can be redirected from appearance-dominated learning. It proposes dynamic-centric supervision and reasoning, improving the control-relevant value of the video branch.",
+      "llm_tldr_cn": "世界动作模型（WAM）利用未来视觉预测增强机器人策略，但照片级预测可能过度关注纹理、光照等与控制无关的因素。本文从动态中心视角重新审视未来视频预测，探索将RGB型WAM从外观主导的监督转向动态相关表示。通过动态中心监督与推理，提升视频分支对控制的有用性，降低计算开销。",
+      "llm_tldr": "世界动作模型（WAM）利用未来视觉预测增强机器人策略，但照片级预测可能过度关注纹理、光照等与控制无关的因素。本文从动态中心视角重新审视未来视频预测，探索将RGB型WAM从外观主导的监督转向动态相关表示。通过动态中心监督与推理，提升视频分支对控制的有用性，降低计算开销。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.24485v2",
+      "source": "arxiv",
+      "title": "τ: Learning Touch-Augmented Vision-Language-Action Models from Future Visual Supervision",
+      "abstract": "Incorporating tactile sensing into Vision-Language-Action (VLA) models holds promise for contact-rich manipulation, where visual observations alone often fail to capture critical cues about physical interactions. However, learning informative tactile representation while effectively adapting it to pretrained VLA models remains challenging under limited task-specific data. Existing methods either focus on instantaneous contact states or model temporal interaction dynamics using 6D wrench sequences, leaving high-dimensional tactile signals underexplored. To address these challenges, we present τ, a touch-augmented VLA framework that learns an action-conditioned spatiotemporal tactile representation from future visual supervision inspired by the Joint-Embedding Predictive Architecture (JEPA), and fuses it with vision-language features for action generation. This supervision operates in latent space and is used only during training, adding no deployment overhead. We also introduce TacAura, a dataset of synchronized vision, proprioception, and vision-based tactile signals across four representative contact-rich manipulation tasks. Experiments show that τ outperforms existing models and generalizes to unseen objects and scenes, delivering improved manipulation performance and robustness.",
+      "authors": [
+        "Ning Cheng",
+        "Jinan Xu",
+        "Wanlin Li",
+        "Yangzhi Chen",
+        "Jing Gao",
+        "Yiqun Wang",
+        "Kelan Peng",
+        "Wenjuan Han"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-27T14:25:15+00:00",
+      "link": "https://arxiv.org/pdf/2607.24485v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "Enhances Vision-Language-Action models for contact-rich manipulation by learning tactile representations from future visual supervision.",
+      "llm_evidence_cn": "通过未来视觉监督学习触觉表示，增强面向接触丰富操作的视觉-语言-动作模型。",
+      "llm_evidence": "通过未来视觉监督学习触觉表示，增强面向接触丰富操作的视觉-语言-动作模型。",
+      "canonical_evidence": "通过未来视觉监督学习触觉表示，增强面向接触丰富操作的视觉-语言-动作模型。",
+      "llm_tldr_en": "Presents τ, a touch-augmented Vision-Language-Action framework that learns action-conditioned spatiotemporal tactile representations from future visual supervision, improving contact-rich robot manipulation.",
+      "llm_tldr_cn": "接触丰富的操作任务中，纯视觉观察无法捕捉物理交互的关键触觉线索。本文提出τ框架，利用未来视觉监督学习动作条件下的时空触觉表示，并有效适配预训练的VLA模型，缓解了任务数据有限难以学习触觉表示的问题。在接触丰富操作任务上展现出性能提升，为机器人的多模态感知与操作策略提供了新思路。",
+      "llm_tldr": "接触丰富的操作任务中，纯视觉观察无法捕捉物理交互的关键触觉线索。本文提出τ框架，利用未来视觉监督学习动作条件下的时空触觉表示，并有效适配预训练的VLA模型，缓解了任务数据有限难以学习触觉表示的问题。在接触丰富操作任务上展现出性能提升，为机器人的多模态感知与操作策略提供了新思路。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.27549v1",
+      "source": "arxiv",
+      "title": "Cross-Embodiment Transfer via Behavior-Aligned Representations",
+      "abstract": "Recent progress in large-scale imitation learning for robot manipulation has been driven by leveraging datasets across a wide range of robot embodiments. However, achieving significant cross-embodiment transfer is often still challenging. In this work, we study the role of using behavior-aligned representations (e.g., object bounding boxes, language motions, end-effector traces of robot motion) in vision-language-action (VLA) models to promote cross-embodiment transfer. We hypothesize that by possessing invariances across embodiments while being predictive of robot actions, these representations can help unify large-scale cross-embodiment data to enhance transfer. To assess our hypothesis, we develop a simulation-based benchmark designed to assess transfer with diverse cross-embodiment data to new embodiments. Using this benchmark, we compare different representations and ways of incorporating them. We identify that end-effector traces can be particularly beneficial for transfer, representations are generally more useful with larger prior datasets, and can be used to benefit from action-free data. We also demonstrate that they can enhance sim-to-real cross-embodiment transfer, improving task completion progress of real robot policies pre-trained on simulation data by 28%. We provide videos of our evaluations at our website: https://ajaysridhar.com/barx/.",
+      "authors": [
+        "Ajay Sridhar",
+        "Jensen Gao",
+        "Jonathan Yang",
+        "Jean Mercat",
+        "Suneel Belkhale",
+        "Dorsa Sadigh"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "published": "2026-07-30T00:49:53+00:00",
+      "link": "https://arxiv.org/pdf/2607.27549v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "imitation learning for robot manipulation with behavior-aligned representations in VLA models",
+      "llm_evidence_cn": "使用行为对齐表征的VLA模型进行机器人操作模仿学习",
+      "llm_evidence": "使用行为对齐表征的VLA模型进行机器人操作模仿学习",
+      "canonical_evidence": "使用行为对齐表征的VLA模型进行机器人操作模仿学习",
+      "llm_tldr_en": "Studies behavior-aligned representations (bounding boxes, language motions, end-effector traces) to improve cross-embodiment transfer in VLA models for large-scale imitation learning in robot manipulation, validated on a simulation benchmark.",
+      "llm_tldr_cn": "针对大规模跨本体模仿学习在机器人操作中的迁移难题，论文提出在视觉-语言-动作模型中使用行为对齐表征（如物体边界框、语言运动、末端执行器轨迹）来统一不同本体数据。通过在仿真基准上评估，这些表征提升了跨本体的迁移能力，为构建更通用的操作策略提供了有效方案。",
+      "llm_tldr": "针对大规模跨本体模仿学习在机器人操作中的迁移难题，论文提出在视觉-语言-动作模型中使用行为对齐表征（如物体边界框、语言运动、末端执行器轨迹）来统一不同本体数据。通过在仿真基准上评估，这些表征提升了跨本体的迁移能力，为构建更通用的操作策略提供了有效方案。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.27782v1",
+      "source": "arxiv",
+      "title": "RedFlow: Redirect Failure into Action-Level Corrections for Flow-matching VLA Policy",
+      "abstract": "Flow-matching Vision-Language-Action (VLA) policies have shown strong potential for robotic manipulation but often suffer from compounding errors caused by distribution shifts during deployment. While offline reinforcement learning (RL) provides a practical way to improve deployed policies using rollout data, existing methods either ignore failure data or exploit it only at the trajectory level, resulting in low learning efficiency and persistent errors. We propose **RedFlow**, a fine-grained offline RL framework that redirects failure experiences into action-level corrective supervision for flow-matching VLA policies. RedFlow consists of two key components: (1) a **Context-Aware Corrective Matching** mechanism that identifies failure-inducing actions and retrieves successful alternatives from similar contexts as corrective targets, and (2) an **Adaptive Redirection Objective** that jointly reinforces successful actions, suppresses undesirable ones, and redirects recoverable failures toward corrective targets. By converting both successful and failed experiences into dense supervision, RedFlow enables robust recovery learning from mixed-quality data. Experiments on the LIBERO benchmark and three real-world manipulation tasks show that RedFlow consistently outperforms state-of-the-art offline RL baselines, improving the real-world success rate from 56.7% to 74.7%. It also matches strong on-policy methods (PPO, GRPO, and DDPO) while requiring roughly an order of magnitude fewer training samples.",
+      "authors": [
+        "Zhengyang Yan",
+        "Junhao Li",
+        "Fangqi Zhu",
+        "Zijun Wang",
+        "Quanxin Shou",
+        "Yikun Miao",
+        "Xiaoyi Pang",
+        "Zicong Hong",
+        "Song Guo"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-07-30T07:14:39+00:00",
+      "link": "https://arxiv.org/pdf/2607.27782v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "Offline RL framework that refines flow-matching VLA policies for robotic manipulation using action-level failure corrections",
+      "llm_evidence_cn": "面向机器人操作的离线RL框架，利用动作级失败纠正改进流匹配VLA策略",
+      "llm_evidence": "面向机器人操作的离线RL框架，利用动作级失败纠正改进流匹配VLA策略",
+      "canonical_evidence": "面向机器人操作的离线RL框架，利用动作级失败纠正改进流匹配VLA策略",
+      "llm_tldr_en": "RedFlow redirects failure experiences into action-level corrective supervision for flow-matching VLA policies, improving sample efficiency and reducing compounding deployment errors in robotic manipulation.",
+      "llm_tldr_cn": "流匹配视觉-语言-动作（VLA）策略在部署时因分布偏移产生复合误差，现有离线强化学习方法通常忽略失败数据或仅在轨迹级使用，导致学习效率低下。RedFlow提出细粒度离线RL框架，通过上下文感知纠正匹配机制定位失败诱导动作，将失败经验转化为动作级纠正监督。实验显示该方法能有效提升策略改进的样本效率并减少持续误差，为机器人操作中VLA策略的部署后优化提供了一种失败驱动的动作级纠正方案。",
+      "llm_tldr": "流匹配视觉-语言-动作（VLA）策略在部署时因分布偏移产生复合误差，现有离线强化学习方法通常忽略失败数据或仅在轨迹级使用，导致学习效率低下。RedFlow提出细粒度离线RL框架，通过上下文感知纠正匹配机制定位失败诱导动作，将失败经验转化为动作级纠正监督。实验显示该方法能有效提升策略改进的样本效率并减少持续误差，为机器人操作中VLA策略的部署后优化提供了一种失败驱动的动作级纠正方案。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.27973v1",
+      "source": "arxiv",
+      "title": "TAPO: Transition-Aware Policy Optimization for LLM Agents",
+      "abstract": "Recently, Reinforcement Learning (RL) has emerged as a crucial paradigm for the post-training of Large Language Model (LLM) agents. However, existing methods predominantly rely on sparse task rewards for policy optimization, failing to fully exploit another class of inherently dense supervisory signals naturally present during online interaction: environmental feedback following action execution. Recent theoretical studies suggest that generalization in multi-step, goal-oriented tasks hinges on predictive knowledge of environmental consequences. Inspired by this, we propose TAPO: Transition-Aware Policy Optimization for LLM Agents, a unified training framework that alternates between policy optimization and transition supervision. Beyond standard RL updates, TAPO repurposes rollout data to apply action-conditioned next-observation prediction supervision on a shared backbone model. This approach enhances the model's sensitivity to environmental transition dynamics and action consequences while concurrently optimizing the policy. It serves as a computationally lightweight, plug-and-play enhancement module for existing agent RL algorithms, requiring no additional expert data, extra sampling costs, or inference-time overhead. We conduct systematic experiments on WebShop and ALFWorld, integrating foundation models of various scales with different policy optimization algorithms. Empirical results demonstrate that TAPO consistently improves task performance over pure policy optimization baselines.",
+      "authors": [
+        "Cong Li",
+        "Peixi Peng",
+        "Yisen Zhao",
+        "Xinyu Hu",
+        "Shudong Liu",
+        "Zhan Su",
+        "Zhuojian Li"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-07-30T10:17:55+00:00",
+      "link": "https://arxiv.org/pdf/2607.27973v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "unified RL framework alternating policy optimization with transition supervision from environmental feedback",
+      "llm_evidence_cn": "统一强化学习框架，将策略优化与基于环境反馈的转移监督交替进行",
+      "llm_evidence": "统一强化学习框架，将策略优化与基于环境反馈的转移监督交替进行",
+      "canonical_evidence": "统一强化学习框架，将策略优化与基于环境反馈的转移监督交替进行",
+      "llm_tldr_en": "TAPO proposes transition-aware policy optimization for LLM agents, alternating policy optimization with transition supervision on environmental feedback, using predictive knowledge to improve generalization in multi-step goal-oriented tasks.",
+      "llm_tldr_cn": "针对大语言模型智能体强化学习依赖稀疏任务奖励的不足，TAPO提出在策略优化中交替加入转移监督，利用行动后环境反馈作为密集监督信号。该方法基于理论认知，在多步目标导向任务中提升泛化性能。实验显示TAPO能充分挖掘环境反馈信息，改善智能体决策。该框架为LLM代理引入可学习的动态预测能力。",
+      "llm_tldr": "针对大语言模型智能体强化学习依赖稀疏任务奖励的不足，TAPO提出在策略优化中交替加入转移监督，利用行动后环境反馈作为密集监督信号。该方法基于理论认知，在多步目标导向任务中提升泛化性能。实验显示TAPO能充分挖掘环境反馈信息，改善智能体决策。该框架为LLM代理引入可学习的动态预测能力。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2607.28226v1",
+      "source": "arxiv",
+      "title": "Security of World-Model-Based Embodied AI: A Lifecycle of Threats, Defenses, and Evaluation",
+      "abstract": "World models give embodied AI a predictive core: they compress observations into states, simulate action-conditioned futures, and enable planning beyond reactive control. This predictive layer, however, opens a new security boundary-compromise can propagate from data, sensors, prompts, or feedback into physical action. Rather than treating world models as an isolated component, this survey traces threats across their entire lifecycle-from data construction and representation learning, through state grounding and imagination, to trajectory evaluation, execution, and long-term adaptation via memory and tools. We show that familiar attack families: poisoning, backdoors, adversarial examples, sensor spoofing, prompt injection, trajectory manipulation, and supply-chain attacks take on distinct meanings when they corrupt world states, learned dynamics, affordance estimates, or safety costs. We also highlight a duality: world models can serve as runtime safety shields, yet when compromised or over-trusted they generate predictive safety illusions. The survey offers a lifecycle taxonomy, maps existing attacks to world-model security properties, outlines evaluation protocols for safety failures, and structures defenses across provenance, robust grounding, uncertainty-aware prediction, trajectory gating, feedback auditing, and deployment assurance.",
+      "authors": [
+        "Fazhong Liu",
+        "Zhuoyan Chen",
+        "Haozhen Tan",
+        "Yan Meng",
+        "Guoxing Chen",
+        "Haojin Zhu"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "published": "2026-07-30T13:58:33+00:00",
+      "link": "https://arxiv.org/pdf/2607.28226v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "Surveys threats, defenses, and evaluation for world-model-based embodied AI across the full lifecycle",
+      "llm_evidence_cn": "综述基于世界模型的具身AI在全生命周期中的威胁、防御与评估",
+      "llm_evidence": "综述基于世界模型的具身AI在全生命周期中的威胁、防御与评估",
+      "canonical_evidence": "综述基于世界模型的具身AI在全生命周期中的威胁、防御与评估",
+      "llm_tldr_en": "This survey traces security threats across the lifecycle of world-model-based embodied AI, from data to physical action, covering poisoning, backdoors, adversarial examples, sensor spoofing, and prompt injection.",
+      "llm_tldr_cn": "世界模型为具身智能提供预测核心，但也打开了新的安全边界。本综述沿数据构建、表示学习、状态接地、想象、轨迹评估、执行和长期适应等全生命周期梳理威胁，涵盖投毒、后门、对抗样本、传感器欺骗、提示注入等攻击家族。文章强调，对世界模型的妥协可以从数据或传感器传播到物理动作，因此需要系统化的防御与评估框架以确保具身AI的安全性。",
+      "llm_tldr": "世界模型为具身智能提供预测核心，但也打开了新的安全边界。本综述沿数据构建、表示学习、状态接地、想象、轨迹评估、执行和长期适应等全生命周期梳理威胁，涵盖投毒、后门、对抗样本、传感器欺骗、提示注入等攻击家族。文章强调，对世界模型的妥协可以从数据或传感器传播到物理动作，因此需要系统化的防御与评估框架以确保具身AI的安全性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2607.24744v1",
+      "source": "arxiv",
+      "title": "Data Pyramid for Embodied Manipulation",
+      "abstract": "Multimodal foundation models learned to see and to speak by consuming the whole internet. Embodied agents admit no such shortcut, since they require data that couple observations with physical states and actions. These signals can be provided, to varying degrees, by multiple data sources. In this work, we organize the embodied data ecosystem as a \"pyramid\" spanning five complementary sources: real-robot data, UMI-style data, egocentric and exocentric data, simulation data, and general vision-language data. We organize the pyramid around the tension between scalability and robot alignment, and further characterize each source in terms of data quality, diversity, reusability, and physical fidelity. We then analyze recent embodied foundation models through the lens of their data recipes, examining how different sources are selected, aligned, and mixed during pretraining. For embodied brain models, vision-language-action models, and world-action models alike, we relate data composition to capabilities in perception, reasoning, planning, action generation, and world prediction. We close by discussing six open challenges: building large-scale tactile datasets, collecting failure and recovery data, developing scalable data-collection pipelines, aligning actions across embodiments, leveraging egocentric data for dexterous manipulation, and designing principled data recipes for robot learning. We hope this work paves the foundation for the design of next-generation embodied systems.",
+      "authors": [
+        "Yifan Ye",
+        "Yankai Fu",
+        "Yaoxu Lv",
+        "Bohan Hou",
+        "Jun Cen",
+        "Lingdong Kong",
+        "Duo Zheng",
+        "Tianxing Chen",
+        "Jiaming Liu",
+        "Ziang Cao",
+        "Yunfan Lou",
+        "Wei Chow",
+        "Xian Sun",
+        "Yingshuo Wang",
+        "Kuangzhi Ge",
+        "Xiaowei Chi",
+        "Xidong Zhang",
+        "Zhibo Pang",
+        "Yiwu Zhong",
+        "Sirui Han",
+        "Zhihe Lu",
+        "Weihao Yuan",
+        "Qifeng Chen",
+        "Michael Yu Wang",
+        "Yao Mu",
+        "Ziwei Liu",
+        "Jianfei Yang",
+        "Ping Luo",
+        "Shanghang Zhang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "published": "2026-07-27T17:59:58+00:00",
+      "link": "https://arxiv.org/pdf/2607.24744v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "organizes embodied data sources coupling observations with physical states and actions",
+      "llm_evidence_cn": "系统整理具身数据来源，强调观测与物理状态/行动的耦合",
+      "llm_evidence": "系统整理具身数据来源，强调观测与物理状态/行动的耦合",
+      "canonical_evidence": "系统整理具身数据来源，强调观测与物理状态/行动的耦合",
+      "llm_tldr_en": "This paper structures the embodied data ecosystem into five complementary sources and characterizes them by quality, diversity, reusability, and physical fidelity, providing a lens to design data recipes for embodied foundation models.",
+      "llm_tldr_cn": "具身智能体难以像多模态基础模型那样直接获取海量互联网数据，需要将观测与物理状态和动作耦合的数据。本文提出具身数据“金字塔”，将数据来源分为真实机器人数据、UMI风格数据、内外视角数据、仿真数据和视觉语言数据五类，并围绕可扩展性与机器人对齐分析各来源的质量、多样性、可复用性和物理保真度，为设计具身基础模型的数据配方提供系统视角。",
+      "llm_tldr": "具身智能体难以像多模态基础模型那样直接获取海量互联网数据，需要将观测与物理状态和动作耦合的数据。本文提出具身数据“金字塔”，将数据来源分为真实机器人数据、UMI风格数据、内外视角数据、仿真数据和视觉语言数据五类，并围绕可扩展性与机器人对齐分析各来源的质量、多样性、可复用性和物理保真度，为设计具身基础模型的数据配方提供系统视角。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.25541v1",
+      "source": "arxiv",
+      "title": "P3: Probabilistic Policy Propagation for Stable VAE-Based Robot Learning",
+      "abstract": "Variational Autoencoders are widely used to encode high-dimensional and noisy observations in robotics. However, their stochastic latent creates a mismatch with Proximal Policy Optimization (PPO): an effective policy marginalizes over the latent distribution, whereas former implementations estimate its probability ratio and KL divergence using only one latent sample. We identify a fundamental but overlooked theoretical cause: naive single-sample approximations in stochastic latent space induce significant variance and bias in the surrogate loss. To address this, we introduce P^3 (Probabilistic Policy Propagation), a distribution-aware optimization framework for VAE-based policies. $P^3$ couples moment-based probabilistic method for stable and efficient learning with sampling-based calibration for robust policy behavior under latent uncertainty. In our experiments, P^3 boosts data efficiency from 64.6% to >96%, reduces convergence steps by >20%. Furthermore, P^3 is evaluated on challenging humanoid parkour tasks and shows an effective foundation for VAE-based PPO. Code is available at https://github.com/ylyem9x/P3_Open.",
+      "authors": [
+        "Liyun Yan",
+        "Jianming Ma",
+        "Yang Zhang",
+        "Shengcheng Fu",
+        "Zhanxiang Cao",
+        "Keqi Zhu",
+        "Yizhi Chen",
+        "Yue Gao"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-28T10:22:05+00:00",
+      "link": "https://arxiv.org/pdf/2607.25541v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "distribution-aware optimization for VAE-based RL policies",
+      "llm_evidence_cn": "面向VAE策略的分布感知优化方法",
+      "llm_evidence": "面向VAE策略的分布感知优化方法",
+      "canonical_evidence": "面向VAE策略的分布感知优化方法",
+      "llm_tldr_en": "P3 is a distribution-aware optimization framework for VAE-based robot policies that couples moment-based probabilistic methods with PPO, reducing variance and bias from single-sample latent estimates.",
+      "llm_tldr_cn": "VAE在机器人学习中常用于编码高维噪声观测，但其随机潜变量与PPO的策略估计存在不匹配，单样本近似会导致显著方差和偏差。本文提出P3，一种分布感知的优化框架，通过矩概率方法对潜变量分布进行传播，使VAE策略的PPO训练更稳定高效，为潜空间中的机器人强化学习提供了理论基础和实用改进。",
+      "llm_tldr": "VAE在机器人学习中常用于编码高维噪声观测，但其随机潜变量与PPO的策略估计存在不匹配，单样本近似会导致显著方差和偏差。本文提出P3，一种分布感知的优化框架，通过矩概率方法对潜变量分布进行传播，使VAE策略的PPO训练更稳定高效，为潜空间中的机器人强化学习提供了理论基础和实用改进。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.25106v1",
+      "source": "arxiv",
+      "title": "IMPRINT: Image-Conditioned Query Enrichment for Long-Tail Object Goal Navigation",
+      "abstract": "Embodied AI increasingly relies on queryable semantic maps built from pre-trained vision-language models to enable zero-shot Object Goal Navigation (ObjectNav). However, existing approaches typically depend on text-only queries, which become less reliable as semantic specificity increases toward fine-grained object categories. We introduce IMPRINT, a zero-shot plug-and-play framework that enriches textual object queries with web-sourced images to improve grounding in queryable maps. Retrieved images are encoded using a vision-language model, matched against the semantic map to produce similarity maps, and aggregated to yield context-aware localization. Notably, this requires no training or modification of the underlying navigation policy. To explicitly evaluate long-tail behavior, we present HSSD-rare, a new ObjectNav benchmark built on Habitat Synthetic Scenes and featuring semantically specific subcategories. Across both OVON and HSSD-rare, image-conditioned queries consistently improve object grounding and yield end-to-end navigation gains. Further analysis reveals that translating localization gains to navigation performance depends critically on downstream detection quality, highlighting a key systems bottleneck in long-tail embodied navigation.",
+      "authors": [
+        "Jelin Raphael Akkara",
+        "Filippo Ziliotto",
+        "Luciano Serafini",
+        "Lamberto Ballan",
+        "Tommaso Campari"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-07-27T22:09:32+00:00",
+      "link": "https://arxiv.org/pdf/2607.25106v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "Embodied object goal navigation with queryable semantic maps and vision-language grounding",
+      "llm_evidence_cn": "具身目标导航中利用可查询语义地图和视觉-语言接地",
+      "llm_evidence": "具身目标导航中利用可查询语义地图和视觉-语言接地",
+      "canonical_evidence": "具身目标导航中利用可查询语义地图和视觉-语言接地",
+      "llm_tldr_en": "IMPRINT enriches text queries with web images for zero-shot object goal navigation, improving fine-grained grounding in semantic maps without training or modifying the policy.",
+      "llm_tldr_cn": "现有零样本物体目标导航依赖文本查询构建语义地图，但在细粒度类别上可靠性下降。IMPRINT提出零样本即插即用框架，利用网络图片丰富文本查询，通过视觉-语言模型编码并与语义地图匹配生成相似度图，再聚合得到上下文感知定位。该方法无需训练或修改底层导航策略，即可改善长尾物体目标导航的语义接地性能。",
+      "llm_tldr": "现有零样本物体目标导航依赖文本查询构建语义地图，但在细粒度类别上可靠性下降。IMPRINT提出零样本即插即用框架，利用网络图片丰富文本查询，通过视觉-语言模型编码并与语义地图匹配生成相似度图，再聚合得到上下文感知定位。该方法无需训练或修改底层导航策略，即可改善长尾物体目标导航的语义接地性能。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.26148v1",
+      "source": "arxiv",
+      "title": "Embodied Agents Take Control: Minimal-Interface Zero-Shot Agents Rival Industrial-Scale Policies in Vision-and-Language Navigation",
+      "abstract": "Autonomous embodied agents must sustain a long decision-making loop that involves perceiving, acting, verifying, and self-correcting over many steps. Current systems sustain this loop through task-specific workflows or embodied policies. We study a third form, agentic embodied control, in which a general-purpose agent holds the loop itself. Using zero-shot navigation as a controlled testbed, we evaluate three software-engineering agent harnesses given only a monocular RGB camera and discrete actions. Under this strictly minimal condition, replicated default-effort configurations reach 70.7$\\pm$3.5% success (opus-5, mean over three runs), and fable-5 reaches 78% at maximum effort. When a trained waypoint tool is exposed alongside primitives as an optional capability, the hybrid fable-5 agent reaches 76.7$\\pm$0.6% at default effort, using half the environment steps and less than one quarter of the wall time of the maximum-effort primitive run. Controlled interventions show that capability is primarily model-centered: model choice strongly changes success, harness effects are descriptive, and a forced waypoint interface helps weaker models but can hinder stronger ones. Performance nevertheless falls sharply on longer-horizon tasks, while latency and context growth limit sustained operation. These results show that agentic control is already competitive in zero-shot navigation and that models, harnesses, and interfaces offer complementary paths toward autonomous embodied agents.",
+      "authors": [
+        "Jian Zhou",
+        "Xunyi Zhao",
+        "Gengze Zhou",
+        "Zerui Li",
+        "Sihao Lin",
+        "Jiajun Liu",
+        "Qi Wu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-28T18:00:34+00:00",
+      "link": "https://arxiv.org/pdf/2607.26148v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "Evaluates zero-shot embodied agents with minimal camera and discrete action interface for vision-and-language navigation.",
+      "llm_evidence_cn": "以最小相机和离散动作接口评估零样本具身智能体在视觉-语言导航中的表现。",
+      "llm_evidence": "以最小相机和离散动作接口评估零样本具身智能体在视觉-语言导航中的表现。",
+      "canonical_evidence": "以最小相机和离散动作接口评估零样本具身智能体在视觉-语言导航中的表现。",
+      "llm_tldr_en": "Examines agentic embodied control with a minimal monocular RGB and discrete action interface for vision-and-language navigation, showing general-purpose zero-shot agents rival industrial-scale policies with up to 78% success.",
+      "llm_tldr_cn": "具身智能体需要长周期感知-行动-验证-自我修正循环。本文在零样本视觉-语言导航测试床上，仅给单个单目RGB相机和离散动作，评估了三种软件工程智能体框架，结果表明默认配置可达70.7%成功率，最大努力下达到78%，接近工业级策略。这展示了通用智能体在具身控制中的潜力，但未涉及世界模型或模仿学习。",
+      "llm_tldr": "具身智能体需要长周期感知-行动-验证-自我修正循环。本文在零样本视觉-语言导航测试床上，仅给单个单目RGB相机和离散动作，评估了三种软件工程智能体框架，结果表明默认配置可达70.7%成功率，最大努力下达到78%，接近工业级策略。这展示了通用智能体在具身控制中的潜力，但未涉及世界模型或模仿学习。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.25516v1",
+      "source": "arxiv",
+      "title": "A Causality-aware Infer-diagnose-refine Framework for Test-time Modality Adaptation in VLA Models",
+      "abstract": "Vision-language-action (VLA) models predict sequential actions to execute tasks specified by language instructions, conditioned on visual observations and proprioceptive states. However, how to fuse modalities in VLA models remains an open problem, since robot manipulation involves dynamic phases, such as long-distance movements and close-range interactions, in which the importance of visual observations may vary over time. In this paper, we propose an infer-diagnose-refine (IDR) framework, a model-agnostic framework that can be integrated with diverse VLA architectures for refining action predictions at test time. IDR first infers actions under factual and counterfactual scenarios of visual observations, and then diagnoses the causal effects of visual observations as the estimated dynamic importance, which is finally used to refine the action predictions in a training-free manner. We further design a causality-aware action refiner to realize the IDR framework, including zero-padding interventions for inferring counterfactual actions, norm-based quantification for diagnosing causal effects, and gated residual fusion for refining actions. Extensive experiments on both simulation benchmarks and real-world tasks show improvements in overall performance across multiple VLA backbones, demonstrating the efficacy of dynamically adjusting visual importance at test time.",
+      "authors": [
+        "Haoyu Zhang",
+        "Yuwei Wu",
+        "Jin Chen",
+        "Gao Zhi",
+        "Zhenxin Diao",
+        "Mingyang Gao",
+        "Kun Wu",
+        "Yongchun Liu",
+        "Fan Li"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-28T09:56:42+00:00",
+      "link": "https://arxiv.org/pdf/2607.25516v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "Test-time refinement of action predictions for vision-language-action models in embodied manipulation",
+      "llm_evidence_cn": "面向具身操作的VLA模型测试时动作预测改进",
+      "llm_evidence": "面向具身操作的VLA模型测试时动作预测改进",
+      "canonical_evidence": "面向具身操作的VLA模型测试时动作预测改进",
+      "llm_tldr_en": "VLA models for robot manipulation suffer from suboptimal modality fusion across task phases. This work proposes IDR, a model-agnostic framework that refines action predictions at test time via inference under factual and counterfactual visual scenarios, followed by diagnosis and refinement. It integrates with diverse VLA architectures, improving adaptability.",
+      "llm_tldr_cn": "视觉-语言-动作（VLA）模型在机器人操作中面临模态融合随任务阶段变化的问题。提出一种模型无关的推断-诊断-修正（IDR）框架，通过在事实和反事实视觉场景下推断动作，并在测试时对预测进行诊断和修正。该框架可与多种VLA架构集成，提升操作策略的适应性。",
+      "llm_tldr": "视觉-语言-动作（VLA）模型在机器人操作中面临模态融合随任务阶段变化的问题。提出一种模型无关的推断-诊断-修正（IDR）框架，通过在事实和反事实视觉场景下推断动作，并在测试时对预测进行诊断和修正。该框架可与多种VLA架构集成，提升操作策略的适应性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.28251v1",
+      "source": "arxiv",
+      "title": "Self-Evolving Learning for Embodied AI with Criticality Model",
+      "abstract": "Despite rapid advances in policy pretraining, embodied AI systems routinely plateau during task-specific finetuning. The root cause lies in how finetuning data are collected: the default pipeline gathers data randomly, treating every sample as informative. Datasets become dominated by nominal scenarios, while rare failure cases--the most valuable for improvement--are missed. We propose a self-evolving method that breaks this plateau. Our core insight is that a state-wise criticality model, learned from the policy's own execution outcomes to predict the probability of future failure, can guide importance sampling toward failure-prone scenarios. After replacing redundant nominal scenarios with diverse failure-prone ones, importance weights are used to resample the data during training. This effectively preserves an unbiased learning objective while fundamentally increasing the information density of the training pool. Across quadrupedal locomotion, multi-task manipulation, vision-language-action benchmarks, and a real-robot task, our method reduces failure rates by 51--67% relative to trained baselines and by 8-25% relative to state-of-the-art vision-language-action models.",
+      "authors": [
+        "Linxuan He",
+        "Yuying Tian",
+        "Lingxiang Fan",
+        "Jiaqi Pi",
+        "Yinqiao Lu",
+        "Shang Su",
+        "Mengkai Shi",
+        "Shuo Feng"
+      ],
+      "primary_category": "eess.SY",
+      "categories": [
+        "eess.SY"
+      ],
+      "published": "2026-07-30T14:13:18+00:00",
+      "link": "https://arxiv.org/pdf/2607.28251v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "Self-evolving data resampling guided by a learned criticality model for embodied AI policy finetuning",
+      "llm_evidence_cn": "利用学习到的关键性模型引导具身AI策略微调中的数据重采样",
+      "llm_evidence": "利用学习到的关键性模型引导具身AI策略微调中的数据重采样",
+      "canonical_evidence": "利用学习到的关键性模型引导具身AI策略微调中的数据重采样",
+      "llm_tldr_en": "Embodied AI policies plateau when finetuning data are dominated by nominal scenarios. A state-wise criticality model predicts future failure, guiding importance sampling toward failure-prone scenarios. This self-evolving resampling replaces redundant data with diverse failures, breaking plateau and improving finetuning.",
+      "llm_tldr_cn": "具身AI策略在任务特定微调中常因数据采集随机而陷入平台期。该工作提出一种自进化方法，通过从策略执行结果中学到的状态级关键性模型预测未来失败概率，并将其作为重要性采样的指导。替换冗余名义场景、补充多样失败场景后进行重采样，可打破平台期，提升微调数据效率。",
+      "llm_tldr": "具身AI策略在任务特定微调中常因数据采集随机而陷入平台期。该工作提出一种自进化方法，通过从策略执行结果中学到的状态级关键性模型预测未来失败概率，并将其作为重要性采样的指导。替换冗余名义场景、补充多样失败场景后进行重采样，可打破平台期，提升微调数据效率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.26807v1",
+      "source": "arxiv",
+      "title": "Route by Kinematics, Act by Observation: Kinematics-Supervised Expert Routing in MoE-Augmented VLA",
+      "abstract": "While MoE augments VLA via expert specialization, router suffers from ineffective expert routing owing to the kinematic heterogeneity of actions across manipulation tasks and, even worse, the unavailability of the kinematic signals at inference time. In this work, we first observe that most semantically distinct manipulation tasks reduce to multiple kinematic archetypes. Motivated by this finding, we propose Kinematics-supervised explicit routing (KinRT), a new paradigm that shifts from implicit, observation-driven expert routing to explicit, kinematics-guided expert dispatching. Specifically, we perform kinematic clustering on action trajectories into multiple kinematically coherent groups, whose IDs serve as ground truth to supervise the training of the router; at inference time, the router dispatches experts only using visual-language observations, without any reliance on action kinematics. KinRT actually introduces an asymmetric bridging mechanism that distills the task kinematics from the action space in training into the observation space at inference. In addition, to assess KinRT's cross-platform generalization, we build an economical, Do-It-Yourself robot (DIYRobot) platform from scratch using 3D-print technology ($<$ 2,000USD). Extensive experiments demonstrate KinRT's superiority over both dense and MoE-featured VLAs by more than 23.26% on RoboTwin benchmark and 20.27% on our introduced DIYRobot platform. Our code and DIYRobot platform will be open-sourced.",
+      "authors": [
+        "Tianhang Yang",
+        "Yanze Zheng",
+        "Junjie Wang",
+        "Wei-Bin Kou",
+        "Ruotong Li",
+        "Yujiu Yang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-29T11:48:45+00:00",
+      "link": "https://arxiv.org/pdf/2607.26807v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "kinematics-supervised expert routing in MoE-augmented VLA for manipulation",
+      "llm_evidence_cn": "MoE增强VLA中面向操作的运动学监督专家路由",
+      "llm_evidence": "MoE增强VLA中面向操作的运动学监督专家路由",
+      "canonical_evidence": "MoE增强VLA中面向操作的运动学监督专家路由",
+      "llm_tldr_en": "Observing that manipulation tasks reduce to kinematic archetypes, proposes KinRT with explicit kinematics-guided expert dispatching in MoE-augmented VLA, using kinematic clusters as ground truth for routing.",
+      "llm_tldr_cn": "针对MoE增强的VLA中专家路由由于动作运动学异质性而效率低下的问题，提出运动学监督的显式路由（KinRT）。它首先对动作轨迹进行运动学聚类，以类别ID作为路由的真实标签，将隐式观测驱动路由转为显式运动学引导的专家调度，从而提升操作任务的专家分配质量。",
+      "llm_tldr": "针对MoE增强的VLA中专家路由由于动作运动学异质性而效率低下的问题，提出运动学监督的显式路由（KinRT）。它首先对动作轨迹进行运动学聚类，以类别ID作为路由的真实标签，将隐式观测驱动路由转为显式运动学引导的专家调度，从而提升操作任务的专家分配质量。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}
