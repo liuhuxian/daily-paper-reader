@@ -6,61 +6,38 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-08-01
-- 运行时间：2026-08-01 21:01:27 UTC
+- 最新运行日期：2026-08-02
+- 运行时间：2026-08-02 21:03:30 UTC
 - 运行状态：成功
-- 本次总论文数：13
-- 精读区：6
-- 速读区：7
+- 本次总论文数：6
+- 精读区：1
+- 速读区：5
 
 ### 今日简报（AI）
-1) 今日精读6篇、速读7篇，重点推荐世界动作模型与触觉增强VLA两篇高分论文。  
-2) 最值得关注《DC-WAM》以动态中心视觉监督提升世界模型推理（10分），以及《τ》用未来视觉预测训练触觉-视觉-语言-动作模型（8分）。  
-3) 建议优先精读这两篇，并速读数据金字塔、长尾目标导航和VLA测试时模态适配作为延伸。
-- 详情：[/202608/01/README](/202608/01/README)
+今日共读6篇论文，精读1篇、速读5篇，核心聚焦机器人导航与操作策略。最值得关注X-NavDP提出群Q值重加权匹配，提升导航扩散策略对新行为与形态的泛化能力；同时ArmnetBench提供低成本机械臂并行评估方案。建议普通读者优先了解扩散策略在机器人泛化中的应用，以及低成本数据采集与评测趋势。
+- 详情：[/202608/02/README](/202608/02/README)
 
 ### 精读区论文标签
-1. [DC-WAM: Dynamic-Centric Visual Supervision and Reasoning for World-Action Models](/202608/01/2607.25918v1-dc-wam-dynamic-centric-visual-supervision-and-reasoning-for-world-action-models)  
-   标签：评分：10.0/10、query:wmi
-   evidence：重新审视世界动作模型中的未来视觉预测，强调以动态为中心的控制监督
-2. [τ: Learning Touch-Augmented Vision-Language-Action Models from Future Visual Supervision](/202608/01/2607.24485v2--learning-touch-augmented-vision-language-action-models-from-future-visual-supervision)  
+1. [X-NavDP: Generalizing Navigation Diffusion Policy to Novel Behavior and Embodiments with Group Q-score Reweighted Matching](/202608/02/2607.28560v1-x-navdp-generalizing-navigation-diffusion-policy-to-novel-behavior-and-embodiments-with-group-q-score-reweighted-matching)  
    标签：评分：8.0/10、query:wmi
-   evidence：通过未来视觉监督学习触觉表示，增强面向接触丰富操作的视觉-语言-动作模型。
-3. [Cross-Embodiment Transfer via Behavior-Aligned Representations](/202608/01/2607.27549v1-cross-embodiment-transfer-via-behavior-aligned-representations)  
-   标签：评分：8.0/10、query:wmi
-   evidence：使用行为对齐表征的VLA模型进行机器人操作模仿学习
-4. [RedFlow: Redirect Failure into Action-Level Corrections for Flow-matching VLA Policy](/202608/01/2607.27782v1-redflow-redirect-failure-into-action-level-corrections-for-flow-matching-vla-policy)  
-   标签：评分：8.0/10、query:wmi
-   evidence：面向机器人操作的离线RL框架，利用动作级失败纠正改进流匹配VLA策略
-5. [TAPO: Transition-Aware Policy Optimization for LLM Agents](/202608/01/2607.27973v1-tapo-transition-aware-policy-optimization-for-llm-agents)  
-   标签：评分：8.0/10、query:wmi
-   evidence：统一强化学习框架，将策略优化与基于环境反馈的转移监督交替进行
-6. [Security of World-Model-Based Embodied AI: A Lifecycle of Threats, Defenses, and Evaluation](/202608/01/2607.28226v1-security-of-world-model-based-embodied-ai-a-lifecycle-of-threats-defenses-and-evaluation)  
-   标签：评分：8.0/10、query:wmi
-   evidence：综述基于世界模型的具身AI在全生命周期中的威胁、防御与评估
+   evidence：在大规模专家演示上预训练导航扩散策略
 
 ### 速读区论文标签
-1. [Data Pyramid for Embodied Manipulation](/202608/01/2607.24744v1-data-pyramid-for-embodied-manipulation)  
+1. [ArmnetBench v0.1: Parallel Real-World Evaluation of Manipulation Policies on a Low-Cost Arm Farm](/202608/02/2607.24481v1-armnetbench-v01-parallel-real-world-evaluation-of-manipulation-policies-on-a-low-cost-arm-farm)  
    标签：评分：7.0/10、query:wmi
-   evidence：系统整理具身数据来源，强调观测与物理状态/行动的耦合
-2. [IMPRINT: Image-Conditioned Query Enrichment for Long-Tail Object Goal Navigation](/202608/01/2607.25106v1-imprint-image-conditioned-query-enrichment-for-long-tail-object-goal-navigation)  
+   evidence：在真实机器人平台上对基于演示训练的操作策略进行并行评测的基准
+2. [Practice Makes Policies: Bootstrapping and Consolidating Robotic Capabilities from Zero Human Demonstrations](/202608/02/2607.26809v1-practice-makes-policies-bootstrapping-and-consolidating-robotic-capabilities-from-zero-human-demonstrations)  
    标签：评分：7.0/10、query:wmi
-   evidence：具身目标导航中利用可查询语义地图和视觉-语言接地
-3. [A Causality-aware Infer-diagnose-refine Framework for Test-time Modality Adaptation in VLA Models](/202608/01/2607.25516v1-a-causality-aware-infer-diagnose-refine-framework-for-test-time-modality-adaptation-in-vla-models)  
+   evidence：在无人类演示条件下通过物理交互引导和巩固机器人操作能力
+3. [ACE-Data-0: Human-Centric Ambient Capture as Embodied Data Engine](/202608/02/2607.28625v1-ace-data-0-human-centric-ambient-capture-as-embodied-data-engine)  
    标签：评分：7.0/10、query:wmi
-   evidence：面向具身操作的VLA模型测试时动作预测改进
-4. [Route by Kinematics, Act by Observation: Kinematics-Supervised Expert Routing in MoE-Augmented VLA](/202608/01/2607.26807v1-route-by-kinematics-act-by-observation-kinematics-supervised-expert-routing-in-moe-augmented-vla)  
-   标签：评分：7.0/10、query:wmi
-   evidence：MoE增强VLA中面向操作的运动学监督专家路由
-5. [P3: Probabilistic Policy Propagation for Stable VAE-Based Robot Learning](/202608/01/2607.25541v1-p3-probabilistic-policy-propagation-for-stable-vae-based-robot-learning)  
+   evidence：以人为中心的数据捕捉、具身操作演示数据
+4. [Learning Adaptive Multi-Task Guidance, Navigation, and Control via Hypernetworks](/202608/02/2607.24292v1-learning-adaptive-multi-task-guidance-navigation-and-control-via-hypernetworks)  
    标签：评分：6.0/10、query:wmi
-   evidence：面向VAE策略的分布感知优化方法
-6. [Embodied Agents Take Control: Minimal-Interface Zero-Shot Agents Rival Industrial-Scale Policies in Vision-and-Language Navigation](/202608/01/2607.26148v1-embodied-agents-take-control-minimal-interface-zero-shot-agents-rival-industrial-scale-policies-in-vision-and-language-navigation)  
+   evidence：面向自由飞行机器人的多任务强化学习，具备物理控制
+5. [Towards Trustworthy Embodied Intelligence: A Systems Framework and Graded Trustworthiness Levels](/202608/02/2607.26121v1-towards-trustworthy-embodied-intelligence-a-systems-framework-and-graded-trustworthiness-levels)  
    标签：评分：6.0/10、query:wmi
-   evidence：以最小相机和离散动作接口评估零样本具身智能体在视觉-语言导航中的表现。
-7. [Self-Evolving Learning for Embodied AI with Criticality Model](/202608/01/2607.28251v1-self-evolving-learning-for-embodied-ai-with-criticality-model)  
-   标签：评分：6.0/10、query:wmi
-   evidence：利用学习到的关键性模型引导具身AI策略微调中的数据重采样
+   evidence：具身智能、物理交互、系统框架
 
 
 <div class="dpr-home-promo-card">
