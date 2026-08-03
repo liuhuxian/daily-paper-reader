@@ -6,38 +6,61 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-08-02
-- 运行时间：2026-08-02 21:03:30 UTC
+- 最新运行日期：2026-08-03
+- 运行时间：2026-08-03 20:48:24 UTC
 - 运行状态：成功
-- 本次总论文数：6
-- 精读区：1
-- 速读区：5
+- 本次总论文数：13
+- 精读区：6
+- 速读区：7
 
 ### 今日简报（AI）
-今日共读6篇论文，精读1篇、速读5篇，核心聚焦机器人导航与操作策略。最值得关注X-NavDP提出群Q值重加权匹配，提升导航扩散策略对新行为与形态的泛化能力；同时ArmnetBench提供低成本机械臂并行评估方案。建议普通读者优先了解扩散策略在机器人泛化中的应用，以及低成本数据采集与评测趋势。
-- 详情：[/202608/02/README](/202608/02/README)
+今日精筛13篇AI论文，聚焦世界模型、机器人学习与多智能体协作。  
+最值得看：WorldDiT用统一扩散架构实现世界建模与动作生成，Mirror Learning提出新型学习范式。  
+下一步建议：关注扩散模型在具身智能中的应用，并留意多机器人视觉-语言协作的分布式方案。
+- 详情：[/202608/03/README](/202608/03/README)
 
 ### 精读区论文标签
-1. [X-NavDP: Generalizing Navigation Diffusion Policy to Novel Behavior and Embodiments with Group Q-score Reweighted Matching](/202608/02/2607.28560v1-x-navdp-generalizing-navigation-diffusion-policy-to-novel-behavior-and-embodiments-with-group-q-score-reweighted-matching)  
-   标签：评分：8.0/10、query:wmi
-   evidence：在大规模专家演示上预训练导航扩散策略
+1. [WorldDiT: A Unified Diffusion Architecture for World and Action Modeling](/202608/03/2607.23909v2-worlddit-a-unified-diffusion-architecture-for-world-and-action-modeling)  
+   标签：评分：9.0/10、query:wmi
+   evidence：面向机器人操作统一动作生成与视觉世界建模的扩散架构
+2. [Mirror Learning](/202608/03/2607.28737v1-mirror-learning)  
+   标签：评分：9.0/10、query:wmi
+   evidence：从第三人称被动示范中学习可执行策略
+3. [Auto-JEPA: A Latent World Model of Continuous Intent for End-to-End Autonomous Driving](/202608/03/2607.29031v1-auto-jepa-a-latent-world-model-of-continuous-intent-for-end-to-end-autonomous-driving)  
+   标签：评分：9.0/10、query:wmi
+   evidence：面向自动驾驶规划与预测的面向动作潜世界模型
+4. [BWM: A Low-Cost High-Fidelity World Simulator for Robot Learning](/202608/03/2607.29302v1-bwm-a-low-cost-high-fidelity-world-simulator-for-robot-learning)  
+   标签：评分：9.0/10、query:wmi
+   evidence：用于机器人学习的动作条件世界模型，预测未来观测
+5. [WCM: A World Critic Model for Vision-Language-Action Reinforcement Learning](/202608/03/2607.29613v1-wcm-a-world-critic-model-for-vision-language-action-reinforcement-learning)  
+   标签：评分：9.0/10、query:wmi
+   evidence：在机器人操作强化学习中引入显式世界建模目标
+6. [When Does On-Policy Interaction Help? Representational Tradeoffs in Value-Based Imitation Learning](/202608/03/2607.29617v1-when-does-on-policy-interaction-help-representational-tradeoffs-in-value-based-imitation-learning)  
+   标签：评分：9.0/10、query:wmi
+   evidence：研究基于价值的模仿学习和行为克隆，分析在线交互在何时有帮助
 
 ### 速读区论文标签
-1. [ArmnetBench v0.1: Parallel Real-World Evaluation of Manipulation Policies on a Low-Cost Arm Farm](/202608/02/2607.24481v1-armnetbench-v01-parallel-real-world-evaluation-of-manipulation-policies-on-a-low-cost-arm-farm)  
+1. [D-VLC: Decentralized Vision-Language Collaboration for Heterogeneous Embodied Multi-Robot Systems in Unknown Environments](/202608/03/2607.29009v1-d-vlc-decentralized-vision-language-collaboration-for-heterogeneous-embodied-multi-robot-systems-in-unknown-environments)  
+   标签：评分：8.0/10、query:wmi
+   evidence：面向未知环境异构具身多机器人系统的视觉语言协作
+2. [Temporal Policy: History-Initialized Action Generation for Robotic Learning from Demonstration](/202608/03/2607.29482v1-temporal-policy-history-initialized-action-generation-for-robotic-learning-from-demonstration)  
+   标签：评分：8.0/10、query:wmi
+   evidence：基于示范的机器人操作生成式模仿学习
+3. [DreamQAS: Learning a Decision-Useful World Model for VQE-Efficient Quantum Architecture Search](/202608/03/2607.29491v1-dreamqas-learning-a-decision-useful-world-model-for-vqe-efficient-quantum-architecture-search)  
+   标签：评分：8.0/10、query:wmi
+   evidence：在量子架构搜索中使用学习世界模型的基于模型强化学习，用于规划与预测
+4. [RayViT: Ray-Conditioned Visual Representations for Viewpoint-Robust Imitation Learning](/202608/03/2607.29622v1-rayvit-ray-conditioned-visual-representations-for-viewpoint-robust-imitation-learning)  
+   标签：评分：8.0/10、query:wmi
+   evidence：面向机器人的视觉模仿学习，提升视点鲁棒性
+5. [MARS-RA: Rank Aggregation for Credit Assignment via Multimodal Comparisons in Embodied Multi-Agent Cooperation](/202608/03/2607.27967v1-mars-ra-rank-aggregation-for-credit-assignment-via-multimodal-comparisons-in-embodied-multi-agent-cooperation)  
    标签：评分：7.0/10、query:wmi
-   evidence：在真实机器人平台上对基于演示训练的操作策略进行并行评测的基准
-2. [Practice Makes Policies: Bootstrapping and Consolidating Robotic Capabilities from Zero Human Demonstrations](/202608/02/2607.26809v1-practice-makes-policies-bootstrapping-and-consolidating-robotic-capabilities-from-zero-human-demonstrations)  
+   evidence：具身多智能体协作中使用多模态比较进行信用分配
+6. [TRACT: Temporally Routed Action Chunks with Chronological Phase Authority for Contact-Rich Manipulation](/202608/03/2607.29285v1-tract-temporally-routed-action-chunks-with-chronological-phase-authority-for-contact-rich-manipulation)  
    标签：评分：7.0/10、query:wmi
-   evidence：在无人类演示条件下通过物理交互引导和巩固机器人操作能力
-3. [ACE-Data-0: Human-Centric Ambient Capture as Embodied Data Engine](/202608/02/2607.28625v1-ace-data-0-human-centric-ambient-capture-as-embodied-data-engine)  
+   evidence：用于接触丰富机器人操作的模仿学习动作分块
+7. [HAM-VLN: Harnessing Hierarchical Agentic Memory for Zero-Shot Vision-and-Language Navigation](/202608/03/2607.29600v1-ham-vln-harnessing-hierarchical-agentic-memory-for-zero-shot-vision-and-language-navigation)  
    标签：评分：7.0/10、query:wmi
-   evidence：以人为中心的数据捕捉、具身操作演示数据
-4. [Learning Adaptive Multi-Task Guidance, Navigation, and Control via Hypernetworks](/202608/02/2607.24292v1-learning-adaptive-multi-task-guidance-navigation-and-control-via-hypernetworks)  
-   标签：评分：6.0/10、query:wmi
-   evidence：面向自由飞行机器人的多任务强化学习，具备物理控制
-5. [Towards Trustworthy Embodied Intelligence: A Systems Framework and Graded Trustworthiness Levels](/202608/02/2607.26121v1-towards-trustworthy-embodied-intelligence-a-systems-framework-and-graded-trustworthiness-levels)  
-   标签：评分：6.0/10、query:wmi
-   evidence：具身智能、物理交互、系统框架
+   evidence：面向具身导航规划的持久性深度世界图
 
 
 <div class="dpr-home-promo-card">
