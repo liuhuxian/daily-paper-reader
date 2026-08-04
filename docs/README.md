@@ -6,61 +6,80 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-08-03
-- 运行时间：2026-08-03 20:48:24 UTC
+- 最新运行日期：2026-08-04
+- 运行时间：2026-08-04 21:59:24 UTC
 - 运行状态：成功
-- 本次总论文数：13
-- 精读区：6
-- 速读区：7
+- 本次总论文数：20
+- 精读区：9
+- 速读区：11
 
 ### 今日简报（AI）
-今日精筛13篇AI论文，聚焦世界模型、机器人学习与多智能体协作。  
-最值得看：WorldDiT用统一扩散架构实现世界建模与动作生成，Mirror Learning提出新型学习范式。  
-下一步建议：关注扩散模型在具身智能中的应用，并留意多机器人视觉-语言协作的分布式方案。
-- 详情：[/202608/03/README](/202608/03/README)
+今日精读9篇、速读11篇，聚焦具身智能与机器人模仿学习，重点关注三手协作操控与世界模型预测控制两篇高分论文。最值得关注的方向是：多臂协同模仿学习（Tri-Manual）及“折叠世界模型”实现超高效具身控制，两篇均达9.0分。建议普通读者优先研读这两篇精读论文，理解其方法论创新，再看速读中零样本导航与多机器人协作的落地潜力。
+- 详情：[/202608/04/README](/202608/04/README)
 
 ### 精读区论文标签
-1. [WorldDiT: A Unified Diffusion Architecture for World and Action Modeling](/202608/03/2607.23909v2-worlddit-a-unified-diffusion-architecture-for-world-and-action-modeling)  
+1. [Tri-Manual Visuomotor Imitation Learning of Robot Policies](/202608/04/2607.25731v3-tri-manual-visuomotor-imitation-learning-of-robot-policies)  
    标签：评分：9.0/10、query:wmi
-   evidence：面向机器人操作统一动作生成与视觉世界建模的扩散架构
-2. [Mirror Learning](/202608/03/2607.28737v1-mirror-learning)  
+   evidence：多臂机器人操作的模仿学习
+2. [Enfold: Folding World Model Imagination into Predictive Representations for Ultra-Efficient Embodied Control](/202608/04/2607.26657v2-enfold-folding-world-model-imagination-into-predictive-representations-for-ultra-efficient-embodied-control)  
    标签：评分：9.0/10、query:wmi
-   evidence：从第三人称被动示范中学习可执行策略
-3. [Auto-JEPA: A Latent World Model of Continuous Intent for End-to-End Autonomous Driving](/202608/03/2607.29031v1-auto-jepa-a-latent-world-model-of-continuous-intent-for-end-to-end-autonomous-driving)  
+   evidence：将世界模型想象融入预测表示，应用于具身控制
+3. [SelfWAM: A Self-Grounded Unified World Action Model for Fast Robot Control](/202608/04/2608.00725v1-selfwam-a-self-grounded-unified-world-action-model-for-fast-robot-control)  
    标签：评分：9.0/10、query:wmi
-   evidence：面向自动驾驶规划与预测的面向动作潜世界模型
-4. [BWM: A Low-Cost High-Fidelity World Simulator for Robot Learning](/202608/03/2607.29302v1-bwm-a-low-cost-high-fidelity-world-simulator-for-robot-learning)  
+   evidence：用于机器人控制的统一世界动作模型，预测未来观测
+4. [DynamicWAM: Dual-Path Motion Conditioning for World-Action Models in Dynamic Manipulation](/202608/04/2608.00793v1-dynamicwam-dual-path-motion-conditioning-for-world-action-models-in-dynamic-manipulation)  
    标签：评分：9.0/10、query:wmi
-   evidence：用于机器人学习的动作条件世界模型，预测未来观测
-5. [WCM: A World Critic Model for Vision-Language-Action Reinforcement Learning](/202608/03/2607.29613v1-wcm-a-world-critic-model-for-vision-language-action-reinforcement-learning)  
+   evidence：面向动态操作的世界-动作模型，采用双路径运动条件化
+5. [MiniWorld: Democratizing the Training of Video World Models from Scratch](/202608/04/2608.01127v1-miniworld-democratizing-the-training-of-video-world-models-from-scratch)  
    标签：评分：9.0/10、query:wmi
-   evidence：在机器人操作强化学习中引入显式世界建模目标
-6. [When Does On-Policy Interaction Help? Representational Tradeoffs in Value-Based Imitation Learning](/202608/03/2607.29617v1-when-does-on-policy-interaction-help-representational-tradeoffs-in-value-based-imitation-learning)  
+   evidence：从零训练视频世界模型，支持具身AI
+6. [DreamTrajectory: Trajectory-Guided Action Generation with World Model Alignment for Mobile Manipulation](/202608/04/2608.01381v1-dreamtrajectory-trajectory-guided-action-generation-with-world-model-alignment-for-mobile-manipulation)  
    标签：评分：9.0/10、query:wmi
-   evidence：研究基于价值的模仿学习和行为克隆，分析在线交互在何时有帮助
+   evidence：移动操作中世界模型对齐的动作生成
+7. [SG-WAM: Self-Guided World Modeling in Geometry-Aware Policy Space](/202608/04/2608.01397v1-sg-wam-self-guided-world-modeling-in-geometry-aware-policy-space)  
+   标签：评分：9.0/10、query:wmi
+   evidence：策略表征空间中的动作条件世界动力学
+8. [DynamicManip: Enabling Dynamic Manipulation from a Single Static Demonstration](/202608/04/2608.01452v1-dynamicmanip-enabling-dynamic-manipulation-from-a-single-static-demonstration)  
+   标签：评分：9.0/10、query:wmi
+   evidence：提出从单个静态演示中学习低延迟模仿策略，用于动态操作
+9. [World Action Models in Real Time: An Empirical Study of Smooth Execution via Asynchronous Deployment](/202608/04/2608.01880v1-world-action-models-in-real-time-an-empirical-study-of-smooth-execution-via-asynchronous-deployment)  
+   标签：评分：9.0/10、query:wmi
+   evidence：世界动作模型用于实时机器人执行
 
 ### 速读区论文标签
-1. [D-VLC: Decentralized Vision-Language Collaboration for Heterogeneous Embodied Multi-Robot Systems in Unknown Environments](/202608/03/2607.29009v1-d-vlc-decentralized-vision-language-collaboration-for-heterogeneous-embodied-multi-robot-systems-in-unknown-environments)  
+1. [Embodied Agents Take Control: Minimal-Interface Zero-Shot Agents Rival Industrial-Scale Policies in Vision-and-Language Navigation](/202608/04/2607.26148v2-embodied-agents-take-control-minimal-interface-zero-shot-agents-rival-industrial-scale-policies-in-vision-and-language-navigation)  
    标签：评分：8.0/10、query:wmi
-   evidence：面向未知环境异构具身多机器人系统的视觉语言协作
-2. [Temporal Policy: History-Initialized Action Generation for Robotic Learning from Demonstration](/202608/03/2607.29482v1-temporal-policy-history-initialized-action-generation-for-robotic-learning-from-demonstration)  
+   evidence：推理模型直接驱动具身导航智能体的动作
+2. [EgoGenesis: Egocentric World-Action Modeling with Online Anchored Projective Memory and Action-3D RoPE](/202608/04/2607.28243v1-egogenesis-egocentric-world-action-modeling-with-online-anchored-projective-memory-and-action-3d-rope)  
    标签：评分：8.0/10、query:wmi
-   evidence：基于示范的机器人操作生成式模仿学习
-3. [DreamQAS: Learning a Decision-Useful World Model for VQE-Efficient Quantum Architecture Search](/202608/03/2607.29491v1-dreamqas-learning-a-decision-useful-world-model-for-vqe-efficient-quantum-architecture-search)  
+   evidence：用于具身智能操作的自我中心世界-动作模拟器
+3. [D-VLC: Decentralized Vision-Language Collaboration for Heterogeneous Embodied Multi-Robot Systems in Unknown Environments](/202608/04/2607.29009v2-d-vlc-decentralized-vision-language-collaboration-for-heterogeneous-embodied-multi-robot-systems-in-unknown-environments)  
    标签：评分：8.0/10、query:wmi
-   evidence：在量子架构搜索中使用学习世界模型的基于模型强化学习，用于规划与预测
-4. [RayViT: Ray-Conditioned Visual Representations for Viewpoint-Robust Imitation Learning](/202608/03/2607.29622v1-rayvit-ray-conditioned-visual-representations-for-viewpoint-robust-imitation-learning)  
+   evidence：基于大语言模型/视觉语言模型的具身多机器人协作
+4. [From Failures to Supervision: DynamicEnvPlan for Robust Long-Horizon Embodied Planning](/202608/04/2608.00613v1-from-failures-to-supervision-dynamicenvplan-for-robust-long-horizon-embodied-planning)  
    标签：评分：8.0/10、query:wmi
-   evidence：面向机器人的视觉模仿学习，提升视点鲁棒性
-5. [MARS-RA: Rank Aggregation for Credit Assignment via Multimodal Comparisons in Embodied Multi-Agent Cooperation](/202608/03/2607.27967v1-mars-ra-rank-aggregation-for-credit-assignment-via-multimodal-comparisons-in-embodied-multi-agent-cooperation)  
+   evidence：动态环境偏差下的闭环具身规划
+5. [AffordTrajDP: Dynamic Affordance-Guided Visuomotor Policy Learning for Robotic Manipulation](/202608/04/2608.01603v1-affordtrajdp-dynamic-affordance-guided-visuomotor-policy-learning-for-robotic-manipulation)  
+   标签：评分：8.0/10、query:wmi
+   evidence：通过模仿学习实现动态可操作度引导的机器人操作策略
+6. [DF$^3$: World Modeling via Decoder-Free Feature Forecasting in Autonomous Navigation](/202608/04/2608.02428v1-df3-world-modeling-via-decoder-free-feature-forecasting-in-autonomous-navigation)  
+   标签：评分：8.0/10、query:wmi
+   evidence：面向自主导航的未来状态预测世界模型
+7. [Analytic Planning under Uncertainty with Moment Closure](/202608/04/2608.02519v1-analytic-planning-under-uncertainty-with-moment-closure)  
+   标签：评分：8.0/10、query:wmi
+   evidence：模型强化学习中的分布感知解析规划
+8. [Bicycle Acrobatics with Reinforcement Learning](/202608/04/2608.00880v1-bicycle-acrobatics-with-reinforcement-learning)  
    标签：评分：7.0/10、query:wmi
-   evidence：具身多智能体协作中使用多模态比较进行信用分配
-6. [TRACT: Temporally Routed Action Chunks with Chronological Phase Authority for Contact-Rich Manipulation](/202608/03/2607.29285v1-tract-temporally-routed-action-chunks-with-chronological-phase-authority-for-contact-rich-manipulation)  
-   标签：评分：7.0/10、query:wmi
-   evidence：用于接触丰富机器人操作的模仿学习动作分块
-7. [HAM-VLN: Harnessing Hierarchical Agentic Memory for Zero-Shot Vision-and-Language Navigation](/202608/03/2607.29600v1-ham-vln-harnessing-hierarchical-agentic-memory-for-zero-shot-vision-and-language-navigation)  
-   标签：评分：7.0/10、query:wmi
-   evidence：面向具身导航规划的持久性深度世界图
+   evidence：用于物理自行车机器人的强化学习，含运动模仿
+9. [Learning Input-Constrained Funnel Controllers from State Trajectory Data](/202608/04/2607.23876v1-learning-input-constrained-funnel-controllers-from-state-trajectory-data)  
+   标签：评分：6.0/10、query:wmi
+   evidence：从专家状态轨迹中学习带约束的反馈策略
+10. [Sample Efficient Hierarchical Reinforcement Learning via Best Policy Identification](/202608/04/2607.29294v1-sample-efficient-hierarchical-reinforcement-learning-via-best-policy-identification)  
+   标签：评分：6.0/10、query:wmi
+   evidence：基于模型的层次强化学习，学习环境转移动态
+11. [RF-HOI: Recognize Human-Object Interaction with Radio Frequency Signals](/202608/04/2608.00289v1-rf-hoi-recognize-human-object-interaction-with-radio-frequency-signals)  
+   标签：评分：6.0/10、query:wmi
+   evidence：面向具身感知的射频传感与人机交互识别
 
 
 <div class="dpr-home-promo-card">
