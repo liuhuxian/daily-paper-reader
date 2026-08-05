@@ -1,0 +1,557 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-08-05T21:39:28.088155+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 8,
+    "deep_cap": 6,
+    "deep_selected": 6,
+    "quick_candidates": 7,
+    "quick_skim_target": 11,
+    "quick_selected": 7
+  },
+  "deep_dive": [
+    {
+      "id": "2608.01127v2",
+      "source": "arxiv",
+      "title": "MiniWorld: Democratizing the Training of Video World Models from Scratch",
+      "abstract": "Video world models predict future observations conditioned on historical observations and control signals, enabling long-horizon generation through autoregressive state transitions. Unlike conventional video generation models that primarily capture visual appearance and motion, video world models learn the underlying dynamics governing environment evolution under agent actions, providing a foundation for embodied AI and interactive simulation. Recent progress has largely relied on adapting pretrained video generation models through post-training or distillation. Although effective, these approaches often require complex training pipelines, substantial computational resources, and suffer from the mismatch between bidirectional pretraining and causal streaming inference. Recent studies have shown that training autoregressive video world models from scratch is feasible and scalable. However, the community still lacks a lightweight, transparent, and fully reproducible baseline trainable end-to-end with modest computational resources. We present MiniWorld, a reproducible framework for training streaming video world models from scratch. MiniWorld employs a block-causal Video Diffusion Transformer trained with Flow Matching in the latent space of a pretrained Video VAE. Building on Diffusion Forcing, it adopts a chunk-wise non-decreasing noise schedule and two-stage continued training to improve temporal modeling and stability. During inference, MiniWorld combines a rolling KV cache with pipelined asynchronous denoising for efficient streaming generation under bounded computation. The entire model can be trained within several days on a single 8-GPU server. By releasing the training and inference codebase and pretrained checkpoints, we hope MiniWorld will facilitate future research on video world modeling.",
+      "authors": [
+        "Yian Zhao",
+        "Ruochong Zheng",
+        "Hongcan Guo",
+        "Yu Yan",
+        "Jian Zhang",
+        "Jie Chen"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-08-02T09:57:02+00:00",
+      "link": "https://arxiv.org/pdf/2608.01127v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "video world model training from scratch predicts future observations under control signals for embodied AI and simulation",
+      "llm_evidence_cn": "从零训练的视频世界模型在控制信号下预测未来观测，支撑具身AI与交互仿真",
+      "llm_evidence": "从零训练的视频世界模型在控制信号下预测未来观测，支撑具身AI与交互仿真",
+      "canonical_evidence": "从零训练的视频世界模型在控制信号下预测未来观测，支撑具身AI与交互仿真",
+      "llm_tldr_en": "MiniWorld democratizes video world model training from scratch, learning environment dynamics under agent actions rather than only appearance, providing a scalable foundation for embodied AI and interactive simulation without expensive pretrained video models.",
+      "llm_tldr_cn": "现有视频世界模型大多依赖预训练视频生成模型进行后训练或蒸馏，训练流程复杂、算力开销大，且双向预训练与因果预测存在不匹配。MiniWorld 提出从零训练视频世界模型的方案，以历史观测和控制信号为条件自回归预测未来观测，学习环境在智能体动作下的演化动态。该方法降低了视频世界模型的训练门槛，为具身智能与交互仿真提供了可普及的基础。",
+      "llm_tldr": "现有视频世界模型大多依赖预训练视频生成模型进行后训练或蒸馏，训练流程复杂、算力开销大，且双向预训练与因果预测存在不匹配。MiniWorld 提出从零训练视频世界模型的方案，以历史观测和控制信号为条件自回归预测未来观测，学习环境在智能体动作下的演化动态。该方法降低了视频世界模型的训练门槛，为具身智能与交互仿真提供了可普及的基础。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2608.02547v1",
+      "source": "arxiv",
+      "title": "Why Does Action Chunking Improve Behavioral Cloning Performance in Robotic Control?",
+      "abstract": "Action chunking---predicting and executing multiple actions instead of a single action---has proven to be a critical component for learning effective robotic control policies. However, our precise understanding of why action chunking improves performance has remained limited. In this work we seek to close this gap. Through rigorous experimental evaluations in both simulated and real-world settings, we show that existing hypotheses for the success of action chunking---temporal consistency, horizon reduction, and representation learning---fail to explain the success of action chunking. Instead, we find that action chunking benefits from greater non-Markovian expressivity and reduced compounding error compared to Markovian policies, but, in many settings of interest, these effects can be fully captured by delayed policies, which at each step predict a single action based on the observation $k$ steps in the past. We then show that there exists an additional benefit of action chunking that we refer to as implicit ensembling. In particular, by learning a diversity of temporal relationships (that is, $a_t | o_t, a_t | o_{t-1}, \\ldots$), action-chunked policies exhibit behavior matching that of a model ensemble, increasing their robustness and generalization ability over policies that only learn a single temporal relationship. Building on these insights, we show that in simulated and real-world robotic control settings, we can match the performance of action chunking without action chunking---by deploying an action chunking policy as an ensemble of policies with randomized delays. Furthermore, we propose a policy class that amplifies the benefits of action chunking by explicitly instantiating an ensemble, and which we show significantly improves over the performance of action chunking in many domains.",
+      "authors": [
+        "Filippo Lazzati",
+        "Kyle Stachowicz",
+        "William Chen",
+        "Alberto Maria Metelli",
+        "Andrew Wagenmaker",
+        "Sergey Levine"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-08-03T17:32:45+00:00",
+      "link": "https://arxiv.org/pdf/2608.02547v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "behavioral cloning in robotic control",
+      "llm_evidence_cn": "机器人控制中的行为克隆研究",
+      "llm_evidence": "机器人控制中的行为克隆研究",
+      "canonical_evidence": "机器人控制中的行为克隆研究",
+      "llm_tldr_en": "Shows through simulated and real experiments that action chunking improves behavioral cloning by increasing non-Markovian expressivity and reducing compounding error, not by temporal consistency, horizon reduction, or representation learning.",
+      "llm_tldr_cn": "动作分块是机器人行为克隆中的关键技巧，但其成功原因此前未被精确理解。论文通过仿真和真实实验排除了时序一致性、视野缩短和表征学习等假说，指出其收益在于更强的非马尔可夫表达能力和更低的复合误差，深化了对行为克隆策略设计的理解。",
+      "llm_tldr": "动作分块是机器人行为克隆中的关键技巧，但其成功原因此前未被精确理解。论文通过仿真和真实实验排除了时序一致性、视野缩短和表征学习等假说，指出其收益在于更强的非马尔可夫表达能力和更低的复合误差，深化了对行为克隆策略设计的理解。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2608.02990v1",
+      "source": "arxiv",
+      "title": "EmbodiedVAE: Disentangled Video VAE for Efficient and Controllable Embodied Manipulation",
+      "abstract": "Latent diffusion models (LDMs) have recently significantly advanced embodied learning in constructing powerful embodied manipulation world models. However, despite the remarkable performance, existing LDMs predominantly rely on Variational Autoencoders (VAEs) optimized for natural scenes while failing to account for the unique characteristics of embodied manipulation scenarios, yielding latent representations that are neither compact nor controllable, thereby hindering efficient training of LDMs and precise robotic control. To solve this problem, we present EmbodiedVAE, a novel video VAE that provides compact yet controllable latent representations tailored for the robotic manipulation world models. Specifically, EmbodiedVAE adopts a dual-encoder, single-decoder architecture with an asymmetric spatio-temporal compression module, which automatically disentangles the robot arm's motion from background environment, resulting in overall compactness while providing explicit embodied latent to support fine-grained action control. To further preserve the temporal consistency of learned robotic motion latent, we introduce an optimal-transport-based consistency module that explicitly enforces motion fidelity and inter-frame coherence. Extensive experiments demonstrate that our proposed EmbodiedVAE achieves superior reconstruction quality with high compression rate, while enabling more precise action control in robotic manipulation scenarios with an average of 2dB PSNR improvement over state-of-the-art video VAEs.",
+      "authors": [
+        "Jiayi Luo",
+        "Hanxin Zhu",
+        "Chen Gao",
+        "Jiankun Wang",
+        "Cong Wang",
+        "Tianyu He",
+        "Jianxin Li",
+        "Zhibo Chen"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-08-04T01:01:18+00:00",
+      "link": "https://arxiv.org/pdf/2608.02990v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "video VAE tailored for embodied manipulation world models",
+      "llm_evidence_cn": "面向具身操作世界模型的视频VAE",
+      "llm_evidence": "面向具身操作世界模型的视频VAE",
+      "canonical_evidence": "面向具身操作世界模型的视频VAE",
+      "llm_tldr_en": "Presents EmbodiedVAE, a video VAE that learns compact and controllable latent representations tailored for robotic manipulation world models, improving LDM efficiency and control.",
+      "llm_tldr_cn": "现有潜在扩散世界模型依赖面向自然场景的VAE，难以兼顾紧凑性和可控性。本文提出EmbodiedVAE，为机器人操作世界模型专门设计解耦式视频VAE，以生成紧凑且可控的潜表示。在多个具身操作任务上验证了其能提升扩散世界模型的训练效率和精确控制能力，推动了世界模型在具身智能中的应用。",
+      "llm_tldr": "现有潜在扩散世界模型依赖面向自然场景的VAE，难以兼顾紧凑性和可控性。本文提出EmbodiedVAE，为机器人操作世界模型专门设计解耦式视频VAE，以生成紧凑且可控的潜表示。在多个具身操作任务上验证了其能提升扩散世界模型的训练效率和精确控制能力，推动了世界模型在具身智能中的应用。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2608.03103v1",
+      "source": "arxiv",
+      "title": "A Hierarchical Approach to Imitation Learning for Manipulation Tasks Requiring Time Varying Forces",
+      "abstract": "Diffusion policies have shown strong performance in learning complex, multi-modal behaviors for robotic manipulation. However, their application to contact-rich disassembly tasks remains limited by a key trade-off: the iterative denoising process introduces inference latencies that makes high frequency control difficult, which is essential for realizing dynamic interactions such as chiseling and prying. Recent action-chunking techniques mitigate latency but use an open-loop execution window, rendering the system blind to rapid force transients caused by fracture events. To bridge this gap, we introduce the Diffusion Policy Augmented by Fast Trajectory Generation (DPA-FTG). Compared to recent visual-tactile approaches that focus on positional correction, DPA-FTG decouples low-frequency planning from high-frequency force regulation. At the high level ($5$ Hz), a conditional diffusion model predicts a sequence of latent parameters for selecting a strategy from a learned vocabulary of task primitives. At the low level ($60$ Hz), a lightweight, force-conditioned policy acts as a neural impedance controller, modulating execution in real-time to maintain contact stability. We validate our approach on a bimanual battery disassembly task involving the separation of a compliant sheet. Experimental evaluation demonstrates that DPA-FTG outperforms state-of-the-art baselines, including Reactive Diffusion Policy (RDP).",
+      "authors": [
+        "Rishabh Shukla",
+        "Adithya Santhosh",
+        "Shaili Gandhi",
+        "Samrudh Moode",
+        "Satyandra K. Gupta"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-08-04T04:21:00+00:00",
+      "link": "https://arxiv.org/pdf/2608.03103v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Imitation learning for contact-rich robotic manipulation with diffusion policies and fast trajectory generation",
+      "llm_evidence_cn": "面向接触丰富机器人操作的扩散策略模仿学习与快速轨迹生成",
+      "llm_evidence": "面向接触丰富机器人操作的扩散策略模仿学习与快速轨迹生成",
+      "canonical_evidence": "面向接触丰富机器人操作的扩散策略模仿学习与快速轨迹生成",
+      "llm_tldr_en": "DPA-FTG augments diffusion policy with fast trajectory generation for high-frequency control in contact-rich disassembly tasks, addressing inference latency while maintaining awareness of force transients.",
+      "llm_tldr_cn": "扩散策略在机器人操作中表现优异，但其迭代去噪带来的推理延迟限制了高频率控制，在接触丰富的拆解任务中尤其明显。DPA-FTG提出由快速轨迹生成增强的扩散策略，采用分层模仿学习框架，在不使用开环执行窗口的情况下实现高频控制。相比视觉-触觉方法，该方法能感知断裂事件中的快速力瞬变。该方案兼顾表达能力与控制频率，适用于需要时变力的操作任务。",
+      "llm_tldr": "扩散策略在机器人操作中表现优异，但其迭代去噪带来的推理延迟限制了高频率控制，在接触丰富的拆解任务中尤其明显。DPA-FTG提出由快速轨迹生成增强的扩散策略，采用分层模仿学习框架，在不使用开环执行窗口的情况下实现高频控制。相比视觉-触觉方法，该方法能感知断裂事件中的快速力瞬变。该方案兼顾表达能力与控制频率，适用于需要时变力的操作任务。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2608.03387v1",
+      "source": "arxiv",
+      "title": "RoboReact: Agentic Skill Distillation from Generated Egocentric Videos for Generalizable Whole-Body Manipulation",
+      "abstract": "Humanoid robots have the potential to perform dexterous manipulation in human environments, yet acquiring diverse and generalizable skills remains costly due to expensive hardware data collection and labor-intensive annotation. Recent advances in video generative models provide a promising opportunity to synthesize rich manipulation experiences from visual observations, but transferring such imagined behaviors into executable whole-body humanoid skills remains largely unexplored. In this work, we present RoboReact, a framework that automatically synthesizes whole-body humanoid manipulation skills from a single egocentric RGB-D observation. RoboReact generates human manipulation videos, extracts geometry-preserving interaction keyframes through depth-aware 3D reconstruction, and retargets them to high-DoF humanoid platforms while preserving hand-object interaction geometry. To bridge the gap between imagined plans and physical execution, RoboReact performs online object-centric re-grounding and leverages a vision-language model-guided refinement loop to adapt skills under geometric mismatch and execution deviations. The refined skills are executed through a whole-body controller, enabling coordinated whole-body manipulation and dexterous interaction. Experiments on real humanoid robots demonstrate that RoboReact generalizes across diverse object configurations and robustly recovers from execution disturbances without requiring teleoperation or human demonstrations. These results highlight the potential of combining generative models, vision-language reasoning, and closed-loop control for scalable humanoid skill acquisition.",
+      "authors": [
+        "Shuliang He",
+        "Shuai Wang",
+        "Bo Yue",
+        "Junchi Teng",
+        "Changyu Wang",
+        "Guiliang Liu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-08-04T09:37:06+00:00",
+      "link": "https://arxiv.org/pdf/2608.03387v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "whole-body humanoid manipulation skills synthesized from egocentric videos via generative models and distilled into policies",
+      "llm_evidence_cn": "从第一视角视频生成人体操作并蒸馏为全身人形机器人操作技能",
+      "llm_evidence": "从第一视角视频生成人体操作并蒸馏为全身人形机器人操作技能",
+      "canonical_evidence": "从第一视角视频生成人体操作并蒸馏为全身人形机器人操作技能",
+      "llm_tldr_en": "RoboReact automatically synthesizes whole-body humanoid manipulation skills from a single egocentric RGB-D observation, using generative video models and geometry-preserving extraction to transfer imagined behaviors into executable robot skills.",
+      "llm_tldr_cn": "人形机器人获取多样化可泛化技能成本高昂，手工采集与标注困难。RoboReact 提出基于视频生成模型的自动合成流程：从单一第一视角RGB-D观察生成人体操作视频，提取几何保持的演示，并蒸馏为可执行的全身人形操作技能。实验表明该方法无需真机示教即可合成多样技能，缓解了具身操作中演示数据稀缺和硬件采集成本高的问题，为人形机器人技能学习提供了可扩展范式。",
+      "llm_tldr": "人形机器人获取多样化可泛化技能成本高昂，手工采集与标注困难。RoboReact 提出基于视频生成模型的自动合成流程：从单一第一视角RGB-D观察生成人体操作视频，提取几何保持的演示，并蒸馏为可执行的全身人形操作技能。实验表明该方法无需真机示教即可合成多样技能，缓解了具身操作中演示数据稀缺和硬件采集成本高的问题，为人形机器人技能学习提供了可扩展范式。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2608.02713v1",
+      "source": "arxiv",
+      "title": "Quo Vadis, World Modeling?",
+      "abstract": "Continually improving agents require dynamic interaction feedback beyond static supervision, yet direct real-environment interaction is costly, slow, unsafe, and hard to parallelize. World modeling offers a natural intermediate proxy that allows agents to query lower-cost, more controllable feedback before committing to real actions. Classical world models instantiate this proxy primarily through future physical-state prediction, a formulation useful yet narrow for agents that require actionable feedback beyond raw state transitions. In this work, we conceptualize Agent-Centric Interactive World Proxies, shifting the fundamental paradigm from physical state transitions to agent-usable information transitions, such as execution outcomes, retrieved experiences or skills, and verification signals, broadening the scope of world modeling to provide versatile feedback for continually improving agents. To systematically map this design space, we organize world proxies into six functional forms based on their feedback modalities: dynamics, spatial, execution, memory/experience, skill, and reward/verification proxies, which together characterize the primary ways world modeling serves agent improvement. We further analyze how these proxies empower agents across three progressive levels: L.1 Inference-Time Guidance, where proxy outputs enrich in-context information for superior decisions; L.2 Training-Time Optimization, where proxy outputs yield rewards, critiques, or synthetic rollouts for policy learning; and L.3 Agent-Proxy Co-Evolution, where real-environment evidence continuously updates both the proxy and the agent for co-evolution. Ultimately, this work recasts world modeling into an agent-centric paradigm, establishing a roadmap for building world proxies that empower agents to plan better, learn faster, and evolve continually.",
+      "authors": [
+        "Yu Yang",
+        "Xuemeng Yang",
+        "Licheng Wen",
+        "Lingdong Kong",
+        "Xiaobin Hu",
+        "Dongyue Lu",
+        "Wei Chow",
+        "Xiyan Huang",
+        "Yuxiang Feng",
+        "Yue Liao",
+        "Jianbiao Mei",
+        "Daocheng Fu",
+        "Rong Wu",
+        "Pinlong Cai",
+        "Ran Yi",
+        "Ying Tai",
+        "Jiangning Zhang",
+        "Botian Shi",
+        "Yong Liu",
+        "Shuicheng Yan"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.RO"
+      ],
+      "published": "2026-08-03T17:59:58+00:00",
+      "link": "https://arxiv.org/pdf/2608.02713v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "world modeling as internal proxy for planning and prediction",
+      "llm_evidence_cn": "将世界建模作为智能体规划与预测的内部代理",
+      "llm_evidence": "将世界建模作为智能体规划与预测的内部代理",
+      "canonical_evidence": "将世界建模作为智能体规划与预测的内部代理",
+      "llm_tldr_en": "Argues that classical world models focused on future physical-state prediction are too narrow, proposing agent-centric interactive world proxies that provide actionable feedback such as outcomes, skills, and verification signals.",
+      "llm_tldr_cn": "传统世界模型主要预测未来物理状态，对需要可操作反馈的智能体而言过于狭窄。本文提出以智能体为中心的交互式世界代理，将信息转移（如执行结果、检索经验或技能、验证信号）作为核心，为低成本交互反馈提供新范式。这为世界模型在规划和预测中的应用拓宽了方向。",
+      "llm_tldr": "传统世界模型主要预测未来物理状态，对需要可操作反馈的智能体而言过于狭窄。本文提出以智能体为中心的交互式世界代理，将信息转移（如执行结果、检索经验或技能、验证信号）作为核心，为低成本交互反馈提供新范式。这为世界模型在规划和预测中的应用拓宽了方向。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2608.02958v1",
+      "source": "arxiv",
+      "title": "ValueFormer: A Causal Transformer Value Function with Stage-Aware Labels for Semi-Autonomous Vision-Language-Action Policies",
+      "abstract": "Vision-Language-Action (VLA) policies trained by behavior cloning fail silently: from the action stream alone, a collapsing rollout looks much like one making clean progress, because imitation supplies no notion of progress. Reinforcement learning would supply one, but it is impractical here, where real-robot experience is costly and deformable food resists simulation. The cheap alternative, a terminal success / failure bit, is learnable in principle yet far too sparse to say when a rollout went wrong. We argue that the per-frame label, not the architecture, is the hard part: to be useful it must be dense, continuous, and correctly shaped. We present ValueFormer, a compact policy-agnostic causal transformer over a frozen DINOv3 backbone that emits two per-frame signals in one forward pass: a smooth Monte Carlo value, V_mc, for advantage estimation and a sharp binary value for online mistake detection, targets that pull in opposite directions by design. Failed episodes are labeled with a stage-aware, success-then-decay return that preserves the success curve before the failure stage, and detection is supervised from mistake intervals rather than a single failure time, so mistakes the policy recovers from also carry signal. On a real-robot bimanual sandwich-assembly task 1,427 episodes), a critic-derived per-frame training weight lifts task completion from 70% to 85% (within noise at n=20), and a batched bf16 encoder cuts the live serving cost 3~5 times so the critic runs at 2 Hz alongside the policy on a single GPU.",
+      "authors": [
+        "Inkyu Sa",
+        "Konstantin Stulov",
+        "Rajat Bhageria"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-08-03T23:46:39+00:00",
+      "link": "https://arxiv.org/pdf/2608.02958v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "Improves behavior-cloned VLA policies by adding a causal transformer value function with dense stage-aware labels",
+      "llm_evidence_cn": "为行为克隆的视觉-语言-动作策略引入带阶段标签的因果Transformer价值函数，以检测策略退化",
+      "llm_evidence": "为行为克隆的视觉-语言-动作策略引入带阶段标签的因果Transformer价值函数，以检测策略退化",
+      "canonical_evidence": "为行为克隆的视觉-语言-动作策略引入带阶段标签的因果Transformer价值函数，以检测策略退化",
+      "llm_tldr_en": "ValueFormer introduces a causal transformer value function with stage-aware labels to provide dense progress signal for behavior-cloned VLA policies, enabling early detection of collapsing rollouts without expensive RL.",
+      "llm_tldr_cn": "行为克隆训练的视觉-语言-动作策略在失败时无法从动作流中察觉，因为模仿学习缺少进展概念。强化学习代价高昂且难以在真实机器人上使用，稀疏的成功/失败标签又过于稀疏。ValueFormer提出一种紧凑的策略无关因果Transformer价值函数，并结合阶段感知标签提供稠密连续的进展信号。实验显示该方法能有效判断滚动是否出错，为半自主VLA策略提供可靠的进度估计。",
+      "llm_tldr": "行为克隆训练的视觉-语言-动作策略在失败时无法从动作流中察觉，因为模仿学习缺少进展概念。强化学习代价高昂且难以在真实机器人上使用，稀疏的成功/失败标签又过于稀疏。ValueFormer提出一种紧凑的策略无关因果Transformer价值函数，并结合阶段感知标签提供稠密连续的进展信号。实验显示该方法能有效判断滚动是否出错，为半自主VLA策略提供可靠的进度估计。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2608.01205v1",
+      "source": "arxiv",
+      "title": "ReBRAC-v2: The Return of the King",
+      "abstract": "Recent offline reinforcement learning methods increasingly rely on expressive generative policies and specialized value-guidance mechanisms. We ask whether comparable progress can instead come from systematically modernizing a conventional behavior-regularized actor-critic while preserving its algorithmic simplicity. We introduce ReBRAC-v2, which directly trains an exact-likelihood normalizing flow as the RL actor, combines likelihood, MSE, and MAE behavior regularization, and integrates a classification-based residual critic, staged optimization, and multi-sample test-time action selection. Rather than tuning this recipe separately for every task, we develop a single shared configuration via roughly 600 Bayesian proposals on six challenging OGBench tasks, freeze all structural and optimization choices, and adapt only two behavior-regularization coefficients over a 16-point grid. Across ten common state-based OGBench categories, ReBRAC-v2 averages 74.8 compared to 52.3 for the next-best aggregate result and ranks first in eight categories. The same recipe, without structural changes, obtains the strongest averages in our comparisons on D4RL AntMaze (90.2) and Adroit (33.6). Fixed-recipe ablations show the largest sensitivity to the selected mixed cloning objective, staged training, sufficient flow capacity, and multi-sample inference, while showing that several smaller choices depend on the values of other hyperparameters. These results show that disciplined, transferable engineering can achieve state-of-the-art aggregate performance without abandoning a minimalist offline RL foundation.",
+      "authors": [
+        "Denis Tarasov",
+        "Robert K. Katzschmann"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-08-02T12:42:20+00:00",
+      "link": "https://arxiv.org/pdf/2608.01205v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "offline RL policy learning with explicit behavior regularization from fixed demonstration data",
+      "llm_evidence_cn": "基于固定演示数据的离线强化学习并显式加入行为正则化",
+      "llm_evidence": "基于固定演示数据的离线强化学习并显式加入行为正则化",
+      "canonical_evidence": "基于固定演示数据的离线强化学习并显式加入行为正则化",
+      "llm_tldr_en": "ReBRAC-v2 modernizes a conventional behavior-regularized actor-critic with an exact-likelihood normalizing flow and likelihood, MSE, MAE regularization, achieving competitive performance on OGBench offline RL tasks without complex value guidance.",
+      "llm_tldr_cn": "现有离线强化学习依赖生成式策略和特殊价值引导，本文探索仅靠系统现代化经典行为正则化演员-评论家能否取得同等进步。该方法直接用精确似然归一化流作为策略，结合似然、MSE和MAE正则化以及分类残差评论家，在六个OGBench任务上使用约600次贝叶斯调参得到单一共享配置，性能具备竞争力，表明传统算法仍可焕发生命力。",
+      "llm_tldr": "现有离线强化学习依赖生成式策略和特殊价值引导，本文探索仅靠系统现代化经典行为正则化演员-评论家能否取得同等进步。该方法直接用精确似然归一化流作为策略，结合似然、MSE和MAE正则化以及分类残差评论家，在六个OGBench任务上使用约600次贝叶斯调参得到单一共享配置，性能具备竞争力，表明传统算法仍可焕发生命力。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2608.00625v1",
+      "source": "arxiv",
+      "title": "Learning-Based Motion Planning for Dynamic Environments: From Foundational Algorithms to Emerging Paradigms",
+      "abstract": "Motion planning in dynamic environments is a fundamental problem in robotics, aiming to generate safe and efficient paths, trajectories, or control actions in the presence of moving obstacles, uncertain predictions, and multi-agent interactions. It has broad applications in autonomous driving, service robotics, warehouse logistics, human-robot collaboration, crowd navigation, and multi-robot systems. This survey reviews representative works published primarily between 2015 and 2025, with a particular focus on how recent learning-based advances extend, complement, or interact with classical planning foundations. We first revisit classical planning methods as algorithmic foundations and reference frameworks for learning-based extensions. We then propose a role-of-learning taxonomy that categorizes existing methods according to how learning participates in the planning pipeline, including direct policy learning, learning-augmented classical planning, hybrid planning, and training enhancement methods. For each category, we summarize the main problem settings, representative algorithms, key ideas, integration mechanisms, strengths, and limitations. We further analyze how observation representations, prediction uncertainty, interaction modeling, planner integration, safety constraints, and training strategies shape learning-based motion planning in dynamic environments. Finally, we discuss open challenges and future directions, including sim-to-real gap, safe and certifiable planning, dense crowd navigation, perception-planning coupling, and embodied AI.",
+      "authors": [
+        "Zongyuan Shen",
+        "Shalabh Gupta",
+        "Shancheng Zhao",
+        "Dehua Zhou",
+        "Gao Wang",
+        "Rui Cheng",
+        "Yaming Ou",
+        "Zhongqiang Ren",
+        "Yikui Zhai",
+        "C. L. Philip Chen"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-08-01T12:30:55+00:00",
+      "link": "https://arxiv.org/pdf/2608.00625v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "learning-based motion planning survey with uncertain predictions and multi-agent interactions",
+      "llm_evidence_cn": "动态环境下基于学习的运动规划综述，涵盖不确定预测与多智能体交互",
+      "llm_evidence": "动态环境下基于学习的运动规划综述，涵盖不确定预测与多智能体交互",
+      "canonical_evidence": "动态环境下基于学习的运动规划综述，涵盖不确定预测与多智能体交互",
+      "llm_tldr_en": "Surveys learning-based motion planning in dynamic environments from classical foundations to emerging paradigms, covering prediction and multi-agent interaction.",
+      "llm_tldr_cn": "该综述系统回顾了动态环境中运动规划的代表性工作，重点梳理了2015至2025年间基于学习的方法如何扩展经典规划基础。内容覆盖移动障碍、不确定预测、多智能体交互等场景，并讨论了学习算法与经典规划的相互作用。为动态环境下具身智能的规划与预测研究提供了系统性参考。",
+      "llm_tldr": "该综述系统回顾了动态环境中运动规划的代表性工作，重点梳理了2015至2025年间基于学习的方法如何扩展经典规划基础。内容覆盖移动障碍、不确定预测、多智能体交互等场景，并讨论了学习算法与经典规划的相互作用。为动态环境下具身智能的规划与预测研究提供了系统性参考。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2608.03924v1",
+      "source": "arxiv",
+      "title": "ETA: A New Agentic Paradigm for Embodied Tasks",
+      "abstract": "When will robots have their ChatGPT moment? Such a breakthrough requires a general-purpose robot that can handle unfamiliar tasks in unfamiliar environments, remain controllable over long interactions, and learn from experience.   Today's embodied systems largely follow an end-to-end observation-to-action path. Despite rapid progress, they remain far from this goal: their generalization depends heavily on the coverage of robot training data, while long task execution remains difficult to control and inspect. To realize this goal, we introduce the Embodied Task Agent (ETA), a new paradigm for extending digital agents into the physical world, and release OpenETA as its open-source implementation. ETA centers the robot around a Planner that chooses one Tool call at a time, an Interface that controls execution, and a World that returns the result and a fresh observation. This loop allows the agent to verify outcomes, adapt its plan, and turn successful and failed interactions into reusable experience. OpenETA provides replaceable Planners, composable Tools and Skills, auditable memory, replayable trajectories, and common interfaces for simulation and real robots. For Codex, OpenETA can operate as a lightweight plugin that exposes only observe, mark_point, and move_to.",
+      "authors": [
+        "Yitong Chen",
+        "Zezheng Huai",
+        "Sixian Li",
+        "Yubang Wang",
+        "Haozhe Zhang",
+        "Yifei Zhang",
+        "Hechang Chen",
+        "Jingjing Gong",
+        "Yu-Gang Jiang",
+        "Xipeng Qiu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-08-04T16:56:09+00:00",
+      "link": "https://arxiv.org/pdf/2608.03924v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "New agentic paradigm for embodied tasks in the physical world",
+      "llm_evidence_cn": "面向物理世界的具身任务智能体范式",
+      "llm_evidence": "面向物理世界的具身任务智能体范式",
+      "canonical_evidence": "面向物理世界的具身任务智能体范式",
+      "llm_tldr_en": "Introduces Embodied Task Agent (ETA), a new agentic paradigm for embodied tasks that uses a Planner to select Tool calls, making physical agents controllable and inspectable over long interactions.",
+      "llm_tldr_cn": "现有具身系统多为端到端的观察-动作映射，泛化依赖数据覆盖且长程控制难以检查。本文提出具身任务智能体（ETA）范式，以规划器为核心，逐次调用工具完成任务，并开源OpenETA。该范式将数字智能体扩展到物理世界，提升长程任务的可靠性和可解释性，为实现通用机器人提供了新的思路。",
+      "llm_tldr": "现有具身系统多为端到端的观察-动作映射，泛化依赖数据覆盖且长程控制难以检查。本文提出具身任务智能体（ETA）范式，以规划器为核心，逐次调用工具完成任务，并开源OpenETA。该范式将数字智能体扩展到物理世界，提升长程任务的可靠性和可解释性，为实现通用机器人提供了新的思路。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2608.02332v1",
+      "source": "arxiv",
+      "title": "Diffusion Policy with Behavioral Advantage Correction for Offline Reinforcement Learning",
+      "abstract": "In offline reinforcement learning (RL), the distribution shift between behavioral data and the learned policy can lead to erroneous \\emph{Q}-value estimation, thereby misguiding the direction of policy optimization. To address this issue, we develop a behavioral advantage corrected policy evaluation (BAC-PE) approach, which utilizes the \\emph{Q}-function of the behavior policy to correct the learned policy's \\emph{Q}-function, thus mitigating pessimistic conservatism and overestimation bias. Furthermore, the convergence of BAC-PE is analyzed theoretically, and an upper bound on the difference between the learned \\emph{Q}-function and the true \\emph{Q}-function is derived. To alleviate distribution shift, this work employs diffusion models to represent both the behavior policy and the learned policy, performing distribution matching for accurate policy regularization. Additionally, \\emph{Q}-value guidance is incorporated into the training process to achieve effective policy improvement. By combining BAC-PE with diffusion policy modeling, we propose the diffusion policy with behavioral advantage correction (DPBAC) algorithm. Compared to existing offline methods, DPBAC demonstrates stronger policy representation capabilities and effectively mitigates the bias in \\emph{Q}-value estimation. Experimental results on multiple domains of D4RL tasks show that DPBAC achieves superior performance, with notable advantages over state-of-the-art (SOTA) algorithms.",
+      "authors": [
+        "Botao Dong",
+        "Longyang Huang",
+        "Ning Pang",
+        "Hongtian Chen"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "eess.SY"
+      ],
+      "published": "2026-08-03T14:52:46+00:00",
+      "link": "https://arxiv.org/pdf/2608.02332v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "offline RL learns policies from behavioral data using diffusion policy and advantage correction",
+      "llm_evidence_cn": "离线强化学习利用行为数据（演示）学习策略，结合扩散策略与优势校正",
+      "llm_evidence": "离线强化学习利用行为数据（演示）学习策略，结合扩散策略与优势校正",
+      "canonical_evidence": "离线强化学习利用行为数据（演示）学习策略，结合扩散策略与优势校正",
+      "llm_tldr_en": "BAC-PE corrects the learned Q-function using the behavior policy's Q-function, mitigating pessimistic conservatism and overestimation bias in offline RL, proves convergence and a Q-error bound, and uses diffusion models to relieve distribution shift.",
+      "llm_tldr_cn": "离线强化学习常因行为数据与学习策略的分布偏移导致Q值估计错误。该文提出BAC-PE策略评估方法，用行为策略的Q函数校正学习策略的Q函数，以同时缓解悲观保守与过估计偏差，并采用扩散模型作为策略来进一步缓解分布偏移。论文给出了收敛性证明和Q函数误差上界，为离线RL中的策略优化提供了更稳健的评估方式。",
+      "llm_tldr": "离线强化学习常因行为数据与学习策略的分布偏移导致Q值估计错误。该文提出BAC-PE策略评估方法，用行为策略的Q函数校正学习策略的Q函数，以同时缓解悲观保守与过估计偏差，并采用扩散模型作为策略来进一步缓解分布偏移。论文给出了收敛性证明和Q函数误差上界，为离线RL中的策略优化提供了更稳健的评估方式。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2608.03872v1",
+      "source": "arxiv",
+      "title": "EvoHIL: Self-Evolving Reward and Flow-Matched Policy Optimization for Robust Human-in-the-Loop Reinforcement Learning",
+      "abstract": "Human-in-the-loop reinforcement learning (HIL-RL) enables robots to learn contact-rich manipulation from limited real-world interaction, but deployment exposes three coupled limitations: static visual reward models fail under scene changes; independently sampled actions cause temporally inconsistent motion; and vision-based policies remain sensitive to appearance shifts. We present EvoHIL, a unified framework that adapts the reward model, action generator, and visual do main within a staged human-in-the-loop learning process. First, self-evolving reward (SER) adapts the success classifier from human-confirmed positives and provisional weak negatives. Second, Action Flow Stabilization (AFS) generates temporally coherent action chunks through flow matching, grounding policy updates in executed action prefixes and demonstrated behavior. Third, retention-aware offline fine-tuning replays relit interaction data while anchoring the AFS actor-critic to prior behavior, adapting the visual domain without additional robot interaction. Across six manipulation tasks on Franka FR3 and SO-101 arms under a controlled lighting shift, EvoHIL improves task success, agreement with human-confirmation labels, motion smoothness, and completion time relative to human-in-the-loop and imitation baselines.Project page: https://anonymous4366.github.io/EvoHIL/",
+      "authors": [
+        "Shuoqin Zhang",
+        "Tongtong Cheng",
+        "Xiru Gao",
+        "Jinzhuo Peng",
+        "Bin Zheng",
+        "Jiahao Tu",
+        "Ke Wang",
+        "Jia Pan",
+        "Zhe Hu",
+        "Kai Liu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-08-04T16:12:05+00:00",
+      "link": "https://arxiv.org/pdf/2608.03872v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "human-in-the-loop RL for contact-rich robotic manipulation",
+      "llm_evidence_cn": "人在回路强化学习用于接触丰富的机器人操作",
+      "llm_evidence": "人在回路强化学习用于接触丰富的机器人操作",
+      "canonical_evidence": "人在回路强化学习用于接触丰富的机器人操作",
+      "llm_tldr_en": "EvoHIL unifies self-evolving reward, flow-matched policy optimization, and visual domain adaptation in staged human-in-the-loop RL, improving robustness and temporal consistency of contact-rich manipulation policies.",
+      "llm_tldr_cn": "人在回路的强化学习让机器人能从有限的真实交互中学习接触丰富的操作，但部署时存在静态视觉奖励模型失效、动作时序不一致和视觉策略对场景变化敏感等问题。EvoHIL在分阶段人机协同学习过程中自适应更新奖励模型、动作生成器和视觉域，并采用动作流稳定化生成时序一致的动作。实验结果验证了该方法在真实部署中的鲁棒性，为人机协同机器人学习提供了系统化解决框架。",
+      "llm_tldr": "人在回路的强化学习让机器人能从有限的真实交互中学习接触丰富的操作，但部署时存在静态视觉奖励模型失效、动作时序不一致和视觉策略对场景变化敏感等问题。EvoHIL在分阶段人机协同学习过程中自适应更新奖励模型、动作生成器和视觉域，并采用动作流稳定化生成时序一致的动作。实验结果验证了该方法在真实部署中的鲁棒性，为人机协同机器人学习提供了系统化解决框架。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2608.03753v1",
+      "source": "arxiv",
+      "title": "GORDON: Graph-based Object-centric Rewards for Decomposition of Long-Horizon Manipulation",
+      "abstract": "Learning long-horizon manipulation skills with reinforcement learning remains challenging due to the complexity of reward design, the limited guidance of sparse rewards, and the high cost of manual subtask annotation. Visual demonstrations can provide supervision for reward learning, but rewards learned from raw pixels can be brittle and sensitive to visual variation, background appearance, and robot motion. In this work, we propose GORDON, a graph-based object-centric reward learning framework that learns dense rewards from action-free video demonstrations. Each visual scene is represented as a graph of detected objects and spatial relations, and a graph neural network is trained in a self-supervised manner to embed these graphs into a task-aligned latent space. To align the representation with semantic task progress, we introduce an activity-aware weighted pooling mechanism that emphasizes task-relevant objects while masking robot-dominated motion. The dense reward is then computed as distances in the learned latent space of the current state to demonstrated goal configurations, providing a measure of task progress. In long-horizon tasks, the temporal profile of this reward reveals stage-wise object-state transitions, enabling automatic subtask discovery without manual segmentation. The discovered segments are then used to train subtask-specific rewards and specialized policies that are composed sequentially. Experiments on seven manipulation tasks on MAGICAL and ManiSkill3 benchmarks show that our object-centric reward improves reinforcement learning in short-horizon settings and enables successful policy learning in complex long-horizon tasks through automatic decomposition, achieving an average success rate of 74.4% across the long-horizon tasks (on average approximately +35 p.p. vs. best learned baseline and approximately +25 p.p. vs. oracle).",
+      "authors": [
+        "Andrea Protopapa",
+        "Davide Buoso",
+        "Francesca Pistilli",
+        "Georgia Chalvatzaki",
+        "Giuseppe Averta"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-08-04T14:43:41+00:00",
+      "link": "https://arxiv.org/pdf/2608.03753v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "Learns dense object-centric rewards from action-free video demonstrations for long-horizon manipulation RL",
+      "llm_evidence_cn": "从无动作视频演示中学习稠密的物体中心奖励，用于长时程操作强化学习",
+      "llm_evidence": "从无动作视频演示中学习稠密的物体中心奖励，用于长时程操作强化学习",
+      "canonical_evidence": "从无动作视频演示中学习稠密的物体中心奖励，用于长时程操作强化学习",
+      "llm_tldr_en": "GORDON learns dense rewards for long-horizon manipulation from action-free videos by representing scenes as object graphs and training a GNN self-supervised to embed graphs, reducing reward brittleness.",
+      "llm_tldr_cn": "长时程操作强化学习面临奖励设计复杂、稀疏奖励引导弱和人工子任务标注成本高的问题。GORDON提出一种基于图的物体中心奖励学习框架，从无动作视频演示中学习稠密奖励。它将每个视觉场景表示为检测物体及其空间关系的图，并自监督训练图神经网络嵌入这些图。相比从像素学习奖励，该方法对视觉变化、背景和机器人运动更鲁棒。实验表明其奖励在长时程操作任务中提供更好的指导。",
+      "llm_tldr": "长时程操作强化学习面临奖励设计复杂、稀疏奖励引导弱和人工子任务标注成本高的问题。GORDON提出一种基于图的物体中心奖励学习框架，从无动作视频演示中学习稠密奖励。它将每个视觉场景表示为检测物体及其空间关系的图，并自监督训练图神经网络嵌入这些图。相比从像素学习奖励，该方法对视觉变化、背景和机器人运动更鲁棒。实验表明其奖励在长时程操作任务中提供更好的指导。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}

@@ -6,80 +6,59 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-08-04
-- 运行时间：2026-08-04 21:59:24 UTC
+- 最新运行日期：2026-08-05
+- 运行时间：2026-08-05 21:51:03 UTC
 - 运行状态：成功
-- 本次总论文数：20
-- 精读区：9
-- 速读区：11
+- 本次总论文数：13
+- 精读区：6
+- 速读区：7
 
 ### 今日简报（AI）
-今日精读9篇、速读11篇，聚焦具身智能与机器人模仿学习，重点关注三手协作操控与世界模型预测控制两篇高分论文。最值得关注的方向是：多臂协同模仿学习（Tri-Manual）及“折叠世界模型”实现超高效具身控制，两篇均达9.0分。建议普通读者优先研读这两篇精读论文，理解其方法论创新，再看速读中零样本导航与多机器人协作的落地潜力。
-- 详情：[/202608/04/README](/202608/04/README)
+今日精读聚焦视频世界模型与机器人动作分块，共筛选13篇论文。最值得关注《MiniWorld》低成本训练世界模型及《Action Chunking》解析动作分块提升模仿学习的机理。后续可延伸阅读《ValueFormer》半自主VLA策略与《ETA》具身任务智能体范式。
+- 详情：[/202608/05/README](/202608/05/README)
 
 ### 精读区论文标签
-1. [Tri-Manual Visuomotor Imitation Learning of Robot Policies](/202608/04/2607.25731v3-tri-manual-visuomotor-imitation-learning-of-robot-policies)  
+1. [MiniWorld: Democratizing the Training of Video World Models from Scratch](/202608/05/2608.01127v2-miniworld-democratizing-the-training-of-video-world-models-from-scratch)  
    标签：评分：9.0/10、query:wmi
-   evidence：多臂机器人操作的模仿学习
-2. [Enfold: Folding World Model Imagination into Predictive Representations for Ultra-Efficient Embodied Control](/202608/04/2607.26657v2-enfold-folding-world-model-imagination-into-predictive-representations-for-ultra-efficient-embodied-control)  
+   evidence：从零训练的视频世界模型在控制信号下预测未来观测，支撑具身AI与交互仿真
+2. [Why Does Action Chunking Improve Behavioral Cloning Performance in Robotic Control?](/202608/05/2608.02547v1-why-does-action-chunking-improve-behavioral-cloning-performance-in-robotic-control)  
    标签：评分：9.0/10、query:wmi
-   evidence：将世界模型想象融入预测表示，应用于具身控制
-3. [SelfWAM: A Self-Grounded Unified World Action Model for Fast Robot Control](/202608/04/2608.00725v1-selfwam-a-self-grounded-unified-world-action-model-for-fast-robot-control)  
+   evidence：机器人控制中的行为克隆研究
+3. [EmbodiedVAE: Disentangled Video VAE for Efficient and Controllable Embodied Manipulation](/202608/05/2608.02990v1-embodiedvae-disentangled-video-vae-for-efficient-and-controllable-embodied-manipulation)  
    标签：评分：9.0/10、query:wmi
-   evidence：用于机器人控制的统一世界动作模型，预测未来观测
-4. [DynamicWAM: Dual-Path Motion Conditioning for World-Action Models in Dynamic Manipulation](/202608/04/2608.00793v1-dynamicwam-dual-path-motion-conditioning-for-world-action-models-in-dynamic-manipulation)  
+   evidence：面向具身操作世界模型的视频VAE
+4. [A Hierarchical Approach to Imitation Learning for Manipulation Tasks Requiring Time Varying Forces](/202608/05/2608.03103v1-a-hierarchical-approach-to-imitation-learning-for-manipulation-tasks-requiring-time-varying-forces)  
    标签：评分：9.0/10、query:wmi
-   evidence：面向动态操作的世界-动作模型，采用双路径运动条件化
-5. [MiniWorld: Democratizing the Training of Video World Models from Scratch](/202608/04/2608.01127v1-miniworld-democratizing-the-training-of-video-world-models-from-scratch)  
+   evidence：面向接触丰富机器人操作的扩散策略模仿学习与快速轨迹生成
+5. [RoboReact: Agentic Skill Distillation from Generated Egocentric Videos for Generalizable Whole-Body Manipulation](/202608/05/2608.03387v1-roboreact-agentic-skill-distillation-from-generated-egocentric-videos-for-generalizable-whole-body-manipulation)  
    标签：评分：9.0/10、query:wmi
-   evidence：从零训练视频世界模型，支持具身AI
-6. [DreamTrajectory: Trajectory-Guided Action Generation with World Model Alignment for Mobile Manipulation](/202608/04/2608.01381v1-dreamtrajectory-trajectory-guided-action-generation-with-world-model-alignment-for-mobile-manipulation)  
-   标签：评分：9.0/10、query:wmi
-   evidence：移动操作中世界模型对齐的动作生成
-7. [SG-WAM: Self-Guided World Modeling in Geometry-Aware Policy Space](/202608/04/2608.01397v1-sg-wam-self-guided-world-modeling-in-geometry-aware-policy-space)  
-   标签：评分：9.0/10、query:wmi
-   evidence：策略表征空间中的动作条件世界动力学
-8. [DynamicManip: Enabling Dynamic Manipulation from a Single Static Demonstration](/202608/04/2608.01452v1-dynamicmanip-enabling-dynamic-manipulation-from-a-single-static-demonstration)  
-   标签：评分：9.0/10、query:wmi
-   evidence：提出从单个静态演示中学习低延迟模仿策略，用于动态操作
-9. [World Action Models in Real Time: An Empirical Study of Smooth Execution via Asynchronous Deployment](/202608/04/2608.01880v1-world-action-models-in-real-time-an-empirical-study-of-smooth-execution-via-asynchronous-deployment)  
-   标签：评分：9.0/10、query:wmi
-   evidence：世界动作模型用于实时机器人执行
+   evidence：从第一视角视频生成人体操作并蒸馏为全身人形机器人操作技能
+6. [Quo Vadis, World Modeling?](/202608/05/2608.02713v1-quo-vadis-world-modeling)  
+   标签：评分：8.0/10、query:wmi
+   evidence：将世界建模作为智能体规划与预测的内部代理
 
 ### 速读区论文标签
-1. [Embodied Agents Take Control: Minimal-Interface Zero-Shot Agents Rival Industrial-Scale Policies in Vision-and-Language Navigation](/202608/04/2607.26148v2-embodied-agents-take-control-minimal-interface-zero-shot-agents-rival-industrial-scale-policies-in-vision-and-language-navigation)  
+1. [ValueFormer: A Causal Transformer Value Function with Stage-Aware Labels for Semi-Autonomous Vision-Language-Action Policies](/202608/05/2608.02958v1-valueformer-a-causal-transformer-value-function-with-stage-aware-labels-for-semi-autonomous-vision-language-action-policies)  
    标签：评分：8.0/10、query:wmi
-   evidence：推理模型直接驱动具身导航智能体的动作
-2. [EgoGenesis: Egocentric World-Action Modeling with Online Anchored Projective Memory and Action-3D RoPE](/202608/04/2607.28243v1-egogenesis-egocentric-world-action-modeling-with-online-anchored-projective-memory-and-action-3d-rope)  
+   evidence：为行为克隆的视觉-语言-动作策略引入带阶段标签的因果Transformer价值函数，以检测策略退化
+2. [ETA: A New Agentic Paradigm for Embodied Tasks](/202608/05/2608.03924v1-eta-a-new-agentic-paradigm-for-embodied-tasks)  
    标签：评分：8.0/10、query:wmi
-   evidence：用于具身智能操作的自我中心世界-动作模拟器
-3. [D-VLC: Decentralized Vision-Language Collaboration for Heterogeneous Embodied Multi-Robot Systems in Unknown Environments](/202608/04/2607.29009v2-d-vlc-decentralized-vision-language-collaboration-for-heterogeneous-embodied-multi-robot-systems-in-unknown-environments)  
-   标签：评分：8.0/10、query:wmi
-   evidence：基于大语言模型/视觉语言模型的具身多机器人协作
-4. [From Failures to Supervision: DynamicEnvPlan for Robust Long-Horizon Embodied Planning](/202608/04/2608.00613v1-from-failures-to-supervision-dynamicenvplan-for-robust-long-horizon-embodied-planning)  
-   标签：评分：8.0/10、query:wmi
-   evidence：动态环境偏差下的闭环具身规划
-5. [AffordTrajDP: Dynamic Affordance-Guided Visuomotor Policy Learning for Robotic Manipulation](/202608/04/2608.01603v1-affordtrajdp-dynamic-affordance-guided-visuomotor-policy-learning-for-robotic-manipulation)  
-   标签：评分：8.0/10、query:wmi
-   evidence：通过模仿学习实现动态可操作度引导的机器人操作策略
-6. [DF$^3$: World Modeling via Decoder-Free Feature Forecasting in Autonomous Navigation](/202608/04/2608.02428v1-df3-world-modeling-via-decoder-free-feature-forecasting-in-autonomous-navigation)  
-   标签：评分：8.0/10、query:wmi
-   evidence：面向自主导航的未来状态预测世界模型
-7. [Analytic Planning under Uncertainty with Moment Closure](/202608/04/2608.02519v1-analytic-planning-under-uncertainty-with-moment-closure)  
-   标签：评分：8.0/10、query:wmi
-   evidence：模型强化学习中的分布感知解析规划
-8. [Bicycle Acrobatics with Reinforcement Learning](/202608/04/2608.00880v1-bicycle-acrobatics-with-reinforcement-learning)  
+   evidence：面向物理世界的具身任务智能体范式
+3. [ReBRAC-v2: The Return of the King](/202608/05/2608.01205v1-rebrac-v2-the-return-of-the-king)  
    标签：评分：7.0/10、query:wmi
-   evidence：用于物理自行车机器人的强化学习，含运动模仿
-9. [Learning Input-Constrained Funnel Controllers from State Trajectory Data](/202608/04/2607.23876v1-learning-input-constrained-funnel-controllers-from-state-trajectory-data)  
+   evidence：基于固定演示数据的离线强化学习并显式加入行为正则化
+4. [Diffusion Policy with Behavioral Advantage Correction for Offline Reinforcement Learning](/202608/05/2608.02332v1-diffusion-policy-with-behavioral-advantage-correction-for-offline-reinforcement-learning)  
+   标签：评分：7.0/10、query:wmi
+   evidence：离线强化学习利用行为数据（演示）学习策略，结合扩散策略与优势校正
+5. [GORDON: Graph-based Object-centric Rewards for Decomposition of Long-Horizon Manipulation](/202608/05/2608.03753v1-gordon-graph-based-object-centric-rewards-for-decomposition-of-long-horizon-manipulation)  
+   标签：评分：7.0/10、query:wmi
+   evidence：从无动作视频演示中学习稠密的物体中心奖励，用于长时程操作强化学习
+6. [Learning-Based Motion Planning for Dynamic Environments: From Foundational Algorithms to Emerging Paradigms](/202608/05/2608.00625v1-learning-based-motion-planning-for-dynamic-environments-from-foundational-algorithms-to-emerging-paradigms)  
    标签：评分：6.0/10、query:wmi
-   evidence：从专家状态轨迹中学习带约束的反馈策略
-10. [Sample Efficient Hierarchical Reinforcement Learning via Best Policy Identification](/202608/04/2607.29294v1-sample-efficient-hierarchical-reinforcement-learning-via-best-policy-identification)  
+   evidence：动态环境下基于学习的运动规划综述，涵盖不确定预测与多智能体交互
+7. [EvoHIL: Self-Evolving Reward and Flow-Matched Policy Optimization for Robust Human-in-the-Loop Reinforcement Learning](/202608/05/2608.03872v1-evohil-self-evolving-reward-and-flow-matched-policy-optimization-for-robust-human-in-the-loop-reinforcement-learning)  
    标签：评分：6.0/10、query:wmi
-   evidence：基于模型的层次强化学习，学习环境转移动态
-11. [RF-HOI: Recognize Human-Object Interaction with Radio Frequency Signals](/202608/04/2608.00289v1-rf-hoi-recognize-human-object-interaction-with-radio-frequency-signals)  
-   标签：评分：6.0/10、query:wmi
-   evidence：面向具身感知的射频传感与人机交互识别
+   evidence：人在回路强化学习用于接触丰富的机器人操作
 
 
 <div class="dpr-home-promo-card">
