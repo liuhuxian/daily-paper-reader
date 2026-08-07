@@ -6,59 +6,56 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-08-05
-- 运行时间：2026-08-05 21:51:03 UTC
+- 最新运行日期：2026-08-07
+- 运行时间：2026-08-07 01:49:24 UTC
 - 运行状态：成功
-- 本次总论文数：13
+- 本次总论文数：11
 - 精读区：6
-- 速读区：7
+- 速读区：5
 
 ### 今日简报（AI）
-今日精读聚焦视频世界模型与机器人动作分块，共筛选13篇论文。最值得关注《MiniWorld》低成本训练世界模型及《Action Chunking》解析动作分块提升模仿学习的机理。后续可延伸阅读《ValueFormer》半自主VLA策略与《ETA》具身任务智能体范式。
-- 详情：[/202608/05/README](/202608/05/README)
+- 今日共生成 11 篇推荐（精读 6 篇，速读 5 篇）
+- 精读：《LiLa-WAM: Lightweight Latent Reasoning World-Action Model for Robotic Manipulation》（9.0/10）, 《Faster-WAM: Efficient Inference-Time Future Conditioning for Robust World Action Models》（9.0/10）
+- 速读：《RoboReact: Agentic Skill Distillation from Generated Egocentric Videos for Generalizable Whole-Body Manipulation》（8.0/10）, 《ATLAS: Adaptive Topological Learning with Abstract Successors for Continual Learning》（8.0/10）, 《PhysMind: From Video to Executable Worlds for Training-Free Physical Reasoning》（8.0/10）
+- 这些结果覆盖了当下较热的方向，建议先看精读区论文的关键问题与方法。
+- 详情：[/202608/07/README](/202608/07/README)
 
 ### 精读区论文标签
-1. [MiniWorld: Democratizing the Training of Video World Models from Scratch](/202608/05/2608.01127v2-miniworld-democratizing-the-training-of-video-world-models-from-scratch)  
+1. [LiLa-WAM: Lightweight Latent Reasoning World-Action Model for Robotic Manipulation](/202608/07/2608.03701v1-lila-wam-lightweight-latent-reasoning-world-action-model-for-robotic-manipulation)  
    标签：评分：9.0/10、query:wmi
-   evidence：从零训练的视频世界模型在控制信号下预测未来观测，支撑具身AI与交互仿真
-2. [Why Does Action Chunking Improve Behavioral Cloning Performance in Robotic Control?](/202608/05/2608.02547v1-why-does-action-chunking-improve-behavioral-cloning-performance-in-robotic-control)  
+   evidence：面向机器人操作的轻量级潜在世界-动作模型，体现具身智能
+2. [Faster-WAM: Efficient Inference-Time Future Conditioning for Robust World Action Models](/202608/07/2608.04404v1-faster-wam-efficient-inference-time-future-conditioning-for-robust-world-action-models)  
    标签：评分：9.0/10、query:wmi
-   evidence：机器人控制中的行为克隆研究
-3. [EmbodiedVAE: Disentangled Video VAE for Efficient and Controllable Embodied Manipulation](/202608/05/2608.02990v1-embodiedvae-disentangled-video-vae-for-efficient-and-controllable-embodied-manipulation)  
+   evidence：面向机器人操作的高效未来条件世界动作模型
+3. [MobileWAM: Bridging World Action Models to Mobile Manipulation with Chain-of-Foresight](/202608/07/2608.04657v1-mobilewam-bridging-world-action-models-to-mobile-manipulation-with-chain-of-foresight)  
    标签：评分：9.0/10、query:wmi
-   evidence：面向具身操作世界模型的视频VAE
-4. [A Hierarchical Approach to Imitation Learning for Manipulation Tasks Requiring Time Varying Forces](/202608/05/2608.03103v1-a-hierarchical-approach-to-imitation-learning-for-manipulation-tasks-requiring-time-varying-forces)  
+   evidence：世界动作模型在移动操作具身智能中的应用
+4. [WorldCycle: Self-Verifiable Reinforcement Learning for Long-Horizon Video World Models](/202608/07/2608.04964v1-worldcycle-self-verifiable-reinforcement-learning-for-long-horizon-video-world-models)  
    标签：评分：9.0/10、query:wmi
-   evidence：面向接触丰富机器人操作的扩散策略模仿学习与快速轨迹生成
-5. [RoboReact: Agentic Skill Distillation from Generated Egocentric Videos for Generalizable Whole-Body Manipulation](/202608/05/2608.03387v1-roboreact-agentic-skill-distillation-from-generated-egocentric-videos-for-generalizable-whole-body-manipulation)  
-   标签：评分：9.0/10、query:wmi
-   evidence：从第一视角视频生成人体操作并蒸馏为全身人形机器人操作技能
-6. [Quo Vadis, World Modeling?](/202608/05/2608.02713v1-quo-vadis-world-modeling)  
+   evidence：用强化学习后训练视频世界模型并实现自验证
+5. [Learning Panorama-Aware VLA for Mobile Manipulation with Whole-Body Teleoperation](/202608/07/2608.02257v1-learning-panorama-aware-vla-for-mobile-manipulation-with-whole-body-teleoperation)  
    标签：评分：8.0/10、query:wmi
-   evidence：将世界建模作为智能体规划与预测的内部代理
+   evidence：全身遥操作收集演示；全景感知VLA策略用于移动操作
+6. [Ego2Robot: Scalable Robot Data Synthesis from Egocentric Human Data](/202608/07/2608.02580v1-ego2robot-scalable-robot-data-synthesis-from-egocentric-human-data)  
+   标签：评分：8.0/10、query:wmi
+   evidence：将第一人称人类操作视频转换为机器人示范数据以用于模仿学习
 
 ### 速读区论文标签
-1. [ValueFormer: A Causal Transformer Value Function with Stage-Aware Labels for Semi-Autonomous Vision-Language-Action Policies](/202608/05/2608.02958v1-valueformer-a-causal-transformer-value-function-with-stage-aware-labels-for-semi-autonomous-vision-language-action-policies)  
+1. [RoboReact: Agentic Skill Distillation from Generated Egocentric Videos for Generalizable Whole-Body Manipulation](/202608/07/2608.03387v2-roboreact-agentic-skill-distillation-from-generated-egocentric-videos-for-generalizable-whole-body-manipulation)  
    标签：评分：8.0/10、query:wmi
-   evidence：为行为克隆的视觉-语言-动作策略引入带阶段标签的因果Transformer价值函数，以检测策略退化
-2. [ETA: A New Agentic Paradigm for Embodied Tasks](/202608/05/2608.03924v1-eta-a-new-agentic-paradigm-for-embodied-tasks)  
+   evidence：从生成的自我中心视频演示中蒸馏全身人形操作技能
+2. [ATLAS: Adaptive Topological Learning with Abstract Successors for Continual Learning](/202608/07/2608.04334v1-atlas-adaptive-topological-learning-with-abstract-successors-for-continual-learning)  
    标签：评分：8.0/10、query:wmi
-   evidence：面向物理世界的具身任务智能体范式
-3. [ReBRAC-v2: The Return of the King](/202608/05/2608.01205v1-rebrac-v2-the-return-of-the-king)  
+   evidence：使用后继特征学习环境预测表示，属于学习世界动态的强化学习
+3. [PhysMind: From Video to Executable Worlds for Training-Free Physical Reasoning](/202608/07/2608.04575v1-physmind-from-video-to-executable-worlds-for-training-free-physical-reasoning)  
+   标签：评分：8.0/10、query:wmi
+   evidence：从视频构建可执行世界以支持未来与反事实推理
+4. [Climate-Dyna Deep Hedging for XVAs: Model-Based Reinforcement Learning, Residual Climate HVA, and Hedge-Instrument Discovery](/202608/07/2608.01208v1-climate-dyna-deep-hedging-for-xvas-model-based-reinforcement-learning-residual-climate-hva-and-hedge-instrument-discovery)  
    标签：评分：7.0/10、query:wmi
-   evidence：基于固定演示数据的离线强化学习并显式加入行为正则化
-4. [Diffusion Policy with Behavioral Advantage Correction for Offline Reinforcement Learning](/202608/05/2608.02332v1-diffusion-policy-with-behavioral-advantage-correction-for-offline-reinforcement-learning)  
+   evidence：使用学习到的世界模型滚动进行基于模型的强化学习
+5. [Grounded Semantic Re-Binding for Robust Instruction Generalization in Vision-Language-Action Models](/202608/07/2608.02497v1-grounded-semantic-re-binding-for-robust-instruction-generalization-in-vision-language-action-models)  
    标签：评分：7.0/10、query:wmi
-   evidence：离线强化学习利用行为数据（演示）学习策略，结合扩散策略与优势校正
-5. [GORDON: Graph-based Object-centric Rewards for Decomposition of Long-Horizon Manipulation](/202608/05/2608.03753v1-gordon-graph-based-object-centric-rewards-for-decomposition-of-long-horizon-manipulation)  
-   标签：评分：7.0/10、query:wmi
-   evidence：从无动作视频演示中学习稠密的物体中心奖励，用于长时程操作强化学习
-6. [Learning-Based Motion Planning for Dynamic Environments: From Foundational Algorithms to Emerging Paradigms](/202608/05/2608.00625v1-learning-based-motion-planning-for-dynamic-environments-from-foundational-algorithms-to-emerging-paradigms)  
-   标签：评分：6.0/10、query:wmi
-   evidence：动态环境下基于学习的运动规划综述，涵盖不确定预测与多智能体交互
-7. [EvoHIL: Self-Evolving Reward and Flow-Matched Policy Optimization for Robust Human-in-the-Loop Reinforcement Learning](/202608/05/2608.03872v1-evohil-self-evolving-reward-and-flow-matched-policy-optimization-for-robust-human-in-the-loop-reinforcement-learning)  
-   标签：评分：6.0/10、query:wmi
-   evidence：人在回路强化学习用于接触丰富的机器人操作
+   evidence：VLA操作模型的指令泛化改进，属于机器人操作策略学习
 
 
 <div class="dpr-home-promo-card">
