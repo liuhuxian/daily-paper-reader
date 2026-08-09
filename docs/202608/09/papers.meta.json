@@ -1,0 +1,69 @@
+{
+  "label": "2026-08-09",
+  "date": "2026-08-09",
+  "generated_at": "2026-08-09T19:53:21",
+  "count": 4,
+  "papers": [
+    {
+      "paper_id": "202608/09/2608.00547v1-disentangling-visuo-tactile-foresight-oracle-guided-interface-discovery-for-world-action-models",
+      "section": "deep",
+      "title_en": "Disentangling Visuo-Tactile Foresight: Oracle-Guided Interface Discovery for World Action Models",
+      "authors": "Zihang Yao, Chaoyue Ding, Yingying Yu",
+      "date": "2026-08-01",
+      "pdf": "https://arxiv.org/pdf/2608.00547v1",
+      "score": "9.0",
+      "evidence": "面向视觉-触觉机器人操作的世界动作模型",
+      "tldr": "接触丰富的操作中，成功控制依赖视觉难以观测的物理交互线索。现有触觉世界动作模型虽联合建模未来视觉与触觉，但未来表示如何被动作专家有效利用尚不明确。为此提出OVTF框架，用真实成功轨迹提供成对RGB与触觉未来，隔离未来提供者以单独研究接口。在OVTF中提出AFM，让视觉记忆读取未来视觉，触觉记忆关注自身触觉流与相位对齐的未来视觉，阻止跨触觉访问。七个任务中AFM平均成功率32.0%，优于IFM的23.7%与UniVTAC-ACT的14.9%，表明选择性相位对齐的视觉-触觉路由比完全模态隔离更有效。",
+      "tags": "query:wmi",
+      "abstract_en": "Contact-rich manipulation remains challenging because successful control depends on physical interaction cues that are often weakly observable from vision alone. Recent tactile world action models jointly model future visual observations and tactile signals to guide action generation, but how such futures should be structured for effective use by the action expert remains underexplored. Directly studying this question with learned world action models is difficult because end-to-end behavior entangles physically invalid visual futures, unreliable predictions, inaccurate or cross-modally inconsistent tactile forecasts, and an unreadable future-to-action interface. To make this interface independently studyable, we introduce Oracle Visuo-Tactile Foresight (OVTF), a controlled framework that supplies paired RGB and tactile futures from successful trajectories verified in simulation. By fixing the future provider, OVTF isolates the interface and asks a cleaner question: if the future is successful and physically executable, what representation allows the action expert to absorb its benefit? Within OVTF, we propose Asymmetric Phase-Local Future Memory (AFM), in which visual memory reads future vision, each tactile memory jointly attends to its own tactile stream and phase-aligned future vision, and cross-tactile access is blocked. We compare AFM with Modality-Isolated Future Memory (IFM), which removes visual-to-tactile access and processes each future modality independently. Across seven tasks on the UniVTAC simulation benchmark, AFM achieves 32.0% average success, compared with 23.7% for IFM and 14.9% for UniVTAC-ACT. This controlled comparison shows that selective phase-aligned visual-tactile routing provides a more actionable future-to-action bridge than complete modality isolation.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202608/09/2608.00492v1-the-bayesian-reflex-a-predictive-coding-engine-for-artificial-intelligence",
+      "section": "deep",
+      "title_en": "The Bayesian Reflex: A Predictive Coding Engine for Artificial Intelligence",
+      "authors": "Sourabh Bhattacharya",
+      "date": "2026-08-01",
+      "pdf": "https://arxiv.org/pdf/2608.00492v1",
+      "score": "8.0",
+      "evidence": "层次生成模型与预测误差最小化构成内部环境模型",
+      "tldr": "预测编码理论缺乏可扩展算法，阻碍其在人工智能中的应用。本文提出贝叶斯反射框架，通过层次生成模型维护信念、预测误差最小化实现序贯更新、主动推理驱动行动。利用椭圆分解、递归高斯过程和导数感知贝叶斯优化，实现精确采样、深度推断与高效优化，并在气候模型评估和素数发现中展示效能。这为自适应人工智能提供了数学严谨、脑启发的蓝图。",
+      "tags": "query:wmi",
+      "abstract_en": "Predictive coding offers a powerful theory of cortical computation, but corresponding scalable algorithmic implementations for artificial intelligence have remained elusive. This paper introduces the Bayesian reflex, a computational framework that directly instantiates predictive coding through three pillars: belief maintenance via hierarchical generative models, sequential Bayesian updating via prediction-error minimization, and uncertainty-driven action via active inference. We show that recent breakthroughs---ellipsoidal decomposition for exact $i.i.d.$ sampling, recursive Gaussian processes for deep hierarchical inference, and derivative-aware Bayesian optimization---provide the missing algorithmic ingredients. The resulting framework enables mathematically principled, scalable, and brain-inspired continual learning, perception, and decision-making. We illustrate its versatility through applications ranging from climate model evaluation to prime number discovery, offering a blueprint for truly adaptive artificial intelligence.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202608/09/2608.05369v1-world-to-wrist-task-conditioned-future-wrist-modeling-for-fine-grained-robot-manipulation",
+      "section": "deep",
+      "title_en": "World-to-Wrist: Task-Conditioned Future Wrist Modeling for Fine-Grained Robot Manipulation",
+      "authors": "Yuhao Pan, Haosong Peng, Zhengshen Zhang, Zhengyang Yan, Yalun Dai, Fushuo Huo, Chujie Wang, Tianyu Qi, Xiucheng Wang, Nan Cheng, Wenchao Xu",
+      "date": "2026-08-05",
+      "pdf": "https://arxiv.org/pdf/2608.05369v1",
+      "score": "8.0",
+      "evidence": "在VLA模型中进行任务条件下的未来腕部建模，以预测精细操作中的腕部局部交互",
+      "tldr": "现有VLA模型常将主视图与腕部视角视为并行输入，忽视腕部局部交互在精细操作中的动态演化。为此提出W2-VLA，以任务条件化未来腕部建模为核心，通过潜在建模token连接视觉语言模型与腕部预测器，预测未来腕部潜在变量并转化为未来感知上下文用于动作预测；同时引入W2-CoT合成结构化注释提供辅助监督。在LIBERO、RoboTwin 2.0及真实任务中，单臂与双臂精细操作均获提升，动作生成率保持在80Hz以上。该工作为精细操作中的多视角角色建模提供了新思路。",
+      "tags": "query:wmi",
+      "abstract_en": "Vision-language-action (VLA) models often treat main-view and wrist-view observations as parallel visual inputs, overlooking their distinct roles in robot manipulation. Fine-grained manipulation, however, benefits from anticipating how wrist-local interactions may evolve under the global task context. To address this limitation, we present World-to-Wrist VLA (W2-VLA), a VLA model for fine-grained robot manipulation with task-conditioned future wrist modeling. Given current multi-view observations and a task instruction, W2-VLA contextualizes a set of latent modeling tokens as a compact interface between the vision-language model and the wrist predictor. Conditioned on this interface and the observed wrist history, the predictor forecasts future wrist latents, which are transformed into future-aware context for action prediction. In addition, we introduce W2-CoT, a synthesis pipeline that produces structured annotations describing manipulation progress, physical transition cues, and wrist-local evidence. These annotations provide auxiliary supervision that shapes the task-conditioned latent interface. Experiments on LIBERO, RoboTwin 2.0, and real-world manipulation tasks demonstrate improved fine-grained and contact-sensitive manipulation across both single-arm and bimanual settings, while maintaining action-generation rates above 80 Hz.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202608/09/2608.04768v1-embedding-large-language-models-into-flow-controls-an-agentic-framework-for-adaptive-and-trustworthy-automated-cooking",
+      "section": "quick",
+      "title_en": "Embedding Large Language Models into Flow Controls: An Agentic Framework for Adaptive and Trustworthy Automated Cooking",
+      "authors": "Zihan Song, Hongwei Huang, Yueshuo Sun, Yonglin Tian, Fei-Yue Wang, Bai Li",
+      "date": "2026-08-05",
+      "pdf": "https://arxiv.org/pdf/2608.04768v1",
+      "score": "6.0",
+      "evidence": "面向实体烹饪机器人的LLM智能体框架，将用户意图分解为可执行控制程序",
+      "tldr": "传统烹饪机器人依赖预设流程，缺乏个性化；大模型方法虽支持自然交互，但决策不透明且执行不可靠。本文提出智能体框架，将个性化需求分解为可验证的控制程序，通过多智能体协作生成菜谱、流程和Python代码，实现闭环执行与长期适应。实验证明其可靠、透明且能处理异常。",
+      "tags": "query:wmi",
+      "abstract_en": "Automated cooking robots have traditionally relied on predefined procedures and rule-based control, ensuring stable execution but offering limited personalization, whereas recent large-model approaches support natural language interaction but often suffer from opaque decision making and unreliable execution in real kitchens. To address this challenge, this paper proposes an agentic framework that systematically decomposes personalized cooking requirements into structured and verifiable control programs rather than directly mapping language to actions. Multiple AI agents collaboratively transform user intents into canonical recipes, workflow programs with explicit flow control, and executable Python code grounded in an atomic action library. The system consists of three tightly coupled stages: offline recipe-to-code generation through multiple agents, online closed-loop execution with supervisory intervention enabled by multimodal perception, and post-run adaptation that updates user preference models for long-term personalization. Real-world experiments on a physical cooking platform demonstrate that the proposed framework achieves reliable task completion, transparent execution logic, and effective anomaly handling across diverse personalized scenarios, validating its practicality for trustworthy automated cooking in real environments.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}
