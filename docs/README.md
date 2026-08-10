@@ -6,34 +6,55 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-08-09
-- 运行时间：2026-08-09 19:53:14 UTC
+- 最新运行日期：2026-08-10
+- 运行时间：2026-08-10 21:09:58 UTC
 - 运行状态：成功
-- 本次总论文数：4
-- 精读区：3
-- 速读区：1
+- 本次总论文数：11
+- 精读区：6
+- 速读区：5
 
 ### 今日简报（AI）
-今日精读视觉-触觉前瞻与贝叶斯预测编码，速读大模型烹饪控制，共看4篇论文。  
-最值得关注的是9.0分的视触觉世界模型，以及8.0分的预测编码引擎，两者都指向“预测式感知”前沿。  
-建议顺着多模态预测建模的思路，优先深挖视触觉融合在机器人操作中的落地潜力。
-- 详情：[/202608/09/README](/202608/09/README)
+今日精读聚焦“全息数字孪生”与“AtlasVLA世界-自我状态建模”两大高分突破，速读则覆盖机械臂操控与VLA后训练。  
+最值得关注：物理AI数字孪生从被动镜像转向主动智能体，以及VLA模型通过持久世界状态建模显著提升性能。  
+下一步可重点探索“语义动作解耦的后训练”与“动作分块校准干预”，以增强机器人操作的稳健性。
+- 详情：[/202608/10/README](/202608/10/README)
 
 ### 精读区论文标签
-1. [Disentangling Visuo-Tactile Foresight: Oracle-Guided Interface Discovery for World Action Models](/202608/09/2608.00547v1-disentangling-visuo-tactile-foresight-oracle-guided-interface-discovery-for-world-action-models)  
+1. [From Passive Mirrors to Active Agents: Holonic Digital Twins for Physical AI over Networks](/202608/10/2608.06227v1-from-passive-mirrors-to-active-agents-holonic-digital-twins-for-physical-ai-over-networks)  
    标签：评分：9.0/10、query:wmi
-   evidence：面向视觉-触觉机器人操作的世界动作模型
-2. [The Bayesian Reflex: A Predictive Coding Engine for Artificial Intelligence](/202608/09/2608.00492v1-the-bayesian-reflex-a-predictive-coding-engine-for-artificial-intelligence)  
+   evidence：为物理AI提供可靠世界模型以支持长时序规划
+2. [AtlasVLA: Persistent World-Ego State Modeling for Vision-Language-Action Models](/202608/10/2608.06729v1-atlasvla-persistent-world-ego-state-modeling-for-vision-language-action-models)  
+   标签：评分：9.0/10、query:wmi
+   evidence：面向具身VLA的持久世界-自我状态建模
+3. [Is Forward Prediction Enough? Physical State Grounding for JEPA World Models](/202608/10/2608.06799v1-is-forward-prediction-enough-physical-state-grounding-for-jepa-world-models)  
+   标签：评分：9.0/10、query:wmi
+   evidence：JEPA世界模型，通过物理状态锚定支持机器人规划与预测
+4. [MemWM: Memory-Augmented Text-Based World Model](/202608/10/2608.07107v1-memwm-memory-augmented-text-based-world-model)  
+   标签：评分：9.0/10、query:wmi
+   evidence：通过预测环境状态随动作的演化来支持规划的世界模型方法
+5. [Capek 0.5: An Execution-Centric Vision-Language Model for Embodied Intelligence](/202608/10/2608.06756v1-capek-05-an-execution-centric-vision-language-model-for-embodied-intelligence)  
    标签：评分：8.0/10、query:wmi
-   evidence：层次生成模型与预测误差最小化构成内部环境模型
-3. [World-to-Wrist: Task-Conditioned Future Wrist Modeling for Fine-Grained Robot Manipulation](/202608/09/2608.05369v1-world-to-wrist-task-conditioned-future-wrist-modeling-for-fine-grained-robot-manipulation)  
+   evidence：面向机器人执行与物理状态推理的具身视觉-语言模型
+6. [Decoupling Intention from Trajectory: A Representational Deduction Framework for World Action Models](/202608/10/2608.06994v1-decoupling-intention-from-trajectory-a-representational-deduction-framework-for-world-action-models)  
    标签：评分：8.0/10、query:wmi
-   evidence：在VLA模型中进行任务条件下的未来腕部建模，以预测精细操作中的腕部局部交互
+   evidence：世界行动模型解耦物理状态演化与动作轨迹生成，用于支撑运动规划
 
 ### 速读区论文标签
-1. [Embedding Large Language Models into Flow Controls: An Agentic Framework for Adaptive and Trustworthy Automated Cooking](/202608/09/2608.04768v1-embedding-large-language-models-into-flow-controls-an-agentic-framework-for-adaptive-and-trustworthy-automated-cooking)  
+1. [Representation Handoffs for OpenArm-Based Laboratory Mobile Manipulation](/202608/10/2608.07154v1-representation-handoffs-for-openarm-based-laboratory-mobile-manipulation)  
+   标签：评分：8.0/10、query:wmi
+   evidence：语言引导的移动操作，整合传感器与物理智能体
+2. [TEMPO: Semantic-Action Decoupled RL Post-Training for Vision-Language-Action Models](/202608/10/2608.07314v1-tempo-semantic-action-decoupled-rl-post-training-for-vision-language-action-models)  
+   标签：评分：8.0/10、query:wmi
+   evidence：面向机器人操作的视觉-语言-动作模型强化学习后训练
+3. [AutoIntervene: Calibrated Intervention for Action-Chunking Imitation Learning Policies](/202608/10/2608.07065v1-autointervene-calibrated-intervention-for-action-chunking-imitation-learning-policies)  
+   标签：评分：7.0/10、query:wmi
+   evidence：针对演示训练的动作分块模仿学习策略的在线干预框架
+4. [Weights or Skills? A Survey of Robot-Learning Techniques: from Action-Predicting Weights to Robots that Write their Own Skills](/202608/10/2608.01851v1-weights-or-skills-a-survey-of-robot-learning-techniques-from-action-predicting-weights-to-robots-that-write-their-own-skills)  
    标签：评分：6.0/10、query:wmi
-   evidence：面向实体烹饪机器人的LLM智能体框架，将用户意图分解为可执行控制程序
+   evidence：综述面向物理智能体的机器人学习技术，涵盖VLA策略与自改进技能
+5. [Fast and Accurate: An Adaptive VLA Inference Framework through Environment-aware Model Selection](/202608/10/2608.06434v1-fast-and-accurate-an-adaptive-vla-inference-framework-through-environment-aware-model-selection)  
+   标签：评分：6.0/10、query:wmi
+   evidence：面向具身智能的自适应双系统VLA推理框架，通过环境感知模型选择切换系统
 
 
 <div class="dpr-home-promo-card">
