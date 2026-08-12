@@ -1,0 +1,343 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-08-12T21:04:03.273233+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 5,
+    "deep_cap": 6,
+    "deep_selected": 5,
+    "quick_candidates": 3,
+    "quick_skim_target": 11,
+    "quick_selected": 3
+  },
+  "deep_dive": [
+    {
+      "id": "2608.10634v1",
+      "source": "arxiv",
+      "title": "IADD-TR: Intervention-Aware Dynamics Decoupling with Targeted Regularization for Model-Based Reinforcement Learning",
+      "abstract": "Model-based reinforcement learning (MBRL), which learns environment dynamics to generate synthetic experience, is a promising approach to sample-efficient decision making. Numerous methods have been developed to improve dynamics prediction and policy optimization for MBRL through uncertainty estimation, model regularization, and conservative value learning. However, these methods typically treat the transition model and critic as monolithic predictors, overlooking the policy-induced data bias. Consequently, action can become entangled with environmental evolution, while uneven action coverage may distort the counterfactual value estimates used for policy improvement. To address this, we propose IADD-TR, a unified framework combining Intervention-Aware Dynamics Decoupling (IADD) and Targeted Regularization (TR). IADD factorizes transitions into an action-intervention stage and an action-free natural evolution stage, using a zero-action anchor to resolve the non-uniqueness of this two-stage factorization for robust generalization. Its latent and state-aligned components are identifiable up to an invertible within-block transformation and pointwise, respectively. For policy learning, we derive TR from the efficient influence function of a replay-state policy-gradient functional. TR augments the critic with an action-density-scaled residual correction and optimizes a targeted loss, yielding doubly robust policy-gradient estimation when either the critic or the replay action density is consistently specified. Extensive experiments on five MuJoCo tasks show that IADD-TR achieves competitive returns with improved sample efficiency.",
+      "authors": [
+        "Zefeng Liang",
+        "Jie Qiao",
+        "Ruichu Cai",
+        "Weilin Chen",
+        "Zhifeng Hao"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-08-11T08:20:02+00:00",
+      "link": "https://arxiv.org/pdf/2608.10634v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Proposes intervention-aware dynamics decoupling for model-based reinforcement learning to improve learned world dynamics.",
+      "llm_evidence_cn": "提出干预感知的动力学解耦方法，改进模型强化学习中的世界动力学建模。",
+      "llm_evidence": "提出干预感知的动力学解耦方法，改进模型强化学习中的世界动力学建模。",
+      "canonical_evidence": "提出干预感知的动力学解耦方法，改进模型强化学习中的世界动力学建模。",
+      "llm_tldr_en": "IADD-TR decouples action from environmental evolution and applies targeted regularization to learn more accurate world dynamics for model-based reinforcement learning.",
+      "llm_tldr_cn": "模型强化学习依赖学习环境动力学生成合成经验，但转换模型与评论家常作为整体预测器，导致动作与环境演化纠缠、数据覆盖不均。IADD-TR提出干预感知的动力学解耦与定向正则化，将动作从环境演化中分离，缓解策略诱导的数据偏差。该方法提升了世界动力学建模质量与策略优化效果。",
+      "llm_tldr": "模型强化学习依赖学习环境动力学生成合成经验，但转换模型与评论家常作为整体预测器，导致动作与环境演化纠缠、数据覆盖不均。IADD-TR提出干预感知的动力学解耦与定向正则化，将动作从环境演化中分离，缓解策略诱导的数据偏差。该方法提升了世界动力学建模质量与策略优化效果。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2608.10780v1",
+      "source": "arxiv",
+      "title": "JEPA-WAM: Stage-Level Joint-Embedding Prediction for World-Action Models in Robot Manipulation",
+      "abstract": "Generalist robot policies aim to map multimodal observations and linguistic task instructions to actions across diverse tasks. However, existing methods typically represent the future as a fixed, short video-action chunk. This short-term future captures local scene evolution for action execution, but it does not explicitly describe the stage-level future that specifies how a task should progress from its current stage to the next. We therefore distinguish two complementary futures for robot manipulation: a short-term physical future to capture local scene evolution and a stage-level semantic future to represent task progress. We introduce JEPA-WAM, which augments a Motus-based World Action Model (WAM) with Stage-JEPA, a goal-conditioned Joint-Embedding Predictive Architecture (JEPA) predictor. Given the current observation and task instruction, Stage-JEPA uses a frozen V-JEPA2 encoder to extract the current-state representation and predicts the latent target of the next inferred stage. Across 50 RoboTwin 2.0 tasks in clean and randomized environments, JEPA-WAM achieves 90.25% overall success and reduces the mean number of execution steps in successful rollouts by 5.97% relative to the strongest baseline.",
+      "authors": [
+        "Xiao Liu",
+        "Yuguang Yang",
+        "Xi Wang",
+        "Kai Jiang",
+        "Cheng Chi",
+        "Yong Xu",
+        "Wenchao Ding",
+        "Yilun Chen",
+        "Yan Wang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-08-11T10:33:12+00:00",
+      "link": "https://arxiv.org/pdf/2608.10780v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world-action model with stage-level joint embedding prediction for robot manipulation",
+      "llm_evidence_cn": "机器人操作中带阶段级联合嵌入预测的世界动作模型",
+      "llm_evidence": "机器人操作中带阶段级联合嵌入预测的世界动作模型",
+      "canonical_evidence": "机器人操作中带阶段级联合嵌入预测的世界动作模型",
+      "llm_tldr_en": "JEPA-WAM augments a World Action Model with Stage-JEPA to predict stage-level semantic future states alongside short-term physical futures, improving long-horizon task robustness.",
+      "llm_tldr_cn": "现有机器人策略只预测短时视频动作片段，难以刻画任务阶段进展。JEPA-WAM将短期物理未来与阶段级语义未来结合，在Motus世界动作模型基础上加入Stage-JEPA目标条件预测。该方法显式建模任务从当前阶段到下一阶段的发展，提升了长时程操作任务的表现，为世界动作模型的未来表征提供了更完整的框架。",
+      "llm_tldr": "现有机器人策略只预测短时视频动作片段，难以刻画任务阶段进展。JEPA-WAM将短期物理未来与阶段级语义未来结合，在Motus世界动作模型基础上加入Stage-JEPA目标条件预测。该方法显式建模任务从当前阶段到下一阶段的发展，提升了长时程操作任务的表现，为世界动作模型的未来表征提供了更完整的框架。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2608.09138v2",
+      "source": "arxiv",
+      "title": "SpeedTuning: Speeding Up Policy Execution with Lightweight Reinforcement Learning",
+      "abstract": "While learned robotic policies hold promise for advancing generalizable manipulation, their practical deployment is often hindered by suboptimal execution speeds. Imitation learning policies are inherently limited by hardware constraints and the speed of the operator during data collection. In addition, there are no established methods for accelerating policies learned via imitation, and the empirical relationship between execution speed and task success remains underexplored. To address these issues, we introduce SpeedTuning, a reinforcement learning framework specifically designed to enhance the speed of manipulation policies. SpeedTuning learns to predict the optimal execution speed for actions, thereby complementing a base policy without necessitating additional data collection. We provide empirical evidence that SpeedTuning achieves substantial improvements in execution speed, exceeding 2.4x speed-up, while preserving an adequate success rate compared to both the original task policy and straightforward speed-up methods such as linear interpolation at a fixed speed. We evaluate our approach across a diverse set of dynamic and precise tasks, including pouring, throwing, and picking, demonstrating its effectiveness and robustness in enhancing real-world robotic manipulation. Videos and code are available at https://daivdyuan.github.io/speed-tuning/",
+      "authors": [
+        "David D. Yuan",
+        "Tony Z. Zhao",
+        "Kaylee Burns",
+        "Chelsea Finn"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-08-10T05:31:41+00:00",
+      "link": "https://arxiv.org/pdf/2608.09138v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "Reinforcement learning framework specifically designed to accelerate manipulation policies learned via imitation.",
+      "llm_evidence_cn": "针对模仿学习的操作策略设计的强化学习加速框架。",
+      "llm_evidence": "针对模仿学习的操作策略设计的强化学习加速框架。",
+      "canonical_evidence": "针对模仿学习的操作策略设计的强化学习加速框架。",
+      "llm_tldr_en": "SpeedTuning uses lightweight reinforcement learning to predict optimal execution speed for imitation-learned manipulation policies, addressing suboptimal speed and the lack of established acceleration methods.",
+      "llm_tldr_cn": "模仿学习策略受限于数据采集时的操作速度，缺乏系统加速方法。SpeedTuning提出轻量级强化学习框架，为基策略预测最优执行速度，在不改变基策略的条件下提升运行速度并保持任务成功率。它弥补了操作策略执行速度与成功率之间关系的研究空白，可作为既有策略的通用加速插件。",
+      "llm_tldr": "模仿学习策略受限于数据采集时的操作速度，缺乏系统加速方法。SpeedTuning提出轻量级强化学习框架，为基策略预测最优执行速度，在不改变基策略的条件下提升运行速度并保持任务成功率。它弥补了操作策略执行速度与成功率之间关系的研究空白，可作为既有策略的通用加速插件。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2608.10453v1",
+      "source": "arxiv",
+      "title": "From Privileged Control to Deployable Adaptation:Fusing Mechanism-Guided Task Reduction with Learned Behavior",
+      "abstract": "Simultaneous input-gain variation and large additive disturbance create a control problem in which a fixed observer or nominal controller may be unable to reproduce the performance of a regime-aware design. We study a training--deployment asymmetry: during simulation or commissioning, an expert controller is allowed to use the known gain and disturbance, whereas the deployed controller can use only the reference and measured states. Directly imitating expert actions is generally unsafe because the same instantaneous student observation may correspond to different privileged regimes and hence different expert actions. We propose a mechanism-guided transfer route rather than a new neural architecture. An exact sampled-data identity removes the additive disturbance from the expert law and reduces learning to a task-relevant inverse input gain inferred from causal state history. The latent target is reconstructed from expert actions and deployment-visible trajectories, so the true plant parameter is not required as a student label. A common-quadratic certificate is derived for the actual augmented sampled recursion, followed by explicit residual, coverage, switching, noise, and saturation qualifications. A parameter-regime scan shows that the nominal observer's error grows sharply as $a$ decreases and that the next gain above the best non-failing tuning diverges for every tested $a<1$. Direct action networks also fail in closed loop despite moderate offline error, whereas the structured student remains close to the privileged expert and reduces tracking RMSE by about 69\\% relative to the tuned observer in unseen 60-s trials. The contribution is an interpretable design perspective for turning privileged multi-regime control knowledge into a deployable adaptive controller, together with conditions under which the transfer is meaningful.",
+      "authors": [
+        "Xitong Niu",
+        "Peifeng Hui",
+        "Zheyong Jiang",
+        "Yuan Gao",
+        "Chuanlin Zhang"
+      ],
+      "primary_category": "eess.SY",
+      "categories": [
+        "eess.SY"
+      ],
+      "published": "2026-08-11T04:06:47+00:00",
+      "link": "https://arxiv.org/pdf/2608.10453v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "Shows direct imitation of expert actions is unsafe under privileged control, proposes mechanism-guided transfer",
+      "llm_evidence_cn": "指出特权控制下直接模仿专家动作不安全，提出机制引导迁移路线",
+      "llm_evidence": "指出特权控制下直接模仿专家动作不安全，提出机制引导迁移路线",
+      "canonical_evidence": "指出特权控制下直接模仿专家动作不安全，提出机制引导迁移路线",
+      "llm_tldr_en": "This paper addresses training-deployment asymmetry in control, proves direct imitation of expert actions is unsafe when the same observation maps to different privileged regimes, and proposes a mechanism-guided transfer route combining exact sampling with learned behavior.",
+      "llm_tldr_cn": "在同时存在输入增益变化和大幅加性扰动时，固定标称控制器难以复现特权感知设计的性能。本文研究训练-部署不对称：训练时专家可使用已知增益和扰动，部署时只能使用参考与测量状态。直接模仿专家动作通常不安全，因为同一瞬时学生观测可能对应不同特权工况和不同专家动作。作者提出机制引导的任务缩减与学习行为融合的迁移路线，通过精确采样机制信息来避免歧义，实现了从特权控制到可部署适应的安全转变。",
+      "llm_tldr": "在同时存在输入增益变化和大幅加性扰动时，固定标称控制器难以复现特权感知设计的性能。本文研究训练-部署不对称：训练时专家可使用已知增益和扰动，部署时只能使用参考与测量状态。直接模仿专家动作通常不安全，因为同一瞬时学生观测可能对应不同特权工况和不同专家动作。作者提出机制引导的任务缩减与学习行为融合的迁移路线，通过精确采样机制信息来避免歧义，实现了从特权控制到可部署适应的安全转变。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "directly copying expert actions from demonstrations",
+      "matched_requirement_id": "req-5",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2608.10600v1",
+      "source": "arxiv",
+      "title": "BooST: Bridging Semantics and Motions for Efficient Skill Transfer",
+      "abstract": "Skill abstraction---the process of learning reusable and temporally extended behaviors---has emerged as a key paradigm for improving sample efficiency and generalization in robot learning. For efficient skill transfer to real robots, learned skills must generalize across tasks and domains, remain robust to visual and dynamic perturbations, and be efficient enough for practical deployment. However, existing methods typically satisfy only a subset of these properties, as they capture either high-level semantic intent (what) or low-level motion dynamics (how). This incomplete skill transfer yields weak priors for policy learning, thereby demanding substantial in-domain data for downstream adaptation. To address these challenges, we introduce BooST, a two-stage framework that explicitly bridges semantics and motions to satisfy all three desiderata. BooST first leverages a cross-modal VQ-VAE to capture both semantic intent and motion dynamics, yielding a unified skill representation. It then distills this representation into a lightweight policy for efficient downstream adaptation to new tasks. Extensive experiments across simulation and real-robot settings demonstrate that BooST achieves superior few-shot adaptation, cross-domain skill transfer, and robustness to dynamic visual distractors, while maintaining a lightweight yet expressive design suitable for real-world deployment.",
+      "authors": [
+        "Jusuk Lee",
+        "Daesol Cho",
+        "Jonghun Shin",
+        "Seungyeon Yoo",
+        "Jonghae Park",
+        "Taekbeom Lee",
+        "H. Jin Kim"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "published": "2026-08-11T07:35:12+00:00",
+      "link": "https://arxiv.org/pdf/2608.10600v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "skill transfer in robot learning, bridging semantics and motions",
+      "llm_evidence_cn": "机器人学习中的技能迁移，弥合语义与运动",
+      "llm_evidence": "机器人学习中的技能迁移，弥合语义与运动",
+      "canonical_evidence": "机器人学习中的技能迁移，弥合语义与运动",
+      "llm_tldr_en": "BooST proposes a two-stage skill abstraction method that jointly captures high-level semantic intent and low-level motion dynamics, enabling efficient and robust skill transfer to real robots with better generalization and sample efficiency.",
+      "llm_tldr_cn": "针对现有技能抽象方法只能捕捉高层语义意图或低层运动动力学、导致技能迁移到真实机器人时需要大量领域内数据的问题，BooST提出两阶段技能抽象方法，同时弥合语义与运动，在保持对视觉和动态扰动鲁棒性的同时，提升跨任务与跨域的泛化能力和样本效率。",
+      "llm_tldr": "针对现有技能抽象方法只能捕捉高层语义意图或低层运动动力学、导致技能迁移到真实机器人时需要大量领域内数据的问题，BooST提出两阶段技能抽象方法，同时弥合语义与运动，在保持对视觉和动态扰动鲁棒性的同时，提升跨任务与跨域的泛化能力和样本效率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2608.07905v1",
+      "source": "arxiv",
+      "title": "GraphThink: Graph-Enhanced LLM Thinking for Long-Horizon Embodied Task Planning",
+      "abstract": "Embodied agents using LLM-based planners often struggle with physical hallucinations, poor generalization to long-horizon tasks, and lack of environmental awareness. We propose GraphThink, a novel framework that integrates a task graph to provide structured knowledge for robust planning and a scene graph to maintain environmental memory for event-driven replanning. Specifically, the task graph guides LLM thinking through contextual prompting and iterative refinement, effectively mitigating planning hallucinations. Furthermore, within the GRPO framework, the task graph offers delicate reward design to train the LLM planner, enhancing long-horizon planning capabilities and improving generalization. Finally, an event-driven replanning module, powered by the scene graph, enables closed-loop environment awareness and error correction. GraphThink achieves state-of-the-art performance on the ALFRED benchmark. In particular, our high-level planner surpasses leading API-based LLMs on both the validation set and held-out long-horizon tasks, underscoring its robust zero-shot and few-shot capabilities. Additional evaluations further demonstrate strong out-of-distribution generalization to novel tasks and environments.",
+      "authors": [
+        "Chen Li",
+        "Sijie Cheng",
+        "Yuelin Zhang",
+        "Junxi Li",
+        "Maozhi Huang",
+        "Yang Liu",
+        "Wenbing Huang"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.RO"
+      ],
+      "published": "2026-08-08T04:05:05+00:00",
+      "link": "https://arxiv.org/pdf/2608.07905v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "Task graph and scene graph as structured environmental memory to guide LLM-based embodied planning",
+      "llm_evidence_cn": "任务图与场景图作为结构化环境记忆引导LLM具身规划",
+      "llm_evidence": "任务图与场景图作为结构化环境记忆引导LLM具身规划",
+      "canonical_evidence": "任务图与场景图作为结构化环境记忆引导LLM具身规划",
+      "llm_tldr_en": "GraphThink integrates a task graph for structured knowledge and a scene graph for environmental memory to guide LLM planning and replanning, reducing physical hallucinations and improving generalization in long-horizon embodied tasks via GRPO reward design.",
+      "llm_tldr_cn": "基于LLM的具身规划器常出现物理幻觉、泛化能力不足和缺乏环境感知。GraphThink 提出将任务图与场景图相结合：任务图提供结构化知识，通过上下文提示和迭代精炼引导LLM思考，缓解规划幻觉；场景图维护环境记忆，支持事件驱动的重规划。在GRPO框架中，任务图还用于精细化奖励设计以训练LLM规划器，增强长时程规划能力和泛化性。实验表明该方法能显著提升长时程具身任务规划的鲁棒性和泛化表现。",
+      "llm_tldr": "基于LLM的具身规划器常出现物理幻觉、泛化能力不足和缺乏环境感知。GraphThink 提出将任务图与场景图相结合：任务图提供结构化知识，通过上下文提示和迭代精炼引导LLM思考，缓解规划幻觉；场景图维护环境记忆，支持事件驱动的重规划。在GRPO框架中，任务图还用于精细化奖励设计以训练LLM规划器，增强长时程规划能力和泛化性。实验表明该方法能显著提升长时程具身任务规划的鲁棒性和泛化表现。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2608.09762v1",
+      "source": "arxiv",
+      "title": "Efficient Real-World Online Reinforcement Learning for Robot Manipulation via Centralized Training and Critic Decomposition",
+      "abstract": "Real-world online reinforcement learning (RL) provides a promising approach for training robotic manipulation policies directly in the physical world, avoiding the sim-to-real gap and enabling continuous policy refinement through human-in-the-loop interaction. Recent methods have demonstrated sample-efficient learning through human intervention but remain limited to small randomization ranges and encounter challenges with the non-stationarity induced by concurrently training multiple agents. To address these limitations, we introduce a unified framework that combines centralized training with decentralized execution (CTDE) and a Hybrid Reward Architecture (HRA). This enables multiple actors to share a centralized multi-head critic. The critic is decomposed into task and grasp heads, corresponding to the sparse task reward and a potential-based grasping reward, respectively. We accordingly reformulate the critic and actor objectives to exploit the decomposed Q-values while explicitly accounting for the categorical action distribution of the discrete gripper policy. Experimental results demonstrate that the proposed framework substantially improves both sample efficiency and policy performance. We validate our approach on two robotic arms and a simulated humanoid robot across tennis ball and banana pick-and-place, pot reset, and simulated block relocation tasks under dimension-wise domain randomization, approximately 5-25x larger than those considered in prior work. Compared with a state-of-the-art baseline, our method improves the success rate from 60% to 80% on tennis ball pick-and-place, from 60% to 90% on banana pick-and-place, and from 25% to 95% on simulated block relocation, while also successfully accomplishing a task where the baseline consistently fails. Videos and more details are available at our project website: https://hil-harc.github.io/.",
+      "authors": [
+        "Changhao Li",
+        "Yifang Zhang",
+        "Heng Zhang",
+        "Davide Torielli",
+        "Damiano Gasperini",
+        "Arturo Laurenzi",
+        "Luca Muratore",
+        "Arash Ajoudani",
+        "Nikos Tsagarakis"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-08-10T15:54:25+00:00",
+      "link": "https://arxiv.org/pdf/2608.09762v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "Real-world online RL for robot manipulation with human-in-the-loop, physical agents and sensors",
+      "llm_evidence_cn": "真实世界在线强化学习用于机器人操作，含人在环交互，直接与物理智能体与传感器相关",
+      "llm_evidence": "真实世界在线强化学习用于机器人操作，含人在环交互，直接与物理智能体与传感器相关",
+      "canonical_evidence": "真实世界在线强化学习用于机器人操作，含人在环交互，直接与物理智能体与传感器相关",
+      "llm_tldr_en": "This paper presents a real-world online RL framework for robot manipulation that combines centralized training with decentralized execution and a Hybrid Reward Architecture, reducing non-stationarity and improving sample efficiency.",
+      "llm_tldr_cn": "真实世界在线强化学习为机器人操作提供避开仿真-现实差距的训练途径，但现有方法随机化范围小且并行训练多智能体时存在非平稳性问题。论文提出统一框架，将集中训练与分散执行（CTDE）和混合奖励架构（HRA）结合，使多个actor共享经验并缓解非平稳性。实验表明该方法支持真实世界机器人的连续策略改进。为物理环境中高效率的操作学习提供了可行方案。",
+      "llm_tldr": "真实世界在线强化学习为机器人操作提供避开仿真-现实差距的训练途径，但现有方法随机化范围小且并行训练多智能体时存在非平稳性问题。论文提出统一框架，将集中训练与分散执行（CTDE）和混合奖励架构（HRA）结合，使多个actor共享经验并缓解非平稳性。实验表明该方法支持真实世界机器人的连续策略改进。为物理环境中高效率的操作学习提供了可行方案。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2608.11052v1",
+      "source": "arxiv",
+      "title": "Efficient Hypergradient Descent for Inverse Reinforcement Learning",
+      "abstract": "Inverse reinforcement learning (IRL) aims to recover a reward function under which the resulting policy reproduces the behavior observed in expert demonstrations. A natural approach is to formulate IRL as a bilevel optimization problem, in which the inner level corresponds to policy optimization under the learned reward and the outer level measures the discrepancy between the induced policy and expert data. However, this formulation is computationally challenging in practice because the outer update requires a hypergradient involving an inverse-Hessian-vector product for the inner objective. We address this challenge by showing that, at the inner optimum, the Hessian of the inner objective is proportional to the Fisher information matrix of the policy, yielding a structured Fisher-based hypergradient closely related to Natural Hypergradient Descent. To address the resulting scalability bottleneck associated with large Fisher matrices, we approximate the required inverse-Fisher-vector product using a streaming spectral sketch, avoiding explicit construction of the Fisher matrix. We evaluate our approach against a first-order stochastic bilevel baseline across discrete- and continuous-control environments. The results demonstrate competitive policy performance and strong reward-ranking quality, while Fisher sketching reduces curvature-storage complexity and can improve computational efficiency relative to an explicit Fisher solver.",
+      "authors": [
+        "Nikita Sevriukov",
+        "Anna Barabanova",
+        "Uliana Gagarina",
+        "Karina Ivanova",
+        "Sofiia Kasaeva",
+        "Ilya Levin",
+        "Marina Sheshukova"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "published": "2026-08-11T15:22:16+00:00",
+      "link": "https://arxiv.org/pdf/2608.11052v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "Inverse reinforcement learning recovers reward functions from expert demonstrations via efficient hypergradient descent",
+      "llm_evidence_cn": "通过高效超梯度下降从专家示范中恢复奖励函数的逆强化学习",
+      "llm_evidence": "通过高效超梯度下降从专家示范中恢复奖励函数的逆强化学习",
+      "canonical_evidence": "通过高效超梯度下降从专家示范中恢复奖励函数的逆强化学习",
+      "llm_tldr_en": "This paper proposes an efficient hypergradient descent method for IRL, showing that at the inner optimum the Hessian is proportional to the policy Fisher information matrix, making bilevel optimization tractable for reward recovery from expert demonstrations.",
+      "llm_tldr_cn": "逆强化学习旨在从专家示范中恢复奖励函数，使策略复现专家行为，可自然建模为双层优化，但外层超梯度需计算逆Hessian向量积，实践中代价高昂。本文证明在内层最优处，内层目标的Hessian正比于策略的Fisher信息矩阵，从而能利用这一结构高效近似超梯度。该方法大幅降低了计算复杂度，使基于示范的奖励恢复在大规模问题上更加实用，提升了IRL的可扩展性。",
+      "llm_tldr": "逆强化学习旨在从专家示范中恢复奖励函数，使策略复现专家行为，可自然建模为双层优化，但外层超梯度需计算逆Hessian向量积，实践中代价高昂。本文证明在内层最优处，内层目标的Hessian正比于策略的Fisher信息矩阵，从而能利用这一结构高效近似超梯度。该方法大幅降低了计算复杂度，使基于示范的奖励恢复在大规模问题上更加实用，提升了IRL的可扩展性。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}
