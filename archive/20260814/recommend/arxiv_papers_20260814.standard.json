@@ -1,0 +1,478 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-08-14T20:57:00.323790+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 4,
+    "deep_cap": 6,
+    "deep_selected": 4,
+    "quick_candidates": 7,
+    "quick_skim_target": 11,
+    "quick_selected": 7
+  },
+  "deep_dive": [
+    {
+      "id": "2608.10780v2",
+      "source": "arxiv",
+      "title": "JEPA-WAM: Stage-Level Joint-Embedding Prediction for World-Action Models in Robot Manipulation",
+      "abstract": "Generalist robot policies aim to map multimodal observations and linguistic task instructions to actions across diverse tasks. However, existing methods typically represent the future as a fixed, short video-action chunk. This short-term future captures local scene evolution for action execution, but it does not explicitly describe the stage-level future that specifies how a task should progress from its current stage to the next. We therefore distinguish two complementary futures for robot manipulation: a short-term physical future to capture local scene evolution and a stage-level semantic future to represent task progress. We introduce JEPA-WAM, which augments a Motus-based World Action Model (WAM) with Stage-JEPA, a goal-conditioned Joint-Embedding Predictive Architecture (JEPA) predictor. Given the current observation and task instruction, Stage-JEPA uses a frozen V-JEPA2 encoder to extract the current-state representation and predicts the latent target of the next inferred stage. Across 50 RoboTwin 2.0 tasks in clean and randomized environments, JEPA-WAM achieves 90.25% overall success and reduces the mean number of execution steps in successful rollouts by 5.97% relative to the strongest baseline.",
+      "authors": [
+        "Xiao Liu",
+        "Yuguang Yang",
+        "Xi Wang",
+        "Kai Jiang",
+        "Cheng Chi",
+        "Yong Xu",
+        "Wenchao Ding",
+        "Yilun Chen",
+        "Yan Wang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-08-11T10:33:12+00:00",
+      "link": "https://arxiv.org/pdf/2608.10780v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "World-action model with stage-level future prediction for robot manipulation",
+      "llm_evidence_cn": "面向机器人操作的世界-动作模型，引入阶段级联合嵌入预测",
+      "llm_evidence": "面向机器人操作的世界-动作模型，引入阶段级联合嵌入预测",
+      "canonical_evidence": "面向机器人操作的世界-动作模型，引入阶段级联合嵌入预测",
+      "llm_tldr_en": "JEPA-WAM distinguishes short-term physical future from stage-level semantic future for robot manipulation, and augments a Motus-based World Action Model with Stage-JEPA joint-embedding prediction to improve generalization across diverse tasks.",
+      "llm_tldr_cn": "本文针对机器人大规模通用操作策略中未来表示不足的问题，区分了短期物理未来与阶段级语义未来，提出JEPA-WAM世界-动作模型。该方法在Motus世界-动作模型上增加Stage-JEPA目标，通过联合嵌入预测刻画任务从当前阶段到下一阶段的进展，从而提升多模态观测与语言指令条件下的任务操作能力。",
+      "llm_tldr": "本文针对机器人大规模通用操作策略中未来表示不足的问题，区分了短期物理未来与阶段级语义未来，提出JEPA-WAM世界-动作模型。该方法在Motus世界-动作模型上增加Stage-JEPA目标，通过联合嵌入预测刻画任务从当前阶段到下一阶段的进展，从而提升多模态观测与语言指令条件下的任务操作能力。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2608.12854v1",
+      "source": "arxiv",
+      "title": "BrainWAM: Action-Space Coordination of Semantic Priors and Predictive Dynamics for Autonomous Driving",
+      "abstract": "Autonomous driving requires planning under both semantic constraints and predictive dynamics. Existing end-to-end driving approaches, however, typically emphasize only one side of this requirement: Vision-Language-Action (VLA) models exploit VLM priors for semantic reasoning, while World Action Models (WAMs) provide future-aware prediction through generative world modeling. This naturally motivates a unified planner that can leverage both semantic priors and predictive dynamics. However, we find that a naive combination through joint token-level attention suffers from an attention-allocation mismatch, where semantic shortcuts dominate the shared attention space and suppress predictive dynamics. Inspired by neuroscience evidence that complex behavior arises from coordination among functionally specialized systems, we propose BrainWAM, a structured action-space coordination framework that converts semantic reasoning and predictive world modeling into two specialized action-oriented pathways, and aligns them at the level of compact action representations. We further introduce an asynchronous rectified-flow inference strategy with decoupled video and action denoising, which shortens inference latency while preserving planning-relevant predictive context. BrainWAM reaches state-of-the-art performance on both NAVSIM v1 (89.5 PDMS) and NAVSIM v2 (89.6 EPDMS), consistently outperforming VLA-only or WAM-only methods, highlighting BrainWAM as a practical and promising direction for autonomous driving systems.",
+      "authors": [
+        "Bing Zhan",
+        "Shuyao Shang",
+        "Jiahao Gu",
+        "Shuo Lu",
+        "Yuan Xu",
+        "Zhao Wang",
+        "Yida Wang",
+        "Xueyang Zhang",
+        "Kun Zhan",
+        "Lue Fan",
+        "Zhaoxiang Zhang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.CV"
+      ],
+      "published": "2026-08-13T05:56:17+00:00",
+      "link": "https://arxiv.org/pdf/2608.12854v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "World Action Models for autonomous driving, combining semantic priors and predictive dynamics",
+      "llm_evidence_cn": "面向自动驾驶的世界动作模型，结合语义先验与预测动力学",
+      "llm_evidence": "面向自动驾驶的世界动作模型，结合语义先验与预测动力学",
+      "canonical_evidence": "面向自动驾驶的世界动作模型，结合语义先验与预测动力学",
+      "llm_tldr_en": "BrainWAM unifies semantic priors and predictive dynamics in world action models for autonomous driving, overcoming attention-allocation mismatch.",
+      "llm_tldr_cn": "该论文聚焦自动驾驶规划，指出现有VLA模型和世界动作模型各自只侧重语义或动力学预测。作者提出BrainWAM，在动作空间中协调语义先验与预测动力学，避免联合注意力中语义捷径压制预测动态的问题。实验验证了该框架能同时利用两类信息，提升规划质量。",
+      "llm_tldr": "该论文聚焦自动驾驶规划，指出现有VLA模型和世界动作模型各自只侧重语义或动力学预测。作者提出BrainWAM，在动作空间中协调语义先验与预测动力学，避免联合注意力中语义捷径压制预测动态的问题。实验验证了该框架能同时利用两类信息，提升规划质量。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2608.13362v1",
+      "source": "arxiv",
+      "title": "NestDex: Nested Policy Learning with Copilot Assisted Teleoperation for Dexterous Manipulation",
+      "abstract": "Dexterous manipulation promises substantially richer robot interaction with the physical world, but learning these behaviours remains constrained by the difficulty of collecting consistent, complete-task demonstrations. Unlike parallel-jaw manipulation, dexterous tasks require the operator to coordinate arm motion with precise, contact-rich finger behaviour throughout the task. We introduce NestDex, a nested policy-learning framework that reduces this burden by using learned hand skills to assist demonstration collection. The operator controls the arm and regulates the active hand skill through a single-DoF clutch, rather than directly specifying the full finger trajectory. The inner hand policy adapts its motion from the latest proprioceptive history, while a vision-language selector activates the appropriate skill for each task stage. The resulting demonstrations train a separate outer visuomotor policy that controls both the arm and hand without the inner policies at deployment. A hand-action variational autoencoder provides compact hand-action targets while retaining arm commands in joint space. Across real-world dexterous manipulation experiments, NestDex improves demonstration reliability and efficiency, and the resulting empirical evaluations support effective autonomous policy learning. Video Demo are available at project website https://aus.bot/research/nestdex.",
+      "authors": [
+        "James Zhao",
+        "Jinhe Tang",
+        "Mingyuan Ba",
+        "Weiming Zhi"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-08-13T15:25:39+00:00",
+      "link": "https://arxiv.org/pdf/2608.13362v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Nested policy learning for dexterous manipulation from demonstrations collected via copilot teleoperation",
+      "llm_evidence_cn": "通过副驾驶遥操作采集示范，并采用嵌套策略学习灵巧操作",
+      "llm_evidence": "通过副驾驶遥操作采集示范，并采用嵌套策略学习灵巧操作",
+      "canonical_evidence": "通过副驾驶遥操作采集示范，并采用嵌套策略学习灵巧操作",
+      "llm_tldr_en": "NestDex reduces demonstration burden for dexterous manipulation by nesting learned hand skills with copilot-assisted teleoperation, letting operators control the arm and regulate hand skills via a single-DoF clutch.",
+      "llm_tldr_cn": "本文针对灵巧操作中示范采集困难的问题，提出NestDex嵌套策略学习框架。操作者通过单自由度离合器控制手臂并调节活动手部技能，内层手部策略从最新示范中自适应调整，从而降低完整任务示范采集难度。实验表明该方法能够利用更少的遥操作负担学习到灵活操作策略。",
+      "llm_tldr": "本文针对灵巧操作中示范采集困难的问题，提出NestDex嵌套策略学习框架。操作者通过单自由度离合器控制手臂并调节活动手部技能，内层手部策略从最新示范中自适应调整，从而降低完整任务示范采集难度。实验表明该方法能够利用更少的遥操作负担学习到灵活操作策略。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "imitation learning for robotic manipulation",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2608.13489v1",
+      "source": "arxiv",
+      "title": "DreamX-Phi 1.0: Action-Conditioned Video World Model for Robotic Manipulation",
+      "abstract": "We present \\textbf{DreamX-Phi 1.0}, an action-conditioned video world model for robotic manipulation that, given an observed frame, a language instruction, and a prescribed action sequence comprising end-effector poses and gripper states, predicts the resulting future observations. Yet realism alone does not guarantee faithfulness: a convincing rollout can still move the wrong arm or lose the manipulated object. To ensure the prediction respects each arm's commanded path, we inject per-arm $\\mathrm{SE}(3)$ transformations into attention via \\textbf{PRoPE-style geometric encoding}, preserving arm identity and rigid-motion structure. Action control alone does not fully constrain scene geometry or the evolution of small manipulated objects. We therefore add a lightweight \\textbf{depth branch} for scene-level geometry and use \\textbf{SAM3 masks} with a frozen \\textbf{V-JEPA teacher} to maintain object consistency throughout grasping. We further distill the multi-step generator into a few-step student via distribution-matching distillation for efficient deployment. At the time of writing, \\model{} achieves first place on Track~1 and second place on Track~2 of the WorldArena~2.0 Challenge. Our model and code will be publicly available.",
+      "authors": [
+        "DreamX Team",
+        "Rui Chen",
+        "Xiangxiang Chu",
+        "Geng Li",
+        "Jifan Li",
+        "Qingfeng Shi",
+        "Datao Tang",
+        "Jing Tang",
+        "Jun Wang",
+        "Pengfei Zhang"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.RO"
+      ],
+      "published": "2026-08-13T17:18:09+00:00",
+      "link": "https://arxiv.org/pdf/2608.13489v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "action-conditioned video world model for robotic manipulation with geometric encoding",
+      "llm_evidence_cn": "用于机器人操作的动作条件视频世界模型，包含几何编码",
+      "llm_evidence": "用于机器人操作的动作条件视频世界模型，包含几何编码",
+      "canonical_evidence": "用于机器人操作的动作条件视频世界模型，包含几何编码",
+      "llm_tldr_en": "DreamX-Phi 1.0 presents an action-conditioned video world model for robotic manipulation that predicts future observations from language instructions and action sequences, with per-arm SE(3) geometric encoding for faithful rollouts.",
+      "llm_tldr_cn": "机器人操作世界模型需要根据观测、语言指令和动作序列预测未来观测，但仅逼真不足以保证忠实。DreamX-Phi 1.0 提出动作条件视频世界模型，通过注入机械臂SE(3)变换的PRoPE式几何编码，保持机械臂身份与刚体运动结构，提高预测滚动对操作指令的遵从度。",
+      "llm_tldr": "机器人操作世界模型需要根据观测、语言指令和动作序列预测未来观测，但仅逼真不足以保证忠实。DreamX-Phi 1.0 提出动作条件视频世界模型，通过注入机械臂SE(3)变换的PRoPE式几何编码，保持机械臂身份与刚体运动结构，提高预测滚动对操作指令的遵从度。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2608.08077v1",
+      "source": "arxiv",
+      "title": "Explore, Map, Remember, Decide: Are Embodied VLMs Ready for Safety-Critical Scenarios?",
+      "abstract": "Theory of Space framework (ToS) assesses the spatial understanding of curiosity-driven Vision-Language Models (VLMs) under partial observability. As AI techniques are increasingly applied to safety-critical scenarios, it is crucial to understand whether VLMs possess robust spatial memory and make reliable decisions. In this paper, we assess whether VLMs' decisions are based on physical evidence or are corrupted by visual-language biases, if their memory processes align with human cognitive patterns, and how they respond to environmental hazards. We extend the ToS framework into a safety-critical, goal-driven pipeline, named Explore, Map, Remember, and Decide (EMRD). We then quantify Exploration Competence (Explore) through metrics of environmental coverage and temporal efficiency, assess Spatial Fidelity (Map), evaluate, with a suite of psychological metrics, Memory Persistence (Remember), and measure, using focal-point metrics, Cognitive Decision-Making (Decide). Our results show that in terms of decision-making capabilities, VLMs frequently select evacuation points based on pre-trained textual priors while lacking the spatial grounding to justify their choices. We also show that spatial reasoning degrades in low-light conditions, but it is not affected by texture and colour tampering. Our findings suggest that VLM memory fundamentally diverges from human cognition, creating unpredictable risks of misalignment.",
+      "authors": [
+        "Gabriele La Malfa",
+        "Nitay Alon",
+        "Emanuele La Malfa",
+        "Reuth Mirsky",
+        "Stefan Sarkadi"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.MA",
+        "cs.RO"
+      ],
+      "published": "2026-08-08T11:57:01+00:00",
+      "link": "https://arxiv.org/pdf/2608.08077v1",
+      "tags": [
+        "keyword:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "Assesses embodied VLMs' spatial memory and internal environment mapping under partial observability",
+      "llm_evidence_cn": "评估具身VLM在部分可观测条件下的空间记忆与环境内部建模能力",
+      "llm_evidence": "评估具身VLM在部分可观测条件下的空间记忆与环境内部建模能力",
+      "canonical_evidence": "评估具身VLM在部分可观测条件下的空间记忆与环境内部建模能力",
+      "llm_tldr_en": "Extends Theory of Space to safety-critical embodied VLM evaluation, measuring exploration, mapping, memory, and decision-making evidence grounding under partial observability.",
+      "llm_tldr_cn": "具身VLM若用于安全关键场景，必须依赖物理证据而非视觉语言偏差进行可靠决策。该文将Theory of Space框架扩展为探索-建图-记忆-决策（EMRD）流程，评估VLM在部分可观测环境下的空间记忆、探索能力和危险响应。结果表明，VLM的决策仍受视觉语言偏见干扰，记忆过程与人类认知存在偏差。这项工作为安全关键场景中的具身世界理解和记忆评估提供了基准。",
+      "llm_tldr": "具身VLM若用于安全关键场景，必须依赖物理证据而非视觉语言偏差进行可靠决策。该文将Theory of Space框架扩展为探索-建图-记忆-决策（EMRD）流程，评估VLM在部分可观测环境下的空间记忆、探索能力和危险响应。结果表明，VLM的决策仍受视觉语言偏见干扰，记忆过程与人类认知存在偏差。这项工作为安全关键场景中的具身世界理解和记忆评估提供了基准。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2608.11350v1",
+      "source": "arxiv",
+      "title": "Self-Evolving Embodied Agents via Skill-Harness Evolution",
+      "abstract": "Embodied agents are increasingly built as systems around foundation models, where performance depends not only on model weights but also on the skills, context, action interfaces, and execution harness surrounding the model. While supervised fine-tuning and reinforcement learning can adapt agents to new environments, they require additional data, rewards, and training runs; meanwhile, many train-free code-centric approaches rely on programmable robot APIs that may be unavailable in fixed-interface settings. We propose SHAPER, a self-evolving framework for train-free embodied adaptation that keeps model parameters frozen and improves the non-parametric agent system by evolving reusable skills and a context-code harness through target-environment rollouts. In SHAPER, the same frozen model can serve as both planner and optimizer, refining its external skills and context-code harness without parameter updates. We evaluate SHAPER on VLABench and ESI-Bench, covering embodied agents with different low-level action interfaces, and compare against pure execution, supervised fine-tuning, and test-time-scaling baselines such as verifier-free selection and voting. Our results suggest that skill-and-harness optimization is a practical route to self-evolving embodied agents when model training is expensive, unavailable, or undesirable.",
+      "authors": [
+        "Peidong Wang",
+        "Zhiming Ma",
+        "Ying Chang",
+        "Xufang Luo",
+        "Xiaocui Yang",
+        "Shi Feng",
+        "Yuqing Yang",
+        "Dongsheng Li"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL",
+        "cs.RO"
+      ],
+      "published": "2026-08-11T18:55:58+00:00",
+      "link": "https://arxiv.org/pdf/2608.11350v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "Self-evolving train-free framework for embodied agents improving skills and execution harness via rollouts",
+      "llm_evidence_cn": "免训练的具身智能体自进化框架，通过环境交互rollout改进技能与执行包装",
+      "llm_evidence": "免训练的具身智能体自进化框架，通过环境交互rollout改进技能与执行包装",
+      "canonical_evidence": "免训练的具身智能体自进化框架，通过环境交互rollout改进技能与执行包装",
+      "llm_tldr_en": "Proposes SHAPER, a self-evolving train-free framework for embodied agents that freezes model weights and evolves reusable skills plus a context-code harness through target-environment rollouts, improving task performance without extra training data.",
+      "llm_tldr_cn": "具身智能体的性能不仅取决于模型权重，还受技能、上下文和动作接口影响，而监督微调与强化学习需要额外数据与训练。该文提出SHAPER自进化框架，在冻结参数的情况下通过与环境交互的rollout不断进化可复用技能和上下文代码执行器。实验显示其在固定接口环境中无需训练即可持续提升任务表现。SHAPER为具身智能的免训练自适应提供了一种可行方案。",
+      "llm_tldr": "具身智能体的性能不仅取决于模型权重，还受技能、上下文和动作接口影响，而监督微调与强化学习需要额外数据与训练。该文提出SHAPER自进化框架，在冻结参数的情况下通过与环境交互的rollout不断进化可复用技能和上下文代码执行器。实验显示其在固定接口环境中无需训练即可持续提升任务表现。SHAPER为具身智能的免训练自适应提供了一种可行方案。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2608.08523v1",
+      "source": "arxiv",
+      "title": "Discovering Diverse Planning Policies for Multimodal Embodied Agents with Quality-Diversity Optimization",
+      "abstract": "Multimodal embodied agents are increasingly required to solve long-horizon tasks by integrating visual observations, textual goals, and interaction history into closed-loop decision making. However, state-of-the-art large-model-based planners often rely on a single dominant planning style during execution. Once this execution mode becomes ineffective, the agent may remain stalled for many steps, repeatedly interacting with the environment without making meaningful progress. We address this limitation by proposing a Quality-Diversity (QD) framework for discovering diverse planning policies for multimodal embodied agents. The proposed method treats planning-policy templates as evolvable individuals and organizes them into a behavior-indexed archive rather than collapsing search to a single prompt style. In the offline stage, rollout trajectories are summarized into structured success and failure experiences, which guide policy variation through recombination and experience-guided mutation. The resulting policies are mapped into a behavior space defined by interaction intensity and goal-directedness, and the highest-quality policy in each niche is retained in the archive. In the online stage, the agent executes one policy at a time while monitoring task progress. When persistent stall is detected, the system rolls back to the latest checkpoint and switches to a behaviorally distinct archive policy to resume execution. Experiments on the ThreeDWorld transport benchmark show that the proposed framework improves both task success and interaction efficiency over representative baseline planners. These results suggest that discovering diverse policy repertoires is an effective way to support adaptive multimodal planning and online failure recovery.",
+      "authors": [
+        "Pengfei Xu",
+        "Yong Liu",
+        "Xiaoya Nan",
+        "Qiang Yang",
+        "Peilan Xu"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-08-09T06:41:53+00:00",
+      "link": "https://arxiv.org/pdf/2608.08523v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "diverse planning policies for multimodal embodied agents",
+      "llm_evidence_cn": "为多模态具身智能体发现多样化规划策略",
+      "llm_evidence": "为多模态具身智能体发现多样化规划策略",
+      "canonical_evidence": "为多模态具身智能体发现多样化规划策略",
+      "llm_tldr_en": "This paper proposes a Quality-Diversity framework that treats planning-policy templates as evolvable individuals to discover diverse planning policies for multimodal embodied agents, preventing stall in long-horizon tasks.",
+      "llm_tldr_cn": "针对多模态具身智能体在长周期任务中过度依赖单一规划风格而容易停滞的问题，本文提出基于质量-多样性优化的规划策略发现框架。该方法将规划策略模板作为可进化个体，通过评估多样性和质量来生成一组行为各异的规划策略，使智能体在环境变化时能够切换策略持续取得进展。实验验证了该框架有效提升长周期任务的成功率。",
+      "llm_tldr": "针对多模态具身智能体在长周期任务中过度依赖单一规划风格而容易停滞的问题，本文提出基于质量-多样性优化的规划策略发现框架。该方法将规划策略模板作为可进化个体，通过评估多样性和质量来生成一组行为各异的规划策略，使智能体在环境变化时能够切换策略持续取得进展。实验验证了该框架有效提升长周期任务的成功率。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2608.13422v1",
+      "source": "arxiv",
+      "title": "Attention from Action, for Action: Emergent Visual Bottlenecks for Policy Learning",
+      "abstract": "Visual bottlenecks that focus policy inputs on regions of interest (ROIs) can improve data-efficient visuomotor learning by separating where to look from how to act. Many ROI interfaces rely on external spatial labels, such as gaze, object classes, or affordance annotations. Label-free alternatives often derive crops from trajectories by detecting gripper or motion events and centering a fixed crop at the projected end-effector. Such action-derived crops are useful spatial priors that require no additional labels, but they encode fixed choices about event timing, proxy points, and crop scale. When the visual evidence needed for control lies away from the end-effector or changes continuously with task progress, these crops can become misaligned. We propose Seeker, a task- and state-conditioned readout that learns attention from action. Starting from frozen DINOv3 features, Seeker iteratively updates a query with gathered visual evidence, producing progression-aware ROIs solely from action supervision. The learned ROI serves as a spatial interface for RGB cropping, mask-guided background augmentation, and point-cloud filtering. In simulation and the real world, Seeker improves data efficiency and robustness over no-crop, augmentation, and action-derived crop baselines. On real robots, Seeker raises average in-domain success from the best baseline's 48.3% to 76.7% and success under lighting/background shifts from 20.0% to 60.0%.",
+      "authors": [
+        "Zheyu Zhuang",
+        "Ruiyu Wang",
+        "Nick Heppert",
+        "Johannes Fabian Hahn",
+        "Abhinav Valada",
+        "Florian T. Pokorny",
+        "Danica Kragic"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-08-13T16:14:07+00:00",
+      "link": "https://arxiv.org/pdf/2608.13422v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "policy learning from trajectories via action-derived visual bottlenecks",
+      "llm_evidence_cn": "通过动作导出的视觉瓶颈从轨迹中学习策略",
+      "llm_evidence": "通过动作导出的视觉瓶颈从轨迹中学习策略",
+      "canonical_evidence": "通过动作导出的视觉瓶颈从轨迹中学习策略",
+      "llm_tldr_en": "This paper introduces action-derived visual bottlenecks that focus policy inputs on regions of interest without external labels, improving data-efficient visuomotor learning by separating where to look from how to act.",
+      "llm_tldr_cn": "针对无标签视觉运动学习中感兴趣区域定位依赖外部标注的问题，本文提出从动作轨迹中自动生成视觉瓶颈的方法，以端到端位置为线索裁剪输入，无需额外标签即可分离“看哪里”与“怎么做”。该方法减少了固定裁剪带来的错位，提高数据效率，为策略学习的注意力选择提供了新的思路。",
+      "llm_tldr": "针对无标签视觉运动学习中感兴趣区域定位依赖外部标注的问题，本文提出从动作轨迹中自动生成视觉瓶颈的方法，以端到端位置为线索裁剪输入，无需额外标签即可分离“看哪里”与“怎么做”。该方法减少了固定裁剪带来的错位，提高数据效率，为策略学习的注意力选择提供了新的思路。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2608.08557v1",
+      "source": "arxiv",
+      "title": "OpenVisTool: An Open Recipe for Synthesizing Instructive Visual Tool-Use Trajectories",
+      "abstract": "Visual tool use has emerged as a fundamental capability for multimodal agents to actively acquire evidence beyond a fixed image encoding. The prevailing recipe learns this capability from teacher-generated trajectories filtered for answer correctness, implicitly assuming that every successful demonstration provides effective supervision. We argue this assumption is flawed: a strong teacher often reaches the correct answer without needing its tool calls, and imitating such trajectories teaches a student that tool calls accompany correct answers, not that tool observations ground them. We present OpenVisTool, an open framework for constructing instructive visual tool-use trajectories that provide effective supervision for tool learning. The key insight is that a trajectory should be retained only if its answer is correct (outcome validity) and its tool observations causally contribute to that answer (causal utility). The framework operates in three stages: difficulty screening to select queries that are not reliably answerable without tools, domain-specific trajectory synthesis to elicit coherent tool-use trajectories, and supervision verification to jointly test both conditions. Rather than encouraging models to imitate tool calls, the resulting supervision teaches when and how visual evidence should be acquired. Using this framework, we construct OpenVisTool-42K, a dataset spanning five visual reasoning domains, together with OpenVisTool-Bench, a benchmark covering the same domains. Across four backbones (4B-27B), fine-tuning on OpenVisTool-42K consistently improves visual tool-use performance and yields gains on two out-of-distribution benchmarks; the larger models approach leading closed-source systems. The evidence suggests that effective visual tool use is learned from causally grounded supervision rather than tool-calling patterns.",
+      "authors": [
+        "Changhao Xiang",
+        "Shilin Zhang",
+        "Zheng Ma",
+        "Kanzhi Cheng",
+        "Ruize Ma",
+        "Yi Feng",
+        "Jianbing Zhang",
+        "Zhi Wang",
+        "Zhen Wu",
+        "Xinyu Dai",
+        "Lewei Lu"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "published": "2026-08-09T08:01:05+00:00",
+      "link": "https://arxiv.org/pdf/2608.08557v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "Learning from teacher-generated demonstrations with focus on instructive trajectories for tool use",
+      "llm_evidence_cn": "从教师生成的示范中学习，强调构建有指导性的视觉工具使用轨迹",
+      "llm_evidence": "从教师生成的示范中学习，强调构建有指导性的视觉工具使用轨迹",
+      "canonical_evidence": "从教师生成的示范中学习，强调构建有指导性的视觉工具使用轨迹",
+      "llm_tldr_en": "Argues that successful teacher demonstrations may not provide effective supervision for visual tool use learning, and introduces OpenVisTool to construct instructive trajectories that ground tool observations.",
+      "llm_tldr_cn": "视觉工具使用学习通常从教师生成的成功轨迹中模仿，但该文指出成功示范未必有效：教师可能无需调用工具即可作答，盲目模仿会让模型混淆工具调用与正确答案的关系。为此，他们提出OpenVisTool开放框架，用于合成具有指导性的工具使用轨迹，使工具观察成为真实依据。实验验证了这种轨迹能提供更有效的监督，提升多模态智能体的工具使用能力。该工作为工具学习的数据构建提供了新思路。",
+      "llm_tldr": "视觉工具使用学习通常从教师生成的成功轨迹中模仿，但该文指出成功示范未必有效：教师可能无需调用工具即可作答，盲目模仿会让模型混淆工具调用与正确答案的关系。为此，他们提出OpenVisTool开放框架，用于合成具有指导性的工具使用轨迹，使工具观察成为真实依据。实验验证了这种轨迹能提供更有效的监督，提升多模态智能体的工具使用能力。该工作为工具学习的数据构建提供了新思路。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "learning policies from expert demonstrations",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2608.12564v1",
+      "source": "arxiv",
+      "title": "Scaling Automatic Research Agents via World Models",
+      "abstract": "Automating empirical research is a long-standing direction of AI. Recent automatic research (AutoResearch) agents bring this goal within reach, as modern LLMs show the capability to independently implement solutions and learn from the execution outcomes. Behind these gains, post-training (especially RL) plays a central role. In this paper, we identify a fundamental tension when scaling RL for these agents: the two components of every AutoResearch trajectory (agent generation and environment execution) scale in very different manners, since all generation shares compute through batching, while each execution occupies its exclusive sandbox and real machine time. As a result, the environment execution dominates the training cost and becomes the bottleneck as trajectories grow. To resolve this tension, we propose World Model RL (WMRL), which replaces environment execution with a world model to remove this bottleneck. Additionally, the world model can be imperfect, as its rewards are corrupted by bias and noise. Therefore, we further equip WMRL with two mitigations, Online Debiasing and Inverse-Variance Denoising, which offset the bias and suppress the noise respectively. Theoretically, we prove that both mitigations of WMRL strictly improve the convergence guarantee. Empirically, WMRL accelerates training by 3-4x on various tasks at different agent scales, while exceeding the performance of standard RL baselines. Moreover, our post-trained 4B and 9B agents outperform much larger open-weight agents of 48B and 120B on held-out benchmarks. Beyond AutoResearch, WMRL also transfers to post-training embodied VLA policies, which demonstrates the generalizability of our method.",
+      "authors": [
+        "Xiyuan Yang",
+        "Sheikh Sarwar",
+        "Jingru Cheng",
+        "Zhan Shi",
+        "Duanshun Li",
+        "Huiyuan Chen",
+        "Haiyang Zhang",
+        "Chenlei Guo",
+        "Jingrui He",
+        "Zhenyu Liao"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-08-12T20:11:25+00:00",
+      "link": "https://arxiv.org/pdf/2608.12564v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "world models to scale RL for automatic research agents",
+      "llm_evidence_cn": "使用世界模型扩展自动科研智能体的强化学习",
+      "llm_evidence": "使用世界模型扩展自动科研智能体的强化学习",
+      "canonical_evidence": "使用世界模型扩展自动科研智能体的强化学习",
+      "llm_tldr_en": "This paper identifies the environment-execution bottleneck in RL training of automatic research agents and proposes scaling via world models that predict execution outcomes, reducing cost and enabling larger-scale post-training.",
+      "llm_tldr_cn": "针对自动科研智能体强化学习训练中环境执行成本过高的问题，本文利用世界模型来预测执行结果，从而替代真实环境交互，缓解生成与执行扩展速度不匹配的瓶颈。该方法显著降低训练开销，使基于RL的后训练可以扩展到更大规模，为自动科研智能体的高效训练提供新思路。",
+      "llm_tldr": "针对自动科研智能体强化学习训练中环境执行成本过高的问题，本文利用世界模型来预测执行结果，从而替代真实环境交互，缓解生成与执行扩展速度不匹配的瓶颈。该方法显著降低训练开销，使基于RL的后训练可以扩展到更大规模，为自动科研智能体的高效训练提供新思路。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2608.12683v1",
+      "source": "arxiv",
+      "title": "FUSE: Active Functional Affordance Grounding through Adaptive Semantic-Geometric Evidence Acquisition",
+      "abstract": "Embodied agents must often identify and interact with objects based on their function rather than their identity, requiring them to actively acquire observations that reveal discriminative functional evidence. Existing affordance grounding methods operate from fixed viewpoints and lack mechanisms for deciding where to look when functional cues are occluded or incomplete. We introduce Active Functional Affordance Grounding, a new task in which an agent sequentially explores a scene to identify and spatially ground an object satisfying a functional query. To address this problem, we propose FUSE, an adaptive semantic-geometric evidence acquisition framework that combines explicit uncertainty-driven exploration with a learned amortized planner to efficiently select informative viewpoints. We further introduce a Habitat-based benchmark for evaluating active functional grounding. Experiments show that FUSE achieves the highest observed non-oracle grounding performance while reducing computation by 1.33x relative to fully explicit exploration, and remains effective across multiple affordance knowledge sources.",
+      "authors": [
+        "Zhou Chen",
+        "Sathyanarayanan N. Aakur"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "published": "2026-08-13T00:51:09+00:00",
+      "link": "https://arxiv.org/pdf/2608.12683v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "Embodied agent actively explores scenes with sensors to ground functional affordances",
+      "llm_evidence_cn": "具身代理主动利用传感器探索场景，定位功能可供性",
+      "llm_evidence": "具身代理主动利用传感器探索场景，定位功能可供性",
+      "canonical_evidence": "具身代理主动利用传感器探索场景，定位功能可供性",
+      "llm_tldr_en": "FUSE introduces active functional affordance grounding, where an embodied agent sequentially explores a scene to ground objects by function using uncertainty-driven evidence acquisition.",
+      "llm_tldr_cn": "该论文提出主动功能可供性定位新任务：具身代理需主动获取观测证据来确定满足功能查询的物体。现有方法只能从固定视角识别，缺乏在遮挡或线索不完整时决定何处查看的机制。作者提出FUSE框架，结合显式不确定性驱动的探索与学习到的语义-几何证据采集策略，通过顺序探索完成空间定位。",
+      "llm_tldr": "该论文提出主动功能可供性定位新任务：具身代理需主动获取观测证据来确定满足功能查询的物体。现有方法只能从固定视角识别，缺乏在遮挡或线索不完整时决定何处查看的机制。作者提出FUSE框架，结合显式不确定性驱动的探索与学习到的语义-几何证据采集策略，通过顺序探索完成空间定位。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}
