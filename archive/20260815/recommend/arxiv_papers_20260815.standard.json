@@ -1,0 +1,341 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-08-15T20:24:58.265703+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 4,
+    "deep_cap": 6,
+    "deep_selected": 4,
+    "quick_candidates": 3,
+    "quick_skim_target": 11,
+    "quick_selected": 3
+  },
+  "deep_dive": [
+    {
+      "id": "2608.10618v1",
+      "source": "arxiv",
+      "title": "Toward the Cognitive--Physical Limits of Embodied Intelligence through a World-Model-Centric Autonomous Racing Agent",
+      "abstract": "Embodied artificial intelligence aims to develop agents that perceive, reason, and act through continuous interaction with the physical world. However, most embodied systems are still evaluated within conservative safety margins or moderate interaction regimes, leaving their capability boundaries under extreme conditions insufficiently understood. Autonomous racing provides a stringent testbed by combining high-frequency localization and perception, adversarial interaction, near-saturated vehicle dynamics, and strict safety constraints. Existing systems push high-speed performance but rarely model and refine cognitive and physical limits jointly. Here we show that a world-model-centric autonomous racing agent provides a concrete step toward exploring these coupled limits. The framework learns predictive world models from near-limit successes and failures to capture interaction evolution, ego dynamics, and feasible-motion boundaries, coupling world-state construction, future-aware reasoning, and near-limit control in a closed-loop refinement process. Training data were collected from real-vehicle autonomous racing, where the onboard system maintained robust localization and perception at speeds up to 256.3 km/h and peak lateral acceleration of 26.8 m/s$^2$. In full-scale simulated racing, the well trained world-model-centric agent achieves an 88.3% interaction success rate across various challenging simulated racing scenarios. Closed-loop refinement of the world model and policy further improved utilization of cognitive-physical limits, recovery from failure modes, and generalization across varying conditions and unseen circuits. These results suggest a boundary-aware methodology in which world models help embodied agents represent, predict, and continually refine their capability boundaries for safer real-world deployment.",
+      "authors": [
+        "Zitong Shan",
+        "Baichuan Lou",
+        "Yanxin Zhou",
+        "Shuge Wu",
+        "Xianqi He",
+        "Bolin Zhao",
+        "Sheng Zhao",
+        "Zhouheng Li",
+        "Chee Kiong Ong",
+        "King Ho Holden Li",
+        "Chen Lv"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-08-11T08:01:35+00:00",
+      "link": "https://arxiv.org/pdf/2608.10618v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "World-model-centric autonomous racing agent for embodied intelligence",
+      "llm_evidence_cn": "以世界模型为中心的自动驾驶赛车智能体，用于具身智能",
+      "llm_evidence": "以世界模型为中心的自动驾驶赛车智能体，用于具身智能",
+      "canonical_evidence": "以世界模型为中心的自动驾驶赛车智能体，用于具身智能",
+      "llm_tldr_en": "This paper introduces a world-model-centric autonomous racing agent that jointly models cognitive-physical limits, providing a stringent testbed for embodied intelligence under extreme conditions.",
+      "llm_tldr_cn": "该论文提出以世界模型为中心的自动驾驶赛车智能体，通过高频定位感知、对抗交互和近乎饱和的车辆动力学，探索具身智能在极端条件下的能力边界。该智能体联合建模并优化认知与物理极限，相比现有系统在高速性能和安全约束方面表现更优。研究为具身智能的极限测试和世界模型应用提供了重要平台。",
+      "llm_tldr": "该论文提出以世界模型为中心的自动驾驶赛车智能体，通过高频定位感知、对抗交互和近乎饱和的车辆动力学，探索具身智能在极端条件下的能力边界。该智能体联合建模并优化认知与物理极限，相比现有系统在高速性能和安全约束方面表现更优。研究为具身智能的极限测试和世界模型应用提供了重要平台。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2608.11174v2",
+      "source": "arxiv",
+      "title": "VIScore: Diagnosing Planning-Relevant Quality in Latent World Models",
+      "abstract": "Regulating the latent space to an isotropic Gaussian distribution provides a stable and information-maximized landscape for world model planning. However, the latent space property and successful planning remain disconnected. We first study this by comparing SIGReg and VISReg, two regularization loss functions with the same distribution target but different properties. Compared with SIGReg, VISReg has more flexibility in controlling the weights of center, scale, and shape regularization, and a larger batch size brings a finer distribution approximation. We find that the former, despite being beneficial in self-supervised learning (SSL), does not help the planning, whereas the latter improves the planning success on out-of-domain (OOD) datasets. This motivates a deep understanding of the factors that correlate with the success rate. Unlike the previous metrics focusing on the encoded latent only, we propose the Veracity-Influence-Sobriety score (VIScore), a metric that quantifies the reachability and capacity of a predictor given the encoded feature, and the hallucination of the searching-based planner. Compared with straightness, physical-state probing, and empowerment, we show that, with the measurement covering encoder, predictor, and planner, VIScore explains the success rate better than the others, as reflected by a strong Spearman correlation. Specifically, VIScore consistently achieves a Spearman correlation over 0.75 on both seen and unseen models and datasets on the cross-task success rate pool. Moreover, VIScore is the only metric that has a calibration error below the constant fit across all testing scenarios, showcasing the importance of these three aspects in planning success. We hope this metric can help future studies on world model design and diagnosis.",
+      "authors": [
+        "Haiyu Wu",
+        "Randall Balestriero",
+        "Morgan Levine"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-08-11T17:34:10+00:00",
+      "link": "https://arxiv.org/pdf/2608.11174v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Diagnosing latent world model quality for planning, linking latent space properties to planning success",
+      "llm_evidence_cn": "连接潜在世界模型性质与规划性能的诊断方法",
+      "llm_evidence": "连接潜在世界模型性质与规划性能的诊断方法",
+      "canonical_evidence": "连接潜在世界模型性质与规划性能的诊断方法",
+      "llm_tldr_en": "VIScore diagnoses planning-relevant quality of latent world models by comparing spectral regularizations, showing that more flexible isotropic regularization improves out-of-domain planning.",
+      "llm_tldr_cn": "潜在世界模型通常采用各向同性高斯正则化以获得稳定规划，但潜在空间性质与规划成功之间的关系尚不明确。VIScore系统比较SIGReg和VISReg两种正则化，发现VISReg可灵活控制中心、尺度与形状正则权重，更大批量化带来更精细的分布近似，并显著提升分布外规划成功率，为世界模型规划提供质量诊断工具。",
+      "llm_tldr": "潜在世界模型通常采用各向同性高斯正则化以获得稳定规划，但潜在空间性质与规划成功之间的关系尚不明确。VIScore系统比较SIGReg和VISReg两种正则化，发现VISReg可灵活控制中心、尺度与形状正则权重，更大批量化带来更精细的分布近似，并显著提升分布外规划成功率，为世界模型规划提供质量诊断工具。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2608.11605v1",
+      "source": "arxiv",
+      "title": "Foresight Without Seeing: Latent Futures for World Action Models",
+      "abstract": "World Action Models (WAMs) couple future visual prediction with robot action generation, enabling policies to model how the physical world evolves during interaction. Existing WAMs differ in how predictive dynamics are exposed to the action pathway. Explicit-future WAMs provide direct access to predicted scene evolution, but incur substantial inference costs from iterative video denoising. In contrast, direct-policy WAMs efficiently predict actions from the current observation but lack an explicit inference-time interface for exposing predictive dynamics to the Action DiT. To bridge this gap, we propose ForeWAM, a dynamics-conditioned direct-policy WAM that provides predictive context for action generation without decoding future videos. At its core, Future-KV performs a single Video DiT prefill over the current visual latent and stochastic future slots, and reuses the resulting layer-wise key-value states throughout action denoising. We further introduce dynamics registers supervised by a frozen latent action teacher, encouraging the implicit future states to capture interaction-induced transitions such as object motion, contact changes, and task progress. Ground-truth future observations and the teacher are used only during training; deployment requires neither and performs no future video generation. Without embodied robot data pretraining, the standard and accelerated variants of ForeWAM achieve average success rates of 96.7% and 96.9% on LIBERO, respectively. The standard variant further achieves 61.6% success on LIBERO-Plus. These results demonstrate that direct-policy WAMs can retain efficient action prediction while exposing predictive dynamics to the action pathway without explicitly generating future observations.",
+      "authors": [
+        "Jiakai Huang",
+        "Zhongbo Wu",
+        "Zheng Zhang",
+        "Zihan Wang",
+        "Shan You",
+        "Tao Huang"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-08-12T03:27:43+00:00",
+      "link": "https://arxiv.org/pdf/2608.11605v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world action models coupling future visual prediction with robot action generation",
+      "llm_evidence_cn": "将未来视觉预测与机器人动作生成耦合的世界动作模型",
+      "llm_evidence": "将未来视觉预测与机器人动作生成耦合的世界动作模型",
+      "canonical_evidence": "将未来视觉预测与机器人动作生成耦合的世界动作模型",
+      "llm_tldr_en": "ForeWAM proposes a dynamics-conditioned direct-policy World Action Model that exposes predictive context to action generation without decoding future videos, reducing inference cost while retaining foresight.",
+      "llm_tldr_cn": "世界动作模型将未来视觉预测与机器人动作生成耦合，但显式未来模型推理代价高，直接策略模型又缺少显式预测接口。ForeWAM提出动力学条件化的直接策略世界动作模型，通过未来潜变量为动作生成提供预测上下文，无需解码未来视频。该方法在保留预测收益的同时避免了迭代视频去噪的成本，为具身智能中高效动作生成奠定了新基础。",
+      "llm_tldr": "世界动作模型将未来视觉预测与机器人动作生成耦合，但显式未来模型推理代价高，直接策略模型又缺少显式预测接口。ForeWAM提出动力学条件化的直接策略世界动作模型，通过未来潜变量为动作生成提供预测上下文，无需解码未来视频。该方法在保留预测收益的同时避免了迭代视频去噪的成本，为具身智能中高效动作生成奠定了新基础。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2608.10915v2",
+      "source": "arxiv",
+      "title": "ComBodied Agents: a New Paradigm of Human-Centric Agentic AI",
+      "abstract": "After an older adult misses a medication dose, a software agent can send another reminder and an embodied agent can bring the medication. Yet neither explains whether the person forgot, is confused, has side effects, or deliberately refused, nor what support is appropriate. This reveals a structural gap in Agentic AI: Digital Agents primarily transform software states, while Embodied Agents transform physical states; neither makes a person's evolving state and agency the primary object of modeling, intervention, and evaluation. We introduce Combodied Agents, a human-centered paradigm that perceives, models, predicts, and supports individual human-state trajectories over time, using software tools, sensors, wearables, robots, and human services as action channels rather than end goals. We unify fragmented capabilities across personal assistants, health agents, AI companions, and adaptive human--AI systems into a closed loop: event-based multimodal perception reconstructs meaningful personal events; longitudinal, correctable memory provides temporal context; Personal World Models estimate future personal states and outcomes under alternative decisions and interventions; and an admissible intervention policy selects proportionate support under consent, uncertainty, safety, reversibility, and user control. Feedback from the person and environment updates the loop. Rather than requiring an exhaustive Human Digital Twin, the framework uses purpose-bounded, uncertainty-aware, user-correctable representations. We organize the design space by human-state targets, relational contexts, and agent roles, and propose scenario-centered evaluation, agency-preservation metrics, benchmark requirements, edge-native personal models, and governance directions. Combodied Agents shift Agentic AI from external task completion toward sustained human benefit.",
+      "authors": [
+        "Qianggang Ding",
+        "Xingyao Wang",
+        "Rui Feng",
+        "Zhibin Wang",
+        "Feixiang Yao",
+        "Kelong Mao",
+        "Hao Sun",
+        "Zhiyao Luo",
+        "Jiankai Tang",
+        "Lei Li",
+        "Jiadong Guo",
+        "Minheng Ni",
+        "Weicong Lin",
+        "Chenxi Yang",
+        "Hongxiang Gao",
+        "Zhenghua Chen",
+        "Yang Bai",
+        "Min Wu",
+        "Jun Cheng",
+        "Huazhu Fu",
+        "Dacheng Tao",
+        "Bang Liu"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-08-11T13:35:58+00:00",
+      "link": "https://arxiv.org/pdf/2608.10915v2",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "embodied agents with sensors, wearables, robots as action channels to model human-state trajectories",
+      "llm_evidence_cn": "使用传感器、可穿戴设备、机器人等通道感知和干预人类状态轨迹的具身智能体范式",
+      "llm_evidence": "使用传感器、可穿戴设备、机器人等通道感知和干预人类状态轨迹的具身智能体范式",
+      "canonical_evidence": "使用传感器、可穿戴设备、机器人等通道感知和干预人类状态轨迹的具身智能体范式",
+      "llm_tldr_en": "Combodied Agents paradigm models individual human-state trajectories over time using software tools, sensors, wearables and robots as action channels, addressing a structural gap in Agentic AI.",
+      "llm_tldr_cn": "数字智能体与具身智能体分别改变软件与物理状态，却忽视人的动态状态。ComBodied Agents提出以人的状态轨迹为核心的新型范式，融合传感器、可穿戴设备、机器人等通道进行建模、预测与干预，为以人为本的智能体AI提供统一框架。",
+      "llm_tldr": "数字智能体与具身智能体分别改变软件与物理状态，却忽视人的动态状态。ComBodied Agents提出以人的状态轨迹为核心的新型范式，融合传感器、可穿戴设备、机器人等通道进行建模、预测与干预，为以人为本的智能体AI提供统一框架。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2608.10915v1",
+      "source": "arxiv",
+      "title": "ComBodied Agents: a New Paradigm of Human-Centric Agentic AI",
+      "abstract": "After an older adult misses a medication dose, a software agent can send another reminder and an embodied agent can bring the medication. Yet neither explains whether the person forgot, is confused, has side effects, or deliberately refused, nor what support is appropriate. This reveals a structural gap in Agentic AI: Digital Agents primarily transform software states, while Embodied Agents transform physical states; neither makes a person's evolving state and agency the primary object of modeling, intervention, and evaluation. We introduce Combodied Agents, a human-centered paradigm that perceives, models, predicts, and supports individual human-state trajectories over time, using software tools, sensors, wearables, robots, and human services as action channels rather than end goals. We unify fragmented capabilities across personal assistants, health agents, AI companions, and adaptive human--AI systems into a closed loop: event-based multimodal perception reconstructs meaningful personal events; longitudinal, correctable memory provides temporal context; Personal World Models estimate future personal states and outcomes under alternative decisions and interventions; and an admissible intervention policy selects proportionate support under consent, uncertainty, safety, reversibility, and user control. Feedback from the person and environment updates the loop. Rather than requiring an exhaustive Human Digital Twin, the framework uses purpose-bounded, uncertainty-aware, user-correctable representations. We organize the design space by human-state targets, relational contexts, and agent roles, and propose scenario-centered evaluation, agency-preservation metrics, benchmark requirements, edge-native personal models, and governance directions. Combodied Agents shift Agentic AI from external task completion toward sustained human benefit.",
+      "authors": [
+        "Qianggang Ding",
+        "Xingyao Wang",
+        "Rui Feng",
+        "Zhibin Wang",
+        "Feixiang Wang",
+        "Kelong Mao",
+        "Hao Sun",
+        "Zhiyao Luo",
+        "Jiankai Tang",
+        "Lei Li",
+        "Jiadong Guo",
+        "Minheng Ni",
+        "Weicong Lin",
+        "Chenxi Yang",
+        "Hongxiang Gao",
+        "Zhenghua Chen",
+        "Yang Bai",
+        "Min Wu",
+        "Jun Cheng",
+        "Huazhu Fu",
+        "Dacheng Tao",
+        "Bang Liu"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-08-11T13:35:58+00:00",
+      "link": "https://arxiv.org/pdf/2608.10915v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "human-centric embodied agent paradigm using sensors, wearables, and robots as action channels",
+      "llm_evidence_cn": "以人为中心的具身智能体范式，利用传感器、可穿戴设备与机器人作为行动通道",
+      "llm_evidence": "以人为中心的具身智能体范式，利用传感器、可穿戴设备与机器人作为行动通道",
+      "canonical_evidence": "以人为中心的具身智能体范式，利用传感器、可穿戴设备与机器人作为行动通道",
+      "llm_tldr_en": "Introduces Combodied Agents, a human-centric agentic AI paradigm that perceives, models, predicts, and supports human-state trajectories using software tools, sensors, wearables, robots, and human services as action channels.",
+      "llm_tldr_cn": "现有数字智能体与具身智能体分别处理软件状态和物理状态，忽略了个体不断变化的状态与自主性。该文提出ComBodied智能体这一以人为中心的范式，将人的状态轨迹作为建模、干预和评估的核心对象，并通过软件工具、传感器、可穿戴设备、机器人及人工服务等通道实施支持。这一范式弥合了数字与物理执行之间的结构性缺口，为具身人工智能提供了新的研究视角。",
+      "llm_tldr": "现有数字智能体与具身智能体分别处理软件状态和物理状态，忽略了个体不断变化的状态与自主性。该文提出ComBodied智能体这一以人为中心的范式，将人的状态轨迹作为建模、干预和评估的核心对象，并通过软件工具、传感器、可穿戴设备、机器人及人工服务等通道实施支持。这一范式弥合了数字与物理执行之间的结构性缺口，为具身人工智能提供了新的研究视角。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2608.08491v1",
+      "source": "arxiv",
+      "title": "TrustRoboReward: Preference-Ordered Isotonic Score Editing for Multi-Paradigm Robot Reward Models",
+      "abstract": "Reward models are a bottleneck for reinforcement learning in embodied AI. Long-horizon robotic manipulation requires scalable vision feedback beyond handcrafted rewards or task-specific annotations. Existing open-source VLM reward judges like RoboReward adopt simple 1--5 trajectory progress scoring, lacking pairwise preferences for RLHF, DPO and Bradley-Terry frameworks, while failing to optimize video scene understanding. Augmenting RoboReward with pairwise comparison and video-QA supervision causes inconsistency between pairwise preferences and pointwise scores, introducing training noise and hurting downstream performance---an issue aggregation methods such as TrustJudge cannot resolve. To address this, we propose TrustRoboReward, a multi-paradigm reward modeling framework equipped with Preference-Ordered Isotonic Score Editing (POISE). We construct a unified four-paradigm dataset with trajectory progress scoring (Score-A), video-QA answer quality scoring (Score-B), and their pairwise counterparts (Pair-A, Pair-B). Pairwise labels align better with human judgment than pointwise scores, inspiring us to calibrate pointwise scores to avoid score-pair reversals against pairwise preferences. POISE rectifies pointwise scores and eliminates cross-paradigm reversal conflicts unresolved by TrustJudge. Theoretically, POISE reduces score-pair reversal conflicts from 20.15% to 0%, whereas TrustJudge retains 20.46% conflicts on the same corpus. Evaluated on our benchmark, Qwen3-VL-4B trained with POISE achieves an overall reward score of 77.96%, nearly matching GPT-5-mini (78.09%, gap 0.13%) and outperforming the strongest RoboReward-4B baseline by 10.13%. It also lifts test-time score-pair consistency to 71.90%, exceeding RoboReward-4B (57.26%) and GPT-5-mini (68.09%). Integrating TrustJudge aggregation during inference boosts the overall score to 78.57%, surpassing the GPT-5-mini teacher model.",
+      "authors": [
+        "Yidong Wang",
+        "Yan Zhan",
+        "Ziteng Feng",
+        "Zhenyu Cui",
+        "Ziyi Zhou",
+        "Renzhao Liang",
+        "Jiaxuan Zhu",
+        "Zilei Yang",
+        "Yiran Zhao",
+        "Zhongkuan Mao",
+        "Bo Jia",
+        "Hanchu Ni",
+        "Chenggang Xie",
+        "Biao Liu",
+        "Yi Zhang",
+        "Yong Dai",
+        "Xiaozhu Ju",
+        "Wei Ye",
+        "Shikun Zhang"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-08-09T05:25:22+00:00",
+      "link": "https://arxiv.org/pdf/2608.08491v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "Vision feedback and reward model editing for reinforcement learning in embodied AI and manipulation",
+      "llm_evidence_cn": "面向具身智能与机器人操作的视觉反馈和奖励模型编辑方法",
+      "llm_evidence": "面向具身智能与机器人操作的视觉反馈和奖励模型编辑方法",
+      "canonical_evidence": "面向具身智能与机器人操作的视觉反馈和奖励模型编辑方法",
+      "llm_tldr_en": "TrustRoboReward proposes preference-ordered isotonic score editing for multi-paradigm robot reward models, addressing inconsistency between pairwise preferences and pointwise scores in embodied RL.",
+      "llm_tldr_cn": "长程机器人操作需要可扩展的视觉奖励反馈，现有开源VLM奖励模型缺少成对偏好且评分不一致。TrustRoboReward提出偏好有序的等渗分数编辑，协调成对偏好与单点分数，减少训练噪声，为多范式机器人奖励模型提供一致性优化，有助于替代手工奖励设计并推动具身强化学习。",
+      "llm_tldr": "长程机器人操作需要可扩展的视觉奖励反馈，现有开源VLM奖励模型缺少成对偏好且评分不一致。TrustRoboReward提出偏好有序的等渗分数编辑，协调成对偏好与单点分数，减少训练噪声，为多范式机器人奖励模型提供一致性优化，有助于替代手工奖励设计并推动具身强化学习。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2608.13415v1",
+      "source": "arxiv",
+      "title": "Deliberate Practice: Learning Robot Skills under a Budget",
+      "abstract": "We consider the problem of autonomously learning robot skills under a limited practice budget for sequential tasks. We propose an active skill learning algorithm, \\emph{Deliberate Practice (DP)}, that computes a provably \\emph{budget-optimal} allocation---practicing skills that maximize expected cumulative reward while being learnable within the budget. DP estimates both the time needed to master skills and the cumulative reward of the task plans that the skills unlock. Computing a budget-optimal allocation is challenging as it requires reasoning about combinatorially many skill plans over a large practice budget. Our key contribution is a bilinear program that can compute this exactly using off-the-shelf solvers. Through simulated and real-world experiments on long-horizon manipulation tasks, we show that our approach allows robots to optimally use limited practice time to acquire useful policies and improve long-horizon planning.",
+      "authors": [
+        "Shivam Vats",
+        "Sudarshan Harithas",
+        "Mete Tuluhan Akbulut",
+        "Arvind Raghunathan",
+        "George Konidaris"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-08-13T16:09:25+00:00",
+      "link": "https://arxiv.org/pdf/2608.13415v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "autonomous robot skill learning under a practice budget with simulated and real-world experiments",
+      "llm_evidence_cn": "在有限练习预算下使用仿真和真实实验进行自主机器人技能学习",
+      "llm_evidence": "在有限练习预算下使用仿真和真实实验进行自主机器人技能学习",
+      "canonical_evidence": "在有限练习预算下使用仿真和真实实验进行自主机器人技能学习",
+      "llm_tldr_en": "Proposes Deliberate Practice, an active skill learning algorithm that computes a budget-optimal allocation of practice across skills for sequential robot tasks, using a bilinear program solvable with off-the-shelf tools.",
+      "llm_tldr_cn": "该文研究有限练习预算下顺序机器人技能的自主学习方法。Deliberate Practice算法通过估计技能掌握时间及其解锁任务计划的累积奖励，计算最优练习分配。其核心贡献是将该问题建模为双线性规划，可用现有求解器精确求解。在仿真与真实机器人实验中验证了方法的有效性，为资源受限的机器人技能学习提供了预算最优方案。",
+      "llm_tldr": "该文研究有限练习预算下顺序机器人技能的自主学习方法。Deliberate Practice算法通过估计技能掌握时间及其解锁任务计划的累积奖励，计算最优练习分配。其核心贡献是将该问题建模为双线性规划，可用现有求解器精确求解。在仿真与真实机器人实验中验证了方法的有效性，为资源受限的机器人技能学习提供了预算最优方案。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}

@@ -6,53 +6,41 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-08-14
-- 运行时间：2026-08-14 21:03:52 UTC
+- 最新运行日期：2026-08-15
+- 运行时间：2026-08-15 20:32:35 UTC
 - 运行状态：成功
-- 本次总论文数：11
+- 本次总论文数：7
 - 精读区：4
-- 速读区：7
+- 速读区：3
 
 ### 今日简报（AI）
-今日精读聚焦世界模型与具身智能，JEPA-WAM和BrainWAM分别以联合嵌入预测攻克机器人操作与自动驾驶决策。高分方向显示“预测式世界模型”正成为跨任务通用底座，值得优先关注。下一步可结合速读中的具身VLM安全性与质量多样性规划，探索模型落地中的鲁棒性边界。
-- 详情：[/202608/14/README](/202608/14/README)
+今日精读聚焦世界模型与具身智能，共处理7篇论文，其中2篇获9.0高分。最值得关注的是世界模型认知-物理极限与规划质量诊断，为自主体决策提供新视角。建议普通读者优先追踪世界模型在机器人奖励建模和技能学习中的落地应用。
+- 详情：[/202608/15/README](/202608/15/README)
 
 ### 精读区论文标签
-1. [JEPA-WAM: Stage-Level Joint-Embedding Prediction for World-Action Models in Robot Manipulation](/202608/14/2608.10780v2-jepa-wam-stage-level-joint-embedding-prediction-for-world-action-models-in-robot-manipulation)  
+1. [Toward the Cognitive--Physical Limits of Embodied Intelligence through a World-Model-Centric Autonomous Racing Agent](/202608/15/2608.10618v1-toward-the-cognitive--physical-limits-of-embodied-intelligence-through-a-world-model-centric-autonomous-racing-agent)  
    标签：评分：9.0/10、query:wmi
-   evidence：面向机器人操作的世界-动作模型，引入阶段级联合嵌入预测
-2. [BrainWAM: Action-Space Coordination of Semantic Priors and Predictive Dynamics for Autonomous Driving](/202608/14/2608.12854v1-brainwam-action-space-coordination-of-semantic-priors-and-predictive-dynamics-for-autonomous-driving)  
+   evidence：以世界模型为中心的自动驾驶赛车智能体，用于具身智能
+2. [VIScore: Diagnosing Planning-Relevant Quality in Latent World Models](/202608/15/2608.11174v2-viscore-diagnosing-planning-relevant-quality-in-latent-world-models)  
    标签：评分：9.0/10、query:wmi
-   evidence：面向自动驾驶的世界动作模型，结合语义先验与预测动力学
-3. [NestDex: Nested Policy Learning with Copilot Assisted Teleoperation for Dexterous Manipulation](/202608/14/2608.13362v1-nestdex-nested-policy-learning-with-copilot-assisted-teleoperation-for-dexterous-manipulation)  
+   evidence：连接潜在世界模型性质与规划性能的诊断方法
+3. [Foresight Without Seeing: Latent Futures for World Action Models](/202608/15/2608.11605v1-foresight-without-seeing-latent-futures-for-world-action-models)  
    标签：评分：9.0/10、query:wmi
-   evidence：通过副驾驶遥操作采集示范，并采用嵌套策略学习灵巧操作
-4. [DreamX-Phi 1.0: Action-Conditioned Video World Model for Robotic Manipulation](/202608/14/2608.13489v1-dreamx-phi-10-action-conditioned-video-world-model-for-robotic-manipulation)  
-   标签：评分：9.0/10、query:wmi
-   evidence：用于机器人操作的动作条件视频世界模型，包含几何编码
+   evidence：将未来视觉预测与机器人动作生成耦合的世界动作模型
+4. [ComBodied Agents: a New Paradigm of Human-Centric Agentic AI](/202608/15/2608.10915v2-combodied-agents-a-new-paradigm-of-human-centric-agentic-ai)  
+   标签：评分：8.0/10、query:wmi
+   evidence：使用传感器、可穿戴设备、机器人等通道感知和干预人类状态轨迹的具身智能体范式
 
 ### 速读区论文标签
-1. [Explore, Map, Remember, Decide: Are Embodied VLMs Ready for Safety-Critical Scenarios?](/202608/14/2608.08077v1-explore-map-remember-decide-are-embodied-vlms-ready-for-safety-critical-scenarios)  
+1. [ComBodied Agents: a New Paradigm of Human-Centric Agentic AI](/202608/15/2608.10915v1-combodied-agents-a-new-paradigm-of-human-centric-agentic-ai)  
    标签：评分：7.0/10、query:wmi
-   evidence：评估具身VLM在部分可观测条件下的空间记忆与环境内部建模能力
-2. [Discovering Diverse Planning Policies for Multimodal Embodied Agents with Quality-Diversity Optimization](/202608/14/2608.08523v1-discovering-diverse-planning-policies-for-multimodal-embodied-agents-with-quality-diversity-optimization)  
-   标签：评分：7.0/10、query:wmi
-   evidence：为多模态具身智能体发现多样化规划策略
-3. [OpenVisTool: An Open Recipe for Synthesizing Instructive Visual Tool-Use Trajectories](/202608/14/2608.08557v1-openvistool-an-open-recipe-for-synthesizing-instructive-visual-tool-use-trajectories)  
-   标签：评分：7.0/10、query:wmi
-   evidence：从教师生成的示范中学习，强调构建有指导性的视觉工具使用轨迹
-4. [Scaling Automatic Research Agents via World Models](/202608/14/2608.12564v1-scaling-automatic-research-agents-via-world-models)  
-   标签：评分：7.0/10、query:wmi
-   evidence：使用世界模型扩展自动科研智能体的强化学习
-5. [FUSE: Active Functional Affordance Grounding through Adaptive Semantic-Geometric Evidence Acquisition](/202608/14/2608.12683v1-fuse-active-functional-affordance-grounding-through-adaptive-semantic-geometric-evidence-acquisition)  
-   标签：评分：7.0/10、query:wmi
-   evidence：具身代理主动利用传感器探索场景，定位功能可供性
-6. [Self-Evolving Embodied Agents via Skill-Harness Evolution](/202608/14/2608.11350v1-self-evolving-embodied-agents-via-skill-harness-evolution)  
+   evidence：以人为中心的具身智能体范式，利用传感器、可穿戴设备与机器人作为行动通道
+2. [TrustRoboReward: Preference-Ordered Isotonic Score Editing for Multi-Paradigm Robot Reward Models](/202608/15/2608.08491v1-trustroboreward-preference-ordered-isotonic-score-editing-for-multi-paradigm-robot-reward-models)  
    标签：评分：6.0/10、query:wmi
-   evidence：免训练的具身智能体自进化框架，通过环境交互rollout改进技能与执行包装
-7. [Attention from Action, for Action: Emergent Visual Bottlenecks for Policy Learning](/202608/14/2608.13422v1-attention-from-action-for-action-emergent-visual-bottlenecks-for-policy-learning)  
+   evidence：面向具身智能与机器人操作的视觉反馈和奖励模型编辑方法
+3. [Deliberate Practice: Learning Robot Skills under a Budget](/202608/15/2608.13415v1-deliberate-practice-learning-robot-skills-under-a-budget)  
    标签：评分：6.0/10、query:wmi
-   evidence：通过动作导出的视觉瓶颈从轨迹中学习策略
+   evidence：在有限练习预算下使用仿真和真实实验进行自主机器人技能学习
 
 
 <div class="dpr-home-promo-card">

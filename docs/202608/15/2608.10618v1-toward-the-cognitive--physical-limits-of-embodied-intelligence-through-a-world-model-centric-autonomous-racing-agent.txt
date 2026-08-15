@@ -1,0 +1,4283 @@
+Toward the Cognitive–Physical Limits of
+Embodied Intelligence through a
+World-Model-Centric Autonomous Racing Agent
+Zitong Shan1†, Baichuan Lou1†, Yanxin Zhou1†, Shuge Wu1,
+Xianqi He1, Bolin Zhao1, Sheng Zhao1, Zhouheng Li1,
+Chee Kiong Ong2, King Ho Holden Li1, Chen Lv1*
+1School of Mechanical and Aerospace Engineering, Nanyang
+Technological University, 639798, Singapore.
+2K2 Holding, L.L.C, Abu Dhabi, United Arab Emirates.
+*Corresponding author(s). E-mail(s): lyuchen@ntu.edu.sg;
+†These authors contributed equally to this work.
+Abstract
+Embodied artificial intelligence aims to develop agents that perceive, reason,
+and act through continuous interaction with the physical world. Despite rapid
+progress, most embodied systems are still evaluated within conservative safety
+margins or moderately complex interaction regimes, leaving their capability
+boundaries under extreme conditions insufficiently understood. For safe real-
+world deployment, it is essential to understand where the cognitive and physical
+limits of embodied agents lie, and how these limits interact. Autonomous rac-
+ing provides a stringent testbed for this question by combining high-frequency
+localization and perception, adversarial interaction prediction and decision-
+making, near-saturated vehicle dynamics, and strict safety constraints. Existing
+autonomous racing systems have advanced high-speed performance, but rarely
+provide an explicit mechanism for jointly modeling and refining these coupled lim-
+its. Here we show that a world-model-centric autonomous racing agent provides
+a concrete step toward exploring the cognitive-physical limits of embodied intel-
+ligence. The framework learns predictive world models from near-limit successes
+and failures, capturing interaction evolution, ego dynamics, and feasible-motion
+boundaries. This couples world-state construction, future-aware reasoning, and
+near-limit control within a closed-loop refinement process. High quality training
+data were collected from real-vehicle autonomous racing, where the onboard sys-
+tem maintains robust localization and perception at speeds approaching 256.3
+1
+arXiv:2608.10618v1  [cs.RO]  11 Aug 2026
+
+
+km/h with a peak lateral acceleration of 26.8 m/s2. In full-scale autonomous
+racing setting, the well trained world-model-centric agent achieves an 88.3%
+interaction success rate across various challenging simulated racing scenarios.
+Through closed-loop continual refinement of the world model and policy, the
+agent improves its utilization of cognitive-physical limits while recovering from
+failure modes and generalizing across varying conditions and unseen circuits.
+These results suggest a boundary-aware methodology in which the world model
+helps embodied agents represent, predict, and continually refine their capability
+boundaries for safer deployment.
+Keywords: Embodied intelligence, autonomous racing agent, world model, extreme
+conditions, ability limit
+Introduction
+Embodied artificial intelligence (Embodied AI) has emerged as a central paradigm
+in robotics and artificial intelligence by emphasizing intelligence that arises through
+continuous interaction with the physical world [1, 2]. Unlike conventional AI systems
+that operate primarily in abstract or virtual domains, embodied agents must perceive,
+decide, and act under noisy sensing, nonlinear dynamics, and irreversible physical
+consequences [3]. Although substantial progress has been made across autonomous
+driving, aerial robotics, legged locomotion, and manipulation [4], most embodied sys-
+tems are still developed and evaluated within conservative safety margins, moderately
+complex interactions, or well-modeled physical conditions [5]. As a result, their validity
+and capability boundaries under extreme conditions remain insufficiently understood
+[6].
+For safe real-world deployment, it is not sufficient to study only how embodied
+intelligence is generated, learned, or improved. It is equally important to understand
+where its limits lie, how these limits emerge from cognition and physics, and how
+they jointly constrain agent capability under demanding conditions. This challenge
+becomes most evident in extreme tasks, where agents operate persistently near the
+boundaries of feasible state and action spaces [7, 8]. In such settings, small errors
+in perception, prediction, reasoning, or control can rapidly escalate into instability,
+failure, or collision [9, 10].
+In this work, the cognitive limit refers to the boundary of an agent’s ability to
+construct, update, predict, and use task-relevant world understanding under severe
+time pressure, uncertainty, and dynamic interaction. For autonomous racing, this
+includes high-frequency localization and perception under high-speed motion, predic-
+tion of ego–opponent interaction evolution, and decision-making for safe, feasible, and
+competitive maneuvers. The physical limit refers to the boundary of feasible motion
+imposed by vehicle dynamics, actuator saturation, tire–road interaction, aerodynamic
+loading, friction, tire temperature, and stability constraints. These limits are coupled
+rather than independent: uncertainty in localization, perception, and interaction pre-
+diction constrains how safely the physical envelope can be exploited, while the evolving
+physical state determines which future actions remain predictable, feasible, and safe.
+2
+
+
+Autonomous racing provides a uniquely suitable testbed for investigating these
+coupled limits. While agile drones and legged robots have demonstrated remarkable
+near-limit physical performance [10–15], and urban driving or long-horizon robotic
+manipulation emphasize complex reasoning under uncertainty [16, 17], relatively few
+embodied systems require sustained cognitive complexity and persistent operation near
+physical feasibility boundaries. Racing naturally combines high-speed motion, near-
+saturated tire–road dynamics, strict collision constraints, and adversarial multi-agent
+interaction among competing vehicles. It therefore requires an agent to operate near
+the edge of physical feasibility while simultaneously performing high-frequency local-
+ization and perception, interaction prediction, and rapid decisions such as overtaking,
+defending, and interaction-aware planning under uncertainty [18]. Autonomous racing
+is thus not merely a high-performance control problem, but a platform for examining
+how cognitive reasoning and physical execution co-evolve under extreme conditions
+[19, 20].
+Autonomous racing is distinguished by a mature and cross-scale research commu-
+nity [7, 21]. Scaled platforms offer low-cost, reproducible, and extensible testbeds for
+autonomous racing research [21, 22]. These platforms are supported by open-source
+vehicle models, planning and control methods, and experimental tool chains [23–26].
+Recent work has further demonstrated the growing capability of autonomous rac-
+ing systems, including trajectory-conditioned zero-shot racing and on-board reasoning
+with deployed large language models [22, 27]. At the full-vehicle scale, studies on
+real-track racing have accumulated valuable experience in high-speed trajectory gen-
+eration, near-limit maneuvering, and safety-constrained control [28–30], providing a
+concrete basis for studying perception, planning, and control near physical feasibility
+boundaries [7]. The research ecosystem has given rise to a broad range of autonomous
+racing methods.
+Existing autonomous racing approaches can be broadly grouped into optimization-
+based pipelines, learning-based policies, and hybrid frameworks [31–33]. Optimization-
+based methods explicitly encode vehicle dynamics and feasibility constraints, allowing
+structured and interpretable operation near friction limits [34–37]; however, they
+remain difficult to extend to rapidly evolving multi-agent interactions involving oppo-
+nent intent, behavioral uncertainty, and long-horizon coupling [26, 38]. Learning-based
+methods, inspired by advances in game playing, simulated racing, and drone racing
+[8, 39–44], can capture complex observation–action mappings for competitive driving
+[45–47], but often depend strongly on the training vehicle, track geometry, and inter-
+action distribution [48, 49], with limited interpretability and reliability outside the
+original operating regime [50–52]. Hybrid methods improve robustness by combining
+model-based and data-driven components [53], for example by learning cost terms,
+vehicle dynamics, or residual corrections [54–56]. Yet most efforts still optimize task
+performance within a given sensing–planning–control pipeline, rather than explicitly
+modeling how predictive reasoning, interaction understanding, and physical feasibility
+jointly influence the agent’s behavior. As a result, autonomous racing lacks a system-
+atic framework for studying embodied intelligence under coupled cognitive–physical
+limits.
+3
+
+
+This gap motivates the need for a unified predictive substrate that can connect
+cognitive reasoning with physical execution. From a system-level perspective, tra-
+ditional autonomous racing methods often rely on instantaneous state estimation,
+reactive feature representations, or task-specific predictive modules rather than an
+integrated model of the world [1, 7, 57]. For near-limit autonomous racing, such a
+model must predict ego dynamics near feasibility boundaries, capture structured inter-
+action with opponents, represent uncertainty under tight safety margins, and refine
+decision-making and control capability over time. Recent advances in world models
+provide a promising foundation for this role [58–60]. By enabling structured simulation
+of future dynamics and interactions [57, 60], imagination-based reasoning, and coun-
+terfactual evaluation, world models offer a natural mechanism for linking predictive
+world understanding with decision-making and control [41, 61, 62].
+Current Position
+Predicted 
+Position �1
+Predicted 
+Position �2
+Current Position
+Predicted 
+Position �1
+Ego Planned Trajectory 
+under Limits
+Ego Planned Trajectory 
+under Limits
+Ego Planned Trajectory 
+under Limits
+Fig. 1 Autonomous racing under cognitive–physical limits. Autonomous racing requires the
+agent to construct predictive world understanding, reason about the current and future positions of
+surrounding opponents, generate an ego trajectory that remains feasible under physical limits, and
+maneuver near the dynamics boundary.
+To this end, we take a step toward the cognitive-physical limits of embodied
+intelligence through a world-model-centric autonomous racing agent. The proposed
+4
+
+
+framework places a predictive world model at the center of the agent, where it jointly
+models external interaction evolution, ego dynamics, and feasible motion bound-
+aries. This supports high-frequency world-state construction, future-aware interaction
+reasoning, risk-sensitive decision-making, and limit-aware control across track geome-
+tries and operating conditions. Through continual refinement of both the world
+model and the policy, the agent improves decision-making and control capability for
+autonomous racing under joint cognitive-physical limits, as shown in Fig. 1. In this
+way, autonomous racing becomes not only an application domain, but also a concrete
+proving ground for studying how embodied agents can approach, exploit, and regulate
+coupled cognitive-physical limits.
+Results
+World-Model-Centric Racing Agent Architecture
+Extreme autonomous racing makes the cognitive and physical limits of an embod-
+ied agent jointly observable. Cognitively, the agent must maintain robust localization
+and perception under high-speed and high-frequency operation, predict ego–opponent
+interaction evolution, and make safe and competitive decisions under severe time pres-
+sure. Physically, it must exploit the feasible dynamics envelope of the vehicle while
+respecting actuator constraints, tire–road interaction, and stability margins. The fol-
+lowing results therefore evaluate not only racing performance, but also how the agent
+approaches, exploits, and regulates coupled cognitive-physical limits.
+Rather than treating localization, prediction, planning, and control as isolated
+modules, the proposed agent is organized around a shared world model that connects
+cognitive reasoning with physical control. As illustrated in Fig. 2, the architecture
+consists of three coupled components: spatial intelligence, future-aware reasoning, and
+limit-aware control. Spatial intelligence provides the observable basis of the agent’s
+world-state representation through multi-modal sensor fusion for high-frequency local-
+ization and opponent perception. Future-aware reasoning uses world-model rollouts to
+evaluate possible interaction and dynamics futures. Limit-aware control translates the
+selected plan into executable commands while respecting the feasible motion bound-
+ary. Together, these components allow the agent to reason and act under simultaneous
+cognitive and physical constraints.
+The world model serves as the central predictive substrate of the agent. It jointly
+models external interaction evolution, ego dynamics, and physical limits that constrain
+feasible motion. Candidate decisions are evaluated against predicted interaction out-
+comes and future physical feasibility, while physical-limit information feeds back into
+planning and control. At runtime, this forms a perception–prediction–decision–control
+flow: spatial intelligence constructs the current racing state; the world model predicts
+multi-agent interaction and ego-dynamics futures; future-aware reasoning selects a
+safe, feasible, and competitive trajectory; and limit-aware control executes it near the
+physical boundary.
+Beyond online execution, the architecture supports continual refinement of both
+the world model and the policy. Real racing data update the model of ego dynamics,
+interaction evolution, and physical feasibility; the refined world model then provides
+5
+
+
+Extreme tasks
+Performance
+Physical
+Limit
+Cognitive
+Limit
+Core challenges
+Predictive capability
+Limit-aware capability
+Experience-driven 
+adaptation
+Capability 
+requirements 
+Coupled tire-road forces
+High-speed localization
+Adversarial interactions
+Near-limit maneuvering
+Spatial intelligence
+Opponent 
+states
+Local track
+Ego states
+Future-aware reasoning
+Limit-aware control
+World model
+Parallel Futures
+Evaluation
+Optimization 
+Problem 
+Policy Trainer
+CiLQR
+Solver
+Selected 
+trajectory
+World 
+state
+Trajectory
+candidates
+Execution
+Control command
+Data
+Real world
+data
+Trained Policies
+Internal simulation
+Future 
+prediction 
+Model 
+Parameters
+Augmented
+data
+Physical limit 
+exploration 
+& adaptation
+Acceleration 
+envelope
+Decision policy 
+update
+    SAC
+with CQL 
+Best-of-K 
+supervision
+�
+Objectives
+Constraints 
+Decision 
+policy
+Forward 
+rollout
+Interaction 
+prediction 
+model
+Dynamics 
+prediction 
+model
+Planner 
+update
+BC 
+loss 
+Experience
+Multimodal
+Delta 
+Planner 
+Speed 
+replanner
+Fig.
+2 World-model-centric
+architecture
+for
+autonomous
+racing
+under
+coupled
+cognitive-physical limits. Extreme racing tasks impose coupled cognitive and physical limits
+that require predictive capability, limit-aware control, and continual refinement beyond conventional
+paradigms. The proposed architecture is centered on a shared world model that connects spatial intel-
+ligence, future-aware reasoning, and limit-aware control. Real-vehicle racing data were collected for
+model training, providing physical grounding and interaction priors for world-model refinement. The
+the refined world model provides future predictions and feasible-motion priors for subsequent policy
+improvement.
+structured predictions for improving future-aware reasoning and limit-aware control.
+This closed-loop refinement allows the agent to improve both cognitive capability,
+including interaction reasoning and decision-making, and physical capability, including
+dynamic-envelope utilization and stability near the limit.
+Overall, the world-model-centric architecture provides a concrete mechanism for
+studying coupled cognitive-physical limits in autonomous racing. The subsequent
+results examine this mechanism through high-frequency localization and perception,
+6
+
+
+predictive world modeling, adversarial interaction reasoning, limit-aware control, and
+progressive agent evolution across conditions.
+Predictive World Model under Cognitive-Physical Limits
+Operating near the cognitive-physical limits requires the agent to both reconstruct the
+current racing state and predict its future evolution under near-limit conditions. This
+section evaluates these two connected layers: high-frequency localization and percep-
+tion for current-state construction, and world modeling for predicting ego dynamics,
+physical feasibility, and interaction evolution. Together, they transform raw sensing
+into predictive world understanding for downstream reasoning and control.
+(a)
+(c)
+(d)
+(b)
+Fig. 3 Predictive world understanding from high-frequency localization and world mod-
+eling. High-frequency localization and opponent perception provide the current racing state, while
+the world model predicts ego dynamics, physical feasibility, and interaction evolution under near-
+limit racing conditions. (a) Localization and opponent perception in full-scale autonomous racing. (b)
+Ego dynamics prediction under aggressive maneuvering. (c) Physical motion boundary representation
+through feasible acceleration envelope evolution. (d) Interaction prediction under extreme conditions.
+High-frequency localization and perception provide the observable foundation of
+the current racing state. The localization and ego-state estimation module fuses
+7
+
+
+LiDAR, RTK, IMU, and wheel-speed measurements to maintain a stable ego pose
+under aggressive maneuvering. As shown in Fig. 3(a), the point-cloud map and esti-
+mated motion trajectory remain consistently aligned during full-scale racing. At peak
+speeds approaching 256.3 km/h, the fused-state residuals remain bounded through-
+out the lap: the lateral position residual is generally within 0.3 m, the longitudinal
+position residual remains within about 2.0 m, and the longitudinal and lateral veloc-
+ity residuals remain within about 1.8 m/s, with medians concentrated near 0.1 m/s.
+The yaw residual is bounded within about 0.06 rad relative to dual-GPS heading and
+within about 0.01 rad relative to LiDAR odometry. Opponent perception and tracking
+further extend the current racing state from ego localization to the interactive scene.
+Surrounding vehicles are detected and tracked under high-speed and close-proximity
+conditions by fusing LiDAR-based geometric measurements with radar-based veloc-
+ity cues into unified object states through probabilistic state estimation. As shown in
+Fig. 3(a), the perceived opponent vehicles remain temporally coherent over full-lap
+runs, providing the opponent-state foundation required for interaction prediction and
+future-aware reasoning.
+The world model then extends the current racing state into predictive under-
+standing. It contains three complementary components: ego dynamics prediction,
+physical-limit representation, and interaction prediction. The ego dynamics model pre-
+dicts future vehicle motion under varying control inputs using a differentiable dynamics
+backbone with a residual neural network model. As shown in Fig. 3(b), the model
+captures key near-limit motion states with RMSE values of 0.197 m/s for longitudi-
+nal velocity, 0.099 m/s for lateral velocity, 0.042 rad/s for yaw rate, 1.514 m/s2 for
+longitudinal acceleration, and 1.983 m/s2 for lateral acceleration. These prediction
+errors quantify the ability of the world model to represent the ego vehicle’s dynam-
+ics response under aggressive control inputs, providing the basis for evaluating future
+candidate maneuvers near the physical boundary.
+The physical-limit representation quantifies the feasible motion boundary of the
+ego vehicle. As shown in Fig. 3(c), the feasible acceleration envelope varies with vehicle
+speed: achievable lateral and braking accelerations expand with increasing aerody-
+namic effects, while longitudinal acceleration capability decreases due to powertrain
+limitations. By integrating actuator capability, tire–road constraints, and speed-
+dependent vehicle dynamics into a coupled acceleration envelope, the world model
+provides a quantitative representation of physical feasibility. This envelope acts as a
+dynamic constraint for planning and control, allowing candidate actions to be evalu-
+ated not only by racing utility, but also by whether they remain within the current
+physical capability of the vehicle.
+The interaction prediction component models the future evolution of multi-agent
+racing scenarios. An attention-based predictive interaction model encodes the rela-
+tive spatial relations among interacting agents. By predicting opponent intentions and
+recursively rolling out the resulting state transitions, the interaction model antici-
+pates interaction evolution beyond immediate observations. As illustrated in Fig. 3(d),
+the predictions are generated in a structured track-coordinate system, preserving the
+spatio-temporal consistency of the interactive scene. Over a 3 s horizon, the model
+achieves a mean ADE of 1.58 m and a median ADE of 0.68 m, together with a
+8
+
+
+mean FDE of 2.55 m and a median FDE of 0.78 m. This predictive capability allows
+downstream reasoning to evaluate candidate maneuvers against anticipated opponent
+motion rather than only the current observed state.
+This two-layer characterization links the cognitive foundation of the agent to
+downstream decision-making and control. High-frequency localization and perception
+establish a reliable current racing state, while the world model predicts future ego
+dynamics, physical feasibility, and interaction evolution. The resulting predictive world
+understanding enables candidate maneuvers to be evaluated against both interac-
+tion uncertainty and physical feasibility, supporting future-aware decision-making and
+limit-aware control.
+Future-Aware Reasoning for Adversarial Interaction
+Adversarial interaction in autonomous racing exposes the cognitive-physical coupling
+of the agent. A competitive maneuver is not safe or effective simply because it appears
+strategically advantageous at the current instant; it must also remain feasible under the
+future evolution of opponent motion and near-limit ego dynamics. Therefore, future-
+aware reasoning is formulated as a predictive decision process that evaluates candidate
+actions against both interaction uncertainty and physical feasibility.
+As illustrated in Fig. 4(a), the proposed agent performs future-aware reasoning
+through parallel world-model rollouts. Based on the observed world state, the system
+generates a main-decision trajectory that represents the nominal racing intention. A
+delta-trajectory manifold is produced to encode multimodal deviations around this
+main trajectory. These delta trajectories are applied to the main-decision trajectory
+to form multimodal trajectories. To further diversify longitudinal behavior, the multi-
+modal trajectories are combined with prescribed speed factors, yielding 36 candidate
+trajectories for world-model evaluation. These candidate trajectories are propagated
+through the world model to produce parallel futures. Each future jointly contains pre-
+dicted opponent responses, ego-motion evolution, and feasibility information under
+near-limit conditions. The resulting futures are then evaluated according to safety,
+physical feasibility, and speed efficiency, enabling the agent to select a maneuver that
+is not only competitive, but also executable by the downstream limit-aware control
+module.
+The predictive basis of this reasoning process is validated through a real-world
+wheel-to-wheel racing interaction. As shown in Fig. 4(b), the onboard image sequence
+captures a short-horizon overtaking process, where the realized trajectories of the
+ego vehicle and the opponent are compared with the corresponding world-model
+prediction. The predicted interaction remains consistent with the observed trajecto-
+ries, indicating that the world model captures the coupled short-horizon evolution of
+ego and opponent motion. This consistency is critical for decision-making near the
+cognitive-physical limit, because prediction errors can cause the agent to misjudge
+whether an overtaking maneuver will remain safe, feasible, and competitive in the next
+few seconds.
+The functional role of the world model for real-time execution is demonstrated
+by ablation in Fig. 4(c). Under the same racing scenario, future-aware reasoning sup-
+ported by the world model leads to a feasible overtaking maneuver, whereas removing
+9
+
+
+with world model
+without world model
+Delta trajectory 
+manifold 
+Selected 
+trajectory
+Trajectory 
+evaluation
+Safety
+Speed
+Observed 
+world state
+Multimodal candidates generation
+Predictive reasoning over parallel futures
+world model 
+rollouts
+Main-decision 
+trajectory
+(a)
+(b)
+T0
+T0
+T0 + 0.5 s
+T0 + 1.0 s
++ 1.5 s
+Parallel futures
+�0
+�0 + d�
+�0 + 2d�
+�
+(c)
+�
+(d)
+Speed 
+Replan
+Fig. 4 Future-aware reasoning for adversarial interaction under coupled cognitive-
+physical limits. The world model supports multimodal trajectory generation, parallel future
+evaluation, and planning selection by jointly considering interaction safety, physical feasibility, and
+speed efficiency. (a) Future-aware reasoning process from observed world state to multimodal can-
+didate generation and parallel future evaluation. (b) Real-world prediction validation during a
+wheel-to-wheel racing interaction. (c) Ablation of agent behavior with and without the world model,
+showing how prediction affects downstream physical execution. (d) Benchmark comparison of com-
+petitive interaction performance.
+the world model results in a collision. With the world model, the agent generates
+multimodal candidate maneuvers in future predicted interactions and evaluates the
+combined speed and safety scores of the candidates. Collision futures are identified
+before execution, while the selected candidate achieves the highest score among feasible
+maneuvers and results in a successful overtaking pose. Without the world model, the
+agent lacks reliable anticipation of future interaction and physical feasibility, leading
+to a decision that is plausible from the current observation but unsafe when executed.
+10
+
+
+This comparison shows how world-model prediction directly affects downstream phys-
+ical execution: insufficient anticipation of interaction evolution can turn a nominally
+reasonable decision into a physically unsafe maneuver.
+Quantitative comparison across benchmark methods further demonstrates the
+effectiveness of the world-model-driven policy (Ours), as shown in Fig. 4(d). The pro-
+posed policy is evaluated in full-scale autonomous racing simulation for adversarial
+interaction against behavior cloning (BC), soft actor-critic (SAC), and a rule-based
+planner. The proposed method achieves the highest success rate, reaching 88.3%,
+corresponding to gains of 40.8% over BC and 29.3% over SAC. It also delivers the
+longest safe mileage, exceeding 6.4 km, while maintaining competitive average speed.
+Moreover, the higher overtaking frequency indicates that the performance gain is
+not obtained by conservative driving alone, but by more effective interaction-aware
+decision-making. World-model rollouts screen multimodal trajectory candidates in pre-
+dicted interaction futures, filtering out maneuvers with safety risks before execution
+and thereby improving decision reliability.
+These metrics jointly reflect the cognitive side of the limit: the agent must predict
+interaction evolution accurately enough to distinguish safe, feasible, and competitive
+maneuvers under severe time pressure. The results show that world-model rollouts link
+adversarial interaction reasoning with downstream limit-aware control. By evaluating
+candidate maneuvers against predicted opponent responses, safety risks, physical fea-
+sibility, and efficiency before execution, the agent selects safe actions that are both
+competitive and executable under joint cognitive-physical limits.
+Limit-Aware Control near the Dynamics Boundary
+Limit-aware control tests whether maneuvers selected by future-aware reasoning can
+be executed safely near the dynamics boundary of the vehicle. In autonomous racing,
+this boundary is not a fixed speed or acceleration value, but a coupled feasible-motion
+envelope shaped by vehicle dynamics, actuator constraints, tire–road interaction, aero-
+dynamic loading, road condition, tire temperature, and stability margins. The world
+model provides a predictive representation of this boundary through ego-dynamics pre-
+diction and physical-limit modeling, which regularizes candidate trajectories upstream
+and constrains the dynamics controller downstream.
+Fig. 5(a) shows the full-lap racing trajectory and the corresponding vehicle states
+projected into the ax–ay–vx space. This projection provides a vehicle-level view of
+physical-limit utilization by comparing coupled longitudinal–lateral acceleration states
+with the feasible dynamics envelope informed by the world model. Along the track,
+aggressive braking before corners and strong acceleration at corner exits are reflected
+in the variation of ax, showing active exploitation of the vehicle’s coupled motion
+capability. The autonomous racing vehicle reaches a maximum speed of 71.2 m/s and
+maintains an average speed of 47.6 m/s over the full lap. The maximum longitudinal
+acceleration and deceleration reach approximately 1g and 3g, respectively, while the
+peak lateral acceleration reaches 26 m/s2. The vehicle states in Fig. 5(a) indicate that
+the vehicle motion is competitive while remaining within the feasible motion region.
+Within the world model, physical-limit exploration yields a vehicle-level accelera-
+tion envelope that characterizes the feasible boundary of coupled longitudinal–lateral
+11
+
+
+Apex
+Spin
+Apex Point View
+Spin Point View
+(c)
+(b)
+(a)
+T2
+T3
+T4
+T7
+T8
+T1
+T6
+T5
+Fig.
+5 Limit-aware
+high-speed
+dynamics
+control
+performance. World-model-informed
+physical-limit awareness constrains downstream control and enables aggressive high-speed operation
+near the feasible dynamics boundary while maintaining stability. (a) Full-lap trajectory and vehicle
+states in the ax–ay–vx space, showing operation near the feasible dynamics envelope. (b) Tire-level
+limit utilization by slip ratio and slip angle. (c) Spin suppression through adaptive degradation of
+the effective physical limit.
+motion. By imposing this envelope as a systematic constraint of the racing agent,
+the vehicle motion is regulated to approach the physical boundary for performance
+exploitation while avoiding persistent excursions beyond the feasible region.
+The vehicle-level envelope is supported by tire-level force generation and closed-
+loop controllability. As shown in Fig. 5(b), tire utilization across the T1–T8 corners
+is characterized by slip ratio and slip angle distributions. The slip ratio peaks at
+approximately ±10%, while the slip angles of both axles remain within about ±5◦,
+indicating operation close to the stable tire-force generation region without persistent
+12
+
+
+saturation. The downstream controller also maintains accurate tracking and stability
+during high-speed near-limit racing: the mean absolute lateral tracking error is 0.11 m
+and the mean absolute speed tracking error is 0.34 m/s, with peak values of 0.69 m and
+3.23 m/s, respectively. The mean absolute yaw-rate discrepancy is 0.073 rad/s, with
+a peak value of 0.525 rad/s. These peak errors correspond mainly to short-duration
+excursions during aggressive braking, cornering, or acceleration, rather than persistent
+tracking degradation or instability. The physical-limit acceleration envelope moderates
+downstream tire-force demand and prevents persistent excursions beyond tire-force
+limits, thereby enabling safe and high-performance maneuvering near the boundary.
+The role of world-model-informed physical-limit-aware adaptation is further high-
+lighted by the failure and recovery scenario in Fig. 5(c). In real vehicle racing, when
+the safety-car phase ends, a sudden acceleration command near the apex of a high-
+curvature corner, combined with high lateral load and suboptimal tire temperature,
+causes abrupt traction loss and spin. To improve robustness near the physical bound-
+ary, three limit-degradation mechanisms are evaluated: a direct thermal-adaptive
+mechanism (Thermal-Adapt), a world-model-based prediction-deviation mechanism
+(WM-Enhanced), and a synergistic mechanism combining both sources of limit infor-
+mation. With the proposed approach, these mechanisms prevent the vehicle from
+spinning by reducing the effective physical boundary before instability develops.
+Thermal-Adapt and WM-Enhanced restrict the peak slip angle to −2.34◦and −4.01◦,
+respectively, while the synergistic mechanism applies a more conservative fused bound-
+ary and further restricts the peak slip angle to −1.43◦, at the cost of reduced
+corner-exit performance. Physical-limit-aware adaptation therefore improves aggres-
+sive driving safety by adjusting the effective acceleration envelope according to thermal
+state and world-model prediction deviation. By contracting the admissible motion
+boundary before instability fully develops, it suppresses excessive acceleration demand
+and helps maintain stable vehicle motion during near-limit maneuvers.
+Limit-aware control therefore forms the execution layer of the cognitive-physical
+framework. The world model provides predicted ego dynamics and feasible-motion
+boundaries, future-aware reasoning selects trajectories under safety, speed, and feasi-
+bility criteria, and the controller executes the selected maneuver while respecting tire,
+stability, and acceleration-envelope constraints. This closes the loop between upstream
+prediction, competitive decision-making, and near-limit physical execution.
+Agent Evolution Through the World Model
+The world model enables the agent to refine its use of coupled cognitive-physical lim-
+its over time. Rather than improving racing performance through policy optimization
+alone, the framework updates predictive models of ego dynamics, interaction evolu-
+tion, and physical feasibility, and uses them to improve both future-aware reasoning
+and limit-aware control. Agent evolution is therefore reflected not only in faster lap
+times, but also in expanded physical-limit utilization, safer competitive interaction,
+and adaptability across operating conditions.
+The physical side of world-model-driven agent evolution is reflected in the physical
+boundary expansion and lap-time reduction. Fig. 6(a) shows that lap time decreases
+13
+
+
+Yas Marina North 
+Circuit 
+Yas Marina Circuit 
+Suzuka Circuit
+Autonodrome
+(e)
+(d)
+(c)
+(b)
+71.2
+71.0
+71.9
+72.3
+5.2
+88.9%
+Max Speed (m/s)
+Overataking (per lap)
+Success Rate (%)
+Zero-Shot 
+Simulation Transfer 
+to Unseen Circuits
+Average Speed (m/s)
+47.6
+46.6
+47.8
+49.5
+9.2
+87.2%
+10.9
+86.3%
+9.8
+87.6%
+Overtake
+Be Overtaken
+Collision
+(a)
+Fig. 6 Agent evolution through the world model. Closed-loop refinement improves racing per-
+formance, interaction capability, and robustness across conditions. (a) Improved racing performance
+through cumulative world-model data. (b) Progressive expansion of reachable states in the ax–ay–
+vx space during agent evolution. (c) Improved interaction performance with increasing world-model
+rollouts. (d) Adaptation under varying tire temperatures and road friction. (e) Zero-shot transfer to
+unseen circuits.
+while average speed increases as cumulative world-model data grows. Across the refine-
+ment process, the average lap time improves by 17.87%, while the average speed
+increases by 22.02%. This improvement is accompanied by expansion of the reach-
+able acceleration states. As shown in Fig. 6(b), the distribution of vehicle states in
+the longitudinal–lateral acceleration space expands toward the feasible acceleration
+envelope, indicating that the agent exploits a larger portion of the vehicle’s physical
+capability while maintaining feasible and stable motion.
+The cognitive side of this evolution appears in improved interaction reasoning and
+decision-making. As shown in Fig. 6(c), reinforcement learning based on world-model
+rollouts generates interactive scenarios that are scarce in real racing, allowing the
+14
+
+
+agent to improve competitive behavior under adversarial interaction. With accumu-
+lated world-model refinement, the interaction success rate increases from 42.6% to
+88.9%, reaching a peak of 91.7%; the average overtaking count per lap increases from
+2.78 to 4.80; and the collision rate per interaction decreases from 41.9% to 5.8%, with
+a minimum of 4.0%. Compared with the ablated variant without future-aware rea-
+soning, the proposed method improves success rate by 34.7%, increases overtaking
+frequency by 23.4%, and reduces collision rate by 19.8%. These improvements indi-
+cate that the refined world model helps the agent distinguish actions that are safe,
+feasible, and competitive under interaction uncertainty.
+Fig. 6(d) further shows how cognitive and physical limits are jointly regulated
+under changing operating conditions. The ego limit factor is adaptively adjusted under
+different tire temperatures and road friction levels, and the corresponding lap-time
+surface reflects how performance varies as the available physical boundary changes.
+Instead of treating the physical limit as fixed, the agent adapts the effective boundary
+to current conditions so that planning and control remain compatible with the vehicle’s
+available capability.
+The evolved agent also generalizes across unseen circuits in simulation, as shown
+in Fig. 6(e). After training on the Yas Marina North Circuit, the agent was trans-
+ferred without additional training to the Yas Marina Full GP layout, Autonodrome,
+and Suzuka Circuit. These circuits differ in track length, curvature distribution, cor-
+ner density, high-speed straight sections, and overtaking opportunities, thereby testing
+whether the refined agent preserves cognitive reasoning and physical-limit-aware exe-
+cution under changed track geometry. Maximum speeds remain around 70 m/s across
+all circuits, while overtaking frequency varies with track characteristics. The success
+rate in 20 s random interactive scenarios remains close to 90%, indicating consistent
+interaction performance in zero-shot transfer. These results show that world-model
+refinement supports the co-evolution of cognitive reasoning and physical-limit utiliza-
+tion, enabling the agent to better predict interaction futures, select competitive yet
+feasible maneuvers, exploit the dynamics envelope, and adapt the effective physical
+boundary across conditions.
+Discussion
+This work uses autonomous racing as an extreme testbed for exploring the cognitive-
+physical limits of embodied intelligence. The goal is not merely to develop a faster
+racing system, but to investigate how an embodied agent can construct, predict,
+exploit, and regulate its capability boundaries under simultaneous cognitive and phys-
+ical constraints. In this setting, cognitive limits arise from high-frequency localization
+and perception, interaction prediction, and decision-making under severe time pres-
+sure, while physical limits arise from vehicle dynamics, actuator constraints, tire–road
+interaction, thermal variation, and stability margins. The results show that these lim-
+its are coupled: uncertainty in perception or interaction prediction affects how safely
+the physical envelope can be exploited, while the evolving physical state constrains
+which future actions remain feasible and safe.
+15
+
+
+A central implication is that world models can serve as a bridge between cognitive
+reasoning and physical control in extreme embodied tasks. In the proposed racing
+agent, the world model jointly predicts external interaction evolution, ego dynamics,
+and feasible motion boundaries. This allows candidate maneuvers to be evaluated
+before execution in terms of opponent response, safety risk, physical feasibility, and
+speed efficiency. As shown by the interaction-reasoning and dynamics-control results,
+this predictive structure transforms adversarial reasoning into executable near-limit
+maneuvers while constraining downstream control near the feasible dynamics envelope.
+The results also suggest that embodied capability can evolve through closed-loop
+refinement of world modeling, decision-making, and physical-limit regulation. As the
+world model is refined, the agent improves lap time, average speed, acceleration-state
+coverage, interaction success, overtaking capability, collision avoidance, and adaptation
+to changing tire and road conditions. This improvement is therefore not a single-
+dimensional performance gain, but a coupled evolution of cognitive reasoning and
+physical-limit utilization.
+Beyond autonomous racing, the present work suggests a boundary-aware method-
+ology for embodied intelligent systems. For robots operating in the real world, safety
+and performance depend not only on selecting desirable actions, but also on whether
+those actions remain predictable, feasible, and safe under current sensing, interaction,
+and physical constraints. This perspective shifts the design objective from optimizing
+isolated modules toward modeling and regulating coupled system-level boundaries.
+High-speed mobile robots, agile aerial vehicles, legged robots on risky terrain, human–
+robot collaborative systems, and manipulation systems with rich contact dynamics
+all involve different forms of such boundary awareness: localization uncertainty can
+reduce control margins, inaccurate prediction of human or agent motion can make a
+feasible action unsafe, and changing contact, friction, or load conditions can invalidate
+a previously reasonable plan.
+Several limitations remain. The current framework is developed and validated in
+autonomous racing, where task structure, vehicle dynamics, track geometry, and inter-
+action patterns are more constrained than in many open-world robotic applications.
+Extending this approach will require richer world representations, broader uncertainty
+modeling, and stronger mechanisms for semantic ambiguity, human intent, deformable
+contact, and unmodeled environmental changes. Moreover, the results do not establish
+an absolute theoretical upper bound of embodied intelligence; rather, they operational-
+ize cognitive and physical limits through observable indicators such as localization
+robustness, interaction prediction, decision safety, dynamic-envelope utilization, tire-
+level behavior, and stability margins. Overall, this work suggests that cognitive and
+physical limits should be treated as coupled system-level design objects rather than iso-
+lated module-level constraints, and that world-model-centric agents provide a concrete
+path toward representing, exploiting, and regulating these limits for safer real-world
+deployment.
+16
+
+
+Methods
+System Formulation under Cognitive-Physical Limits
+The proposed system is formulated as a world-model-centric architecture for
+autonomous racing near coupled cognitive-physical limits. The agent integrates
+current-state construction, predictive reasoning, and motion control through a shared
+world model. At runtime, the world model predicts both interaction evolution and ego
+dynamics, allowing candidate maneuvers to be evaluated against future safety, rac-
+ing efficiency, and physical feasibility before execution. Over longer time scales, real
+racing data refine the world model, and the refined world model provides structured
+predictions for updating decision-making, planning, and limit-aware control.
+At time step t, the agent receives surrounding observation ot, ego vehicle state xt,
+and local track information Γt. These inputs are integrated into a structured world-
+state representation
+wt = Ψw(xt, ot, Γt),
+(1)
+where Ψw(·) denotes the state representation function. Here, wt contains not only the
+basic ego, opponent, and track information, but also evaluation-related information
+that can be derived from the structured scene, such as collision status, boundary
+violation, and physical feasibility. Using the world model W, the future evolution of
+the world state ˆwt:t+H is predicted over a finite horizon H.
+Based on the current world state, the decision policy π generates a main racing deci-
+sion. Together with a transformer-based multimodal planner, this decision produces a
+set of candidate trajectories,
+Tt =
+
+τ k
+t
+	K
+k=1 ,
+(2)
+where K is the number of candidate trajectories over the planning horizon H. Each
+candidate trajectory is propagated through the world model to generate a corre-
+sponding future. The candidate set is then evaluated using a task-oriented score that
+jointly considers interaction safety, physical feasibility, and speed efficiency. The opti-
+mal trajectory τ ∗is then selected from Tt based on their future-evaluation scores. This
+formulation allows the agent to choose maneuvers that are competitive in the racing
+task while remaining safe and physically executable.
+Given the selected trajectory τ ∗
+t , the motion-control module computes executable
+commands by solving a constrained optimization problem,
+u∗
+t = arg
+min
+ut:t+Hc−1 J(xt, ut:t+Hc−1; τ ∗
+t , Et),
+(3)
+subject to
+xt+j+1 = fdyn(xt+j, ut+j),
+j = 0, . . . , Hc −1,
+(4)
+h(xt+j, ut+j, Et+j) ≤0,
+j = 0, . . . , Hc −1,
+(5)
+where xt is the ego vehicle state, ut = [ax, δ]⊤contains longitudinal acceleration
+and steering commands, fdyn(·) is the control-oriented vehicle dynamics model, Et+j
+denotes the feasible-motion envelope estimated from the world model, and h(·) enforces
+coupled longitudinal–lateral motion feasibility. The reference state xref
+t+j is induced by
+the selected trajectory τ ∗
+t and enters the tracking objective in J(·). In this way, the
+17
+
+
+downstream controller executes the selected maneuver while respecting the current
+physical capability of the ego vehicle.
+Beyond online decision-making and control, the architecture supports closed-loop
+refinement of the world model and the policy. Real racing data Dreal are used to train
+the world model through supervised prediction of ego dynamics, interaction evolution,
+and physical feasibility. The refined world model then generates simulated rollouts
+Dwm under controlled variations of interaction and near-limit operating conditions.
+The combined dataset D is used to update the decision and planning models and to
+refine physical-limit constraints. This closed-loop process links real racing data, world-
+model prediction, policy improvement, and limit-aware control, enabling progressive
+improvement under coupled cognitive and physical limits.
+Predictive World Modeling for the Autonomous Racing Agent
+The world model is implemented as a structured predictive module of the autonomous
+racing agent operating near cognitive-physical limits. It supports online future-aware
+reasoning and limit-aware control, while also enabling offline policy refinement through
+structured internal inference. Starting from the world-state representation wt, which
+integrates the ego vehicle state, surrounding opponents, and local track context, the
+world model is composed of three predictive components: an ego dynamics model, an
+interaction prediction model, and a physical-limit representation. These components
+jointly predict how the ego vehicle, the surrounding racing scene, and the feasible
+motion boundary evolve under near-limit conditions.
+The ego dynamics model provides short-horizon prediction of vehicle motion under
+aggressive control inputs. It adopts a physics-constrained residual-learning formula-
+tion, in which the next-step state is represented by a differentiable dynamics backbone
+with residual correction:
+ˆxt+1 = fdyn(xt, ut; θdyn) + fres(xt−h:t, ut−h:t; θres) ,
+(6)
+where fdyn provides a structured state transition and fres captures unmodeled non-
+linear effects. The physics backbone preserves the main coupling among longitudinal
+motion, lateral motion, yaw dynamics, and wheel rotational behavior, while the
+dynamics-related parameters θdyn are constrained within physically plausible ranges
+through bounded learnable parameters. The residual model, parameterized by θres,
+further refines the prediction using recent state and control histories. This formulation
+allows the model to capture transient nonlinearities that are difficult to analytically
+describe while retaining physical coherence under near-limit maneuvering.
+The interaction prediction model captures the evolution of multi-agent racing sce-
+narios. Given the structured world state, surrounding opponents are represented by
+their relative spatial relations to the ego vehicle and organized into position-aware
+slots. An attention-based interaction encoder, consisting of multilayer perceptrons
+followed by a masked attention-pooling layer, embeds this relational context and pre-
+dicts a latent interaction intention for each agent. Racing-relevant behaviors, including
+attack, defense, hold, and yield, are implicitly represented in this latent intention
+space. At inference time, the world model is recursively rolled out to generate future
+18
+
+
+interaction scenarios:
+ˆwt:t+H = W H(wt, at:t+H−1),
+(7)
+where W H(·) denotes recursive world-model prediction over horizon H, at:t+H−1
+denotes candidate action inputs or behavior hypotheses, and ˆwt:t+H denotes the
+predicted future world states. These predicted futures allow the agent to evaluate can-
+didate trajectories against possible opponent responses rather than relying only on
+the current observation.
+The physical-limit representation describes the feasible motion boundary of the
+ego vehicle. In autonomous racing, this boundary is shaped by vehicle dynamics,
+actuator constraints, tire–road interaction, aerodynamic loading, road friction, tire
+temperature, and stability margins, and is manifested at the vehicle level as a coupled
+longitudinal–lateral acceleration envelope. The envelope is represented as
+
+
+
+
+
+
+
+
+
+
+ax,k
+aacc
+x,max(vx,k, µk)
+c
++
+
+|ay,k|
+ay,max(vx,k, µk)
+c
+≤1,
+ax,k ≥0,
+
+|ax,k|
+adec
+x,max(vx,k, µk)
+c
++
+
+|ay,k|
+ay,max(vx,k, µk)
+c
+≤1,
+ax,k < 0.
+(8)
+Here ax,k and ay,k denote longitudinal and lateral accelerations, vx,k is the longi-
+tudinal speed, µk is the road-friction coefficient, and c controls the shape of the
+coupled envelope. The acceleration limits aacc
+x,max, adec
+x,max, and ay,max describe speed-
+and friction-dependent acceleration, braking, and lateral capabilities.
+A nominal envelope E0 is induced from the dynamics parameters θdyn identified by
+the differentiable dynamics model, providing a structured prior of the vehicle’s motion
+capability. Because the effective physical boundary varies with operating conditions
+and model mismatch, physical-limit exploration and online adaptation are introduced
+to scale the nominal envelope:
+Et = E(ρa(wt), ρe; E0(θdyn)),
+(9)
+The exploration vector ρe enlarges the envelope from a conservative initialization
+as near-limit racing data accumulate, while the adaptive factor ρa(wt) modulates
+the envelope online according to road friction, tire temperature, and world-model
+prediction error. This allows the effective envelope Et to approach the available physical
+capability without exceeding the prescribed limit criterion.
+Through these three components, the world model provides a predictive rep-
+resentation of both cognition-relevant and physics-relevant future evolution. Ego
+dynamics prediction estimates how the vehicle responds near the physical bound-
+ary; interaction prediction anticipates how opponents may react; and physical-limit
+representation determines which future motions remain feasible. This predictive rep-
+resentation supplies the basis for future-aware reasoning, limit-aware control, and
+closed-loop refinement of the agent.
+19
+
+
+Quantifying Cognitive and Physical Limits
+The cognitive and physical limits in this work are quantified through observable indica-
+tors rather than treated as absolute theoretical bounds. These indicators measure how
+the agent constructs the current racing state, predicts future evolution, selects compet-
+itive actions, and executes them near the feasible motion boundary. Detailed indicator
+definitions, normalization thresholds, and implementation settings are provided in
+Supplementary Methods Section S3.
+The cognitive limit is evaluated along the perception–prediction–decision chain.
+Current-state construction is quantified by localization and ego-state residuals,
+estate
+t
+=
+
+|ex,t|, |ey,t|, |evx,t|, |evy,t|, |eψ,t|
+
+,
+(10)
+where ex,t and ey,t are longitudinal and lateral position residuals, evx,t and evy,t are
+velocity residuals, and eψ,t is the heading residual. Opponent perception is further
+assessed by the temporal consistency of tracked opponent states. Predictive capability
+is evaluated by ego-dynamics prediction errors and interaction-prediction accuracy.
+For short-horizon ego–opponent interaction prediction, average displacement error and
+final displacement error are defined as
+ADE = 1
+T
+T
+X
+i=1
+∥ˆot+i −ot+i∥2 ,
+(11)
+FDE = ∥ˆot+T −ot+T ∥2 ,
+(12)
+where ˆot+i and ot+i denote the predicted and ground-truth opponent states at pre-
+diction step i. Closed-loop decision capability is measured by interaction success rate,
+collision rate, safe mileage, and overtaking frequency. The interaction success rate is
+defined as
+Rsucc = Nsucc
+Ntotal
+,
+(13)
+where Nsucc the number of successfully completed interaction trials and Ntotal is
+the total number of interaction trials. These metrics characterize whether the agent
+can distinguish maneuvers that are safe, feasible, and competitive under severe time
+pressure and interaction uncertainty.
+The physical limit is evaluated by how closely the ego vehicle approaches and
+maintains feasible motion under near-limit execution. At the vehicle level, acceleration-
+envelope utilization is defined by the normalized envelope function
+ηenv,t = gE (ax,t, ay,t, vx,t, µt; Et) ,
+(14)
+where gE(·) is induced by the coupled acceleration envelope in Eq. (8). A value
+ηenv,t ≤1 indicates that the executed longitudinal–lateral acceleration remains inside
+the feasible envelope, while values close to one indicate operation near the physical
+boundary.
+20
+
+
+To capture physical-limit phenomena across different layers, we further define a
+hybrid physical-limit utilization,
+ηlim,t = max (ηtire,t, ηcontrol,t, ηstability,t) ,
+(15)
+where ηtire,t is computed from tire slip ratio and slip angle, ηcontrol,t from lateral
+and speed tracking errors, and ηstability,t from yaw-rate discrepancy. These terms
+respectively characterize tire–road force utilization, trajectory tracking capability, and
+maneuvering stability. The metric ηenv,t further represents ηlim,t with the feasible enve-
+lope, thereby quantifying the proximity of the current state to the feasible motion
+boundary. Their detailed normalized forms are provided in Supplementary Methods.
+The cognitive and physical indicators are interpreted jointly. Localization and pre-
+diction errors quantify cognitive uncertainty; acceleration-envelope utilization, tire
+behavior, tracking errors, and yaw-rate discrepancy quantify physical-limit utilization;
+and closed-loop outcomes such as success rate, collision rate, safe mileage, and over-
+taking frequency reveal how the two sides interact during execution. A maneuver is
+effective only when it is strategically competitive, predicted to be safe, and executable
+within the current feasible-motion envelope.
+World-Model-Driven Future-Aware Reasoning
+Future-aware reasoning integrates decision-making, multimodal trajectory generation,
+and predictive evaluation around the world model. The decision and planning models
+are trained offline with real and world-model-generated data, while online deployment
+uses world-model rollouts to evaluate candidate maneuvers before execution.
+At runtime, the structured world state wt is input to a decision policy π, which
+outputs a compact racing intention containing longitudinal and lateral targets. This
+decision is converted into a main reference trajectory through a transition model:
+τ ref
+t
+= ftran(xt, π(wt; θπ), H),
+(16)
+where θπ denotes the parameters of the decision policy, ftran(·) is the transition
+model, and H is the planning horizon. The decision policy uses a structured inter-
+action encoder that represents the ego vehicle, surrounding opponents, and relative
+racing context, and outputs longitudinal–lateral intentions for downstream trajectory
+generation.
+To capture multiple possible interaction strategies, a multimodal delta planner
+generates trajectory deviations from recent world-state history. These deviations are
+added to the main reference trajectory and regularized by the current feasible-motion
+envelope Et:
+Tt = R
+ τ ref
+t
++ ϕ(wt−h:t; θϕ), Et
+
+,
+(17)
+where ϕ(·) is the delta trajectory planning network, θϕ denotes its parameters, h is the
+history length, and R(·, Et) denotes physical-limit regularization. The planner encodes
+ego history, opponent history, and local track context with transformer-based mod-
+ules, and outputs multimodal candidate trajectories representing different competitive
+behaviors. These multimodal trajectories are further combined with prescribed speed
+21
+
+
+factors to diversify longitudinal behavior. The regularization step ensures that candi-
+date trajectories are compatible with the current physical capability of the ego vehicle
+before predictive evaluation.
+Each candidate trajectory is then evaluated through recursive world-model roll-
+outs. Following Eq. (7), the world model predicts the future world-state evolution
+induced by each candidate, yielding a set of parallel futures:
+Ft =
+ τ k
+t , ˆw k
+t:t+H
+
+| τ k
+t ∈Tt
+	
+.
+(18)
+Each parallel future is scored by a task-oriented function that considers interaction
+safety, physical feasibility, and speed efficiency. Candidate trajectories that lead to
+predicted collision, boundary violation, or loss of control are rejected, and the selected
+trajectory is
+τ ∗
+t = arg max
+τ k
+t ∈Tt
+S
+ τ k
+t , ˆw k
+t:t+H
+
+.
+(19)
+This procedure selects trajectories that are safe, feasible, and competitive before
+execution. By combining physical-limit regularization with world-model rollout eval-
+uation, future-aware reasoning links adversarial interaction prediction to downstream
+limit-aware control.
+Physical-Limit-Constrained Motion Control
+The motion-control module converts the trajectory selected by future-aware reason-
+ing into executable commands under the current physical-limit envelope. Given the
+selected trajectory τ ∗
+t and the world-model-informed feasible-motion envelope Et, con-
+trol is formulated as a constrained model predictive control problem. The controller
+tracks τ ∗
+t while enforcing vehicle dynamics, road-boundary constraints, actuator lim-
+its, and the coupled longitudinal–lateral acceleration constraint induced by Et. The
+detailed vehicle dynamics model, Jacobians, and barrier derivatives are provided in
+Supplementary Methods Section S6.
+At each control step, the controller solves the constrained optimization prob-
+lem described in Eq. (3)–Eq. (5). Given the selected trajectory τ ∗
+t , it optimizes a
+finite-horizon control sequence to track the induced reference states while satisfy-
+ing the control-oriented vehicle dynamics and the feasible-motion constraints defined
+by the physical-limit envelope. The control input ut = [ax, δ]⊤includes the longi-
+tudinal acceleration and steering command, and the envelope Et+j constrains the
+coupled longitudinal–lateral feasibility estimated from the world model. This formu-
+lation enables the selected maneuver to be executed as physically feasible control
+commands under the current capability of the ego vehicle.
+The cost is decomposed into a tracking-and-smoothness term and a constraint-
+barrier term,
+J = Jtrack(xt, ut:t+Hc−1; τ ∗
+t ) + Jbarrier(xt, ut:t+Hc−1; Et).
+(20)
+22
+
+
+The tracking term is
+Jtrack =
+Hc−1
+X
+j=0
+ ∥xt+j −xref
+t+j∥2
+Q + ∥ut+j∥2
+R + ∥∆ut+j∥2
+P
+
+,
+(21)
+where xref
+t+j is induced by τ ∗
+t . Inequality constraints are imposed through exponential
+barriers,
+Jbarrier =
+X
+k,i
+q(i)
+1 exp
+
+q(i)
+2 ci(xk, uk−1; Ek)
+
+,
+(22)
+where ci ≤0 indicates satisfaction of the corresponding constraint and ci > 0 indicates
+violation. The physical-limit barrier is induced by the coupled acceleration envelope
+in Eq. (8), so violations of the current feasible-motion boundary are penalized directly
+during optimization.
+The constrained optimization is solved using a constrained iterative linear
+quadratic regulator (CiLQR). At each iteration, the dynamics and costs are locally
+approximated, a backward pass computes the feedforward correction and feedback
+gain, and a forward rollout tests the updated control sequence. The update takes the
+affine feedback form
+unew
+k
+= uk + αdk + γKk(xnew
+k
+−xk),
+(23)
+where dk is the feedforward correction, Kk is the feedback gain, α is the line-search
+parameter, and γ scales the feedback term. This receding-horizon formulation allows
+the controller to regulate speed and steering before the vehicle violates the physical-
+limit envelope, thereby executing the selected maneuver under near-limit conditions.
+Closed-Loop World-Model and Policy Refinement
+The world model and the policy are refined through a closed-loop process that links
+real racing data, predictive model learning, internal simulation, and policy update.
+During real-world racing, the onboard system collected high-quality dynamic data
+under real road, tire, vehicle, and interaction conditions, forming a dataset Dreal. These
+data are used in model training to align the world model with observed ego dynamics,
+opponent interactions, and physical-limit behavior.
+The ego dynamics model and interaction model are updated through supervised
+prediction. The differentiable dynamics backbone and residual model are trained by
+minimizing the next-state prediction error:
+(θdyn, θres) = arg
+min
+θdyn,θres
+X
+Dreal
+∥xt+1 −fdyn(xt, ut; θdyn) −fres(xt−h:t, ut−h:t; θres)∥2 .
+(24)
+The interaction model is updated by supervised prediction of world-state evolution:
+θint = arg min
+θint
+X
+Dreal
+∥wt+1 −W(wt; θint)∥2 ,
+(25)
+23
+
+
+where W(·; θint) denotes the learned interaction transition model. The physical-limit
+model is initialized conservatively and refined through world-model-based limit explo-
+ration. At each update step, a safe exploration policy proposes an envelope expansion
+based on local track context and limit-utilization information. The expansion is
+accepted only when the predicted rollout with the updated envelope satisfies the
+prescribed limit criterion, enabling progressive exploration of the feasible motion
+boundary without violating safety constraints.
+The refined world model is then used to generate structured rollout data under
+controlled variations of interaction and near-limit operating conditions:
+Dwm = Rollout(W, π, ϕ, E).
+(26)
+Compared with real racing data alone, Dwm can cover a broader range of adversarial
+interactions, corner cases, and near-limit scenarios. The real and world-model-
+generated datasets are combined as
+D = Dreal ∪Dwm,
+(27)
+which is used to update the decision policy and multimodal planner.
+The decision policy is updated using a soft actor–critic objective with conserva-
+tive Q-learning and behavior-cloning regularization. Given state st, corresponding to
+the world state wt, the policy samples a racing intention aπ
+t ∼πθπ(·|st) containing
+longitudinal and lateral decision components. The critic parameters are optimized by
+LQ(θQ) =E(st,at,st+1)∼D
+h QθQ(st, at) −yt
+2i
++ λcql
+
+Est∼D
+
+QθQ(st, aπ
+t )
+
+−E(st,at)∼D
+
+QθQ(st, at)
+	
+,
+(28)
+and the policy is optimized by
+Lπ(θπ) = E(st,ae
+t)∼D
+h
+α log πθπ(aπ
+t |st) −min(Q1, Q2) + λbc ∥aπ
+t −ae
+t∥2 i
+,
+(29)
+where ae
+t denotes the demonstration action in the dataset. The conservative term
+discourages overestimation on out-of-distribution actions, while the behavior-cloning
+term preserves useful behavior from real vehicle data and simulated data.
+The multimodal planner is updated using best-of-K supervision. Hybrid data are
+reorganized into pairs of world-state history and future trajectory. Given the historical
+segment wt−h:t, the planner generates candidate trajectories as in Eq. (17), and only
+the output mode closest to the ground-truth future trajectory is supervised:
+θϕ = arg min
+θϕ
+X
+D
+
+min
+τ k
+t ∈Tt
+τ gt
+t
+−τ k
+t
+2
+,
+(30)
+where τ gt
+t
+denotes the ground-truth future trajectory corresponding to the segment
+wt:t+H extracted from D. This training strategy allows different output heads to
+specialize in different behavioral modes.
+24
+
+
+This refinement process closes the loop between real-world deployment and
+world-model-based learning. Real racing data improve the fidelity of ego-dynamics,
+interaction, and physical-limit modeling; the refined world model generates struc-
+tured rollouts for rare interactions and near-limit conditions; and the updated policy
+and planner collect more informative data in subsequent deployment. Through this
+cycle, the agent progressively improves future prediction, interaction reasoning, and
+physical-limit utilization under coupled cognitive-physical limits.
+Experimental Platform and Validation
+A full-scale autonomous racing platform was used for collection of real-vehicle data
+collection with physics grounding. Real-vehicle deployment of the base software stack
+exposed the agent to extreme racing conditions and provided high-value data for world-
+model refinement. The racing task included high-speed operation, near-limit tire–road
+conditions, and adversarial multi-agent interactions, making it a stringent source of
+real-world data for studying embodied intelligence near cognitive and physical limits.
+During real-vehicle experiments, state, control, and environment data were col-
+lected from the onboard system. These real-world racing data were used to train and
+refine the world model, including ego dynamics, interaction evolution, and physical-
+limit representation. Rather than treating real-world deployment as the final validation
+of the proposed method, the collected data were utilized and incorporated into a
+closed-loop data-driven refinement pipeline: competition deployment generated real
+racing data, the data updated the world model, and the refined world model supported
+subsequent policy improvement.
+To evaluate the agent updated with the refined world model under controlled and
+repeatable interactive conditions, validation was conducted in the Autoverse simula-
+tor with virtual opponent vehicles. This setup provides high-fidelity vehicle dynamics
+simulation, allowing the updated agent to be tested in adversarial multi-vehicle sce-
+narios with repeatable initial conditions. Interaction scenarios of 20 s duration were
+constructed to reproduce representative competitive situations, with opponent behav-
+iors generated by imitation learning from real racing interactions. In each trial, 2 to
+4 opponent vehicles with racing behaviors were generated within a longitudinal range
+extending 80 m ahead of and 50 m behind the ego vehicle, with their lateral offsets
+sampled from N(0, 2.52). A trial is considered successful if the ego vehicle reaches
+the end of the 20 s evaluation horizon without collision, track-boundary violation, or
+unrecoverable instability; otherwise, it is considered failed.
+The proposed method was compared with three baselines: behavioral cloning (BC),
+soft actor–critic (SAC), and the state-machine-based rule planner used in the compe-
+tition stack. BC and SAC serve as representative imitation-learning and model-free
+reinforcement-learning baselines, while the rule-based planner serves as the baseline
+corresponding to the real-vehicle competition stack. All learning-based approaches
+were trained using the same training data. Each method was evaluated in 360 trials,
+of which two were excluded due to simulation failures, leaving 358 valid trials.
+Beyond statistical performance comparison, the validation further reproduced over-
+taking and spin scenarios observed in real-world racing. The overtaking case was used
+to assess whether the world model could predict short-horizon interaction evolution
+25
+
+
+during wheel-to-wheel racing. The spin scenario was used to evaluate whether world-
+model-informed physical-limit-aware adaptation could correct a failure mode observed
+during the race by improving recovery and reducing instability. This validation pipeline
+links real-world deployment, data collection, world-model refinement, policy testing
+in simulation, and failure-case reproduction, thereby supporting continuous agent
+improvement under coupled cognitive-physical limits.
+References
+[1] Pfeifer, R., Bongard, J.: How the Body Shapes the Way We Think: a New View
+of Intelligence. MIT press, ??? (2006)
+[2] Duan, J., Yu, S., Tan, H.L., Zhu, H., Tan, C.: A survey of embodied ai: From simu-
+lators to research tasks. IEEE Transactions on Emerging Topics in Computational
+Intelligence 6(2), 230–244 (2022)
+[3] Spielberg, N.A., Brown, M., Kapania, N.R., Kegelman, J.C., Gerdes, J.C.: Neural
+network vehicle models for high-performance automated driving. Science robotics
+4(28), 1975 (2019)
+[4] Liu, Y., Chen, W., Bai, Y., Liang, X., Li, G., Gao, W., Lin, L.: Aligning cyber
+space with physical world: A comprehensive survey on embodied ai. IEEE/ASME
+Transactions on Mechatronics (2025)
+[5] Yifan, C., Wei, M., Wang, X., Liu, Y., Wang, J., Song, H., Ma, L., Di, D., Sun,
+C., Liu, K., et al.: Embodied ai: A survey on the evolution from perceptive to
+behavioral intelligence. SmartBot 1(3), 70003 (2025)
+[6] Amodei, D., Olah, C., Steinhardt, J., Christiano, P., Schulman, J., Man´e, D.:
+Concrete problems in ai safety. arXiv preprint arXiv:1606.06565 (2016)
+[7] Betz, J., Zheng, H., Liniger, A., Rosolia, U., Karle, P., Behl, M., Krovi, V., Mang-
+haram, R.: Autonomous vehicles on the edge: A survey on autonomous vehicle
+racing. IEEE Open Journal of Intelligent Transportation Systems 3, 458–488
+(2022)
+[8] Kaufmann, E., Bauersfeld, L., Loquercio, A., M¨uller, M., Koltun, V., Scaramuzza,
+D.: Champion-level drone racing using deep reinforcement learning. Nature
+620(7976), 982–987 (2023)
+[9] Ames, A.D., Coogan, S., Egerstedt, M., Notomista, G., Sreenath, K., Tabuada,
+P.: Control barrier functions: Theory and applications. In: 2019 18th European
+Control Conference (ECC), pp. 3420–3431 (2019). Ieee
+[10] Hanover, D., Loquercio, A., Bauersfeld, L., Romero, A., Penicka, R., Song, Y.,
+Cioffi, G., Kaufmann, E., Scaramuzza, D.: Autonomous drone racing: A survey.
+IEEE Transactions on Robotics 40, 3044–3067 (2024)
+26
+
+
+[11] Sun, Q., Fang, J., Zheng, W.X., Tang, Y.: Aggressive quadrotor flight using
+curiosity-driven reinforcement learning. IEEE Transactions on Industrial Elec-
+tronics 69(12), 13838–13848 (2022)
+[12] Geles, I., Bauersfeld, L., Romero, A., Xing, J., Scaramuzza, D.: Demonstrating
+Agile Flight from Pixels without State Estimation (2024). https://arxiv.org/abs/
+2406.12505
+[13] Hwangbo, J., Lee, J., Dosovitskiy, A., Bellicoso, D., Tsounis, V., Koltun, V.,
+Hutter, M.: Learning agile and dynamic motor skills for legged robots. Science
+Robotics 4(26), 5872 (2019)
+[14] Wu, J., Xin, G., Qi, C., Xue, Y.: Learning robust and agile legged locomotion
+using adversarial motion priors. IEEE Robotics and Automation Letters 8(8),
+4975–4982 (2023)
+[15] Zhang, C., Rudin, N., Hoeller, D., Hutter, M.: Learning agile locomotion on risky
+terrains. In: 2024 IEEE/RSJ International Conference on Intelligent Robots and
+Systems (IROS), pp. 11864–11871 (2024). IEEE
+[16] Huang, W., Shan, Z., Lou, S., Lv, C.: Uncertainty-aware reinforcement learning
+for autonomous driving with multimodal digital driver guidance. In: 2024 IEEE
+International Conference on Robotics and Automation (ICRA), pp. 18355–18361
+(2024). IEEE
+[17] Shan, Z., Zhao, J., Huang, W., Zhao, Y., Ge, L., Zhong, S., Hu, H., Lv, C., Zhu,
+B.: Deep imitative reinforcement learning with gradient conflict-free for decision-
+making in autonomous vehicles. Transportation Research Part C: Emerging
+Technologies 173, 105047 (2025)
+[18] Funke, J., Theodosis, P., Hindiyeh, R., Stanek, G., Kritatakirana, K., Gerdes,
+C., Langer, D., Hernandez, M., M¨uller-Bessler, B., Huhnke, B.: Up to the limits:
+Autonomous audi tts. 2012 IEEE intelligent vehicles symposium, 541–547 (2012).
+IEEE
+[19] Liniger, A., Lygeros, J.: A noncooperative game approach to autonomous racing.
+IEEE Transactions on Control Systems Technology 28(3), 884–897 (2019)
+[20] Wang, M., Wang, Z., Talbot, J., Gerdes, J.C., Schwager, M.: Game-theoretic plan-
+ning for self-driving cars in multivehicle competitive scenarios. IEEE Transactions
+on Robotics 37(4), 1313–1325 (2021)
+[21] O’Kelly, M., Zheng, H., Karthik, D., Mangharam, R.: F1tenth: An open-
+source evaluation environment for continuous control and reinforcement learning.
+Proceedings of Machine Learning Research 123 (2020)
+[22] Baumann, N., Hu, C., Sivasothilingam, P., Qin, H., Xie, L., Magno, M., Benini, L.:
+27
+
+
+Enhancing autonomous driving systems with on-board deployed large language
+models. arXiv preprint arXiv:2504.11514 (2025)
+[23] Baumann, N., Ghignone, E., K¨uhne, J., Bastuck, N., Becker, J., Imholz, N.,
+Kr¨anzlin, T., Lim, T.Y., L¨otscher, M., Schwarzenbach, L., et al.: Forzaeth race
+stack—scaled autonomous head-to-head racing on fully commercial off-the-shelf
+hardware. Journal of Field Robotics 42(4), 1037–1079 (2025)
+[24] Becker, J., Imholz, N., Schwarzenbach, L., Ghignone, E., Baumann, N.,
+Magno, M.: Model-and acceleration-based pursuit controller for high-performance
+autonomous racing. arXiv preprint arXiv:2209.04346 (2022)
+[25] Li, Z., Zhou, B., Piccinini, M., Hu, C., Zarrouki, B., Mangharam, R., Xie, L.:
+Evo-mpcc: Enhanced velocity optimization with learning-based auto-tuning for
+real-time vehicle trajectory planning. Available at SSRN 6127037 (2026)
+[26] Hu, C., Huang, J., Mao, W., Fu, Y., Chi, X., Qin, H., Baumann, N., Liu, Z.,
+Magno, M., Xie, L.: Fsdp: Fast and safe data-driven overtaking trajectory plan-
+ning for head-to-head autonomous racing competitions. In: 2025 IEEE/RSJ Inter-
+national Conference on Intelligent Robots and Systems (IROS), pp. 5824–5831
+(2025). IEEE
+[27] Ghignone, E., Baumann, N., Magno, M.: Tc-driver: A trajectory-conditioned rein-
+forcement learning approach to zero-shot autonomous racing. IEEE Transactions
+on Field Robotics 1, 527–536 (2024)
+[28] Heilmeier, A., Wischnewski, A., Hermansdorfer, L., Betz, J., Lienkamp, M.,
+Lohmann, B.: Minimum curvature trajectory planning and control for an
+autonomous race car. Vehicle System Dynamics (2020)
+[29] Piccinini, M., Taddei, S., Pagot, E., Bertolazzi, E., Biral, F.: How optimal is the
+minimum-time manoeuvre of an artificial race driver? Vehicle System Dynamics
+63(12), 2213–2240 (2025)
+[30] Zarrouki, B., Spanakakis, M., Betz, J.: A safe reinforcement learning driven
+weights-varying model predictive control for autonomous vehicle motion control.
+In: 2024 IEEE Intelligent Vehicles Symposium (IV), pp. 1401–1408 (2024). IEEE
+[31] Kabzan, J., Valls, M.I., Reijgwart, V.J., Hendrikx, H.F., Ehmke, C., Prajapat, M.,
+B¨uhler, A., Gosala, N., Gupta, M., Sivanesan, R., et al.: Amz driverless: The full
+autonomous racing system. Journal of Field Robotics 37(7), 1267–1294 (2020)
+[32] Wischnewski, A., Geisslinger, M., Betz, J., Betz, T., Fent, F., Heilmeier, A.,
+Hermansdorfer, L., Herrmann, T., Huch, S., Karle, P., et al.: Indy autonomous
+challenge-autonomous race cars at the handling limits. 12th International Munich
+Chassis Symposium 2021: chassis. tech plus, 163–182 (2022). Springer
+28
+
+
+[33] Betz, J., Betz, T., Fent, F., Geisslinger, M., Heilmeier, A., Hermansdorfer, L.,
+Herrmann, T., Huch, S., Karle, P., Lienkamp, M., et al.: Tum autonomous motor-
+sport: An autonomous racing software for the indy autonomous challenge. Journal
+of Field Robotics 40(4), 783–809 (2023)
+[34] Liniger, A., Domahidi, A., Morari, M.: Optimization-based autonomous racing of
+1: 43 scale rc cars. Optimal Control Applications and Methods 36(5), 628–647
+(2015)
+[35] Scheffe, P., Henneken, T.M., Kloock, M., Alrifaee, B.: Sequential convex program-
+ming methods for real-time optimal trajectory planning in autonomous vehicle
+racing. IEEE Transactions on Intelligent Vehicles 8(1), 661–672 (2022)
+[36] Alcal´a, E., Puig, V., Quevedo, J., Rosolia, U.: Autonomous racing using lin-
+ear parameter varying-model predictive control (lpv-mpc). Control Engineering
+Practice 95, 104270 (2020)
+[37] Wischnewski, A., Euler, M., G¨um¨us, S., Lohmann, B.: Tube model predictive
+control for an autonomous race car. Vehicle System Dynamics 60(9), 3151–3173
+(2022)
+[38] Jung, C., Lee, S., Seong, H., Finazzi, A., Shim, D.H.: Game-theoretic model
+predictive control with data-driven identification of vehicle model for head-to-
+head autonomous racing. arXiv preprint arXiv:2106.04094 (2021)
+[39] Silver, D., Huang, A., Maddison, C.J., Guez, A., Sifre, L., Van Den Driessche,
+G., Schrittwieser, J., Antonoglou, I., Panneershelvam, V., Lanctot, M., et al.:
+Mastering the game of go with deep neural networks and tree search. nature
+529(7587), 484–489 (2016)
+[40] Silver, D., Hubert, T., Schrittwieser, J., Antonoglou, I., Lai, M., Guez, A., Lanc-
+tot, M., Sifre, L., Kumaran, D., Graepel, T., et al.: A general reinforcement
+learning algorithm that masters chess, shogi, and go through self-play. Science
+362(6419), 1140–1144 (2018)
+[41] Schrittwieser, J., Antonoglou, I., Hubert, T., Simonyan, K., Sifre, L., Schmitt, S.,
+Guez, A., Lockhart, E., Hassabis, D., Graepel, T., et al.: Mastering atari, go, chess
+and shogi by planning with a learned model. Nature 588(7839), 604–609 (2020)
+[42] Wurman, P.R., Barrett, S., Kawamoto, K., MacGlashan, J., Subramanian, K.,
+Walsh, T.J., Capobianco, R., Devlic, A., Eckert, F., Fuchs, F., et al.: Outrac-
+ing champion gran turismo drivers with deep reinforcement learning. Nature
+602(7896), 223–228 (2022)
+[43] Song, Y., Romero, A., M¨uller, M., Koltun, V., Scaramuzza, D.: Reaching the limit
+in autonomous racing: Optimal control versus reinforcement learning. Science
+Robotics 8(82), 1462 (2023)
+29
+
+
+[44] Zhao, F., Zhang, H., Li, Z., Guan, X., Li, S.: Vision-guided mppi for agile drone
+racing: Navigating arbitrary gate poses via neural signed distance fields. arXiv
+preprint arXiv:2603.07199 (2026)
+[45] Wurman, P.R., Stone, P., Spranger, M.: Challenges and opportunities of applying
+reinforcement learning to autonomous racing. IEEE Intelligent Systems 37(3),
+20–23 (2022)
+[46] Ji, X., He, X., Lv, C., Liu, Y., Wu, J.: Adaptive-neural-network-based robust lat-
+eral motion control for autonomous vehicle at driving limits. Control Engineering
+Practice 76, 41–53 (2018)
+[47] Fuchs, F., Song, Y., Kaufmann, E., Scaramuzza, D., D¨urr, P.: Super-human per-
+formance in gran turismo sport using deep reinforcement learning. IEEE Robotics
+and Automation Letters 6(3), 4257–4264 (2021)
+[48] Pan, Y., Cheng, C.-A., Saigol, K., Lee, K., Yan, X., Theodorou, E.A., Boots,
+B.: Imitation learning for agile autonomous driving. The International Journal of
+Robotics Research 39(2-3), 286–302 (2020)
+[49] Sun, X., Zhou, M., Zhuang, Z., Yang, S., Betz, J., Mangharam, R.: A benchmark
+comparison of imitation learning-based control policies for autonomous racing.
+2023 IEEE Intelligent Vehicles Symposium (IV), 1–5 (2023). IEEE
+[50] Hamilton, N., Musau, P., Lopez, D.M., Johnson, T.T.: Zero-shot policy transfer
+in autonomous racing: reinforcement learning vs imitation learning. 2022 IEEE
+International Conference on Assured Autonomy (ICAA), 11–20 (2022). IEEE
+[51] Prudencio, R.F., Maximo, M.R., Colombini, E.L.: A survey on offline reinforce-
+ment learning: Taxonomy, review, and open problems. IEEE Transactions on
+Neural Networks and Learning Systems 35(8), 10237–10257 (2023)
+[52] Zare, M., Kebria, P.M., Khosravi, A., Nahavandi, S.: A survey of imitation learn-
+ing: Algorithms, recent developments, and challenges. IEEE Transactions on
+Cybernetics (2024)
+[53] Evans, B.D., Engelbrecht, H.A., Jordaan, H.W.: High-speed autonomous rac-
+ing using trajectory-aided deep reinforcement learning. IEEE Robotics and
+Automation Letters (2023)
+[54] Ivanov, R., Carpenter, T.J., Weimer, J., Alur, R., Pappas, G.J., Lee, I.: Case
+study: verifying the safety of an autonomous racing car with a neural network
+controller. Proceedings of the 23rd International Conference on Hybrid Systems:
+Computation and Control, 1–7 (2020)
+[55] Hermansdorfer, L., Trauth, R., Betz, J., Lienkamp, M.: End-to-end neural net-
+work for vehicle dynamics modeling. 2020 6th IEEE Congress on Information
+30
+
+
+Science and Technology (CiSt), 407–412 (2021). IEEE
+[56] Chen, H., Lou, S., Lv, C.: Hybrid physics-data-driven online modelling: Frame-
+work, methodology and application to electric vehicles. Mechanical Systems and
+Signal Processing 185, 109791 (2023)
+[57] Feng, T., Wang, X., Jiang, Y.-G., Zhu, W.: Embodied ai: From llms to world
+models. arXiv preprint arXiv:2509.20021 (2025)
+[58] Ha, D., Schmidhuber, J.: Recurrent world models facilitate policy evolution.
+Advances in neural information processing systems 31 (2018)
+[59] Hafner, D., Pasukonis, J., Ba, J., Lillicrap, T.: Mastering diverse domains through
+world models. arXiv preprint arXiv:2301.04104 (2023)
+[60] Li, X., He, X., Zhang, L., Wu, M., Li, X., Liu, Y.: A comprehensive survey on
+world models for embodied ai. arXiv preprint arXiv:2510.16732 (2025)
+[61] Hafner, D., Lillicrap, T., Fischer, I., Villegas, R., Ha, D., Lee, H., Davidson, J.:
+Learning latent dynamics for planning from pixels. In: International Conference
+on Machine Learning, pp. 2555–2565 (2019). PMLR
+[62] Ding, J., Zhang, Y., Shang, Y., Zhang, Y., Zong, Z., Feng, J., Yuan, Y., Su,
+H., Li, N., Sukiennik, N., et al.: Understanding world or predicting future? a
+comprehensive survey of world models. ACM Computing Surveys 58(3), 1–38
+(2025)
+Acknowledgements
+We would like to thank K2 Holding, Abu Dhabi, UAE, for its project support, and
+Alp Autonomy, Turkey, for its technical support. These contributions were instrumen-
+tal in the implementation and experimental validation of this work. We also thank
+the members of the NTU AutoMan Research Lab and the former members of the
+Kinetiz autonomous racing team, particularly Binbin Hu, Wenhui Huang, Haohan
+Yang, Haochen Liu, Yiran Zhang, Tianchu Su, Andrea Piazzoni, Xiangkun He, Xiaoyu
+Mo, and Xinyu Zhou, for their valuable contributions to system development, vehicle
+integration, testing, and experimental deployment.
+Funding
+This work was supported by K2 Holding L.LC, Abu Dhabi, UAE, under Research
+Collaboration Agreement (No. REQ0474834).
+Competing interests
+The authors declare no competing interests.
+31
+
+
+Data availability
+The datasets generated and/or analyzed during the current work are available from
+the corresponding author on reasonable request.
+Code availability
+The source code developed in current work is available from the corresponding author
+on reasonable request.
+Supplementary information
+Supplementary information accompanies this paper and includes Supplementary
+Methods S1–S10 and Supplementary Videos 1–5.
+32
+
+
+Appendix A
+Supplementary Methods
+S1. Full System Architecture and Data Flow
+This section provides an implementation-level overview of the world-model-centric
+autonomous racing agent and its full-scale racing platform. The main manuscript
+defines the system-level formulation under coupled cognitive–physical limits; here
+we further introduce the full-scale racing platform, notation, online data flow, and
+closed-loop refinement pipeline used by the implemented system. The purpose of
+this section is to connect the physical platform with the detailed supplementary
+modules, including world-state construction, world modeling, future-aware reasoning,
+physical-limit-constrained control, policy refinement, and safety monitoring.
+S1.1 Full-Scale Racing Platform and Hardware Domains
+The proposed agent is implemented on a full-scale autonomous racing platform
+equipped with multi-modal sensing, onboard computation, actuation interfaces, and
+a real-time autonomy software stack, as shown in Fig. A1. The racing vehicle is orga-
+nized into three hardware domains: the powertrain domain, the autonomous-driving
+domain, and the chassis domain. Together, these domains provide the physical basis for
+high-speed sensing, onboard computation, and executable actuation under near-limit
+racing conditions.
+The autonomous-driving domain contains core sensing and computing units,
+including GNSS, 4D millimeter-wave radars, LiDARs, and an onboard computing
+unit. These components support ego-state estimation, opponent perception, world-
+state construction, and onboard decision-making and control computation. Ego-state
+estimation uses measurements from LiDAR, RTK GNSS, IMU, wheel-speed sensors.
+Opponent perception uses LiDAR and 4D millimeter-wave radar to detect and track
+surrounding vehicles under high-speed and close-proximity racing conditions. The
+powertrain domain supplies driving power through a 6-speed gearbox and a 2.0-L
+turbocharged racing engine. The chassis domain provides steer-by-wire and brake-
+by-wire actuation interfaces that realize the steering and braking commands on the
+vehicle. This hardware organization connects the physical racing platform with the
+world-model-centric autonomy stack.
+S1.2 World-State Representation and Notation
+At each time step t, the agent receives multi-modal sensory observations, the ego
+vehicle state estimate, and local track information. We denote the surrounding obser-
+vations by ot, the ego vehicle state by xt, and the local track context by Γt. These
+inputs are integrated into a structured world-state representation wt.
+The ego vehicle state contains the pose, velocity, heading, and relevant dynamic
+variables required by prediction, planning, and control. The surrounding observation
+ot contains object-level opponent states obtained from LiDAR–radar perception and
+tracking. The local track context Γt contains the track-coordinate representation, road
+boundaries, curvature, and local reference information. The resulting world state wt
+33
+
+
+Autonomous driving domain
+Powertrain domain
+Chassis domain
+Steer-by-
+wire 
+actuator
+Brake-by-
+wire 
+actuator
+2.0-L turbo 
+engine
+6-speed 
+gearbox
+GNSS
+Radars
+Computing 
+unit
+LiDARs
+Fig. A1
+Full-scale autonomous racing platform and onboard hardware.
+provides a common representation shared by the world model, decision policy, mul-
+timodal planner, and control module. For consistency, we use the following notation
+throughout the Supplementary Methods:
+xt : ego vehicle state,
+ot : surrounding object observations,
+Γt : local track context,
+wt : structured world state,
+Et : world-model-informed feasible-motion envelope,
+τ k
+t : the k-th candidate trajectory,
+τ ∗
+t : selected trajectory,
+ut : control input.
+The feasible-motion envelope Et represents the current physical-limit boundary of the
+ego vehicle and is used both in trajectory regularization and in downstream con-
+strained control. Unless otherwise specified, the term “agent” refers to the complete
+autonomous racing system, while “ego vehicle” refers to the physical racing platform.
+S1.3 Online Perception–Prediction–Decision–Control Loop
+The online system follows a perception–prediction–decision–control loop. First, high-
+frequency localization and opponent perception construct the current world state. The
+ego state is estimated from LiDAR, RTK GNSS, IMU, wheel-speed, and other onboard
+measurements, while opponent states are obtained by LiDAR–radar object detection
+and multi-object tracking. Details of the world-state construction process are provided
+in Supplementary Section S2.
+34
+
+
+Given the current world state, the world model predicts the future evolution
+of ego dynamics, opponent interaction, and physical-limit availability over a short
+planning horizon. These predictions provide the basis for evaluating how different can-
+didate maneuvers may evolve under dynamic multi-agent racing conditions. The world
+model consists of ego dynamics prediction, interaction prediction, and physical-limit
+representation, as described in Supplementary Section S4.
+The decision policy and multimodal planner then generate a set of candidate
+trajectories. These candidates correspond to different maneuver hypotheses, such as
+maintaining the current line, braking and following, or performing an overtaking
+maneuver. Candidate trajectories are regularized by the feasible-motion envelope to
+ensure compatibility with the physical capability of the ego vehicle. The world model
+evaluates the predicted future associated with each candidate trajectory according
+to interaction safety, physical feasibility, and speed efficiency. The candidate with
+the highest overall suitability is selected for execution. During onboard execution,
+the future-aware reasoning module operates at 10 Hz evaluating 36 candidate tra-
+jectories. Details of candidate generation and future-aware scoring are provided in
+Supplementary Section S5.
+Finally, the motion-control module converts the selected trajectory into executable
+control commands. The controller tracks the selected trajectory while enforcing vehicle
+dynamics, road-boundary constraints, actuator limits, and coupled longitudinal–
+lateral physical-limit constraints. The control-oriented dynamics, Jacobians, barrier
+terms, and constrained CiLQR implementation are provided in Supplementary
+Section S6.
+The online loop can therefore be summarized as
+(xt, ot, Γt) →wt →
+
+ˆw k
+t:t+H
+	K
+k=1 →τ ∗
+t →u∗
+t .
+This flow links current-state construction, world-model prediction, future-aware
+decision-making, and physical-limit-constrained execution within a unified closed-loop
+racing agent.
+S1.4 Closed-Loop Refinement Pipeline
+Beyond online execution, the system is refined through a closed-loop pipeline that links
+real racing data, world-model learning, internal simulation, and policy update. Real-
+vehicle deployment produces data containing ego dynamics, opponent interactions,
+physical-limit behavior, and track context under real operating conditions. These data
+provide the basis for improving the agent after each deployment phase.
+The world model is trained and refined using real racing data. The ego dynamics
+component learns the vehicle response under high-speed and near-limit operation, the
+interaction component learns the temporal evolution of multi-agent racing scenarios.
+The refined world model is then used to generate additional rollout data covering
+interaction variations, rare competitive scenarios, and near-limit operating conditions
+that are difficult to collect exhaustively in real racing.
+The real and world-model-generated data are combined to update the decision pol-
+icy, multimodal planner, and physical-limit constraints. The decision policy is updated
+35
+
+
+using conservative reinforcement learning with behavior-cloning regularization, while
+the planner is updated through best-of-K trajectory supervision. The physical-limit
+representation is refined using validated near-limit data so that the agent can pro-
+gressively improve its utilization of the available performance envelope. Details of this
+refinement process are provided in Supplementary Section S7.
+The refinement pipeline can be summarized as
+Dreal →W →Dwm →D →(π, ϕ, E) →next deployment.
+This closed-loop process improves the fidelity of world-model prediction, expands the
+coverage of interaction and near-limit scenarios, and progressively refines the agent’s
+decision-making and physical-limit utilization.
+S2. High-Frequency World-State Construction
+This section describes how the current racing world state wt is constructed from high-
+frequency ego-state estimation, multi-modal sensing, and opponent perception. The
+resulting world state provides the observable foundation for world-model prediction,
+future-aware reasoning, and physical-limit-constrained control.
+S2.1 Ego Vehicle State and Motion Model
+The overall multi-sensor ego-state estimation framework is shown in Fig. A2, where
+LiDAR map matching, RTK GNSS, optical sensing, wheel encoders, and IMU
+measurements are fused with delay compensation, adaptive covariance estimation,
+innovation gating, and EKF update to estimate position, orientation, velocity, and
+sensor time delay.
+Fig. A2
+Multi-sensor ego-state estimation framework for high-frequency world-state construction.
+36
+
+
+The ego-state estimation module maintains a compact state of the ego vehicle in
+the global track frame,
+x =
+ R, p, v, bg, ba, g
+
+,
+(A1)
+where R ∈SO(3) is the body-to-track orientation, p, v ∈R3 are the position and
+velocity in the track frame, bg, ba ∈R3 are gyroscope and accelerometer biases, and
+g ∈R3 is the gravity vector.
+The IMU measures angular velocity and specific force in the body frame,
+ωm = ω + bg + wg,
+am = a + ba + wa,
+(A2)
+where ω and a denote the true angular velocity and specific force, and wg and wa
+are zero-mean white noises. The bias terms follow random walks driven by additional
+Gaussian noise. Gravity is assumed to be constant over the time scale of a racing lap.
+Over one IMU sampling period ∆t, the noise-free discrete-time propagation is
+Rk+1 = Rk exp((ωm,k −bg,k)∧∆t) ,
+vk+1 = vk + (Rk(am,k −ba,k) + gk) ∆t,
+pk+1 = pk + vk∆t + 1
+2 (Rk(am,k −ba,k) + gk) ∆t2,
+bg,k+1 = bg,k,
+ba,k+1 = ba,k,
+gk+1 = gk.
+(A3)
+Here (·)∧denotes the mapping from a rotation vector to a skew-symmetric matrix.
+Orientation is updated through right multiplication by exp(·), while linear quantities
+are propagated in Euclidean space.
+S2.2 Multi-Sensor Measurement Models
+All exteroceptive measurements are expressed as noisy observations of position,
+orientation, or velocity in the track frame. A generic measurement zj is written as
+zj = hj(x) + nj,
+nj ∼N(0, Rj),
+(A4)
+where hj(·) selects and transforms the relevant components of x, and Rj is the
+measurement covariance.
+RTK GNSS and LiDAR map matching provide position observations,
+zp = p + np.
+(A5)
+Dual-antenna GNSS heading and LiDAR odometry provide orientation observations,
+zR ≈R exp(n∧
+R).
+(A6)
+Wheel-speed encoders and the downward-looking optical-flow sensor provide body-
+frame velocity observations,
+zv = R⊤v + nv,
+(A7)
+37
+
+
+which constrain longitudinal and lateral velocity relative to the road surface. The
+covariance of each modality is identified from calibration runs and short test laps.
+S2.3 Delayed Measurements and Factorized Covariance
+High-speed autonomous racing requires delayed LiDAR and GNSS measurements to
+be inserted at their correct physical times. To support this, the estimator maintains
+a short history of recent motion states. The rapidly varying motion components are
+defined as
+xmot = (R, p, v, bg),
+(A8)
+while slowly varying parameters (ba, g) are maintained outside the history.
+At estimator time k, the short-horizon history is
+Xk =
+
+xmot
+k,1 , . . . , xmot
+k,N
+	
+,
+tk,1 > · · · > tk,N,
+(A9)
+where xmot
+k,1 corresponds to the current time and the remaining nodes represent older
+states. The history length and capacity satisfy
+tk,1 −tk,N ≤Thist,
+N ≤Nmax.
+(A10)
+At each IMU step, a new state is propagated using Eq. (A3) and appended to the
+front of Xk. The oldest node is removed once the time horizon or capacity is exceeded.
+A delayed measurement zj time-stamped at tj is associated with the closest history
+node,
+i⋆= arg
+min
+i∈{1,...,N} |tk,i −tj|,
+(A11)
+subject to
+|tk,i⋆−tj| < τmax,
+(A12)
+where τmax is the maximum allowed time offset. If this condition is not satisfied,
+the measurement is discarded. Multiple delayed measurements available at the same
+estimator time are collected into an ensemble and updated jointly after linearization
+around the current prediction.
+The delay sensitivity analysis of localization error is shown in Fig. A3, where the
+APE distributions remain stable under different assumed measurement delays.
+The covariance of the stack history Xk is stored in a factorized form,
+Pk = S⊤
+k Sk,
+(A13)
+where Sk is an upper-triangular square-root factor. Prediction and update operations
+are performed on Sk rather than on Pk directly, avoiding explicit matrix inversion
+and improving numerical conditioning as nodes are inserted and removed.
+When process noise is injected or linear propagation is applied, covariance addi-
+tion is implemented by stacking square-root factors and applying QR decomposition.
+Conceptually, if SA and SB are square-root factors of two covariance terms, a factor
+of their sum is obtained from the upper-triangular part of the QR factorization of
+
+S⊤
+A
+S⊤
+B
+⊤.
+(A14)
+38
+
+
+0.10
+0.12
+0.14
+0.16
+0.18
+Assumed delay (s)
+0.0
+0.1
+0.2
+0.3
+APE (m)
+Total APE
+0.10
+0.12
+0.14
+0.16
+0.18
+Assumed delay (s)
+0.00
+0.05
+0.10
+0.15
+APE (m)
+Lateral APE
+0.10
+0.12
+0.14
+0.16
+0.18
+Assumed delay (s)
+0.0
+0.1
+0.2
+0.3
+APE (m)
+Longitudinal APE
+Fig. A3
+Delay sensitivity analysis of localization error.
+This operation is used when advancing the history with the IMU model and when
+compressing information from older nodes.
+For measurement updates, the linearized ensemble model is
+Z ≈HδX + N,
+(A15)
+where δX is the stacked perturbation of all history nodes, H is a block-sparse Jacobian,
+and N has block-diagonal covariance
+Rens = diag(R1, . . . , RM).
+(A16)
+The residuals and Jacobian are pre-whitened using a square-root factor of Rens,
+stacked with Sk, and factorized by QR decomposition to obtain the updated factor
+S+
+k and the corresponding state correction.
+S2.4 Robust Measurement Update
+Occasional outliers can arise from GNSS multipath, partial LiDAR occlusion, sparse
+radar returns, or short-lived modeling errors. To reduce their effect, measurement
+innovations are weighted using a Huber-type robust loss. Let rj denote the residual of
+measurement j with nominal covariance Rj. Its Mahalanobis norm is
+∥rj∥R−1
+j
+=
+q
+r⊤
+j R−1
+j rj.
+(A17)
+The Huber cost is
+ρH(rj) =
+
+
+
+1
+2r⊤
+j R−1
+j rj,
+∥rj∥R−1
+j
+≤δ,
+δ∥rj∥R−1
+j
+−1
+2δ2,
+∥rj∥R−1
+j
+> δ,
+(A18)
+39
+
+
+where δ > 0 is the Huber threshold. In an iteratively reweighted form, this gives the
+scalar weight
+w(rj) =
+
+
+
+
+
+1,
+∥rj∥R−1
+j
+≤δ,
+δ
+∥rj∥R−1
+j
+,
+∥rj∥R−1
+j
+> δ.
+(A19)
+The ensemble covariance is then adjusted as
+Rens = diag (w(r1)R1, . . . , w(rM)RM) .
+(A20)
+In practice, a single reweighting step per update is sufficient to suppress outliers while
+preserving sensitivity to consistent trends in the measurements.
+0
+25
+50
+-1.00
+0.00
+1.00
+2.00
+x Residual (m)
+(a)
+0
+25
+50
+-0.15
+0.00
+0.15
+0.30
+y Residual (m)
+(b)
+0
+25
+50
+-0.020
+-0.010
+0.000
+0.010
+Yaw Residual (rad)
+(c)
+0
+25
+50
+Time (s)
+-1.00
+0.00
+1.00
+2.00
+vx Residual (m/s)
+(d)
+0
+25
+50
+Time (s)
+-1.00
+0.00
+1.00
+vy Residual (m/s)
+(e)
+0
+25
+50
+Time (s)
+-0.010
+-0.005
+0.000
+0.005
+Yaw Residual (rad)
+(f)
+GPS1 x
+GPS1 y
+LiDAR x
+LiDAR y
+vx
+vy
+[0]
+[1]
+Fig. A4 Residual profiles of multi-sensor ego-state localization.
+The resulting residual profiles for state estimation including the position, velocity,
+and yaw residuals over a full racing lap are shown in Fig. A4, indicating bounded and
+temporally stable innovations across GNSS, LiDAR, velocity, and yaw observations.
+S2.5 Opponent Perception and Multi-Object Tracking
+Opponent perception estimates the position, velocity, heading, and spatial extent of
+surrounding vehicles under high-speed and close-proximity racing conditions. LiDAR
+and 4D millimeter-wave radar are used as the primary exteroceptive sensors, and
+fusion is performed at the object-tracking level.
+The point cloud observations from LiDAR and radar are shown in Fig. A5.
+The opponent perception pipeline is illustrated in Fig. A6.
+40
+
+
+LiDAR Point Cloud
+Radar Point Cloud
+Fig. A5
+LiDAR and radar point clouds during driving.
+Fig. A6
+Point cloud processing pipeline for opponent perception.
+Raw LiDAR and radar point clouds are first transformed into a common vehicle-
+centric coordinate frame. Ground points are removed using an elevation-consistency
+model defined over radial bins under bounded slope assumptions. The maximum
+allowable height increase between consecutive radial rings is
+∆zmax = min (∆r tan(slopemax), hth −ε) ,
+(A21)
+41
+
+
+where ∆r is the radial increment, slopemax is the maximum admissible ground slope,
+hth is the height threshold, and ε is a safety margin. Local plane refinement is further
+applied in the near field.
+After ground removal, non-ground points are discretized in spherical voxel space,
+(r, az, el) =
+ p
+x2 + y2 + z2, atan2(y, x), arctan
+ 
+z
+p
+x2 + y2
+!!
+,
+(A22)
+where r, az, and el denote range, azimuth, and elevation. Connected components are
+extracted by neighborhood traversal in the voxel grid, and small clusters are removed.
+Spatially adjacent clusters are merged according to proximity and admissible vehicle
+dimensions. Hypotheses that violate geometric consistency are rejected.
+Each retained cluster is represented by an oriented bounding box. Given a point
+set P = {pi}N
+i=1, the principal axes are obtained from the covariance matrix C by
+eigen decomposition,
+Cvj = λjvj,
+j = 1, 2, 3,
+(A23)
+where λj and vj denote eigenvalues and eigenvectors. The rotation matrix is
+Robb = [v1 v2 v3],
+(A24)
+and axis-aligned extents are computed in the principal frame and mapped back to
+obtain the oriented bounding-box pose and dimensions. Radar point clouds follow the
+same pipeline with modality-specific clustering thresholds to account for sparse and
+anisotropic returns.
+The extracted bounding boxes are treated as object-level measurements and passed
+to an EKF-based multi-object tracking module. Each tracked opponent is represented
+by
+xo = (po, vo, ψo),
+(A25)
+where po and vo denote object position and velocity in the vehicle-centric frame,
+and ψo denotes object heading. Object hypotheses from LiDAR and radar are asso-
+ciated using spatial gating and track-consistency checks. Measurement updates are
+applied asynchronously as observations arrive, with modality-specific covariance set-
+tings retained in each measurement model. This tracking-level fusion allows LiDAR
+geometry and radar velocity cues to jointly support temporally coherent opponent
+states.
+S2.6 Construction of the Racing World State
+The racing world state used by the world model and downstream decision-making is
+assembled from ego-state estimation, opponent tracking, and local track information.
+At time t, the structured world state is written as
+wt = Ψw(xt, ot, Γt),
+(A26)
+where xt denotes the ego vehicle state, ot denotes the set of tracked opponent states,
+and Γt denotes local track context.
+42
+
+
+For the ego vehicle, the state includes the pose, velocity, heading, yaw rate,
+and other dynamic quantities required by ego-dynamics prediction and motion con-
+trol. For each opponent, the tracked object state includes position, velocity, heading,
+and bounding-box information. The local track context includes the track-coordinate
+representation, local curvature, reference line, and left–right road boundaries.
+This world-state representation provides a common interface for the three down-
+stream components. The world model uses wt to predict ego dynamics, interaction
+evolution, and physical feasibility. Future-aware reasoning uses wt and predicted
+futures to generate and evaluate candidate trajectories. Physical-limit-constrained
+control uses the selected trajectory together with the feasible-motion envelope Et
+to compute executable control commands. In this way, high-frequency localization
+and opponent perception serve as the observable foundation for predictive world
+understanding under cognitive-physical limits.
+S3. Quantification of Cognitive and Physical Limits
+The main manuscript evaluates cognitive and physical limits through observable
+indicators rather than claiming absolute theoretical upper bounds. This section pro-
+vides the detailed definitions used to quantify these indicators. The cognitive side
+is evaluated along the perception–prediction–decision chain, while the physical side
+is evaluated through acceleration-envelope utilization, tire-force utilization, track-
+ing capability, and maneuvering stability. These indicators are interpreted jointly to
+assess how the agent approaches and regulates coupled cognitive-physical limits during
+autonomous racing.
+S3.1 Cognitive-Limit Indicators
+The cognitive limit refers to the boundary of the agent’s ability to construct, update,
+predict, and use task-relevant world understanding under severe time pressure, uncer-
+tainty, and dynamic interaction. For autonomous racing, this includes high-frequency
+localization and perception under high-speed motion, prediction of ego–opponent
+interaction evolution, and decision-making for safe, feasible, and competitive maneu-
+vers.
+The cognitive limit is not determined by a single error source. Instead, uncertainty
+propagates along the perception–prediction–decision chain. Localization and ego-state
+residuals introduce uncertainty into the reconstructed racing world state. This uncer-
+tainty propagates into ego-dynamics prediction and interaction prediction, where it
+affects future trajectory rollouts. Prediction errors then influence trajectory ranking
+and action selection, and eventually appear as closed-loop outcomes such as unsafe
+overtaking, collision, or overly conservative behavior. The cognitive limit is approached
+when accumulated uncertainty prevents the agent from reliably distinguishing actions
+that are safe, feasible, and competitive.
+Current-state construction is quantified by localization and ego-state residuals,
+estate
+t
+=
+
+|ex,t|, |ey,t|, |evx,t|, |evy,t|, |eψ,t|
+
+,
+(A27)
+43
+
+
+where ex,t and ey,t denote longitudinal and lateral position residuals, evx,t and evy,t
+denote longitudinal and lateral velocity residuals, and eψ,t denotes the heading resid-
+ual. Opponent perception is assessed by the temporal consistency of tracked opponent
+states, including whether object identities, positions, velocities, and bounding boxes
+remain coherent under high-speed and close-proximity racing conditions.
+Ego-dynamics prediction is evaluated by the prediction error between the predicted
+ego state and the corresponding measured or estimated state,
+eego
+t+i = ˆxt+i −xt+i,
+i = 1, . . . , T.
+(A28)
+For each ego-state channel, the root-mean-square error is computed as
+RMSExj =
+v
+u
+u
+t 1
+NT
+N
+X
+n=1
+T
+X
+i=1
+
+ˆx(n)
+j,t+i −x(n)
+j,t+i
+2
+,
+(A29)
+where xj denotes the j-th ego-state variable, N is the number of evaluated sequences,
+and T is the prediction horizon.
+Future-interaction prediction is evaluated using average displacement error and
+final displacement error. For an opponent trajectory predicted over a horizon T,
+ADE = 1
+T
+T
+X
+i=1
+∥ˆot+i −ot+i∥2 ,
+(A30)
+FDE = ∥ˆot+T −ot+T ∥2 ,
+(A31)
+where ˆot+i and ot+i denote the predicted and ground-truth opponent states at
+prediction step i. In racing scenarios, these states are evaluated in a structured track-
+coordinate representation so that longitudinal progress, lateral offset, and interaction
+geometry are preserved.
+Closed-loop decision capability is quantified by interaction success rate, collision
+rate, safe mileage, and overtaking frequency. The interaction success rate is
+Rsucc = Nsucc
+Ntotal
+,
+(A32)
+where Nsucc denotes the number of successful interactions and Ntotal denotes the total
+number of interaction trials. The collision rate is
+Rcol = Ncol
+Ntotal
+,
+(A33)
+where Ncol denotes the number of interactions that lead to collision. The overtaking
+frequency is computed as
+Fover = Nover
+Nlap
+,
+(A34)
+44
+
+
+where Nover is the number of completed overtaking maneuvers and Nlap is the number
+of evaluated laps. Safe mileage is the accumulated distance travelled without collision,
+boundary violation, or emergency termination.
+These cognitive indicators are complementary. State residuals measure the reli-
+ability of current world-state construction; ego-dynamics and interaction-prediction
+errors measure the quality of future prediction; and closed-loop outcomes measure
+whether the agent can convert state estimation and prediction into safe, feasible, and
+competitive behavior.
+S3.2 Physical-Limit Indicators
+The physical limit refers to the boundary of feasible motion imposed by vehicle dynam-
+ics, actuator constraints, tire–road interaction, aerodynamic loading, road friction,
+tire temperature, and stability constraints. For autonomous racing, this boundary is
+reflected not only by vehicle-level acceleration capability, but also by tire utilization,
+controller tracking capability, and maneuvering stability. Therefore, the physical limit
+is quantified using a set of layered indicators.
+At the vehicle level, physical-limit utilization is evaluated by the executed accel-
+eration state relative to the feasible-motion envelope Et. The coupled acceleration
+envelope is defined in the main manuscript as a speed- and friction-dependent
+boundary in the (ax, ay) plane. We define the normalized envelope utilization as
+ηenv,t = gE (ax,t, ay,t, vx,t, µt; Et) ,
+(A35)
+where gE(·) is induced by the coupled acceleration-envelope function. For the super-
+ellipse envelope used in this work, the utilization can be written as
+ηenv,t =
+
+
+
+
+
+
+
+
+
+
+ax,t
+aacc
+x,max(vx,t, µt)
+c
++
+
+|ay,t|
+ay,max(vx,t, µt)
+c
+,
+ax,t ≥0,
+
+|ax,t|
+adec
+x,max(vx,t, µt)
+c
++
+
+|ay,t|
+ay,max(vx,t, µt)
+c
+,
+ax,t < 0.
+(A36)
+A value ηenv,t ≤1 indicates that the executed acceleration remains inside the feasible
+envelope, while values close to one indicate operation near the vehicle-level physical
+boundary.
+At the tire level, slip ratio and slip angle are used to quantify tire–road force
+utilization. The normalized tire-limit utilization is
+ηtire,t = min
+
+1
+4
+X
+i∈{fl,fr,rl,rr}
+max
+|sx,i,t|
+sth
+x
+, |sy,i,t|
+sth
+y
+
+, 2
+
+,
+(A37)
+where sx,i,t denotes the slip ratio of tire i, sy,i,t denotes the slip angle of tire i, and sth
+x
+and sth
+y are the corresponding limit thresholds. The value is clipped at 2 instead of 1
+to retain information about the severity of limit violation for soft-constraint penalties.
+45
+
+
+At the control level, tracking capability is quantified by lateral and speed tracking
+errors,
+ηcontrol,t = min
+ 
+max
+ 
+|etrk
+y,t|
+eth
+y
+, |etrk
+v,t|
+eth
+v
+!
+, 2
+!
+,
+(A38)
+where etrk
+y,t denotes the lateral tracking error, etrk
+v,t denotes the speed tracking error,
+and eth
+y and eth
+v are the corresponding thresholds.
+At the stability level, the discrepancy between actual and desired yaw rate is used
+to detect the onset of maneuvering instability. The desired yaw rate is approximated
+by
+rdes
+t
+= vx,t
+L tan(δfb,t) ·
+1
+1 + Kv2
+x,t
+,
+(A39)
+where L is the wheelbase, δfb,t is the steering feedback angle, and K is the speed-
+dependent yaw-rate gain coefficient. The stability utilization is
+ηstability,t = min
+|rt −rdes
+t
+|
+rth
+, 2
+
+,
+(A40)
+where rt is the actual yaw rate and rth is the stability threshold.
+The hybrid physical-limit utilization combines the vehicle-level, tire-level, control-
+level, and stability-level indicators:
+ηlim,t = max (ηtire,t, ηcontrol,t, ηstability,t) .
+(A41)
+This value is used to assess whether the ego vehicle remains within the pre-
+scribed physical-limit criterion during envelope exploration, planning, and control. An
+expanded physical-limit envelope is accepted only if the maximum utilization over the
+evaluated rollout remains below the prescribed threshold. The metric ηenv,t serves as
+an envelope-based representation of ηlim,t to quantify the proximity of the current
+state to the feasible motion boundary.
+S3.3 Coupled Interpretation of Cognitive and Physical Indicators
+The cognitive and physical indicators are interpreted jointly because the two limits
+are coupled in closed-loop racing. A candidate maneuver may be strategically favor-
+able according to interaction reasoning, but it is useful only if it remains executable
+within the current feasible-motion envelope. Conversely, a maneuver may be physi-
+cally feasible in isolation but unsafe under localization uncertainty, opponent-tracking
+uncertainty, or interaction-prediction error.
+In this work, localization residuals, state residuals, ego-dynamics prediction errors,
+and interaction-prediction ADE/FDE quantify cognitive uncertainty. Acceleration-
+envelope utilization, tire slip utilization, tracking errors, and yaw-rate discrepancy
+quantify physical-limit utilization. Closed-loop outcomes such as success rate, collision
+rate, safe mileage, and overtaking frequency reflect the consequence of their coupling
+during execution.
+46
+
+
+For a trajectory candidate τ k
+t , the closed-loop interpretation can be summarized as
+τ k
+t is effective
+⇐⇒
+
+
+
+
+
+
+
+
+
+interaction prediction indicates acceptable risk,
+decision score indicates competitive racing utility,
+ηk
+lim,t:t+H ≤ηth,
+execution produces no collision or instability.
+(A42)
+where ηk
+lim,t:t+H denotes the maximum physical-limit utilization along the predicted
+or executed horizon of candidate τ k
+t , and ηth is the prescribed physical-limit threshold.
+This joint interpretation connects the supplementary metrics to the main results.
+The localization and prediction metrics support the assessment of current and future
+world understanding; the physical-limit metrics support the assessment of dynamic-
+envelope utilization and stability; and the interaction outcomes evaluate whether the
+agent can select and execute maneuvers that remain safe, feasible, and competitive
+under coupled cognitive-physical limits.
+S4. Predictive World Modeling
+The world model provides the predictive representation used by future-aware reason-
+ing, physical-limit-constrained control, and closed-loop refinement. Starting from the
+structured racing world state wt, it predicts three coupled components: the future ego
+vehicle response, the evolution of ego–opponent interaction, and the feasible-motion
+boundary of the ego vehicle. This section provides the implementation details of these
+three components.
+S4.1 Ego Dynamics Prediction
+The ego dynamics model predicts the short-horizon response of the ego vehicle under
+aggressive control inputs. It adopts a physics-constrained residual-learning structure,
+combining a differentiable vehicle-dynamics backbone with a learnable residual model:
+ˆxt+1 = fdyn (xt, ut; θdyn) + fres (xt−h:t, ut−h:t; θres) ,
+(A43)
+where xt is the ego vehicle state, ut is the control input, fdyn(·) is the differentiable
+dynamics backbone, and fres(·) is the residual model using recent state and control
+histories.
+The differentiable backbone preserves the main physical coupling among longi-
+tudinal motion, lateral motion, yaw dynamics, and wheel rotational behavior. Its
+parameter vector θdyn is constrained within physically plausible ranges through
+bounded learnable parameters. The residual model, parameterized by θres, compen-
+sates for effects that are difficult to capture analytically, including transient tire
+behavior, unmodeled aerodynamic variation, local surface variation, and actuator
+response mismatch. Model training based on next-state prediction error is described
+in Supplementary Section S7.
+47
+
+
+Prediction accuracy is evaluated using the channel-wise ego-dynamics prediction
+RMSE defined in Supplementary Section S3.1. In the experiments, the evaluated chan-
+nels include longitudinal velocity, lateral velocity, yaw rate, longitudinal acceleration,
+and lateral acceleration, corresponding to the near-limit motion states reported in the
+main manuscript.
+S4.2 Interaction Prediction
+The interaction prediction model captures the future evolution of multi-agent racing
+scenarios. The input is the structured world state wt, which contains ego vehicle state,
+tracked opponent states, and local track context. In a track-coordinate system, each
+surrounding opponent is encoded from its relative longitudinal and lateral position
+and speed with respect to the ego vehicle, together with a learned slot embedding
+indicating its relative bearing.
+The ego encoder and opponent encoders produce features that a masked attention-
+pooling layer aggregates into a scene representation. This representation is decoded
+into a latent interaction intention, expressed as a lateral reference offset and a tar-
+get speed, that implicitly captures racing-relevant behaviors such as attack, defense,
+hold, and yield. A multilayer-perceptron transition model then predicts per-agent state
+increments and is recursively applied to roll out future interaction evolution.
+At inference time, the interaction model is recursively rolled out as part of the
+world model:
+ˆwt:t+H = W H (wt, at:t+H−1) ,
+(A44)
+where W H(·) denotes recursive world-model prediction over horizon H, and at:t+H−1
+denotes candidate action inputs or behavior hypotheses. The predicted world-state
+sequence ˆwt:t+H contains both ego-state evolution and opponent-state evolution.
+The interaction transition model is trained by supervised prediction of world-state
+evolution as described in Supplementary Section S7.
+For evaluation, predicted opponent trajectories are compared with ground-truth
+trajectories using the ADE and FDE metrics defined in Supplementary Section S3.1.
+These metrics are computed in the structured track-coordinate representation and
+quantify whether the world model provides sufficiently accurate short-horizon inter-
+action futures for trajectory evaluation.
+S4.3 Physical-Limit Representation
+The physical-limit representation models the feasible-motion boundary of the ego vehi-
+cle. At the vehicle level, this boundary is represented as a coupled longitudinal–lateral
+acceleration envelope. For a state indexed by k, the envelope is written as
+
+
+
+
+
+
+
+
+
+
+ax,k
+aacc
+x,max(vx,k, µk)
+c
++
+
+|ay,k|
+ay,max(vx,k, µk)
+c
+≤1,
+ax,k ≥0,
+
+|ax,k|
+adec
+x,max(vx,k, µk)
+c
++
+
+|ay,k|
+ay,max(vx,k, µk)
+c
+≤1,
+ax,k < 0,
+(A45)
+48
+
+
+Algorithm 1 Nominal physical-limit envelope generation
+1: Initialize Plim ←∅
+2: for each speed vx do
+3:
+adrag ←fdrag(vx)
+4:
+aeng
+x,max ←Engine(vx)
+5:
+for each direction angle θ do
+6:
+R ←0
+7:
+while R < Rmax do
+8:
+ax ←R cos θ,
+ay ←R sin θ
+9:
+[F tire
+x
+, F tire
+y
+, F tire
+z
+] ←VehicleDynamics(ax −adrag, ay; θdyn)
+10:
+for each wheel do
+11:
+if TireLimit(F tire
+x
+, F tire
+y
+, F tire
+z
+; µref) > 0 then
+12:
+Plim ←Plim ∪Pfeasible
+13:
+Update aacc
+x,max, adec
+x,max, and ay,max at vx from Pfeasible
+14:
+break
+15:
+end if
+16:
+end for
+17:
+R ←R + ∆R
+18:
+Pfeasible ←[min(ax, aeng
+x,max), ay, vx]
+19:
+end while
+20:
+end for
+21: end for
+22: for each state (ax, ay, vx) ∈Plim do
+23:
+c ←cmin
+24:
+while c ≤cmax do
+25:
+ax,max ←aacc
+x,max if ax ≥0, otherwise adec
+x,max
+26:
+if [ax/ax,max(vx)]c + [|ay|/ay,max(vx)]c < 1 then
+27:
+c(vx) ←c −∆c
+28:
+break
+29:
+end if
+30:
+c ←c + ∆c
+31:
+end while
+32: end for
+33: Return E0
+where ax,k and ay,k denote longitudinal and lateral accelerations, vx,k is the lon-
+gitudinal speed, µk is the road-friction coefficient, and c controls the shape of the
+super-ellipse envelope. The functions aacc
+x,max(·), adec
+x,max(·), and ay,max(·) describe accel-
+eration, braking, and lateral acceleration capabilities under the current speed and
+friction condition.
+A nominal physical-limit envelope E0 is generated from the identified dynamics
+parameters θdyn. The envelope provides a structured prior of the vehicle’s feasi-
+ble motion capability before online adaptation. Boundary points are obtained by
+radial search in the (ax, ay) space over the operating speed range, and the envelope
+parameters are calibrated from the resulting feasible boundary.
+Starting from the nominal envelope E0, the effective physical-limit boundary is
+refined through world-model-based exploration and online adaptation. The effective
+envelope is written as
+Et = E (ρa(wt), ρe; E0(θdyn)) ,
+(A46)
+where ρe is the physical-limit exploration factor and ρa(wt) is the online adaptive limit
+factor.
+Physical-limit exploration aims to expand the nominal envelope when doing
+so improves performance without violating the prescribed limit criterion. A safe
+49
+
+
+reinforcement-learning policy proposes an envelope expansion action
+ak =
+
+∆ρdec
+e,x, ∆ρacc
+e,x, ∆ρe,y
+
+∈[0, ∆ρmax]3,
+(A47)
+where ρacc
+e,x, ρdec
+e,x, and ρe,y scale acceleration, braking, and lateral limits, respectively.
+The policy input is
+sk = [Γk−1, Γk, ηlim,k−1],
+(A48)
+where Γk−1 and Γk denote preceding and upcoming track segments, and ηlim,k−1 is
+the limit utilization of the previous segment.
+The exploration reward penalizes both excessive expansion and limit violation:
+¯rk = rk −β∥ak∥2
+2 −λck,
+(A49)
+where
+rk = −
+Tk
+Tk(Γ∗
+E0),
+ck = max(ηlim,k −1, 0)2.
+(A50)
+Here Tk is the lap-time-related segment objective, Γ∗
+E0 is the reference optimal trajec-
+tory under the nominal envelope, and ck penalizes violation of the hybrid physical-limit
+utilization.
+The proposed expansion is first applied as
+˜ρe,k+1 = ρe,k + ak,
+(A51)
+˜Ek+1 = ˜ρe,k+1 ⊙E0,
+(A52)
+where ⊙denotes element-wise scaling of the nominal envelope parameters. The update
+is accepted only if the maximum physical-limit utilization satisfies the prescribed
+criterion:
+ρe,k+1 =
+(
+˜ρe,k+1,
+ηmax
+lim ( ˜Ek+1) ≤1,
+ρe,k,
+otherwise.
+(A53)
+This rule prevents unsafe over-expansion of the feasible-motion boundary.
+During online execution, the envelope is further adjusted according to operating
+conditions. The adaptive factor is defined as
+ρa(wt) = µt
+µref
+ψ
+Tfl + Tfr + Trl + Trr
+4
+
+exp
+ −λwmεwm
+ego
+
+,
+(A54)
+where µt and µref denote the estimated and reference friction coefficients, ψ(·) is the
+tire-temperature attenuation function, and εwm
+ego is the world-model prediction error
+for the ego state.
+The implemented online envelope is
+Et = ρa(wt)ρe ⊙E0(θdyn).
+(A55)
+Thus, the physical-limit representation evolves through two mechanisms: offline explo-
+ration enlarges the nominal feasible-motion boundary when supported by world-model
+50
+
+
+rollouts, while online adaptation contracts or scales the envelope according to friction,
+tire temperature, and prediction uncertainty.
+S5. Future-Aware Reasoning and Trajectory Evaluation
+Future-aware reasoning transforms the current racing world state into a selected
+trajectory that is safe, feasible, and competitive before execution. The module com-
+bines a high-level decision policy, a multimodal delta planner, physical-limit-based
+speed replanning, and world-model-based predictive evaluation. The resulting trajec-
+tory is passed to the physical-limit-constrained controller described in Supplementary
+Section S6.
+S5.1 Decision Policy Network
+At each time step, the decision policy receives the structured world state wt, including
+the ego vehicle state, tracked opponent states, and local track context. The policy
+outputs a compact racing command
+ξd = [vd, ld],
+(A56)
+where vd denotes the target speed and ld denotes the target lateral position or offset in
+the track-coordinate system. This command represents the main racing intention, such
+as accelerating, braking, holding line, defending, or preparing an overtaking maneuver.
+The decision policy uses a structured interaction encoder. The ego vehicle is
+encoded using Frenet-frame states, while opponent vehicles are organized into seman-
+tic slots according to their relative longitudinal and lateral positions. Each opponent
+slot contains relative position, lateral offset, velocity, availability, and slot identity.
+Slot-wise interaction features are aggregated into a compact scene representation and
+combined with the ego feature. The policy head outputs the longitudinal–lateral rac-
+ing command ξd. During training, stochastic action sampling is used for exploration;
+during deployment, deterministic inference is used for stable online decision-making.
+Given the current ego state xt and the decision command ξd, a nominal reference
+trajectory is generated over a finite horizon H:
+τ ref
+t
+= ftran(xt, ξd, H),
+(A57)
+where ftran(·) denotes the transition model that converts the high-level racing com-
+mand into a reference trajectory. This trajectory represents the main decision branch
+implied by the current racing intention.
+The multimodal planning framework including the decision network and the
+planning network is shown in Fig. A7. The decision network generates the decision-
+conditioned backbone trajectory, and the planning network produces the delta
+trajectory manifold for multimodal trajectory generation.
+51
+
+
+Decision Network �
+��  
+�ref
+Ego 
+Vehicle 
+State
+Opponent 
+Vehicle
+States
+Ego Vehicle 
+State Encoder
+Opponent 
+Vehicles 
+Encoder
+Longitudinal 
+Decision 
+Decoder
+Lateral Decision 
+Decoder
+Fusion 
+Layer
+Decision Input
+Decision-
+Conditioned 
+Backbone  
+Trajectory
+Planning Network �
+Ego Vehicle State 
+Encoder
+Opponent 
+Vehicles Encoder
+Memory 
+Tokens
+Track Information 
+Encoder
+Ego 
+Vehicle
+ History
+Opponent
+Vehicle 
+History
+Trajectory 
+Heads
+Track 
+Context
+Delta Trajectory 
+Manifold 
+Trajectory Decoder
+Transformer
+Fusion 
+MLP
+Planning Input
+Multimodel
+Trajectories
+��
+Fig. A7
+The architecture of the multimodal planning networks.
+S5.2 Multimodal Delta Planner
+Competitive racing interactions are multimodal: the same observed world state may
+admit several plausible maneuvers, such as left-side overtaking, right-side overtaking,
+braking behind an opponent, or holding the current line. To represent this multimodal-
+ity, a delta planner generates mode-specific trajectory deviations around the main
+reference trajectory.
+Given recent world-state history wt−h:t, the planner outputs K candidate trajec-
+tory offsets,
+∆τ k
+t = ϕk(wt−h:t; θϕ),
+k = 1, . . . , K,
+(A58)
+where ϕk(·) denotes the k-th output mode of the multimodal planner and θϕ denotes
+the planner parameters. Candidate trajectories are then formed as
+τ k
+t = τ ref
+t
++ ∆τ k
+t .
+(A59)
+To diversify longitudinal behavior, a set of speed factors are prescribed. The multi-
+modal trajectories are scaled with speed factors, producing candidate trajectories for
+a subsequent world-model rollout evaluation.
+The planner encodes ego history, opponent history, and local track context using
+transformer-based modules. The resulting latent representation is decoded through
+multiple output heads, allowing different modes to specialize in different racing behav-
+iors. This multimodal structure prevents the reasoning process from committing
+prematurely to a single maneuver before future interaction outcomes are evaluated.
+Planning results in diverse racing scenes are shown in Fig. A8. The deeper blue center
+trajectory is the decision-conditioned backbone trajectory. The light blue trajectories
+are the multimodal trajectories.
+52
+
+
+Fig. A8
+Planning results in diverse racing scenes.
+S5.3 Speed Replanning under Physical-Limit Constraints
+The prescribed speed factors diversify the longitudinal profiles of the multimodal tra-
+jectories, while the following speed-replanning step enforces compatibility with the
+current physical-limit envelope.
+The candidate trajectories are further regularized by the current feasible-motion
+envelope Et. This step converts each candidate into an executable trajectory with a
+speed profile compatible with the physical capability of the ego vehicle:
+Tt =
+
+R(τ k
+t , Et)
+	K
+k=1 ,
+(A60)
+where R(τ k
+t , Et) denotes speed replanning under the adaptive physical-limit enve-
+lope. The replanning process respects the coupled longitudinal–lateral acceleration
+constraint induced by Et.
+This replanning step provides a direct connection between physical-limit represen-
+tation and future-aware reasoning. A candidate trajectory is not evaluated solely by
+its geometric path or racing intention; it is first converted into a physically compatible
+trajectory under the current envelope Et.
+S5.4 Parallel World-Model Rollouts
+After candidate generation and physical-limit regularization, each candidate trajectory
+is evaluated through recursive world-model rollouts. Starting from the current world
+state wt, the world model predicts the future evolution induced by the candidate:
+ˆw k
+t:t+H = W H(wt, a k
+t:t+H−1),
+(A61)
+53
+
+
+Algorithm 2 Speed replanning under the feasible-motion envelope
+Require: Candidate trajectory τ k
+t , current longitudinal speed v0
+x, feasible-motion envelope Et
+1: Extract arc-length increments ∆sk
+t+h and curvature κk
+t+h from τ k
+t
+2: vk
+t+h ←min
+q
+ay,max(v0x, Et)/ max(|κk
+t+h|, ϵ), vmax
+
+3: Set vk
+t ←v0
+x
+4: for h = 0 to H −1 do
+5:
+ay,t+h ←(vk
+t+h)2κk
+t+h
+6:
+a+
+x,t+h ←Et(ay,t+h, vk
+t+h)
+7:
+vk
+t+h+1 ←min
+
+vk
+t+h+1,
+q
+max((vk
+t+h)2 + 2a+
+x,t+h∆sk
+t+h, 0)
+
+8: end for
+9: for h = H down to 1 do
+10:
+ay,t+h ←(vk
+t+h)2κk
+t+h
+11:
+a−
+x,t+h ←Et(ay,t+h, vk
+t+h)
+12:
+vk
+t+h−1 ←min
+
+vk
+t+h−1,
+q
+max((vk
+t+h)2 + 2a−
+x,t+h∆sk
+t+h, 0)
+
+13: end for
+14: ak
+x,t+h ←
+ (vk
+t+h+1)2 −(vk
+t+h)2
+/(2∆sk
+t+h + ϵ)
+15: Update τ k
+t with {vk
+t+h, ak
+x,t+h}
+16: Densify and resample τ k
+t at fixed interval ∆t
+where a k
+t:t+H−1 denotes the behavior associated with candidate trajectory τ k
+t . The
+resulting set of parallel futures is
+Ft =
+ τ k
+t , ˆw k
+t:t+H
+
+| τ k
+t ∈Tt
+	
+.
+(A62)
+Each predicted future contains ego-motion evolution, opponent-motion evolution,
+and feasibility information under the current physical-limit representation. This allows
+the agent to assess whether a maneuver that appears competitive at the current instant
+remains safe and executable over the prediction horizon.
+S5.5 Safety, Feasibility, and Speed Scoring
+Each candidate future is evaluated by a task-oriented score that combines safety,
+feasibility, and speed efficiency. The total score is written as
+Sk = Sk
+safety + Sk
+speed −Sk
+violation,
+(A63)
+where Sk
+safety penalizes predicted collision or boundary risk, Sk
+speed rewards racing
+progress and speed efficiency, and Sk
+violation penalizes predicted physical-limit violation
+or loss of control.
+The track-boundary risk is defined as
+ρk
+track =
+max
+h=1,...,H max
+h lk
+t+h −lL(sk
+t+h)
+
++ ,
+ lR(sk
+t+h) −lk
+t+h
+
++
+i
+,
+(A64)
+where (x)+ = max(0, x), lL(·) and lR(·) are the safe left and right track boundaries,
+and (s, l) denotes the track-coordinate position.
+54
+
+
+The opponent-collision risk is
+ρk
+opponent =
+max
+j∈Vt, h∈{1,...,H}
+
+dth
+s −
+sk
+t+h −ˆsj
+t+h
+
+
++
+
+dth
+l −
+lk
+t+h −ˆlj
+t+h
+
+
++
+
+, (A65)
+where Vt is the set of valid opponent vehicles, (ˆsj
+t+h, ˆlj
+t+h) is the predicted track-
+coordinate position of opponent j, and dth
+s and dth
+l
+are longitudinal and lateral safety
+thresholds.
+The safety score is
+Sk
+safety = exp
+
+−ρk
+opponent −ρk
+track −λr
+max
+h=1,...,H |rk
+t+h|
+
+,
+(A66)
+where rk
+t+h is the yaw rate along candidate trajectory k, and λr weights yaw-rate-
+related instability risk.
+Physical feasibility is evaluated using the hybrid physical-limit utilization defined
+in Supplementary Section S3:
+ηk
+lim,t:t+H =
+max
+h=1,...,H ηk
+lim,t+h.
+(A67)
+The physical-limit violation penalty is
+Sk
+violation = λη
+ max
+ ηk
+lim,t:t+H −ηth, 0
+2 ,
+(A68)
+where ηth is the prescribed limit threshold and λη is a penalty weight.
+The speed score is defined by the terminal speed ratio,
+Sk
+speed =
+vk
+x,t+H
+vref
+x (sk
+t+H; E0),
+(A69)
+where vref
+x (sk
+t+H; E0) is the reference speed at terminal progress sk
+t+H under the nominal
+envelope.
+The final selected trajectory is
+τ ∗
+t = arg max
+τ k
+t ∈Tt
+Sk.
+(A70)
+This selection rule favors trajectories that are interaction-safe, physically feasible, and
+competitive in speed before they are committed to the physical vehicle.
+The resulting interaction cases and the interaction statistics of the scenarios are
+shown in Fig. A9.
+S6. Physical-Limit-Constrained Motion Control
+The physical-limit-constrained controller converts the trajectory selected by future-
+aware reasoning into executable control commands. Given the selected trajectory
+55
+
+
+A
+B
+Successful
+        overtake 
+and be overtaken 
+Fig. A9
+Interaction cases and scenario interaction statistics.
+τ ∗
+t and the world-model-informed feasible-motion envelope Et, the controller tracks
+the reference trajectory while enforcing vehicle dynamics, road-boundary constraints,
+actuator limits, and coupled longitudinal–lateral physical-limit constraints. This
+section provides the vehicle dynamics, linearization, barrier derivatives, and con-
+strained iLQR implementation used by the controller. The architecture of the motion
+controller is illustrated in Fig. A10.
+Input
+CiLQR Solver
+Output
+State Estimation
+Decision Trajectory
+Initial Trajectory
+Iter Loop                          
+Cost Function
+State Diff Cost
+Control Energy Cost
+Control Rate Cost
+Barrier Cost
+Backward Pass
+Forward Pass
+(Line search α)
+Hessian
+Objective
+Vehicle Command Convertor
+warm-start
+Yes
+No
+Throttle, Brake, Steer, Gear
+cost 
+convergence
+Fig. A10
+Physical-limit-constrained CiLQR control framework.
+S6.1 Control-Oriented Vehicle Dynamics
+The control-oriented vehicle model uses the state
+x = [X, Y, ψ, vx, vy, r]⊤,
+(A71)
+56
+
+
+where (X, Y ) denotes the position in the global frame, ψ is the heading angle, vx and
+vy are the longitudinal and lateral velocities in the body frame, and r = ˙ψ is the yaw
+rate. The control input is
+u = [ax, δ]⊤,
+(A72)
+where ax is the commanded longitudinal acceleration and δ is the front-wheel steering
+angle.
+The continuous-time vehicle dynamics are
+
+
+
+
+
+
+
+
+
+
+
+˙X = vx cos ψ −vy sin ψ,
+˙vx = ax + vyr,
+˙Y = vx sin ψ + vy cos ψ,
+˙vy = Fyf cos δ + Fyr
+m
+−vxr,
+˙ψ = r,
+˙r = lfFyf cos δ −lrFyr
+Iz
+.
+(A73)
+Here m is the vehicle mass, Iz is the yaw moment of inertia, lf and lr are the distances
+from the center of gravity to the front and rear axles, and Fyf and Fyr are the front
+and rear lateral tire forces.
+The discrete-time transition is obtained by Euler integration:
+xk+1 = xk + fdyn(xk, uk; θdyn)∆t,
+(A74)
+where fdyn(·) denotes the control-oriented dynamics model and θdyn contains the
+physical parameters calibrated from the dynamics component of the world model.
+S6.2 Dynamics Linearization and Jacobians
+The iLQR backward pass requires local linearization of the discrete dynamics. Let
+fc(x, u) denote the continuous-time dynamics in Eq. (A73). The state Jacobian is
+∂fc
+∂x =
+
+
+0 0 f1,3 cos ψ −sin ψ
+0
+0 0 f2,3 sin ψ
+cos ψ
+0
+0 0
+0
+0
+0
+1
+0 0
+0
+0
+r
+vy
+0 0
+0
+f5,4
+f5,5
+f5,6
+0 0
+0
+f6,4
+f6,5
+f6,6
+
+
+,
+(A75)
+where
+f1,3 = −vx sin ψ −vy cos ψ,
+f2,3 = vx cos ψ −vy sin ψ.
+(A76)
+The lateral and yaw dynamics terms are
+f5,4 = cos δ
+m
+∂Fyf
+∂vx
++ 1
+m
+∂Fyr
+∂vx
+−r,
+(A77)
+f5,5 = cos δ
+m
+∂Fyf
+∂vy
++ 1
+m
+∂Fyr
+∂vy
+,
+(A78)
+f5,6 = cos δ
+m
+∂Fyf
+∂r
++ 1
+m
+∂Fyr
+∂r
+−vx,
+(A79)
+57
+
+
+f6,4 = lf cos δ
+Iz
+∂Fyf
+∂vx
+−lr
+Iz
+∂Fyr
+∂vx
+,
+(A80)
+f6,5 = lf cos δ
+Iz
+∂Fyf
+∂vy
+−lr
+Iz
+∂Fyr
+∂vy
+,
+(A81)
+f6,6 = lf cos δ
+Iz
+∂Fyf
+∂r
+−lr
+Iz
+∂Fyr
+∂r .
+(A82)
+The control Jacobian is
+∂fc
+∂u =
+
+0 0 0 1
+0
+0
+0 0 0 0 g5,2 g6,2
+T
+,
+(A83)
+where
+g5,2 = 1
+m
+
+cos δ ∂Fyf
+∂δ
+−sin δFyf
+
+,
+(A84)
+g6,2 = lf
+Iz
+
+cos δ ∂Fyf
+∂δ
+−sin δFyf
+
+.
+(A85)
+For the linear tire-force approximation used in the controller,
+∂Fyf
+∂δ
+= −Cf,
+(A86)
+so that
+g5,2 = 1
+m (−Cf cos δ −sin δFyf) ,
+(A87)
+g6,2 = lf
+Iz
+(−Cf cos δ −sin δFyf) .
+(A88)
+The discrete-time Jacobians used by iLQR are obtained from the Euler-discretized
+model:
+Ak = I + ∆t∂fc
+∂x
+
+xk,uk
+,
+Bk = ∆t∂fc
+∂u
+
+xk,uk
+.
+(A89)
+S6.3 Tracking, Smoothness, and Constraint Costs
+Given the selected trajectory τ ∗
+t , the controller solves the finite-horizon problem
+u∗
+t = arg
+min
+ut:t+Hc−1 J(xt, ut:t+Hc−1; τ ∗
+t , Et),
+(A90)
+subject to vehicle dynamics and inequality constraints. The cost is decomposed as
+J = Jtrack + Jbarrier.
+(A91)
+58
+
+
+The tracking and smoothness cost is
+Jtrack =
+Hc−1
+X
+j=0
+ ∥xt+j −xref
+t+j∥2
+Q + ∥ut+j∥2
+R + ∥∆ut+j∥2
+P
+
+,
+(A92)
+where xref
+t+j is induced by τ ∗
+t , and Q, R, and P are weighting matrices for tracking
+error, control effort, and control smoothness.
+Inequality constraints are imposed through exponential barrier functions:
+Jbarrier =
+X
+k,i
+q(i)
+1 exp
+
+q(i)
+2 ci(xk, uk−1; Ek)
+
+,
+(A93)
+where ci ≤0 indicates satisfaction of the corresponding constraint and ci > 0 indicates
+violation. The constraints include road boundaries, velocity limits, lateral velocity
+limits, yaw-rate limits, input limits, and the physical-limit envelope.
+S6.4 Physical-Limit Barrier Terms
+The physical-limit constraint is induced by the coupled acceleration envelope Ek. In the
+simplified quadratic form used for barrier differentiation, the constraint is expressed as
+clim =
+a2
+x
+a2x,max
++
+a2
+y
+a2y,max
+−1,
+(A94)
+where ax,max and ay,max are selected from the current feasible-motion envelope accord-
+ing to speed, road condition, and acceleration or braking regime. A constraint violation
+corresponds to clim > 0.
+The exponential barrier for the physical-limit constraint is
+B(clim) = qlim
+1
+exp
+ qlim
+2 clim
+
+.
+(A95)
+For a generic variable vector z, its gradient and Gauss–Newton Hessian approximation
+are
+∇zB = qlim
+2 B(clim)∇zclim,
+(A96)
+∇2
+zB ≈(qlim
+2
+)2B(clim)(∇zclim)(∇zclim)⊤.
+(A97)
+The corresponding control gradient and Hessian contributions are
+llim
+u
+= qlim
+2 B(clim)
+2ax/a2
+x,max
+0
+
+,
+(A98)
+llim
+uu = (qlim
+2
+)2B(clim)
+4a2
+x/a4
+x,max 0
+0
+0
+
+.
+(A99)
+59
+
+
+Using the approximation ay ≈vxr, the corresponding state gradient contribution
+is
+llim
+x
+= qlim
+2 B(clim)
+
+
+0
+0
+0
+2vxr2/a2
+y,max
+0
+2v2
+xr/a2
+y,max
+
+
+,
+(A100)
+and the Gauss–Newton state Hessian contribution is
+llim
+xx = (qlim
+2
+)2B(clim)∂clim
+∂x
+∂clim
+∂x
+⊤
+.
+(A101)
+These derivatives are accumulated with the nominal stage-cost derivatives and other
+box-constraint barrier terms before the iLQR backward pass constructs the local
+quadratic model.
+S6.5 Box Constraints and Numerical Safeguards
+The box constraints are summarized in Table A1. Each constraint ci is defined such
+that ci > 0 indicates violation.
+Table A1 Box constraints and non-zero derivatives
+used by the constrained controller.
+Constraint
+ci
+Non-zero derivative
+Acceleration upper
+ax −amax
+∂ci/∂ax = +1
+Acceleration lower
+amin −ax
+∂ci/∂ax = −1
+Steering upper
+δ −δmax
+∂ci/∂δ = +1
+Steering lower
+−δmax −δ
+∂ci/∂δ = −1
+Velocity upper
+v −vmax
+∂ci/∂v = +1
+Velocity lower
+vmin −v
+∂ci/∂v = −1
+Lateral upper
+dk −dmax
+∂ci/∂p = ˆn
+Lateral lower
+dmin −dk
+∂ci/∂p = −ˆn
+Here dk denotes the signed lateral distance to the reference line, ˆn is the unit
+normal at the nearest reference point, and dmax and dmin are derived from road width
+and vehicle width. Each barrier is parameterized by a pair (q(i)
+1 , q(i)
+2 ).
+Several numerical safeguards are applied. First, for |vx| < vthr, the physical-limit
+constraint is set to clim = −1 and its derivatives are set to zero. Second, the accelera-
+tion envelope switches between traction and braking bounds according to the sign of
+ax. Third, barrier values are monitored to avoid numerical overflow in the exponential
+function. Fourth, the final control sequence is hard-clamped to box limits after the
+forward rollout.
+60
+
+
+S6.6 CiLQR Solver
+The constrained iLQR solver minimizes the cost in Eq. (A91) over a finite horizon
+by iteratively linearizing the dynamics and quadratizing the cost. Starting from the
+terminal time step, the backward pass computes
+Qx = lx + A⊤Vx,
+(A102)
+Qu = lu + B⊤Vx,
+(A103)
+Qxx = lxx + A⊤VxxA,
+(A104)
+Quu = luu + B⊤VxxB,
+(A105)
+Qux = lux + B⊤VxxA.
+(A106)
+The feedforward correction and feedback gain are
+dk = −(Quu + λI)−1Qu,
+(A107)
+Kk = −(Quu + λI)−1Qux,
+(A108)
+where λ > 0 is a Tikhonov regularization parameter.
+The forward rollout applies the affine feedback update
+unew
+k
+= uk + αdk + γKk(xnew
+k
+−xk),
+(A109)
+where α ∈(0, 1] is a line-search parameter and γ ∈[0, 1] scales the feedback term. If the
+rollout reduces the objective, the update is accepted and the regularization is relaxed.
+Otherwise, the regularization is increased to produce a more conservative update.
+Algorithm 3 summarizes the constrained CiLQR implementation.
+The physical-limit terms in Eqs. (A98)–(A101) are evaluated at each time step and
+accumulated into the stage-cost derivatives during the backward pass. This allows the
+controller to anticipate violations of the acceleration envelope before they appear in
+the executed vehicle response.
+The resulting closed-loop control profiles are illustrated in Fig. A11, showing how
+the controller coordinates actuation and vehicle response along the racing lap.
+The closed-loop state and control variable distribution are further summarized in
+Fig. A12.
+S7. Closed-Loop World-Model and Policy Refinement
+The autonomous racing agent is refined through a closed-loop pipeline that connects
+real-world deployment, world-model learning, internal simulation, and policy update.
+Rather than updating the decision policy alone, the framework refines the predictive
+models of ego dynamics, interaction evolution, and physical feasibility, and then uses
+the refined world model to generate structured rollout data for improving future-aware
+reasoning and planning.
+61
+
+
+Algorithm 3 Constrained CiLQR with physical-limit envelope
+Require: Initial state x0, selected reference trajectory τ ∗
+t , feasible-motion envelope Et
+1: Initialize controls u0:N−1 using warm start or reference-based initialization
+2: Roll out dynamics to obtain x0:N
+3: J ←TotalCost(x0:N, u0:N−1; τ ∗
+t , Et)
+4: λ ←λinit
+5: for iter = 1 to max iter do
+6:
+for k = N down to 1 do
+7:
+Linearize dynamics to obtain Ak, Bk
+8:
+Compute stage-cost and barrier derivatives
+9:
+Form Qx, Qu, Qxx, Quu, Qux
+10:
+Compute dk, Kk
+11:
+end for
+12:
+for α ∈{1.0, 0.5, 0.25, . . .} do
+13:
+Roll out updated controls using affine feedback
+14:
+J+ ←TotalCost(x+, u+; τ ∗
+t , Et)
+15:
+if J+ < J then
+16:
+x, u, J ←x+, u+, J+
+17:
+λ ←λ · λdecay
+18:
+break
+19:
+end if
+20:
+end for
+21:
+if no line-search step reduces cost then
+22:
+λ ←λ · λamp
+23:
+if λ > λmax then
+24:
+break
+25:
+end if
+26:
+end if
+27:
+if relative cost improvement < ϵ then
+28:
+break
+29:
+end if
+30: end for
+31: Hard-clamp final controls to actuator box limits
+32: Return Optimized control sequence u0:N−1 and predicted state sequence x0:N
+S7.1 Real Racing Dataset
+During full-scale autonomous racing, the agent collects data under real road, tire,
+vehicle, and interaction conditions. The resulting real-racing dataset is denoted as
+Dreal = {(wt−h:t, at, wt+1:t+H; Γ)}N
+t=1 .
+(A110)
+where wt−h:t denotes the historical structured racing world states, at denotes the exe-
+cuted agent action, wt+1:t+H denotes the future world-state sequence, and Γ denotes
+the global track context. Here, at is a composite action variable that contains the
+reasoning output, the motion-control command ut, and the actuator-level command
+recorded by the onboard system. The global track reference Γ provides track-level
+information, including the racing line, track-coordinate map, road boundaries, and
+curvature profile, while the local track context used at each time step is included in
+the structured world state wt.
+These data provide the empirical basis for aligning the world model with the
+deployed system. In particular, Dreal is used to update ego dynamics prediction, inter-
+action prediction, and the physical-limit representation. The physical-limit envelope
+is initialized conservatively and then refined through the exploration and adaptation
+process described in Supplementary Section S4.
+62
+
+
+Fig. A11
+Representative full-lap control response.
+Fig. A12
+Full-lap distributions of closed-loop vehicle states and control variables.
+S7.2 World-Model Training
+The ego dynamics model is trained using supervised next-state prediction. The
+differentiable dynamics backbone and residual model are updated by minimizing
+(θdyn, θres) = arg
+min
+θdyn,θres
+X
+Dreal
+∥xt+1 −fdyn (xt, ut; θdyn) −fres (xt−h:t, ut−h:t; θres)∥2 .
+(A111)
+Here fdyn(·) represents the differentiable dynamics backbone and fres(·) represents the
+residual model.
+63
+
+
+The interaction model is updated by supervised prediction of world-state evolution,
+θint = arg min
+θint
+X
+Dreal
+∥wt+1 −W(wt; θint)∥2 ,
+(A112)
+where W(·; θint) denotes the learned interaction transition model. This update aligns
+the world model with observed ego–opponent interaction patterns in real racing.
+The physical-limit representation is refined using the same real racing data and
+world-model rollouts. The nominal envelope E0 is identified from the dynamics model,
+while the effective envelope Et is adjusted through the exploration and adaptation
+factors described in Supplementary Section S4. This ensures that the physical-limit
+representation used by planning and control remains consistent with observed tire,
+road, and vehicle behavior.
+S7.3 World-Model Rollout Data Generation
+After training, the refined world model is used as a structured predictor for gener-
+ating additional interaction and near-limit data. Given the current world model W,
+decision policy π, multimodal planner ϕ, and feasible-motion envelope E, world-model-
+generated data are produced by
+Dwm = Rollout (W, π, ϕ, E) .
+(A113)
+Each rollout contains predicted world-state transitions, candidate decisions, planned
+trajectories, opponent responses, and physical-limit indicators.
+Compared with real racing data alone, Dwm can be generated under controlled
+variations of initial condition, opponent behavior, track segment, and physical-limit
+condition. This enables the training set to include rare adversarial interactions, near-
+limit maneuvers, and corner cases that are difficult or unsafe to collect exhaustively
+in real-world racing. The world model rollout interaction distribution is summarized
+in Fig. A13.
+0%
+20%
+40%
+60%
+80%
+100%
+Fraction of total frames (%)
+tight following: 34.7%
+Following
+86.2%
+tightly followed: 35.4%
+Being followed
+52.6%
+Overtaking
+14.2%
+Being overtaken
+11.3%
+Other w/ opp.
+3.9%
+0 opp.
+0.06%
+1 opp.
+13.1%
+2 opp.
+53.3%
+3 opp.
+28.9%
+4 opp.
+4.5%
+Simultaneous opponents
+0 opponents: 0.06%
+1 opponent: 13.1%
+2 opponents: 53.3%
+3 opponents: 28.9%
+4 opponents: 4.5%
+Fig. A13
+World model rollout interaction distribution.
+64
+
+
+The real racing dataset and the world-model-generated dataset are combined as
+D = Dreal ∪Dwm,
+(A114)
+where D is the hybrid dataset used for decision policy and planner update.
+S7.4 Decision Policy Update
+The decision policy is updated using a soft actor–critic objective with conserva-
+tive Q-learning and behavior-cloning regularization. Let st denote the policy state
+corresponding to the racing world state wt. The policy samples a racing intention
+aπ
+t ∼πθπ(·|st),
+(A115)
+where aπ
+t contains longitudinal and lateral decision components.
+The critic parameters are optimized by
+LQ(θQ) =E(st,at,st+1)∼D
+h QθQ(st, at) −yt
+2i
++ λcql
+
+Est∼D
+
+QθQ(st, aπ
+t )
+
+−E(st,at)∼D
+
+QθQ(st, at)
+	
+.
+(A116)
+The first term is the temporal-difference critic loss, and the conservative term
+discourages overestimation for actions outside the data distribution.
+The policy network is optimized by
+Lπ(θπ) = E(st,ae
+t)∼D
+h
+α log πθπ(aπ
+t |st) −min(Q1, Q2)
++ λbc ∥aπ
+t −ae
+t∥2 i
+,
+(A117)
+where ae
+t denotes the demonstration or reference action in the dataset. The entropy
+term encourages exploration during training, the critic term improves competitive
+decision quality, and the behavior-cloning term preserves useful behavior observed in
+real and world-model-generated data.
+S7.5 Multimodal Planner Update
+The multimodal planner is updated using best-of-K supervision. The hybrid dataset
+is reorganized into pairs of recent world-state history and future trajectory:
+ wt−h:t, τ gt
+t
+
+∈D,
+(A118)
+where wt−h:t is the recent history segment and τ gt
+t
+is the ground-truth or rollout-
+generated future trajectory.
+Given the history wt−h:t, the planner generates a set of candidate trajectories Tt
+as described in Supplementary Section S5. Only the output mode closest to the target
+65
+
+
+future trajectory is supervised:
+θϕ = arg min
+θϕ
+X
+D
+
+min
+τ k
+t ∈Tt
+τ gt
+t −τ k
+t
+2
+.
+(A119)
+This best-of-K objective allows different output heads to specialize in different behav-
+ioral modes, such as overtaking, defending, yielding, braking, or holding the current
+line.
+S7.6 Closed-Loop Refinement Algorithm
+Algorithm 4 summarizes the closed-loop refinement pipeline.
+Algorithm 4 Closed-loop world-model and policy refinement
+Require: Initial world model W , decision policy π, multimodal planner ϕ, feasible-motion envelope E
+1: for each refinement round do
+2:
+Deploy the agent in real racing or high-fidelity validation scenarios
+3:
+Collect real racing data Dreal
+4:
+Update ego dynamics model using Eq. (A111)
+5:
+Update interaction model using Eq. (A112)
+6:
+Dwm = Rollout(W, π, ϕ, E)
+7:
+D = Dreal ∪Dwm
+8:
+Update decision policy π using Eqs. (A116)–(A117)
+9:
+Update multimodal planner ϕ using Eq. (A119)
+10:
+Refine feasible-motion envelope E as Section S4.4
+11: end for
+12: Return refined world model W , policy π, planner ϕ, and feasible-motion envelope E
+This loop links real-world deployment, world-model prediction, policy learning,
+planner update, and physical-limit regulation. Real racing data improve the fidelity
+of ego dynamics, interaction prediction, and physical-limit representation. The refined
+world model then generates structured rollouts for rare interactions and near-limit
+scenarios. The updated agent can subsequently collect more informative data in the
+next deployment round, enabling progressive improvement of cognitive reasoning and
+physical-limit utilization.
+S8. Experimental Protocol, Simulation Setup, and Baselines
+This section describes the experimental protocol, simulation environment, interaction
+scenario construction, baseline methods, and evaluation metrics used in the exper-
+iments. The validation combines real-vehicle deployment with simulation testing.
+Real-vehicle deployment provides high-value data under actual racing conditions, while
+simulation enables repeatable evaluation of adversarial interaction, ablation studies,
+and failure-case reproduction.
+S8.1 Real-Vehicle Deployment
+Real-vehicle experiments were conducted on the full-scale autonomous racing plat-
+form introduced in Supplementary Section S1.1 and Fig. A1. During real-vehicle
+deployment, the onboard system operated localization, opponent perception, behavior
+66
+
+
+decision and motion control modules and recorded synchronized state, control, percep-
+tion, and environment data. The real-vehicle deployment exposed the onboard system
+to high-speed motion, near-limit tire–road interaction, and close-proximity racing con-
+ditions. It therefore provided the real-world basis for physical grounding, world-model
+construction, and validation in simulation.
+The real-vehicle deployment was carried out in the context of the Abu Dhabi
+Autonomous Racing League (A2RL). A2RL is a full-scale autonomous racing com-
+petition designed to evaluate autonomous-driving software under high-speed and
+competitive racing conditions. The real-vehicle experiment was conducted on the
+North Circuit of the Yas Marina F1 circuit in Abu Dhabi, which provides a full-scale
+racing environment with high-speed straights and consecutive cornering segments. The
+track has a total length of 3002 m and contains 8 corners. The racetrack environment
+for real-vehicle deployment is shown in Fig. A14.
+Fig. A14
+Racetrack environment for real-vehicle deployment.
+The real-vehicle deployment exposed the onboard system to high-speed motion,
+near-limit tire–road interaction, and close-proximity racing conditions. It therefore
+provided the real-world basis for physical grounding, world-model construction, and
+simulation-based validation.
+S8.2 Real-Racing Data Collection
+Real-racing data were collected during full-scale autonomous racing deployment under
+high-speed operation, near-limit tire–road interaction, and adversarial multi-agent
+interaction. Each record follows the transition structure defined in Supplementary
+Section S7 and contains the historical world states, the executed action, and the
+future world-state sequence, conditioned on the global track context. The onboard sys-
+tem recorded multi-source data streams at different sampling frequencies. These data
+67
+
+
+streams were time-synchronized and resampled to 10 Hz to form aligned real-racing
+samples.
+The real-racing dataset is used in three ways. First, it provides ground-truth or
+reference signals for evaluating localization, ego-state estimation, opponent tracking,
+and prediction accuracy. Second, it is used to train and refine the ego dynamics
+model, interaction model, and physical-limit representation. Third, it provides real-
+world cases, including overtaking and spin events, that are reproduced in simulation
+for controlled analysis of prediction, decision-making, and failure recovery.
+S8.3 Autoverse Simulation Setup
+Controlled validation was conducted in the Autoverse simulator with virtual oppo-
+nents. Autoverse provides high-fidelity vehicle dynamics simulation, while the virtual
+opponent vehicles enable multi-vehicle interaction scenarios. This setup enables sys-
+tematic evaluation of the refined agent under controlled initial conditions, track
+configurations, opponent behaviors, and physical-limit conditions.
+The ego vehicle is running in the Autoverse simulator. The baseline simulation
+experiments are conducted on the Yas Marina North Circuit, consistent with the real-
+vehicle deployment setting. Additional cross-circuit generalization experiments are
+performed on different track layouts, with detailed racetrack information described
+in Section S10.4. Virtual opponents are implemented as vectorized interactive agents
+responding to the ego vehicle in real time. Fig. A15 provides a conceptual visualization
+of the environment provided by the Autoverse simulator with virtual opponents.
+Fig. A15
+Illustration of the environment of Autoverse simulator with virtual opponents.
+Adversarial interaction scenarios are constructed to evaluate interactive perfor-
+mance under physical constraints. Each interaction scenario is initialized with the
+opponent vehicles placed around the ego vehicle. The default interaction duration is
+20 s.
+Opponent vehicles are initialized by sampling the relative longitudinal distance,
+lateral position, and initial speed with respect to the ego vehicle. After scenario ini-
+tialization, the opponent behaviors are generated by policies trained from interaction
+68
+
+
+demonstrations using imitation learning rather than fixed scripted rules. Each oppo-
+nent policy takes the local track context, ego–opponent relative states, and recent
+motion history as inputs, and produces interactive driving actions in real time. The
+resulting virtual opponents reproduce representative racing behaviors such as hold-
+ing line, defending, yielding, and competing during overtaking. Scenario variations are
+introduced by sampling the local track segment, ego–opponent initial relative position,
+speed difference, and opponent behavior condition.
+For each method, scenarios are generated using the same scenario generation set-
+ting to ensure the repeatable and fair comparison. A trial is terminated when any of
+the following conditions occurs:
+• the evaluation horizon is reached;
+• collision occurs;
+• the ego vehicle violates track boundaries;
+• the ego vehicle enters an unrecoverable unstable state.
+In the simulation environment, the ego agent uses the same decision, planning,
+world-model rollout, and physical-limit-constrained control interfaces as in the real-
+vehicle stack. The simulation environment provides ego and opponent states, track
+information, collision status, boundary violation status, and dynamic-response vari-
+ables. This makes it possible to evaluate both cognitive-side performance, such as
+interaction prediction and decision success, and physical-side performance, such as
+acceleration-envelope utilization, tire slip, tracking performance, and maneuvering
+stability.
+Simulation testing enables controlled comparison between the proposed method
+and baselines, ablation of world-model-based future-aware reasoning, and reproduction
+of representative real-racing cases for failure analysis and recovery validation.
+S8.4 Baseline Methods
+The proposed world-model-driven method is compared with three baselines: behavioral
+cloning, soft actor–critic, and a rule-based planner.
+Behavioral cloning.
+The behavioral cloning baseline learns a direct mapping from world-state representa-
+tion to racing decisions using supervised learning from demonstration data. Given a
+policy state st corresponding to the racing world state wt, the BC policy is trained by
+minimizing
+LBC = E(st,ae
+t)∼D
+h
+∥πθ(st) −ae
+t∥2i
+,
+(A120)
+where ae
+t denotes the demonstration action. This baseline evaluates whether supervised
+imitation alone can provide sufficient interaction reasoning and generalization under
+adversarial racing conditions.
+Soft actor–critic.
+The SAC baseline trains a model-free reinforcement-learning policy using the same
+state and action interface as the proposed decision policy. It optimizes racing reward
+69
+
+
+through interaction with the simulator but does not use world-model-based parallel
+future evaluation for online candidate scoring. This baseline evaluates the performance
+of a policy-centric reinforcement-learning approach without explicit predictive world-
+model reasoning during deployment.
+Rule-based planner.
+The rule-based planner corresponds to the state-machine-based competition stack.
+It selects racing behaviors according to manually designed logic, such as following,
+overtaking, defending, and speed adjustment based on relative opponent position and
+track context. This baseline provides a real-deployment reference for comparing the
+refined world-model-driven policy against the original competition stack.
+S8.5 Evaluation Metrics
+For the benchmark comparison, all baselines are assessed using the same interaction
+and safety metrics. The downstream controller and actuation interfaces are kept con-
+sistent when applicable. To evaluate whether each method can complete competitive
+interaction scenarios safely and efficiently, the success rate, safe mileage, average speed,
+and overtaking frequency are adopted as evaluation metrics.
+Beyond the benchmark comparison, additional metrics are used to evaluate agent
+performance and evolution in physical terms. Tire slips, tracking errors, and maneu-
+vering stability are adopted to assess limit-aware control near the dynamics boundary.
+The average speed, lap time, and reachable acceleration states are used to characterize
+the evolution of the agent across refinement stages.
+S8.6 Real-World Case Reproduction
+Two representative real-racing cases are reproduced in simulation for controlled vali-
+dation: a wheel-to-wheel overtaking case and a spin case. The details are introduced
+in Supplementary Section S10.2 and S10.3.
+These case reproductions connect simulation evaluation with real-racing events.
+They allow the validation pipeline to test not only average performance, but also
+whether the world-model-centric agent can predict, diagnose, and correct the critical
+interaction and physical-limit failure modes.
+S9. Safety Monitoring and Intervention Logic
+The safety monitoring layer supervises the localization and ego-state estimation
+subsystem during real-vehicle deployment. Its purpose is to detect sensor dropout,
+inconsistent velocity measurements, and abnormal estimation residuals before they
+propagate to world-state construction, future-aware reasoning, and downstream con-
+trol. The safety layer does not replace the world model or controller; instead, it provides
+an independent intervention mechanism for real-time deployment under high-speed
+racing conditions.
+The output safety mode is defined as
+Mode ∈{Normal, Degradation, Emergency stop}.
+(A121)
+70
+
+
+In Normal mode, the autonomy stack operates without additional restrictions. In
+Degradation mode, the ego vehicle switches to a reduced-speed operating mode with
+conservative planning and control limits. In Emergency stop mode, the ego vehicle
+applies immediate braking while maintaining the current heading as far as possi-
+ble. The thresholds and timing parameters are platform-dependent and are therefore
+configured according to sensor characteristics and deployment conditions. Fig. A16
+illustrates the overall safety logic.
+SAFETY
+Wheel Speed
+Sensor Dropout?
+Velocity Mismatch?
+Residual Error?
+GPSs
+LiDARs
+Kistler
+IMU
+Measurements
+Input
+ 
+  
+ 
+ 
+ 
+EKF
+Residual 
+Estimated State
+Fig. A16 Safety monitoring framework for localization and ego-state estimation.
+S9.1 Sensor Dropout Logic
+Each sensor stream is associated with a binary availability flag
+s ∈{0, 1},
+(A122)
+where s = 1 indicates a valid and up-to-date signal and s = 0 indicates dropout or
+timeout. The position-source flag is defined as
+spos = sGNSS ∨sLiDAR,
+(A123)
+which indicates whether at least one absolute-position source is available.
+The dropout-based safety mode is
+Mode =
+
+
+
+
+
+
+
+Emergency stop,
+¬sIMU ∨¬spos ∨¬swhl,
+Degradation,
+sIMU ∧spos ∧¬sKis,
+Normal,
+sIMU ∧spos ∧sKis.
+(A124)
+Here sIMU, sGNSS, sLiDAR, swhl, and sKis denote the availability of IMU, GNSS, LiDAR
+localization, wheel-speed, and Kistler velocity signals, respectively. The logic enforces
+71
+
+
+that the ego vehicle cannot continue normal operation without inertial sensing, at
+least one absolute-position source, and wheel-speed information.
+S9.2 Velocity Consistency Logic
+Velocity consistency is evaluated using redundant velocity sources. The mismatch
+terms are defined as
+ekw ≜
+vKis
+x
+−vwhl ,
+eke ≜
+vKis
+x
+−vest ,
+(A125)
+where vKis
+x
+is the Kistler longitudinal speed, vwhl is the average front-wheel longitudinal
+speed, and
+vest =
+q
+(vest
+x )2 + (vest
+y )2
+(A126)
+is the estimator-derived speed magnitude.
+A window-based Boolean comparison operator is used to avoid reacting to isolated
+spikes. For a signal e and threshold δ, the statement
+e
+W,ρ
+> δ
+(A127)
+is true when the proportion of samples in sliding window W satisfying e > δ exceeds
+the ratio ρ.
+The velocity-consistency safety mode is
+Mode =
+
+
+
+Emergency stop,
+ekw
+W,ρ
+> δkw ∨eke
+W,ρ
+> δke,
+Normal,
+otherwise.
+(A128)
+This check detects large disagreements among independent velocity estimates, which
+may indicate wheel-speed slip, external velocity sensor failure, or state-estimation
+inconsistency.
+S9.3 Residual-Based Consistency Logic
+Residual-based consistency checks compare incoming sensor measurements with pre-
+dicted observations from the estimator. Let ri denote the i-th measurement residual.
+Residual indicators are defined as
+Dres = ∃i ∈I : |ri|
+W,ρ
+> δd,i,
+CKis = ∃i ∈IKis : |ri|
+W,ρ
+> δc,i,
+CGNSS = ∃i ∈IGNSS : |ri|
+W,ρ
+> δc,i,
+CLiDAR = ∃i ∈ILiDAR : |ri|
+W,ρ
+> δc,i.
+(A129)
+Here I denotes all residual channels, while IKis, IGNSS, and ILiDAR denote modality-
+specific residual subsets. The thresholds δd,i and δc,i represent degradation and critical
+residual thresholds, respectively.
+72
+
+
+The residual-based safety mode is
+Mode =
+
+
+
+
+
+
+
+Emergency stop,
+CKis ∨(CGNSS ∧CLiDAR),
+Degradation,
+Dres,
+Normal,
+otherwise.
+(A130)
+An emergency stop is triggered when critical residuals indicate Kistler failure, or
+when both GNSS and LiDAR position residuals violate their critical thresholds
+simultaneously. The latter condition implements mutual backup between the two
+absolute-position sources and avoids emergency intervention from a single-source
+anomaly alone.
+S9.4 Intervention Priority and Deployment Use
+When multiple safety checks are active, the final safety mode is selected according to
+the most conservative triggered mode:
+Modefinal = max
+priority (Modedropout, Modevelocity, Moderesidual) ,
+(A131)
+where the priority order is
+Emergency stop > Degradation > Normal.
+(A132)
+The selected safety mode is then passed to the planning and control stack.
+In Normal mode, the system follows the standard world-model-driven perception–
+prediction–decision–control loop. In Degradation mode, the planner and controller use
+reduced speed limits and conservative physical-limit envelopes. In Emergency stop
+mode, the control module overrides the selected racing trajectory and applies a braking
+maneuver.
+This safety monitoring layer provides an independent deployment safeguard for the
+high-frequency localization and state-estimation subsystem. It helps prevent sensor or
+estimator failures from propagating into incorrect world-state construction and unsafe
+high-speed execution.
+S10. Additional Validation and Ablation Details
+This section summarizes the validation and ablation settings used to support the
+main results. The details focus on four parts that are directly evaluated in the
+main manuscript: world-model-based future-aware reasoning, real-world overtaking
+case reproduction, physical-limit-aware adaptation in the spin case, and cross-circuit
+generalization.
+73
+
+
+S10.1 Ablation of World-Model-Based Future-Aware Reasoning
+The proposed method is compared with an ablated variant that removes recursive
+world-model rollouts during online trajectory evaluation. In the ablated variant, candi-
+date trajectories are generated using the same decision policy and multimodal planner,
+but the final trajectory is selected using only the current observed world state.
+τ ∗
+t,abl = arg max
+τ k
+t ∈Tt
+Scurrent(τ k
+t , wt).
+(A133)
+where Scurrent scores candidate trajectories through speed score and the driving
+safety field. In contrast, the full method generates multimodal candidate trajectories
+and selects the final trajectory using predicted future world states, as described in
+Eq. (A70).
+This ablation isolates the effect of predictive reasoning. Comparing the full method
+with this variant shows whether world-model rollouts improve the agent’s ability to
+anticipate opponent motion, avoid unsafe overtaking decisions, and select trajectories
+that remain executable under downstream physical-limit-constrained control.
+S10.2 Real-World Overtaking Case Reproduction
+The real-world overtaking case is reproduced to evaluate whether the world model
+captures short-horizon ego–opponent interaction evolution during wheel-to-wheel rac-
+ing. The reproduced scenario uses the observed interaction geometry, ego trajectory,
+opponent trajectory, and track context as reference conditions. The analysis compares
+realized ego–opponent trajectories with world-model-predicted trajectories, and eval-
+uates whether future-aware reasoning selects a maneuver that remains collision-free,
+physically feasible, and competitive.
+This case supports the qualitative validation of the predictive reasoning process.
+The key comparison is whether the world-model-predicted interaction remains con-
+sistent with the realized wheel-to-wheel racing interaction, and whether the selected
+trajectory avoids the unsafe decision observed in the no-world-model ablation.
+S10.3 Physical-limit-aware adaptation and Spin-Case Reproduction
+The spin case observed during real-world racing is reproduced to evaluate physical-
+limit-aware adaptation and failure recovery. The reproduced scenario includes the
+high-curvature corner, aggressive acceleration command, high lateral load, and tire-
+state condition associated with the observed instability.
+The comparison includes four settings:
+1. baseline control without additional limit degradation;
+2. thermal-adaptive limit degradation;
+3. world-model-prediction-deviation-based limit degradation;
+4. synergistic degradation combining thermal and world-model-based signals.
+The evaluated quantities include slip angle, yaw response, trajectory tracking
+behavior, and corner-exit performance. This validation assesses whether the adaptive
+74
+
+
+physical-limit mechanism reduces the effective feasible-motion boundary before insta-
+bility develops, thereby preventing or mitigating the spin failure mode observed during
+the race.
+S10.4 Cross-Circuit Generalization Protocol
+Cross-circuit generalization is conducted by deploying the agent on target circuits
+without additional training. The source circuit is the Yas Marina North Circuit, which
+has a total length of 3002 m and contains 8 corner segments. The target circuits
+include the Yas Marina Circuit, Autonodrome, and Suzuka Circuit, with total lengths
+of 5284 m, 6117 m, and 5809 m, respectively. They contain 16, 16, and 18 corner
+segments, respectively. These circuits differ in total length, curvature distribution,
+corner density, and the arrangement of high-speed straights and consecutive corner-
+ing segments, thereby providing diverse track geometries for evaluating cross-circuit
+transfer.
+The same world-model interface, decision policy, multimodal planner, and physical-
+limit-constrained controller were used across all target circuits. For each circuit,
+random interaction scenarios were generated by sampling ego–opponent initial rel-
+ative positions, speed differences, and opponent behavior conditions from the same
+predefined ranges. The evaluation reports the average speed, maximum speed, over-
+taking frequency, and success rate in random interaction scenarios and collision-related
+results. This protocol assesses whether the world model and policy preserve interaction
+capability and limit-aware execution under changes in track geometry and interaction
+contexts.
+75
