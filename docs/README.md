@@ -6,41 +6,38 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-08-15
-- 运行时间：2026-08-15 20:32:35 UTC
+- 最新运行日期：2026-08-16
+- 运行时间：2026-08-16 19:19:39 UTC
 - 运行状态：成功
-- 本次总论文数：7
+- 本次总论文数：6
 - 精读区：4
-- 速读区：3
+- 速读区：2
 
 ### 今日简报（AI）
-今日精读聚焦世界模型与具身智能，共处理7篇论文，其中2篇获9.0高分。最值得关注的是世界模型认知-物理极限与规划质量诊断，为自主体决策提供新视角。建议普通读者优先追踪世界模型在机器人奖励建模和技能学习中的落地应用。
-- 详情：[/202608/15/README](/202608/15/README)
+今日精读聚焦潜在世界模型与机器人推理行动，速读关注多智能体仿真与3D世界生成。最值得看的是《VIScore》诊断规划相关质量，以及《G0.5》统一机器人推理与行动流，均获9.0高分。建议优先精读这两篇，速读材料可作扩展，理解机器人规划与生成的新思路即可。
+- 详情：[/202608/16/README](/202608/16/README)
 
 ### 精读区论文标签
-1. [Toward the Cognitive--Physical Limits of Embodied Intelligence through a World-Model-Centric Autonomous Racing Agent](/202608/15/2608.10618v1-toward-the-cognitive--physical-limits-of-embodied-intelligence-through-a-world-model-centric-autonomous-racing-agent)  
+1. [VIScore: Diagnosing Planning-Relevant Quality in Latent World Models](/202608/16/2608.11174v1-viscore-diagnosing-planning-relevant-quality-in-latent-world-models)  
    标签：评分：9.0/10、query:wmi
-   evidence：以世界模型为中心的自动驾驶赛车智能体，用于具身智能
-2. [VIScore: Diagnosing Planning-Relevant Quality in Latent World Models](/202608/15/2608.11174v2-viscore-diagnosing-planning-relevant-quality-in-latent-world-models)  
+   evidence：潜在世界模型用于规划；诊断与规划相关的质量
+2. [G0.5: One Autoregressive Stream for Robot Reasoning and Action](/202608/16/2608.11739v1-g05-one-autoregressive-stream-for-robot-reasoning-and-action)  
    标签：评分：9.0/10、query:wmi
-   evidence：连接潜在世界模型性质与规划性能的诊断方法
-3. [Foresight Without Seeing: Latent Futures for World Action Models](/202608/15/2608.11605v1-foresight-without-seeing-latent-futures-for-world-action-models)  
+   evidence：单一自回归VLA模型统一推理与机器人动作，面向具身智能决策
+3. [H2R-Bench: Benchmarking Human-to-Robot Manipulation Video Generation in World Models](/202608/16/2608.13049v1-h2r-bench-benchmarking-human-to-robot-manipulation-video-generation-in-world-models)  
    标签：评分：9.0/10、query:wmi
-   evidence：将未来视觉预测与机器人动作生成耦合的世界动作模型
-4. [ComBodied Agents: a New Paradigm of Human-Centric Agentic AI](/202608/15/2608.10915v2-combodied-agents-a-new-paradigm-of-human-centric-agentic-ai)  
-   标签：评分：8.0/10、query:wmi
-   evidence：使用传感器、可穿戴设备、机器人等通道感知和干预人类状态轨迹的具身智能体范式
+   evidence：世界模型的人到机器人视频生成基准
+4. [S2-HWM: Sparse Event-Structured Hierarchical World Model for Long-Horizon Surgical Robot Manipulation](/202608/16/2608.13103v1-s2-hwm-sparse-event-structured-hierarchical-world-model-for-long-horizon-surgical-robot-manipulation)  
+   标签：评分：9.0/10、query:wmi
+   evidence：学习稀疏事件分层世界模型用于机器人操作，结合学习的世界动态进行模型化强化学习
 
 ### 速读区论文标签
-1. [ComBodied Agents: a New Paradigm of Human-Centric Agentic AI](/202608/15/2608.10915v1-combodied-agents-a-new-paradigm-of-human-centric-agentic-ai)  
-   标签：评分：7.0/10、query:wmi
-   evidence：以人为中心的具身智能体范式，利用传感器、可穿戴设备与机器人作为行动通道
-2. [TrustRoboReward: Preference-Ordered Isotonic Score Editing for Multi-Paradigm Robot Reward Models](/202608/15/2608.08491v1-trustroboreward-preference-ordered-isotonic-score-editing-for-multi-paradigm-robot-reward-models)  
+1. [Lingjing: A Simulation Testbed for Multi-Agent Embodied Tasks in Open-Ended Cities](/202608/16/2608.08045v1-lingjing-a-simulation-testbed-for-multi-agent-embodied-tasks-in-open-ended-cities)  
    标签：评分：6.0/10、query:wmi
-   evidence：面向具身智能与机器人操作的视觉反馈和奖励模型编辑方法
-3. [Deliberate Practice: Learning Robot Skills under a Budget](/202608/15/2608.13415v1-deliberate-practice-learning-robot-skills-under-a-budget)  
+   evidence：开放城市中多智能体具身智能的仿真测试平台，同步物理引擎并提供Gym风格接口
+2. [D3D-GEN: Robot-Aware Domain-Grounded Interactive 3D World Generation for Social Robotics](/202608/16/2608.11876v1-d3d-gen-robot-aware-domain-grounded-interactive-3d-world-generation-for-social-robotics)  
    标签：评分：6.0/10、query:wmi
-   evidence：在有限练习预算下使用仿真和真实实验进行自主机器人技能学习
+   evidence：为社交导航具身智能训练生成交互式三维世界
 
 
 <div class="dpr-home-promo-card">

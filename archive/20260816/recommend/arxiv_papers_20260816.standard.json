@@ -1,0 +1,282 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-08-16T19:13:48.391210+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 4,
+    "deep_cap": 6,
+    "deep_selected": 4,
+    "quick_candidates": 2,
+    "quick_skim_target": 11,
+    "quick_selected": 2
+  },
+  "deep_dive": [
+    {
+      "id": "2608.11174v1",
+      "source": "arxiv",
+      "title": "VIScore: Diagnosing Planning-Relevant Quality in Latent World Models",
+      "abstract": "Regulating the latent space to an isotropic Gaussian distribution provides a stable and information-maximized landscape for world model planning. However, the latent space property and successful planning remain disconnected. We first study this by comparing SIGReg and VISReg, two regularization loss functions with the same distribution target but different properties. Compared with SIGReg, VISReg has more flexibility in controlling the weights of center, scale, and shape regularization, and a larger batch size brings a finer distribution approximation. We find that the former, despite being beneficial in self-supervised learning (SSL), does not help the planning, whereas the latter improves the planning success on out-of-domain (OOD) datasets. This motivates a deep understanding of the factors that correlate with the success rate. Unlike the previous metrics focusing on the encoded latent only, we propose the Veracity-Influence-Sobriety score (VIScore), a metric that quantifies the reachability and capacity of a predictor given the encoded feature, and the hallucination of the searching-based planner. Compared with straightness, physical-state probing, and empowerment, we show that, with the measurement covering encoder, predictor, and planner, VIScore explains the success rate better than the others, as reflected by a strong Spearman correlation. Specifically, VIScore consistently achieves a Spearman correlation over 0.75 on both seen and unseen models and datasets on the cross-task success rate pool. Moreover, VIScore is the only metric that has a calibration error below the constant fit across all testing scenarios, showcasing the importance of these three aspects in planning success. We hope this metric can help future studies on world model design and diagnosis.",
+      "authors": [
+        "Haiyu Wu",
+        "Randall Balestriero",
+        "Morgan Levine"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-08-11T17:34:10+00:00",
+      "link": "https://arxiv.org/pdf/2608.11174v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Latent world models for planning; diagnosing planning-relevant quality",
+      "llm_evidence_cn": "潜在世界模型用于规划；诊断与规划相关的质量",
+      "llm_evidence": "潜在世界模型用于规划；诊断与规划相关的质量",
+      "canonical_evidence": "潜在世界模型用于规划；诊断与规划相关的质量",
+      "llm_tldr_en": "VIScore studies how latent space regularization affects planning success in world models, showing that flexible VISReg improves out-of-domain planning while SIGReg does not, linking latent quality to planning.",
+      "llm_tldr_cn": "论文针对潜在世界模型中潜在空间性质与规划成功之间缺乏关联的问题，提出诊断规划相关质量的VIScore。通过对比SIGReg与VISReg两类正则化损失，发现更灵活的VISReg在分布外数据集上提升规划成功率，而SIGReg仅有益于自监督学习。该工作为世界模型规划提供可诊断的质量指标，有助于改进内部环境模型的设计。",
+      "llm_tldr": "论文针对潜在世界模型中潜在空间性质与规划成功之间缺乏关联的问题，提出诊断规划相关质量的VIScore。通过对比SIGReg与VISReg两类正则化损失，发现更灵活的VISReg在分布外数据集上提升规划成功率，而SIGReg仅有益于自监督学习。该工作为世界模型规划提供可诊断的质量指标，有助于改进内部环境模型的设计。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "internal environment models for planning and prediction",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2608.11739v1",
+      "source": "arxiv",
+      "title": "G0.5: One Autoregressive Stream for Robot Reasoning and Action",
+      "abstract": "The prevailing recipe for Vision-Language-Action (VLA) models couples a pretrained VLM with a separately trained flow-matching action expert. This makes the VLM a context encoder rather than a decision-maker. We introduce G0.5, a pretrained autoregressive VLA in which a single transformer decoder emits reasoning and action tokens under a single objective. Three components make this tractable at foundation-model scale: a learnable cross-embodiment action tokenizer that maps heterogeneous robot actions into a shared vocabulary; a native chain-of-thought stream interleaving task decomposition, object grounding, and action hints with action tokens; and a visual memory module that injects multi-second history through the vision encoder. Because reasoning and action share a single set of weights, the pretrained VLM's capabilities carry over to physical behavior: the model follows instructions closely, and prompts directly steer action granularity, task horizon, and out-of-distribution scene handling without further training. Pretrained on a large collection of robot datasets together with VQA samples, G0.5 surpasses state-of-the-art models across 7 independent regimes: real-world fine-tuning on R1lite and R1pro robots (76.7\\% vs.\\ 53.3\\% for $π_{0.5}$ and 24.4\\% for GR00T-N1.7), the 2025 BEHAVIOR Challenge on 50 long-horizon household mobile manipulation tasks using a generalist policy (31.4\\% vs.\\ 26.3\\% for $π_{0.5}$ and 26.1\\% for the challenge winner), DROID post-training followed by zero-shot transfer to an unseen environment and objects (82.5\\%), a language-following Pick-and-Place benchmark, LIBERO (98.9\\%), RoboTwin 2.0 (93.3\\%), and SimplerEnv-Bridge (87.3\\%).",
+      "authors": [
+        "Yicheng Liu",
+        "Zibin Dong",
+        "Baijun Ye",
+        "Tianyuan Yuan",
+        "Tao Jiang",
+        "Anqi Yang",
+        "Shicheng Cao",
+        "Haonan Liu",
+        "Yue Sun",
+        "Zihan Guo",
+        "Xiao Liu",
+        "Dong Ke",
+        "Changxun Pan",
+        "Chenru Wu",
+        "Tailai Cheng",
+        "Xiaoshu Ren",
+        "Xinlei Zhang",
+        "Jianning Cui",
+        "Zijie Zhao",
+        "Haoyu Zhang",
+        "Kaiming Xu",
+        "Haodong Yang",
+        "Bowen Zhang",
+        "Jiahui Niu",
+        "Shaoting Zhu",
+        "Shiduo Zhang",
+        "Hang Zhao"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-08-12T07:26:47+00:00",
+      "link": "https://arxiv.org/pdf/2608.11739v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Single autoregressive VLA model for robot reasoning and action, embodied AI decision-making",
+      "llm_evidence_cn": "单一自回归VLA模型统一推理与机器人动作，面向具身智能决策",
+      "llm_evidence": "单一自回归VLA模型统一推理与机器人动作，面向具身智能决策",
+      "canonical_evidence": "单一自回归VLA模型统一推理与机器人动作，面向具身智能决策",
+      "llm_tldr_en": "G0.5 is a pretrained autoregressive vision-language-action model emitting reasoning and action tokens in one stream via a cross-embodiment action tokenizer, native chain-of-thought, and visual memory, turning the VLM into a true embodied decision-maker.",
+      "llm_tldr_cn": "针对现有VLA模型将预训练视觉语言模型与动作专家分离、导致模型仅充当上下文编码器的问题，本文提出G0.5，让单个Transformer解码器在统一目标下输出推理令牌和动作令牌。其核心包括跨具身动作分词器、交织思维链推理与动作生成的流式设计，以及向视觉编码器注入多秒历史的记忆模块。这使得模型成为真正的决策者，能够在基础模型规模上实现机器人推理与动作生成。该工作为具身智能中的统一决策模型提供了新思路。",
+      "llm_tldr": "针对现有VLA模型将预训练视觉语言模型与动作专家分离、导致模型仅充当上下文编码器的问题，本文提出G0.5，让单个Transformer解码器在统一目标下输出推理令牌和动作令牌。其核心包括跨具身动作分词器、交织思维链推理与动作生成的流式设计，以及向视觉编码器注入多秒历史的记忆模块。这使得模型成为真正的决策者，能够在基础模型规模上实现机器人推理与动作生成。该工作为具身智能中的统一决策模型提供了新思路。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2608.13049v1",
+      "source": "arxiv",
+      "title": "H2R-Bench: Benchmarking Human-to-Robot Manipulation Video Generation in World Models",
+      "abstract": "Large-scale manipulation data is essential for robot learning, yet collecting robot demonstrations remains expensive and difficult to scale. Meanwhile, abundant egocentric human manipulation videos provide rich behavioral experiences, but transferring them across embodiments remains challenging due to differences between human hands and robotic end-effectors. Recent advances in video world models offer a promising pathway to synthesize robot-centric manipulation videos from human observations, while their cross-embodiment transfer capability remains largely unexplored. Therefore, we introduce H2R-Bench, a benchmark for evaluating cross-embodiment human-to-robot manipulation video generation, where models transform egocentric human demonstrations into robot manipulation videos under specified embodiments. Each benchmark instance contains a human demonstration video, target embodiment constraints, and source-grounded annotations covering task goals, action events, functional contacts, and object responses. H2R-Bench evaluates generated videos through five dimensions, including goal-state completion, action-event completion, functional contact transfer, embodiment correctness, and general video quality. We benchmark eleven state-of-the-art video generation models across six manipulation families and two robot embodiments. Our evaluation reveals that current video world models remain limited in human-to-robot manipulation transfer: even leading models often fail in embodiment consistency, functional interaction, and task execution. H2R-Bench provides a systematic diagnostic framework for evaluating whether video world models can bridge the human-to-robot embodiment gap and convert human manipulation observations into robot-centric training resources.",
+      "authors": [
+        "Dingyi Rong",
+        "Yue Shi",
+        "Chaofan Ma",
+        "Jiezhang Cao",
+        "Zongrui Wang",
+        "Zeyu Zhang",
+        "Yao Mu",
+        "Guangtao Zhai",
+        "Ning Liu"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "published": "2026-08-13T10:14:33+00:00",
+      "link": "https://arxiv.org/pdf/2608.13049v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "world model benchmark for human-to-robot video generation",
+      "llm_evidence_cn": "世界模型的人到机器人视频生成基准",
+      "llm_evidence": "世界模型的人到机器人视频生成基准",
+      "canonical_evidence": "世界模型的人到机器人视频生成基准",
+      "llm_tldr_en": "H2R-Bench benchmarks cross-embodiment human-to-robot manipulation video generation in video world models, providing evaluation for synthesizing robot-centric videos from egocentric human demonstrations.",
+      "llm_tldr_cn": "针对机器人演示数据昂贵且难以扩展的问题，同时人类视频蕴含丰富的操作经验，论文提出H2R-Bench基准，以评估跨具身（从人类到机器人）的人到机器人操作视频生成能力。该基准使用视频世界模型将第一视角人类演示转换为机器人视角视频，填补了跨具身迁移能力评测的空白。此项工作为世界模型在具身智能中利用人类视频学习操作策略提供了标准评估平台。",
+      "llm_tldr": "针对机器人演示数据昂贵且难以扩展的问题，同时人类视频蕴含丰富的操作经验，论文提出H2R-Bench基准，以评估跨具身（从人类到机器人）的人到机器人操作视频生成能力。该基准使用视频世界模型将第一视角人类演示转换为机器人视角视频，填补了跨具身迁移能力评测的空白。此项工作为世界模型在具身智能中利用人类视频学习操作策略提供了标准评估平台。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2608.13103v1",
+      "source": "arxiv",
+      "title": "S2-HWM: Sparse Event-Structured Hierarchical World Model for Long-Horizon Surgical Robot Manipulation",
+      "abstract": "Long-horizon surgical robot manipulation is challenging because task rewards are sparse, while meaningful interaction changes occur at irregular intervals. Existing world-model agents typically imagine at primitive-step resolution, leaving variable-duration task progress implicit. Manually specified stages can provide intermediate structure, but their task specific boundaries are difficult to align with state-dependent interaction transitions. We propose S2-HWM, a Sparse Event-Structured Hierarchical World Model that learns sparse event evidence from primitive latent trajectories to coordinate an event-level manager and a primitive-step worker. The event evidence schedules manager goal updates, and each selected latent goal conditions the worker's primitive actions until the next update. The learned event evidence also forms variable-duration segments for an Event Transition Model (ETM), which predicts the next?boundary stochastic state, segment duration, and accumulated segment reward. Chaining these event-level predictions provides a variable-duration continuation beyond the primitive imagination horizon for manager learning, while the worker retains primitive-step actor-critic learning. On a SurRoL-based PegTransfer task, S2-HWM achieves a success rate of 98.7%, outperforming the flat GAS DreamerV3 baseline by 22.7 percentage points.",
+      "authors": [
+        "Shuzhe Zhang",
+        "Xin Zhu",
+        "Yinling Qian",
+        "Qiong Wang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "eess.SY"
+      ],
+      "published": "2026-08-13T11:29:20+00:00",
+      "link": "https://arxiv.org/pdf/2608.13103v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Learns sparse event-structured hierarchical world model for robot manipulation; uses model-based RL with learned world dynamics",
+      "llm_evidence_cn": "学习稀疏事件分层世界模型用于机器人操作，结合学习的世界动态进行模型化强化学习",
+      "llm_evidence": "学习稀疏事件分层世界模型用于机器人操作，结合学习的世界动态进行模型化强化学习",
+      "canonical_evidence": "学习稀疏事件分层世界模型用于机器人操作，结合学习的世界动态进行模型化强化学习",
+      "llm_tldr_en": "This paper proposes S2-HWM, a Sparse Event-Structured Hierarchical World Model that learns sparse event evidence from latent trajectories to coordinate event-level manager and primitive-step worker for long-horizon surgical robot manipulation.",
+      "llm_tldr_cn": "长时程手术机器人操作面临奖励稀疏与交互变化不规律的问题。本文提出S2-HWM，从原始潜在轨迹学习稀疏事件证据，协调事件级管理器和基本步工人，事件证据安排目标更新，用于长时程操作，改善了稀疏奖励下世界模型智能体的任务表现。",
+      "llm_tldr": "长时程手术机器人操作面临奖励稀疏与交互变化不规律的问题。本文提出S2-HWM，从原始潜在轨迹学习稀疏事件证据，协调事件级管理器和基本步工人，事件证据安排目标更新，用于长时程操作，改善了稀疏奖励下世界模型智能体的任务表现。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "reinforcement learning with learned world dynamics",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2608.08045v1",
+      "source": "arxiv",
+      "title": "Lingjing: A Simulation Testbed for Multi-Agent Embodied Tasks in Open-Ended Cities",
+      "abstract": "Urban embodied intelligence requires coordination among heterogeneous agents (e.g., UAVs, ground robots, and autonomous vehicles) in dynamic cities. Simulators therefore provide a scalable foundation for developing and evaluating such coordination. Existing platforms nevertheless isolate different embodiments and decouple them from task design and evaluation. We present \\textbf{Lingjing}, a simulation platform for heterogeneous multi-agent embodied intelligence in open-ended urban environments. Lingjing reconstructs and renders evolving cities from geographic data, synchronizes multiple physics engines, and exposes shared physical and structured urban state to agents. Its Gym-like interface supports user-defined ReAct agents and single- or multi-agent natural-language missions with configurable star or broadcast communication and resource constraints. Each episode becomes an attribution-ready replay that links agent trajectories and communication to relation-graph changes, resource consumption, and engine-based evaluations for systematic diagnosis. We evaluate twelve vision-language models on nine urban tasks under a shared engine-in-the-loop protocol. Controlled studies further examine communication, scalability, robustness, and failure provenance. Results expose persistent bottlenecks in grounding and long-horizon execution. They also show task-dependent coordination trade-offs and diminishing returns from added capacity, while heavier workloads further reduce success. Lingjing provides a unified testbed that enables reproducible end-to-end evaluation and systematic failure diagnosis in urban multi-agent embodied intelligence.",
+      "authors": [
+        "Xiaohe Li",
+        "Yiru Wang",
+        "Junhao Fan",
+        "Mingyuan Liu",
+        "Jie Huang",
+        "Kaixin Zhang",
+        "Jiahao Li",
+        "Chen Qian",
+        "Zide Fan"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-08-08T10:18:58+00:00",
+      "link": "https://arxiv.org/pdf/2608.08045v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "Simulation testbed with physics engines and Gym-style interface for multi-agent embodied intelligence in open-ended cities",
+      "llm_evidence_cn": "开放城市中多智能体具身智能的仿真测试平台，同步物理引擎并提供Gym风格接口",
+      "llm_evidence": "开放城市中多智能体具身智能的仿真测试平台，同步物理引擎并提供Gym风格接口",
+      "canonical_evidence": "开放城市中多智能体具身智能的仿真测试平台，同步物理引擎并提供Gym风格接口",
+      "llm_tldr_en": "Lingjing is a simulation platform for heterogeneous multi-agent embodied intelligence in open-ended urban environments, synchronizing multiple physics engines and exposing shared physical/structured state to agents via a Gym-like interface.",
+      "llm_tldr_cn": "城市具身智能需要无人机、地面机器人和自动驾驶车辆等异构智能体在动态环境中协调，但现有平台往往隔离不同具身形态。作者提出Lingjing仿真测试平台，从地理数据重建并渲染演化中的城市，同步多个物理引擎，并通过Gym风格接口向智能体暴露共享物理与结构化城市状态。该平台支持用户自定义ReAct智能体，为多智能体具身任务的开发与评估提供了可扩展的基础设施，也有助于世界模型和模仿学习研究。",
+      "llm_tldr": "城市具身智能需要无人机、地面机器人和自动驾驶车辆等异构智能体在动态环境中协调，但现有平台往往隔离不同具身形态。作者提出Lingjing仿真测试平台，从地理数据重建并渲染演化中的城市，同步多个物理引擎，并通过Gym风格接口向智能体暴露共享物理与结构化城市状态。该平台支持用户自定义ReAct智能体，为多智能体具身任务的开发与评估提供了可扩展的基础设施，也有助于世界模型和模仿学习研究。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "artificial intelligence integrated with physical agents and sensors",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2608.11876v1",
+      "source": "arxiv",
+      "title": "D3D-GEN: Robot-Aware Domain-Grounded Interactive 3D World Generation for Social Robotics",
+      "abstract": "Training and validation of Embodied AI for social navigation critically depends on realistic simulation environments, yet many current approaches fail to find a balance between realism and simulability. We propose D3D-GEN, a novel world generation system that combines a domain agent with a retrieval-augmented generation (RAG) pipeline grounded in that domain. Our system enables users to rapidly generate domain-grounded, fully interactive 3D worlds by automating both the collection of domain knowledge and the synthesis of realistic floorplans and object placements, without dependence on any fixed 3D model database. Given a domain description prompt, the research agent collects publicly accessible domain-specific data and constructs a persistent domain database. Using this database, our RAG pipeline generates plausible floorplans and object placements by dynamically querying a user-provided semantic database, which can be easily extended or modified. The output is a fully interactive 3D world loadable by the popular simulators Isaac Sim and Gazebo. With our approach, we have built databases for several common domains (indoor residential, hospital, office) and generated dozens of distinct, plausible simulation environments for each domain. We present D3D-GEN with a local web frontend that facilitates rapid, interactive world generation for robot simulation.",
+      "authors": [
+        "Anh Duc Do",
+        "Volodymyr Scherbyna",
+        "Tai Duc Nguyen",
+        "Spaarsh Thakkar",
+        "Zhengcheng Shen",
+        "Teham Buiyan",
+        "Archan Misra",
+        "Linh Kästner"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.HC"
+      ],
+      "published": "2026-08-12T10:03:01+00:00",
+      "link": "https://arxiv.org/pdf/2608.11876v1",
+      "tags": [
+        "keyword:WMI",
+        "query:WMI"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "Interactive 3D world generation system for embodied AI social navigation training",
+      "llm_evidence_cn": "为社交导航具身智能训练生成交互式三维世界",
+      "llm_evidence": "为社交导航具身智能训练生成交互式三维世界",
+      "canonical_evidence": "为社交导航具身智能训练生成交互式三维世界",
+      "llm_tldr_en": "D3D-GEN combines a domain agent with retrieval-augmented generation to automatically create domain-grounded, fully interactive 3D worlds for embodied AI social navigation, balancing realism and simulability without fixed 3D databases.",
+      "llm_tldr_cn": "面向社交导航具身智能的训练和验证，现有仿真环境在真实感与可模拟性之间难以平衡。本文提出D3D-GEN世界生成系统，将领域智能体与检索增强生成管线结合，根据领域描述自动收集领域知识并合成真实的地板布局与物体摆放。系统不依赖固定三维模型库，即可快速生成完全可交互的3D世界，兼顾真实感与可模拟性。这为社交机器人领域的具身AI提供了一种可扩展的仿真环境生成方法。",
+      "llm_tldr": "面向社交导航具身智能的训练和验证，现有仿真环境在真实感与可模拟性之间难以平衡。本文提出D3D-GEN世界生成系统，将领域智能体与检索增强生成管线结合，根据领域描述自动收集领域知识并合成真实的地板布局与物体摆放。系统不依赖固定三维模型库，即可快速生成完全可交互的3D世界，兼顾真实感与可模拟性。这为社交机器人领域的具身AI提供了一种可扩展的仿真环境生成方法。",
+      "llm_tags": [
+        "query:wmi"
+      ],
+      "matched_query_tag": "query:wmi",
+      "matched_query_text": "world model applications in embodied artificial intelligence",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
